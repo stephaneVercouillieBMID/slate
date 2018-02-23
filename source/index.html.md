@@ -237,3 +237,6 @@ Parameter | Description
 --------- | -----------
 ID | The ID of the kitten to delete
 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMjAzMTI3ODIxMF19
+-->
