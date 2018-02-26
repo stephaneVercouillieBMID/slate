@@ -174,19 +174,8 @@ Profile Name | Claims
 -- | --
 **profile** | `given_name`, `family_name`, `name`, `gender`, `birthdate`, `locale`
 **email** | `email`, `email_verified`
-**phone** | `phone_number`, phone\_number\_verified
-
-**address**
-
-<!\[if !supportLists\]>· <!\[endif\]>address, with subfields
-
-<!\[if !supportLists\]>o <!\[endif\]>street_address (newline separator \\n)
-
-<!\[if !supportLists\]>o <!\[endif\]>locality
-
-<!\[if !supportLists\]>o <!\[endif\]>postal_code
-
-<!\[if !supportLists\]>o <!\[endif\]>country
+**phone** | `phone_number`, `phone\_number\_verified`
+**address** | `address`, with following subfields: street_address (newline separator \\n), locality, postal_code, country
 
 ## Signing Requests
 
@@ -403,5 +392,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1ODcxMTAyMjddfQ==
+eyJoaXN0b3J5IjpbLTU5MzQ4ODQ1XX0=
 -->
