@@ -74,20 +74,20 @@ Data | Provided | Description
 -- | -- | -- 
 **os** | Always | the device operating system (supported values: {`ANDROID`, `IOS`})
 **deviceId** | Always | (regexp = "\[a-f0-9\]{33}") the device identifier.
-**appName** | 0..1 | the application name.
-**appRelease** | 0..1 | the application current release.
-**deviceLabel** | 0..1 | the name of the device.
-**debugEnabled** | 0..1 | if debug mode is activated.
-**osRelease** | 0..1 | Version of the OS running on your Device.
-**manufacturer** | 0..1 | Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android). 
-**hasSimEnabled** | 0..1 | Whether there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing itsme on a tablet.
-**deviceLockLevel** | 0..1 | The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.
-**smsEnabled** | 0..1 | Can send SMS. On iOS, means it’s an iPhone. 
-**rooted** | 0..1 | Coming from Gemalto. ‘true’ the device is jailbreaked/rooted.
-**imei** | 0..1 | (regexp = "\[0-9\]{15,17}") the device IMEI value.
-**deviceModel** | 0..1 | Model of the Device. e.g. SAMSUNG GALAXY A5
-**msisdn** | 0..1 | the user’s phone number. 
-**sdkRelease** | 0..1 | Sdk release 
+**appName** |  | the application name.
+**appRelease** |  | the application current release.
+**deviceLabel** |  | the name of the device.
+**debugEnabled** |  | if debug mode is activated.
+**osRelease** |  | Version of the OS running on your Device.
+**manufacturer** |  | Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android). 
+**hasSimEnabled** |  | Whether there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing itsme on a tablet.
+**deviceLockLevel** |  | The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.
+**smsEnabled** |  | Can send SMS. On iOS, means it’s an iPhone. 
+**rooted** |  | Coming from Gemalto. ‘true’ the device is jailbreaked/rooted.
+**imei** |  | (regexp = "\[0-9\]{15,17}") the device IMEI value.
+**deviceModel** |  | Model of the Device. e.g. SAMSUNG GALAXY A5
+**msisdn** |  | the user’s phone number. 
+**sdkRelease** |  | Sdk release 
 
 > Example
 ```json
@@ -372,5 +372,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMTI5OTI0MzldfQ==
+eyJoaXN0b3J5IjpbLTE1MDg3NDkwNzldfQ==
 -->
