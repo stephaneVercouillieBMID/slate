@@ -64,8 +64,8 @@ Parameter | Required | Comment
 **login_hint** | Optional | OPTIONAL and supported, though not recommended. Only phone numbers are supported as login_hint. Format is: `\<coutrycode\>+\<phonenumber\>`. E.g. `login_hint=32+123456789`. Usage of claim value `phone\_number` in an encrypted request object is recommended in order to avoid disclosure of phone number of the enduser on the user agent
 **display** | Optional | OPTIONAL but not recommended. MUST be `page` if provided. Other values will yield an HTTP ERROR `not_implemented`.
 **prompt** | Optional | MUST be `consent` if provided.
-**ui_locales** | Optional | OPTIONAL and supported. Can be used to specify the language to be used by the OpenID login page. Supported languages are: `fr`, `nl`, `en` and `de`. Any other value will be ignored.
-**max_age** | Optional | OPTIONAL supported but not used: **itsme(r)** will always actively re-authenticate the End-User. 
+**ui_locales** | Optional | Can be used to specify the language to be used by the OpenID login page. Supported languages are: `fr`, `nl`, `en` and `de`. Any other value will be ignored.
+**max_age** | Optional | Supported but not used: **itsme(r)** will always actively re-authenticate the End-User. 
 **acr_values** | Optional | OPTIONAL and supported, though not recommended. Possible values are tag:itsmetag:sixdots.be,2016-06:acr_basic, tag:itsmetag:sixdots.be,2016-06:acr_advanced. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the acr\_values is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the acr\_values list, or the authentication will fail. Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token
 **claims_locales** | Optional | OPTIONAL supported but not used
 **claims** | Optional | OPTIONAL and supported, though not recommended. If some notification text has to be displayed on the screen of the itsme app, this text MUST be specified in the “notification_text”parameter. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
@@ -304,5 +304,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTEwMjM3NjgzXX0=
+eyJoaXN0b3J5IjpbMTY5NTczNjA3MF19
 -->
