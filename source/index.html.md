@@ -194,7 +194,8 @@ An Authentication Response is an OAuth 2.0 Authorization Response message. As su
 
 Parameter | Description
 -- | --
-
+`code` | Authorization code to later provide to the token endpoint
+state |
 
 ```http
 HTTP/1.1 302 Found
@@ -384,5 +385,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU0NTAwNjgyNV19
+eyJoaXN0b3J5IjpbLTE4MDUxODczNjddfQ==
 -->
