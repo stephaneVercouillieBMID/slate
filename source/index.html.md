@@ -222,7 +222,7 @@ A JSON object with the following keys:
 
 Key | Cardinality | Description
 -- | -- | -- 
-**os** | 1 | the device operating system (supported values: {`ANDROID`, `IOS`})
+**os** | 1.1 | the device operating system (supported values: {`ANDROID`, `IOS`})
 **appName** | 0..1 | the application name.
 **appRelease** | 0..1 | the application current release.
 **deviceLabel** | 0..1 | the name of the device.
@@ -470,5 +470,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTY1MzE0OTRdfQ==
+eyJoaXN0b3J5IjpbLTE0MjgxNTgyMDVdfQ==
 -->
