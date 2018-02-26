@@ -70,7 +70,7 @@ Device | Information about the end user device. See [Device Information](#device
 
 A JSON object with the following keys (only keys with cardinality \[1..1\] will be always available):
 
-Data | Cardinality | Description
+Data | Pro | Description
 -- | -- | -- 
 **os** | 1..1 | the device operating system (supported values: {`ANDROID`, `IOS`})
 **deviceId** | 1..1 | (regexp = "\[a-f0-9\]{33}") the device identifier.
@@ -372,5 +372,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjg2MTY2NTgyXX0=
+eyJoaXN0b3J5IjpbLTI5NDQ0OTgzNV19
 -->
