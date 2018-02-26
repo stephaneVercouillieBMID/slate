@@ -222,23 +222,15 @@ A JSON object with the following keys:
 
 Key | Cardinality | Description
 -- | -- | -- 
-**os** | 1..1 | the device operating system (supported values: {ANDROID, IOS})
-
-<!\[if !supportLists\]>· <!\[endif\]>“appName” \[0..1\]: the application name.
-
-<!\[if !supportLists\]>· <!\[endif\]>“appRelease” \[0..1\]: the application current release.
-
-<!\[if !supportLists\]>· <!\[endif\]>“deviceLabel” \[0..1\]: the name of the device.
-
-<!\[if !supportLists\]>· <!\[endif\]>“debugEnabled” \[0..1\]: if debug mode is activated.
-
-<!\[if !supportLists\]>· <!\[endif\]>“deviceId” \[1..1\]: (regexp = "\[a-f0-9\]{33}") the device identifier.
-
-<!\[if !supportLists\]>· <!\[endif\]>“osRelease” \[0..1\]: Version of the OS running on your Device.
-
-<!\[if !supportLists\]>· <!\[endif\]>“manufacturer” \[0..1\]: Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android). 
-
-<!\[if !supportLists\]>· <!\[endif\]>“hasSimEnabled” \[0..1\]: Whether there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing itsme on a tablet.
+**os** | 1 | the device operating system (supported values: {`ANDROID`, `IOS`})
+**appName** | 0..1 | the application name.
+**appRelease**” \[0..1\]: the application current release.
+**deviceLabel” \[0..1\]: the name of the device.
+**debugEnabled” \[0..1\]: if debug mode is activated.
+**deviceId” \[1..1\]: (regexp = "\[a-f0-9\]{33}") the device identifier.
+**osRelease” \[0..1\]: Version of the OS running on your Device.
+**manufacturer” \[0..1\]: Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android). 
+**hasSimEnabled” \[0..1\]: Whether there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing itsme on a tablet.
 
 <!\[if !supportLists\]>· <!\[endif\]>“deviceLockLevel” \[0..1\]: The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.
 
@@ -485,5 +477,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2OTE2NzQwMF19
+eyJoaXN0b3J5IjpbNjI4NDIwMDg2XX0=
 -->
