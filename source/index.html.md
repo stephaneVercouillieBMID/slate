@@ -51,18 +51,8 @@ redirect_uri | This value MUST match one of the values provided by the partner t
 **prompt** | OPTIONAL but not recommended Only login and consent values are supported. If prompt contains none or select\_account or any other values an HTTP ERROR not\_implemented will be returned.
 **max_age** | OPTIONAL supported but not used: itsme will always actively re-authenticate the End-User. Value must be an integer.
 **ui_locales** | OPTIONAL and supported. Can be used to specify the language to be used by the OpenID login page. Supported languagesvalues are: {“fr”, “nl”, “en”, “de”}. Any other value will be ignored.
-<!\[endif\]-->
-
-**id\_token\_hint** | <!\[endif\]--> Supported, but not used.
-<!\[endif\]-->
-
-**login_hint** | <!\[endif\]-->
-
-OPTIONAL and supported, though not recommended
-
-Only phone numbers are supported as login_hint.
-
-Format is: “coutrycode+phonenumber”
+**id\_token\_hint** | Supported, but not used.
+**login_hint** | OPTIONAL and supported, though not recommendedOnly phone numbers are supported as login_hint. Format is: “coutrycode+phonenumber”
 
 e. g. “login_hint=32+123456789”
 
@@ -89,7 +79,24 @@ Usage of acr parameter in the request object is recommended over this parameter 
 <!\[endif\]-->
 
 **claims_locales** | <!\[endif\]--> OPTIONAL supported but not used
-<!\[endif\]--> **claims**
+<!\[endif\]--> **claims** | <!\[endif\]-->
+
+OPTIONAL and supported, though not recommended
+
+If some notification text has to be displayed on the screen of the itsme app, this text MUST be specified in the “notification_text”parameter.
+
+Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
+<!\[endif\]--> **request** | <!\[endif\]-->
+
+OPTIONAL and recommended
+
+The JWT token MUST be signed using a key known to BMID for the given clientId
+
+The JWT token must also be encrypted, as it may contain confidential data (in the approval use case for example)
+<!\[endif\]-->
+
+**request_uri** | <!\[endif\]--> not supported
+<!\[endif\]--> **registration** | <!\[endif\]--> not supported
 
 
 > To authorize, use this code:
@@ -303,5 +310,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5MDcwNTgwN119
+eyJoaXN0b3J5IjpbNjMxMDAwMDg2XX0=
 -->
