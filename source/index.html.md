@@ -93,13 +93,15 @@ Host: server.itsme.be
 
 ```json
 {
+	// JWT 
+	iss: "s6BhdRkqt3",
+	aud: "https://server.itsme.be",
+	// OIDC parameters
 	client_id: "s6BhdRkqt3",
 	response_type: "code",
 	redirect_uri: "https://client.example.org/cb",
 	scope: "openid email service:client.registration",
 	state: "af0ifjsldkj",
-	iss: "s6BhdRkqt3",
-	aud: "https://server.itsme.be",
 	nonce: "n-0S6_WzA2Mj",
 	claims:
 	{
@@ -302,5 +304,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTQxNTUyMTgwXX0=
+eyJoaXN0b3J5IjpbLTE1OTc3MjQzNTJdfQ==
 -->
