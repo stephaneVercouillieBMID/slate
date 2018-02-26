@@ -19,11 +19,11 @@ search: true
 
 # Introduction
 
-itsme(r) Login service is based on code flow of the OpenID Connect 1.0 protocol as defined in http://openid.net/specs/openid-connect-core-1_0.html
+itsme(r) Login service is based on code flow of the OpenID Connect 1.0 protocol as defined in http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth
 
-## 
+Except where otherwise specified, the itsme solution follows the OpenId Connect Core specifications.
 
-# itsme(r) Authentication
+# Authentication Request
 
 > To authorize, use this code:
 
@@ -236,5 +236,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcyMTI2NzgyNl19
+eyJoaXN0b3J5IjpbNDkxNzkzNjE5XX0=
 -->
