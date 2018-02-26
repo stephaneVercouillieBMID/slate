@@ -38,9 +38,9 @@ The fingerprint of the SSL/TLS certificate is xxxxxxx.
 
 The User is redirected to the interface of the itsme Authorization endpoint. This will be a webpage if the User is in the Service Provider website, or a webview if the User is in a Service Provider App. The parameters of the redirection URL contain all information itsme needs to execute the Authentication and Authorization process, according to the OpenID specifications :
 
-Parameter | Comment
---------- | -------
-**scope** | MUST contain at least `openid` or an HTTP ERROR not\_implemented will be returned. `offline\_access` value will yield an error. Other recognized values are: `profile`, `email`, `phone`, `address`. MUST also include the target service in the form `service:SERVICE_CODE`
+Parameter | Required | Comment
+--------- | ------- | -----
+**scope** | MUST |MUST contain at least `openid` or an HTTP ERROR not\_implemented will be returned. `offline\_access` value will yield an error. Other recognized values are: `profile`, `email`, `phone`, `address`. MUST also include the target service in the form `service:SERVICE_CODE`
 **response_type** | MUST be <code>code</code>. Other values will produce an HTTP ERROR not_implemented.
 **client_id** | MUST be a valid partner code as provided by the BMID during on-boarding process (this information is in the onboarding file). This value will be unique to each partner.
 redirect_uri | This value MUST match one of the values provided by the partner to the itsme administrator when registering the Partner. It must include the https scheme. Note: the Partner can define a different redirect_uri specific to each Service.
@@ -70,6 +70,8 @@ Parameter | Comment
 **claims_locales** | OPTIONAL supported but not used
 **claims** | OPTIONAL and supported, though not recommended. If some notification text has to be displayed on the screen of the itsme app, this text MUST be specified in the “notification_text”parameter. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
 **request** | OPTIONAL and recommended. The JWT token MUST be signed using a key known to BMID for the given clientId. The JWT token must also be encrypted, as it may contain confidential data (in the approval use case for example)
+**response_mode** | Should not be used. Any supplied value will be ignored.
+**id\_token\_hint** | Supported, but not used.
 
 
 > To authorize, use this code:
@@ -283,5 +285,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0ODE5Nzc0NTNdfQ==
+eyJoaXN0b3J5IjpbLTE4ODA4MTMxNjldfQ==
 -->
