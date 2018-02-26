@@ -39,9 +39,9 @@ Address | Address containing street, house number, postbox, locality, postcode a
 Passport Number | Passport Number
 NRN | National Registry Number
 E-ID picture | Picture taken from the National eID Card in low-resolution.
-E-ID Info | See [E-ID Info](#e-id-info)
+E-ID Metadata | See [E-ID Metadata Information](#e-id-info)
 
-### <a name="e-id-info"></a>E-ID Info
+### <a name="e-id-info"></a>E-ID Metadata Information
 JSON object with the following keys:
 
 Key | Description
@@ -372,5 +372,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI2NzQ0ODk3N119
+eyJoaXN0b3J5IjpbLTI5OTU2MzMwNl19
 -->
