@@ -67,24 +67,17 @@ redirect_uri | REQUIRED | This value MUST match one of the values provided by th
 **registration** | UNSUPPORTED | N/A
 
 ### Request Examples
-```
-<!\[endif\]-->
-
-GET /authorize?
-
-response_type=code
-
+```http
+GET /authorize?response_type=code
 &scope=openid%20profile%20email%20service%3Aclient.registration
-
 &client_id=s6BhdRkqt3
-
 &state=af0ifjsldkj
-
 &redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
-
 &request=ekdlzldjkf...request..object..as..JWT..token... HTTP/1.1
-
 Host: server.itsme.be
+```
+
+
 If the authentication is NOT successful, the following errors can be triggered
 
 Error | Description
@@ -359,5 +352,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI4NzE2NjQ5Ml19
+eyJoaXN0b3J5IjpbLTgzNzE2OTQ1XX0=
 -->
