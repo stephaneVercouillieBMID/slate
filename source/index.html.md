@@ -85,6 +85,8 @@ Parameter | Required | Comment
 **client_assertion** | REQUIRED | Must be provided: private\_key\_jwt
 **client\_assertion\_type** | REQUIRED | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
 
+
+
 ## 3. UserInfo Request
 
 As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest
@@ -306,5 +308,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NjA4NjM0MzZdfQ==
+eyJoaXN0b3J5IjpbLTE5MTgxNzE4MTZdfQ==
 -->
