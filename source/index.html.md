@@ -17,7 +17,7 @@ This documentation describes our OAuth 2.0 implementation of **itsme(r) Login**,
 
 # itsme(r) Login
 
-**itsme(r) Login** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) to allow user login and sign-up in your application.
+**itsme(r) Login** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) to allow user login and sign-up with verified identity data in your application.
 
 To simplify implementations and increase flexibility, OpenID Connect allows the use of a "Discovery document", a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider's configuration, including the URIs of the authorization, token, userinfo, and public-keys endpoints. The Discovery document for **itsme(r)** OpenID Connect service may be retrieved from:
 
@@ -307,5 +307,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEyMzczMjMwNF19
+eyJoaXN0b3J5IjpbLTIwMTg2NjY1NjJdfQ==
 -->
