@@ -72,7 +72,7 @@ A JSON object with the following keys (only keys with cardinality \[1..1\] will 
 
 Data | Provided | Description
 -- | -- | -- 
-**os** | 1..1 | the device operating system (supported values: {`ANDROID`, `IOS`})
+**os** | Always | the device operating system (supported values: {`ANDROID`, `IOS`})
 **deviceId** | 1..1 | (regexp = "\[a-f0-9\]{33}") the device identifier.
 **appName** | 0..1 | the application name.
 **appRelease** | 0..1 | the application current release.
@@ -372,5 +372,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3MjM5MTMxN119
+eyJoaXN0b3J5IjpbMTU4MzM0NjYxOF19
 -->
