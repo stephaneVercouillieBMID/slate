@@ -52,7 +52,7 @@ redirect_uri | This value MUST match one of the values provided by the partner t
 **max_age** | OPTIONAL supported but not used: itsme will always actively re-authenticate the End-User. Value must be an integer.
 **ui_locales** | OPTIONAL and supported. Can be used to specify the language to be used by the OpenID login page. Supported languagesvalues are: {“fr”, “nl”, “en”, “de”}. Any other value will be ignored.
 **id\_token\_hint** | Supported, but not used.
-**login_hint** | OPTIONAL and supported, though not recommendedOnly phone numbers are supported as login_hint. Format is: “coutrycode+phonenumber”
+**login_hint** | OPTIONAL and supported, though not recommended Only phone numbers are supported as login_hint. Format is: “coutrycode+phonenumber”
 
 e. g. “login_hint=32+123456789”
 
@@ -310,5 +310,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjMxMDAwMDg2XX0=
+eyJoaXN0b3J5IjpbMTA1NTM4NDkwXX0=
 -->
