@@ -253,7 +253,7 @@ A JSON object with the following keys:
 <!\[if !supportLists\]>· <!\[endif\]>“sdkRelease” \[0..1\]: Sdk release 
 
 For example:
-> Exam
+> Example
 ```json
 {  
 	"os": "ANDROID",  
@@ -484,5 +484,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAyNDkyMTcxM119
+eyJoaXN0b3J5IjpbMTUzOTgxMTQ1NF19
 -->
