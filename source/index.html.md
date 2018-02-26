@@ -191,6 +191,12 @@ Host: server.itsme.be
 
 ### Authentication Response
 
+```http
+HTTP/1.1 302 Found
+  Location: https://client.example.org/cb?
+    code=SplxlOBeZQQYbYS6WxSbIA
+    &state=af0ifjsldkj
+```
 
 ### Errors
 If the authentication is NOT successful, the following errors can be triggered
@@ -373,5 +379,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTE2NDkxOThdfQ==
+eyJoaXN0b3J5IjpbLTE3ODc3NTgzMjJdfQ==
 -->
