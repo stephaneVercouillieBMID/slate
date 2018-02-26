@@ -24,7 +24,8 @@ This documentation describes our OAuth 2.0 implementation of **itsme(r) Login**,
 Data | Definition
 -- | --
 Full Name | 
-Data of birth 
+Data of birth | 
+
 
 
 ## Commercial Information
@@ -337,5 +338,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY4MzQxMjg5Nl19
+eyJoaXN0b3J5IjpbLTIxNDY4OTkwNTBdfQ==
 -->
