@@ -303,7 +303,7 @@ The Request Object is a JWT Token as defined in [RFC 7519](https://tools.ietf.or
 
 Property | Required | Comment
 -- | -- | --
-**iss** | Required | Issuer
+**iss** | Required | Issuer. Must be the `client_id`
 **aud** | Required | Audience. Must be `https://server.itsme.be`
 
 > Example of claim request before base64url encoding, signing and encryption
@@ -333,5 +333,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2MjA4MDkxMV19
+eyJoaXN0b3J5IjpbLTU4MjQ1OTA0M119
 -->
