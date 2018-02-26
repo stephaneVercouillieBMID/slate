@@ -192,10 +192,11 @@ Host: server.itsme.be
 ### Authentication Response
 An Authentication Response is an OAuth 2.0 Authorization Response message. As such, the Authentication Response will return the following parameters:
 
-Parameter | Description
--- | --
-`code` | Authorization code to later provide to the token endpoint
-`state` | 
+Parameter | Provided | Description
+-- | -- | --
+`code` | Always | Authorization code to later provide to the token endpoint
+`state` |  | Value from the request, if provided.
+
 
 ```http
 HTTP/1.1 302 Found
@@ -385,5 +386,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NDM1NDIzODVdfQ==
+eyJoaXN0b3J5IjpbNzIwNTk4ODMwXX0=
 -->
