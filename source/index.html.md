@@ -171,7 +171,7 @@ In current version and in contradiction to the OpenID Connect specification, its
 
 Following values for scope allow access to a predefined sets of Identity Data:
 
-Scope | Data | Claim
+Scope | Identity Data | Claim
 -- | -- | --
 **profile** | Full Name | `name` or `given_name` TODO ??? or `family_name` TODO ???
 - | Gender | `gender`
@@ -186,7 +186,7 @@ Scope | Data | Claim
 
 We have favored the request of Identity Data in the scope values. However, some Identity Data have to be requested in the “claims” parameter of the Authentication Request. Here are these claims:
 
-Data | Claim | Comment
+Identity Data | Claim | Comment
 -- | -- | --
 User code | **sub** | TODO
 Nationality | **tag:itsmetag:sixdots.be,2016-06:claim_nationality** | TODO
@@ -423,5 +423,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzNzY5OTQ3MF19
+eyJoaXN0b3J5IjpbLTU5MzkwOTA2OF19
 -->
