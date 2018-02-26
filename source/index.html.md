@@ -189,7 +189,17 @@ Claim | Comment
 **tag:itsmetag:sixdots.be,2016-06:claim\_city\_of_birth** | TODO
 **tag:itsmetag:sixdots.be,2016-06:claim\_country\_of_birth** | TODO
 **tag:itsmetag:sixdots.be,2016-06:claim_eid** | TODO
+<!\[endif\]-->
 
+tag:sixdots.be,2017-05:claim_device
+
+<!\[endif\]-->
+
+tag:sixdots.be,2017-05:claim\_transaction\_info
+
+<!\[endif\]-->
+
+tag:sixdots.be,2017-05:claim_passport_sn
 
 
 ## Signing Requests
@@ -407,5 +417,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjI5MjE3NDExXX0=
+eyJoaXN0b3J5IjpbLTUzNTkxMzMyM119
 -->
