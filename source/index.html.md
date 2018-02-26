@@ -93,7 +93,9 @@ The content type of the response will be application/jwt. The response will be s
 
 The UserInfo endpoint can be accessed only with a valid access_token, and for a very limited duration after end user authentication: there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the UserInfo endpoint (this reflects a constraint set on the SOAP version of the interface).
 
-### Signing Requests
+## Signing Requests
+
+
 
 > To authorize, use this code:
 
@@ -306,5 +308,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUwOTk4NjM3MF19
+eyJoaXN0b3J5IjpbLTIwMTA1MzkwODldfQ==
 -->
