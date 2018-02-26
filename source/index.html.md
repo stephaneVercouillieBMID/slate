@@ -31,11 +31,11 @@ Data | Definition
 -- | --
 Full Name | Full name is a concatenation of firstname, middlenames and lastname.
 Date of birth | Birthdate 
-Place of birth | Place of birth. ***Note**: this information can be * 
-Gender |
-Language |
-Nationality |
-Address |
+Place of birth | Place of birth. ***Note**: this information can be localized* 
+Gender | Gender
+Language | Language
+Nationality | Nationality
+Address | 
 Passport Number | 
 NRN | 
 E-ID picture |
@@ -373,5 +373,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU4Nzg1MTQzOF19
+eyJoaXN0b3J5IjpbNDgyNzgwMTMwXX0=
 -->
