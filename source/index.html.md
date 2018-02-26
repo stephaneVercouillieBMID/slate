@@ -149,13 +149,13 @@ Parameter | Comment
 
 ### Errors
 
-As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse
+As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse](http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse)
 
 TODO if specifics
 
 ## 3. UserInfo Request
 
-As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest
+As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
 
 The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed.
 
@@ -287,5 +287,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1OTkxMDY5NV19
+eyJoaXN0b3J5IjpbLTEzMjYyOTIwNjVdfQ==
 -->
