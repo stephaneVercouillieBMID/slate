@@ -23,6 +23,8 @@ itsme(r) Login service is based on code flow of the OpenID Connect 1.0 protocol 
 
 Except where otherwise specified, the itsme solution follows the OpenId Connect Core specifications.
 
+itsme allows service discovery and exposes a public https://merchant.itsme.be/oidc/authorization/.well-known/openid-configuration.
+
 # itsme(r) Login Authentication
 
 As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps
@@ -336,5 +338,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAxMjQwNTMwOF19
+eyJoaXN0b3J5IjpbLTY0MTI4MzU0MV19
 -->
