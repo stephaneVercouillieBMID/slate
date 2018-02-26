@@ -25,12 +25,11 @@ Except where otherwise specified, the itsme solution follows the OpenId Connect 
 
 # itsme(r) Login Authentication
 
-http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps
+As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps
 
 ## 1. Authentication Request
 
-http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
-http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
+As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest and http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
 
 itsme(r) endpoint : https://merchant.itsme.be/oidc/authorization
 
@@ -306,5 +305,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY3MjExODI0NF19
+eyJoaXN0b3J5IjpbLTIwMDQxNzMxNzFdfQ==
 -->
