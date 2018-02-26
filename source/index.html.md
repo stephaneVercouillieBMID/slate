@@ -47,7 +47,7 @@ SP provides
 
 - Partner name, description and localized labels
 - Services' name, description and localized labels
-- Data access with justification (to comply with GDPR
+- Data access with justification (to comply with GDPR)
 
 ## Obtain OAuth 2.0 credentials
 BMID provides Partner Code and Service Code for each Service.
@@ -343,5 +343,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwNTc4NTQ1N119
+eyJoaXN0b3J5IjpbLTUyODUyMTY1Ml19
 -->
