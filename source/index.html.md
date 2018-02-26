@@ -51,7 +51,7 @@ The first step is forming an HTTPS request with the appropriate URI parameters. 
 
 **itsme(r)** supports the use of the HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters must be serialized using Form Serialization, per [http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization).
 
-The parameters must contain all information **itsme(r)** needs to execute the Authentication process, according to the OpenID specifications :
+A
 
 Parameter | Required | Comment
 --------- | ------- | -----
@@ -304,5 +304,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2Mzk1ODQxNDhdfQ==
+eyJoaXN0b3J5IjpbMjA4Njc5OTYwNV19
 -->
