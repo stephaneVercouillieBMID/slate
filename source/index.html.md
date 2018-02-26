@@ -75,7 +75,7 @@ registration\_not\_supported | TODO
 
 As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest
 
-As per the specification, with a private\_key\_jwt for client authentication.
+As per the specification, with a `private\_key\_jwt` for client authentication.
 
 Parameter | Required | Comment
 -- | -- | --
@@ -336,5 +336,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQzNDc4NzU3OF19
+eyJoaXN0b3J5IjpbMTAxMjQwNTMwOF19
 -->
