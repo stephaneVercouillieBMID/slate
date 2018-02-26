@@ -264,13 +264,13 @@ Following values for scope allow access to a predefined sets of Identity Data:
 
 Scope | Data | Claim
 -- | -- | --
-**profile** | Full Name | `name` or `given_name` TODO ??? or `family_name` TODO ???
+**`profile`** | Full Name | `name` or `given_name` TODO ??? or `family_name` TODO ???
 - | Gender | `gender`
 - | Date of Birth | `birthdate`
 - | Language | `locale`
-**address** | Address | `address`, with following subfields: `street_address` (newline separator \\n), `locality`, `postal_code`, `country`
-**email** | E-Mail Address | `email` or `email_verified` TODO verified???
-**phone** | Phone Number | `phone_number` or `phone_number_verified`
+**`address`** | Address | `address`, with following subfields: `street_address` (newline separator \\n), `locality`, `postal_code`, `country`
+**`email`** | E-Mail Address | `email` or `email_verified` TODO verified???
+**`phone`** | Phone Number | `phone_number` or `phone_number_verified`
 
 ***NOTE**: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.*
 
@@ -284,7 +284,7 @@ Place of Birth | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** and *
 E-ID Info  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** | TODO
 Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | TODO
 Device | **`tag:sixdots.be,2017-05:claim_device`** | see XXXX (TODO URL)
-??? TODO | **tag:sixdots.be,2017-05:claim\_transaction\_info** | TODO
+??? TODO | **`tag:sixdots.be,2017-05:claim_transaction_info`** | TODO
 E-ID Picture | TODO | TODO
 NRN | TODO | TODO
 
@@ -373,5 +373,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3MDIxNzMyMF19
+eyJoaXN0b3J5IjpbLTEzMDI2OTE2OF19
 -->
