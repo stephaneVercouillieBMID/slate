@@ -189,7 +189,7 @@ HTTP/1.1
 Host: server.itsme.be
 ```
 
-
+### Authentication Response
 
 
 ### Errors
@@ -373,5 +373,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMDI2OTE2OF19
+eyJoaXN0b3J5IjpbLTE2MTE2NDkxOThdfQ==
 -->
