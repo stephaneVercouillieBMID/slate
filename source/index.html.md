@@ -56,7 +56,7 @@ redirect_uri | MUST | This value MUST match one of the values provided by the pa
 **acr_values** | OPTIONAL | OPTIONAL and supported, though not recommended. Possible values are tag:itsmetag:sixdots.be,2016-06:acr_basic, tag:itsmetag:sixdots.be,2016-06:acr_advanced. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the acr\_values is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the acr\_values list, or the authentication will fail. Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token
 **claims_locales** | OPTIONAL | OPTIONAL supported but not used
 **claims** | OPTIONAL | OPTIONAL and supported, though not recommended. If some notification text has to be displayed on the screen of the itsme app, this text MUST be specified in the “notification_text”parameter. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
-**request** | OPTIONAL | OPTIONAL and recommended. The JWT token MUST be signed using a key known to BMID for the given clientId. The JWT token must also be encrypted, as it may contain confidential data (in the approval use case for example)
+**request** | OPTIONAL | OPTIONAL and recommended. The JWT token MUST be signed using a key known to BMID for the given clientId. The JWT token must (must??? TODO) also be encrypted, as it may contain confidential data (in the approval use case for example)
 **response_mode** | OPTIONAL | Should not be used. Any supplied value will be ignored.
 **id\_token\_hint** | OPTIONAL | Supported, but not used.
 **request_uri** | UNSUPPORTED | N/A
@@ -298,5 +298,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA3OTY2NTA1M119
+eyJoaXN0b3J5IjpbLTIxMjMxODcxNjJdfQ==
 -->
