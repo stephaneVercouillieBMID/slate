@@ -250,7 +250,7 @@ Property | Comment
 Parameter | Provided | Comment
 -- | -- | --
 **access_token** | Always | Will be provided
-**token_type** | MBearer
+**token_type** | Will be Bearer
 **refresh_token** | Won't be provided
 **id_token** | the id_token correspoding to the authentication request (signed and encrypted)
 **at_hash** | OPTIONAL: first version of itsme Core does not produce the at_hash value
@@ -388,5 +388,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NDE2NDEyNTVdfQ==
+eyJoaXN0b3J5IjpbLTE4MTI5NzQ1NjddfQ==
 -->
