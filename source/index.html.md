@@ -45,7 +45,6 @@ itsme(r) Login service is based on the Authorization Code Flow of OpenID Connect
 The Authorization Code Flow goes through the following steps as defined in  [http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps)
 
 ## 1. Authenticating the user
-
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
 
 You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key `authorization_endpoint`. The following discussion assumes the base URI is `https://merchant.itsme.be/oidc/authorization`.
@@ -308,5 +307,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkwMTA4NTUwMF19
+eyJoaXN0b3J5IjpbMTUyMjkwMzY2Nl19
 -->
