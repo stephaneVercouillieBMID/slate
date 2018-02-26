@@ -27,6 +27,11 @@ Except where otherwise specified, the itsme solution follows the OpenId Connect 
 
 http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps
 
+## Authorization Endpoint
+
+https://merchant.itsme.be/oidc/authorization
+
+The fingerprint of the SSL certificate is xxxxxxx.
 
 
 > To authorize, use this code:
@@ -240,5 +245,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3MzQwMjc5NV19
+eyJoaXN0b3J5IjpbLTEzMDM3OTYzNDldfQ==
 -->
