@@ -62,8 +62,12 @@ redirect_uri | MUST | This value MUST match one of the values provided by the pa
 
 If the authentication is NOT successful, the following errors can be triggered
 
-Error
---
+Error | Description
+-- | --
+interaction_required  | TODO
+invalid\_request\_object | 
+request\_uri\_not_supported |
+registration\_not\_supported | 
 
 
 > To authorize, use this code:
@@ -277,5 +281,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5NTAyMzU4OF19
+eyJoaXN0b3J5IjpbNDMzMjY0NjgwXX0=
 -->
