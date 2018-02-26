@@ -328,6 +328,7 @@ The Request Object is a JWT Token as defined in [RFC 7519](https://tools.ietf.or
 Parameter | Required | Comment
 -- | -- | --
 **iss** | Required | Issuer
+**aud** | Required | Audience. Must be `https://server.itsme.be`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc1MTAyOTYyOV19
+eyJoaXN0b3J5IjpbNzM3MjQwNDI3XX0=
 -->
