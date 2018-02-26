@@ -25,7 +25,7 @@ Except where otherwise specified, the itsme solution follows the OpenId Connect 
 
 ## Authorization Code Flow Steps
 
-
+http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps
 
 > To authorize, use this code:
 
@@ -238,5 +238,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0MTEyODExNF19
+eyJoaXN0b3J5IjpbODExMjc4OTI3XX0=
 -->
