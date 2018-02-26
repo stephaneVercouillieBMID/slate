@@ -44,12 +44,15 @@ Parameter | Comment
 **response_type** | MUST be <code>code</code>. Other values will produce an HTTP ERROR not_implemented.
 **client_id** | MUST be a valid partner code as provided by the BMID during on-boarding process (this information is in the onboarding file). This value will be unique to each partner.
 redirect_uri | This value MUST match one of the values provided by the partner to the itsme administrator when registering the Partner. It must include the https scheme. Note: the Partner can define a different redirect_uri specific to each Service.
-**state** | an appropriate value is RECOMMENDED
-**response_mode** |<!\[endif\]-->
+**state** | An appropriate value is RECOMMENDED
+**response_mode** | Should not be used. Any supplied value will be ignored.
+**nonce** | An appropriate value is RECOMMENDED
+<!\[endif\]--> **display**
+<!\[endif\]-->
 
-Should not be used.
+OPTIONAL but not recommended
 
-Any supplied value will be ignored.
+MUST be page if provided. Other values will yield an HTTP ERROR not_implemented.
 
 
 > To authorize, use this code:
@@ -263,5 +266,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNjkxODA1NDJdfQ==
+eyJoaXN0b3J5IjpbLTIwMTk5NzcyMjhdfQ==
 -->
