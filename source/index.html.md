@@ -13,7 +13,7 @@ search: true
 
 # Introduction
 
-itsme(r) Login is
+itsme(r) Login is exposed 
 Except specified otherwise, itsme(r)  follows the official OpenId Connect Core 1.0 specifications.
 
 As specified in OpenID Connect Discovery 1.0 https://openid.net/specs/openid-connect-discovery-1_0.html, itsme(r) exposes an OpenID Provider Configuration Document at the following URL
@@ -288,5 +288,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NDIyNjMyODhdfQ==
+eyJoaXN0b3J5IjpbMTY2MjgzNzRdfQ==
 -->
