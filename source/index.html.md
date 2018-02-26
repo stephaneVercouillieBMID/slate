@@ -179,10 +179,10 @@ _ | Last Name | `family_name` TODO ???
 - | Gender | `gender`
 - | Date of Birth | `birthdate`
 - | Language | `locale`
-**email** | E-Mail Address | `email`
-`email_verified`
-**phone** | Phone Number | `phone_number` and `phone\_number\_verified`
 **address** | Address | `address`, with following subfields: `street_address` (newline separator \\n), `locality`, `postal_code`, `country`
+**email** | E-Mail Address | `email` or `email_verified` TODO verified???
+**phone** | Phone Number | `phone_number` or `phone\_number\_verified`
+
 
 ***NOTE**: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.*
 
@@ -425,5 +425,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNzU4MDgzMzNdfQ==
+eyJoaXN0b3J5IjpbLTgzMjQxMzAxM119
 -->
