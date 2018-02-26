@@ -190,13 +190,14 @@ Host: server.itsme.be
 ```
 
 ### Authentication Response
-An Authentication Response is an OAuth 2.0 Authorization Response message. As such, the Authentication Response will return the following parameters:
+An Authentication Response is an [OAuth 2.0 Authorization Response](https://tools.ietf.org/html/rfc6749#section-4.1.2) message. As such, the Authentication Response will return the following parameters:
 
 Parameter | Provided | Description
 -- | -- | --
 `code` | Always | Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.
 `state` |  | The exact value received from the client, if the parameter was present in the Authentication Request.
 
+> Example of Authentication Response
 
 ```http
 HTTP/1.1 302 Found
@@ -386,5 +387,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDM4MzI0NjVdfQ==
+eyJoaXN0b3J5IjpbLTkxNTg1MzA3NF19
 -->
