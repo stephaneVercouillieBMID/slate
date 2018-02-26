@@ -47,7 +47,7 @@ redirect_uri | MUST | This value MUST match one of the values provided by the pa
 **state** | OPTIONAL | An appropriate value is RECOMMENDED
 **nonce** | OPTIONAL | An appropriate value is RECOMMENDED
 **request_uri** | NOT SUPPORTED |
-**registration** | NOT SUPPORTED 
+**registration** | NOT SUPPORTED |
 
 Parameter | Comment
 -- | --
@@ -275,5 +275,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU0MjA1MjE5Nl19
+eyJoaXN0b3J5IjpbMTkyOTM1OTI2OF19
 -->
