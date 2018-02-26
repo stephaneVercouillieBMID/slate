@@ -49,15 +49,15 @@ Key | Description
 eID Serial Number | the electronic ID card serial number.
 issuance_locality | the issuance locality.
 Validity from | eID card validity “from” date.
-validity_to | eID card validity “to” date.
-certificate_validity | the certificate validity.
-read_date | the data extraction date.
+Validity to | eID card validity “to” date.
+Certificate Validity | the certificate validity.
+Read Date | the data extraction date.
 
 ## Commercial Information
 
 Data | Definition
 -- | --
-Phone Number | 
+Phone Number | Phone number 
 E-Mail Address | 
 
 
@@ -373,5 +373,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTE2OTY5MTkzXX0=
+eyJoaXN0b3J5IjpbLTEyOTQ4NzgzNDVdfQ==
 -->
