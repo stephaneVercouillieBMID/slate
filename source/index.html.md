@@ -21,7 +21,7 @@ This documentation describes our OAuth 2.0 implementation of **itsme(r) Login**,
 
 If data usage is justified and consent is provided by the end-user, following data can be shared with your application
 
-- **Verified Identity Data**: identity information typically retrieved from the National eID Card 
+- **Verified Identity Data**: identity information retrieved from the National eID Card 
 - **Commercial Information**: information provided by the end-user 
 - **Security Information**: information retrieved during execution of the service that could impact security level. 
 
@@ -372,5 +372,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3MDI0NTc5NF19
+eyJoaXN0b3J5IjpbNDg5ODA0MTI5XX0=
 -->
