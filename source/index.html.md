@@ -35,7 +35,7 @@ itsme(r) endpoint : https://merchant.itsme.be/oidc/authorization
 
 The fingerprint of the SSL/TLS certificate is xxxxxxx.
 
-
+### Authentication Request
 > To authorize, use this code:
 
 ```ruby
@@ -247,5 +247,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk5MzI1MzA4Nl19
+eyJoaXN0b3J5IjpbMTM4NTMyMTg1MF19
 -->
