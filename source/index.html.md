@@ -225,18 +225,17 @@ Supported algorithms and encryption methods for:
 -- Encryption Algorithm (alg): RSA-OAEP
 -- Signing Algorithm (alg):  RS256
 - Request Object”
-<!\[if !supportLists\]>o <!\[endif\]>Encryption Method (enc): A128CBC-HS256
-<!\[if !supportLists\]>o <!\[endif\]>Encryption Algorithm (alg): RSA-OAEP
-<!\[if !supportLists\]>o <!\[endif\]>Signing Algorithm (alg): RS256
-itsme Core will use pairwise Subject Identifier
+-- Encryption Method (enc): A128CBC-HS256
+-- Encryption Algorithm (alg): RSA-OAEP
+-- Signing Algorithm (alg): RS256
 
-Offline access is not supported.
+itsme(r) will use pairwise Subject Identifier. TODO
 
-itsme allows service discovery and exposes a public “.well-known/openid-configuration”.
+Offline access is not supported. TODO
 
-Dynamic client registration is not allowed.
+Dynamic client registration is not allowed. TODO 
 
-itsme exposes its signing and encryption keys on a public endpoint (JWKSet). It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during enrollment of RP.
+itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet). It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during enrollment of RP.
 ## Device Information
 
 Information about the end user device.
@@ -493,5 +492,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc0OTU1MDUyOV19
+eyJoaXN0b3J5IjpbLTE4MTg2NzM2ODBdfQ==
 -->
