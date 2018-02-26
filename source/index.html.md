@@ -19,6 +19,56 @@ This documentation describes our OAuth 2.0 implementation of **itsme(r) Login**,
 
 **itsme(r) Login** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) to allow user to login securely and to share verified identity data with your application.
 
+## National ID Information
+
+## Commercial Information
+
+## Security Information
+
+Information about the end user device.
+
+A JSON object with the following keys (only keys with cardinality \[1..1\] will be always available):
+
+Key | Cardinality | Description
+-- | -- | -- 
+**os** | 1..1 | the device operating system (supported values: {`ANDROID`, `IOS`})
+**deviceId** | 1..1 | (regexp = "\[a-f0-9\]{33}") the device identifier.
+**appName** | 0..1 | the application name.
+**appRelease** | 0..1 | the application current release.
+**deviceLabel** | 0..1 | the name of the device.
+**debugEnabled** | 0..1 | if debug mode is activated.
+**osRelease** | 0..1 | Version of the OS running on your Device.
+**manufacturer** | 0..1 | Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android). 
+**hasSimEnabled** | 0..1 | Whether there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing itsme on a tablet.
+**deviceLockLevel** | 0..1 | The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.
+**smsEnabled** | 0..1 | Can send SMS. On iOS, means it’s an iPhone. 
+**rooted** | 0..1 | Coming from Gemalto. ‘true’ the device is jailbreaked/rooted.
+**imei** | 0..1 | (regexp = "\[0-9\]{15,17}") the device IMEI value.
+**deviceModel** | 0..1 | Model of the Device. e.g. SAMSUNG GALAXY A5
+**msisdn** | 0..1 | the user’s phone number. 
+**sdkRelease** | 0..1 | Sdk release 
+
+> Example
+```json
+{  
+	"os": "ANDROID",  
+	"appName": "itsme app", "appRelease": "1.17.13",
+	"deviceLabel": "myDevice",
+	"debugEnabled": false, 
+	"deviceId": "deviceId",
+	"osRelease": "Android 4.4.2", 
+	"manufacturer": "samsung", 
+	"hasSimEnabled": true,
+	"deviceLockLevel": "touchID", 
+	"smsEnabled": true,
+	"rooted": false,
+	"imei": "12345678901234567",
+	"deviceModel": "S8",  
+	"msisdn": "0412123123", 
+	"sdkRelease": "1.17.12"  
+}
+```
+
 # Prerequisites 
 
 Before your application can use **itsme(r)** for user login, you must set up a project to obtain OIDC credentials, set a redirect URI, and customise the branding information that your users see on the **itsme(r)** user-consent screen.
@@ -236,56 +286,6 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
-## National ID Information
-
-## Commercial Information
-
-## Security Information
-
-Information about the end user device.
-
-A JSON object with the following keys (only keys with cardinality \[1..1\] will be always available):
-
-Key | Cardinality | Description
--- | -- | -- 
-**os** | 1..1 | the device operating system (supported values: {`ANDROID`, `IOS`})
-**deviceId** | 1..1 | (regexp = "\[a-f0-9\]{33}") the device identifier.
-**appName** | 0..1 | the application name.
-**appRelease** | 0..1 | the application current release.
-**deviceLabel** | 0..1 | the name of the device.
-**debugEnabled** | 0..1 | if debug mode is activated.
-**osRelease** | 0..1 | Version of the OS running on your Device.
-**manufacturer** | 0..1 | Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android). 
-**hasSimEnabled** | 0..1 | Whether there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing itsme on a tablet.
-**deviceLockLevel** | 0..1 | The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.
-**smsEnabled** | 0..1 | Can send SMS. On iOS, means it’s an iPhone. 
-**rooted** | 0..1 | Coming from Gemalto. ‘true’ the device is jailbreaked/rooted.
-**imei** | 0..1 | (regexp = "\[0-9\]{15,17}") the device IMEI value.
-**deviceModel** | 0..1 | Model of the Device. e.g. SAMSUNG GALAXY A5
-**msisdn** | 0..1 | the user’s phone number. 
-**sdkRelease** | 0..1 | Sdk release 
-
-> Example
-```json
-{  
-	"os": "ANDROID",  
-	"appName": "itsme app", "appRelease": "1.17.13",
-	"deviceLabel": "myDevice",
-	"debugEnabled": false, 
-	"deviceId": "deviceId",
-	"osRelease": "Android 4.4.2", 
-	"manufacturer": "samsung", 
-	"hasSimEnabled": true,
-	"deviceLockLevel": "touchID", 
-	"smsEnabled": true,
-	"rooted": false,
-	"imei": "12345678901234567",
-	"deviceModel": "S8",  
-	"msisdn": "0412123123", 
-	"sdkRelease": "1.17.12"  
-}
-```
-
 # Advanced topics
 
 ## <a name="JWTRequest"></a>Passing Request Parameters as JWTs
@@ -331,5 +331,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDk0ODgwNzYwXX0=
+eyJoaXN0b3J5IjpbLTIxMDA4NDU4NzRdfQ==
 -->
