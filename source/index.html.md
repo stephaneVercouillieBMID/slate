@@ -217,7 +217,7 @@ If the authentication is NOT successful, the following errors can be triggered
 Error | Description
 -- | --
 `interaction_required`  | TODO
-`invalid_request_object` | TODO
+`invalid_request_object` | The request parameter contains an invalid Request Object.
 `request_uri_not_supported` | TODO
 `registration_not_supported` | TODO
 
@@ -406,5 +406,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MTY1MzY4MzUsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbMTE5Mjk4NzY0Nyw2NjcyNjY5MTNdfQ==
 -->
