@@ -61,7 +61,9 @@ Parameter | Required | Comment
 **registration** | UNSUPPORTED | N/A TODO
 
 ### Request Examples
+
 >Example of minimal Authorization request
+
 ```http
 GET /authorize?response_type=code
 &scope=openid%20profile%20email%20service%3Aclient.registration
@@ -71,7 +73,9 @@ GET /authorize?response_type=code
 HTTP/1.1
 Host: server.itsme.be
 ```
+
 > Example of claim request before base64url encoding, signing and encryption
+
 ```json
 {
 	iss: "s6BhdRkqt3",
@@ -492,5 +496,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjc1NjY1OTE5XX0=
+eyJoaXN0b3J5IjpbMTQyMjkxNzQxMV19
 -->
