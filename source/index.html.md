@@ -81,13 +81,13 @@ Data | Provided | Definition
 **OS Release** |  | Version of the OS running on your Device.
 **Manufacturer** |  | Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android). 
 **SIM Enabled** |  | Whether there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing itsme on a tablet.
-**deviceLockLevel** |  | The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.
-**smsEnabled** |  | Can send SMS. On iOS, means it’s an iPhone. 
-**rooted** |  | Coming from Gemalto. ‘true’ the device is jailbreaked/rooted.
-**imei** |  | (regexp = "\[0-9\]{15,17}") the device IMEI value.
-**deviceModel** |  | Model of the Device. e.g. SAMSUNG GALAXY A5
-**msisdn** |  | the user’s phone number. 
-**sdkRelease** |  | Sdk release 
+**Lock Level** |  | The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.
+**SMS Enabled** |  | Can send SMS. On iOS, means it’s an iPhone. 
+**Rooted** |  | Coming from Gemalto. ‘true’ the device is jailbreaked/rooted.
+**IMEI** |  | (regexp = "\[0-9\]{15,17}") the device IMEI value.
+**Model** |  | Model of the Device. e.g. SAMSUNG GALAXY A5
+**MSISDN** |  | the user’s phone number. 
+**SDK Release** |  | Sdk release 
 
 > Example
 ```json
@@ -372,5 +372,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc4NzYwOTE4Ml19
+eyJoaXN0b3J5IjpbLTYyNzMwODM0Ml19
 -->
