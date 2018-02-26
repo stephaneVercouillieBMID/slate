@@ -38,7 +38,7 @@ SP provides the redirect URIs for each Service to use within the OpenID Connect 
 SP provides the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.
 SP provides the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.
 
-# Service Discobver
+# Service Discover
 
 # Authenticating the user
 
@@ -326,5 +326,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA5MTE0MzAyNl19
+eyJoaXN0b3J5IjpbMTE4MDUzMzQ3MF19
 -->
