@@ -310,6 +310,11 @@ Key | Cardinality | Description
 }
 ```
 
+# Advanced topics
+
+## Authentication Request Object
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMxOTA5OTA3OF19
+eyJoaXN0b3J5IjpbLTYzNDM0MDIyOV19
 -->
