@@ -58,8 +58,7 @@ Read Date | the data extraction date.
 Data | Definition
 -- | --
 Phone Number | Verified phone number associated to the **itsme(r)** user account.  
-E-Mail Address | 
-
+E-Mail Address | E-Mail address. NOT Verified!
 
 ## Security Information
 
@@ -373,5 +372,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzNTY3NjY5Ml19
+eyJoaXN0b3J5IjpbLTI2NzQ0ODk3N119
 -->
