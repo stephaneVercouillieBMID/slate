@@ -13,8 +13,9 @@ search: true
 
 # Introduction
 
-This documentation describes our implementation of itsme(r) Login, which conforms to the OpenID Connect 1.0 specifications. Except specified otherwise, itsme(r)  follows the official OpenId Connect Core 1.0 specifications.
+This documentation describes our implementation of itsme(r) Login, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications. 
 
+itsme(r) Login is a service provided by Belgian Mobile ID 
 As specified in OpenID Connect Discovery 1.0 https://openid.net/specs/openid-connect-discovery-1_0.html, itsme(r) exposes an OpenID Provider Configuration Document at the following URL
 
 [https://merchant.itsme.be/oidc/.well-known/openid-configuration](https://merchant.itsme.be/oidc/.well-known/openid-configuration).
@@ -300,5 +301,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQxMDYyMTQwM119
+eyJoaXN0b3J5IjpbLTcyMTgwNDMzMl19
 -->
