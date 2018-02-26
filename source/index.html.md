@@ -327,7 +327,7 @@ The Request Object is a JWT Token as defined in [RFC 7519](https://tools.ietf.or
 
 Parameter | Required | Comment
 -- | -- | --
-**iss** |
+**iss** | Required
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzI0NzU4M119
+eyJoaXN0b3J5IjpbMTYyOTQxNTc2NF19
 -->
