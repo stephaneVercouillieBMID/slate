@@ -70,17 +70,17 @@ Device | Information about the end user device. See [Device Information](#device
 
 A JSON object with the following keys (only keys with cardinality \[1..1\] will be always available):
 
-Data | Provided | Description
+Data | Provided | Definition
 -- | -- | -- 
-**os** | Always | the device operating system (supported values: {`ANDROID`, `IOS`})
-**deviceId** | Always | (regexp = "\[a-f0-9\]{33}") the device identifier.
-**appName** |  | the application name.
-**appRelease** |  | the application current release.
-**deviceLabel** |  | the name of the device.
-**debugEnabled** |  | if debug mode is activated.
-**osRelease** |  | Version of the OS running on your Device.
-**manufacturer** |  | Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android). 
-**hasSimEnabled** |  | Whether there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing itsme on a tablet.
+**OS** | Always | the device operating system (supported values: {`ANDROID`, `IOS`})
+**Device Identifier** | Always | (regexp = "\[a-f0-9\]{33}") the device identifier.
+**Application Name** |  | the application name.
+**Application Release** |  | the application current release.
+**Device Label** |  | the name of the device.
+**Debug Enabled** |  | if debug mode is activated.
+**OS Release** |  | Version of the OS running on your Device.
+**Manufacturer** |  | Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android). 
+**SIM Enabled** |  | Whether there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing itsme on a tablet.
 **deviceLockLevel** |  | The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.
 **smsEnabled** |  | Can send SMS. On iOS, means it’s an iPhone. 
 **rooted** |  | Coming from Gemalto. ‘true’ the device is jailbreaked/rooted.
@@ -372,5 +372,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDg3NDkwNzldfQ==
+eyJoaXN0b3J5IjpbLTc4NzYwOTE4Ml19
 -->
