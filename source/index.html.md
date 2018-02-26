@@ -27,7 +27,7 @@ If data usage is justified and consent is provided by the end-user during authen
 
 ## Verified Identity Data
 
-The identity data provided by itsme(r) are data coming from the National Registry typically stored on the National eID Card. This data is provided to itsme(r) either directly from a card readout or indirectly through an IDentity Registrar having a strong KYC 
+The identity data provided by itsme(r) are data coming from the National Registry typically stored on the National eID Card. This data is provided to itsme(r) either directly from a card readout or indirectly through an IDentity Registrar having a strong identity verification process (e.g. face-to-face KYC)  in-place.  
 
 Data | Definition
 -- | --
@@ -374,5 +374,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU0MTQ4MTQ2Nl19
+eyJoaXN0b3J5IjpbLTE3ODI1MDg4NV19
 -->
