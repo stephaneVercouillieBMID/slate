@@ -93,23 +93,13 @@ Parameter | Comment
 -- | --
 **sub** | The subject of the private\_key\_jwt (the client ID)
 **aud** | The token endpoint url
-iIss
+**iss** | The issuer of the private\_key\_jwt (the client ID)
+**exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
+**jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
 
-The issuer of the private\_key\_jwt (the client ID)
+#### Successful Token Response
 
-**exp**
-
-Expiration time on or after which the ID Token MUST NOT be accepted for processing.
-
-**jti**
-
-A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
-
-#### <!\[if !supportLists\]>1.1.1.1 <!\[endif\]>Successful Token Response
-
-**Parameter**
-
-**Comment**
+Parameter | Comment
 
 **access_token**
 
@@ -354,5 +344,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NjYyMTM1MzZdfQ==
+eyJoaXN0b3J5IjpbMTg2NzAwMzg3MV19
 -->
