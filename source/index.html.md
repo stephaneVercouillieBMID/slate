@@ -69,7 +69,7 @@ invalid\_request\_object | TODO
 request\_uri\_not_supported | TODO
 registration\_not\_supported | TODO
 
-#Token Request
+## 2. Token Request
 
 > To authorize, use this code:
 
@@ -282,5 +282,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcxNDAwMzI1N119
+eyJoaXN0b3J5IjpbODkyODI1MjhdfQ==
 -->
