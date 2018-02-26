@@ -181,8 +181,6 @@ Scope | Claims
 
 We have favored the request of Identity Data in the scope values. However, some Identity Data have to be requested in the “claims” parameter of the Authentication Request. Here are these claims:
 
-
-
 Claim | Comment
 -- | --
 **sub** | TODO
@@ -407,5 +405,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA3MDg2MDgwNl19
+eyJoaXN0b3J5IjpbMTc1MTU5NTQzNF19
 -->
