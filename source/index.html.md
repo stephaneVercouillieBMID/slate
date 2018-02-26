@@ -65,9 +65,10 @@ If the authentication is NOT successful, the following errors can be triggered
 Error | Description
 -- | --
 interaction_required  | TODO
-invalid\_request\_object | 
-request\_uri\_not_supported |
-registration\_not\_supported | 
+invalid\_request\_object | TODO
+request\_uri\_not_supported | TODO
+registration\_not\_supported | TODO
+
 
 
 > To authorize, use this code:
@@ -281,5 +282,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDMzMjY0NjgwXX0=
+eyJoaXN0b3J5IjpbMTI5NTMwNjI1Ml19
 -->
