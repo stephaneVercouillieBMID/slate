@@ -25,6 +25,7 @@ In order to integrate with itsme(r), the client (relying party) must go through 
 
 The following information provided by BMID will be useful during the integration
 
+
 # itsme(r) Login Authentication
 
 itsme(r) Login service is based on the Authorization Code Flow of OpenID Connect 1.0 as defined in [http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)
@@ -293,5 +294,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5Njk1MDE3MTRdfQ==
+eyJoaXN0b3J5IjpbLTEwODM1NTMzODBdfQ==
 -->
