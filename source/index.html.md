@@ -76,7 +76,8 @@ http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest
 As per the specification, with a private\_key\_jwt for client authentication.
 
 Parameter | Comment
--- | -)-)
+-- | --
+
 > To authorize, use this code:
 
 ```ruby
@@ -288,5 +289,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMDQ3Mzc3MzZdfQ==
+eyJoaXN0b3J5IjpbLTEwNTYzNTIwMDJdfQ==
 -->
