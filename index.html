@@ -399,43 +399,42 @@ itsme(r) Mobile App endpoint : TODO</p>
 </tbody></table>
 <h3 id='request-examples'>Request Examples</h3>
 <blockquote>
-<p>Example of minimal Authorization request
-<code>http
-GET /authorize?response_type=code
+<p>Example of minimal Authorization request</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="err">GET /authorize?response_type=code
 &amp;scope=openid%20profile%20email%20service%3Aclient.registration
 &amp;client_id=s6BhdRkqt3
 &amp;state=af0ifjsldkj
 &amp;redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
 HTTP/1.1
 Host: server.itsme.be
-</code>
-Example of claim request before base64url encoding, signing and encryption
-<code>json
-{
-    iss: &quot;s6BhdRkqt3&quot;,
-    aud: &quot;https://server.itsme.be&quot;,
-    response_type: &quot;code&quot;,
-    client_id: &quot;s6BhdRkqt3&quot;,
-    redirect_uri: &quot;https://client.example.org/cb&quot;,
-    scope: &quot;openid email service:client.registration&quot;,
-    state: &quot;af0ifjsldkj&quot;,
-    nonce: &quot;n-0S6_WzA2Mj&quot;,
-    claims:
-    {
-        userinfo: {
-        &quot;tag:itsmetag:sixdots.be,2016-06:claim_nationality&quot;: null,
-        &quot;tag:itsme.be,2016-06:claim_notification_text&quot;: {
-            value: &quot;Login to the FOO service&quot;}
-        },
-        id_token: {
-            auth_time: {&quot;essential&quot;: true},
-            acr: {&quot;value&quot;: \[&quot;tag:itsmetag:sixdots.be,2016-06:acr_securedadvanced&quot;\]        
-        }
-    }
-}
-</code></p>
+</span></code></pre>
+<blockquote>
+<p>Example of claim request before base64url encoding, signing and encryption</p>
 </blockquote>
-<h3 id='errors'>Errors</h3>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="err">iss</span><span class="p">:</span><span class="w"> </span><span class="s2">"s6BhdRkqt3"</span><span class="p">,</span><span class="w">
+    </span><span class="err">aud</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://server.itsme.be"</span><span class="p">,</span><span class="w">
+    </span><span class="err">response_type</span><span class="p">:</span><span class="w"> </span><span class="s2">"code"</span><span class="p">,</span><span class="w">
+    </span><span class="err">client_id</span><span class="p">:</span><span class="w"> </span><span class="s2">"s6BhdRkqt3"</span><span class="p">,</span><span class="w">
+    </span><span class="err">redirect_uri</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://client.example.org/cb"</span><span class="p">,</span><span class="w">
+    </span><span class="err">scope</span><span class="p">:</span><span class="w"> </span><span class="s2">"openid email service:client.registration"</span><span class="p">,</span><span class="w">
+    </span><span class="err">state</span><span class="p">:</span><span class="w"> </span><span class="s2">"af0ifjsldkj"</span><span class="p">,</span><span class="w">
+    </span><span class="err">nonce</span><span class="p">:</span><span class="w"> </span><span class="s2">"n-0S6_WzA2Mj"</span><span class="p">,</span><span class="w">
+    </span><span class="err">claims</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="err">userinfo</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"tag:itsmetag:sixdots.be,2016-06:claim_nationality"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tag:itsme.be,2016-06:claim_notification_text"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">value</span><span class="p">:</span><span class="w"> </span><span class="s2">"Login to the FOO service"</span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">id_token</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">auth_time</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"essential"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">},</span><span class="w">
+            </span><span class="err">acr</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="err">\</span><span class="p">[</span><span class="s2">"tag:itsmetag:sixdots.be,2016-06:acr_securedadvanced"</span><span class="err">\</span><span class="p">]</span><span class="w">        
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='errors'>Errors</h3>
 <p>If the authentication is NOT successful, the following errors can be triggered</p>
 
 <table><thead>
@@ -1010,7 +1009,7 @@ Remember — a happy kitten is an authenticated kitten!
 </tbody></table>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjc1NjY1OTE5XX0=
+eyJoaXN0b3J5IjpbMTQyMjkxNzQxMV19
 -->
 
       </div>
