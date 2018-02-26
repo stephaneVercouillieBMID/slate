@@ -223,7 +223,7 @@ registration\_not\_supported | TODO
 
 As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest
 
-The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTTPS `POST` request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key `token_endpoint`. The following discussion assumes the endpoint is `https://www.googleapis.com/oauth2/v4/token`. The request must include the following parameters in the `POST` body:
+The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTTPS `POST` request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key `token_endpoint`. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. The request must include the following parameters in the `POST` body:
 
 As per the specification, with a `private_key_jwt` for client authentication.
 
@@ -390,5 +390,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc4NzA2ODAzXX0=
+eyJoaXN0b3J5IjpbLTEzMTIyOTQ3MTldfQ==
 -->
