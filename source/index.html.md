@@ -83,7 +83,7 @@ Parameter | Required | Comment
 **client_assertion** | MUST | Must be provided: private\_key\_jwt
 **client\_assertion\_type** | MUST | Must be urn:ietf:params:oauth:client-assertion-type:jwt-bearer
 
-### 
+### JW
 
 > To authorize, use this code:
 
@@ -296,5 +296,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0Mjk5MjI0ODVdfQ==
+eyJoaXN0b3J5IjpbMjc0NzYyMjA2XX0=
 -->
