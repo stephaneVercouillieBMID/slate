@@ -290,7 +290,8 @@ The UserInfo endpoint can be accessed only with a valid **access_token** receive
 
 Your server makes this exchange by sending an HTTPS `POST` request. The `POST` request is sent to the UserInfo endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **userinfo_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/userinfo`. The request must include the following parameters in the `POST` body:
 
-### Claims
+## 
+### Claims via Scopes
 
 itsme(r) won't deliver any aggregated nor distributed claims in the current version.
 
@@ -410,5 +411,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTE0ODg2ODgsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbLTY3MzIzMTgxNSw2NjcyNjY5MTNdfQ==
 -->
