@@ -67,14 +67,14 @@ Parameter | Required | Comment
 **registration** | UNSUPPORTED | N/A TODO
 
 ### Request Examples
->Example of Authorization request
+>Example of minimal Authorization request
 ```http
 GET /authorize?response_type=code
 &scope=openid%20profile%20email%20service%3Aclient.registration
 &client_id=s6BhdRkqt3
 &state=af0ifjsldkj
 &redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
-&request=ekdlzldjkf...request..object..as..JWT..token... HTTP/1.1
+HTTP/1.1
 Host: server.itsme.be
 ```
 > Example of claim request before base64url encoding, signing and encryption
@@ -498,5 +498,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI1NzYyODk4MF19
+eyJoaXN0b3J5IjpbLTE4MDgzMzg4NjZdfQ==
 -->
