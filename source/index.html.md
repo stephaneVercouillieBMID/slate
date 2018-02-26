@@ -96,7 +96,7 @@ Host: server.itsme.be
 	// JWT 
 	iss: "s6BhdRkqt3",
 	aud: "https://server.itsme.be",
-	// OIDC parameters
+	// OIDC parameters, must reflect the values of the HTTP parameters
 	client_id: "s6BhdRkqt3",
 	response_type: "code",
 	redirect_uri: "https://client.example.org/cb",
@@ -304,5 +304,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTc3MjQzNTJdfQ==
+eyJoaXN0b3J5IjpbLTE4ODk2MjA5NzNdfQ==
 -->
