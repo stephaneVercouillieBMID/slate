@@ -40,7 +40,7 @@ E-ID Info |
 Data | Definition
 -- | --
 Phone Number | 
-E-Mail  | 
+E-Mail Address | 
 
 
 ## Security Information
@@ -351,5 +351,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAzNjY2OTc2NF19
+eyJoaXN0b3J5IjpbMTYyOTU5NjczNF19
 -->
