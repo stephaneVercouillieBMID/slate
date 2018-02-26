@@ -290,13 +290,13 @@ NRN | TODO | TODO
 
 The following standard claims (check http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) won’t be provided: TODO UNSUPPORTED????
 
- - middle_name 
- - nickname 
- - preferred_username 
- - picture (supposed to be an url) 
- - website 
- - zoneinfo 
- - updated\_at
+ - `middle_name` 
+ - `nickname` 
+ - `preferred_username` 
+ - `picture` (supposed to be an url) 
+ - `website` 
+ - `zoneinfo` 
+ - `updated_at`
 
 ## Signing and Encryption Requests
 
@@ -373,5 +373,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwOTU4MzE4NF19
+eyJoaXN0b3J5IjpbMTQ4NjYxMzQ0Nl19
 -->
