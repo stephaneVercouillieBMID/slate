@@ -55,7 +55,8 @@ For a basic request, specify the following parameters:
 
 Parameter | Required | Comment
 --------- | ------- | -----
-**client_id** | Required | MUST be the Partner Code you obtained from BMID during **response_type** | Required | MUST be <code>code</code>.
+**client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file TODO). 
+**response_type** | Required | MUST be <code>code</code>.
 **scope** | Required | MUST contain at least `openid` or an HTTP ERROR `not_implemented` will be returned. `offline_access` value will yield an error. MUST also includes the target service in the form `service:<SERVICE_CODE>` as provided by BMID during the on-boarding process. ***Note**: Requested data will only be provided based on your current accesses*. See XXXXXX (TODO) for list of available data.
 **redirect_uri** | Required | should be the HTTPS endpoint on your server that will receive the response from **itsme(r)**. This value MUST match one of the values provided to BMID during on-boarding process. ***Note**: the Partner can define different `redirect_uri` specific to each Service.*
 **state** | Optional, but strongly recommended | should include the value of the anti-forgery unique session token, as well as any other information needed to recover the context when the user returns to your application.
@@ -303,5 +304,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDMxOTUzMjJdfQ==
+eyJoaXN0b3J5IjpbODcxMjg1NzIxXX0=
 -->
