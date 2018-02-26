@@ -25,7 +25,7 @@ We have language bindings in Shell, Ruby, and Python! You can view code examples
 
 This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
-# Authentication
+# itsme(r) Authentication
 
 > To authorize, use this code:
 
@@ -238,5 +238,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk0MTMwMzcxN119
+eyJoaXN0b3J5IjpbLTcyNjQ1OTAxNF19
 -->
