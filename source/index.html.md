@@ -176,7 +176,7 @@ Scope | Data | Claim
 **profile** | First Name | `given_name`
 _ | Last Name | `family_name`
 - | ?? TODO | `name`
-- | Gender `gender`, `birthdate`, `locale`
+- | Gender | `gender`, `birthdate`, `locale`
 **email** | `email`, `email_verified`
 **phone** | `phone_number`, `phone\_number\_verified`
 **address** | `address`, with following subfields: `street_address` (newline separator \\n), `locality`, `postal_code`, `country`
@@ -420,5 +420,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcwMjgwNDI4Ml19
+eyJoaXN0b3J5IjpbLTQ0OTI1NTUzMF19
 -->
