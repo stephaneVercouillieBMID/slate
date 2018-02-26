@@ -199,7 +199,7 @@ An Authentication Response is an [OAuth 2.0 Authorization Response](https://tool
 
 Parameter | Provided | Description
 -- | -- | --
-`code` | Always | Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.
+**code** | Always | Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.
 `state` |  | The exact value received from the client, if the parameter was present in the Authentication Request.
 
 > Example of Authentication Response
@@ -405,5 +405,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDI4NTc2NDgsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbMTQzNTM2NTAxNCw2NjcyNjY5MTNdfQ==
 -->
