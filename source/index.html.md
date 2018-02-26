@@ -258,8 +258,7 @@ POST /token HTTP/1.1
   grant\_type=authorization\_code&
     code=i1WsRn1uB1&
     client_id=s6BhdRkqt3&
-    client\_assertion\_type=
- urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
+    client\_assertion\_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
     client_assertion=PHNhbWxwOl ... ZT
 ```
 
@@ -406,5 +405,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcxNDA3ODg1Myw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTU5MDkzNzc0MSw2NjcyNjY5MTNdfQ==
 -->
