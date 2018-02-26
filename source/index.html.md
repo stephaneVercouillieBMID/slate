@@ -38,13 +38,13 @@ Service Code | Identifier of the service to be executed. One client can have sev
 Service Redirect URL | Each Service is associated to a Redirect URL that will be used during the Authentication flow to send back information to the client.
 
 
-# itsme(r) Login Authentication
+# Authenticating the user
 
 itsme(r) Login service is based on the Authorization Code Flow of OpenID Connect 1.0 as defined in [http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)
 
 The Authorization Code Flow goes through the following steps as defined in  [http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps)
 
-## 1. Authentication Request
+## 1. Authenticating the user
 
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
 
@@ -306,5 +306,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI5MDYxMTk0N119
+eyJoaXN0b3J5IjpbLTE0OTEzMzYyNl19
 -->
