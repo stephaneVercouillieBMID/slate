@@ -177,7 +177,10 @@ Scope | Claims
 **phone** | `phone_number`, `phone\_number\_verified`
 **address** | `address`, with following subfields: `street_address` (newline separator \\n), `locality`, `postal_code`, `country`
 
-NOTE: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.
+***NOTE**: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.*
+
+We have favored the request of Identity Data in the scope values. However, some Identity Data have to be requested in the “claims” parameter of the Authentication Request. Here are these claims:
+
 
 ## Signing Requests
 
@@ -394,5 +397,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTczNTMzODQzOF19
+eyJoaXN0b3J5IjpbNTA2NTQwNjUyXX0=
 -->
