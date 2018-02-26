@@ -278,12 +278,12 @@ We have favored the request of Identity Data in the scope values. However, some 
 
 Data | Claim | Comment
 -- | -- | --
-??? | **sub** | TODO
-Nationality | **tag:itsmetag:sixdots.be,2016-06:claim_nationality** | TODO
-Place of Birth | **tag:itsmetag:sixdots.be,2016-06:claim\_city\_of_birth** and **tag:itsmetag:sixdots.be,2016-06:claim\_country\_of_birth** | TODO
-E-ID Info  | **tag:itsmetag:sixdots.be,2016-06:claim_eid** | TODO
-Passport Number | **tag:sixdots.be,2017-05:claim_passport_sn** | TODO
-Device | **tag:sixdots.be,2017-05:claim_device** | see XXXX (TODO URL)
+??? | **`sub`** | TODO
+Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | TODO
+Place of Birth | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** and **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** | TODO
+E-ID Info  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** | TODO
+Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | TODO
+Device | **`tag:sixdots.be,2017-05:claim_device`** | see XXXX (TODO URL)
 ??? TODO | **tag:sixdots.be,2017-05:claim\_transaction\_info** | TODO
 E-ID Picture | TODO | TODO
 NRN | TODO | TODO
@@ -373,5 +373,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ4NjYxMzQ0Nl19
+eyJoaXN0b3J5IjpbMTI3MDIxNzMyMF19
 -->
