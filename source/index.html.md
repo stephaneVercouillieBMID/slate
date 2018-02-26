@@ -197,7 +197,7 @@ E-ID Info  | **tag:itsmetag:sixdots.be,2016-06:claim_eid** | TODO
 Passport | **tag:sixdots.be,2017-05:claim_passport_sn** | TODO
 **tag:sixdots.be,2017-05:claim_device** | TODO
 **tag:sixdots.be,2017-05:claim\_transaction\_info** | TODO
-E-ID Info Pic
+E-ID Info Picture
 
 The following standard claims (check http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) won’t be provided:
 
@@ -424,5 +424,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODY0MTMyMDldfQ==
+eyJoaXN0b3J5IjpbMTY5MDA4MTg4M119
 -->
