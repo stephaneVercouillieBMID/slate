@@ -323,7 +323,7 @@ request_uri | Unsupported | This parameter enables OpenID Connect requests to be
 
 Requests using these parameters are represented as JWTs, which are respectively passed by value or by reference. The ability to pass requests by reference is particularly useful for large requests. If one of these parameters is used, the other MUST NOT be used in the same request.
 
-
+The request 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUxNjc5OTgxNF19
+eyJoaXN0b3J5IjpbMjA2NjE0MjI5OF19
 -->
