@@ -218,8 +218,8 @@ Error | Description
 -- | --
 `interaction_required`  | TODO
 `invalid_request_object` | The request parameter contains an invalid Request Object.
-`request_uri_not_supported` | TODO
-`registration_not_supported` | TODO
+`request_uri_not_supported` | does not support use of the request_uri parameter.
+`registration_not_supported` | does not support use of the registration parameter.
 
 ### App to App ??? TODO
 **itsme(r)** Mobile App endpoint : TODO
@@ -406,5 +406,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5Mjk4NzY0Nyw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbODA0NDg4MjAwLDY2NzI2NjkxM119
 -->
