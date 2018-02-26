@@ -203,16 +203,15 @@ tag:sixdots.be,2017-05:claim_passport_sn
 
 <!\[endif\]-->
 
-Following standard claims (check http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) won’t be provided
+The following standard claims (check http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) won’t be provided:
 
-
-middle_name
-nickname
-preferred_username
-picture (supposed to be an url)
-website
-zoneinfo
-updated_at
+ - middle_name 
+ - nickname 
+ - preferred_username 
+ - picture (supposed to be an url) 
+ - website 
+ - zoneinfo 
+ - updated\_at
 
 ## Signing Requests
 
@@ -429,5 +428,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTc5NTA4ODVdfQ==
+eyJoaXN0b3J5IjpbLTE1NTI2NDA4MjVdfQ==
 -->
