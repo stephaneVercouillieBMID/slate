@@ -312,9 +312,9 @@ Key | Cardinality | Description
 
 # Advanced topics
 
-## Authentication Request Object
+## ### Passing Request Parameters as JWTs
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYzNDM0MDIyOV19
+eyJoaXN0b3J5IjpbLTIxNDUyMjAzOTJdfQ==
 -->
