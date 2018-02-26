@@ -49,12 +49,9 @@ As per the OpenID Connect specification [http://openid.net/specs/openid-connect-
 
 You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key `authorization_endpoint`. The following discussion assumes the base URI is `https://merchant.itsme.be/oidc/authorization`.
 
-
 **itsme(r)** Mobile App endpoint : TODO
 
-The fingerprint of the SSL/TLS certificate is xxxxxxx.
-
-**itsme(r)** supports the use of the HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters are serialized using Form Serialization, per [http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization).
+**itsme(r)** supports the use of the HTTPS `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters are serialized using Form Serialization, per [http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization).
 
 The User is redirected to the interface of the **itsme(r)** Authorization endpoint. The parameters of the redirection URL contain all information itsme(r) needs to execute the Authentication process, according to the OpenID specifications :
 
@@ -307,5 +304,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUyMjkwMzY2Nl19
+eyJoaXN0b3J5IjpbNTE3NjMzMTI5XX0=
 -->
