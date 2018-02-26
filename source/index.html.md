@@ -107,6 +107,11 @@ Parameter | Comment
 **id_token** | the id_token correspoding to the authentication request (signed and encrypted)
 **at_hash** | OPTIONAL: first version of itsme Core does not produce the at_hash value
 
+### Errors
+http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse
+
+TODO
+
 ## 3. UserInfo Request
 
 As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest
@@ -330,5 +335,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ0NTg3NzY5N119
+eyJoaXN0b3J5IjpbLTk2OTkwODE4Ml19
 -->
