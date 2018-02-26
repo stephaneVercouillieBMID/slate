@@ -254,22 +254,25 @@ A JSON object with the following keys:
 
 For example:
 
+```json
 {  
 	"os": "ANDROID",  
-  "appName": "itsme app", "appRelease": "1.17.13",  
-  "deviceLabel": "myDevice",  
-  "debugEnabled": false,  
-  "deviceId": "deviceId",  
-  "osRelease": "Android 4.4.2", "manufacturer": "samsung",  
-  "hasSimEnabled": true,  
-  "deviceLockLevel": "touchID", "smsEnabled": true,  
-  "rooted": false,  
-  "imei": "12345678901234567",  
-  "deviceModel": "S8",  
-  "msisdn": "0412123123",  
-  "sdkRelease": "1.17.12"  
+	"appName": "itsme app", "appRelease": "1.17.13",
+	"deviceLabel": "myDevice",
+	"debugEnabled": false, 
+	"deviceId": "deviceId",
+	"osRelease": "Android 4.4.2", 
+	"manufacturer": "samsung", 
+	"hasSimEnabled": true,
+	"deviceLockLevel": "touchID", 
+	"smsEnabled": true,
+	"rooted": false,
+	"imei": "12345678901234567",
+	"deviceModel": "S8",  
+	"msisdn": "0412123123", 
+	"sdkRelease": "1.17.12"  
 }
-
+```
 > To authorize, use this code:
 
 ```ruby
@@ -481,5 +484,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3NzE3MzUwXX0=
+eyJoaXN0b3J5IjpbLTc0NjkxMDk2MF19
 -->
