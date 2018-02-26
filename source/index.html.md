@@ -260,7 +260,6 @@ POST /token HTTP/1.1
   grant_type=authorization\_code&
     code=SplxlOBeZQQYbYS6WxSbIA&
     redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
-    client_id=s6BhdRkqt3&
     client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
     client_assertion=PHNhbWxwOl ... ZT
 ```
@@ -408,5 +407,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjE1Nzk1MjYwLDY2NzI2NjkxM119
+eyJoaXN0b3J5IjpbMTM2MzA3NjYwOCw2NjcyNjY5MTNdfQ==
 -->
