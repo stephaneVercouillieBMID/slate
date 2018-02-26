@@ -286,7 +286,7 @@ As per the OpenID Connect specification [http://openid.net/specs/openid-connect-
 
 The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed.
 
-The UserInfo endpoint can be accessed only with a valid **access_token**, and for a very limited duration after end user authentication: there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the UserInfo endpoint (this reflects a constraint set on the SOAP version of the interface).
+The UserInfo endpoint can be accessed only with a valid **access_token** received from the token endpoint, and for a very limited duration after end user authentication: there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the UserInfo endpoint (this reflects a constraint set on the SOAP version of the interface).
 
 ### Claims
 
@@ -407,5 +407,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMDM1MjMxOCw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTgxNTc5OTA0NCw2NjcyNjY5MTNdfQ==
 -->
