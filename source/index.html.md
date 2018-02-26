@@ -170,12 +170,13 @@ In current version and in contradiction to the OpenID Connect specification, its
 
 Following values for scope allow access to a predefined sets of Identity Data:
 
-Profile Name | Claims
+Scope | Claims
 -- | --
 **profile** | `given_name`, `family_name`, `name`, `gender`, `birthdate`, `locale`
 **email** | `email`, `email_verified`
 **phone** | `phone_number`, `phone\_number\_verified`
-**address** | `address`, with following subfields: street_address (newline separator \\n), locality, postal_code, country
+**address** | `address`, with following subfields: `street_address` (newline separator \\n), `locality`, `postal_code`, `country`
+
 
 ## Signing Requests
 
@@ -392,5 +393,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5MzQ4ODQ1XX0=
+eyJoaXN0b3J5IjpbLTYxMjczMjFdfQ==
 -->
