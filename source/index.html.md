@@ -200,7 +200,7 @@ An Authentication Response is an [OAuth 2.0 Authorization Response](https://tool
 Parameter | Provided | Description
 -- | -- | --
 **code** | Always | Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.
-`state` |  | The exact value received from the client, if the parameter was present in the Authentication Request.
+**state** |  | The exact value received from the client, if the parameter was present in the Authentication Request.
 
 > Example of Authentication Response
 
@@ -216,10 +216,10 @@ If the authentication is NOT successful, the following errors can be triggered
 
 Error | Description
 -- | --
-interaction_required  | TODO
-invalid\_request\_object | TODO
-request\_uri\_not_supported | TODO
-registration\_not\_supported | TODO
+`interaction_required`  | TODO
+`invalid_request_object` | TODO
+`request_uri_not_supported` | TODO
+`registration_not_supported` | TODO
 
 ### App to App ??? TODO
 **itsme(r)** Mobile App endpoint : TODO
@@ -405,5 +405,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzNTM2NTAxNCw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbMTUzNTU0ODcwNCw2NjcyNjY5MTNdfQ==
 -->
