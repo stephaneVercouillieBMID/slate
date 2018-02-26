@@ -40,7 +40,8 @@ SP provides the redirect URIs for each Service to use within the OpenID Connect 
 
 ## Customize the user consent screen
 SP provides 
-- 
+
+
 
 
 Before your application can use **itsme(r)** for user login, you must set up a project to obtain OIDC credentials, set a redirect URI, and customise the branding information that your users see on the **itsme(r)** user-consent screen.
@@ -342,5 +343,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTc5NDE3MDkwXX0=
+eyJoaXN0b3J5IjpbMTU0OTE1OTc0NV19
 -->
