@@ -230,8 +230,8 @@ As per the specification, with a `private_key_jwt` for client authentication.
 Parameter | Required | Comment
 -- | -- | --
 **grant_type** | REQUIRED | Must be `authorization_code`
-**code** | REQUIRED | The `code` value provided in Authorization response
-**redirect_uri** | REQUIRED | The `redirect_uri` used in the authorization request
+**code** | REQUIRED | The `code` value provided in the Authentication Response
+**redirect_uri** | REQUIRED | The `redirect_uri` used in the Authentication Request
 **client_assertion** | REQUIRED | Must be provided: private\_key\_jwt
 **client\_assertion\_type** | REQUIRED | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
 
@@ -390,5 +390,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTIyOTQ3MTldfQ==
+eyJoaXN0b3J5IjpbMjA5MjM2MzI5MF19
 -->
