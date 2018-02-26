@@ -270,8 +270,7 @@ Scope | Data | Claim
 - | Language | `locale`
 **address** | Address | `address`, with following subfields: `street_address` (newline separator \\n), `locality`, `postal_code`, `country`
 **email** | E-Mail Address | `email` or `email_verified` TODO verified???
-**phone** | Phone Number | `phone_number` or `phone\_number\_verified`
-
+**phone** | Phone Number | `phone_number` or `phone_number_verified`
 
 ***NOTE**: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.*
 
@@ -374,5 +373,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NjE4MjUzNzFdfQ==
+eyJoaXN0b3J5IjpbLTExNjk3OTUyNDVdfQ==
 -->
