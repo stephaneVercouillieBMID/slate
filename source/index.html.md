@@ -220,7 +220,9 @@ A JSON object with the following keys:
 
 (only keys with cardinality \[1..1\] will be always available) 
 
-<!\[if !supportLists\]>· <!\[endif\]>“os” \[1..1\]: the device operating system (supported values: {ANDROID, IOS})
+Key | Cardinality | Description
+-- | -- | -- 
+**os** | [1..1\: the device operating system (supported values: {ANDROID, IOS})
 
 <!\[if !supportLists\]>· <!\[endif\]>“appName” \[0..1\]: the application name.
 
@@ -252,7 +254,6 @@ A JSON object with the following keys:
 
 <!\[if !supportLists\]>· <!\[endif\]>“sdkRelease” \[0..1\]: Sdk release 
 
-For example:
 > Example
 ```json
 {  
@@ -484,5 +485,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUzOTgxMTQ1NF19
+eyJoaXN0b3J5IjpbMTg3Mzg2MjUyM119
 -->
