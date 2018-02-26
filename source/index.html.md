@@ -35,6 +35,13 @@ NRN |
 E-ID picture |
 E-ID Info | 
 
+### E-ID Info
+JSON object with the following keys:
+
+Key | Cardinality | Description
+-- | -- | -- 
+
+
 ## Commercial Information
 
 Data | Definition
@@ -355,5 +362,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTY5MDA1NTVdfQ==
+eyJoaXN0b3J5IjpbMjExMTM2NjkxM119
 -->
