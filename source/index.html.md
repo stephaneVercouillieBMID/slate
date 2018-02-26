@@ -57,8 +57,8 @@ redirect_uri | MUST | This value MUST match one of the values provided by the pa
 **request** | OPTIONAL | OPTIONAL and recommended. The JWT token MUST be signed using a key known to BMID for the given clientId. The JWT token must also be encrypted, as it may contain confidential data (in the approval use case for example)
 **response_mode** | OPTIONAL | Should not be used. Any supplied value will be ignored.
 **id\_token\_hint** | OPTIONAL | Supported, but not used.
-**request_uri** | UNSUPPORTED | 
-**registration** | UNSUPPORTED |
+**request_uri** | UNSUPPORTED | N/A
+**registration** | UNSUPPORTED | N/A
 
 
 > To authorize, use this code:
@@ -272,5 +272,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDU4NDI0NjAwXX0=
+eyJoaXN0b3J5IjpbLTE5NDgzNDU5NDhdfQ==
 -->
