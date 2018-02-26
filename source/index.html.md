@@ -324,6 +324,8 @@ Device | **`tag:sixdots.be,2017-05:claim_device`** | see XXXX (TODO URL)
 E-ID Picture | TODO | TODO
 NRN | TODO | TODO
 
+In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims as **Essential**, even if they are requested as a **Voluntary** claim (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)). However, as in a future version **itsme(r)**  will make the difference between Essential and Voluntary Claims, you should already request claims with appropriate level regarding your business case.
+
 The following standard claims (check http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) won’t be provided: TODO UNSUPPORTED????
 
  - `middle_name` 
@@ -412,5 +414,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MDk0NTg1NjcsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbLTk0NzM5MjY3NCw2NjcyNjY5MTNdfQ==
 -->
