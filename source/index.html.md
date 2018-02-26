@@ -77,7 +77,7 @@ Parameter | Required | Comment
 
 ### Request Examples
 
->Example of minimal Authorization request
+>Example of a minimal Authorization request
 
 ```http
 GET /authorize?response_type=code
@@ -304,5 +304,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODcxMjg1NzIxXX0=
+eyJoaXN0b3J5IjpbLTE4MzAxMjE5MjhdfQ==
 -->
