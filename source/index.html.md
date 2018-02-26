@@ -323,7 +323,7 @@ request_uri | Unsupported | This parameter enables OpenID Connect requests to be
 
 Requests using these parameters are represented as JWTs, which are respectively passed by value or by reference. The ability to pass requests by reference is particularly useful for large requests. If one of these parameters is used, the other MUST NOT be used in the same request.
 
-The Request Object is a JWT Token as defined in [RFC 7](https://tools.ietf.org/html/rfc7519)
+The Request Object is a JWT Token as defined in [RFC 75](https://tools.ietf.org/html/rfc7519)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1ODcyNTIzNzNdfQ==
+eyJoaXN0b3J5IjpbMjExODc4MTQ0MF19
 -->
