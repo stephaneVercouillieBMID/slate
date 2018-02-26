@@ -91,7 +91,7 @@ Data | Provided | Definition
 **MSISDN** |  | the user’s phone number. 
 **SDK Release** |  | Sdk release 
 
-> Example JSON device
+> Example device object in JSON
 ```json
 {  
 	"os": "ANDROID",  
@@ -374,5 +374,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NjExNTUzODVdfQ==
+eyJoaXN0b3J5IjpbLTE5NjE4MjUzNzFdfQ==
 -->
