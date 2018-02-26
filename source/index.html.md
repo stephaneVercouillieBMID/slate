@@ -47,12 +47,9 @@ redirect_uri | This value MUST match one of the values provided by the partner t
 **state** | An appropriate value is RECOMMENDED
 **response_mode** | Should not be used. Any supplied value will be ignored.
 **nonce** | An appropriate value is RECOMMENDED
-<!\[endif\]--> **display**
-<!\[endif\]-->
-
-OPTIONAL but not recommended
-
-MUST be page if provided. Other values will yield an HTTP ERROR not_implemented.
+**display** | OPTIONAL but not recommended. MUST be page if provided. Other values will yield an HTTP ERROR not_implemented.
+**prompt** | OPTIONAL but not recommended Only login and consent values are supported. If prompt contains none or select\_account or any other values an HTTP ERROR not\_implemented will be returned.
+**max_age**
 
 
 > To authorize, use this code:
@@ -266,5 +263,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMTk5NzcyMjhdfQ==
+eyJoaXN0b3J5IjpbLTg1ODE2NDQ4Ml19
 -->
