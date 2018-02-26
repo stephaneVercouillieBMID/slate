@@ -186,7 +186,7 @@ Data | Claim | Comment
 -- | -- | --
 User code | **sub** | TODO
 Nationality | **tag:itsmetag:sixdots.be,2016-06:claim_nationality** | TODO
-Place of birth **tag:itsmetag:sixdots.be,2016-06:claim\_city\_of_birth** | TODO
+Place of birth | **tag:itsmetag:sixdots.be,2016-06:claim\_city\_of_birth** | TODO
 **tag:itsmetag:sixdots.be,2016-06:claim\_country\_of_birth** | TODO
 **tag:itsmetag:sixdots.be,2016-06:claim_eid** | TODO
 **tag:sixdots.be,2017-05:claim_device** | TODO
@@ -418,5 +418,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDIxMTQ2MDYwXX0=
+eyJoaXN0b3J5IjpbLTY3MTAwOTQ0XX0=
 -->
