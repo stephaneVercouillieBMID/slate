@@ -222,7 +222,27 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
           </li>
           <li>
-            <a href="#itsme-r-login-authentication" class="toc-h1 toc-link" data-title="itsme-r-login-authentication">itsme(r) Login Authentication</a>
+            <a href="#itsme-r-login" class="toc-h1 toc-link" data-title="itsme-r-login">itsme(r) Login</a>
+          </li>
+          <li>
+            <a href="#prerequisites" class="toc-h1 toc-link" data-title="prerequisites">Prerequisites</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#customize-the-user-consent-screen" class="toc-h2 toc-link" data-title="customize-the-user-consent-screen">Customize the user consent screen</a>
+                  </li>
+                  <li>
+                    <a href="#obtain-oauth-2-0-credentials" class="toc-h2 toc-link" data-title="obtain-oauth-2-0-credentials">Obtain OAuth 2.0 credentials</a>
+                  </li>
+                  <li>
+                    <a href="#set-a-redirect-uri-and-certificates" class="toc-h2 toc-link" data-title="set-a-redirect-uri-and-certificates">Set a redirect URI and Certificates</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#service-discovery" class="toc-h1 toc-link" data-title="service-discovery">Service Discovery</a>
+          </li>
+          <li>
+            <a href="#authenticating-the-user" class="toc-h1 toc-link" data-title="authenticating-the-user">Authenticating the user</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#1-authentication-request" class="toc-h2 toc-link" data-title="1-authentication-request">1. Authentication Request</a>
@@ -248,16 +268,10 @@
               </ul>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="kittens">Kittens</a>
+            <a href="#advanced-topics" class="toc-h1 toc-link" data-title="advanced-topics">Advanced topics</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="get-all-kittens">Get All Kittens</a>
-                  </li>
-                  <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="get-a-specific-kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="delete-a-specific-kitten">Delete a Specific Kitten</a>
+                    <a href="#passing-request-parameters-as-jwts" class="toc-h2 toc-link" data-title="a-name-jwtrequest-a-passing-request-parameters-as-jwts"><a name="JWTRequest"></a>Passing Request Parameters as JWTs</a>
                   </li>
               </ul>
           </li>
@@ -271,28 +285,43 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>itsme(r) Login service is based on the Authorization Code Flow of OpenID Connect 1.0 as defined in http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth</p>
+<p>This documentation describes our OAuth 2.0 implementation of <strong>itsme(r) Login</strong>, which conforms to the <a href="http://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect 1.0</a> specifications, and is OpenID certified (TODO). </p>
+<h1 id='itsme-r-login'>itsme(r) Login</h1>
+<p><strong>itsme(r) Login</strong> is a service provided by <a href="https://www.belgianmobileid.be">Belgian Mobile ID</a> to allow user to login securely and to share verified identity data with your application.</p>
+<h1 id='prerequisites'>Prerequisites</h1>
+<p>Before your application can use <strong>itsme(r)</strong> for user login, you must set up a project to obtain OIDC credentials, set a redirect URI, and customise the branding information that your users see on the <strong>itsme(r)</strong> user-consent screen.</p>
+<h2 id='customize-the-user-consent-screen'>Customize the user consent screen</h2>
+<p>SP provides </p>
 
-<p>Except specified otherwise, itsme(r)  follows the official OpenId Connect Core 1.0 specifications.</p>
+<ul>
+<li>Partner name, description and localized labels</li>
+<li>Services&#39; name, description and localized labels</li>
+<li>Data access with justification (to comply with GDPR)</li>
+</ul>
+<h2 id='obtain-oauth-2-0-credentials'>Obtain OAuth 2.0 credentials</h2>
+<p>BMID provides Partner Code and Service Code for each Service.</p>
+<h2 id='set-a-redirect-uri-and-certificates'>Set a redirect URI and Certificates</h2>
+<p>SP provides the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
+SP provides the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.
+SP provides the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.</p>
+<h1 id='service-discovery'>Service Discovery</h1>
+<p>To simplify implementations and increase flexibility, OpenID Connect allows the use of a &quot;Discovery document&quot;, a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider&#39;s configuration, including the URIs of the authorization, token, userinfo, and public-keys endpoints. The Discovery document for <strong>itsme(r) Login</strong> service may be retrieved from:</p>
 
-<p>As specified in OpenID Connect Discovery 1.0 https://openid.net/specs/openid-connect-discovery-1_0.html, itsme(r) exposes an OpenID Provider Configuration Document at the following URL</p>
+<p><a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a>.</p>
 
-<blockquote>
-<p>https://merchant.itsme.be/oidc/.well-known/openid-configuration.</p>
-</blockquote>
-<h1 id='itsme-r-login-authentication'>itsme(r) Login Authentication</h1>
-<p>As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps</p>
+<p>Format and content of this document is defined in <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery 1.0</a></p>
+<h1 id='authenticating-the-user'>Authenticating the user</h1>
+<p>itsme(r) Login service is based on the Authorization Code Flow of OpenID Connect 1.0 as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth">http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth</a></p>
+
+<p>The Authorization Code Flow goes through the following steps as defined in  <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps">http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps</a></p>
 <h2 id='1-authentication-request'>1. Authentication Request</h2>
-<p>As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest and http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint</p>
+<p>As per the OpenID Connect specification <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest">http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest</a> and <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint">http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint</a></p>
 
-<p>itsme(r) Web endpoint : https://merchant.itsme.be/oidc/authorization
-itsme(r) Mobile App endpoint : TODO</p>
+<p>The first step is forming an HTTPS request with the appropriate URI parameters. Note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. You should retrieve the base URI from the <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">Discovery document</a> using the key <code>authorization_endpoint</code>. The following discussion assumes the base URI is <code>https://merchant.itsme.be/oidc/authorization</code>.</p>
 
-<p>The fingerprint of the SSL/TLS certificate is xxxxxxx.</p>
+<p><strong>itsme(r)</strong> supports the use of the HTTP <code>GET</code> and <code>POST</code> methods. If using the HTTP <code>POST</code> method, the request parameters must be serialized using <a href="http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization">Form Serialization</a>.</p>
 
-<p>itsme(r) supports the use of the HTTP <code>GET</code> and <code>POST</code> methods. If using the HTTP <code>POST</code> method, the request parameters are serialized using Form Serialization, per http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization.</p>
-
-<p>The User is redirected to the interface of the itsme Authorization endpoint. This will be a webpage if the User is in the Service Provider website, or a webview if the User is in a Service Provider App. The parameters of the redirection URL contain all information itsme needs to execute the Authentication and Authorization process, according to the OpenID specifications :</p>
+<p>For a basic request, specify the following parameters:</p>
 
 <table><thead>
 <tr>
@@ -302,104 +331,104 @@ itsme(r) Mobile App endpoint : TODO</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>scope</strong></td>
-<td>REQUIRED</td>
-<td>MUST contain at least <code>openid</code> or an HTTP ERROR not_implemented will be returned. <code>offline\_access</code> value will yield an error. MUST also include the target service in the form <code>service:SERVICE_CODE</code> as provided by BMID during the on-boarding process. Requested data will only be provided based on your current accesses see XXXXXX (TODO) for list of available data.</td>
+<td><strong>client_id</strong></td>
+<td>Required</td>
+<td>MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file TODO).</td>
 </tr>
 <tr>
 <td><strong>response_type</strong></td>
-<td>REQUIRED</td>
-<td>MUST be <code>code</code>. Other values will produce an HTTP ERROR not_implemented.</td>
+<td>Required</td>
+<td>MUST be <code>code</code>.</td>
 </tr>
 <tr>
-<td><strong>client_id</strong></td>
-<td>REQUIRED</td>
-<td>MUST be a valid partner code as provided by BMID during on-boarding process (this information is in the onboarding file). This value will be unique to each partner.</td>
+<td><strong>scope</strong></td>
+<td>Required</td>
+<td>MUST contain at least <code>openid</code> or an HTTP ERROR <code>not_implemented</code> will be returned. <code>offline_access</code> value will yield an error. MUST also includes the target service in the form <code>service:&lt;SERVICE_CODE&gt;</code> as provided by BMID during the on-boarding process. <em>**Note</em><em>: Requested data will only be provided based on your current accesses</em>. See XXXXXX (TODO) for list of available data.</td>
 </tr>
 <tr>
 <td><strong>redirect_uri</strong></td>
-<td>REQUIRED</td>
-<td>This value MUST match one of the values provided by the partner to BMID during on-boarding process. It must include the https scheme. <em>**Note</em><em>: the Partner can define a different <code>redirect_uri</code> specific to each Service.</em></td>
+<td>Required</td>
+<td>should be the HTTPS endpoint on your server that will receive the response from <strong>itsme(r)</strong>. This value MUST match one of the values provided to BMID during on-boarding process. <em>**Note</em><em>: the Partner can define different <code>redirect_uri</code> specific to each Service.</em></td>
 </tr>
 <tr>
 <td><strong>state</strong></td>
-<td>OPTIONAL</td>
-<td>An appropriate value is RECOMMENDED</td>
+<td>Optional, but strongly recommended</td>
+<td>should include the value of the anti-forgery unique session token, as well as any other information needed to recover the context when the user returns to your application.</td>
 </tr>
 <tr>
 <td><strong>nonce</strong></td>
-<td>OPTIONAL</td>
-<td>An appropriate value is RECOMMENDED</td>
-</tr>
-<tr>
-<td><strong>display</strong></td>
-<td>OPTIONAL</td>
-<td>OPTIONAL but not recommended. MUST be <code>page</code> if provided. Other values will yield an HTTP ERROR <code>not_implemented</code>.</td>
-</tr>
-<tr>
-<td><strong>prompt</strong></td>
-<td>OPTIONAL</td>
-<td>OPTIONAL but not recommended. Only <code>login</code> and <code>consent</code> values are supported. If prompt contains <code>none</code> or <code>select\_account</code> or any other values an HTTP ERROR <code>not\_implemented</code> will be returned.</td>
-</tr>
-<tr>
-<td><strong>max_age</strong></td>
-<td>OPTIONAL</td>
-<td>OPTIONAL supported but not used: itsme(r) will always actively re-authenticate the End-User.</td>
-</tr>
-<tr>
-<td><strong>ui_locales</strong></td>
-<td>OPTIONAL</td>
-<td>OPTIONAL and supported. Can be used to specify the language to be used by the OpenID login page. Supported languages are: <code>fr</code>, <code>nl</code>, <code>en</code> and <code>de</code>. Any other value will be ignored.</td>
+<td>Optional</td>
+<td>a random value generated by your app that enables replay protection when present.</td>
 </tr>
 <tr>
 <td><strong>login_hint</strong></td>
-<td>OPTIONAL</td>
-<td>OPTIONAL and supported, though not recommended. Only phone numbers are supported as login_hint. Format is: <code>\&lt;coutrycode\&gt;+\&lt;phonenumber\&gt;</code>. E.g. <code>login_hint=32+123456789</code>. Usage of claim value <code>phone\_number</code> in an encrypted request object is recommended in order to avoid disclosure of phone number of the enduser on the user agent</td>
+<td>Optional</td>
+<td>OPTIONAL and supported, though not recommended. Only phone numbers are supported as <code>login_hint</code>. Format is: <code>\&lt;coutrycode\&gt;+\&lt;phonenumber\&gt;</code>. E.g. <code>login_hint=32+123456789</code>. Usage of claim value <code>phone_number</code> in an encrypted request object is recommended in order to avoid disclosure of phone number of the enduser on the user agent (TODO what does it means?)</td>
+</tr>
+<tr>
+<td><strong>display</strong></td>
+<td>Optional</td>
+<td>MUST be <code>page</code> if provided. Other values will yield an HTTP ERROR <code>not_implemented</code>.</td>
+</tr>
+<tr>
+<td><strong>prompt</strong></td>
+<td>Optional</td>
+<td>MUST be <code>consent</code> if provided.</td>
+</tr>
+<tr>
+<td><strong>ui_locales</strong></td>
+<td>Optional</td>
+<td>Can be used to specify the language to be used by the OpenID login page. Supported languages are: <code>fr</code>, <code>nl</code>, <code>en</code> and <code>de</code>. Any other value will be ignored.</td>
+</tr>
+<tr>
+<td><strong>max_age</strong></td>
+<td>Optional</td>
+<td>Supported but not used: <strong>itsme(r)</strong> will always actively re-authenticate the End-User.</td>
 </tr>
 <tr>
 <td><strong>acr_values</strong></td>
-<td>OPTIONAL</td>
+<td>Optional</td>
 <td>OPTIONAL and supported, though not recommended. Possible values are tag:itsmetag:sixdots.be,2016-06:acr_basic, tag:itsmetag:sixdots.be,2016-06:acr_advanced. When multiple values are provided only the most constraining will be used (advanced &gt; basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the acr_values is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the acr_values list, or the authentication will fail. Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token</td>
 </tr>
 <tr>
-<td><strong>claims_locales</strong></td>
-<td>OPTIONAL</td>
-<td>OPTIONAL supported but not used</td>
-</tr>
-<tr>
 <td><strong>claims</strong></td>
-<td>OPTIONAL</td>
-<td>OPTIONAL and supported, though not recommended. If some notification text has to be displayed on the screen of the itsme app, this text MUST be specified in the “notification_text”parameter. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted</td>
+<td>Optional</td>
+<td>Not recommended. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted</td>
 </tr>
 <tr>
 <td><strong>request</strong></td>
-<td>OPTIONAL</td>
-<td>OPTIONAL and recommended. The JWT token MUST be signed using a key known to BMID for the given clientId. The JWT token must (must??? TODO) also be encrypted, as it may contain confidential data (in the approval use case for example)</td>
+<td>Optional</td>
+<td>See <a href="#JWTRequest">Passing Request Parameters as JWTs</a></td>
 </tr>
 <tr>
 <td><strong>response_mode</strong></td>
-<td>OPTIONAL</td>
-<td>Should not be used. Any supplied value will be ignored.</td>
+<td>Unsupported</td>
+<td>Ignored if provided.</td>
 </tr>
 <tr>
 <td><strong>id_token_hint</strong></td>
-<td>OPTIONAL</td>
-<td>Supported, but not used.</td>
+<td>Unsupported</td>
+<td>Ignored if provided.</td>
+</tr>
+<tr>
+<td><strong>claims_locales</strong></td>
+<td>Unsupported</td>
+<td>None are supported.</td>
 </tr>
 <tr>
 <td><strong>request_uri</strong></td>
-<td>UNSUPPORTED</td>
+<td>Unsupported</td>
 <td>N/A TODO</td>
 </tr>
 <tr>
 <td><strong>registration</strong></td>
-<td>UNSUPPORTED</td>
+<td>Unsupported</td>
 <td>N/A TODO</td>
 </tr>
 </tbody></table>
 <h3 id='request-examples'>Request Examples</h3>
 <blockquote>
-<p>Example of minimal Authorization request</p>
+<p>Example of a minimal Authorization request</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="err">GET /authorize?response_type=code
 &amp;scope=openid%20profile%20email%20service%3Aclient.registration
@@ -408,32 +437,6 @@ itsme(r) Mobile App endpoint : TODO</p>
 &amp;redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
 HTTP/1.1
 Host: server.itsme.be
-</span></code></pre>
-<blockquote>
-<p>Example of claim request before base64url encoding, signing and encryption</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="err">iss</span><span class="p">:</span><span class="w"> </span><span class="s2">"s6BhdRkqt3"</span><span class="p">,</span><span class="w">
-    </span><span class="err">aud</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://server.itsme.be"</span><span class="p">,</span><span class="w">
-    </span><span class="err">response_type</span><span class="p">:</span><span class="w"> </span><span class="s2">"code"</span><span class="p">,</span><span class="w">
-    </span><span class="err">client_id</span><span class="p">:</span><span class="w"> </span><span class="s2">"s6BhdRkqt3"</span><span class="p">,</span><span class="w">
-    </span><span class="err">redirect_uri</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://client.example.org/cb"</span><span class="p">,</span><span class="w">
-    </span><span class="err">scope</span><span class="p">:</span><span class="w"> </span><span class="s2">"openid email service:client.registration"</span><span class="p">,</span><span class="w">
-    </span><span class="err">state</span><span class="p">:</span><span class="w"> </span><span class="s2">"af0ifjsldkj"</span><span class="p">,</span><span class="w">
-    </span><span class="err">nonce</span><span class="p">:</span><span class="w"> </span><span class="s2">"n-0S6_WzA2Mj"</span><span class="p">,</span><span class="w">
-    </span><span class="err">claims</span><span class="p">:</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="err">userinfo</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"tag:itsmetag:sixdots.be,2016-06:claim_nationality"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"tag:itsme.be,2016-06:claim_notification_text"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="err">value</span><span class="p">:</span><span class="w"> </span><span class="s2">"Login to the FOO service"</span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="err">id_token</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="err">auth_time</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"essential"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">},</span><span class="w">
-            </span><span class="err">acr</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="err">\</span><span class="p">[</span><span class="s2">"tag:itsmetag:sixdots.be,2016-06:acr_securedadvanced"</span><span class="err">\</span><span class="p">]</span><span class="w">        
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='errors'>Errors</h3>
 <p>If the authentication is NOT successful, the following errors can be triggered</p>
 
@@ -460,10 +463,12 @@ Host: server.itsme.be
 <td>TODO</td>
 </tr>
 </tbody></table>
+
+<p><strong>itsme(r)</strong> Mobile App endpoint : TODO</p>
 <h2 id='2-token-request'>2. Token Request</h2>
 <p>As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest</p>
 
-<p>As per the specification, with a <code>private\_key\_jwt</code> for client authentication.</p>
+<p>As per the specification, with a <code>private_key_jwt</code> for client authentication.</p>
 
 <table><thead>
 <tr>
@@ -559,11 +564,11 @@ Host: server.itsme.be
 </tr>
 </tbody></table>
 <h3 id='errors-2'>Errors</h3>
-<p>As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse</p>
+<p>As per the OpenID Connect specification <a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse">http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse</a></p>
 
 <p>TODO if specifics</p>
 <h2 id='3-userinfo-request'>3. UserInfo Request</h2>
-<p>As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest</p>
+<p>As per the OpenID Connect specification <a href="http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest">http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest</a></p>
 
 <p>The content type of the response will be <code>application/jwt</code>. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed.</p>
 
@@ -835,181 +840,79 @@ Host: server.itsme.be
     &quot;msisdn&quot;: &quot;0412123123&quot;, 
     &quot;sdkRelease&quot;: &quot;1.17.12&quot;  
 }
-</code>
-To authorize, use this code:</p>
+</code></p>
 </blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h1 id='advanced-topics'>Advanced topics</h1><h2 id='passing-request-parameters-as-jwts'><a name="JWTRequest"></a>Passing Request Parameters as JWTs</h2>
+<p>OpenID Connect defines the following Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted:</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
+<th>Required</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>request</td>
+<td>Optional</td>
+<td>This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. The parameter value is a Request Object value, as specified in <a href="http://openid.net/specs/openid-connect-core-1_0.html#RequestObject">Section 6.1</a>. It represents the request as a JWT whose Claims are the request parameters.</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>request_uri</td>
+<td>Unsupported</td>
+<td>Refer to <a href="http://openid.net/specs/openid-connect-core-1_0.html#JWTRequests">JWTRequest</a></td>
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p>The Request Object is a JWT Token as defined in <a href="https://tools.ietf.org/html/rfc7519">RFC 7519</a>, which contains the following properties:</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>iss</strong></td>
+<td>Required</td>
+<td>Issuer. Must be the <code>client_id</code></td>
+</tr>
+<tr>
+<td><strong>aud</strong></td>
+<td>Required</td>
+<td>Audience. Must be <code>https://server.itsme.be</code></td>
+</tr>
+</tbody></table>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Example of claim request before base64url encoding, signing and encryption</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">JWT</span><span class="w"> </span><span class="err">Registered</span><span class="w"> </span><span class="err">claims</span><span class="w"> </span><span class="err">(https</span><span class="p">:</span><span class="err">//tools.ietf.org/html/rfc</span><span class="mi">7519</span><span class="err">#section</span><span class="mf">-4.1</span><span class="err">)</span><span class="w">
+    </span><span class="err">iss</span><span class="p">:</span><span class="w"> </span><span class="s2">"s6BhdRkqt3"</span><span class="p">,</span><span class="w">
+    </span><span class="err">aud</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://server.itsme.be"</span><span class="p">,</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">OIDC</span><span class="w"> </span><span class="err">parameters</span><span class="p">,</span><span class="w"> </span><span class="err">must</span><span class="w"> </span><span class="err">reflect</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">values</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">HTTP</span><span class="w"> </span><span class="err">parameters</span><span class="w">
+    </span><span class="err">client_id</span><span class="p">:</span><span class="w"> </span><span class="s2">"s6BhdRkqt3"</span><span class="p">,</span><span class="w">
+    </span><span class="err">response_type</span><span class="p">:</span><span class="w"> </span><span class="s2">"code"</span><span class="p">,</span><span class="w">
+    </span><span class="err">redirect_uri</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://client.example.org/cb"</span><span class="p">,</span><span class="w">
+    </span><span class="err">scope</span><span class="p">:</span><span class="w"> </span><span class="s2">"openid email service:client.registration"</span><span class="p">,</span><span class="w">
+    </span><span class="err">state</span><span class="p">:</span><span class="w"> </span><span class="s2">"af0ifjsldkj"</span><span class="p">,</span><span class="w">
+    </span><span class="err">nonce</span><span class="p">:</span><span class="w"> </span><span class="s2">"n-0S6_WzA2Mj"</span><span class="p">,</span><span class="w">
+    </span><span class="err">claims</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="err">userinfo</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"tag:itsmetag:sixdots.be,2016-06:claim_nationality"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">id_token</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">auth_time</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"essential"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">},</span><span class="w">
+            </span><span class="err">acr</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="err">\</span><span class="p">[</span><span class="s2">"tag:itsmetag:sixdots.be,2016-06:acr_securedadvanced"</span><span class="err">\</span><span class="p">]</span><span class="w">        
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
-</tr>
-</tbody></table>
-
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyMjkxNzQxMV19
+eyJoaXN0b3J5IjpbNDk0ODgwNzYwXX0=
 -->
 
       </div>
