@@ -49,7 +49,7 @@ Parameter | Required | Comment
 **scope** | REQUIRED | MUST contain at least `openid` or an HTTP ERROR not\_implemented will be returned. `offline\_access` value will yield an error. MUST also include the target service in the form `service:SERVICE_CODE` as provided by BMID during the on-boarding process. Requested data will only be provided based on your current accesses see XXXXXX (TODO) for list of available data.
 **response_type** | REQUIRED | MUST be <code>code</code>. Other values will produce an HTTP ERROR not_implemented.
 **client_id** | REQUIRED | MUST be a valid partner code as provided by BMID during on-boarding process (this information is in the onboarding file). This value will be unique to each partner.
-**redirect_uri** | REQUIRED | This value MUST match one of the values provided by the partner to BMID during on-boarding process. It must include the https scheme. Note: the Partner can define a different redirect_uri specific to each Service.
+**redirect_uri** | REQUIRED | This value MUST match one of the values provided by the partner to BMID during on-boarding process. It must include the https scheme. ***Note**: the Partner can define a different `redirect_uri` specific to each Service.*
 **state** | OPTIONAL | An appropriate value is RECOMMENDED
 **nonce** | OPTIONAL | An appropriate value is RECOMMENDED
 **display** | OPTIONAL | OPTIONAL but not recommended. MUST be page if provided. Other values will yield an HTTP ERROR not_implemented.
@@ -498,5 +498,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA0NzY1NzcxOV19
+eyJoaXN0b3J5IjpbODE4NDkxNTA1XX0=
 -->
