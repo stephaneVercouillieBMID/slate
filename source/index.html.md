@@ -29,20 +29,20 @@ If data usage is justified and consent is provided by the end-user, following da
 
 Data | Definition
 -- | --
-Full Name | Full name is a concatenation of firstname, middlenames and lastname.
-Date of birth | Birthdate 
-Place of birth | Place of birth. ***Note**: this information can be localized* 
-Gender | Gender
-Language | Language
-Nationality | Nationality
-Address | Address containing street, house number, postbox, locality, postcode and country
-Passport Number | Passport Number
-NRN | National Registry Number
-E-ID picture | Picture taken from the National eID Card in low-resolution.
-E-ID Metadata | See [E-ID Metadata Information](#e-id-info)
+**Full Name** | Full name is a concatenation of firstname, middlenames and lastname.
+**Date of birth** | Birthdate 
+**Place of birth** | Place of birth. ***Note**: this information can be localized* 
+**Gender** | Gender
+**Language** | Language
+**Nationality** | Nationality
+**Address** | Address containing street, house number, postbox, locality, postcode and country
+**Passport Number** | Passport Number
+**NRN** | National Registry Number
+**E-ID picture** | Picture taken from the National eID Card in low-resolution.
+**E-ID Metadata** | See [E-ID Metadata Information](#e-id-info)
 
 ### <a name="e-id-info"></a>E-ID Metadata Information
-JSON object with the following keys:
+Provides some information
 
 Data | Definition
 -- | -- 
@@ -372,5 +372,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg1OTEzMjE5NF19
+eyJoaXN0b3J5IjpbLTE1MzEwNzY0MTVdfQ==
 -->
