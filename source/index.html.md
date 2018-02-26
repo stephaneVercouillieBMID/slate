@@ -61,7 +61,7 @@ Parameter | Required | Comment
 --------- | ------- | -----
 **scope** | Required | MUST contain at least `openid` or an HTTP ERROR not\_implemented will be returned. `offline\_access` value will yield an error. MUST also include the target service in the form `service:SERVICE_CODE` as provided by BMID during the on-boarding process. Requested data will only be provided based on your current accesses see XXXXXX (TODO) for list of available data.
 **response_type** | Required | MUST be <code>code</code>.
-**client_id** | Required | MUST be the Partner Code you obtained from as provided by BMID during on-boarding process (this information is in the onboarding file). This value will be unique to each partner.
+**client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file).
 **redirect_uri** | Required | This value MUST match one of the values provided by the partner to BMID during on-boarding process. It must include the https scheme. ***Note**: the Partner can define a different `redirect_uri` specific to each Service.*
 **state** | Optional, but strongly recommended | An appropriate value is RECOMMENDED
 **nonce** | Optional | An appropriate value is RECOMMENDED
@@ -306,5 +306,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQ1MzE2NTcwXX0=
+eyJoaXN0b3J5IjpbNDM3MDUxNzk1XX0=
 -->
