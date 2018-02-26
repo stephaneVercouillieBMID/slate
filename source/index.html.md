@@ -183,8 +183,6 @@ We have favored the request of Identity Data in the scope values. However, some 
 
 
 
-
-
 Claim | Comment
 -- | --
 **sub** | TODO
@@ -409,5 +407,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQxNjA1MjE4XX0=
+eyJoaXN0b3J5IjpbMjA3MDg2MDgwNl19
 -->
