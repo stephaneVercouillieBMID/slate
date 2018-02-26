@@ -23,16 +23,6 @@ This documentation describes our OAuth 2.0 implementation of **itsme(r) Login**,
 
 Before your application can use **itsme(r)** for user login, you must set up a project to obtain OIDC credentials, set a redirect URI, and customise the branding information that your users see on the **itsme(r)** user-consent screen.
 
-In order to integrate with itsme(r), the client (relying party) must first go through the itsme(r) on-boarding process in order to create the corresponding partner and services to be consumed. 
-
-The following information provided by BMID will be useful during the integration
-
-Information | Description
--- | --
-Partner Code | Identifier of the client, sometime referred as `client_id`
-Service Code | Identifier of the service to be executed. One client can have several services, each service being one of the following type: Login or APPROVAL.
-Service Redirect URL | Each Service is associated to a Redirect URL that will be used during the Authentication flow to send back information to the client.
-
 ## Customize the user consent screen
 SP provides 
 
@@ -47,6 +37,8 @@ BMID provides Partner Code and Service Code for each Service.
 SP provides the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
 SP provides the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.
 SP provides the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.
+
+# 
 
 # Authenticating the user
 
@@ -334,5 +326,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzI0MTI2MTkzXX0=
+eyJoaXN0b3J5IjpbLTM3NzQ1MDg2Ml19
 -->
