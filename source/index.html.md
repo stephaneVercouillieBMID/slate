@@ -105,8 +105,6 @@ Host: server.itsme.be
 	{
 		userinfo: {
 		"tag:itsmetag:sixdots.be,2016-06:claim_nationality": null,
-		"tag:itsme.be,2016-06:claim_notification_text": {
-			value: "Login to the FOO service"}
 		},
 		id_token: {
 			auth_time: {"essential": true},
@@ -304,5 +302,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYxNjYzMTM4MF19
+eyJoaXN0b3J5IjpbNTQxNTUyMTgwXX0=
 -->
