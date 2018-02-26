@@ -55,7 +55,7 @@ The fingerprint of the SSL/TLS certificate is xxxxxxx.
 
 **itsme(r)** supports the use of the HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters are serialized using Form Serialization, per [http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization).
 
-The User is redirected to the interface of the **itsme(r)** Authorization endpoint. This will be a webpage if the User is in the Service Provider website, or a webview if the User is in a Service Provider App. The parameters of the redirection URL contain all information itsme needs to execute the Authentication and Authorization process, according to the OpenID specifications :
+The User is redirected to the interface of the **itsme(r)** Authorization endpoint. The parameters of the redirection URL contain all information itsme(r) needs to execute the Authentication process, according to the OpenID specifications :
 
 Parameter | Required | Comment
 --------- | ------- | -----
@@ -306,5 +306,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzMjM0MjQ1M119
+eyJoaXN0b3J5IjpbNDc2NzIxMDYwXX0=
 -->
