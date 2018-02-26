@@ -100,26 +100,12 @@ Parameter | Comment
 #### Successful Token Response
 
 Parameter | Comment
-
-**access_token**
-
-Will be provided
-
-**token_type**
-
-Bearer
-
-**refresh_token**
-
-won't be provided
-
-**id_token**
-
-the id_token correspoding to the authentication request (signed and encrypted)
-
-**at_hash**
-
-OPTIONAL: first version of itsme Core does not produce the at_hash value
+-- | --
+**access_token** | Will be provided
+**token_type** | Bearer
+**refresh_token** | Won't be provided
+**id_token** | the id_token correspoding to the authentication request (signed and encrypted)
+**at_hash** | OPTIONAL: first version of itsme Core does not produce the at_hash value
 
 ## 3. UserInfo Request
 
@@ -344,5 +330,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg2NzAwMzg3MV19
+eyJoaXN0b3J5IjpbLTQ0NTg3NzY5N119
 -->
