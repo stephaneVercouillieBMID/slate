@@ -27,7 +27,7 @@ If data usage is justified and consent is provided by the end-user during authen
 
 ## Verified Identity Data
 
-
+The ve
 
 Data | Definition
 -- | --
@@ -374,5 +374,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDAzMzYwNTY3XX0=
+eyJoaXN0b3J5IjpbLTE3OTgxOTI5MzVdfQ==
 -->
