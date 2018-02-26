@@ -334,36 +334,6 @@ The following standard claims (check http://openid.net/specs/openid-connect-core
  - `zoneinfo` 
  - `updated_at`
 
-## Signing and Encryption Requests
-
-Encryption algorithm used: RSA SHA-256 TODO not aligned with
-
-Supported algorithms and encryption methods for:
-
-- ID Token
--- Encryption Method (enc): A128CBC-HS256
--- Encryption Algorithm (alg): RSA-OAEP
--- Signing Algorithm (alg): RS256
-- User Info
--- Encryption Method (enc): A128CBC-HS256
--- Encryption Algorithm (alg): RSA-OAEP
--- Signing Algorithm (alg):  RS256
-- Request Object”
--- Encryption Method (enc): A128CBC-HS256
--- Encryption Algorithm (alg): RSA-OAEP
--- Signing Algorithm (alg): RS256
-
-itsme(r) will use pairwise Subject Identifier. TODO
-
-Offline access is not supported. TODO
-
-Dynamic client registration is not allowed. TODO 
-
-itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet) 
-> https://merchant.itsme.be/oidc/jwkSet
-
-It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
-
 # Advanced topics
 
 ## <a name="JWTRequest"></a>Passing Request Parameters as JWTs
@@ -408,6 +378,37 @@ Property | Required | Comment
 	}
 }
 ```
+
+## Requests Signing and Encryption 
+
+Encryption algorithm used: RSA SHA-256 TODO not aligned with
+
+Supported algorithms and encryption methods for:
+
+- ID Token
+-- Encryption Method (enc): A128CBC-HS256
+-- Encryption Algorithm (alg): RSA-OAEP
+-- Signing Algorithm (alg): RS256
+- User Info
+-- Encryption Method (enc): A128CBC-HS256
+-- Encryption Algorithm (alg): RSA-OAEP
+-- Signing Algorithm (alg):  RS256
+- Request Object”
+-- Encryption Method (enc): A128CBC-HS256
+-- Encryption Algorithm (alg): RSA-OAEP
+-- Signing Algorithm (alg): RS256
+
+itsme(r) will use pairwise Subject Identifier. TODO
+
+Offline access is not supported. TODO
+
+Dynamic client registration is not allowed. TODO 
+
+itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet) 
+> https://merchant.itsme.be/oidc/jwkSet
+
+It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA1NTcwNDgyMCw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTE4NTE0ODg2ODgsNjY3MjY2OTEzXX0=
 -->
