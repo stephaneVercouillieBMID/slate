@@ -48,18 +48,18 @@ The Authorization Code Flow goes through the following steps as defined in  [htt
 
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
 
-itsme(r) Web endpoint : [https://merchant.itsme.be/oidc/authorization](https://merchant.itsme.be/oidc/authorization)
-itsme(r) Mobile App endpoint : TODO
+**itsme(r)** Web endpoint : [https://merchant.itsme.be/oidc/authorization](https://merchant.itsme.be/oidc/authorization)
+**itsme(r)** Mobile App endpoint : TODO
 
 The fingerprint of the SSL/TLS certificate is xxxxxxx.
 
-itsme(r) supports the use of the HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters are serialized using Form Serialization, per [http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization).
+**itsme(r)** supports the use of the HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters are serialized using Form Serialization, per [http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization).
 
 The User is redirected to the interface of the itsme Authorization endpoint. This will be a webpage if the User is in the Service Provider website, or a webview if the User is in a Service Provider App. The parameters of the redirection URL contain all information itsme needs to execute the Authentication and Authorization process, according to the OpenID specifications :
 
 Parameter | Required | Comment
 --------- | ------- | -----
-**scope** | Required | MUST contain at least `openid` or an HTTP ERROR `not_implemented` will be returned. `offline_access` value will yield an error. MUST also includes the target service in the form `service:<SERVICE_CODE>` as provided by BMID during the on-boarding process. **Note**: Requested data will only be provided based on your current accesses see XXXXXX (TODO) for list of available data.
+**scope** | Required | MUST contain at least `openid` or an HTTP ERROR `not_implemented` will be returned. `offline_access` value will yield an error. MUST also includes the target service in the form `service:<SERVICE_CODE>` as provided by BMID during the on-boarding process. ***Note**: Requested data will only be provided based on your current accesses*. See XXXXXX (TODO) for list of available data.
 **response_type** | Required | MUST be <code>code</code>.
 **client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file).
 **redirect_uri** | Required | should be the HTTPS endpoint on your server that will receive the response from **itsme(r)**. This value MUST match one of the values provided to BMID during on-boarding process. ***Note**: the Partner can define different `redirect_uri` specific to each Service.*
@@ -306,5 +306,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NTI0MDY4NTJdfQ==
+eyJoaXN0b3J5IjpbLTE1MDk3OTM1OTZdfQ==
 -->
