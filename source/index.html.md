@@ -63,7 +63,7 @@ Parameter | Required | Comment
 **response_type** | Required | MUST be <code>code</code>.
 **client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file).
 **redirect_uri** | Required | should be the HTTPS endpoint on your server that will receive the response from **itsme(r)**. This value MUST match one of the values provided to BMID during on-boarding process. ***Note**: the Partner can define different `redirect_uri` specific to each Service.*
-**state** | Optional, but strongly recommended | An appropriate value is RECOMMENDED
+**state** | Optional, but strongly recommended | should include the value of the anti-forgery unique session token, as well as any other information needed to recover the context when the user returns to your application.
 **nonce** | Optional | An appropriate value is RECOMMENDED
 **display** | Optional | OPTIONAL but not recommended. MUST be `page` if provided. Other values will yield an HTTP ERROR `not_implemented`.
 **prompt** | Optional | OPTIONAL but not recommended. Only `login` and `consent` values are supported. If prompt contains `none` or `select\_account` or any other values an HTTP ERROR `not\_implemented` will be returned.
@@ -306,5 +306,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NDY0Nzk2MjBdfQ==
+eyJoaXN0b3J5IjpbODA4MDA2NDgzXX0=
 -->
