@@ -172,8 +172,6 @@ Following values for scope allow access to a predefined sets of Identity Data:
 
 Profile Name | Claims
 -- | --
-<!\[endif\]-->
-
 **profile** | `given_name`, `family_name`, `name`, `gender`, `birthdate`, `locale`
 **email**
 
@@ -414,5 +412,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYxMzQyMzkyNl19
+eyJoaXN0b3J5IjpbLTExNDYzODY0MzVdfQ==
 -->
