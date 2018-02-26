@@ -366,14 +366,14 @@ It is expected that the RP will also expose their signing and encryption keys in
 
 ## <a name="JWTRequest"></a>Passing Request Parameters as JWTs
 
-OpenID Connect defines the following Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted:
+OpenID Connect defines the following Authentication Request parameters to enable Authentication Requests to be signed and optionally encrypted:
 
 Parameter | Required | Comment
 -- | -- | --
-request | Optional | This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. The parameter value is a Request Object value, as specified in [Section 6.1](http://openid.net/specs/openid-connect-core-1_0.html#RequestObject). It represents the request as a JWT whose Claims are the request parameters.
-request_uri | Unsupported | Refer to [JWTRequest](http://openid.net/specs/openid-connect-core-1_0.html#JWTRequests)
+**request** | Optional | This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. The parameter value is a Request Object value, as specified in [Section 6.1](http://openid.net/specs/openid-connect-core-1_0.html#RequestObject). It represents the request as a JWT whose Claims are the request parameters.
+**request_uri** | Unsupported | Refer to [JWTRequest](http://openid.net/specs/openid-connect-core-1_0.html#JWTRequests)
 
-The Request Object is a JWT Token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains the following properties:
+The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains the following properties:
 
 Property | Required | Comment
 -- | -- | --
@@ -407,5 +407,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzA5OTk0NzM1LDY2NzI2NjkxM119
+eyJoaXN0b3J5IjpbMTE3MjMwMDM1NCw2NjcyNjY5MTNdfQ==
 -->
