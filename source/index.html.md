@@ -27,7 +27,7 @@ If data usage is justified and consent is provided by the end-user during authen
 
 ## Verified Identity Data
 
-The identity data provided by
+The identity data provided by itsme(r)
 
 Data | Definition
 -- | --
@@ -374,5 +374,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTg4NzY4NDg0XX0=
+eyJoaXN0b3J5IjpbLTIwNDk3NDg3MV19
 -->
