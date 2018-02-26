@@ -15,11 +15,11 @@ search: true
 
 This documentation describes our OAuth 2.0 implementation of **itsme(r) Login**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications, and is OpenID certified (TODO). 
 
-# itsme(r) Login
+# itsme(r) Login and Shared Data
 
-**itsme(r) Login** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) to allow users to login securely and to share verified identity data with your application.
+**itsme(r) Login** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) to allow users to login securely and to share data with your application.
 
-The data usage is justified and consent is provided by the end-user, following data can be shared with your application
+If data usage is justified and consent is provided by the end-user, following data can be shared with your application
 
 - **Verified Identity Data**: identity information typically retrieved from the National eID Card 
 - **Commercial Information**: information provided by the end-user 
@@ -372,5 +372,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI5OTU2MzMwNl19
+eyJoaXN0b3J5IjpbLTU3MDI0NTc5NF19
 -->
