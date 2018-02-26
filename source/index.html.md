@@ -75,7 +75,7 @@ Parameter | Required | Comment
 **max_age** | Optional | Supported but not used: **itsme(r)** will always actively re-authenticate the End-User. 
 **acr_values** | Optional | OPTIONAL and supported, though not recommended. Possible values are tag:itsmetag:sixdots.be,2016-06:acr_basic, tag:itsmetag:sixdots.be,2016-06:acr_advanced. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the acr\_values is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the acr\_values list, or the authentication will fail. Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token
 **claims** | Optional | Not recommended. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
-**request** | Optional | See Passing Request Parameters as JWTs
+**request** | Optional | See [Passing Request Parameters as JWTs](#JWTRequest)
 **response_mode** | Unsupported | Ignored if provided.
 **id\_token\_hint** | Unsupported | Ignored if provided.
 **claims_locales** | Unsupported | None are supported.
@@ -288,7 +288,7 @@ Key | Cardinality | Description
 
 # Advanced topics
 
-## Passing Request Parameters as JWTs
+## <a name="JWTRequest"></a>Passing Request Parameters as JWTs
 
 OpenID Connect defines the following Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted:
 
@@ -331,5 +331,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzcyNjgxOTY5XX0=
+eyJoaXN0b3J5IjpbNDk0ODgwNzYwXX0=
 -->
