@@ -38,7 +38,7 @@ Nationality | Nationality
 Address | Address containing street, house number, postbox, locality, postcode and country
 Passport Number | Passport Number
 NRN | National Registry Number
-E-ID picture | Picture taken from the national eID Card
+E-ID picture | Picture taken from the National eID Card in low-resolution.
 E-ID Info | See [E-ID Info](#e-id-info)
 
 ### <a name="e-id-info"></a>E-ID Info
@@ -46,9 +46,9 @@ JSON object with the following keys:
 
 Key | Description
 -- | -- 
-eid | the electronic ID card serial number.
+eID Serial Number | the electronic ID card serial number.
 issuance_locality | the issuance locality.
-validity_from | eID card validity “from” date.
+Validity_from | eID card validity “from” date.
 validity_to | eID card validity “to” date.
 certificate_validity | the certificate validity.
 read_date | the data extraction date.
@@ -373,5 +373,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwNDgzNDE3N119
+eyJoaXN0b3J5IjpbLTk3MjEzMzAyXX0=
 -->
