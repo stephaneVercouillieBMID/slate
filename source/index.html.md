@@ -208,8 +208,35 @@ The following standard claims (check http://openid.net/specs/openid-connect-core
  - zoneinfo 
  - updated\_at
 
-## Signing Requests
+## Signing and Encrypting Requests
 
+<!\[endif\]-->
+
+Encryption algorithm used: RSA SHA-256
+
+Supported algorithms and encryption methods for:
+
+- ID Token
+-- Encryption Method (enc): A128CBC-HS256
+-- Encryption Algorithm (alg): RSA-OAEP
+-- Signing Algorithm (alg): RS256
+- User Info
+-- Encryption Method (enc): A128CBC-HS256
+-- Encryption Algorithm (alg): RSA-OAEP
+-- Signing Algorithm (alg):  RS256
+- Request Object”
+<!\[if !supportLists\]>o <!\[endif\]>Encryption Method (enc): A128CBC-HS256
+<!\[if !supportLists\]>o <!\[endif\]>Encryption Algorithm (alg): RSA-OAEP
+<!\[if !supportLists\]>o <!\[endif\]>Signing Algorithm (alg): RS256
+itsme Core will use pairwise Subject Identifier
+
+Offline access is not supported.
+
+itsme allows service discovery and exposes a public “.well-known/openid-configuration”.
+
+Dynamic client registration is not allowed.
+
+itsme exposes its signing and encryption keys on a public endpoint (JWKSet). It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during enrollment of RP.
 ## Device Information
 
 Information about the end user device.
@@ -466,5 +493,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4OTk5NzQ3NjFdfQ==
+eyJoaXN0b3J5IjpbLTc0OTU1MDUyOV19
 -->
