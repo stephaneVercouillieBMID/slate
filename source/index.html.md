@@ -312,9 +312,14 @@ Key | Cardinality | Description
 
 # Advanced topics
 
-## ### Passing Request Parameters as JWTs
+## Passing Request Parameters as JWTs
 
+OpenID Connect defines the following Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted:
+
+Parameter | Required | Comment
+-- | -- | --
+request | Optional | 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxNDUyMjAzOTJdfQ==
+eyJoaXN0b3J5IjpbLTEzMzkxOTE2NDZdfQ==
 -->
