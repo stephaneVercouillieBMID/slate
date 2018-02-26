@@ -240,7 +240,9 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
-## E-ID Information
+## National ID Information
+
+
 
 ## Device Information
 
@@ -498,5 +500,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MTI5MzUwMjZdfQ==
+eyJoaXN0b3J5IjpbMTE1MzIzNTUzMF19
 -->
