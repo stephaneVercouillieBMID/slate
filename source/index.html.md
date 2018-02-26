@@ -75,7 +75,7 @@ http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest
 
 As per the specification, with a private\_key\_jwt for client authentication.
 
-Parameter | Re | Comment
+Parameter | Required | Comment
 -- | -- | --
 **grant_type** | MUST | Must be authorization_code
 **code** | MUST | The code provided in Authorization response
@@ -295,5 +295,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTgxNjQ4NjU0XX0=
+eyJoaXN0b3J5IjpbMTc5NTI4NzM1NF19
 -->
