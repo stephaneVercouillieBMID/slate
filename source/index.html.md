@@ -85,8 +85,6 @@ Parameter | Required | Comment
 **client_assertion** | REQUIRED | Must be provided: private\_key\_jwt
 **client\_assertion\_type** | REQUIRED | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
 
-
-
 ## 3. UserInfo Request
 
 As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest
@@ -95,7 +93,7 @@ The content type of the response will be application/jwt. The response will be s
 
 The UserInfo endpoint can be accessed only with a valid access_token, and for a very limited duration after end user authentication: there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the UserInfo endpoint (this reflects a constraint set on the SOAP version of the interface).
 
-### JW
+### Signing Requests
 
 > To authorize, use this code:
 
@@ -308,5 +306,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTgxNzE4MTZdfQ==
+eyJoaXN0b3J5IjpbMTUwOTk4NjM3MF19
 -->
