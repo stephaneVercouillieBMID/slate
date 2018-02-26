@@ -21,7 +21,7 @@ This documentation describes our OAuth 2.0 implementation of **itsme(r) Login**,
 
 itsme(r) Login uses pairwise user identifier, meaning each partner will have a different User Code for the same user. Doing, nobody except BMID can link one given user code to a specific user identity.  The user identity is therefore defined the shared data.
 
-If data usage is justified and consent is provided by the end-user during authentication, following data can be shared with your application
+If purpose of use is stated and consent is provided by the end-user during authentication, following data can be shared with your application
 
 - **Verified Identity Data**: identity information retrieved from the National eID Card 
 - **Commercial Information**: information provided by the end-user 
@@ -414,5 +414,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczOTgxNTY3MCw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTUxODkwMDE0NSw2NjcyNjY5MTNdfQ==
 -->
