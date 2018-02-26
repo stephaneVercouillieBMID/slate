@@ -43,7 +43,9 @@ The User is redirected to the interface of the itsme Authorization endpoint. Thi
 
 Parameter | Comment
 --------- | -------
-scope | test
+scope | MUST contain at least openid or an HTTP ERROR not\_implemented will be returned. offline\_access value will yield an error. Other recognized values are: profile, email, phone, address. MUST also include the target service in the form service:SERVICE_CODE
+response_type | MUST be code. Other values will produce an HTTP ERROR not_implemented.
+client_id
 
 
 > To authorize, use this code:
@@ -257,5 +259,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQyOTUyNTRdfQ==
+eyJoaXN0b3J5IjpbLTEwNDE1MDMwMF19
 -->
