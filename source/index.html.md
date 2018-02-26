@@ -23,7 +23,7 @@ The usage is justified and consent is provided by the end-user, following data c
 
 - Verified Identity Data: identity information typically retrieved from the National eID Card 
 - Commercial Information: information provided by the end-user 
-- Security Information: information related to the execution of the service. 
+- Security Information: information retreived during execution of the service. 
 
 ## Verified Identity Data
 
@@ -373,5 +373,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MDU1MjI1NDNdfQ==
+eyJoaXN0b3J5IjpbLTE0NTYwMTg0NDddfQ==
 -->
