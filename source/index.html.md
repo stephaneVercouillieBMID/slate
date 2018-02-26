@@ -233,7 +233,7 @@ Parameter | Required | Comment
 **client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` client authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
 **client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
 
-Fllowing `private_key_jwt` client authentication methodthe The JWT must be signed and contain the following properties:
+Fllowing `private_key_jwt` client authentication method, the The JWT must be signed and contain the following properties:
 
 Property | Comment
 -- | --
@@ -386,5 +386,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2MDA3MDk1M119
+eyJoaXN0b3J5IjpbMTY1MzY3ODg1OV19
 -->
