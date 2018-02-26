@@ -36,7 +36,7 @@ BMID provides Partner Code and Service Code for each Service.
 SP provides the SSL/TLS certificate used on the JWKSet HTTPS endpoint
 
 ## Set a redirect URI
-SP provides the redirect URIs for each Service 
+SP provides the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
 
 ## Customize the user consent screen
 Before your application can use **itsme(r)** for user login, you must set up a project to obtain OIDC credentials, set a redirect URI, and customise the branding information that your users see on the **itsme(r)** user-consent screen.
@@ -338,5 +338,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjIwNzE3ODAyXX0=
+eyJoaXN0b3J5IjpbMTI0ODA2Njk0MF19
 -->
