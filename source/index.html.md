@@ -27,6 +27,8 @@ Except where otherwise specified, the itsme solution follows the OpenId Connect 
 
 http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps
 
+
+
 > To authorize, use this code:
 
 ```ruby
@@ -238,5 +240,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODExMjc4OTI3XX0=
+eyJoaXN0b3J5IjpbMTk3MzQwMjc5NV19
 -->
