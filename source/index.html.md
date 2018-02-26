@@ -232,7 +232,7 @@ Parameter | Required | Comment
 **grant_type** | Required | Must be `authorization_code`
 **code** | Required | The `code` value provided in the Authentication Response
 **redirect_uri** | Required | The `redirect_uri` used in the Authentication Request
-**client_assertion** | Required | Must be provided: private\_key\_jwt TODO ???
+**client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` authentication method
 **client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
 
 A valid private\_key\_jwt token must be provided by the client.
@@ -390,5 +390,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUwMzMwNDk1Nl19
+eyJoaXN0b3J5IjpbLTExNDkwMDY4NzZdfQ==
 -->
