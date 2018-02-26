@@ -230,7 +230,7 @@ Parameter | Required | Comment
 **grant_type** | Required | Must be `authorization_code`
 **code** | Required | The `code` value provided in the Authentication Response
 **redirect_uri** | Required | The `redirect_uri` used in the Authentication Request
-**client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
+**client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` client authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
 **client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
 
 The JWT must be signed and contain the following properties:
@@ -386,5 +386,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTY5MTU5NzBdfQ==
+eyJoaXN0b3J5IjpbMjEyNTY0OV19
 -->
