@@ -27,7 +27,8 @@ The following information provided by BMID will be useful during the integration
 Information | Description
 -- | --
 Partner Code | Identifier of the client, sometime referred as `client_id`
-Service Code | Identifier of the service to be executed. One client can have several services. Each service can be 
+Service Code | Identifier of the service to be executed. One client can have several services. Each service can be of LOGIN, REGISTER or APPROVAL type.
+Service Redirect URL | Each Service is associated to a Redirect URL that will be used during the Authentication flow.
 
 # itsme(r) Login Authentication
 
@@ -297,5 +298,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMDI1NjQ3NTddfQ==
+eyJoaXN0b3J5IjpbOTIxOTE1NjBdfQ==
 -->
