@@ -50,9 +50,7 @@ redirect_uri | This value MUST match one of the values provided by the partner t
 **display** | OPTIONAL but not recommended. MUST be page if provided. Other values will yield an HTTP ERROR not_implemented.
 **prompt** | OPTIONAL but not recommended Only login and consent values are supported. If prompt contains none or select\_account or any other values an HTTP ERROR not\_implemented will be returned.
 **max_age** | OPTIONAL supported but not used: itsme will always actively re-authenticate the End-User. Value must be an integer.
-**ui_locales** | OPTIONAL and supported. Can be used to specify the language to be used by the OpenID login page.
-
-: sSupported languagesvalues are: {“fr”, “nl”, “en”, “de”}. Any other value will be ignored.
+**ui_locales** | OPTIONAL and supported. Can be used to specify the language to be used by the OpenID login page.Supported languagesvalues are: {“fr”, “nl”, “en”, “de”}. Any other value will be ignored.
 
 
 > To authorize, use this code:
@@ -266,5 +264,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk2NDE1OTYxOF19
+eyJoaXN0b3J5IjpbMjEzMTA1ODg5XX0=
 -->
