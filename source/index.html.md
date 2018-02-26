@@ -41,9 +41,7 @@ JSON object with the following keys:
 Key | Description
 -- | -- 
 eid | the electronic ID card serial number.
-
 <!\[if !supportLists\]>· <!\[endif\]>“issuance_locality | the issuance locality.
-
 <!\[if !supportLists\]>· <!\[endif\]>“validity_from | eID card validity “from” date.
 <!\[if !supportLists\]>· <!\[endif\]>“validity_to | eID card validity “to” date.
 <!\[if !supportLists\]>· <!\[endif\]>“certificate_validity | the certificate validity.
@@ -369,5 +367,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDg3Mjg3NzBdfQ==
+eyJoaXN0b3J5IjpbMTIwODY4MTg2XX0=
 -->
