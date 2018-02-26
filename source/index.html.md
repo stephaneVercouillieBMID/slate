@@ -19,7 +19,7 @@ search: true
 
 # Introduction
 
-In this section, we briefly describe in a high-level way the BMID scheme. The purpose of this is to introduce the reader to the core notions of itsme, to facilitate the understanding of the description of the flows.Disclaimer:This section has only informative purposes. Information presented in this section might overlap information presented in other Rulebook documents. Although all reasonable effort is made to ensure consistency of this section compared to other Rulebook documents, it is possible in the evolution of the Rulebook that some conflicts might appear. In case of conflict between the content of this “3”section and the content of any other Rulebook document, the other Rulebook document will always have priority
+itsme(r) Login service is based on the OpenID Connect 1.0 protocol. 
 
 ## 
 
@@ -236,5 +236,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDE0OTQwNF19
+eyJoaXN0b3J5IjpbLTcyNDE4OTU5Ml19
 -->
