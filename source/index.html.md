@@ -21,7 +21,7 @@ As specified in OpenID Connect Discovery 1.0 https://openid.net/specs/openid-con
 
 # Prerequisites 
 
-
+In order to integrate with itsme(r), the client must go through the on-boarding process in order to create the corresponding partner and services
 
 # itsme(r) Login Authentication
 
@@ -291,5 +291,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTUzMzE2OTcxXX0=
+eyJoaXN0b3J5IjpbLTEzOTAzMTI0NjRdfQ==
 -->
