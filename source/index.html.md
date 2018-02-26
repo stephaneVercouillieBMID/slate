@@ -66,6 +66,8 @@ redirect_uri | REQUIRED | This value MUST match one of the values provided by th
 **request_uri** | UNSUPPORTED | N/A
 **registration** | UNSUPPORTED | N/A
 
+### Request Examples
+````
 If the authentication is NOT successful, the following errors can be triggered
 
 Error | Description
@@ -340,5 +342,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU3MDMzNzYxNl19
+eyJoaXN0b3J5IjpbLTEwMzg5NjQzOTVdfQ==
 -->
