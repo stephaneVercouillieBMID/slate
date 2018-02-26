@@ -241,9 +241,9 @@ The private\_key\_jwt must be signed and the JWT token content must have the fol
 
 Parameter | Comment
 -- | --
-**sub** | The subject of the private\_key\_jwt (the client ID)
+**sub** | The subject of the private\_key\_jwt (the client ID) TODO User Code ???
 **aud** | Must be the token endpoint URL, e.g. `https://merchant.itsme.be/oidc/token`
-**iss** | The issuer of the private\_key\_jwt (the client ID)
+**iss** | The issuer of the private\_key\_jwt (the client ID) TODO Partner Code ???
 **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
 
@@ -390,5 +390,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY4NDczNDkzOV19
+eyJoaXN0b3J5IjpbLTMwMzQ3MTU0OF19
 -->
