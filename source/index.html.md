@@ -255,10 +255,10 @@ POST /token HTTP/1.1
   Host: server.example.com
   Content-Type: application/x-www-form-urlencoded
 
-  grant\_type=authorization\_code&
-    code=i1WsRn1uB1&
+  grant_type=authorization\_code&
+    code=SplxlOBeZQQYbYS6WxSbIA&
     client_id=s6BhdRkqt3&
-    client\_assertion\_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
+    client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
     client_assertion=PHNhbWxwOl ... ZT
 ```
 
@@ -405,5 +405,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5MDkzNzc0MSw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTE4NDI4NTc2NDgsNjY3MjY2OTEzXX0=
 -->
