@@ -77,7 +77,7 @@ Parameter | Required | Comment
 **claims** | Optional | OPTIONAL and supported, though not recommended. If some notification text has to be displayed on the screen of the itsme app, this text MUST be specified in the “notification_text”parameter. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
 **request** | Optional | OPTIONAL and recommended. The JWT token MUST be signed using a key known to BMID for the given clientId. The JWT token must (must??? TODO) also be encrypted, as it may contain confidential data (in the approval use case for example)
 **response_mode** | Optional | Should not be used. Any supplied value will be ignored.
-**id\_token\_hint** | Unsupported | Supported, but not used.
+**id\_token\_hint** | Unsupported | Not used.
 **claims_locales** | Unsupported | None are supported.
 **request_uri** | Unsupported | N/A TODO 
 **registration** | Unsupported | N/A TODO
@@ -311,5 +311,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2ODUyNjA0MV19
+eyJoaXN0b3J5IjpbLTE2MzEzOTM2MDJdfQ==
 -->
