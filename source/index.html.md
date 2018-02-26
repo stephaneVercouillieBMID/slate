@@ -31,7 +31,8 @@ As per the OpenID Connect specification http://openid.net/specs/openid-connect-c
 
 As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest and http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
 
-itsme(r) endpoint : https://merchant.itsme.be/oidc/authorization
+itsme(r) Web endpoint : https://merchant.itsme.be/oidc/authorization
+itsme(r) Mobile App endpoint : TODO
 
 The fingerprint of the SSL/TLS certificate is xxxxxxx.
 
@@ -305,5 +306,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMDQxNzMxNzFdfQ==
+eyJoaXN0b3J5IjpbLTE3NjA4NjM0MzZdfQ==
 -->
