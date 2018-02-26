@@ -35,7 +35,12 @@ itsme(r) endpoint : https://merchant.itsme.be/oidc/authorization
 
 The fingerprint of the SSL/TLS certificate is xxxxxxx.
 
-### Authentication Request
+## Authentication Request
+
+http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
+
+
+
 > To authorize, use this code:
 
 ```ruby
@@ -247,5 +252,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM4NTMyMTg1MF19
+eyJoaXN0b3J5IjpbLTQ1MDA0MDQ1N119
 -->
