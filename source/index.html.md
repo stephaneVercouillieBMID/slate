@@ -13,12 +13,15 @@ search: true
 
 # Introduction
 
-itsme(r) Login is exposed through Open ID 
-Except specified otherwise, itsme(r)  follows the official OpenId Connect Core 1.0 specifications.
+itsme(r) Login is exposed through OpenID Connect 1.0. Except specified otherwise, itsme(r)  follows the official OpenId Connect Core 1.0 specifications.
 
 As specified in OpenID Connect Discovery 1.0 https://openid.net/specs/openid-connect-discovery-1_0.html, itsme(r) exposes an OpenID Provider Configuration Document at the following URL
 
 [https://merchant.itsme.be/oidc/.well-known/openid-configuration](https://merchant.itsme.be/oidc/.well-known/openid-configuration).
+
+# Prerequisites 
+
+
 
 # itsme(r) Login Authentication
 
@@ -288,5 +291,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjUzMzMzNjk2XX0=
+eyJoaXN0b3J5IjpbOTUzMzE2OTcxXX0=
 -->
