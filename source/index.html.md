@@ -63,8 +63,8 @@ Parameter | Required | Comment
 **request** | OPTIONAL | OPTIONAL and recommended. The JWT token MUST be signed using a key known to BMID for the given clientId. The JWT token must (must??? TODO) also be encrypted, as it may contain confidential data (in the approval use case for example)
 **response_mode** | OPTIONAL | Should not be used. Any supplied value will be ignored.
 **id\_token\_hint** | OPTIONAL | Supported, but not used.
-**request_uri** | UNSUPPORTED | N/A
-**registration** | UNSUPPORTED | N/A
+**request_uri** | UNSUPPORTED | N/A TODO 
+**registration** | UNSUPPORTED | N/A TODO
 
 ### Request Examples
 >Example of Authorization request
@@ -498,5 +498,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDI4MTIxMTAyXX0=
+eyJoaXN0b3J5IjpbMTI1NzYyODk4MF19
 -->
