@@ -63,21 +63,21 @@ Parameter | Required | Comment
 **response_type** | REQUIRED | MUST be <code>code</code>. (Read more at [`response_type`]((https://developers.google.com/identity/protocols/OpenIDConnect#response-type).)
 **client_id** | REQUIRED | MUST be a valid partner code as provided by BMID during on-boarding process (this information is in the onboarding file). This value will be unique to each partner.
 **redirect_uri** | REQUIRED | This value MUST match one of the values provided by the partner to BMID during on-boarding process. It must include the https scheme. ***Note**: the Partner can define a different `redirect_uri` specific to each Service.*
-**state** | (Optional, but strongly recommended) | An appropriate value is RECOMMENDED
-**nonce** | OPTIONAL | An appropriate value is RECOMMENDED
-**display** | OPTIONAL | OPTIONAL but not recommended. MUST be `page` if provided. Other values will yield an HTTP ERROR `not_implemented`.
-**prompt** | OPTIONAL | OPTIONAL but not recommended. Only `login` and `consent` values are supported. If prompt contains `none` or `select\_account` or any other values an HTTP ERROR `not\_implemented` will be returned.
-**max_age** | OPTIONAL | OPTIONAL supported but not used: itsme(r) will always actively re-authenticate the End-User. 
-**ui_locales** | OPTIONAL | OPTIONAL and supported. Can be used to specify the language to be used by the OpenID login page. Supported languages are: `fr`, `nl`, `en` and `de`. Any other value will be ignored.
-**login_hint** | OPTIONAL | OPTIONAL and supported, though not recommended. Only phone numbers are supported as login_hint. Format is: `\<coutrycode\>+\<phonenumber\>`. E.g. `login_hint=32+123456789`. Usage of claim value `phone\_number` in an encrypted request object is recommended in order to avoid disclosure of phone number of the enduser on the user agent
-**acr_values** | OPTIONAL | OPTIONAL and supported, though not recommended. Possible values are tag:itsmetag:sixdots.be,2016-06:acr_basic, tag:itsmetag:sixdots.be,2016-06:acr_advanced. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the acr\_values is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the acr\_values list, or the authentication will fail. Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token
-**claims_locales** | OPTIONAL | OPTIONAL supported but not used
-**claims** | OPTIONAL | OPTIONAL and supported, though not recommended. If some notification text has to be displayed on the screen of the itsme app, this text MUST be specified in the “notification_text”parameter. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
-**request** | OPTIONAL | OPTIONAL and recommended. The JWT token MUST be signed using a key known to BMID for the given clientId. The JWT token must (must??? TODO) also be encrypted, as it may contain confidential data (in the approval use case for example)
-**response_mode** | OPTIONAL | Should not be used. Any supplied value will be ignored.
-**id\_token\_hint** | OPTIONAL | Supported, but not used.
-**request_uri** | UNSUPPORTED | N/A TODO 
-**registration** | UNSUPPORTED | N/A TODO
+**state** | Optional, but strongly recommended | An appropriate value is RECOMMENDED
+**nonce** | Optional | An appropriate value is RECOMMENDED
+**display** | Optional | OPTIONAL but not recommended. MUST be `page` if provided. Other values will yield an HTTP ERROR `not_implemented`.
+**prompt** | Optional | OPTIONAL but not recommended. Only `login` and `consent` values are supported. If prompt contains `none` or `select\_account` or any other values an HTTP ERROR `not\_implemented` will be returned.
+**max_age** | Optional | OPTIONAL supported but not used: itsme(r) will always actively re-authenticate the End-User. 
+**ui_locales** | Optional | OPTIONAL and supported. Can be used to specify the language to be used by the OpenID login page. Supported languages are: `fr`, `nl`, `en` and `de`. Any other value will be ignored.
+**login_hint** | Optional | OPTIONAL and supported, though not recommended. Only phone numbers are supported as login_hint. Format is: `\<coutrycode\>+\<phonenumber\>`. E.g. `login_hint=32+123456789`. Usage of claim value `phone\_number` in an encrypted request object is recommended in order to avoid disclosure of phone number of the enduser on the user agent
+**acr_values** | Optional | OPTIONAL and supported, though not recommended. Possible values are tag:itsmetag:sixdots.be,2016-06:acr_basic, tag:itsmetag:sixdots.be,2016-06:acr_advanced. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the acr\_values is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the acr\_values list, or the authentication will fail. Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token
+**claims_locales** | Optional | OPTIONAL supported but not used
+**claims** | Optional | OPTIONAL and supported, though not recommended. If some notification text has to be displayed on the screen of the itsme app, this text MUST be specified in the “notification_text”parameter. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
+**request** | Optional | OPTIONAL and recommended. The JWT token MUST be signed using a key known to BMID for the given clientId. The JWT token must (must??? TODO) also be encrypted, as it may contain confidential data (in the approval use case for example)
+**response_mode** | Optional | Should not be used. Any supplied value will be ignored.
+**id\_token\_hint** | Optional | Supported, but not used.
+**request_uri** | Unsupported | N/A TODO 
+**registration** | Unsupported | N/A TODO
 
 ### Request Examples
 
@@ -306,5 +306,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDExNDYyMTUyXX0=
+eyJoaXN0b3J5IjpbNDg4Njk1NzIzXX0=
 -->
