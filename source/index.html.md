@@ -291,8 +291,7 @@ The UserInfo endpoint can be accessed only with a valid **access_token** receive
 Your server makes this exchange by sending an HTTPS `POST` request. The `POST` request is sent to the UserInfo endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **userinfo_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/userinfo`. The request must include the following parameters in the `POST` body:
 
 ## 
-### Claims via Scopes
-
+### Requesting Claims using Scope Values
 itsme(r) won't deliver any aggregated nor distributed claims in the current version.
 
 In current version and in contradiction to the OpenID Connect specification, itsme(r) considers all claims as **Essential**, even if they are requested as a **Voluntary** claim. However, as in a future version, itsme(r)  will make the difference between Essential and Voluntary Claims, Relying Parties should already request claims with appropriate level regarding their business case.
@@ -311,7 +310,8 @@ Scope | Data | Claim
 
 ***NOTE**: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.*
 
-We have favored the request of Identity Data in the scope values. However, some Identity Data have to be requested in the “claims” parameter of the Authentication Request. Here are these claims:
+### Requesting Claims using the "claims" Request Parameter
+We have favoured the request of Identity Data in the scope values. However, some Identity Data have to be requested in the “claims” parameter of the Authentication Request. Here are these claims:
 
 Data | Claim | Comment
 -- | -- | --
@@ -411,5 +411,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY3MzIzMTgxNSw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTEzMjU3MTY2NTMsNjY3MjY2OTEzXX0=
 -->
