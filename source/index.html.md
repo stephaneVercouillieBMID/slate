@@ -22,6 +22,9 @@ As specified in OpenID Connect Discovery 1.0 https://openid.net/specs/openid-con
 [https://merchant.itsme.be/oidc/.well-known/openid-configuration](https://merchant.itsme.be/oidc/.well-known/openid-configuration).
 
 # Prerequisites 
+## Obtain OAuth 2.0 credentials
+## Set a redirect URI
+## Customize the user consent screen
 Before your application can use **itsme(r)** for user login, you must set up a project to obtain OIDC credentials, set a redirect URI, and customise the branding information that your users see on the **itsme(r)** user-consent screen.
 
 In order to integrate with itsme(r), the client (relying party) must first go through the itsme(r) on-boarding process in order to create the corresponding partner and services to be consumed. 
@@ -303,5 +306,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4MzA2NDY4N119
+eyJoaXN0b3J5IjpbLTI5MDYxMTk0N119
 -->
