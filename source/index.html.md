@@ -103,6 +103,7 @@ Host: server.itsme.be
 }
 ```
 
+### Errors
 If the authentication is NOT successful, the following errors can be triggered
 
 Error | Description
@@ -377,5 +378,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExOTMyMjAzNzNdfQ==
+eyJoaXN0b3J5IjpbLTI1Nzk1Nzk5OV19
 -->
