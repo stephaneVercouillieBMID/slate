@@ -78,53 +78,30 @@ GET /authorize?response_type=code
 Host: server.itsme.be
 ```
 
-<!\[endif\]-->
-
+```json
 {
-
-"iss": "s6BhdRkqt3",
-
-"aud": "https://server.itsme.be",
-
-"response_type": "code",
-
-"client_id": "s6BhdRkqt3",
-
-"redirect_uri": "https://client.example.org/cb",
-
-"scope": "openid email service:client.registration",
-
-"state": "af0ifjsldkj",
-
-"nonce": "n-0S6_WzA2Mj",
-
-"claims":
-
+iss: "s6BhdRkqt3",
+aud: "https://server.itsme.be",
+response_type: "code",
+client_id: "s6BhdRkqt3",
+redirect_uri: "https://client.example.org/cb",
+scope: "openid email service:client.registration",
+state: "af0ifjsldkj",
+nonce: "n-0S6_WzA2Mj",
+claims:
 {
-
-"userinfo":
-
-{
-
+userinfo: {
 " tag:itsmetag:sixdots.be,2016-06:claim_nationality": null,
-
 " tag:itsme.be,2016-06:claim\_notification\_text": {"value": "Login to the FOO service"}
-
 },
-
 "id_token":
-
 {
-
 "auth_time": {"essential": true},
-
 "acr": {"value": \["tag:itsmetag:sixdots.be,2016-06:acr_securedadvanced"\] }
-
 }
-
 }
-
 }
+```
 
 If the authentication is NOT successful, the following errors can be triggered
 
@@ -400,5 +377,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjgwNzg5MTEwXX0=
+eyJoaXN0b3J5IjpbLTExMDY2MTM3NTNdfQ==
 -->
