@@ -41,6 +41,11 @@ http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
 
 The User is redirected to the interface of the itsme Authorization endpoint. This will be a webpage if the User is in the Service Provider website, or a webview if the User is in a Service Provider App. The parameters of the redirection URL contain all information itsme needs to execute the Authentication and Authorization process, according to the OpenID specifications :
 
+Parameter | Comment
+--------- | -------
+sc | test
+
+
 > To authorize, use this code:
 
 ```ruby
@@ -252,5 +257,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM5OTk5MzZdfQ==
+eyJoaXN0b3J5IjpbLTE4NzM1MTMxNzBdfQ==
 -->
