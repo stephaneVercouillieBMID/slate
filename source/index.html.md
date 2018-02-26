@@ -17,9 +17,9 @@ This documentation describes our OAuth 2.0 implementation of **itsme(r) Login**,
 
 # itsme(r) Login
 
-**itsme(r) Login** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) to allow user to login securely and to share verified identity data with your application.
+**itsme(r) Login** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) to allow users to login securely and to share verified identity data with your application.
 
-The usage is justified and consent is provided by the end-user, following data can be shared with your application
+The data usage is justified and consent is provided by the end-user, following data can be shared with your application
 
 - **Verified Identity Data**: identity information typically retrieved from the National eID Card 
 - **Commercial Information**: information provided by the end-user 
@@ -31,7 +31,7 @@ Data | Definition
 -- | --
 Full Name | Full name is a concatenation of firstname, middlenames and lastname.
 Date of birth | Birthdate 
-Place of birth | 
+Place of birth | Place of birth. ***Note**: 
 Gender |
 Language |
 Nationality |
@@ -373,5 +373,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDI4NDgyNjddfQ==
+eyJoaXN0b3J5IjpbLTEzMTE2MDUyMTFdfQ==
 -->
