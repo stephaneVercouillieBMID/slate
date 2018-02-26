@@ -169,9 +169,35 @@ itsme(r) won't deliver any aggregated nor distributed claims in the current vers
 In current version and in contradiction to the OpenID Connect specification, itsme(r) considers all claims as **Essential**, even if they are requested as a **Voluntary** claim. However, as in a future version, itsme(r)  will make the difference between Essential and Voluntary Claims, Relying Parties should already request claims with appropriate level regarding their business case.
 
 Following values for scope allow access to a predefined sets of Identity Data:
+
 Profile Name | Claims
 -- | --
+<!\[endif\]-->
 
+**profile** | `given_name`, `family_name`, `name`, `gender`, `birthdate`, `locale`
+**email**
+
+<!\[if !supportLists\]>· <!\[endif\]>email
+
+<!\[if !supportLists\]>· <!\[endif\]>email_verified
+
+**phone**
+
+<!\[if !supportLists\]>· <!\[endif\]>phone_number
+
+<!\[if !supportLists\]>· <!\[endif\]>phone\_number\_verified
+
+**address**
+
+<!\[if !supportLists\]>· <!\[endif\]>address, with subfields
+
+<!\[if !supportLists\]>o <!\[endif\]>street_address (newline separator \\n)
+
+<!\[if !supportLists\]>o <!\[endif\]>locality
+
+<!\[if !supportLists\]>o <!\[endif\]>postal_code
+
+<!\[if !supportLists\]>o <!\[endif\]>country
 
 ## Signing Requests
 
@@ -388,5 +414,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNDU2ODM5MjRdfQ==
+eyJoaXN0b3J5IjpbMTYxMzQyMzkyNl19
 -->
