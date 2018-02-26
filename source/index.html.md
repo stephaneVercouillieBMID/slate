@@ -29,21 +29,6 @@ To simplify implementations and increase flexibility, OpenID Connect allows the 
 Format and content of this document is defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
 
 # Prerequisites 
-## Obtain OAuth 2.0 credentials
-BMID provides Partner Code and Service Code for each Service.
-
-## Register your SSL/TLS certificates
-SP provides the SSL/TLS certificate used on the JWKSet HTTPS endpoint
-
-## Set a redirect URI
-SP provides the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
-
-## Customize the user consent screen
-SP provides 
-
-- Partner name, description and localized labels
-- Services' name, description 
-
 
 Before your application can use **itsme(r)** for user login, you must set up a project to obtain OIDC credentials, set a redirect URI, and customise the branding information that your users see on the **itsme(r)** user-consent screen.
 
@@ -57,6 +42,20 @@ Partner Code | Identifier of the client, sometime referred as `client_id`
 Service Code | Identifier of the service to be executed. One client can have several services, each service being one of the following type: Login or APPROVAL.
 Service Redirect URL | Each Service is associated to a Redirect URL that will be used during the Authentication flow to send back information to the client.
 
+## Customize the user consent screen
+SP provides 
+
+- Partner name, description and localized labels
+- Services' name, description and localized labels
+- 
+## Obtain OAuth 2.0 credentials
+BMID provides Partner Code and Service Code for each Service.
+
+## Register your SSL/TLS certificates
+SP provides the SSL/TLS certificate used on the JWKSet HTTPS endpoint
+
+## Set a redirect URI
+SP provides the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
 
 # Authenticating the user
 
@@ -344,5 +343,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzYwNDc4MDc1XX0=
+eyJoaXN0b3J5IjpbMTYwNzA3Mzc1NV19
 -->
