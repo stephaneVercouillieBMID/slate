@@ -214,7 +214,7 @@ HTTP/1.1 302 Found
 ### Errors
 As per http://openid.net/specs/openid-connect-core-1_0.html#AuthError
 
-If the authentication is NOT successful, the following errors can be triggered
+If the authentication is NOT successful, the following errors can be triggered by itsme(r)
 
 Error | Description
 -- | --
@@ -408,5 +408,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY1ODA3MjQwNCw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbNjE1Nzk1MjYwLDY2NzI2NjkxM119
 -->
