@@ -60,6 +60,11 @@ redirect_uri | MUST | This value MUST match one of the values provided by the pa
 **request_uri** | UNSUPPORTED | N/A
 **registration** | UNSUPPORTED | N/A
 
+If the authentication is NOT successful, the following errors can be triggered
+
+Error
+--
+
 
 > To authorize, use this code:
 
@@ -272,5 +277,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDgzNDU5NDhdfQ==
+eyJoaXN0b3J5IjpbLTg5NTAyMzU4OF19
 -->
