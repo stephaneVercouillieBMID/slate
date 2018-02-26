@@ -145,7 +145,7 @@ Format and content of this document is defined in [OpenID Connect Discovery 1.0]
 
 # Authenticating the user
 
-itsme(r) Login service is based on the Authorization Code Flow of OpenID Connect 1.0 as defined in [http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)
+**itsme(r) Login** service is based on the Authorization Code Flow of OpenID Connect 1.0 as defined in [http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)
 
 The Authorization Code Flow goes through the following steps as defined in  [http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps)
 
@@ -406,5 +406,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM4ODI3NDIzXX0=
+eyJoaXN0b3J5IjpbNjY3MjY2OTEzXX0=
 -->
