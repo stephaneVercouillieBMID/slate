@@ -23,7 +23,7 @@ This documentation describes our OAuth 2.0 implementation of **itsme(r) Login**,
 
 Data | Definition
 -- | --
-Full Name | 
+Full Name | Full name is a concatenation of firstname, middlenames and lastname.
 Data of birth | 
 Place of birth |
 Gender |
@@ -355,5 +355,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM0MjI4NDM2OF19
+eyJoaXN0b3J5IjpbMTIyODYzODQ1Nl19
 -->
