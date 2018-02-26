@@ -219,11 +219,11 @@ A JSON object with the following keys (only keys with cardinality \[1..1\] will 
 Key | Cardinality | Description
 -- | -- | -- 
 **os** | 1..1 | the device operating system (supported values: {`ANDROID`, `IOS`})
+**deviceId** | 1..1 | (regexp = "\[a-f0-9\]{33}") the device identifier.
 **appName** | 0..1 | the application name.
 **appRelease** | 0..1 | the application current release.
 **deviceLabel** | 0..1 | the name of the device.
 **debugEnabled** | 0..1 | if debug mode is activated.
-**deviceId** | 1..1 | (regexp = "\[a-f0-9\]{33}") the device identifier.
 **osRelease** | 0..1 | Version of the OS running on your Device.
 **manufacturer** | 0..1 | Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android). 
 **hasSimEnabled** | 0..1 | Whether there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing itsme on a tablet.
@@ -466,5 +466,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQwNTU0MDI1NV19
+eyJoaXN0b3J5IjpbLTE4OTk5NzQ3NjFdfQ==
 -->
