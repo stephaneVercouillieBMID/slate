@@ -30,11 +30,18 @@ Gender |
 Language |
 Nationality |
 Address |
-E-ID picture |
+Passport Number | 
 NRN | 
-
+E-ID picture |
+E-ID Info | 
 
 ## Commercial Information
+
+Data | Definition
+-- | --
+Phone Number | 
+E-Mail  | 
+
 
 ## Security Information
 
@@ -344,5 +351,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYxMjQyNTQ0OV19
+eyJoaXN0b3J5IjpbMTAzNjY2OTc2NF19
 -->
