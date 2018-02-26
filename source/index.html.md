@@ -210,9 +210,7 @@ The following standard claims (check http://openid.net/specs/openid-connect-core
 
 ## Signing and Encryption Requests
 
-<!\[endif\]-->
-
-Encryption algorithm used: RSA SHA-256
+Encryption algorithm used: RSA SHA-256 TODO not aligned with
 
 Supported algorithms and encryption methods for:
 
@@ -500,5 +498,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjIzMzk5NTg4XX0=
+eyJoaXN0b3J5IjpbMTAxMDA1NDI0Ml19
 -->
