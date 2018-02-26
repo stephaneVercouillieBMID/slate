@@ -83,7 +83,7 @@ Data | Provided | Definition
 **SIM Enabled** |  | Whether there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing itsme on a tablet.
 **Lock Level** |  | The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.
 **SMS Enabled** |  | Can send SMS. On iOS, means it’s an iPhone. 
-**Rooted** |  | Coming from Gemalto. ‘true’ the device is jailbreaked/rooted.
+**Rooted** |  | True if the device is jailbreaked/rooted.
 **IMEI** |  | (regexp = "\[0-9\]{15,17}") the device IMEI value.
 **Model** |  | Model of the Device. e.g. SAMSUNG GALAXY A5
 **MSISDN** |  | the user’s phone number. 
@@ -372,5 +372,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYyNzMwODM0Ml19
+eyJoaXN0b3J5IjpbLTg1OTEzMjE5NF19
 -->
