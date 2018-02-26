@@ -35,10 +35,10 @@ Place of birth | Place of birth. ***Note**: this information can be localized*
 Gender | Gender
 Language | Language
 Nationality | Nationality
-Address | 
-Passport Number | 
-NRN | 
-E-ID picture |
+Address | Address containing street, house number, postbox, locality, postcode and country
+Passport Number | Passport Number
+NRN | National Registry Number
+E-ID picture | Picture taken from the eID Card
 E-ID Info | See [E-ID Info](#e-id-info)
 
 ### <a name="e-id-info"></a>E-ID Info
@@ -373,5 +373,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDgyNzgwMTMwXX0=
+eyJoaXN0b3J5IjpbMTcwMzcyNTcxN119
 -->
