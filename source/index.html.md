@@ -50,9 +50,15 @@ Paremeter | Comment
 **state** | An appropriate value is RECOMMENDED
 **nonce** | An appropriate value is RECOMMENDED
 
+Parameter | Comment
+-- | --
 **response_mode** | Should not be used. Any supplied value will be ignored.
 **id\_token\_hint** | Supported, but not used.
+**request_uri** | Not supported
+**registration** | Not supported
 
+Parameter | Comment
+-- | --
 **display** | OPTIONAL but not recommended. MUST be page if provided. Other values will yield an HTTP ERROR not_implemented.
 **prompt** | OPTIONAL but not recommended Only login and consent values are supported. If prompt contains none or select\_account or any other values an HTTP ERROR not\_implemented will be returned.
 **max_age** | OPTIONAL supported but not used: itsme will always actively re-authenticate the End-User. Value must be an integer.
@@ -62,8 +68,6 @@ Paremeter | Comment
 **claims_locales** | OPTIONAL supported but not used
 **claims** | OPTIONAL and supported, though not recommended. If some notification text has to be displayed on the screen of the itsme app, this text MUST be specified in the “notification_text”parameter. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
 **request** | OPTIONAL and recommended. The JWT token MUST be signed using a key known to BMID for the given clientId. The JWT token must also be encrypted, as it may contain confidential data (in the approval use case for example)
-**request_uri** | Not supported
-**registration** | Not supported
 
 
 > To authorize, use this code:
@@ -277,5 +281,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc5MjY4NzkxOF19
+eyJoaXN0b3J5IjpbLTE3OTg4ODU3NThdfQ==
 -->
