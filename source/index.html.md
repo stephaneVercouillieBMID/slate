@@ -292,9 +292,8 @@ Your server makes this exchange by sending an HTTPS `POST` request. The `POST` r
 
 ## Shared Data
 ### Requesting Claims using Scope Values
-***Note**: itsme(r) won't deliver any [aggregated nor distributed claims](http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims) in the current version.*
 
-In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims as **Essential**, even if they are requested as a **Voluntary** claim (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)). However, as in a future version **itsme(r)**  will make the difference between Essential and Voluntary Claims, Relying Parties should already request claims with appropriate level regarding their business case.
+***Note**: itsme(r) won't deliver any [aggregated nor distributed claims](http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims) in the current version.*
 
 Following values for scope allow access to a predefined sets of Identity Data:
 
@@ -334,6 +333,8 @@ The following standard claims (check http://openid.net/specs/openid-connect-core
  - `website` 
  - `zoneinfo` 
  - `updated_at`
+
+
 
 # Advanced topics
 
@@ -411,5 +412,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUwNjcyNzU4LDY2NzI2NjkxM119
+eyJoaXN0b3J5IjpbODgzMzU4MDI5LDY2NzI2NjkxM119
 -->
