@@ -272,7 +272,7 @@ Parameter | Provided | Comment
 **token_type** | Always | Will be `Bearer`
 **id_token** | Always | The JWT `id_token` corresponding to the Authentication Request (signed and encrypted TODO). See [ID Token](#id-token).
 **at_hash** | | first version of itsme(r) does not produce the at_hash value ??? TODO which version
-**refresh_token** | Never | Won't be provided as itsme(r) only maintains short-lived ses
+**refresh_token** | Never | Won't be provided as itsme(r) only maintains short-lived session.
 
 ### Errors
 
@@ -414,5 +414,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2MDQ3Mjc2NCw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTQ0Nzc1NTcxNSw2NjcyNjY5MTNdfQ==
 -->
