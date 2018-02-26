@@ -31,7 +31,7 @@ Data | Definition
 -- | --
 Full Name | Full name is a concatenation of firstname, middlenames and lastname.
 Date of birth | Birthdate 
-Place of birth | Place of birth. ***Note**: * 
+Place of birth | Place of birth. ***Note**: t* 
 Gender |
 Language |
 Nationality |
@@ -373,5 +373,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYxMDg0OTQ0NV19
+eyJoaXN0b3J5IjpbMzE4MTU3NDM1XX0=
 -->
