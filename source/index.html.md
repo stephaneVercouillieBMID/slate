@@ -40,7 +40,7 @@ The User is redirected to the interface of the itsme Authorization endpoint. Thi
 
 Parameter | Required | Comment
 --------- | ------- | -----
-**scope** | MUST |MUST contain at least `openid` or an HTTP ERROR not\_implemented will be returned. `offline\_access` value will yield an error. Other recognized values are: `profile`, `email`, `phone`, `address`. MUST also include the target service in the form `service:SERVICE_CODE`
+**scope** | MUST | MUST contain at least `openid` or an HTTP ERROR not\_implemented will be returned. `offline\_access` value will yield an error. Other recognized values are: `profile`, `email`, `phone`, `address`. MUST also include the target service in the form `service:SERVICE_CODE`
 **response_type** | MUST be <code>code</code>. Other values will produce an HTTP ERROR not_implemented.
 **client_id** | MUST be a valid partner code as provided by the BMID during on-boarding process (this information is in the onboarding file). This value will be unique to each partner.
 redirect_uri | This value MUST match one of the values provided by the partner to the itsme administrator when registering the Partner. It must include the https scheme. Note: the Partner can define a different redirect_uri specific to each Service.
@@ -285,5 +285,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4ODA4MTMxNjldfQ==
+eyJoaXN0b3J5IjpbMTAxNzcwMTE5OV19
 -->
