@@ -85,7 +85,51 @@ Parameter | Required | Comment
 **client_assertion** | REQUIRED | Must be provided: private\_key\_jwt
 **client\_assertion\_type** | REQUIRED | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
 
+A valid private\_key\_jwt token must be provided by the client.
 
+The private\_key\_jwt must be signed and the JWT token content must have the following properties:
+
+Parameter | Comment
+-- | --
+**sub** | The subject of the private\_key\_jwt (the client ID)
+**aud** | The token endpoint url
+iIss
+
+The issuer of the private\_key\_jwt (the client ID)
+
+**exp**
+
+Expiration time on or after which the ID Token MUST NOT be accepted for processing.
+
+**jti**
+
+A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
+
+#### <!\[if !supportLists\]>1.1.1.1 <!\[endif\]>Successful Token Response
+
+**Parameter**
+
+**Comment**
+
+**access_token**
+
+Will be provided
+
+**token_type**
+
+Bearer
+
+**refresh_token**
+
+won't be provided
+
+**id_token**
+
+the id_token correspoding to the authentication request (signed and encrypted)
+
+**at_hash**
+
+OPTIONAL: first version of itsme Core does not produce the at_hash value
 
 ## 3. UserInfo Request
 
@@ -310,5 +354,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyOTU3OTQ0ODVdfQ==
+eyJoaXN0b3J5IjpbLTE2NjYyMTM1MzZdfQ==
 -->
