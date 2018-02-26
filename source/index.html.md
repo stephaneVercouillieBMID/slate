@@ -235,9 +235,11 @@ Offline access is not supported. TODO
 
 Dynamic client registration is not allowed. TODO 
 
-itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet). 
+itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet) 
+> https://merchant.itsme.be/oidc/jwkSet
 
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP.
+
 
 ## Device Information
 
@@ -495,5 +497,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1NDI1Nzc0OV19
+eyJoaXN0b3J5IjpbLTEwMjQzMjYzNTZdfQ==
 -->
