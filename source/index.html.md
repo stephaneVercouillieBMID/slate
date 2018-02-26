@@ -24,6 +24,7 @@ As specified in OpenID Connect Discovery 1.0 https://openid.net/specs/openid-con
 In order to integrate with itsme(r), the client (relying party) must go through the on-boarding process in order to create the corresponding partner and services to be consumed. 
 
 The following information provided by BMID will be useful during the integration
+
 Information | Description
 -- | --
 Partner Code | Identifier of the client, sometime referred as `client_id`
@@ -299,5 +300,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ1MDM2MDQyMF19
+eyJoaXN0b3J5IjpbMTA0Nzc0Mjk5NF19
 -->
