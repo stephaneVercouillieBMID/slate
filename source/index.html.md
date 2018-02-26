@@ -29,9 +29,11 @@ http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps
 
 ## Authorization Endpoint
 
-https://merchant.itsme.be/oidc/authorization
+http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
 
-The fingerprint of the SSL certificate is xxxxxxx.
+itsme(r) endpoint : https://merchant.itsme.be/oidc/authorization
+
+The fingerprint of the SSL/TLS certificate is xxxxxxx.
 
 
 > To authorize, use this code:
@@ -245,5 +247,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMDM3OTYzNDldfQ==
+eyJoaXN0b3J5IjpbMTk5MzI1MzA4Nl19
 -->
