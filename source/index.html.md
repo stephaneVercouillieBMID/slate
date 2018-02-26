@@ -39,6 +39,10 @@ SP provides the SSL/TLS certificate used on the JWKSet HTTPS endpoint
 SP provides the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
 
 ## Customize the user consent screen
+SP provides 
+- 
+
+
 Before your application can use **itsme(r)** for user login, you must set up a project to obtain OIDC credentials, set a redirect URI, and customise the branding information that your users see on the **itsme(r)** user-consent screen.
 
 In order to integrate with itsme(r), the client (relying party) must first go through the itsme(r) on-boarding process in order to create the corresponding partner and services to be consumed. 
@@ -338,5 +342,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI0ODA2Njk0MF19
+eyJoaXN0b3J5IjpbOTc5NDE3MDkwXX0=
 -->
