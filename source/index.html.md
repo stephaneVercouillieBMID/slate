@@ -27,7 +27,7 @@ The following information provided by BMID will be useful during the integration
 Information | Description
 -- | --
 Partner Code | Identifier of the client, sometime referred as `client_id`
-Service Code | Identifier of the service to be executed. One cloie
+Service Code | Identifier of the service to be executed. One client ca
 
 # itsme(r) Login Authentication
 
@@ -297,5 +297,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU4NTA0MjE3XX0=
+eyJoaXN0b3J5IjpbLTE5ODE0MzAwNDBdfQ==
 -->
