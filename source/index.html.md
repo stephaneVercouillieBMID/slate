@@ -21,6 +21,7 @@ As specified in OpenID Connect Discovery 1.0 https://openid.net/specs/openid-con
 [https://merchant.itsme.be/oidc/.well-known/openid-configuration](https://merchant.itsme.be/oidc/.well-known/openid-configuration).
 
 # Prerequisites 
+Before your application can use itsme(r) for user login, you must set up a project in the [Google API Console](https://console.developers.google.com/) to obtain OAuth 2.0 credentials, set a redirect URI, and (optionally) customize the branding information that your users see on the user-consent screen.
 
 In order to integrate with itsme(r), the client (relying party) must first go through the itsme(r) on-boarding process in order to create the corresponding partner and services to be consumed. 
 
@@ -301,5 +302,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwOTQ4NTI5NTRdfQ==
+eyJoaXN0b3J5IjpbLTE5MDQ3NjkzMjhdfQ==
 -->
