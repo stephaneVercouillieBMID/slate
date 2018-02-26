@@ -27,9 +27,9 @@ As per the OpenID Connect specification http://openid.net/specs/openid-connect-c
 
 ## 1. Authentication Request
 
-As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest and http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
+As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
 
-itsme(r) Web endpoint : https://merchant.itsme.be/oidc/authorization
+itsme(r) Web endpoint : [https://merchant.itsme.be/oidc/authorization](https://merchant.itsme.be/oidc/authorization)
 itsme(r) Mobile App endpoint : TODO
 
 The fingerprint of the SSL/TLS certificate is xxxxxxx.
@@ -287,5 +287,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2ODczNzY5NDNdfQ==
+eyJoaXN0b3J5IjpbLTE5OTIwNzg1NTldfQ==
 -->
