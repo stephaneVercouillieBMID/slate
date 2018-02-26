@@ -77,7 +77,7 @@ GET /authorize?response_type=code
 &request=ekdlzldjkf...request..object..as..JWT..token... HTTP/1.1
 Host: server.itsme.be
 ```
-
+> Example of claim request before base64url encoding, signing and encryption
 ```json
 {
 	iss: "s6BhdRkqt3",
@@ -377,5 +377,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjk2NDQ1NjY2XX0=
+eyJoaXN0b3J5IjpbLTExOTMyMjAzNzNdfQ==
 -->
