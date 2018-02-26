@@ -223,6 +223,8 @@ registration\_not\_supported | TODO
 
 As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest
 
+The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token.
+
 As per the specification, with a `private_key_jwt` for client authentication.
 
 Parameter | Required | Comment
@@ -388,5 +390,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcxMDU2MzIzXX0=
+eyJoaXN0b3J5IjpbLTM0MDcxODE3NF19
 -->
