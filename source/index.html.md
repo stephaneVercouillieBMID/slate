@@ -17,12 +17,11 @@ This documentation describes our OAuth 2.0 implementation of **itsme(r) Login**,
 
 **itsme(r) Login** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) to allow user login and sign-up in your application.
 
-As specified in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
-
 To simplify implementations and increase flexibility, OpenID Connect allows the use of a "Discovery document", a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider's configuration, including the URIs of the authorization, token, userinfo, and public-keys endpoints. The Discovery document for **itsme(r)** OpenID Connect service may be retrieved from:
 
 [https://merchant.itsme.be/oidc/.well-known/openid-configuration](https://merchant.itsme.be/oidc/.well-known/openid-configuration).
 
+Format and content of this document is defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
 # Prerequisites 
 ## Obtain OAuth 2.0 credentials
 ## Set a redirect URI
@@ -306,5 +305,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMyNzQzMzg5M119
+eyJoaXN0b3J5IjpbMTYxMTAyMDE1M119
 -->
