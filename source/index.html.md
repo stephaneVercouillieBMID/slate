@@ -163,6 +163,11 @@ The content type of the response will be `application/jwt`. The response will be
 
 The UserInfo endpoint can be accessed only with a valid access_token, and for a very limited duration after end user authentication: there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the UserInfo endpoint (this reflects a constraint set on the SOAP version of the interface).
 
+### Claims
+itsme(r) won't deliver any aggregated nor distributed claims in the current version.
+
+In current version and in contradiction to the OpenID Connect specification, itsme(r) considers all claims as `Essential`, even if they are requested as a Voluntary Claim. However, as in a future version, itsme Core will make the difference between Essential and Voluntary Claims, Relying Parties should already request claims with appropriate level regarding their business case.
+
 ## Signing Requests
 
 
@@ -378,5 +383,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI1Nzk1Nzk5OV19
+eyJoaXN0b3J5IjpbLTc4NjU2ODA2XX0=
 -->
