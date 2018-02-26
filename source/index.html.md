@@ -286,11 +286,11 @@ As per the OpenID Connect specification [http://openid.net/specs/openid-connect-
 
 The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed.
 
-The UserInfo endpoint can be accessed only with a valid **access_token** received from the token endpoint, and for a very limited duration after end user authentication; there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the UserInfo endpoint (this reflects a constraint set on the SOAP version of the interface).
+The UserInfo endpoint can be accessed only with a valid **access_token** received from the token endpoint, and for a very limited duration after end user authentication; there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the UserInfo endpoint.
 
 Your server makes this exchange by sending an HTTPS `POST` request. The `POST` request is sent to the UserInfo endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **userinfo_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/userinfo`. The request must include the following parameters in the `POST` body:
 
-## 
+## Shared Data
 ### Requesting Claims using Scope Values
 itsme(r) won't deliver any aggregated nor distributed claims in the current version.
 
@@ -411,5 +411,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMjU3MTY2NTMsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbLTE1OTY2MTEyNjEsNjY3MjY2OTEzXX0=
 -->
