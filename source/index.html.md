@@ -194,8 +194,8 @@ An Authentication Response is an OAuth 2.0 Authorization Response message. As su
 
 Parameter | Provided | Description
 -- | -- | --
-`code` | Always | Authorization code to later provide to the token endpoint
-`state` |  | Value from the request, if the parameter was present in the Authentication Request.
+`code` | Always | Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.
+`state` |  | The exact value received from the client, if the parameter was present in the Authentication Request.
 
 
 ```http
@@ -386,5 +386,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMyOTYwNDUzMF19
+eyJoaXN0b3J5IjpbLTEyMDM4MzI0NjVdfQ==
 -->
