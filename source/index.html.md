@@ -325,7 +325,9 @@ Requests using these parameters are represented as JWTs, which are respectively 
 
 The Request Object is a JWT Token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519) following the following constraints:
 
-
+Parameter | Required | Comment
+-- | -- | --
+**iss** |
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MzQ5NTYzMTNdfQ==
+eyJoaXN0b3J5IjpbLTIxMzI0NzU4M119
 -->
