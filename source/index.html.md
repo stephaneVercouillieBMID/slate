@@ -86,7 +86,6 @@ Parameter | Required | Comment
 **client\_assertion\_type** | REQUIRED | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
 
 ## UserInfo 
-
 As per the OpenID Connect specifications
 
 The content type of the response will be application/jwt. The response will be signed and encrypted.
@@ -306,5 +305,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyMTIwNDE1Nl19
+eyJoaXN0b3J5IjpbNzY5NjQ0MjEwXX0=
 -->
