@@ -288,7 +288,7 @@ The content type of the response will be `application/jwt`. The response will be
 
 The UserInfo endpoint can be accessed only with a valid **access_token** received from the token endpoint, and for a very limited duration after end user authentication; there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the UserInfo endpoint (this reflects a constraint set on the SOAP version of the interface).
 
-Your server makes this exchange by sending an HTTPS `POST` request. The `POST` request is sent to the UserInfo endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **token_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. The request must include the following parameters in the `POST` body:
+Your server makes this exchange by sending an HTTPS `POST` request. The `POST` request is sent to the UserInfo endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **userinfo_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/userinfo`. The request must include the following parameters in the `POST` body:
 
 ### Claims
 
@@ -409,5 +409,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjY4MjA3Nzk4LDY2NzI2NjkxM119
+eyJoaXN0b3J5IjpbMTA1NTcwNDgyMCw2NjcyNjY5MTNdfQ==
 -->
