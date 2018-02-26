@@ -87,6 +87,12 @@ Parameter | Required | Comment
 
 ## UserInfo 
 
+As per the OpenID Connect specifications
+
+The content type of the response will be application/jwt. The response will be signed and encrypted.
+
+The UserInfo endpoint can be accessed only with a valid access_token, and for a very limited duration after end user authentication: there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the UserInfo endpoint (this reflects a constraint set on the SOAP version of the interface).
+
 ### JW
 
 > To authorize, use this code:
@@ -300,5 +306,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NDg1NjY1MzRdfQ==
+eyJoaXN0b3J5IjpbLTQyMTIwNDE1Nl19
 -->
