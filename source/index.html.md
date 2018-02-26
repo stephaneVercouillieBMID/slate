@@ -54,28 +54,11 @@ redirect_uri | This value MUST match one of the values provided by the partner t
 **id\_token\_hint** | Supported, but not used.
 **login_hint** | OPTIONAL and supported, though not recommended. Only phone numbers are supported as login_hint. Format is: “coutrycode+phonenumber”.E.g. “login_hint=32+123456789”. Usage of claim value phone number in an encrypted request object is recommended in order to avoid disclosure of phone number of the enduser on the user agent
 **acr_values** | OPTIONAL and supported, though not recommended. Possible values are tag:itsmetag:sixdots.be,2016-06:acr_basic, tag:itsmetag:sixdots.be,2016-06:acr_advanced. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the acr\_values is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the acr\_values list, or the authentication will fail. Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token
-
-<!\[endif\]-->
-
-**claims_locales** | <!\[endif\]--> OPTIONAL supported but not used
-<!\[endif\]--> **claims** | <!\[endif\]-->
-
-OPTIONAL and supported, though not recommended
-
-If some notification text has to be displayed on the screen of the itsme app, this text MUST be specified in the “notification_text”parameter.
-
-Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
-<!\[endif\]--> **request** | <!\[endif\]-->
-
-OPTIONAL and recommended
-
-The JWT token MUST be signed using a key known to BMID for the given clientId
-
-The JWT token must also be encrypted, as it may contain confidential data (in the approval use case for example)
-<!\[endif\]-->
-
-**request_uri** | <!\[endif\]--> not supported
-<!\[endif\]--> **registration** | <!\[endif\]--> not supported
+**claims_locales** | OPTIONAL supported but not used
+**claims** | OPTIONAL and supported, though not recommended. If some notification text has to be displayed on the screen of the itsme app, this text MUST be specified in the “notification_text”parameter. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
+**request** | OPTIONAL and recommended. The JWT token MUST be signed using a key known to BMID for the given clientId. The JWT token must also be encrypted, as it may contain confidential data (in the approval use case for example)
+**request_uri** | Not supported
+**registration** | Not supported
 
 
 > To authorize, use this code:
@@ -289,5 +272,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDc4OTE1NTE4XX0=
+eyJoaXN0b3J5IjpbNjAxNjY0MzAwXX0=
 -->
