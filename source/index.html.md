@@ -44,7 +44,7 @@ E-ID Metadata | See [E-ID Metadata Information](#e-id-info)
 ### <a name="e-id-info"></a>E-ID Metadata Information
 JSON object with the following keys:
 
-Key | Description
+Data | Definition
 -- | -- 
 eID Serial Number | the electronic ID card serial number.
 issuance_locality | the issuance locality.
@@ -70,7 +70,7 @@ Device | Information about the end user device. See [Device Information](#device
 
 A JSON object with the following keys (only keys with cardinality \[1..1\] will be always available):
 
-Key | Cardinality | Description
+Data | Cardinality | Description
 -- | -- | -- 
 **os** | 1..1 | the device operating system (supported values: {`ANDROID`, `IOS`})
 **deviceId** | 1..1 | (regexp = "\[a-f0-9\]{33}") the device identifier.
@@ -372,5 +372,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTg5MTY0N119
+eyJoaXN0b3J5IjpbMjg2MTY2NTgyXX0=
 -->
