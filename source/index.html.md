@@ -29,7 +29,7 @@ http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps
 
 ## Authorization Endpoint
 
-http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
+
 
 
 
@@ -262,5 +262,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MjAwNjUwNjZdfQ==
+eyJoaXN0b3J5IjpbMTE2OTgwMzM0NV19
 -->
