@@ -93,7 +93,7 @@ Host: server.itsme.be
 
 ```json
 {
-	// JWT 
+	// JWT Registered claims (https://tools.ietf.org/html/rfc7519#section-4.1)
 	iss: "s6BhdRkqt3",
 	aud: "https://server.itsme.be",
 	// OIDC parameters, must reflect the values of the HTTP parameters
@@ -304,5 +304,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4ODk2MjA5NzNdfQ==
+eyJoaXN0b3J5IjpbMTYwODk0MjI1M119
 -->
