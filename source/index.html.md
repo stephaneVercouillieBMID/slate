@@ -30,6 +30,7 @@ Format and content of this document is defined in [OpenID Connect Discovery 1.0]
 
 # Prerequisites 
 ## Obtain OAuth 2.0 credentials
+## Register 
 ## Set a redirect URI
 ## Customize the user consent screen
 Before your application can use **itsme(r)** for user login, you must set up a project to obtain OIDC credentials, set a redirect URI, and customise the branding information that your users see on the **itsme(r)** user-consent screen.
@@ -331,5 +332,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc2MDc0NTkxMV19
+eyJoaXN0b3J5IjpbLTE4OTA2NTgxMDRdfQ==
 -->
