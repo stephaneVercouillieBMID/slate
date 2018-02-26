@@ -48,6 +48,7 @@ The Authorization Code Flow goes through the following steps as defined in  [htt
 
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
 
+You should retrieve the base URI from the [Discovery document](https://developers.google.com/identity/protocols/OpenIDConnect#discovery) using the key `authorization_endpoint`. The following discussion assumes the base URI is `https://accounts.google.com/o/oauth2/v2/auth`.
 **itsme(r)** Web endpoint : [https://merchant.itsme.be/oidc/authorization](https://merchant.itsme.be/oidc/authorization)
 **itsme(r)** Mobile App endpoint : TODO
 
@@ -306,5 +307,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDc2NzIxMDYwXX0=
+eyJoaXN0b3J5IjpbLTMwNTU3NzkzNl19
 -->
