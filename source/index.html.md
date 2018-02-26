@@ -96,32 +96,8 @@ HTTP/1.1
 Host: server.itsme.be
 ```
 
-> Example of claim request before base64url encoding, signing and encryption
 
-```json
-{
-	// JWT Registered claims (https://tools.ietf.org/html/rfc7519#section-4.1)
-	iss: "s6BhdRkqt3",
-	aud: "https://server.itsme.be",
-	// OIDC parameters, must reflect the values of the HTTP parameters
-	client_id: "s6BhdRkqt3",
-	response_type: "code",
-	redirect_uri: "https://client.example.org/cb",
-	scope: "openid email service:client.registration",
-	state: "af0ifjsldkj",
-	nonce: "n-0S6_WzA2Mj",
-	claims:
-	{
-		userinfo: {
-		"tag:itsmetag:sixdots.be,2016-06:claim_nationality": null,
-		},
-		id_token: {
-			auth_time: {"essential": true},
-			acr: {"value": \["tag:itsmetag:sixdots.be,2016-06:acr_securedadvanced"\] 		
-		}
-	}
-}
-```
+
 
 ### Errors
 If the authentication is NOT successful, the following errors can be triggered
@@ -139,7 +115,7 @@ registration\_not\_supported | TODO
 
 As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest
 
-As per the specification, with a `private\_key\_jwt` for client authentication.
+As per the specification, with a `private_key_jwt` for client authentication.
 
 Parameter | Required | Comment
 -- | -- | --
@@ -329,6 +305,33 @@ Property | Required | Comment
 -- | -- | --
 **iss** | Required | Issuer
 **aud** | Required | Audience. Must be `https://server.itsme.be`
+
+> Example of claim request before base64url encoding, signing and encryption
+
+```json
+{
+	// JWT Registered claims (https://tools.ietf.org/html/rfc7519#section-4.1)
+	iss: "s6BhdRkqt3",
+	aud: "https://server.itsme.be",
+	// OIDC parameters, must reflect the values of the HTTP parameters
+	client_id: "s6BhdRkqt3",
+	response_type: "code",
+	redirect_uri: "https://client.example.org/cb",
+	scope: "openid email service:client.registration",
+	state: "af0ifjsldkj",
+	nonce: "n-0S6_WzA2Mj",
+	claims:
+	{
+		userinfo: {
+		"tag:itsmetag:sixdots.be,2016-06:claim_nationality": null,
+		},
+		id_token: {
+			auth_time: {"essential": true},
+			acr: {"value": \["tag:itsmetag:sixdots.be,2016-06:acr_securedadvanced"\] 		
+		}
+	}
+}
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU4NjMyMTM1MV19
+eyJoaXN0b3J5IjpbLTM2MjA4MDkxMV19
 -->
