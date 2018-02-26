@@ -170,7 +170,7 @@ In current version and in contradiction to the OpenID Connect specification, its
 
 Following values for scope allow access to a predefined sets of Identity Data:
 Profile Name | Claims
---
+-- | --
 
 ## Signing Requests
 
@@ -387,5 +387,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDQxNTgwMTg4XX0=
+eyJoaXN0b3J5IjpbLTY4OTMxNTg3OF19
 -->
