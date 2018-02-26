@@ -42,7 +42,7 @@ Data | Definition
 **E-ID Metadata** | See [E-ID Metadata Information](#e-id-info)
 
 ### <a name="e-id-info"></a>E-ID Metadata Information
-Provides some information about the eID
+Provides some information about the eID c
 
 Data | Definition
 -- | -- 
@@ -372,5 +372,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MzczNzc1N119
+eyJoaXN0b3J5IjpbLTEwMDQ4MDgwMDBdfQ==
 -->
