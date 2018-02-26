@@ -47,6 +47,8 @@ The Authorization Code Flow goes through the following steps as defined in  [htt
 ## 1. Authenticating the user
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
 
+The first step is forming an HTTPS request with the appropriate URI parameters
+
 You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key `authorization_endpoint`. The following discussion assumes the base URI is `https://merchant.itsme.be/oidc/authorization`.
 
 **itsme(r)** Mobile App endpoint : TODO
@@ -304,5 +306,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTE3NjMzMTI5XX0=
+eyJoaXN0b3J5IjpbMTg2NTg5NDAwNV19
 -->
