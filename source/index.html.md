@@ -19,7 +19,7 @@ This documentation describes our OAuth 2.0 implementation of **itsme(r) Login**,
 
 **itsme(r) Login** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) to allow user to login securely and to share verified identity data with your application.
 
-The information provided by
+The usage is justified and consent is provided by the end-user, 
 
 ## Verified Identity Data
 
@@ -369,5 +369,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3ODY2OTA3N119
+eyJoaXN0b3J5IjpbLTEzNjI1ODcxNThdfQ==
 -->
