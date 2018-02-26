@@ -77,6 +77,12 @@ As per the specification, with a private\_key\_jwt for client authentication.
 
 Parameter | Comment
 -- | --
+**grant_type** | Must be authorization_code
+**code** | The code provided in Authorization response
+**redirect_uri** | The redirect_uri used in the authorization request
+**client_assertion** | Must be provided: private\_key\_jwt
+**client\_assertion\_type** | Must be urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+
 
 > To authorize, use this code:
 
@@ -289,5 +295,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTYzNTIwMDJdfQ==
+eyJoaXN0b3J5IjpbMTUzMDk3OTQ5NF19
 -->
