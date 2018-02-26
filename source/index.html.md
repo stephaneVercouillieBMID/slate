@@ -198,7 +198,7 @@ Device | **tag:sixdots.be,2017-05:claim_device** | TODO
 E-ID Picture | TODO | TODO
 NRN | TODO | TODO
 
-The following standard claims (check http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) won’t be provided:
+The following standard claims (check http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) won’t be provided: TODO UNSUPPORTED????
 
  - middle_name 
  - nickname 
@@ -423,5 +423,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUxODkwOTkwNV19
+eyJoaXN0b3J5IjpbMTMzNzY5OTQ3MF19
 -->
