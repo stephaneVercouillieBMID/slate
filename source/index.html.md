@@ -47,11 +47,7 @@ The Authorization Code Flow goes through the following steps as defined in  [htt
 ## 1. Authenticating the user
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
 
-The first step is forming an HTTPS request with the appropriate URI parameters
-
-You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key `authorization_endpoint`. The following discussion assumes the base URI is `https://merchant.itsme.be/oidc/authorization`.
-
-**itsme(r)** Mobile App endpoint : TODO
+The first step is forming an HTTPS request with the appropriate URI parameters. Note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key `authorization_endpoint`. The following discussion assumes the base URI is `https://merchant.itsme.be/oidc/authorization`.
 
 **itsme(r)** supports the use of the HTTPS `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters are serialized using Form Serialization, per [http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization).
 
@@ -129,6 +125,8 @@ interaction_required  | TODO
 invalid\_request\_object | TODO
 request\_uri\_not_supported | TODO
 registration\_not\_supported | TODO
+
+**itsme(r)** Mobile App endpoint : TODO
 
 ## 2. Token Request
 
@@ -306,5 +304,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg2NTg5NDAwNV19
+eyJoaXN0b3J5IjpbOTgwOTIwMDk2XX0=
 -->
