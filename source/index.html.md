@@ -43,7 +43,7 @@ The User is redirected to the interface of the itsme Authorization endpoint. Thi
 
 Parameter | Comment
 --------- | -------
-sc | test
+scope | test
 
 
 > To authorize, use this code:
@@ -257,5 +257,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NzM1MTMxNzBdfQ==
+eyJoaXN0b3J5IjpbNzQyOTUyNTRdfQ==
 -->
