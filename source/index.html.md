@@ -116,7 +116,7 @@ Data | Provided | Definition
 
 # Prerequisites 
 
-Before your application can use **itsme(r)** for user login, you must set up a project to obtain OIDC credentials, set a redirect URI, and customise the branding information that your users see on the **itsme(r)** user-consent screen.
+Before your application can use **itsme(r)** for user login, you must set up a project to obtain OIDC credentials, set a redirect URI for your services, and customise the branding information that your users see on the **itsme(r)** user-consent screen.
 
 ## Customize the user consent screen
 SP provides 
@@ -403,5 +403,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgxMDI0MzQ0M119
+eyJoaXN0b3J5IjpbLTk4NjM5NDQ5XX0=
 -->
