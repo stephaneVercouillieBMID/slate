@@ -38,7 +38,12 @@ SP provides the redirect URIs for each Service to use within the OpenID Connect 
 SP provides the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.
 SP provides the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.
 
-# Service Discover
+# Service Discovery
+To simplify implementations and increase flexibility, OpenID Connect allows the use of a "Discovery document", a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider's configuration, including the URIs of the authorization, token, userinfo, and public-keys endpoints. The Discovery document for **itsme(r)** OpenID Connect service may be retrieved from:
+
+[https://merchant.itsme.be/oidc/.well-known/openid-configuration](https://merchant.itsme.be/oidc/.well-known/openid-configuration).
+
+Format and content of this document is defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
 
 # Authenticating the user
 
@@ -326,5 +331,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4MDUzMzQ3MF19
+eyJoaXN0b3J5IjpbLTE1NTQ4MzczNTNdfQ==
 -->
