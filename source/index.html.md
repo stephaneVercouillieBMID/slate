@@ -252,7 +252,7 @@ Parameter | Provided | Comment
 **access_token** | Always | Will be provided
 **token_type** | Always | Will be `Bearer`
 **refresh_token** | Never | Won't be provided
-**id_token** | The JWT `id_token` correspoding to the authentication request (signed and encrypted)
+**id_token** | The JWT `id_token` corresponding to the authentication request (signed and encrypted)
 **at_hash** | OPTIONAL: first version of itsme Core does not produce the at_hash value
 
 ### Errors
@@ -388,5 +388,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDc4Njk1NzldfQ==
+eyJoaXN0b3J5IjpbLTIwOTI0MjM5NjNdfQ==
 -->
