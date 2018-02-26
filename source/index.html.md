@@ -45,7 +45,11 @@ E-Mail Address |
 
 ## Security Information
 
-Information about the end user device.
+Data | Definition
+-- | --
+Device | Information about the end user device. See Device Information
+
+### <a name="device-iDevice Information 
 
 A JSON object with the following keys (only keys with cardinality \[1..1\] will be always available):
 
@@ -351,5 +355,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYyOTU5NjczNF19
+eyJoaXN0b3J5IjpbLTEwNzg4NTQ1NjZdfQ==
 -->
