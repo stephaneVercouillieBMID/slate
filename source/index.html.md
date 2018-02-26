@@ -299,9 +299,9 @@ Following values for scope allow access to a predefined sets of Identity Data:
 Scope | Data | Claim
 -- | -- | --
 **`profile`** | Full Name | `name` or `given_name` TODO ??? or `family_name` TODO ???
-- | Gender | `gender`
-- | Date of Birth | `birthdate`
-- | Language | `locale`
+| | Gender | `gender`
+| | Date of Birth | `birthdate`
+| | Language | `locale`
 **`address`** | Address | `address`, with following subfields: `street_address` (newline separator \\n), `locality`, `postal_code`, `country`
 **`email`** | E-Mail Address | `email` or `email_verified` TODO verified???
 **`phone`** | Phone Number | `phone_number` or `phone_number_verified`
@@ -407,5 +407,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM2MzA3NjYwOCw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbNzA5OTk0NzM1LDY2NzI2NjkxM119
 -->
