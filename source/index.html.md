@@ -13,7 +13,7 @@ search: true
 
 # Introduction
 
-This documentation describes our implementation of **itsme(r) Login**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications, and is OpenID certified (TODO). 
+This documentation describes our OAuth 2.0 implementation of **itsme(r) Login**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications, and is OpenID certified (TODO). 
 
 **itsme(r) Login** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) to allow Sign-in 
 As specified in OpenID Connect Discovery 1.0 https://openid.net/specs/openid-connect-discovery-1_0.html, itsme(r) exposes an OpenID Provider Configuration Document at the following URL
@@ -21,7 +21,7 @@ As specified in OpenID Connect Discovery 1.0 https://openid.net/specs/openid-con
 [https://merchant.itsme.be/oidc/.well-known/openid-configuration](https://merchant.itsme.be/oidc/.well-known/openid-configuration).
 
 # Prerequisites 
-Before your application can use itsme(r) for user login, you must set up a project to obtain OIDC credentials, set a redirect URI, and customise the branding information that your users see on the user-consent screen.
+Before your application can use **itsme(r)** for user login, you must set up a project to obtain OIDC credentials, set a redirect URI, and customise the branding information that your users see on the **itsme(r)** user-consent screen.
 
 In order to integrate with itsme(r), the client (relying party) must first go through the itsme(r) on-boarding process in order to create the corresponding partner and services to be consumed. 
 
@@ -302,5 +302,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI4Mjg4MjE3Ml19
+eyJoaXN0b3J5IjpbNTAwMjMyNjQ4XX0=
 -->
