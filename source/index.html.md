@@ -13,19 +13,17 @@ search: true
 
 # Introduction
 
-
-
 Except specified otherwise, itsme(r)  follows the official OpenId Connect Core 1.0 specifications.
 
 As specified in OpenID Connect Discovery 1.0 https://openid.net/specs/openid-connect-discovery-1_0.html, itsme(r) exposes an OpenID Provider Configuration Document at the following URL
 
->https://merchant.itsme.be/oidc/.well-known/openid-configuration.
+[https://merchant.itsme.be/oidc/.well-known/openid-configuration](https://merchant.itsme.be/oidc/.well-known/openid-configuration).
 
 # itsme(r) Login Authentication
 
-itsme(r) Login service is based on the Authorization Code Flow of OpenID Connect 1.0 as defined in http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth
+itsme(r) Login service is based on the Authorization Code Flow of OpenID Connect 1.0 as defined in [http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)
 
-As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps
+The Authorization Code Flow goes through the following steps as defined in  [http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps)
 
 ## 1. Authentication Request
 
@@ -289,5 +287,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ3MjYxMDUwMV19
+eyJoaXN0b3J5IjpbLTE1MzcxMDA1MDZdfQ==
 -->
