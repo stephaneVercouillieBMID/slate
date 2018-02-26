@@ -19,7 +19,7 @@ This documentation describes our OAuth 2.0 implementation of **itsme(r) Login**,
 
 **itsme(r) Login** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) to allow users to login securely and to share data with your application.
 
-itsme(r) Login uses pairwise user identifier, meaning each partner will have a different User Code for the same user. Doing, nobody except 
+itsme(r) Login uses pairwise user identifier, meaning each partner will have a different User Code for the same user. Doing, nobody except BMID 
 
 If data usage is justified and consent is provided by the end-user during authentication, following data can be transmitted to your application
 
@@ -403,5 +403,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDU4NTczNTJdfQ==
+eyJoaXN0b3J5IjpbMTAxNDc5NTQzMl19
 -->
