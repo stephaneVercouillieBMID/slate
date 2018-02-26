@@ -295,8 +295,7 @@ OpenID Connect defines the following Authorization Request parameters to enable 
 Parameter | Required | Comment
 -- | -- | --
 request | Optional | This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. The parameter value is a Request Object value, as specified in [Section 6.1](http://openid.net/specs/openid-connect-core-1_0.html#RequestObject). It represents the request as a JWT whose Claims are the request parameters.
-request_uri | Unsupported | This parameter enables OpenID Connect requests to be passed by reference, rather than by value. The request_uri value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters.
-
+request_uri | Unsupported | Refer to [JWTRequest](http://openid.net/specs/openid-connect-core-1_0.html#JWTRequests)
 Requests using these parameters are represented as JWTs, which are respectively passed by value or by reference. The ability to pass requests by reference is particularly useful for large requests. If one of these parameters is used, the other MUST NOT be used in the same request.
 
 The Request Object is a JWT Token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains the following properties:
@@ -333,5 +332,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU4MjQ1OTA0M119
+eyJoaXN0b3J5IjpbMTMxODEwMTkwNV19
 -->
