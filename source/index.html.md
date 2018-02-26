@@ -235,9 +235,9 @@ Parameter | Required | Comment
 **client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` authentication method. The JWT must be signed.
 **client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
 
-The JWT must be signed and the JWT token content must have the following properties:
+The JWT must be signed and contain the following properties:
 
-Parameter | Comment
+Property | Comment
 -- | --
 **iss** | MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file TODO). 
 **sub** | MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file TODO). 
@@ -247,9 +247,9 @@ Parameter | Comment
 
 #### Successful Token Response
 
-Parameter | Comment
--- | --
-**access_token** | Will be provided
+Parameter | Provided | Comment
+-- | -- | --
+**access_token** | Always | Will be provided
 **token_type** | Bearer
 **refresh_token** | Won't be provided
 **id_token** | the id_token correspoding to the authentication request (signed and encrypted)
@@ -388,5 +388,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDkzOTE1OTk1XX0=
+eyJoaXN0b3J5IjpbLTE4ODU5NDQ1NjZdfQ==
 -->
