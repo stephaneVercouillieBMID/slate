@@ -208,7 +208,7 @@ The following standard claims (check http://openid.net/specs/openid-connect-core
  - zoneinfo 
  - updated\_at
 
-## Signing and Encrypting Requests
+## Signing and Encryption Requests
 
 <!\[endif\]-->
 
@@ -235,7 +235,10 @@ Offline access is not supported. TODO
 
 Dynamic client registration is not allowed. TODO 
 
-itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet). It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during enrollment of RP.
+itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet). 
+
+It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP.
+
 ## Device Information
 
 Information about the end user device.
@@ -492,5 +495,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MTg2NzM2ODBdfQ==
+eyJoaXN0b3J5IjpbLTY1NDI1Nzc0OV19
 -->
