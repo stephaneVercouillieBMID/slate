@@ -2,17 +2,11 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
+  - json
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
-
-includes:
-  - errors
 
 search: true
 ---
@@ -498,5 +492,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwOTA5MDgwNzhdfQ==
+eyJoaXN0b3J5IjpbMjc1NjY1OTE5XX0=
 -->
