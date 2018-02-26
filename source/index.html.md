@@ -25,7 +25,13 @@ Data | Definition
 -- | --
 Full Name | 
 Data of birth | 
-
+Place of birth |
+Gender |
+Language |
+Nationality |
+Address |
+E-ID picture |
+NRN | 
 
 
 ## Commercial Information
@@ -338,5 +344,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxNDY4OTkwNTBdfQ==
+eyJoaXN0b3J5IjpbMTYxMjQyNTQ0OV19
 -->
