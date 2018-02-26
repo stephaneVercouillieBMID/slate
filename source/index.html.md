@@ -41,22 +41,12 @@ The User is redirected to the interface of the itsme Authorization endpoint. Thi
 Parameter | Required | Comment
 --------- | ------- | -----
 **scope** | MUST | MUST contain at least `openid` or an HTTP ERROR not\_implemented will be returned. `offline\_access` value will yield an error. Other recognized values are: `profile`, `email`, `phone`, `address`. MUST also include the target service in the form `service:SERVICE_CODE`
-**response_type** | MUST be <code>code</code>. Other values will produce an HTTP ERROR not_implemented.
-**client_id** | MUST be a valid partner code as provided by the BMID during on-boarding process (this information is in the onboarding file). This value will be unique to each partner.
-redirect_uri | This value MUST match one of the values provided by the partner to the itsme administrator when registering the Partner. It must include the https scheme. Note: the Partner can define a different redirect_uri specific to each Service.
-
-Recommended Parameters
-
-Paremeter | Comment
--- | --
-**state** | An appropriate value is RECOMMENDED
-**nonce** | An appropriate value is RECOMMENDED
-
-Unsupported 
-
-Parameter | Comment
--- | --
-**request_uri** | Not supported
+**response_type** | MUST | MUST be <code>code</code>. Other values will produce an HTTP ERROR not_implemented.
+**client_id** | MUST | MUST be a valid partner code as provided by the BMID during on-boarding process (this information is in the onboarding file). This value will be unique to each partner.
+redirect_uri | MUST | This value MUST match one of the values provided by the partner to the itsme administrator when registering the Partner. It must include the https scheme. Note: the Partner can define a different redirect_uri specific to each Service.
+**state** | OPTIONAL | An appropriate value is RECOMMENDED
+**nonce** | OPTIONAL | An appropriate value is RECOMMENDED
+**request_uri** | NOT SUPPORTED |
 **registration** | Not supported
 
 Parameter | Comment
@@ -285,5 +275,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAxNzcwMTE5OV19
+eyJoaXN0b3J5IjpbLTY2NTI3ODI0MF19
 -->
