@@ -242,9 +242,9 @@ It is expected that the RP will also expose their signing and encryption keys in
 
 ## National ID Information
 
+## Commercial Information
 
-
-## Device Information
+## Security Information
 
 Information about the end user device.
 
@@ -500,5 +500,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE1MzIzNTUzMF19
+eyJoaXN0b3J5IjpbLTE3NzE1NTM5NzRdfQ==
 -->
