@@ -50,7 +50,46 @@ redirect_uri | This value MUST match one of the values provided by the partner t
 **display** | OPTIONAL but not recommended. MUST be page if provided. Other values will yield an HTTP ERROR not_implemented.
 **prompt** | OPTIONAL but not recommended Only login and consent values are supported. If prompt contains none or select\_account or any other values an HTTP ERROR not\_implemented will be returned.
 **max_age** | OPTIONAL supported but not used: itsme will always actively re-authenticate the End-User. Value must be an integer.
-**ui_locales** | OPTIONAL and supported. Can be used to specify the language to be used by the OpenID login page.Supported languagesvalues are: {“fr”, “nl”, “en”, “de”}. Any other value will be ignored.
+**ui_locales** | OPTIONAL and supported. Can be used to specify the language to be used by the OpenID login page. Supported languagesvalues are: {“fr”, “nl”, “en”, “de”}. Any other value will be ignored.
+<!\[endif\]-->
+
+**id\_token\_hint** | <!\[endif\]--> Supported, but not used.
+<!\[endif\]-->
+
+**login_hint** | <!\[endif\]-->
+
+OPTIONAL and supported, though not recommended
+
+Only phone numbers are supported as login_hint.
+
+Format is: “coutrycode+phonenumber”
+
+e. g. “login_hint=32+123456789”
+
+Usage of claim value phone number in an encrypted request object is recommended in order to avoid disclosure of phone number of the enduser on the user agent
+
+<!\[endif\]-->
+
+**acr_values** | <!\[endif\]-->
+
+OPTIONAL and supported, though not recommended
+
+possible values
+
+<!\[if !supportLists\]>· <!\[endif\]>tag:itsmetag:sixdots.be,2016-06:acr_basic
+
+<!\[if !supportLists\]>· <!\[endif\]>tag:itsmetag:sixdots.be,2016-06:acr_advanced
+
+When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used.
+
+As there is no such idea of an existing session on itsme Core, even if the acr\_values is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the acr\_values list, or the authentication will fail.
+
+Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token
+
+<!\[endif\]-->
+
+**claims_locales** | <!\[endif\]--> OPTIONAL supported but not used
+<!\[endif\]--> **claims**
 
 
 > To authorize, use this code:
@@ -264,5 +303,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEzMTA1ODg5XX0=
+eyJoaXN0b3J5IjpbLTc5MDcwNTgwN119
 -->
