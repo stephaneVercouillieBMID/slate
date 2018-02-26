@@ -190,8 +190,7 @@ GET /authorize?response_type=code
 &scope=openid%20profile%20email%20service%3Aclient.registration
 &client_id=s6BhdRkqt3
 &state=af0ifjsldkj
-&redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
-HTTP/1.1
+&redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb HTTP/1.1
 Host: server.itsme.be
 ```
 
@@ -407,5 +406,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTc5ODk4ODQ2LDY2NzI2NjkxM119
+eyJoaXN0b3J5IjpbLTgzOTA1MzYyNCw2NjcyNjY5MTNdfQ==
 -->
