@@ -49,14 +49,14 @@ redirect_uri | MUST | This value MUST match one of the values provided by the pa
 **display** | OPTIONAL | OPTIONAL but not recommended. MUST be page if provided. Other values will yield an HTTP ERROR not_implemented.
 **prompt** | OPTIONAL | OPTIONAL but not recommended Only login and consent values are supported. If prompt contains none or select\_account or any other values an HTTP ERROR not\_implemented will be returned.
 **max_age** | OPTIONAL | OPTIONAL supported but not used: itsme will always actively re-authenticate the End-User. Value must be an integer.
-**ui_locales** | OPTIONAL and supported. Can be used to specify the language to be used by the OpenID login page. Supported languagesvalues are: {“fr”, “nl”, “en”, “de”}. Any other value will be ignored.
-**login_hint** | OPTIONAL and supported, though not recommended. Only phone numbers are supported as login_hint. Format is: “coutrycode+phonenumber”.E.g. “login_hint=32+123456789”. Usage of claim value phone number in an encrypted request object is recommended in order to avoid disclosure of phone number of the enduser on the user agent
-**acr_values** | OPTIONAL and supported, though not recommended. Possible values are tag:itsmetag:sixdots.be,2016-06:acr_basic, tag:itsmetag:sixdots.be,2016-06:acr_advanced. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the acr\_values is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the acr\_values list, or the authentication will fail. Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token
-**claims_locales** | OPTIONAL supported but not used
-**claims** | OPTIONAL and supported, though not recommended. If some notification text has to be displayed on the screen of the itsme app, this text MUST be specified in the “notification_text”parameter. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
-**request** | OPTIONAL and recommended. The JWT token MUST be signed using a key known to BMID for the given clientId. The JWT token must also be encrypted, as it may contain confidential data (in the approval use case for example)
-**response_mode** | Should not be used. Any supplied value will be ignored.
-**id\_token\_hint** | Supported, but not used.
+**ui_locales** | OPTIONAL | OPTIONAL and supported. Can be used to specify the language to be used by the OpenID login page. Supported languagesvalues are: {“fr”, “nl”, “en”, “de”}. Any other value will be ignored.
+**login_hint** | OPTIONAL | OPTIONAL and supported, though not recommended. Only phone numbers are supported as login_hint. Format is: “coutrycode+phonenumber”.E.g. “login_hint=32+123456789”. Usage of claim value phone number in an encrypted request object is recommended in order to avoid disclosure of phone number of the enduser on the user agent
+**acr_values** | OPTIONAL | OPTIONAL and supported, though not recommended. Possible values are tag:itsmetag:sixdots.be,2016-06:acr_basic, tag:itsmetag:sixdots.be,2016-06:acr_advanced. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the acr\_values is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the acr\_values list, or the authentication will fail. Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token
+**claims_locales** | OPTIONAL | OPTIONAL supported but not used
+**claims** | OPTIONAL | OPTIONAL and supported, though not recommended. If some notification text has to be displayed on the screen of the itsme app, this text MUST be specified in the “notification_text”parameter. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
+**request** | OPTIONAL | OPTIONAL and recommended. The JWT token MUST be signed using a key known to BMID for the given clientId. The JWT token must also be encrypted, as it may contain confidential data (in the approval use case for example)
+**response_mode** | OPTIONAL | Should not be used. Any supplied value will be ignored.
+**id\_token\_hint** | OPTIONAL | Supported, but not used.
 **request_uri** | UNSUPPORTED | 
 **registration** | UNSUPPORTED |
 
@@ -272,5 +272,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcwMDM5MTIyOF19
+eyJoaXN0b3J5IjpbNDU4NDI0NjAwXX0=
 -->
