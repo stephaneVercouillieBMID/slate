@@ -216,7 +216,7 @@ If the authentication is NOT successful, the following errors can be triggered
 
 Error | Description
 -- | --
-`interaction_required`  | TODO
+`interaction_required`  | The Authorization Server requires End-User interaction of some form to proceed.
 `invalid_request_object` | The request parameter contains an invalid Request Object.
 `request_uri_not_supported` | does not support use of the request_uri parameter.
 `registration_not_supported` | does not support use of the registration parameter.
@@ -406,5 +406,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODA0NDg4MjAwLDY2NzI2NjkxM119
+eyJoaXN0b3J5IjpbLTEwMjA1ODk5MjIsNjY3MjY2OTEzXX0=
 -->
