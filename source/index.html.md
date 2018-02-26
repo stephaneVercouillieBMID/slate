@@ -47,15 +47,16 @@ SP provides
 
 - Partner name, description and localized labels
 - Services' name, description and localized labels
-- 
+
 ## Obtain OAuth 2.0 credentials
 BMID provides Partner Code and Service Code for each Service.
 
 ## Register your SSL/TLS certificates
-SP provides the SSL/TLS certificate used on the JWKSet HTTPS endpoint
 
-## Set a redirect URI
+
+## Set a redirect URI and Certificates
 SP provides the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
+SP provides the SSL/TLS certificate used on the JWKSet HTTPS endpoint
 
 # Authenticating the user
 
@@ -343,5 +344,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYwNzA3Mzc1NV19
+eyJoaXN0b3J5IjpbMjAyNjY3ODczXX0=
 -->
