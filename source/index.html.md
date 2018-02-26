@@ -99,7 +99,6 @@ Host: server.itsme.be
 			auth_time: {"essential": true},
 			acr: {"value": \["tag:itsmetag:sixdots.be,2016-06:acr_securedadvanced"\] 		
 		}
-		}
 	}
 }
 ```
@@ -378,5 +377,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjM0MDU0MTE3XX0=
+eyJoaXN0b3J5IjpbNjk2NDQ1NjY2XX0=
 -->
