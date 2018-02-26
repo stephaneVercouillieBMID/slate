@@ -27,7 +27,7 @@ If data usage is justified and consent is provided by the end-user during authen
 
 ## Verified Identity Data
 
-The user identity data provided by **itsme(r)** are data coming from the National Registry. These datas are provided to **itsme(r)** during user enrollement either directly from a card readout or indirectly through an IDentity Registrar (IDR) having a strong identity verification process (e.g. face-to-face KYC)  in-place.  
+The user identity data provided by **itsme(r)** are data coming from the National Registry. These datas are provided to **itsme(r)** during user enrollement either directly from a card readout or indirectly through an IDentity Registrar (IDR) having a strong identity verification process (e.g. face-to-face KYC with e)  in-place.  
 
 Data | Definition
 -- | --
@@ -374,5 +374,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQwNTAzMTc1M119
+eyJoaXN0b3J5IjpbMTYwODcxMjgxMl19
 -->
