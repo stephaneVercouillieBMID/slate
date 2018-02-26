@@ -45,15 +45,17 @@ Parameter | Comment
 **client_id** | MUST be a valid partner code as provided by the BMID during on-boarding process (this information is in the onboarding file). This value will be unique to each partner.
 redirect_uri | This value MUST match one of the values provided by the partner to the itsme administrator when registering the Partner. It must include the https scheme. Note: the Partner can define a different redirect_uri specific to each Service.
 
+Recommended Parameters
+
 Paremeter | Comment
 -- | --
 **state** | An appropriate value is RECOMMENDED
 **nonce** | An appropriate value is RECOMMENDED
 
+Unsupported 
+
 Parameter | Comment
 -- | --
-**response_mode** | Should not be used. Any supplied value will be ignored.
-**id\_token\_hint** | Supported, but not used.
 **request_uri** | Not supported
 **registration** | Not supported
 
@@ -281,5 +283,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3OTg4ODU3NThdfQ==
+eyJoaXN0b3J5IjpbLTE0ODE5Nzc0NTNdfQ==
 -->
