@@ -189,19 +189,9 @@ Claim | Comment
 **tag:itsmetag:sixdots.be,2016-06:claim\_city\_of_birth** | TODO
 **tag:itsmetag:sixdots.be,2016-06:claim\_country\_of_birth** | TODO
 **tag:itsmetag:sixdots.be,2016-06:claim_eid** | TODO
-<!\[endif\]-->
-
-tag:sixdots.be,2017-05:claim_device
-
-<!\[endif\]-->
-
-tag:sixdots.be,2017-05:claim\_transaction\_info
-
-<!\[endif\]-->
-
-tag:sixdots.be,2017-05:claim_passport_sn
-
-<!\[endif\]-->
+**tag:sixdots.be,2017-05:claim_device** | TODO
+**tag:sixdots.be,2017-05:claim\_transaction\_info** | TODO
+**tag:sixdots.be,2017-05:claim_passport_sn** | TODO
 
 The following standard claims (check http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) won’t be provided:
 
@@ -428,5 +418,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NTI2NDA4MjVdfQ==
+eyJoaXN0b3J5IjpbNTI2NzMyNzgzXX0=
 -->
