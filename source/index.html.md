@@ -47,9 +47,7 @@ eid | the electronic ID card serial number.
 <!\[if !supportLists\]>· <!\[endif\]>“validity_from | eID card validity “from” date.
 
 <!\[if !supportLists\]>· <!\[endif\]>“validity_to | eID card validity “to” date.
-
 <!\[if !supportLists\]>· <!\[endif\]>“certificate_validity | the certificate validity.
-
 <!\[if !supportLists\]>· <!\[endif\]>“read_date | the data extraction date.
 
 ## Commercial Information
@@ -372,5 +370,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODAwMjQ2OTY0XX0=
+eyJoaXN0b3J5IjpbODczMTY4XX0=
 -->
