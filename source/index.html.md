@@ -193,7 +193,7 @@ Nationality | **tag:itsmetag:sixdots.be,2016-06:claim_nationality** | TODO
 Place of Birth | **tag:itsmetag:sixdots.be,2016-06:claim\_city\_of_birth** and **tag:itsmetag:sixdots.be,2016-06:claim\_country\_of_birth** | TODO
 E-ID Info  | **tag:itsmetag:sixdots.be,2016-06:claim_eid** | TODO
 Passport Number | **tag:sixdots.be,2017-05:claim_passport_sn** | TODO
-Device | **tag:sixdots.be,2017-05:claim_device** | TODO
+Device | **tag:sixdots.be,2017-05:claim_device** | see XXXX (TODO URL)
 ??? TODO | **tag:sixdots.be,2017-05:claim\_transaction\_info** | TODO
 E-ID Picture | TODO | TODO
 NRN | TODO | TODO
@@ -210,7 +210,65 @@ The following standard claims (check http://openid.net/specs/openid-connect-core
 
 ## Signing Requests
 
+## Device Information
 
+<!\[endif\]-->
+
+Information about the end user device.
+
+A JSON object with the following keys:
+
+(only keys with cardinality \[1..1\] will be always available) 
+
+<!\[if !supportLists\]>· <!\[endif\]>“os” \[1..1\]: the device operating system (supported values: {ANDROID, IOS})
+
+<!\[if !supportLists\]>· <!\[endif\]>“appName” \[0..1\]: the application name.
+
+<!\[if !supportLists\]>· <!\[endif\]>“appRelease” \[0..1\]: the application current release.
+
+<!\[if !supportLists\]>· <!\[endif\]>“deviceLabel” \[0..1\]: the name of the device.
+
+<!\[if !supportLists\]>· <!\[endif\]>“debugEnabled” \[0..1\]: if debug mode is activated.
+
+<!\[if !supportLists\]>· <!\[endif\]>“deviceId” \[1..1\]: (regexp = "\[a-f0-9\]{33}") the device identifier.
+
+<!\[if !supportLists\]>· <!\[endif\]>“osRelease” \[0..1\]: Version of the OS running on your Device.
+
+<!\[if !supportLists\]>· <!\[endif\]>“manufacturer” \[0..1\]: Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android). 
+
+<!\[if !supportLists\]>· <!\[endif\]>“hasSimEnabled” \[0..1\]: Whether there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing itsme on a tablet.
+
+<!\[if !supportLists\]>· <!\[endif\]>“deviceLockLevel” \[0..1\]: The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.
+
+<!\[if !supportLists\]>· <!\[endif\]>“smsEnabled” \[0..1\]: Can send SMS. On iOS, means it’s an iPhone. 
+
+<!\[if !supportLists\]>· <!\[endif\]>“rooted” \[0..1\]: Coming from Gemalto. ‘true’ the device is jailbreaked/rooted.
+
+<!\[if !supportLists\]>· <!\[endif\]>“imei” \[0..1\]: (regexp = "\[0-9\]{15,17}") the device IMEI value.
+
+<!\[if !supportLists\]>· <!\[endif\]>“deviceModel” \[0..1\]: Model of the Device. e.g. SAMSUNG GALAXY A5
+
+<!\[if !supportLists\]>· <!\[endif\]>“msisdn” \[0..1\]: the user’s phone number. 
+
+<!\[if !supportLists\]>· <!\[endif\]>“sdkRelease” \[0..1\]: Sdk release 
+
+For example:
+
+{  
+	"os": "ANDROID",  
+  "appName": "itsme app", "appRelease": "1.17.13",  
+  "deviceLabel": "myDevice",  
+  "debugEnabled": false,  
+  "deviceId": "deviceId",  
+  "osRelease": "Android 4.4.2", "manufacturer": "samsung",  
+  "hasSimEnabled": true,  
+  "deviceLockLevel": "touchID", "smsEnabled": true,  
+  "rooted": false,  
+  "imei": "12345678901234567",  
+  "deviceModel": "S8",  
+  "msisdn": "0412123123",  
+  "sdkRelease": "1.17.12"  
+}
 
 > To authorize, use this code:
 
@@ -423,5 +481,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5MzkwOTA2OF19
+eyJoaXN0b3J5IjpbMTA3NzE3MzUwXX0=
 -->
