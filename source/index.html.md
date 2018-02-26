@@ -47,7 +47,7 @@ E-Mail Address |
 
 Data | Definition
 -- | --
-Device | Information about the end user device. See Device Information
+Device | Information about the end user device. See [Device Information](#device-information)
 
 ### <a name="device-information"></a>Device Information 
 
@@ -355,5 +355,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDc2MjM0MjFdfQ==
+eyJoaXN0b3J5IjpbLTM0MjI4NDM2OF19
 -->
