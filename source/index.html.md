@@ -179,9 +179,9 @@ _ | Last Name | `family_name` TODO ???
 - | Gender | `gender`
 - | Date of Birth | `birthdate`
 - | Language | `locale`
-**email** | e-Mail | `email`
+**email** | E-Mail Address | `email`
 `email_verified`
-**phone** | `phone_number`, `phone\_number\_verified`
+**phone** | Phone Number | `phone_number` and `phone\_number\_verified`
 **address** | Address | `address`, with following subfields: `street_address` (newline separator \\n), `locality`, `postal_code`, `country`
 
 ***NOTE**: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.*
@@ -196,7 +196,7 @@ Place of Birth | **tag:itsmetag:sixdots.be,2016-06:claim\_city\_of_birth** and *
 E-ID Info  | **tag:itsmetag:sixdots.be,2016-06:claim_eid** | TODO
 Passport Number | **tag:sixdots.be,2017-05:claim_passport_sn** | TODO
 Device | **tag:sixdots.be,2017-05:claim_device** | TODO
-**tag:sixdots.be,2017-05:claim\_transaction\_info** | TODO
+??? TODO | **tag:sixdots.be,2017-05:claim\_transaction\_info** | TODO
 E-ID Picture | TODO | TODO
 NRN | TODO | TODO
 
@@ -425,5 +425,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ3ODM5OTg0XX0=
+eyJoaXN0b3J5IjpbLTEzNzU4MDgzMzNdfQ==
 -->
