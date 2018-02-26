@@ -278,7 +278,7 @@ We have favored the request of Identity Data in the scope values. However, some 
 
 Data | Claim | Comment
 -- | -- | --
-User code | **sub** | TODO
+??? | **sub** | TODO
 Nationality | **tag:itsmetag:sixdots.be,2016-06:claim_nationality** | TODO
 Place of Birth | **tag:itsmetag:sixdots.be,2016-06:claim\_city\_of_birth** and **tag:itsmetag:sixdots.be,2016-06:claim\_country\_of_birth** | TODO
 E-ID Info  | **tag:itsmetag:sixdots.be,2016-06:claim_eid** | TODO
@@ -373,5 +373,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNjk3OTUyNDVdfQ==
+eyJoaXN0b3J5IjpbLTQwOTU4MzE4NF19
 -->
