@@ -36,7 +36,7 @@ itsme(r) endpoint : https://merchant.itsme.be/oidc/authorization
 
 The fingerprint of the SSL/TLS certificate is xxxxxxx.
 
-itsme(r) supports the use of the HTTP GET and POST 
+itsme(r) supports the use of the HTTP `GET` and `POST` methods. If 
 
 The User is redirected to the interface of the itsme Authorization endpoint. This will be a webpage if the User is in the Service Provider website, or a webview if the User is in a Service Provider App. The parameters of the redirection URL contain all information itsme needs to execute the Authentication and Authorization process, according to the OpenID specifications :
 
@@ -298,5 +298,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTU0ODIzNjRdfQ==
+eyJoaXN0b3J5IjpbODIzNDYwODU1XX0=
 -->
