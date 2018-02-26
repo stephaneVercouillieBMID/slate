@@ -60,10 +60,10 @@ The User is redirected to the interface of the itsme Authorization endpoint. Thi
 Parameter | Required | Comment
 --------- | ------- | -----
 **scope** | REQUIRED | MUST contain at least `openid` or an HTTP ERROR not\_implemented will be returned. `offline\_access` value will yield an error. MUST also include the target service in the form `service:SERVICE_CODE` as provided by BMID during the on-boarding process. Requested data will only be provided based on your current accesses see XXXXXX (TODO) for list of available data.
-**response_type** | REQUIRED | MUST be <code>code</code>. Other values will produce an HTTP ERROR not_implemented.
+**response_type** | REQUIRED | MUST be <code>code</code>. (Read more at [`response_type`]((https://developers.google.com/identity/protocols/OpenIDConnect#response-type).)
 **client_id** | REQUIRED | MUST be a valid partner code as provided by BMID during on-boarding process (this information is in the onboarding file). This value will be unique to each partner.
 **redirect_uri** | REQUIRED | This value MUST match one of the values provided by the partner to BMID during on-boarding process. It must include the https scheme. ***Note**: the Partner can define a different `redirect_uri` specific to each Service.*
-**state** | OPTIONAL | An appropriate value is RECOMMENDED
+**state** | (Optional, but strongly recommended) | An appropriate value is RECOMMENDED
 **nonce** | OPTIONAL | An appropriate value is RECOMMENDED
 **display** | OPTIONAL | OPTIONAL but not recommended. MUST be `page` if provided. Other values will yield an HTTP ERROR `not_implemented`.
 **prompt** | OPTIONAL | OPTIONAL but not recommended. Only `login` and `consent` values are supported. If prompt contains `none` or `select\_account` or any other values an HTTP ERROR `not\_implemented` will be returned.
@@ -306,5 +306,5 @@ Key | Cardinality | Description
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0OTEzMzYyNl19
+eyJoaXN0b3J5IjpbNDExNDYyMTUyXX0=
 -->
