@@ -216,6 +216,7 @@ invalid\_request\_object | TODO
 request\_uri\_not_supported | TODO
 registration\_not\_supported | TODO
 
+### App to App ??? TODO
 **itsme(r)** Mobile App endpoint : TODO
 
 ## 2. Token Request
@@ -387,5 +388,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxNTg1MzA3NF19
+eyJoaXN0b3J5IjpbLTcxMDU2MzIzXX0=
 -->
