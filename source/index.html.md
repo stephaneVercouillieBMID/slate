@@ -52,8 +52,8 @@ Parameter | Required | Comment
 **redirect_uri** | REQUIRED | This value MUST match one of the values provided by the partner to BMID during on-boarding process. It must include the https scheme. ***Note**: the Partner can define a different `redirect_uri` specific to each Service.*
 **state** | OPTIONAL | An appropriate value is RECOMMENDED
 **nonce** | OPTIONAL | An appropriate value is RECOMMENDED
-**display** | OPTIONAL | OPTIONAL but not recommended. MUST be page if provided. Other values will yield an HTTP ERROR not_implemented.
-**prompt** | OPTIONAL | OPTIONAL but not recommended Only login and consent values are supported. If prompt contains none or select\_account or any other values an HTTP ERROR not\_implemented will be returned.
+**display** | OPTIONAL | OPTIONAL but not recommended. MUST be `page` if provided. Other values will yield an HTTP ERROR `not_implemented`.
+**prompt** | OPTIONAL | OPTIONAL but not recommended. Only `login` and `consent` values are supported. If prompt contains `none` or `select\_account` or any other values an HTTP ERROR not\_implemented will be returned.
 **max_age** | OPTIONAL | OPTIONAL supported but not used: itsme will always actively re-authenticate the End-User. Value must be an integer.
 **ui_locales** | OPTIONAL | OPTIONAL and supported. Can be used to specify the language to be used by the OpenID login page. Supported languagesvalues are: {“fr”, “nl”, “en”, “de”}. Any other value will be ignored.
 **login_hint** | OPTIONAL | OPTIONAL and supported, though not recommended. Only phone numbers are supported as login_hint. Format is: “coutrycode+phonenumber”.E.g. “login_hint=32+123456789”. Usage of claim value phone number in an encrypted request object is recommended in order to avoid disclosure of phone number of the enduser on the user agent
@@ -498,5 +498,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODE4NDkxNTA1XX0=
+eyJoaXN0b3J5IjpbNDg2ODI5NzddfQ==
 -->
