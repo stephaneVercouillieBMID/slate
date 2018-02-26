@@ -27,7 +27,7 @@ If data usage is justified and consent is provided by the end-user during authen
 
 ## Verified Identity Data
 
-The identity data provided by itsme(r) are information coming from the National Registry
+The identity data provided by itsme(r) are data coming from the National Registry typically stored on the National eID
 
 Data | Definition
 -- | --
@@ -374,5 +374,5 @@ Property | Required | Comment
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEwNjA0MDYxMl19
+eyJoaXN0b3J5IjpbMTY5NjYwMzEzMl19
 -->
