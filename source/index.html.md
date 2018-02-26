@@ -181,16 +181,17 @@ Scope | Claims
 
 We have favored the request of Identity Data in the scope values. However, some Identity Data have to be requested in the “claims” parameter of the Authentication Request. Here are these claims:
 
-<!\[endif\]-->
 
-**sub**
+
+
 
 Claim | Comment
 -- | --
-tag:itsmetag:sixdots.be,2016-06:claim_nationality | TODO
-tag:itsmetag:sixdots.be,2016-06:claim\_city\_of_birth | TODO
-tag:itsmetag:sixdots.be,2016-06:claim\_country\_of_birth | TODO
-tag:itsmetag:sixdots.be,2016-06:claim_eid | TODO
+**sub** | TODO
+**tag:itsmetag:sixdots.be,2016-06:claim_nationality** | TODO
+**tag:itsmetag:sixdots.be,2016-06:claim\_city\_of_birth** | TODO
+**tag:itsmetag:sixdots.be,2016-06:claim\_country\_of_birth** | TODO
+**tag:itsmetag:sixdots.be,2016-06:claim_eid** | TODO
 
 
 ## Signing Requests
@@ -408,5 +409,5 @@ Parameter | Description
 ID | The ID of the kitten to delete
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDEwNzM1NDldfQ==
+eyJoaXN0b3J5IjpbODQxNjA1MjE4XX0=
 -->
