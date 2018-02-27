@@ -301,7 +301,7 @@ Scope | Data | Claim
 
 ***NOTE**: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.*
 
-## Requesting Claims using the "claims" Request Parameter
+## using the "claims" Request Parameter
 We have favoured the request of Identity Data in the scope values. However, some specific Data have to be requested in the “claims” parameter of the Authentication Request. Here are these claims:
 
 Data | Claim | Comment
@@ -317,6 +317,25 @@ E-ID Picture | TODO | TODO
 NRN | TODO | TODO
 
 In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims as **Essential**, even if they are requested as a **Voluntary** claim (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)). However, as in a future version **itsme(r)**  will make the difference between Essential and Voluntary Claims, you should already request claims with appropriate level regarding your business case. TODO => it means we should not request by scope???
+
+```json
+{
+   "userinfo":
+    {
+     "given_name": {"essential": true},
+     "nickname": null,
+     "email": {"essential": true},
+     "email_verified": {"essential": true},
+     "picture": null,
+     "http://example.info/claims/groups": null
+    },
+   "id_token":
+    {
+     "auth_time": {"essential": true},
+     "acr": {"values": \["urn:mace:incommon:iap:silver"\] }
+    }
+}
+```
 
 > Example of JSON device object requested with tag:sixdots.be,2017-05:claim_device
 
@@ -429,5 +448,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2ODgyNjg5OTMsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbMjA0MDc2MTE3LDY2NzI2NjkxM119
 -->
