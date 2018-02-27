@@ -301,7 +301,7 @@ Scope | Data | Claim
 ***NOTE**: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.*
 
 ## Requesting Claims using the "claims" Request Parameter
-We have favoured the request of Identity Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. Here are these claims:
+We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. Here are these claims:
 
 Data | Claim | Comment
 -- | -- | --
@@ -315,7 +315,7 @@ Device | **`tag:sixdots.be,2017-05:claim_device`** | see XXXX (TODO URL)
 E-ID Picture | TODO | TODO
 NRN | TODO | TODO
 
-In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims as **Essential**, even if they are requested as a **Voluntary** claim (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)). However, as in a future version **itsme(r)**  will make the difference between Essential and Voluntary Claims, you should already request claims with appropriate level regarding your business case. TODO => it means we should not request by scope???
+In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims as **Essential**, even if they are requested as a **Voluntary** claim (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)). However, as in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims, you should already request claims with appropriate level regarding your business case. TODO => it means we should not request by scope???
 
 > Example of Claims request parameter TODO adapt to itsme(r) data
 
@@ -449,5 +449,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ3ODQyMzMyMCw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbMTE2MjU5NjM4OCw2NjcyNjY5MTNdfQ==
 -->
