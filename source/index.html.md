@@ -119,7 +119,7 @@ SP provides
 - the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.
 
 ### Interact with itsme(r)
-To simplify implementations and increase flexibility, OpenID Connect allows the use of a "Discovery document", a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider's configuration, including the URIs of the authorization, token, userinfo, and public-keys endpoints. The Discovery document for **itsme(r) Login** service may be retrieved from:
+To simplify implementations and increase flexibility, OpenID Connect allows the use of a "Discovery document", a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider's configuration, including the URIs of the authorization, token, userinfo, and public-keys endpoints to interact with it. The Discovery document for **itsme(r) ** service may be retrieved from:
 
 [https://merchant.itsme.be/oidc/.well-known/openid-configuration](https://merchant.itsme.be/oidc/.well-known/openid-configuration).
 
@@ -469,5 +469,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE0MDQ4MTQzMSw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTE0MDE4MjgyMiw2NjcyNjY5MTNdfQ==
 -->
