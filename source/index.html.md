@@ -12,7 +12,7 @@ toc_footers:
 search: true
 ---
 
-# Introduction to itsme(t)
+# Introduction to itsme(r)
 
 This documentation describes our OAuth 2.0 implementation of **itsme(r) Login**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications, and is OpenID certified (TODO). 
 
@@ -470,5 +470,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIyMTE5ODU2MCw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTEwNTY2MzcwMjIsNjY3MjY2OTEzXX0=
 -->
