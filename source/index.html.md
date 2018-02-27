@@ -285,9 +285,9 @@ The content type of the response will be `application/jwt`. The response will be
 
 ***Note**: itsme(r) won't deliver any [aggregated nor distributed claims](http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims) in the current version.*
 
-For OpenID Connect, scopes can be used to request that specific sets of information be made available as Claim Values (TODO in UserInfo Token???).
+As per OpenID Connect specification, scopes can be used to request that specific sets of information be made available as Claim Values in UserInfo Token.
 
-In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims requested via scope as **Essential**.
+In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims requested via scope as **Essential**. It means
 
 The following values for **scope** allow access to predefined sets of Data:
 
@@ -452,5 +452,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMTYyMzc5MDMsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbMjA2NTE0NjE5Myw2NjcyNjY5MTNdfQ==
 -->
