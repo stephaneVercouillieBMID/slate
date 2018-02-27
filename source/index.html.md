@@ -233,7 +233,7 @@ Property | Comment
 
 ### Example Request
 
-```http
+```http--inline
 POST /token HTTP/1.1
 Host: server.example.com
 Content-Type: application/x-www-form-urlencoded
@@ -414,7 +414,7 @@ Property | Required | Comment
 
 > Example of claim request before base64url encoding, signing and encryption
 
-```json
+```json--inline
 {
 	// JWT Registered claims (https://tools.ietf.org/html/rfc7519#section-4.1)
 	iss: "s6BhdRkqt3",
@@ -469,5 +469,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI4NzU1NDMyMCw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTE1MTYyMTg1OTQsNjY3MjY2OTEzXX0=
 -->
