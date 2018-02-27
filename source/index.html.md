@@ -196,7 +196,8 @@ If purpose of use is stated during the on-boarding process and consent is provid
 - **Commercial Information**: information provided by the end-user 
 - **Security Information**: information retrieved during execution of the service that could impact security level of the transaction. 
 
-## Verified Identity Data
+## Available Data 
+### Verified Identity Data
 
 The user identity data provided by **itsme(r)** are data coming from the National Registry. These datas are provided to **itsme(r)** during user enrolment either directly from a card readout or indirectly through an IDentity Registrar (IDR) having a strong identity verification process (e.g. face-to-face KYC with eID readout)  in-place.  
 
@@ -226,20 +227,20 @@ Data | Definition
 **Certificate Validity** | the certificate validity.
 **Read Date** | the data extraction date.
 
-## Commercial Data
+### Commercial Data
 
 Data | Definition
 -- | --
 **Phone Number** | Verified phone number associated to the **itsme(r)** user account.  
 **E-Mail Address** | E-Mail address. NOT Verified!
 
-## Security Data
+### Security Data
 
 Data | Definition
 -- | --
 **Device** | Information about the end user device. See [Device Information](#device-information)
 
-### <a name="device-information"></a>Device Information 
+#### <a name="device-information"></a>Device Information 
 
 Data | Definition
 -- | -- 
@@ -260,7 +261,7 @@ Data | Definition
 **MSISDN** | User’s phone number. 
 **SDK Release** | SDK release 
 
-## 3. UserInfo Request
+## UserInfo Request
 
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
 
@@ -448,5 +449,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY0OTE2MTk1Nyw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTUwODgwMTU5NSw2NjcyNjY5MTNdfQ==
 -->
