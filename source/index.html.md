@@ -227,14 +227,14 @@ Validity to | eID card validity “to” date.
 Certificate Validity | the certificate validity.
 Read Date | the data extraction date.
 
-## Commercial Information
+## Commercial Data
 
 Data | Definition
 -- | --
 Phone Number | Verified phone number associated to the **itsme(r)** user account.  
 E-Mail Address | E-Mail address. NOT Verified!
 
-## Security Information
+## Security Data
 
 Data | Definition
 -- | --
@@ -244,12 +244,12 @@ Device | Information about the end user device. See [Device Information](#device
 
 A JSON object with the following keys (only keys with cardinality \[1..1\] will be always available):
 
-Data | Provided | Definition
--- | -- | -- 
-**OS** | Always | the device operating system (supported values: {`ANDROID`, `IOS`})
-**Device Identifier** | Always | (regexp = "\[a-f0-9\]{33}") the device identifier.
-**Application Name** |  | the application name.
-**Application Release** |  | the application current release.
+Data | Definition
+-- | -- 
+**OS** | the device operating system (supported values: {`ANDROID`, `IOS`})
+**Device Identifier** | Device identifier.
+**Application Name** | Application name.
+**Application Release** | Application current release.
 **Device Label** |  | the name of the device.
 **Debug Enabled** |  | if debug mode is activated.
 **OS Release** |  | Version of the OS running on your Device.
@@ -419,5 +419,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5MzQwNTI0Myw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTE4MDQ5Mzk2MjIsNjY3MjY2OTEzXX0=
 -->
