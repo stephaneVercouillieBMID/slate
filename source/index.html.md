@@ -116,7 +116,7 @@ Data | Provided | Definition
 
 # Prerequisites 
 
-Before your application can use **itsme(r)** for user login, you must set up a project to obtain OIDC credentials, set a redirect URI for your services, and customise the branding information that your users see on the **itsme(r)** user-consent screen.
+Before your application can use **itsme(r)** for user login, you must set up a project to obtain OIDC credentials, set redirect URIs for your services, and customise the branding information that your users see on the **itsme(r)** user-consent screen.
 
 ## Customize the user consent screen
 SP provides 
@@ -416,5 +416,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxMzEyNTk0NSw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTE1Nzc3NDA1NSw2NjcyNjY5MTNdfQ==
 -->
