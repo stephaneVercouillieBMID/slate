@@ -21,99 +21,6 @@ This documentation describes our OAuth 2.0 implementation of **itsme(r) Login**,
 
 itsme(r) Login uses pairwise user identifier, meaning each partner will have a different User Code for the same user. Doing, nobody except BMID can link one given user code to a specific user identity.  
 
-If purpose of use is stated and consent is provided by the end-user during authentication, following data can be shared with your application
-
-- **Verified Identity Data**: identity information retrieved from the National eID Card 
-- **Commercial Information**: information provided by the end-user 
-- **Security Information**: information retrieved during execution of the service that could impact security level of the transaction. 
-
-## Verified Identity Data
-
-The user identity data provided by **itsme(r)** are data coming from the National Registry. These datas are provided to **itsme(r)** during user enrolment either directly from a card readout or indirectly through an IDentity Registrar (IDR) having a strong identity verification process (e.g. face-to-face KYC with eID readout)  in-place.  
-
-Data | Definition
--- | --
-**Full Name** | Full name is a concatenation of firstname, middlenames and lastname.
-**Date of birth** | Birthdate 
-**Place of birth** | Place of birth. ***Note**: this information can be localized* 
-**Gender** | Gender
-**Language** | Language
-**Nationality** | Nationality
-**Address** | Address containing street, house number, postbox, locality, postcode and country
-**Passport Number** | Passport Number
-**NRN** | National Registry Number
-**E-ID picture** | Picture taken from the National eID Card in low-resolution.
-**E-ID Metadata** | See [E-ID Metadata Information](#e-id-info)
-
-### <a name="e-id-info"></a>E-ID Metadata Information
-Provides some information about the eID card readout related to the identity data provided by **itsme(r)**.
-
-Data | Definition
--- | -- 
-eID Serial Number | the electronic ID card serial number.
-issuance_locality | the issuance locality.
-Validity from | eID card validity “from” date.
-Validity to | eID card validity “to” date.
-Certificate Validity | the certificate validity.
-Read Date | the data extraction date.
-
-## Commercial Information
-
-Data | Definition
--- | --
-Phone Number | Verified phone number associated to the **itsme(r)** user account.  
-E-Mail Address | E-Mail address. NOT Verified!
-
-## Security Information
-
-Data | Definition
--- | --
-Device | Information about the end user device. See [Device Information](#device-information)
-
-### <a name="device-information"></a>Device Information 
-
-A JSON object with the following keys (only keys with cardinality \[1..1\] will be always available):
-
-Data | Provided | Definition
--- | -- | -- 
-**OS** | Always | the device operating system (supported values: {`ANDROID`, `IOS`})
-**Device Identifier** | Always | (regexp = "\[a-f0-9\]{33}") the device identifier.
-**Application Name** |  | the application name.
-**Application Release** |  | the application current release.
-**Device Label** |  | the name of the device.
-**Debug Enabled** |  | if debug mode is activated.
-**OS Release** |  | Version of the OS running on your Device.
-**Manufacturer** |  | Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android). 
-**SIM Enabled** |  | Whether there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing itsme on a tablet.
-**Lock Level** |  | The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.
-**SMS Enabled** |  | Can send SMS. On iOS, means it’s an iPhone. 
-**Rooted** |  | True if the device is jailbreaked/rooted.
-**IMEI** |  | (regexp = "\[0-9\]{15,17}") the device IMEI value.
-**Model** |  | Model of the Device. e.g. SAMSUNG GALAXY A5
-**MSISDN** |  | the user’s phone number. 
-**SDK Release** |  | Sdk release 
-
-> Example device object in JSON
-```json
-{  
-	"os": "ANDROID",  
-	"appName": "itsme app", "appRelease": "1.17.13",
-	"deviceLabel": "myDevice",
-	"debugEnabled": false, 
-	"deviceId": "deviceId",
-	"osRelease": "Android 4.4.2", 
-	"manufacturer": "samsung", 
-	"hasSimEnabled": true,
-	"deviceLockLevel": "touchID", 
-	"smsEnabled": true,
-	"rooted": false,
-	"imei": "12345678901234567",
-	"deviceModel": "S8",  
-	"msisdn": "0412123123", 
-	"sdkRelease": "1.17.12"  
-}
-```
-
 # Prerequisites 
 
 Before your application can use **itsme(r)** for user login, you must set up a project to obtain OIDC credentials, set redirect URIs for your services, and customise the branding information that your users see on the **itsme(r)** user-consent screen.
@@ -283,6 +190,101 @@ As per the OpenID Connect specification [http://openid.net/specs/openid-connect-
 TODO if specifics
 
 # itsme(r) Share Data
+
+If purpose of use is stated and consent is provided by the end-user during authentication, following data can be shared with your application
+
+- **Verified Identity Data**: identity information retrieved from the National eID Card 
+- **Commercial Information**: information provided by the end-user 
+- **Security Information**: information retrieved during execution of the service that could impact security level of the transaction. 
+
+## Verified Identity Data
+
+The user identity data provided by **itsme(r)** are data coming from the National Registry. These datas are provided to **itsme(r)** during user enrolment either directly from a card readout or indirectly through an IDentity Registrar (IDR) having a strong identity verification process (e.g. face-to-face KYC with eID readout)  in-place.  
+
+Data | Definition
+-- | --
+**Full Name** | Full name is a concatenation of firstname, middlenames and lastname.
+**Date of birth** | Birthdate 
+**Place of birth** | Place of birth. ***Note**: this information can be localized* 
+**Gender** | Gender
+**Language** | Language
+**Nationality** | Nationality
+**Address** | Address containing street, house number, postbox, locality, postcode and country
+**Passport Number** | Passport Number
+**NRN** | National Registry Number
+**E-ID picture** | Picture taken from the National eID Card in low-resolution.
+**E-ID Metadata** | See [E-ID Metadata Information](#e-id-info)
+
+### <a name="e-id-info"></a>E-ID Metadata Information
+Provides some information about the eID card readout related to the identity data provided by **itsme(r)**.
+
+Data | Definition
+-- | -- 
+eID Serial Number | the electronic ID card serial number.
+issuance_locality | the issuance locality.
+Validity from | eID card validity “from” date.
+Validity to | eID card validity “to” date.
+Certificate Validity | the certificate validity.
+Read Date | the data extraction date.
+
+## Commercial Information
+
+Data | Definition
+-- | --
+Phone Number | Verified phone number associated to the **itsme(r)** user account.  
+E-Mail Address | E-Mail address. NOT Verified!
+
+## Security Information
+
+Data | Definition
+-- | --
+Device | Information about the end user device. See [Device Information](#device-information)
+
+### <a name="device-information"></a>Device Information 
+
+A JSON object with the following keys (only keys with cardinality \[1..1\] will be always available):
+
+Data | Provided | Definition
+-- | -- | -- 
+**OS** | Always | the device operating system (supported values: {`ANDROID`, `IOS`})
+**Device Identifier** | Always | (regexp = "\[a-f0-9\]{33}") the device identifier.
+**Application Name** |  | the application name.
+**Application Release** |  | the application current release.
+**Device Label** |  | the name of the device.
+**Debug Enabled** |  | if debug mode is activated.
+**OS Release** |  | Version of the OS running on your Device.
+**Manufacturer** |  | Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android). 
+**SIM Enabled** |  | Whether there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing itsme on a tablet.
+**Lock Level** |  | The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.
+**SMS Enabled** |  | Can send SMS. On iOS, means it’s an iPhone. 
+**Rooted** |  | True if the device is jailbreaked/rooted.
+**IMEI** |  | (regexp = "\[0-9\]{15,17}") the device IMEI value.
+**Model** |  | Model of the Device. e.g. SAMSUNG GALAXY A5
+**MSISDN** |  | the user’s phone number. 
+**SDK Release** |  | Sdk release 
+
+> Example device object in JSON
+
+```json
+{  
+	"os": "ANDROID",  
+	"appName": "itsme app", "appRelease": "1.17.13",
+	"deviceLabel": "myDevice",
+	"debugEnabled": false, 
+	"deviceId": "deviceId",
+	"osRelease": "Android 4.4.2", 
+	"manufacturer": "samsung", 
+	"hasSimEnabled": true,
+	"deviceLockLevel": "touchID", 
+	"smsEnabled": true,
+	"rooted": false,
+	"imei": "12345678901234567",
+	"deviceModel": "S8",  
+	"msisdn": "0412123123", 
+	"sdkRelease": "1.17.12"  
+}
+```
+
 ## 3. UserInfo Request
 
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
@@ -417,5 +419,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ0OTY5NTczLDY2NzI2NjkxM119
+eyJoaXN0b3J5IjpbMTE5MzQwNTI0Myw2NjcyNjY5MTNdfQ==
 -->
