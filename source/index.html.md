@@ -231,7 +231,7 @@ Property | Comment
 **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
 **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 
-### Example Request
+> Example Request
 
 ```http--inline
 POST /token HTTP/1.1
@@ -465,5 +465,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMzM4OTYwMzIsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbODQwMTMzMzksNjY3MjY2OTEzXX0=
 -->
