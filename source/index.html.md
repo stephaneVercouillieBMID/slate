@@ -24,7 +24,7 @@ itsme(r) Login uses pairwise user identifier, meaning each partner will have a d
 
 # itsme(r) Share Data
 
-If purpose of use is stated during the on-boarding process and consent is provided by the end-user during authentication, following data can be shared with your application
+If purpose of use is stated during the on-boarding process and consent is provided by the End-User during Authentication, following Data can be shared with your application
 
 - **Verified Identity Data**: identity information retrieved from the National eID Card 
 - **Commercial Information**: information provided by the end-user 
@@ -470,5 +470,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEzNzc5MTEzMSw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTEyMTk4NDU2MDUsNjY3MjY2OTEzXX0=
 -->
