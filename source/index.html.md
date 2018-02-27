@@ -148,7 +148,7 @@ Parameter | Required | Comment
 **client_assertion** | Required | Must be a valid JWT complying with the **private_key_jwt** client authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
 **client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
 
-Fllowing the **private_key_jwt** client authentication method, the JWT must contain the following properties:
+Fllowing the `private_key_jwt` client authentication method, the **client assertion** JWT must contain the following properties:
 
 Property | Comment
 -- | --
@@ -418,5 +418,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5NTA3MzE2Miw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbOTg4MDUzMTM1LDY2NzI2NjkxM119
 -->
