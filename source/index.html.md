@@ -284,6 +284,8 @@ The content type of the response will be `application/jwt`. The response will be
 
 ***Note**: itsme(r) won't deliver any [aggregated nor distributed claims](http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims) in the current version.*
 
+For OpenID Connect, scopes can be used to request that specific sets of information be made available as Claim Values.
+
 Following values for **scope** allow access to a predefined sets of Data:
 
 Scope | Data | Claim
@@ -426,5 +428,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4NjM4NDc3Nyw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTE1ODA5NjgwODgsNjY3MjY2OTEzXX0=
 -->
