@@ -123,9 +123,7 @@ To simplify implementations and increase flexibility, OpenID Connect allows the 
 
 The Discovery document for **itsme(r) ** service may be retrieved from:
 
-> Blockquote
-
-https://merchant.itsme.be/oidc/.well-known/openid-configuration
+<code><a href="">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></code>
 
 Format and content of this document is defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
 
@@ -473,5 +471,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYxMTI5ODY1MCw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTg1NzYwOTkzNSw2NjcyNjY5MTNdfQ==
 -->
