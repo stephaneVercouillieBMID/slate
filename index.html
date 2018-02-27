@@ -222,7 +222,18 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
           </li>
           <li>
-            <a href="#itsme-r-login" class="toc-h1 toc-link" data-title="itsme-r-login">itsme(r) Login</a>
+            <a href="#itsme-r-login-and-shared-data" class="toc-h1 toc-link" data-title="itsme-r-login-and-shared-data">itsme(r) Login and Shared Data</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#verified-identity-data" class="toc-h2 toc-link" data-title="verified-identity-data">Verified Identity Data</a>
+                  </li>
+                  <li>
+                    <a href="#commercial-information" class="toc-h2 toc-link" data-title="commercial-information">Commercial Information</a>
+                  </li>
+                  <li>
+                    <a href="#security-information" class="toc-h2 toc-link" data-title="security-information">Security Information</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#prerequisites" class="toc-h1 toc-link" data-title="prerequisites">Prerequisites</a>
@@ -253,18 +264,6 @@
                   <li>
                     <a href="#3-userinfo-request" class="toc-h2 toc-link" data-title="3-userinfo-request">3. UserInfo Request</a>
                   </li>
-                  <li>
-                    <a href="#signing-and-encryption-requests" class="toc-h2 toc-link" data-title="signing-and-encryption-requests">Signing and Encryption Requests</a>
-                  </li>
-                  <li>
-                    <a href="#national-id-information" class="toc-h2 toc-link" data-title="national-id-information">National ID Information</a>
-                  </li>
-                  <li>
-                    <a href="#commercial-information" class="toc-h2 toc-link" data-title="commercial-information">Commercial Information</a>
-                  </li>
-                  <li>
-                    <a href="#security-information" class="toc-h2 toc-link" data-title="security-information">Security Information</a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -272,6 +271,9 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#passing-request-parameters-as-jwts" class="toc-h2 toc-link" data-title="a-name-jwtrequest-a-passing-request-parameters-as-jwts"><a name="JWTRequest"></a>Passing Request Parameters as JWTs</a>
+                  </li>
+                  <li>
+                    <a href="#requests-signing-and-encryption" class="toc-h2 toc-link" data-title="requests-signing-and-encryption">Requests Signing and Encryption</a>
                   </li>
               </ul>
           </li>
@@ -286,10 +288,250 @@
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p>This documentation describes our OAuth 2.0 implementation of <strong>itsme(r) Login</strong>, which conforms to the <a href="http://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect 1.0</a> specifications, and is OpenID certified (TODO). </p>
-<h1 id='itsme-r-login'>itsme(r) Login</h1>
-<p><strong>itsme(r) Login</strong> is a service provided by <a href="https://www.belgianmobileid.be">Belgian Mobile ID</a> to allow user to login securely and to share verified identity data with your application.</p>
+<h1 id='itsme-r-login-and-shared-data'>itsme(r) Login and Shared Data</h1>
+<p><strong>itsme(r) Login</strong> is a service provided by <a href="https://www.belgianmobileid.be">Belgian Mobile ID</a> to allow users to login securely and to share data with your application.</p>
+
+<p>itsme(r) Login uses pairwise user identifier, meaning each partner will have a different User Code for the same user. Doing, nobody except BMID can link one given user code to a specific user identity.  The user identity is therefore defined the shared data.</p>
+
+<p>If purpose of use is stated and consent is provided by the end-user during authentication, following data can be shared with your application</p>
+
+<ul>
+<li><strong>Verified Identity Data</strong>: identity information retrieved from the National eID Card </li>
+<li><strong>Commercial Information</strong>: information provided by the end-user </li>
+<li><strong>Security Information</strong>: information retrieved during execution of the service that could impact security level of the transaction. </li>
+</ul>
+<h2 id='verified-identity-data'>Verified Identity Data</h2>
+<p>The user identity data provided by <strong>itsme(r)</strong> are data coming from the National Registry. These datas are provided to <strong>itsme(r)</strong> during user enrolment either directly from a card readout or indirectly through an IDentity Registrar (IDR) having a strong identity verification process (e.g. face-to-face KYC with eID readout)  in-place.  </p>
+
+<table><thead>
+<tr>
+<th>Data</th>
+<th>Definition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Full Name</strong></td>
+<td>Full name is a concatenation of firstname, middlenames and lastname.</td>
+</tr>
+<tr>
+<td><strong>Date of birth</strong></td>
+<td>Birthdate</td>
+</tr>
+<tr>
+<td><strong>Place of birth</strong></td>
+<td>Place of birth. <em>**Note</em><em>: this information can be localized</em></td>
+</tr>
+<tr>
+<td><strong>Gender</strong></td>
+<td>Gender</td>
+</tr>
+<tr>
+<td><strong>Language</strong></td>
+<td>Language</td>
+</tr>
+<tr>
+<td><strong>Nationality</strong></td>
+<td>Nationality</td>
+</tr>
+<tr>
+<td><strong>Address</strong></td>
+<td>Address containing street, house number, postbox, locality, postcode and country</td>
+</tr>
+<tr>
+<td><strong>Passport Number</strong></td>
+<td>Passport Number</td>
+</tr>
+<tr>
+<td><strong>NRN</strong></td>
+<td>National Registry Number</td>
+</tr>
+<tr>
+<td><strong>E-ID picture</strong></td>
+<td>Picture taken from the National eID Card in low-resolution.</td>
+</tr>
+<tr>
+<td><strong>E-ID Metadata</strong></td>
+<td>See <a href="#e-id-info">E-ID Metadata Information</a></td>
+</tr>
+</tbody></table>
+<h3 id='e-id-metadata-information'><a name="e-id-info"></a>E-ID Metadata Information</h3>
+<p>Provides some information about the eID card readout related to the identity data provided by <strong>itsme(r)</strong>.</p>
+
+<table><thead>
+<tr>
+<th>Data</th>
+<th>Definition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>eID Serial Number</td>
+<td>the electronic ID card serial number.</td>
+</tr>
+<tr>
+<td>issuance_locality</td>
+<td>the issuance locality.</td>
+</tr>
+<tr>
+<td>Validity from</td>
+<td>eID card validity “from” date.</td>
+</tr>
+<tr>
+<td>Validity to</td>
+<td>eID card validity “to” date.</td>
+</tr>
+<tr>
+<td>Certificate Validity</td>
+<td>the certificate validity.</td>
+</tr>
+<tr>
+<td>Read Date</td>
+<td>the data extraction date.</td>
+</tr>
+</tbody></table>
+<h2 id='commercial-information'>Commercial Information</h2>
+<table><thead>
+<tr>
+<th>Data</th>
+<th>Definition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Phone Number</td>
+<td>Verified phone number associated to the <strong>itsme(r)</strong> user account.</td>
+</tr>
+<tr>
+<td>E-Mail Address</td>
+<td>E-Mail address. NOT Verified!</td>
+</tr>
+</tbody></table>
+<h2 id='security-information'>Security Information</h2>
+<table><thead>
+<tr>
+<th>Data</th>
+<th>Definition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Device</td>
+<td>Information about the end user device. See <a href="#device-information">Device Information</a></td>
+</tr>
+</tbody></table>
+<h3 id='device-information'><a name="device-information"></a>Device Information</h3>
+<p>A JSON object with the following keys (only keys with cardinality [1..1] will be always available):</p>
+
+<table><thead>
+<tr>
+<th>Data</th>
+<th>Provided</th>
+<th>Definition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>OS</strong></td>
+<td>Always</td>
+<td>the device operating system (supported values: {<code>ANDROID</code>, <code>IOS</code>})</td>
+</tr>
+<tr>
+<td><strong>Device Identifier</strong></td>
+<td>Always</td>
+<td>(regexp = &quot;[a-f0-9]{33}&quot;) the device identifier.</td>
+</tr>
+<tr>
+<td><strong>Application Name</strong></td>
+<td></td>
+<td>the application name.</td>
+</tr>
+<tr>
+<td><strong>Application Release</strong></td>
+<td></td>
+<td>the application current release.</td>
+</tr>
+<tr>
+<td><strong>Device Label</strong></td>
+<td></td>
+<td>the name of the device.</td>
+</tr>
+<tr>
+<td><strong>Debug Enabled</strong></td>
+<td></td>
+<td>if debug mode is activated.</td>
+</tr>
+<tr>
+<td><strong>OS Release</strong></td>
+<td></td>
+<td>Version of the OS running on your Device.</td>
+</tr>
+<tr>
+<td><strong>Manufacturer</strong></td>
+<td></td>
+<td>Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android).</td>
+</tr>
+<tr>
+<td><strong>SIM Enabled</strong></td>
+<td></td>
+<td>Whether there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing itsme on a tablet.</td>
+</tr>
+<tr>
+<td><strong>Lock Level</strong></td>
+<td></td>
+<td>The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.</td>
+</tr>
+<tr>
+<td><strong>SMS Enabled</strong></td>
+<td></td>
+<td>Can send SMS. On iOS, means it’s an iPhone.</td>
+</tr>
+<tr>
+<td><strong>Rooted</strong></td>
+<td></td>
+<td>True if the device is jailbreaked/rooted.</td>
+</tr>
+<tr>
+<td><strong>IMEI</strong></td>
+<td></td>
+<td>(regexp = &quot;[0-9]{15,17}&quot;) the device IMEI value.</td>
+</tr>
+<tr>
+<td><strong>Model</strong></td>
+<td></td>
+<td>Model of the Device. e.g. SAMSUNG GALAXY A5</td>
+</tr>
+<tr>
+<td><strong>MSISDN</strong></td>
+<td></td>
+<td>the user’s phone number.</td>
+</tr>
+<tr>
+<td><strong>SDK Release</strong></td>
+<td></td>
+<td>Sdk release</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example device object in JSON
+<code>json
+{  
+    &quot;os&quot;: &quot;ANDROID&quot;,  
+    &quot;appName&quot;: &quot;itsme app&quot;, &quot;appRelease&quot;: &quot;1.17.13&quot;,
+    &quot;deviceLabel&quot;: &quot;myDevice&quot;,
+    &quot;debugEnabled&quot;: false, 
+    &quot;deviceId&quot;: &quot;deviceId&quot;,
+    &quot;osRelease&quot;: &quot;Android 4.4.2&quot;, 
+    &quot;manufacturer&quot;: &quot;samsung&quot;, 
+    &quot;hasSimEnabled&quot;: true,
+    &quot;deviceLockLevel&quot;: &quot;touchID&quot;, 
+    &quot;smsEnabled&quot;: true,
+    &quot;rooted&quot;: false,
+    &quot;imei&quot;: &quot;12345678901234567&quot;,
+    &quot;deviceModel&quot;: &quot;S8&quot;,  
+    &quot;msisdn&quot;: &quot;0412123123&quot;, 
+    &quot;sdkRelease&quot;: &quot;1.17.12&quot;  
+}
+</code></p>
+</blockquote>
 <h1 id='prerequisites'>Prerequisites</h1>
-<p>Before your application can use <strong>itsme(r)</strong> for user login, you must set up a project to obtain OIDC credentials, set a redirect URI, and customise the branding information that your users see on the <strong>itsme(r)</strong> user-consent screen.</p>
+<p>Before your application can use <strong>itsme(r)</strong> for user login, you must set up a project to obtain OIDC credentials, set a redirect URI for your services, and customise the branding information that your users see on the <strong>itsme(r)</strong> user-consent screen.</p>
 <h2 id='customize-the-user-consent-screen'>Customize the user consent screen</h2>
 <p>SP provides </p>
 
@@ -299,11 +541,14 @@
 <li>Data access with justification (to comply with GDPR)</li>
 </ul>
 <h2 id='obtain-oauth-2-0-credentials'>Obtain OAuth 2.0 credentials</h2>
-<p>BMID provides Partner Code and Service Code for each Service.</p>
+<p>BMID provides 
+- Partner Code
+- Service Code for each Service.</p>
 <h2 id='set-a-redirect-uri-and-certificates'>Set a redirect URI and Certificates</h2>
-<p>SP provides the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
-SP provides the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.
-SP provides the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.</p>
+<p>SP provides 
+- the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
+- the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.
+- the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.</p>
 <h1 id='service-discovery'>Service Discovery</h1>
 <p>To simplify implementations and increase flexibility, OpenID Connect allows the use of a &quot;Discovery document&quot;, a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider&#39;s configuration, including the URIs of the authorization, token, userinfo, and public-keys endpoints. The Discovery document for <strong>itsme(r) Login</strong> service may be retrieved from:</p>
 
@@ -311,13 +556,14 @@ SP provides the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.
 
 <p>Format and content of this document is defined in <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery 1.0</a></p>
 <h1 id='authenticating-the-user'>Authenticating the user</h1>
-<p>itsme(r) Login service is based on the Authorization Code Flow of OpenID Connect 1.0 as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth">http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth</a></p>
+<p><strong>itsme(r) Login</strong> is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth">Authorization Code Flow</a>
+ of OpenID Connect 1.0.</p>
 
 <p>The Authorization Code Flow goes through the following steps as defined in  <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps">http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps</a></p>
 <h2 id='1-authentication-request'>1. Authentication Request</h2>
 <p>As per the OpenID Connect specification <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest">http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest</a> and <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint">http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint</a></p>
 
-<p>The first step is forming an HTTPS request with the appropriate URI parameters. Note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. You should retrieve the base URI from the <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">Discovery document</a> using the key <code>authorization_endpoint</code>. The following discussion assumes the base URI is <code>https://merchant.itsme.be/oidc/authorization</code>.</p>
+<p>The first step is forming an HTTPS request with the appropriate URI parameters. Note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. You should retrieve the base URI from the <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">Discovery document</a> using the key <strong>authorization_endpoint</strong>. The following discussion assumes the base URI is <code>https://merchant.itsme.be/oidc/authorization</code>.</p>
 
 <p><strong>itsme(r)</strong> supports the use of the HTTP <code>GET</code> and <code>POST</code> methods. If using the HTTP <code>POST</code> method, the request parameters must be serialized using <a href="http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization">Form Serialization</a>.</p>
 
@@ -348,7 +594,7 @@ SP provides the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.
 <tr>
 <td><strong>redirect_uri</strong></td>
 <td>Required</td>
-<td>should be the HTTPS endpoint on your server that will receive the response from <strong>itsme(r)</strong>. This value MUST match one of the values provided to BMID during on-boarding process. <em>**Note</em><em>: the Partner can define different <code>redirect_uri</code> specific to each Service.</em></td>
+<td>should be the HTTPS endpoint on your server that will receive the response from <strong>itsme(r)</strong>. This value MUST match one of the values provided to BMID during on-boarding process. <em>**Note</em><em>: the Partner can define different **redirect_uri</em>* specific to each Service.*</td>
 </tr>
 <tr>
 <td><strong>state</strong></td>
@@ -430,15 +676,45 @@ SP provides the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.
 <blockquote>
 <p>Example of a minimal Authorization request</p>
 </blockquote>
-<pre class="highlight http tab-http"><code><span class="err">GET /authorize?response_type=code
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/authorize?response_type=code
 &amp;scope=openid%20profile%20email%20service%3Aclient.registration
 &amp;client_id=s6BhdRkqt3
 &amp;state=af0ifjsldkj
-&amp;redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
-HTTP/1.1
-Host: server.itsme.be
-</span></code></pre><h3 id='errors'>Errors</h3>
-<p>If the authentication is NOT successful, the following errors can be triggered</p>
+&amp;redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">server.itsme.be</span>
+</code></pre><h3 id='authentication-response'>Authentication Response</h3>
+<p>An Authentication Response is an <a href="https://tools.ietf.org/html/rfc6749#section-4.1.2">OAuth 2.0 Authorization Response</a> message. As such, the Authentication Response will return the following parameters:</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Provided</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>code</strong></td>
+<td>Always</td>
+<td>Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.</td>
+</tr>
+<tr>
+<td><strong>state</strong></td>
+<td></td>
+<td>The exact value received from the client, if the parameter was present in the Authentication Request.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example of Authentication Response</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
+<span class="s">  Location: https://client.example.org/cb?</span>
+<span class="s">    code=SplxlOBeZQQYbYS6WxSbIA</span>
+<span class="s">    &amp;state=af0ifjsldkj</span>
+</code></pre><h3 id='errors'>Errors</h3>
+<p>As per http://openid.net/specs/openid-connect-core-1_0.html#AuthError</p>
+
+<p>If the authentication is NOT successful, the following errors can be triggered by itsme(r)</p>
 
 <table><thead>
 <tr>
@@ -447,28 +723,28 @@ Host: server.itsme.be
 </tr>
 </thead><tbody>
 <tr>
-<td>interaction_required</td>
-<td>TODO</td>
+<td><code>interaction_required</code></td>
+<td>The Authorization Server requires End-User interaction of some form to proceed.</td>
 </tr>
 <tr>
-<td>invalid_request_object</td>
-<td>TODO</td>
+<td><code>invalid_request_object</code></td>
+<td>The request parameter contains an invalid Request Object.</td>
 </tr>
 <tr>
-<td>request_uri_not_supported</td>
-<td>TODO</td>
+<td><code>request_uri_not_supported</code></td>
+<td>does not support use of the request_uri parameter.</td>
 </tr>
 <tr>
-<td>registration_not_supported</td>
-<td>TODO</td>
+<td><code>registration_not_supported</code></td>
+<td>does not support use of the registration parameter.</td>
 </tr>
 </tbody></table>
-
+<h3 id='app-to-app-todo'>App to App ??? TODO</h3>
 <p><strong>itsme(r)</strong> Mobile App endpoint : TODO</p>
 <h2 id='2-token-request'>2. Token Request</h2>
 <p>As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest</p>
 
-<p>As per the specification, with a <code>private_key_jwt</code> for client authentication.</p>
+<p>The Authentication Response includes a <code>code</code> parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTTPS <code>POST</code> request. The <code>POST</code> request is sent to the token endpoint, which you should retrieve from the <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">Discovery document</a> using the key <strong>token_endpoint</strong>. The following discussion assumes the endpoint is <code>https://merchant.itsme.be/oidc/token</code>. The request must include the following parameters in the <code>POST</code> body:</p>
 
 <table><thead>
 <tr>
@@ -479,88 +755,101 @@ Host: server.itsme.be
 </thead><tbody>
 <tr>
 <td><strong>grant_type</strong></td>
-<td>REQUIRED</td>
+<td>Required</td>
 <td>Must be <code>authorization_code</code></td>
 </tr>
 <tr>
 <td><strong>code</strong></td>
-<td>REQUIRED</td>
-<td>The <code>code</code> value provided in Authorization response</td>
+<td>Required</td>
+<td>The <strong>code</strong> value provided in the Authentication Response</td>
 </tr>
 <tr>
 <td><strong>redirect_uri</strong></td>
-<td>REQUIRED</td>
-<td>The <code>redirect_uri</code> used in the authorization request</td>
+<td>Required</td>
+<td>The <strong>redirect_uri</strong> used in the Authentication Request</td>
 </tr>
 <tr>
 <td><strong>client_assertion</strong></td>
-<td>REQUIRED</td>
-<td>Must be provided: private_key_jwt</td>
+<td>Required</td>
+<td>Must be a valid JWT complying with the <strong>private_key_jwt</strong> client authentication method as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication">Section 9</a> of the OpenID specification. This JWT must be signed.</td>
 </tr>
 <tr>
 <td><strong>client_assertion_type</strong></td>
-<td>REQUIRED</td>
+<td>Required</td>
 <td>Must be <code>urn:ietf:params:oauth:client-assertion-type:jwt-bearer</code></td>
 </tr>
 </tbody></table>
 
-<p>A valid private_key_jwt token must be provided by the client.</p>
-
-<p>The private_key_jwt must be signed and the JWT token content must have the following properties:</p>
+<p>Fllowing the <strong>private_key_jwt</strong> client authentication method, the JWT must contain the following properties:</p>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Property</th>
 <th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
+<td><strong>iss</strong></td>
+<td>MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file TODO).</td>
+</tr>
+<tr>
 <td><strong>sub</strong></td>
-<td>The subject of the private_key_jwt (the client ID)</td>
+<td>MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file TODO).</td>
 </tr>
 <tr>
 <td><strong>aud</strong></td>
-<td>The token endpoint url</td>
-</tr>
-<tr>
-<td><strong>iss</strong></td>
-<td>The issuer of the private_key_jwt (the client ID)</td>
-</tr>
-<tr>
-<td><strong>exp</strong></td>
-<td>Expiration time on or after which the ID Token MUST NOT be accepted for processing.</td>
+<td>Must be the token endpoint URL, e.g. <code>https://merchant.itsme.be/oidc/token</code></td>
 </tr>
 <tr>
 <td><strong>jti</strong></td>
 <td>A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.</td>
 </tr>
+<tr>
+<td><strong>exp</strong></td>
+<td>Expiration time on or after which the ID Token MUST NOT be accepted for processing.</td>
+</tr>
 </tbody></table>
-<h4 id='successful-token-response'>Successful Token Response</h4>
+<h3 id='example-request'>Example Request</h3><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/token</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="s">  Host: server.example.com</span>
+<span class="s">  Content-Type: application/x-www-form-urlencoded</span>
+
+  grant_type=authorization\_code&amp;
+    code=SplxlOBeZQQYbYS6WxSbIA&amp;
+    redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
+    client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&amp;
+    client_assertion=PHNhbWxwOl ... ZT
+</code></pre><h3 id='successful-token-response'>Successful Token Response</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Provided</th>
 <th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td><strong>access_token</strong></td>
-<td>Will be provided</td>
+<td>Always</td>
+<td>A token that can be sent to the UserInfo endpoint</td>
 </tr>
 <tr>
 <td><strong>token_type</strong></td>
-<td>Bearer</td>
-</tr>
-<tr>
-<td><strong>refresh_token</strong></td>
-<td>Won&#39;t be provided</td>
+<td>Always</td>
+<td>Will be <code>Bearer</code></td>
 </tr>
 <tr>
 <td><strong>id_token</strong></td>
-<td>the id_token correspoding to the authentication request (signed and encrypted)</td>
+<td>Always</td>
+<td>The JWT <code>id_token</code> corresponding to the Authentication Request (signed and encrypted TODO). See <a href="#id-token">ID Token TODO</a>.</td>
 </tr>
 <tr>
 <td><strong>at_hash</strong></td>
-<td>OPTIONAL: first version of itsme Core does not produce the at_hash value</td>
+<td></td>
+<td>first version of itsme(r) does not produce the at_hash value ??? TODO which version</td>
+</tr>
+<tr>
+<td><strong>refresh_token</strong></td>
+<td>Never</td>
+<td>Won&#39;t be provided as itsme(r) only maintains short-lived session to enforce re-authentication.</td>
 </tr>
 </tbody></table>
 <h3 id='errors-2'>Errors</h3>
@@ -572,11 +861,11 @@ Host: server.itsme.be
 
 <p>The content type of the response will be <code>application/jwt</code>. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed.</p>
 
-<p>The UserInfo endpoint can be accessed only with a valid access_token, and for a very limited duration after end user authentication: there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the UserInfo endpoint (this reflects a constraint set on the SOAP version of the interface).</p>
-<h3 id='claims'>Claims</h3>
-<p>itsme(r) won&#39;t deliver any aggregated nor distributed claims in the current version.</p>
+<p>The UserInfo endpoint can be accessed only with a valid <strong>access_token</strong> received from the token endpoint, and for a very limited duration after end user authentication; there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the UserInfo endpoint.</p>
 
-<p>In current version and in contradiction to the OpenID Connect specification, itsme(r) considers all claims as <strong>Essential</strong>, even if they are requested as a <strong>Voluntary</strong> claim. However, as in a future version, itsme(r)  will make the difference between Essential and Voluntary Claims, Relying Parties should already request claims with appropriate level regarding their business case.</p>
+<p>Your server makes this exchange by sending an HTTPS <code>POST</code> request. The <code>POST</code> request is sent to the UserInfo endpoint, which you should retrieve from the <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">Discovery document</a> using the key <strong>userinfo_endpoint</strong>. The following discussion assumes the endpoint is <code>https://merchant.itsme.be/oidc/userinfo</code>. The request must include the following parameters in the <code>POST</code> body: TODO xxx</p>
+<h3 id='requesting-claims-using-scope-values'>Requesting Claims using Scope Values</h3>
+<p><em>**Note</em><em>: itsme(r) won&#39;t deliver any <a href="http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims">aggregated nor distributed claims</a> in the current version.</em></p>
 
 <p>Following values for scope allow access to a predefined sets of Identity Data:</p>
 
@@ -588,45 +877,45 @@ Host: server.itsme.be
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>profile</strong></td>
+<td><strong><code>profile</code></strong></td>
 <td>Full Name</td>
 <td><code>name</code> or <code>given_name</code> TODO ??? or <code>family_name</code> TODO ???</td>
 </tr>
 <tr>
-<td>-</td>
+<td></td>
 <td>Gender</td>
 <td><code>gender</code></td>
 </tr>
 <tr>
-<td>-</td>
+<td></td>
 <td>Date of Birth</td>
 <td><code>birthdate</code></td>
 </tr>
 <tr>
-<td>-</td>
+<td></td>
 <td>Language</td>
 <td><code>locale</code></td>
 </tr>
 <tr>
-<td><strong>address</strong></td>
+<td><strong><code>address</code></strong></td>
 <td>Address</td>
 <td><code>address</code>, with following subfields: <code>street_address</code> (newline separator \n), <code>locality</code>, <code>postal_code</code>, <code>country</code></td>
 </tr>
 <tr>
-<td><strong>email</strong></td>
+<td><strong><code>email</code></strong></td>
 <td>E-Mail Address</td>
 <td><code>email</code> or <code>email_verified</code> TODO verified???</td>
 </tr>
 <tr>
-<td><strong>phone</strong></td>
+<td><strong><code>phone</code></strong></td>
 <td>Phone Number</td>
-<td><code>phone_number</code> or <code>phone\_number\_verified</code></td>
+<td><code>phone_number</code> or <code>phone_number_verified</code></td>
 </tr>
 </tbody></table>
 
 <p><em>**NOTE</em><em>: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.</em></p>
-
-<p>We have favored the request of Identity Data in the scope values. However, some Identity Data have to be requested in the “claims” parameter of the Authentication Request. Here are these claims:</p>
+<h3 id='requesting-claims-using-the-quot-claims-quot-request-parameter'>Requesting Claims using the &quot;claims&quot; Request Parameter</h3>
+<p>We have favoured the request of Identity Data in the scope values. However, some specific Data have to be requested in the “claims” parameter of the Authentication Request. Here are these claims:</p>
 
 <table><thead>
 <tr>
@@ -636,38 +925,38 @@ Host: server.itsme.be
 </tr>
 </thead><tbody>
 <tr>
-<td>User code</td>
-<td><strong>sub</strong></td>
+<td>???</td>
+<td><strong><code>sub</code></strong></td>
 <td>TODO</td>
 </tr>
 <tr>
 <td>Nationality</td>
-<td><strong>tag:itsmetag:sixdots.be,2016-06:claim_nationality</strong></td>
+<td><strong><code>tag:itsmetag:sixdots.be,2016-06:claim_nationality</code></strong></td>
 <td>TODO</td>
 </tr>
 <tr>
 <td>Place of Birth</td>
-<td><strong>tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth</strong> and <strong>tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth</strong></td>
+<td><strong><code>tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth</code></strong> and <strong><code>tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth</code></strong></td>
 <td>TODO</td>
 </tr>
 <tr>
 <td>E-ID Info</td>
-<td><strong>tag:itsmetag:sixdots.be,2016-06:claim_eid</strong></td>
+<td><strong><code>tag:itsmetag:sixdots.be,2016-06:claim_eid</code></strong></td>
 <td>TODO</td>
 </tr>
 <tr>
 <td>Passport Number</td>
-<td><strong>tag:sixdots.be,2017-05:claim_passport_sn</strong></td>
+<td><strong><code>tag:sixdots.be,2017-05:claim_passport_sn</code></strong></td>
 <td>TODO</td>
 </tr>
 <tr>
 <td>Device</td>
-<td><strong>tag:sixdots.be,2017-05:claim_device</strong></td>
+<td><strong><code>tag:sixdots.be,2017-05:claim_device</code></strong></td>
 <td>see XXXX (TODO URL)</td>
 </tr>
 <tr>
 <td>??? TODO</td>
-<td><strong>tag:sixdots.be,2017-05:claim_transaction_info</strong></td>
+<td><strong><code>tag:sixdots.be,2017-05:claim_transaction_info</code></strong></td>
 <td>TODO</td>
 </tr>
 <tr>
@@ -682,168 +971,21 @@ Host: server.itsme.be
 </tr>
 </tbody></table>
 
-<p>The following standard claims (check http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) won’t be provided: TODO UNSUPPORTED????</p>
+<p>In current version and in contradiction to the OpenID Connect specification, <strong>itsme(r)</strong> considers all claims as <strong>Essential</strong>, even if they are requested as a <strong>Voluntary</strong> claim (see <a href="http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests">Individual Claim Request</a>). However, as in a future version <strong>itsme(r)</strong>  will make the difference between Essential and Voluntary Claims, you should already request claims with appropriate level regarding your business case.</p>
+<h3 id='unsupported-standard-claims'>Unsupported Standard Claims</h3>
+<p>The following standard claims (check http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) won’t be provided if requested: TODO UNSUPPORTED????</p>
 
 <ul>
-<li>middle_name </li>
-<li>nickname </li>
-<li>preferred_username </li>
-<li>picture (supposed to be an url) </li>
-<li>website </li>
-<li>zoneinfo </li>
-<li>updated_at</li>
+<li><code>middle_name</code> </li>
+<li><code>nickname</code> </li>
+<li><code>preferred_username</code> </li>
+<li><code>picture</code> (supposed to be an url) </li>
+<li><code>website</code> </li>
+<li><code>zoneinfo</code> </li>
+<li><code>updated_at</code></li>
 </ul>
-<h2 id='signing-and-encryption-requests'>Signing and Encryption Requests</h2>
-<p>Encryption algorithm used: RSA SHA-256 TODO not aligned with</p>
-
-<p>Supported algorithms and encryption methods for:</p>
-
-<ul>
-<li>ID Token
--- Encryption Method (enc): A128CBC-HS256
--- Encryption Algorithm (alg): RSA-OAEP
--- Signing Algorithm (alg): RS256</li>
-<li>User Info
--- Encryption Method (enc): A128CBC-HS256
--- Encryption Algorithm (alg): RSA-OAEP
--- Signing Algorithm (alg):  RS256</li>
-<li>Request Object”
--- Encryption Method (enc): A128CBC-HS256
--- Encryption Algorithm (alg): RSA-OAEP
--- Signing Algorithm (alg): RS256</li>
-</ul>
-
-<p>itsme(r) will use pairwise Subject Identifier. TODO</p>
-
-<p>Offline access is not supported. TODO</p>
-
-<p>Dynamic client registration is not allowed. TODO </p>
-
-<p>itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet) </p>
-
-<blockquote>
-<p>https://merchant.itsme.be/oidc/jwkSet</p>
-</blockquote>
-
-<p>It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS </p>
-<h2 id='national-id-information'>National ID Information</h2><h2 id='commercial-information'>Commercial Information</h2><h2 id='security-information'>Security Information</h2>
-<p>Information about the end user device.</p>
-
-<p>A JSON object with the following keys (only keys with cardinality [1..1] will be always available):</p>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Cardinality</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>os</strong></td>
-<td>1..1</td>
-<td>the device operating system (supported values: {<code>ANDROID</code>, <code>IOS</code>})</td>
-</tr>
-<tr>
-<td><strong>deviceId</strong></td>
-<td>1..1</td>
-<td>(regexp = &quot;[a-f0-9]{33}&quot;) the device identifier.</td>
-</tr>
-<tr>
-<td><strong>appName</strong></td>
-<td>0..1</td>
-<td>the application name.</td>
-</tr>
-<tr>
-<td><strong>appRelease</strong></td>
-<td>0..1</td>
-<td>the application current release.</td>
-</tr>
-<tr>
-<td><strong>deviceLabel</strong></td>
-<td>0..1</td>
-<td>the name of the device.</td>
-</tr>
-<tr>
-<td><strong>debugEnabled</strong></td>
-<td>0..1</td>
-<td>if debug mode is activated.</td>
-</tr>
-<tr>
-<td><strong>osRelease</strong></td>
-<td>0..1</td>
-<td>Version of the OS running on your Device.</td>
-</tr>
-<tr>
-<td><strong>manufacturer</strong></td>
-<td>0..1</td>
-<td>Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android).</td>
-</tr>
-<tr>
-<td><strong>hasSimEnabled</strong></td>
-<td>0..1</td>
-<td>Whether there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing itsme on a tablet.</td>
-</tr>
-<tr>
-<td><strong>deviceLockLevel</strong></td>
-<td>0..1</td>
-<td>The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.</td>
-</tr>
-<tr>
-<td><strong>smsEnabled</strong></td>
-<td>0..1</td>
-<td>Can send SMS. On iOS, means it’s an iPhone.</td>
-</tr>
-<tr>
-<td><strong>rooted</strong></td>
-<td>0..1</td>
-<td>Coming from Gemalto. ‘true’ the device is jailbreaked/rooted.</td>
-</tr>
-<tr>
-<td><strong>imei</strong></td>
-<td>0..1</td>
-<td>(regexp = &quot;[0-9]{15,17}&quot;) the device IMEI value.</td>
-</tr>
-<tr>
-<td><strong>deviceModel</strong></td>
-<td>0..1</td>
-<td>Model of the Device. e.g. SAMSUNG GALAXY A5</td>
-</tr>
-<tr>
-<td><strong>msisdn</strong></td>
-<td>0..1</td>
-<td>the user’s phone number.</td>
-</tr>
-<tr>
-<td><strong>sdkRelease</strong></td>
-<td>0..1</td>
-<td>Sdk release</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Example
-<code>json
-{  
-    &quot;os&quot;: &quot;ANDROID&quot;,  
-    &quot;appName&quot;: &quot;itsme app&quot;, &quot;appRelease&quot;: &quot;1.17.13&quot;,
-    &quot;deviceLabel&quot;: &quot;myDevice&quot;,
-    &quot;debugEnabled&quot;: false, 
-    &quot;deviceId&quot;: &quot;deviceId&quot;,
-    &quot;osRelease&quot;: &quot;Android 4.4.2&quot;, 
-    &quot;manufacturer&quot;: &quot;samsung&quot;, 
-    &quot;hasSimEnabled&quot;: true,
-    &quot;deviceLockLevel&quot;: &quot;touchID&quot;, 
-    &quot;smsEnabled&quot;: true,
-    &quot;rooted&quot;: false,
-    &quot;imei&quot;: &quot;12345678901234567&quot;,
-    &quot;deviceModel&quot;: &quot;S8&quot;,  
-    &quot;msisdn&quot;: &quot;0412123123&quot;, 
-    &quot;sdkRelease&quot;: &quot;1.17.12&quot;  
-}
-</code></p>
-</blockquote>
 <h1 id='advanced-topics'>Advanced topics</h1><h2 id='passing-request-parameters-as-jwts'><a name="JWTRequest"></a>Passing Request Parameters as JWTs</h2>
-<p>OpenID Connect defines the following Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted:</p>
+<p>OpenID Connect defines the following Authentication Request parameters to enable Authentication Requests to be signed and optionally encrypted:</p>
 
 <table><thead>
 <tr>
@@ -853,18 +995,18 @@ Host: server.itsme.be
 </tr>
 </thead><tbody>
 <tr>
-<td>request</td>
+<td><strong>request</strong></td>
 <td>Optional</td>
 <td>This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. The parameter value is a Request Object value, as specified in <a href="http://openid.net/specs/openid-connect-core-1_0.html#RequestObject">Section 6.1</a>. It represents the request as a JWT whose Claims are the request parameters.</td>
 </tr>
 <tr>
-<td>request_uri</td>
+<td><strong>request_uri</strong></td>
 <td>Unsupported</td>
 <td>Refer to <a href="http://openid.net/specs/openid-connect-core-1_0.html#JWTRequests">JWTRequest</a></td>
 </tr>
 </tbody></table>
 
-<p>The Request Object is a JWT Token as defined in <a href="https://tools.ietf.org/html/rfc7519">RFC 7519</a>, which contains the following properties:</p>
+<p>The Request Object is a JWT token as defined in <a href="https://tools.ietf.org/html/rfc7519">RFC 7519</a>, which contains the following properties:</p>
 
 <table><thead>
 <tr>
@@ -910,9 +1052,42 @@ Host: server.itsme.be
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre><h2 id='requests-signing-and-encryption'>Requests Signing and Encryption</h2>
+<p>Encryption algorithm used: RSA SHA-256 TODO not aligned with</p>
+
+<p>Supported algorithms and encryption methods for:</p>
+
+<ul>
+<li>ID Token
+-- Encryption Method (enc): A128CBC-HS256
+-- Encryption Algorithm (alg): RSA-OAEP
+-- Signing Algorithm (alg): RS256</li>
+<li>User Info
+-- Encryption Method (enc): A128CBC-HS256
+-- Encryption Algorithm (alg): RSA-OAEP
+-- Signing Algorithm (alg):  RS256</li>
+<li>Request Object”
+-- Encryption Method (enc): A128CBC-HS256
+-- Encryption Algorithm (alg): RSA-OAEP
+-- Signing Algorithm (alg): RS256</li>
+</ul>
+
+<p>itsme(r) will use pairwise Subject Identifier. TODO</p>
+
+<p>Offline access is not supported. TODO</p>
+
+<p>Dynamic client registration is not allowed. TODO </p>
+
+<p>itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet) </p>
+
+<blockquote>
+<p>https://merchant.itsme.be/oidc/jwkSet</p>
+</blockquote>
+
+<p>It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS </p>
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDk0ODgwNzYwXX0=
+eyJoaXN0b3J5IjpbMjI2NjE3MDEwLDY2NzI2NjkxM119
 -->
 
       </div>
