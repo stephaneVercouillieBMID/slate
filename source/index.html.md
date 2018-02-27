@@ -95,7 +95,7 @@ Data | Definition
 **MSISDN** | User’s phone number. 
 **SDK Release** | SDK release 
 
-# Prerequisites 
+# On-boarding 
 
 Before your application can use **itsme(r)** for user login, you must set up a project to obtain OIDC credentials, set redirect URIs for your services, and customise the branding information that your users see on the **itsme(r)** user-consent screen.
 
@@ -119,7 +119,7 @@ SP provides
 - the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.
 - the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.
 
-# Service Discovery
+## OpenID Connect Service Discovery
 To simplify implementations and increase flexibility, OpenID Connect allows the use of a "Discovery document", a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider's configuration, including the URIs of the authorization, token, userinfo, and public-keys endpoints. The Discovery document for **itsme(r) Login** service may be retrieved from:
 
 [https://merchant.itsme.be/oidc/.well-known/openid-configuration](https://merchant.itsme.be/oidc/.well-known/openid-configuration).
@@ -263,7 +263,7 @@ As per the OpenID Connect specification [http://openid.net/specs/openid-connect-
 TODO if specifics
 
 # Requesting User Data
-## UserInfo Request
+## 3. UserInfo Request
 
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
 
@@ -470,5 +470,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MTQ4NzMwMDMsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbMjEzNzc5MTEzMSw2NjcyNjY5MTNdfQ==
 -->
