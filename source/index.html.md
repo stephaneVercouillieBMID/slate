@@ -114,9 +114,9 @@ Parameter | Provided | Description
 
 ```http
 HTTP/1.1 302 Found
-  Location: https://client.example.org/cb?
-    code=SplxlOBeZQQYbYS6WxSbIA
-    &state=af0ifjsldkj
+Location: https://client.example.org/cb?
+  code=SplxlOBeZQQYbYS6WxSbIA
+  &state=af0ifjsldkj
 ```
 
 ### Errors
@@ -464,5 +464,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzc5MTE5MzYsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbMTM0MTg3NzMxMiw2NjcyNjY5MTNdfQ==
 -->
