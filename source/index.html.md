@@ -291,11 +291,7 @@ Content-Type: application/json
 {
    "sub": "248289761001",
    "name": "Jane Doe",
-   "given_name": "Jane",
-   "family_name": "Doe",
-   "preferred_username": "j.doe",
-   "email": "janedoe@example.com",
-   "picture": "http://example.com/janedoe/me.jpg"
+   "email": "janedoe@example.com"
 }
 ```
 
@@ -469,5 +465,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTQyMTcxMDY1LDY2NzI2NjkxM119
+eyJoaXN0b3J5IjpbLTEyMzM4OTYwMzIsNjY3MjY2OTEzXX0=
 -->
