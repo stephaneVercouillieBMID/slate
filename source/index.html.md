@@ -279,6 +279,21 @@ Your server sends the UserInfo Request using either HTTP `GET` or HTTP `POST`. T
 
 The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed.
 
+```http
+  HTTP/1.1 200 OK
+  Content-Type: application/json
+
+  {
+   "sub": "248289761001",
+   "name": "Jane Doe",
+   "given_name": "Jane",
+   "family_name": "Doe",
+   "preferred_username": "j.doe",
+   "email": "janedoe@example.com",
+   "picture": "http://example.com/janedoe/me.jpg"
+}
+```
+
 ## Requesting Claims using Scope Values
 
 ***Note**: itsme(r) won't deliver any [aggregated nor distributed claims](http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims) in the current version.*
@@ -449,5 +464,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjExNTc1MTU0MSw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTEzNjIxNDQwMDIsNjY3MjY2OTEzXX0=
 -->
