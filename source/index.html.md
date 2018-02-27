@@ -272,28 +272,6 @@ The UserInfo endpoint can be accessed only with a valid **access_token** receive
 
 Your server makes this exchange by sending an HTTPS `POST` request. The `POST` request is sent to the UserInfo endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **userinfo_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/userinfo`. The request must include the following parameters in the `POST` body: TODO xxx
 
-> Example device object in JSON
-
-```json
-{  
-	"os": "ANDROID",  
-	"appName": "itsme app", "appRelease": "1.17.13",
-	"deviceLabel": "myDevice",
-	"debugEnabled": false, 
-	"deviceId": "deviceId",
-	"osRelease": "Android 4.4.2", 
-	"manufacturer": "samsung", 
-	"hasSimEnabled": true,
-	"deviceLockLevel": "touchID", 
-	"smsEnabled": true,
-	"rooted": false,
-	"imei": "12345678901234567",
-	"deviceModel": "S8",  
-	"msisdn": "0412123123", 
-	"sdkRelease": "1.17.12"  
-}
-```
-
 ### Requesting Claims using Scope Values
 
 ***Note**: itsme(r) won't deliver any [aggregated nor distributed claims](http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims) in the current version.*
@@ -328,6 +306,28 @@ E-ID Picture | TODO | TODO
 NRN | TODO | TODO
 
 In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims as **Essential**, even if they are requested as a **Voluntary** claim (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)). However, as in a future version **itsme(r)**  will make the difference between Essential and Voluntary Claims, you should already request claims with appropriate level regarding your business case.
+
+> Example of JSON device object requested with tag:sixdots.be,2017-05:claim_device
+
+```json
+{  
+	"os": "ANDROID",  
+	"appName": "itsme app", "appRelease": "1.17.13",
+	"deviceLabel": "myDevice",
+	"debugEnabled": false, 
+	"deviceId": "deviceId",
+	"osRelease": "Android 4.4.2", 
+	"manufacturer": "samsung", 
+	"hasSimEnabled": true,
+	"deviceLockLevel": "touchID", 
+	"smsEnabled": true,
+	"rooted": false,
+	"imei": "12345678901234567",
+	"deviceModel": "S8",  
+	"msisdn": "0412123123", 
+	"sdkRelease": "1.17.12"  
+}
+```
 
 ### Unsupported Standard Claims
 The following standard claims (check http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) won’t be provided if requested: TODO UNSUPPORTED????
@@ -418,5 +418,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU5MDA2NDg4Nyw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbNjUyMjA4NTk5LDY2NzI2NjkxM119
 -->
