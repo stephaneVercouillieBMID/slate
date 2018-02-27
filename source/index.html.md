@@ -127,11 +127,13 @@ SP provides
 
 ## Obtain OAuth 2.0 credentials
 BMID provides 
+
 - Partner Code
 - Service Code for each Service.
 
 ## Set a redirect URI and Certificates
 SP provides 
+
 - the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
 - the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.
 - the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.
@@ -414,5 +416,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjI2NjE3MDEwLDY2NzI2NjkxM119
+eyJoaXN0b3J5IjpbMTM1NTUyNzA2Miw2NjcyNjY5MTNdfQ==
 -->
