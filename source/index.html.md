@@ -284,7 +284,7 @@ The content type of the response will be `application/jwt`. The response will be
 
 ***Note**: itsme(r) won't deliver any [aggregated nor distributed claims](http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims) in the current version.*
 
-Following values for scope allow access to a predefined sets of Data:
+Following values for **scope** allow access to a predefined sets of Data:
 
 Scope | Data | Claim
 -- | -- | --
@@ -298,7 +298,7 @@ Scope | Data | Claim
 
 ***NOTE**: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.*
 
-### Requesting Claims using the "claims" Request Parameter
+## Requesting Claims using the "claims" Request Parameter
 We have favoured the request of Identity Data in the scope values. However, some specific Data have to be requested in the “claims” parameter of the Authentication Request. Here are these claims:
 
 Data | Claim | Comment
@@ -426,5 +426,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NDgyNjI3NDIsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbMTA4NjM4NDc3Nyw2NjcyNjY5MTNdfQ==
 -->
