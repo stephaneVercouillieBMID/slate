@@ -282,7 +282,7 @@ Authorization: Bearer SlAV32hkKG
 
 The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed.
 
-> Example Successful UserInfo Response
+> Example Successful UserInfo Response (Not encrypted nor signed)
 
 ```http--inline
 HTTP/1.1 200 OK
@@ -469,5 +469,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTYyMTg1OTQsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbNTQyMTcxMDY1LDY2NzI2NjkxM119
 -->
