@@ -300,7 +300,7 @@ Scope | Data | Claim
 
 ***NOTE**: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.*
 
-## Requesting Claim using the "claims" Request Parameter
+## Requesting Claims using the "claims" Request Parameter
 We have favoured the request of Identity Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. Here are these claims:
 
 Data | Claim | Comment
@@ -449,5 +449,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3OTc0MjI0OTksNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbMTQ3ODQyMzMyMCw2NjcyNjY5MTNdfQ==
 -->
