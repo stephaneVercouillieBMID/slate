@@ -190,7 +190,7 @@ TODO if specifics
 
 # itsme(r) Share Data
 
-If purpose of use is stated and consent is provided by the end-user during authentication, following data can be shared with your application
+If purpose of use is stated during the on-boarding process and consent is provided by the end-user during authentication, following data can be shared with your application
 
 - **Verified Identity Data**: identity information retrieved from the National eID Card 
 - **Commercial Information**: information provided by the end-user 
@@ -424,5 +424,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5NzY4NjEwMyw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTI3OTA3OTc1OCw2NjcyNjY5MTNdfQ==
 -->
