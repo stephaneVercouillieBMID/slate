@@ -409,7 +409,7 @@ Property | Required | Comment
 	claims:
 	{
 		userinfo: {
-		"tag:itsmetag:sixdots.be,2016-06:claim_nationality": null,
+		    "tag:itsmetag:sixdots.be,2016-06:claim_nationality": null,
 		},
 		id_token: {
 			auth_time: {"essential": true},
@@ -450,5 +450,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMjIwNDk2MDYsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbLTE5MDUxNDU1NDIsNjY3MjY2OTEzXX0=
 -->
