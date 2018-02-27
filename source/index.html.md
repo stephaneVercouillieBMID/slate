@@ -270,17 +270,18 @@ POST /token HTTP/1.1
 
 Parameter | Provided | Comment
 -- | -- | --
-**access_token** | Always | A token that can be sent to the UserInfo endpoint to retrieve additional information about the user
+**access_token** | Always | A token that can be sent to the UserInfo endpoint to retrieve additional information about the user.
 **token_type** | Always | Will be `Bearer`
 **id_token** | Always | The JWT `id_token` corresponding to the Authentication Request (signed and encrypted TODO). See [ID Token TODO](#id-token).
 **at_hash** | | first version of itsme(r) does not produce the at_hash value ??? TODO which version
-**refresh_token** | Never | Won't be provided as itsme(r) only maintains short-lived session to enforce re-authentication.
+**refresh_token** | Never | Won't be provided as **itsme(r)** only maintains short-lived session to enforce re-authentication.
 
 ### Errors
 
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse](http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse)
 
 TODO if specifics
+
 
 ## 3. UserInfo Request
 
@@ -416,5 +417,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4Nzk0NTQ3OTIsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbLTYyODUyMTI2NCw2NjcyNjY5MTNdfQ==
 -->
