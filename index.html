@@ -541,14 +541,20 @@
 <li>Data access with justification (to comply with GDPR)</li>
 </ul>
 <h2 id='obtain-oauth-2-0-credentials'>Obtain OAuth 2.0 credentials</h2>
-<p>BMID provides 
-- Partner Code
-- Service Code for each Service.</p>
+<p>BMID provides </p>
+
+<ul>
+<li>Partner Code</li>
+<li>Service Code for each Service.</li>
+</ul>
 <h2 id='set-a-redirect-uri-and-certificates'>Set a redirect URI and Certificates</h2>
-<p>SP provides 
-- the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
-- the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.
-- the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.</p>
+<p>SP provides </p>
+
+<ul>
+<li>the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. </li>
+<li>the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.</li>
+<li>the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.</li>
+</ul>
 <h1 id='service-discovery'>Service Discovery</h1>
 <p>To simplify implementations and increase flexibility, OpenID Connect allows the use of a &quot;Discovery document&quot;, a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider&#39;s configuration, including the URIs of the authorization, token, userinfo, and public-keys endpoints. The Discovery document for <strong>itsme(r) Login</strong> service may be retrieved from:</p>
 
@@ -1087,7 +1093,7 @@
 <p>It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS </p>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjI2NjE3MDEwLDY2NzI2NjkxM119
+eyJoaXN0b3J5IjpbMTM1NTUyNzA2Miw2NjcyNjY5MTNdfQ==
 -->
 
       </div>
