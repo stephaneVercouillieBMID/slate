@@ -318,6 +318,8 @@ NRN | TODO | TODO
 
 In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims as **Essential**, even if they are requested as a **Voluntary** claim (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)). However, as in a future version **itsme(r)**  will make the difference between Essential and Voluntary Claims, you should already request claims with appropriate level regarding your business case. TODO => it means we should not request by scope???
 
+> Example of Claims request parameter TODO adapt to itsme(r) data
+
 ```json
 {
    "userinfo":
@@ -448,5 +450,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA0MDc2MTE3LDY2NzI2NjkxM119
+eyJoaXN0b3J5IjpbLTEyNTMzNjI3MDcsNjY3MjY2OTEzXX0=
 -->
