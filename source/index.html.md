@@ -388,7 +388,7 @@ The following standard claims (check http://openid.net/specs/openid-connect-core
  - `middle_name` 
  - `nickname` 
  - `preferred_username` 
- - `picture` (supposed to be an url) 
+ - `picture`
  - `website` 
  - `zoneinfo` 
  - `updated_at`
@@ -470,5 +470,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDMwOTk0ODYwLDY2NzI2NjkxM119
+eyJoaXN0b3J5IjpbLTEwNjg2NDU3OTQsNjY3MjY2OTEzXX0=
 -->
