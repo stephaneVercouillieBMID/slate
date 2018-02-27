@@ -162,14 +162,14 @@ Property | Comment
 
 ```http
 POST /token HTTP/1.1
-  Host: server.example.com
-  Content-Type: application/x-www-form-urlencoded
+Host: server.example.com
+Content-Type: application/x-www-form-urlencoded
 
-  grant_type=authorization\_code&
-    code=SplxlOBeZQQYbYS6WxSbIA&
-    redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
-    client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
-    client_assertion=PHNhbWxwOl ... ZT
+grant_type=authorization\_code&
+code=SplxlOBeZQQYbYS6WxSbIA&
+redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
+client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
+client_assertion=PHNhbWxwOl ... ZT
 ```
 
 ### Successful Token Response
@@ -270,9 +270,9 @@ The UserInfo endpoint can be accessed only with a valid **access_token** receive
 Your server sends the UserInfo Request using either HTTP `GET` or HTTP `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP `GET` method and the Access Token be sent the using the `Authorization` header field. The HTTP request is sent to the UserInfo endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **userinfo_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/userinfo`. 
 
 ```http
- GET /userinfo HTTP/1.1
-  Host: server.example.com
-  Authorization: Bearer SlAV32hkKG
+GET /userinfo HTTP/1.1
+Host: server.example.com
+Authorization: Bearer SlAV32hkKG
 ```
 
 ### Successful UserInfo Response
@@ -280,10 +280,10 @@ Your server sends the UserInfo Request using either HTTP `GET` or HTTP `POST`. T
 The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed.
 
 ```http
-  HTTP/1.1 200 OK
-  Content-Type: application/json
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-  {
+{
    "sub": "248289761001",
    "name": "Jane Doe",
    "given_name": "Jane",
@@ -464,5 +464,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNjIxNDQwMDIsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbMzc5MTE5MzYsNjY3MjY2OTEzXX0=
 -->
