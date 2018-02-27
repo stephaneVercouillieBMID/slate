@@ -94,31 +94,31 @@ Data | Definition
 **MSISDN** | User’s phone number. 
 **SDK Release** | SDK release 
 
-# On-boarding Process
+## On-boarding Process
 
 Before your application can use **itsme(r)** for user login, you must set up a project to obtain OIDC credentials, set redirect URIs for your services, and customise the branding information that your users see on the **itsme(r)** user-consent screen.
 
-## Customize the user consent screen
+### Customize the user consent screen
 SP provides 
 
 - Partner name, description and localized labels
 - Services' name, description and localized labels
 - Data access with justification (to comply with GDPR)
 
-## Obtain OAuth 2.0 credentials
+### Obtain OAuth 2.0 credentials
 BMID provides 
 
 - Partner Code, used as **client_id**
 - Service Code for each Service.
 
-## Set a redirect URI and Certificates
+### Set a redirect URI and Certificates
 SP provides 
 
 - the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
 - the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.
 - the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.
 
-## OIDC Service Discovery
+### Interact with itsme(r)
 To simplify implementations and increase flexibility, OpenID Connect allows the use of a "Discovery document", a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider's configuration, including the URIs of the authorization, token, userinfo, and public-keys endpoints. The Discovery document for **itsme(r) Login** service may be retrieved from:
 
 [https://merchant.itsme.be/oidc/.well-known/openid-configuration](https://merchant.itsme.be/oidc/.well-known/openid-configuration).
@@ -469,5 +469,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwMTEzMTg5OSw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbMTE0MDQ4MTQzMSw2NjcyNjY5MTNdfQ==
 -->
