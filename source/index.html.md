@@ -273,7 +273,7 @@ Your server sends the UserInfo Request using either HTTP `GET` or HTTP `POST`. T
 
 > Example UserInfo Request
 
-```http
+```http--inline
 GET /userinfo HTTP/1.1
 Host: server.example.com
 Authorization: Bearer SlAV32hkKG
@@ -285,7 +285,7 @@ The content type of the response will be `application/jwt`. The response will be
 
 > Example Successful UserInfo Response
 
-```http
+```http--inline
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -470,5 +470,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyOTU4NzY2MzMsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbMzc3NjMxOTQzLDY2NzI2NjkxM119
 -->
