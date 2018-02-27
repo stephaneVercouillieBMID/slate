@@ -276,7 +276,7 @@ Your server makes this exchange by sending an HTTPS `POST` request. The `POST` r
 
 ***Note**: itsme(r) won't deliver any [aggregated nor distributed claims](http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims) in the current version.*
 
-Following values for scope allow access to a predefined sets of Identity Data:
+Following values for scope allow access to a predefined sets of Data:
 
 Scope | Data | Claim
 -- | -- | --
@@ -396,5 +396,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NTY1MTMwODgsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbMTQ5OTI5NjY2OCw2NjcyNjY5MTNdfQ==
 -->
