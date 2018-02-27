@@ -262,28 +262,6 @@ Data | Definition
 **MSISDN** | User’s phone number. 
 **SDK Release** | SDK release 
 
-> Example device object in JSON
-
-```json
-{  
-	"os": "ANDROID",  
-	"appName": "itsme app", "appRelease": "1.17.13",
-	"deviceLabel": "myDevice",
-	"debugEnabled": false, 
-	"deviceId": "deviceId",
-	"osRelease": "Android 4.4.2", 
-	"manufacturer": "samsung", 
-	"hasSimEnabled": true,
-	"deviceLockLevel": "touchID", 
-	"smsEnabled": true,
-	"rooted": false,
-	"imei": "12345678901234567",
-	"deviceModel": "S8",  
-	"msisdn": "0412123123", 
-	"sdkRelease": "1.17.12"  
-}
-```
-
 ## 3. UserInfo Request
 
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
@@ -418,5 +396,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk1NzUwMzE2Myw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTE0NTY1MTMwODgsNjY3MjY2OTEzXX0=
 -->
