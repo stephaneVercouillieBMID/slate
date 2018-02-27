@@ -341,7 +341,7 @@ In current version and in contradiction to the OpenID Connect specification, **i
 
 > Example of Claims request parameter TODO adapt to itsme(r) data
 
-```json
+```json--inline
 {
    "userinfo":
     {
@@ -362,7 +362,7 @@ In current version and in contradiction to the OpenID Connect specification, **i
 
 > Example of JSON device object requested with tag:sixdots.be,2017-05:claim_device
 
-```json
+```json--inline
 {  
 	"os": "ANDROID",  
 	"appName": "itsme app", "appRelease": "1.17.13",
@@ -470,5 +470,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgyNzYzNDEyMCw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbNDc3MDI5MjcyLDY2NzI2NjkxM119
 -->
