@@ -132,7 +132,7 @@ Format and content of this document is defined in [OpenID Connect Discovery 1.0]
  
 The Authorization Code Flow goes through the following steps as defined in  [http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps)
 
-## 1. Authentication Request
+## OIDC Authentication Request
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
 
 The first step is forming an HTTPS request with the appropriate URI parameters. Note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the base URI is `https://merchant.itsme.be/oidc/authorization`.
@@ -208,7 +208,7 @@ Error | Description
 ### App to App ??? TODO
 **itsme(r)** Mobile App endpoint : TODO
 
-## 2. Token Request
+## OIDC Token Request
 
 As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest
 
@@ -300,7 +300,7 @@ Content-Type: application/json
 }
 ```
 # Requesting Claims
-## Requesting Claims using Scope Values
+## Using Scope Values
 
 <aside class="notice"><bold>Note</bold>: itsme(r) won't deliver any <a href="http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims">aggregated nor distributed claims</a> in the current version.</aside>
 
@@ -322,7 +322,7 @@ Scope | Data | Claim
 
 <aside class="notice">NOTE: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.</a>
 
-## Requesting Claims using the "claims" Request Parameter
+## Using the "claims" Request Parameter
 We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. Here are these claims:
 
 Data | Claim | Comment
@@ -470,5 +470,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODU1MzU5OTc2LDY2NzI2NjkxM119
+eyJoaXN0b3J5IjpbMTczNzYxNTc0NSw2NjcyNjY5MTNdfQ==
 -->
