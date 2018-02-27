@@ -320,7 +320,7 @@ Scope | Data | Claim
 **`email`** | E-Mail Address | `email` or `email_verified` TODO verified???
 **`phone`** | Phone Number | `phone_number` or `phone_number_verified`
 
-***NOTE**: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.*
+<aside class="notice">NOTE: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.</a>
 
 ## Requesting Claims using the "claims" Request Parameter
 We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. Here are these claims:
@@ -470,5 +470,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDc3MDI5MjcyLDY2NzI2NjkxM119
+eyJoaXN0b3J5IjpbLTExMDkxMjA4NTMsNjY3MjY2OTEzXX0=
 -->
