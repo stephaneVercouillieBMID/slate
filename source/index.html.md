@@ -437,8 +437,6 @@ Supported algorithms and encryption methods for:
 -- Encryption Algorithm (alg): RSA-OAEP
 -- Signing Algorithm (alg): RS256
 
-itsme(r) will use pairwise Subject Identifier. TODO
-
 Offline access is not supported. TODO
 
 Dynamic client registration is not allowed. TODO 
@@ -449,5 +447,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE2MjU5NjM4OCw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTM2NTAyMDQyNyw2NjcyNjY5MTNdfQ==
 -->
