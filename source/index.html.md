@@ -270,7 +270,7 @@ POST /token HTTP/1.1
 
 Parameter | Provided | Comment
 -- | -- | --
-**access_token** | Always | A token that can be sent to the UserInfo endpoint to retrieve additional information about the
+**access_token** | Always | A token that can be sent to the UserInfo endpoint to retrieve additional information about the 
 **token_type** | Always | Will be `Bearer`
 **id_token** | Always | The JWT `id_token` corresponding to the Authentication Request (signed and encrypted TODO). See [ID Token TODO](#id-token).
 **at_hash** | | first version of itsme(r) does not produce the at_hash value ??? TODO which version
@@ -416,5 +416,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY0NDc2ODU3Nyw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbMTA5Mjc3NTM5LDY2NzI2NjkxM119
 -->
