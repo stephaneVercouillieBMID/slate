@@ -361,7 +361,7 @@ In current version and in contradiction to the OpenID Connect specification, **i
 }
 ```
 
-### Unsupported Standard Claims
+## Unsupported Standard Claims
 The following standard claims (check http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) won’t be provided if requested: TODO UNSUPPORTED????
 
  - `middle_name` 
@@ -450,5 +450,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MDUxNDU1NDIsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbMTgxNDUwNDM2NSw2NjcyNjY5MTNdfQ==
 -->
