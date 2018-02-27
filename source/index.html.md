@@ -132,7 +132,7 @@ Format and content of this document is defined in [OpenID Connect Discovery 1.0]
  
 The Authorization Code Flow goes through the following steps as defined in  [http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps)
 
-## OIDC Authentication Request
+## 1. Authentication Request
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
 
 The first step is forming an HTTPS request with the appropriate URI parameters. Note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the base URI is `https://merchant.itsme.be/oidc/authorization`.
@@ -208,7 +208,7 @@ Error | Description
 ### App to App ??? TODO
 **itsme(r)** Mobile App endpoint : TODO
 
-## OIDC Token Request
+## 2. Token Request
 
 As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest
 
@@ -263,7 +263,7 @@ As per the OpenID Connect specification [http://openid.net/specs/openid-connect-
 TODO if specifics
 
 # Requesting User Data
-## OIDC UserInfo Request
+## 3. UserInfo Request
 
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
 
@@ -470,5 +470,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MjQ1NDEyNjMsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbNDMwOTk0ODYwLDY2NzI2NjkxM119
 -->
