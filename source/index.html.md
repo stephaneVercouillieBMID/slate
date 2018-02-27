@@ -16,13 +16,13 @@ search: true
 
 This documentation describes our OAuth 2.0 implementation of **itsme(r) Login**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications, and is OpenID certified (TODO). 
 
-# itsme(r) Login
+## Login
 
 **itsme(r) Login** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) to allow users to login securely and to share data with your application.
 
 itsme(r) Login uses pairwise user identifier, meaning each partner will have a different User Code for the same user. Doing, nobody except BMID can link one given user code to a specific user identity.  
 
-# itsme(r) Share Data
+## Share Data
 
 If purpose of use is stated during the on-boarding process and consent is provided by the End-User during Authentication, following Data can be shared with your application
 
@@ -30,7 +30,6 @@ If purpose of use is stated during the on-boarding process and consent is provid
 - **Commercial Information**: information provided by the end-user 
 - **Security Information**: information retrieved during execution of the service that could impact security level of the transaction. 
 
-## Available Data 
 ### Verified Identity Data
 
 The user identity data provided by **itsme(r)** are data coming from the National Registry. These datas are provided to **itsme(r)** during user enrolment either directly from a card readout or indirectly through an IDentity Registrar (IDR) having a strong identity verification process (e.g. face-to-face KYC with eID readout)  in-place.  
@@ -470,5 +469,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTY2MzcwMjIsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbMTIwMTEzMTg5OSw2NjcyNjY5MTNdfQ==
 -->
