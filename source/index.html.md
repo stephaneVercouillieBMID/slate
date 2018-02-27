@@ -263,7 +263,7 @@ As per the OpenID Connect specification [http://openid.net/specs/openid-connect-
 TODO if specifics
 
 # Requesting User Data
-## 3. UserInfo Request
+## OIDC UserInfo Request
 
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
 
@@ -299,8 +299,8 @@ Content-Type: application/json
    "picture": "http://example.com/janedoe/me.jpg"
 }
 ```
-# Requesting Claims
-## Using Scope Values
+
+## Requesting Claims using Scope Values
 
 <aside class="notice"><bold>Note</bold>: itsme(r) won't deliver any <a href="http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims">aggregated nor distributed claims</a> in the current version.</aside>
 
@@ -322,7 +322,7 @@ Scope | Data | Claim
 
 <aside class="notice">NOTE: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.</a>
 
-## Using the "claims" Request Parameter
+## Requesting Claims using the "claims" Request Parameter
 We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. Here are these claims:
 
 Data | Claim | Comment
@@ -470,5 +470,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczNzYxNTc0NSw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTE5MTU2OTgyODgsNjY3MjY2OTEzXX0=
 -->
