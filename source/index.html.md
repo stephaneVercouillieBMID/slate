@@ -220,25 +220,25 @@ Provides some information about the eID card readout related to the identity dat
 
 Data | Definition
 -- | -- 
-eID Serial Number | the electronic ID card serial number.
-issuance_locality | the issuance locality.
-Validity from | eID card validity “from” date.
-Validity to | eID card validity “to” date.
-Certificate Validity | the certificate validity.
-Read Date | the data extraction date.
+**eID Serial Number** | the electronic ID card serial number.
+**issuance_locality** | the issuance locality.
+**Validity from** | eID card validity “from” date.
+**Validity to** | eID card validity “to” date.
+**Certificate Validity** | the certificate validity.
+**Read Date** | the data extraction date.
 
 ## Commercial Data
 
 Data | Definition
 -- | --
-Phone Number | Verified phone number associated to the **itsme(r)** user account.  
-E-Mail Address | E-Mail address. NOT Verified!
+**Phone Number** | Verified phone number associated to the **itsme(r)** user account.  
+**E-Mail Address** | E-Mail address. NOT Verified!
 
 ## Security Data
 
 Data | Definition
 -- | --
-Device | Information about the end user device. See [Device Information](#device-information)
+**Device** | Information about the end user device. See [Device Information](#device-information)
 
 ### <a name="device-information"></a>Device Information 
 
@@ -419,5 +419,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcwNTY0MjgwLDY2NzI2NjkxM119
+eyJoaXN0b3J5IjpbMTcyMTQ4NTI1Niw2NjcyNjY5MTNdfQ==
 -->
