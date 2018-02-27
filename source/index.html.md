@@ -250,15 +250,15 @@ Data | Definition
 **Device Identifier** | Device identifier.
 **Application Name** | Application name.
 **Application Release** | Application current release.
-**Device Label** |  | the name of the device.
-**Debug Enabled** |  | if debug mode is activated.
-**OS Release** |  | Version of the OS running on your Device.
-**Manufacturer** |  | Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android). 
-**SIM Enabled** |  | Whether there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing itsme on a tablet.
-**Lock Level** |  | The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.
-**SMS Enabled** |  | Can send SMS. On iOS, means it’s an iPhone. 
-**Rooted** |  | True if the device is jailbreaked/rooted.
-**IMEI** |  | (regexp = "\[0-9\]{15,17}") the device IMEI value.
+**Device Label** | Name of the device.
+**Debug Enabled** | True if debug mode is activated.
+**OS Release** | Version of the OS running on your Device.
+**Manufacturer** | Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android). 
+**SIM Enabled** | True if there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing **itsme(r)** on a tablet.
+**Lock Level** | The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.
+**SMS Enabled** | Can send SMS. On iOS, means it’s an iPhone. 
+**Rooted** | True if the device is jailbreaked/rooted.
+**IMEI** | (regexp = "\[0-9\]{15,17}") the device IMEI value.
 **Model** |  | Model of the Device. e.g. SAMSUNG GALAXY A5
 **MSISDN** |  | the user’s phone number. 
 **SDK Release** |  | Sdk release 
@@ -419,5 +419,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MDQ5Mzk2MjIsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbODI3MTQ1MjIsNjY3MjY2OTEzXX0=
 -->
