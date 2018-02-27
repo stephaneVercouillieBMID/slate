@@ -126,7 +126,7 @@ To simplify implementations and increase flexibility, OpenID Connect allows the 
 
 Format and content of this document is defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
 
-# Authenticating the user
+# Authenticating the User
 
 **itsme(r) Login** is based on the [Authorization Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
  
@@ -470,5 +470,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTI2MTQ3MDE2LDY2NzI2NjkxM119
+eyJoaXN0b3J5IjpbODU1MzU5OTc2LDY2NzI2NjkxM119
 -->
