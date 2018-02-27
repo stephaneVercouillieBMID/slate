@@ -220,33 +220,16 @@
         <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
-          </li>
-          <li>
-            <a href="#itsme-r-login" class="toc-h1 toc-link" data-title="itsme-r-login">itsme(r) Login</a>
-          </li>
-          <li>
-            <a href="#itsme-r-share-data" class="toc-h1 toc-link" data-title="itsme-r-share-data">itsme(r) Share Data</a>
+            <a href="#introduction-to-itsme-r" class="toc-h1 toc-link" data-title="introduction-to-itsme-r">Introduction to itsme(r)</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#available-data" class="toc-h2 toc-link" data-title="available-data">Available Data</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#on-boarding-process" class="toc-h1 toc-link" data-title="on-boarding-process">On-boarding Process</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#customize-the-user-consent-screen" class="toc-h2 toc-link" data-title="customize-the-user-consent-screen">Customize the user consent screen</a>
+                    <a href="#login" class="toc-h2 toc-link" data-title="login">Login</a>
                   </li>
                   <li>
-                    <a href="#obtain-oauth-2-0-credentials" class="toc-h2 toc-link" data-title="obtain-oauth-2-0-credentials">Obtain OAuth 2.0 credentials</a>
+                    <a href="#share-data" class="toc-h2 toc-link" data-title="share-data">Share Data</a>
                   </li>
                   <li>
-                    <a href="#set-a-redirect-uri-and-certificates" class="toc-h2 toc-link" data-title="set-a-redirect-uri-and-certificates">Set a redirect URI and Certificates</a>
-                  </li>
-                  <li>
-                    <a href="#oidc-service-discovery" class="toc-h2 toc-link" data-title="oidc-service-discovery">OIDC Service Discovery</a>
+                    <a href="#on-boarding-process" class="toc-h2 toc-link" data-title="on-boarding-process">On-boarding Process</a>
                   </li>
               </ul>
           </li>
@@ -298,13 +281,13 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
+        <h1 id='introduction-to-itsme-r'>Introduction to itsme(r)</h1>
 <p>This documentation describes our OAuth 2.0 implementation of <strong>itsme(r) Login</strong>, which conforms to the <a href="http://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect 1.0</a> specifications, and is OpenID certified (TODO). </p>
-<h1 id='itsme-r-login'>itsme(r) Login</h1>
+<h2 id='login'>Login</h2>
 <p><strong>itsme(r) Login</strong> is a service provided by <a href="https://www.belgianmobileid.be">Belgian Mobile ID</a> to allow users to login securely and to share data with your application.</p>
 
 <p>itsme(r) Login uses pairwise user identifier, meaning each partner will have a different User Code for the same user. Doing, nobody except BMID can link one given user code to a specific user identity.  </p>
-<h1 id='itsme-r-share-data'>itsme(r) Share Data</h1>
+<h2 id='share-data'>Share Data</h2>
 <p>If purpose of use is stated during the on-boarding process and consent is provided by the End-User during Authentication, following Data can be shared with your application</p>
 
 <ul>
@@ -312,7 +295,7 @@
 <li><strong>Commercial Information</strong>: information provided by the end-user </li>
 <li><strong>Security Information</strong>: information retrieved during execution of the service that could impact security level of the transaction. </li>
 </ul>
-<h2 id='available-data'>Available Data</h2><h3 id='verified-identity-data'>Verified Identity Data</h3>
+<h3 id='verified-identity-data'>Verified Identity Data</h3>
 <p>The user identity data provided by <strong>itsme(r)</strong> are data coming from the National Registry. These datas are provided to <strong>itsme(r)</strong> during user enrolment either directly from a card readout or indirectly through an IDentity Registrar (IDR) having a strong identity verification process (e.g. face-to-face KYC with eID readout)  in-place.  </p>
 
 <table><thead>
@@ -500,9 +483,9 @@
 <td>SDK release</td>
 </tr>
 </tbody></table>
-<h1 id='on-boarding-process'>On-boarding Process</h1>
+<h2 id='on-boarding-process'>On-boarding Process</h2>
 <p>Before your application can use <strong>itsme(r)</strong> for user login, you must set up a project to obtain OIDC credentials, set redirect URIs for your services, and customise the branding information that your users see on the <strong>itsme(r)</strong> user-consent screen.</p>
-<h2 id='customize-the-user-consent-screen'>Customize the user consent screen</h2>
+<h3 id='customize-the-user-consent-screen'>Customize the user consent screen</h3>
 <p>SP provides </p>
 
 <ul>
@@ -510,14 +493,14 @@
 <li>Services&#39; name, description and localized labels</li>
 <li>Data access with justification (to comply with GDPR)</li>
 </ul>
-<h2 id='obtain-oauth-2-0-credentials'>Obtain OAuth 2.0 credentials</h2>
+<h3 id='obtain-oauth-2-0-credentials'>Obtain OAuth 2.0 credentials</h3>
 <p>BMID provides </p>
 
 <ul>
 <li>Partner Code, used as <strong>client_id</strong></li>
 <li>Service Code for each Service.</li>
 </ul>
-<h2 id='set-a-redirect-uri-and-certificates'>Set a redirect URI and Certificates</h2>
+<h3 id='set-a-redirect-uri-and-certificates'>Set a redirect URI and Certificates</h3>
 <p>SP provides </p>
 
 <ul>
@@ -525,10 +508,10 @@
 <li>the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.</li>
 <li>the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.</li>
 </ul>
-<h2 id='oidc-service-discovery'>OIDC Service Discovery</h2>
-<p>To simplify implementations and increase flexibility, OpenID Connect allows the use of a &quot;Discovery document&quot;, a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider&#39;s configuration, including the URIs of the authorization, token, userinfo, and public-keys endpoints. The Discovery document for <strong>itsme(r) Login</strong> service may be retrieved from:</p>
+<h3 id='interact-with-itsme-r'>Interact with itsme(r)</h3>
+<p>To simplify implementations and increase flexibility, OpenID Connect allows the use of a &quot;Discovery document&quot;, a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider&#39;s configuration, including the URIs of the authorization, token, userinfo, and public-keys endpoints to interact with it. </p>
 
-<p><a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a>.</p>
+<aside class="success">The Discovery document for **itsme(r) ** service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside>
 
 <p>Format and content of this document is defined in <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery 1.0</a></p>
 <h1 id='authenticating-the-user'>Authenticating the User</h1>
@@ -1126,7 +1109,7 @@ client_assertion=PHNhbWxwOl ... ZT
 <p>It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS </p>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNjg2NDU3OTQsNjY3MjY2OTEzXX0=
+eyJoaXN0b3J5IjpbODIyODkwMDI1LDY2NzI2NjkxM119
 -->
 
       </div>
