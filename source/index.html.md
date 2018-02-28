@@ -26,7 +26,7 @@ itsme(r) Login uses pairwise user identifier, meaning each Partner will have a u
 
 If purpose of use is stated during the on-boarding process and consent is provided by the End-User during Authentication, Data can be shared with your application.
 
-Data is currently shared only during Login or Approval. Off-line access to User information is not available.
+Data is currently shared only during Login or Approval. Off-line access to User information is not authorised.
 
 The following sets of Data are available:
 
@@ -36,7 +36,7 @@ The following sets of Data are available:
 
 ### Verified Identity Data
 
-The user identity data provided by **itsme(r)** are data coming from the National Registry. These datas are provided to **itsme(r)** during user enrolment either directly from a card readout or indirectly through an IDentity Registrar (IDR) having a strong identity verification process (e.g. face-to-face KYC with eID readout)  in-place.  
+The user identity data provided by **itsme(r)** are Data coming from the National Registry. These datas are provided to **itsme(r)** during user enrolment either directly from a card readout or indirectly through an IDentity Registrar (IDR) having a strong identity verification process (e.g. face-to-face KYC with eID readout)  in-place.  
 
 Data | Definition
 -- | --
@@ -471,5 +471,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwMzA3MDYyMCw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTY5NjI2Mjk5Myw2NjcyNjY5MTNdfQ==
 -->
