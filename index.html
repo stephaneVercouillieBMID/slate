@@ -220,7 +220,7 @@
         <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction-to-itsme-r" class="toc-h1 toc-link" data-title="introduction-to-itsme-r">Introduction to itsme(r)</a>
+            <a href="#introduction-to-itsme" class="toc-h1 toc-link" data-title="introduction-to-itsme">Introduction to itsme®</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#login" class="toc-h2 toc-link" data-title="login">Login</a>
@@ -281,14 +281,18 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction-to-itsme-r'>Introduction to itsme(r)</h1>
-<p>This documentation describes our OAuth 2.0 implementation of <strong>itsme(r) Login</strong>, which conforms to the <a href="http://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect 1.0</a> specifications, and is OpenID certified (TODO). </p>
+        <h1 id='introduction-to-itsme'>Introduction to itsme®</h1>
+<p>This documentation describes our OAuth 2.0 implementation of <strong>itsme® Login</strong>, which conforms to the <a href="http://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect 1.0</a> specifications, and is OpenID certified (TODO). </p>
 <h2 id='login'>Login</h2>
-<p><strong>itsme(r) Login</strong> is a service provided by <a href="https://www.belgianmobileid.be">Belgian Mobile ID</a> to allow users to login securely and to share data with your application.</p>
+<p><strong>itsme® Login</strong> is a service provided by <a href="https://www.belgianmobileid.be">Belgian Mobile ID</a> (BMID) to allow End-Users to login securely to your application.</p>
 
-<p>itsme(r) Login uses pairwise user identifier, meaning each partner will have a different User Code for the same user. Doing, nobody except BMID can link one given user code to a specific user identity.  </p>
+<p>itsme(r) Login uses pairwise user identifier, meaning each Partner will have a unique <em>User Code</em> for the same User. Doing so, nobody except BMID can link one given <em>User Code</em> of Partner to a specific User identity.  </p>
 <h2 id='share-data'>Share Data</h2>
-<p>If purpose of use is stated during the on-boarding process and consent is provided by the End-User during Authentication, following Data can be shared with your application</p>
+<p>If purpose of use is stated during the on-boarding process and consent is provided by the End-User during Authentication, Data can be shared with your application.</p>
+
+<p>Data is currently shared only during Login or Approval. Off-line access to User information is not authorised.</p>
+
+<p>The following sets of Data are available:</p>
 
 <ul>
 <li><strong>Verified Identity Data</strong>: identity information retrieved from the National eID Card </li>
@@ -296,7 +300,7 @@
 <li><strong>Security Information</strong>: information retrieved during execution of the service that could impact security level of the transaction. </li>
 </ul>
 <h3 id='verified-identity-data'>Verified Identity Data</h3>
-<p>The user identity data provided by <strong>itsme(r)</strong> are data coming from the National Registry. These datas are provided to <strong>itsme(r)</strong> during user enrolment either directly from a card readout or indirectly through an IDentity Registrar (IDR) having a strong identity verification process (e.g. face-to-face KYC with eID readout)  in-place.  </p>
+<p>The user identity data provided by <strong>itsme®</strong> are Data coming from the National Registry. These datas are provided to <strong>itsme®</strong> during user enrolment either directly from a card readout or indirectly through an IDentity Registrar (IDR) having a strong identity verification process (e.g. face-to-face KYC with eID readout)  in-place.  </p>
 
 <table><thead>
 <tr>
@@ -396,7 +400,7 @@
 </tr>
 <tr>
 <td><strong>E-Mail Address</strong></td>
-<td>E-Mail address. NOT Verified!</td>
+<td>E-Mail address. NOT Verified! TODO</td>
 </tr>
 </tbody></table>
 <h3 id='security-data'>Security Data</h3>
@@ -508,12 +512,14 @@
 <li>the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.</li>
 <li>the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.</li>
 </ul>
-<h3 id='interact-with-itsme-r'>Interact with itsme(r)</h3>
+<h3 id='interact-with-itsme'>Interact with itsme®</h3>
+<p>The OpenID Connect protocol requires the use of multiple endpoints for authenticating users, and for requesting resources including tokens, user information, and public keys.</p>
+
 <p>To simplify implementations and increase flexibility, OpenID Connect allows the use of a &quot;Discovery document&quot;, a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider&#39;s configuration, including the URIs of the authorization, token, userinfo, and public-keys endpoints to interact with it. </p>
 
-<aside class="success">The Discovery document for **itsme(r) ** service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside>
+<aside class="success">The Discovery document for **itsme® ** service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside>
 
-<p>Format and content of this document is defined in <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery 1.0</a></p>
+<p>Field  names and meanings in this document are defined in <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery 1.0</a></p>
 <h1 id='authenticating-the-user'>Authenticating the User</h1>
 <p><strong>itsme(r) Login</strong> is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth">Authorization Code Flow</a> of OpenID Connect 1.0.</p>
 
@@ -634,7 +640,7 @@
 <blockquote>
 <p>Example of a minimal Authorization request</p>
 </blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/authorize?response_type=code
+<pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/authorize?response_type=code
 &amp;scope=openid%20profile%20email%20service%3Aclient.registration
 &amp;client_id=s6BhdRkqt3
 &amp;state=af0ifjsldkj
@@ -767,7 +773,11 @@
 <td>Expiration time on or after which the ID Token MUST NOT be accepted for processing.</td>
 </tr>
 </tbody></table>
-<h3 id='example-request'>Example Request</h3><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/token</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight http tab-http--inline"><code><span class="nf">POST</span> <span class="nn">/token</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">server.example.com</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
@@ -821,6 +831,8 @@ client_assertion=PHNhbWxwOl ... ZT
 
 <p>Your server sends the UserInfo Request using either HTTP <code>GET</code> or HTTP <code>POST</code>. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP <code>GET</code> method and the Access Token be sent the using the <code>Authorization</code> header field. The HTTP request is sent to the UserInfo endpoint, which you should retrieve from the <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">Discovery document</a> using the key <strong>userinfo_endpoint</strong>. The following discussion assumes the endpoint is <code>https://merchant.itsme.be/oidc/userinfo</code>. </p>
 
+<p>The Access Token will define the list of Data that will be provided back to the client (TODO). In order to request specific claims, you can <a href="#">use scopes</a> in the Authentication Request and/or <a href="#">use the claims parameter</a> of the <strong>request</strong> Object.</p>
+
 <blockquote>
 <p>Example UserInfo Request</p>
 </blockquote>
@@ -831,7 +843,7 @@ client_assertion=PHNhbWxwOl ... ZT
 <p>The content type of the response will be <code>application/jwt</code>. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed.</p>
 
 <blockquote>
-<p>Example Successful UserInfo Response</p>
+<p>Example Successful UserInfo Response (Not encrypted nor signed)</p>
 </blockquote>
 <pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -839,11 +851,7 @@ client_assertion=PHNhbWxwOl ... ZT
 <span class="p">{</span><span class="w">
    </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"248289761001"</span><span class="p">,</span><span class="w">
    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Doe"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"given_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"family_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"preferred_username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.doe"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"janedoe@example.com"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/janedoe/me.jpg"</span><span class="w">
+   </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"janedoe@example.com"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='requesting-claims-using-scope-values'>Requesting Claims using Scope Values</h2>
 <aside class="notice"><bold>Note</bold>: itsme(r) won't deliver any <a href="http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims">aggregated nor distributed claims</a> in the current version.</aside>
@@ -1056,7 +1064,7 @@ client_assertion=PHNhbWxwOl ... ZT
 <blockquote>
 <p>Example of claim request before base64url encoding, signing and encryption</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json tab-json--inline"><code><span class="p">{</span><span class="w">
     </span><span class="err">//</span><span class="w"> </span><span class="err">JWT</span><span class="w"> </span><span class="err">Registered</span><span class="w"> </span><span class="err">claims</span><span class="w"> </span><span class="err">(https</span><span class="p">:</span><span class="err">//tools.ietf.org/html/rfc</span><span class="mi">7519</span><span class="err">#section</span><span class="mf">-4.1</span><span class="err">)</span><span class="w">
     </span><span class="err">iss</span><span class="p">:</span><span class="w"> </span><span class="s2">"s6BhdRkqt3"</span><span class="p">,</span><span class="w">
     </span><span class="err">aud</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://server.itsme.be"</span><span class="p">,</span><span class="w">
@@ -1109,7 +1117,7 @@ client_assertion=PHNhbWxwOl ... ZT
 <p>It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS </p>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODIyODkwMDI1LDY2NzI2NjkxM119
+eyJoaXN0b3J5IjpbLTE3MTU4MDYxMzgsNjY3MjY2OTEzXX0=
 -->
 
       </div>
