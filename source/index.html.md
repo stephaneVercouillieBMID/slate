@@ -18,9 +18,9 @@ This documentation describes our OAuth 2.0 implementation of **itsme(r) Login**,
 
 ## Login
 
-**itsme(r) Login** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) (*[BMID])to allow users to login securely and to share data with your application.
+**itsme(r) Login** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) (BMID) to allow users to login securely and to share data with your application.
 
-itsme(r) Login uses pairwise user identifier, meaning each partner will have a different User Code for the same user. Doing, nobody except BMID can link one given user code to a specific user identity.  
+itsme(r) Login uses pairwise user identifier, meaning each partner will have a different User Code for the same user. Doing so, nobody except BMID can link one given user code to a specific user identity.  
 
 ## Share Data
 
@@ -467,5 +467,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc0OTU1ODExMCw2NjcyNjY5MTNdfQ==
+eyJoaXN0b3J5IjpbLTEyOTE3ODQzNTYsNjY3MjY2OTEzXX0=
 -->
