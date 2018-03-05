@@ -482,10 +482,10 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 
     https://merchant.itsme.be/oidc/jwkSet
 
-It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
+It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwNzU4NzY2NywxMTI5NDA1MzI3LDE5MD
+eyJoaXN0b3J5IjpbLTU2NTkzOTM4OCwxMTI5NDA1MzI3LDE5MD
 g3NDkzMjksNjM3MDQ1OTcxLDE5MDg3NDkzMjksLTQ1ODUxMDQ3
 MywyMDkyOTU2NjM1LDExOTg3NzE4NjksLTExODUwODEwOCwxND
 kyODY2Njc4LC0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMTk2MzIx
