@@ -289,7 +289,7 @@ The UserInfo endpoint can only be accessed with a valid **access_token** receive
 
 Your server sends the UserInfo Request using either HTTP `GET` or HTTP `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP `GET` method and the Access Token be sent the using the `Authorization` header field. The HTTP request is sent to the UserInfo endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **userinfo_endpoint**.
 
-The Access Token will define the list of Data that will be provided back to the client (TODO). In order to request specific claims, you can [use scopes](#Authentication-Request) in the Authentication Request and/or [use the claims parameter](#Authentication-Request) of the **request** Object.
+The Access Token will define the list of Data that will be provided back to the client (TODO). In order to request specific claims, you can [use scopes](#stClaims) in the Authentication Request and/or [use the claims parameter](#Authentication-Request) of the **request** Object.
 
 > Example UserInfo Request
 
@@ -316,7 +316,7 @@ Content-Type: application/json
 }
 ```
 
-## Requesting Claims using Scope Values
+## <a name="Claims-Scope"></a>Requesting Claims using Scope Values
 
 <aside class="notice"><bold>Note</bold>: itsme(r) won't deliver any <a href="http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims">aggregated nor distributed claims</a> in the current version.</aside>
 
@@ -338,7 +338,7 @@ Scope | Data | Claim
 
 <aside class="notice">NOTE: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.</aside>
 
-## Requesting Claims using the "claims" Request Parameter
+## <a name="Claims-Claims"></a>Requesting Claims using the "claims" Request Parameter
 We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. Here are these claims:
 
 Data | Claim | Comment
@@ -486,15 +486,15 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTczNDU5MTEsLTc1MDY5NjI0MSwtMT
-k2MzIxNDczOSwtOTc3MDQ5NTY2LDgyMTA3NTAwMyw4Nzg2MDcw
-MzcsOTgwNzA1ODE5LDk2NTMxMTQ3MSwtMTM1NDExMDgxOSwtNT
-EwODU2OTA5LC04OTc2NjkzNSwxNjQ2MTE5MjcwLC0yMDc5MDU3
-NjI4LDE4ODA2NDM2NjIsODU4Nzk2MDQ0LC0xMzU1NzU0OTU3LD
-I1ODQxODIyOSwtMTM1NTc1NDk1NywxNDA2MzY0NzI1LDIwMTU1
-NTY5ODMsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDI5MDEzODc2MC
-wxMjA0MTM1MTE0LDI5MDEzODc2MCwxMjA0MTM1MTE0LC0yMTky
-NDk3NjIsMTYzMzg1OTQ4OCwtMjE5MjQ5NzYyLDE2MzM4NTk0OD
-gsLTEwMDA5Njc0NzEsLTIxNDY1MTkxMjMsLTk0NDk2NDgxMiwx
-NDg1OTQxNTk3LDE3NjIwNjg0NjJdfQ==
+eyJoaXN0b3J5IjpbLTE4NTMzNTA3NTIsLTExNTczNDU5MTEsLT
+E5NjMyMTQ3MzksLTk3NzA0OTU2Niw4MjEwNzUwMDMsODc4NjA3
+MDM3LDk4MDcwNTgxOSw5NjUzMTE0NzEsLTEzNTQxMTA4MTksLT
+UxMDg1NjkwOSwtODk3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1
+NzYyOCwxODgwNjQzNjYyLDg1ODc5NjA0NCwtMTM1NTc1NDk1Ny
+wyNTg0MTgyMjksLTEzNTU3NTQ5NTcsMTQwNjM2NDcyNSwyMDE1
+NTU2OTgzLDE0MDYzNjQ3MjUsMjAxNTU1Njk4MywyOTAxMzg3Nj
+AsMTIwNDEzNTExNCwyOTAxMzg3NjAsMTIwNDEzNTExNCwtMjE5
+MjQ5NzYyLDE2MzM4NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5ND
+g4LC0xMDAwOTY3NDcxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MTIs
+MTQ4NTk0MTU5NywxNzYyMDY4NDYyXX0=
 -->
