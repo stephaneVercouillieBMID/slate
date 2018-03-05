@@ -289,7 +289,7 @@ The UserInfo endpoint can only be accessed with a valid **access_token** receive
 
 Your server sends the UserInfo Request using either HTTP `GET` or HTTP `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP `GET` method and the Access Token be sent the using the `Authorization` header field. The HTTP request is sent to the UserInfo endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **userinfo_endpoint**.
 
-The Access Token will define the list of Data that will be provided back to the client (TODO). In order to request specific claims, you can [use scopes](#stClaimsAuthentication-Request) in the Authentication Request and/or [use the claims parameter](#) of the **request** Object.
+The Access Token will define the list of Data that will be provided back to the client (TODO). In order to request specific claims, you can [use scopes](#stClaims) in the Authentication Request and/or [use the claims parameter](#Claims-Request) of the **request** Object.
 
 > Example UserInfo Request
 
@@ -338,7 +338,7 @@ Scope | Data | Claim
 
 <aside class="notice">NOTE: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.</aside>
 
-## <a name="Claims-Claims"></a>Requesting Claims using the "claims" Request Parameter
+## <a name="Claims-Request"></a>Requesting Claims using the "claims" Request Parameter
 We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. Here are these claims:
 
 Data | Claim | Comment
@@ -486,15 +486,15 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgzODk4NTQxMSwtMTg1MzM1MDc1MiwtMT
-k2MzIxNDczOSwtOTc3MDQ5NTY2LDgyMTA3NTAwMyw4Nzg2MDcw
-MzcsOTgwNzA1ODE5LDk2NTMxMTQ3MSwtMTM1NDExMDgxOSwtNT
-EwODU2OTA5LC04OTc2NjkzNSwxNjQ2MTE5MjcwLC0yMDc5MDU3
-NjI4LDE4ODA2NDM2NjIsODU4Nzk2MDQ0LC0xMzU1NzU0OTU3LD
-I1ODQxODIyOSwtMTM1NTc1NDk1NywxNDA2MzY0NzI1LDIwMTU1
-NTY5ODMsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDI5MDEzODc2MC
-wxMjA0MTM1MTE0LDI5MDEzODc2MCwxMjA0MTM1MTE0LC0yMTky
-NDk3NjIsMTYzMzg1OTQ4OCwtMjE5MjQ5NzYyLDE2MzM4NTk0OD
-gsLTEwMDA5Njc0NzEsLTIxNDY1MTkxMjMsLTk0NDk2NDgxMiwx
-NDg1OTQxNTk3LDE3NjIwNjg0NjJdfQ==
+eyJoaXN0b3J5IjpbLTUwMjUzMTM5NCwtODM4OTg1NDExLC0xOT
+YzMjE0NzM5LC05NzcwNDk1NjYsODIxMDc1MDAzLDg3ODYwNzAz
+Nyw5ODA3MDU4MTksOTY1MzExNDcxLC0xMzU0MTEwODE5LC01MT
+A4NTY5MDksLTg5NzY2OTM1LDE2NDYxMTkyNzAsLTIwNzkwNTc2
+MjgsMTg4MDY0MzY2Miw4NTg3OTYwNDQsLTEzNTU3NTQ5NTcsMj
+U4NDE4MjI5LC0xMzU1NzU0OTU3LDE0MDYzNjQ3MjUsMjAxNTU1
+Njk4MywxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMjkwMTM4NzYwLD
+EyMDQxMzUxMTQsMjkwMTM4NzYwLDEyMDQxMzUxMTQsLTIxOTI0
+OTc2MiwxNjMzODU5NDg4LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OC
+wtMTAwMDk2NzQ3MSwtMjE0NjUxOTEyMywtOTQ0OTY0ODEyLDE0
+ODU5NDE1OTcsMTc2MjA2ODQ2Ml19
 -->
