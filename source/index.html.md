@@ -140,7 +140,7 @@ The Authorization Code Flow goes through the following steps as defined in  [htt
 ## 1. Authentication Request
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
 
-The first step is forming an HTTPS request with the appropriate URI parameters. Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**.
+The first step is forming an HTTPS request with the appropriate URI parameters. Please nNote the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**.
 
 **itsme(r)** supports the use of the HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters must be serialized using [Form Serialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization).
 
@@ -343,7 +343,7 @@ We have favoured the request of Data in the **scope** values. However, some spec
 
 Data | Claim | Comment
 -- | -- | --
-Subject | **`sub`** | The subject of the private\_key\_jwt (the client ID)
+Subject | **`sub`** | The subject of the private\_key\_jwt (the client ID). Supports v
 Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | TODO
 Place of Birth | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** and **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** | TODO
 E-ID Info  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** | TODO
@@ -486,7 +486,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1NTI4MjY1NiwxODAzNzY0MjE1LDE0MD
+eyJoaXN0b3J5IjpbLTYyMzM5MjI0OCwxMzU1MjgyNjU2LDE0MD
 YzNjQ3MjUsMjAxNTU1Njk4MywxNDA2MzY0NzI1LDIwMTU1NTY5
 ODMsMjkwMTM4NzYwLDEyMDQxMzUxMTQsMjkwMTM4NzYwLDEyMD
 QxMzUxMTQsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC0yMTkyNDk3
