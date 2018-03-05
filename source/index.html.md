@@ -428,7 +428,7 @@ Property | Required | Comment
 **iss** | Required | Issuer. Must be the `client_id`
 **aud** | Required | Audience. Must be `https://server.itsme.be` TODO - is it really server.itsme.be??
 
-> Example of claim request before base64url encoding, signing and encryption. In this example, the end user email and nationality will be returned by the UserInfo endpoint. The service used 
+> Example of claim request before base64url encoding, signing and encryption. In this example, the partners is using the login, and asks the end user email and nationality to be returned by the UserInfo endpoint. 
 
 ```json--inline
 {
@@ -439,7 +439,7 @@ Property | Required | Comment
 	client_id: "s6BhdRkqt3",
 	response_type: "code",
 	redirect_uri: "https://client.example.org/cb",
-	scope: "openid email service:client.registration",
+	scope: "openid email service:PARTNER_LOGIN",
 	state: "af0ifjsldkj",
 	nonce: "n-0S6_WzA2Mj",
 	claims:
@@ -485,7 +485,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzM2NTU3MzEsNjM3MDQ1OTcxLDE5MD
+eyJoaXN0b3J5IjpbLTEwMzM3ODc2NTYsNjM3MDQ1OTcxLDE5MD
 g3NDkzMjksNjM3MDQ1OTcxLDE5MDg3NDkzMjksLTQ1ODUxMDQ3
 MywyMDkyOTU2NjM1LDExOTg3NzE4NjksLTExODUwODEwOCwxND
 kyODY2Njc4LC0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMTk2MzIx
