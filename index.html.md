@@ -17,7 +17,8 @@
 </ul>
 <h2 id="search-true">search: true</h2>
 <h1 id="introduction-to-itsme®">Introduction to itsme®</h1>
-<p>This documentation describes our OAuth 2.0 implementation of <strong>itsme® Login</strong>, which conforms to the <a href="http://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect 1.0</a> specifications, and is OpenID certified (TODO).</p>
+<p>This documentation describes our OAuth 2.0 implementation of <strong>itsme® Login</strong>, which conforms to the <a href="http://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect 1.0</a> specifications, and is OpenID certified (TODO).<br>
+(OpenID Connect is based on OAuth 2.0)</p>
 <h2 id="login">Login</h2>
 <p><strong>itsme® Login</strong> is a service provided by <a href="https://www.belgianmobileid.be">Belgian Mobile ID</a> (BMID) to allow End-Users to login securely to your application.</p>
 <p>itsme® Login uses pairwise user identifier, meaning each Partner will have a unique <em>User Code</em> for the same User. Doing so, nobody except BMID can link one given <em>User Code</em> of Partner to a specific User identity.</p>
@@ -265,6 +266,17 @@
 <p>As per the OpenID Connect specification <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest">http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest</a> and <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint">http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint</a></p>
 <p>The first step is forming an HTTPS request with the appropriate URI parameters. Note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. You should retrieve the base URI from the <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">Discovery document</a> using the key <strong>authorization_endpoint</strong>. The following discussion assumes the base URI is <code>https://merchant.itsme.be/oidc/authorization</code>.</p>
 <p><strong>itsme®</strong> supports the use of the HTTP <code>GET</code> and <code>POST</code> methods. If using the HTTP <code>POST</code> method, the request parameters must be serialized using <a href="http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization">Form Serialization</a>.</p>
+<h3 id="request-examples">Request Examples</h3>
+<blockquote>
+<p>Example of a minimal Authorization request</p>
+</blockquote>
+<pre class=" language-http"><code class="prism --inline language-http">GET /authorize?response_type=code
+&amp;scope=openid%20profile%20email%20service%3Aclient.registration
+&amp;client_id=s6BhdRkqt3
+&amp;state=af0ifjsldkj
+&amp;redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb HTTP/1.1
+<span class="token header-name keyword">Host:</span> server.itsme.be
+</code></pre>
 <p>For a basic request, specify the following parameters:</p>
 
 <table>
@@ -372,7 +384,7 @@
 <td>N/A TODO</td>
 </tr>
 </tbody>
-</table><h3 id="request-examples">Request Examples</h3>
+</table><h3 id="request-examples-1">Request Examples</h3>
 <blockquote>
 <p>Example of a minimal Authorization request</p>
 </blockquote>
@@ -445,19 +457,6 @@
 </tbody>
 </table><h3 id="app-to-app--todo">App to App ??? TODO</h3>
 <p><strong>itsme®</strong> Mobile App endpoint : TODO</p>
-<blockquote>
-<p>Example Request</p>
-</blockquote>
-<pre class=" language-http"><code class="prism --inline language-http">POST /token HTTP/1.1
-<span class="token header-name keyword">Host:</span> server.example.com
-<span class="token header-name keyword">Content-Type:</span> application/x-www-form-urlencoded
-
-grant_type=authorization\_code&amp;
-code=SplxlOBeZQQYbYS6WxSbIA&amp;
-redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
-client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&amp;
-client_assertion=PHNhbWxwOl ... ZT
-</code></pre>
 <h2 id="token-request">2. Token Request</h2>
 <p>As per the OpenID Connect specification <a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest">http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest</a></p>
 <p>The Authentication Response includes a <code>code</code> parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTTPS <code>POST</code> request. The <code>POST</code> request is sent to the token endpoint, which you should retrieve from the <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">Discovery document</a> using the key <strong>token_endpoint</strong>. The following discussion assumes the endpoint is <code>https://merchant.itsme.be/oidc/token</code>. The request must include the following parameters in the <code>POST</code> body:</p>
@@ -528,7 +527,20 @@ client_assertion=PHNhbWxwOl ... ZT
 <td>Expiration time on or after which the ID Token MUST NOT be accepted for processing.</td>
 </tr>
 </tbody>
-</table><h3 id="successful-token-response">Successful Token Response</h3>
+</table><blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class=" language-http"><code class="prism --inline language-http">POST /token HTTP/1.1
+<span class="token header-name keyword">Host:</span> server.example.com
+<span class="token header-name keyword">Content-Type:</span> application/x-www-form-urlencoded
+
+grant_type=authorization\_code&amp;
+code=SplxlOBeZQQYbYS6WxSbIA&amp;
+redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
+client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&amp;
+client_assertion=PHNhbWxwOl ... ZT
+</code></pre>
+<h3 id="successful-token-response">Successful Token Response</h3>
 
 <table>
 <thead>
@@ -854,6 +866,3 @@ client_assertion=PHNhbWxwOl ... ZT
 </code></pre>
 <p>It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS</p>
 
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyNzc4MTg4Nl19
--->
