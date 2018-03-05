@@ -421,7 +421,7 @@ Parameter | Required | Comment
 **request** | Optional | This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. The parameter value is a Request Object value, as specified in [Section 6.1](http://openid.net/specs/openid-connect-core-1_0.html#RequestObject). It represents the request as a JWT whose Claims are the request parameters.
 **request_uri** | Unsupported | Refer to [JWTRequest](http://openid.net/specs/openid-connect-core-1_0.html#JWTRequests)
 
-Please note that it is possible to provid
+Please note that it is possible to provide red
 
 The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains the following properties:
 
@@ -487,7 +487,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkzNTIzNDI3OSwxNjU2NjI3OTgwLDE5MD
+eyJoaXN0b3J5IjpbLTU3MTYzNTI4NywxNjU2NjI3OTgwLDE5MD
 g3NDkzMjksNjM3MDQ1OTcxLDE5MDg3NDkzMjksLTQ1ODUxMDQ3
 MywyMDkyOTU2NjM1LDExOTg3NzE4NjksLTExODUwODEwOCwxND
 kyODY2Njc4LC0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMTk2MzIx
