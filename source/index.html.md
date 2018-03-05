@@ -273,7 +273,7 @@ Parameter | Provided | Comment
 **access_token** | Always | A token that can be sent to the UserInfo endpoint to retrieve additional information about the user.
 **token_type** | Always | Will be `Bearer`
 **id_token** | Always | The JWT `id_token` corresponding to the Authentication Request (signed and  encrypted). 
-**at_hash** | | first version of itsme(r) Core does not produce the at_hash value (current version so far)
+**at_hash** | | first version of itsme(r) Core does not produce the at_hash value (current version as yet)
 **refresh_token** | Never | Won't be provided as **itsme(r)** only maintains short-lived session to enforce re-authentication.
 
 ### Errors
@@ -488,7 +488,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQ5MzM2NDQ1LDE2OTk4ODYyMzQsLTUxMD
+eyJoaXN0b3J5IjpbODA1MDk4MjMwLDE2OTk4ODYyMzQsLTUxMD
 g1NjkwOSwtODk3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1NzYy
 OCwxODgwNjQzNjYyLDg1ODc5NjA0NCwtMTM1NTc1NDk1NywyNT
 g0MTgyMjksLTEzNTU3NTQ5NTcsMTQwNjM2NDcyNSwyMDE1NTU2
