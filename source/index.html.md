@@ -343,7 +343,7 @@ We have favoured the request of Data in the **scope** values. However, some spec
 
 Data | Claim | Comment
 -- | -- | --
-??? | **`sub`** | TODO
+Subject | **`sub`** | TODO
 Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | TODO
 Place of Birth | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** and **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** | TODO
 E-ID Info  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** | TODO
@@ -486,7 +486,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjkwMTM4NzYwLDEyMDQxMzUxMTQsMjkwMT
+eyJoaXN0b3J5IjpbMjAxNTU1Njk4MywyOTAxMzg3NjAsMjkwMT
 M4NzYwLDEyMDQxMzUxMTQsMjkwMTM4NzYwLDEyMDQxMzUxMTQs
 LTIxOTI0OTc2MiwxNjMzODU5NDg4LC0yMTkyNDk3NjIsMTYzMz
 g1OTQ4OCwtMTAwMDk2NzQ3MSwtMjE0NjUxOTEyMywtOTQ0OTY0
