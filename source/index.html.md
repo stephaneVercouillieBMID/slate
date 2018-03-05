@@ -428,7 +428,7 @@ Property | Required | Comment
 **iss** | Required | Issuer. Must be the `client_id`
 **aud** | Required | Audience. Must be `https://server.itsme.be` TODO - is it really server.itsme.be??
 
-> Example of claim request before base64url encoding, signing and encryption. In this example, the end user nationality will be returned by the UserInfo endpoint, while the 
+> Example of claim request before base64url encoding, signing and encryption. In this example, the end user email and nationality will be returned by the UserInfo endpoint. The service used 
 
 ```json--inline
 {
@@ -449,7 +449,7 @@ Property | Required | Comment
 		},
 		id_token: {
 			auth_time: {"essential": true},
-			acr: {"value": \["tag:itsmetag:sixdots.be,2016-06:acr_securedadvanced"\] 		
+			acr: {"value": \["tag:itsmetag:sixdots.be,2016-06:acr_advanced"\] 		
 		}
 	}
 }
@@ -485,18 +485,18 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg1ODI1MjE1MCw2MzcwNDU5NzEsMTkwOD
-c0OTMyOSw2MzcwNDU5NzEsMTkwODc0OTMyOSwtNDU4NTEwNDcz
-LDIwOTI5NTY2MzUsMTE5ODc3MTg2OSwtMTE4NTA4MTA4LDE0OT
-I4NjY2NzgsLTExODUwODEwOCwxNDkyODY2Njc4LC0xOTYzMjE0
-NzM5LC05NzcwNDk1NjYsODIxMDc1MDAzLDg3ODYwNzAzNyw5OD
-A3MDU4MTksOTY1MzExNDcxLC0xMzU0MTEwODE5LC01MTA4NTY5
-MDksLTg5NzY2OTM1LDE2NDYxMTkyNzAsLTIwNzkwNTc2MjgsMT
-g4MDY0MzY2Miw4NTg3OTYwNDQsLTEzNTU3NTQ5NTcsMjU4NDE4
-MjI5LC0xMzU1NzU0OTU3LDE0MDYzNjQ3MjUsMjAxNTU1Njk4My
-wxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMjkwMTM4NzYwLDEyMDQx
-MzUxMTQsMjkwMTM4NzYwLDEyMDQxMzUxMTQsLTIxOTI0OTc2Mi
-wxNjMzODU5NDg4LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OCwtMTAw
-MDk2NzQ3MSwtMjE0NjUxOTEyMywtOTQ0OTY0ODEyLDE0ODU5ND
-E1OTcsMTc2MjA2ODQ2Ml19
+eyJoaXN0b3J5IjpbLTE1NzM2NTU3MzEsNjM3MDQ1OTcxLDE5MD
+g3NDkzMjksNjM3MDQ1OTcxLDE5MDg3NDkzMjksLTQ1ODUxMDQ3
+MywyMDkyOTU2NjM1LDExOTg3NzE4NjksLTExODUwODEwOCwxND
+kyODY2Njc4LC0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMTk2MzIx
+NDczOSwtOTc3MDQ5NTY2LDgyMTA3NTAwMyw4Nzg2MDcwMzcsOT
+gwNzA1ODE5LDk2NTMxMTQ3MSwtMTM1NDExMDgxOSwtNTEwODU2
+OTA5LC04OTc2NjkzNSwxNjQ2MTE5MjcwLC0yMDc5MDU3NjI4LD
+E4ODA2NDM2NjIsODU4Nzk2MDQ0LC0xMzU1NzU0OTU3LDI1ODQx
+ODIyOSwtMTM1NTc1NDk1NywxNDA2MzY0NzI1LDIwMTU1NTY5OD
+MsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDI5MDEzODc2MCwxMjA0
+MTM1MTE0LDI5MDEzODc2MCwxMjA0MTM1MTE0LC0yMTkyNDk3Nj
+IsMTYzMzg1OTQ4OCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgsLTEw
+MDA5Njc0NzEsLTIxNDY1MTkxMjMsLTk0NDk2NDgxMiwxNDg1OT
+QxNTk3LDE3NjIwNjg0NjJdfQ==
 -->
