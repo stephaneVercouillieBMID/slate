@@ -16,6 +16,7 @@ search: true
 
 This documentation describes our OAuth 2.0 implementation of **itsme® Login**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications, and is OpenID certified (TODO). 
 
+
 ## Login
 
 **itsme® Login** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) (BMID) to allow End-Users to login securely to your application.
@@ -226,20 +227,6 @@ Error | Description
 ### App to App ??? TODO
 **itsme(r)** Mobile App endpoint : TODO
 
-> Example Request
-
-```http--inline
-POST /token HTTP/1.1
-Host: server.example.com
-Content-Type: application/x-www-form-urlencoded
-
-grant_type=authorization\_code&
-code=SplxlOBeZQQYbYS6WxSbIA&
-redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
-client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
-client_assertion=PHNhbWxwOl ... ZT
-```
-
 ## 2. Token Request
 
 As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest
@@ -264,8 +251,19 @@ Property | Comment
 **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
 **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 
+> Example Request
 
+```http--inline
+POST /token HTTP/1.1
+Host: server.example.com
+Content-Type: application/x-www-form-urlencoded
 
+grant_type=authorization\_code&
+code=SplxlOBeZQQYbYS6WxSbIA&
+redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
+client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
+client_assertion=PHNhbWxwOl ... ZT
+```
 
 ### Successful Token Response
 
@@ -489,7 +487,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM3MzcwMzMxNiwtNDk5MzkwNzM4LC0zNz
-M3MDMzMTYsLTQ5OTM5MDczOCwtMzczNzAzMzE2LC00OTkzOTA3
-MzgsLTM3MzcwMzMxNiwtMTkwNzQ1MDQ4LDY2NzI2NjkxM119
+eyJoaXN0b3J5IjpbNjc1MTMwOTQ0LC0zNzM3MDMzMTYsLTM3Mz
+cwMzMxNiwtNDk5MzkwNzM4LC0zNzM3MDMzMTYsLTQ5OTM5MDcz
+OCwtMzczNzAzMzE2LC0xOTA3NDUwNDgsNjY3MjY2OTEzXX0=
 -->
