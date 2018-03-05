@@ -24,9 +24,9 @@ In order to let you identify the user authenticated, BMID uses pairwise user ide
 
 ## Share Data
 
-If purpose of use is stated during the on-boarding process and consent is provided by the End-User during Authentication, Data can be shared with your application.
+If purpose of use is stated during the on-boarding process and consent is provided by the End-User during Authentication, Dend user data can be shared with your application.
 
-Data is currently shared only during Login or Approval. Off-line access to User information is not authorised.
+ata is currently shared only during Login or Approval. Off-line access to User information is not authorised.
 
 The following sets of Data are available:
 
@@ -486,6 +486,6 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAyNTg5NjM0MCwxNjk0MzA2Njg4LDE0OD
-U5NDE1OTcsMTc2MjA2ODQ2Ml19
+eyJoaXN0b3J5IjpbNjcwMDAyMjAyLDEwMjU4OTYzNDAsMTQ4NT
+k0MTU5NywxNzYyMDY4NDYyXX0=
 -->
