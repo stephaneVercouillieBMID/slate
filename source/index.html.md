@@ -102,7 +102,7 @@ Data | Definition
 
 Before your application can use **itsme®** for user login, you must set up a project to obtain OIDC credentials, set redirect URIs for your services, and customise the branding information that your users see on the **itsme®** user-consent screen.
 
-![]
+![user consent screen](Action1.jpg)
 
 ### Customize the user consent screen
 SP provides 
@@ -488,10 +488,10 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAxNTMwMjkxNiwtMTA5NjY1NDIwMiwyMD
-E1NTU2OTgzLDE0MDYzNjQ3MjUsMjAxNTU1Njk4MywyOTAxMzg3
-NjAsMTIwNDEzNTExNCwyOTAxMzg3NjAsMTIwNDEzNTExNCwtMj
-E5MjQ5NzYyLDE2MzM4NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5
-NDg4LC0xMDAwOTY3NDcxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MT
-IsMTQ4NTk0MTU5NywxNzYyMDY4NDYyXX0=
+eyJoaXN0b3J5IjpbNjIyOTQ4NDA2LDEwMTUzMDI5MTYsMjAxNT
+U1Njk4MywxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMjkwMTM4NzYw
+LDEyMDQxMzUxMTQsMjkwMTM4NzYwLDEyMDQxMzUxMTQsLTIxOT
+I0OTc2MiwxNjMzODU5NDg4LC0yMTkyNDk3NjIsMTYzMzg1OTQ4
+OCwtMTAwMDk2NzQ3MSwtMjE0NjUxOTEyMywtOTQ0OTY0ODEyLD
+E0ODU5NDE1OTcsMTc2MjA2ODQ2Ml19
 -->
