@@ -328,7 +328,7 @@ The following values for **scope** allow access to predefined sets of Data:
 
 Scope | Data | Claim
 -- | -- | --
-**`profile`** | Full Name | `name` or `given_name` TODO ??? or `family_name` TODO ???
+**`profile`** | Full Name | `name` and `given_name` and `family_name` 
 | | Gender | `gender`
 | | Date of Birth | `birthdate`
 | | Language | `locale`
@@ -486,7 +486,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NTExNTQ0MjMsLTE3NTEzNjc3NjQsLT
+eyJoaXN0b3J5IjpbLTIwNzY5ODA0MDMsLTE3NTEzNjc3NjQsLT
 IxOTI0OTc2MiwxNjMzODU5NDg4LC0yMTkyNDk3NjIsMTYzMzg1
 OTQ4OCwtMTAwMDk2NzQ3MSwtMjE0NjUxOTEyMywtOTQ0OTY0OD
 EyLDE0ODU5NDE1OTcsMTc2MjA2ODQ2Ml19
