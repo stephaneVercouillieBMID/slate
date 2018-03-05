@@ -230,7 +230,9 @@ Error | Description
 
 As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest
 
-The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTTPS `POST` request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **token_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. The request must include the following parameters in the `POST` body:
+The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTTPS `POST` request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **token_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports the 
+
+The request must include the following parameters in the `POST` body:
 
 Parameter | Required | Comment
 -- | -- | --
@@ -486,13 +488,13 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk4NzAzNDEzMiw4MjcwMzY0MzgsLTUxMD
-g1NjkwOSwtODk3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1NzYy
-OCwxODgwNjQzNjYyLDg1ODc5NjA0NCwtMTM1NTc1NDk1NywyNT
-g0MTgyMjksLTEzNTU3NTQ5NTcsMTQwNjM2NDcyNSwyMDE1NTU2
-OTgzLDE0MDYzNjQ3MjUsMjAxNTU1Njk4MywyOTAxMzg3NjAsMT
-IwNDEzNTExNCwyOTAxMzg3NjAsMTIwNDEzNTExNCwtMjE5MjQ5
-NzYyLDE2MzM4NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC
-0xMDAwOTY3NDcxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MTIsMTQ4
-NTk0MTU5NywxNzYyMDY4NDYyXX0=
+eyJoaXN0b3J5IjpbLTExMTMwMTAyMDYsMTk4NzAzNDEzMiwtNT
+EwODU2OTA5LC04OTc2NjkzNSwxNjQ2MTE5MjcwLC0yMDc5MDU3
+NjI4LDE4ODA2NDM2NjIsODU4Nzk2MDQ0LC0xMzU1NzU0OTU3LD
+I1ODQxODIyOSwtMTM1NTc1NDk1NywxNDA2MzY0NzI1LDIwMTU1
+NTY5ODMsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDI5MDEzODc2MC
+wxMjA0MTM1MTE0LDI5MDEzODc2MCwxMjA0MTM1MTE0LC0yMTky
+NDk3NjIsMTYzMzg1OTQ4OCwtMjE5MjQ5NzYyLDE2MzM4NTk0OD
+gsLTEwMDA5Njc0NzEsLTIxNDY1MTkxMjMsLTk0NDk2NDgxMiwx
+NDg1OTQxNTk3LDE3NjIwNjg0NjJdfQ==
 -->
