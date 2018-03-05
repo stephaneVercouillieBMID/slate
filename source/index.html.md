@@ -172,7 +172,7 @@ Parameter | Required | Comment
 **prompt** | Optional | MUST be `consent` if provided.
 **ui_locales** | Optional | Can be used to specify the language to be used by the OpenID login page. Supported languages are: `fr`, `nl`, `en` and `de`. Any other value will be ignored.
 **max_age** | Optional | Supported but not used: **itsme(r)** will always actively re-authenticate the End-User. 
-**acr_values** | Optional | OPTIONAL and supported, though not recommended. Possible values are - tag:itsmetag:sixdots.be,2016-06:acr_basic, tag:itsmetag:sixdots.be,2016-06:acr_advanced. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the acr\_values is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the acr\_values list, or the authentication will fail. Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token
+**acr_values** | Optional | OPTIONAL and supported, though not recommended. Possible values are tag:itsmetag:sixdots.be,2016-06:acr_basic, tag:itsmetag:sixdots.be,2016-06:acr_advanced. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the acr\_values is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the acr\_values list, or the authentication will fail. Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token
 **claims** | Optional | Not recommended. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
 **request** | Optional | See [Passing Request Parameters as JWTs](#JWTRequest)
 **response_mode** | Unsupported | Ignored if provided.
@@ -486,13 +486,13 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUxMDg1NjkwOSwxNTk2ODY4OTc3LC04OT
-c2NjkzNSwxNjQ2MTE5MjcwLC0yMDc5MDU3NjI4LDE4ODA2NDM2
-NjIsODU4Nzk2MDQ0LC0xMzU1NzU0OTU3LDI1ODQxODIyOSwtMT
-M1NTc1NDk1NywxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMTQwNjM2
-NDcyNSwyMDE1NTU2OTgzLDI5MDEzODc2MCwxMjA0MTM1MTE0LD
-I5MDEzODc2MCwxMjA0MTM1MTE0LC0yMTkyNDk3NjIsMTYzMzg1
-OTQ4OCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgsLTEwMDA5Njc0Nz
-EsLTIxNDY1MTkxMjMsLTk0NDk2NDgxMiwxNDg1OTQxNTk3LDE3
-NjIwNjg0NjJdfQ==
+eyJoaXN0b3J5IjpbLTIwNzkwNTc2MjgsLTUxMDg1NjkwOSwtOD
+k3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1NzYyOCwxODgwNjQz
+NjYyLDg1ODc5NjA0NCwtMTM1NTc1NDk1NywyNTg0MTgyMjksLT
+EzNTU3NTQ5NTcsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDE0MDYz
+NjQ3MjUsMjAxNTU1Njk4MywyOTAxMzg3NjAsMTIwNDEzNTExNC
+wyOTAxMzg3NjAsMTIwNDEzNTExNCwtMjE5MjQ5NzYyLDE2MzM4
+NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC0xMDAwOTY3ND
+cxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MTIsMTQ4NTk0MTU5Nywx
+NzYyMDY4NDYyXX0=
 -->
