@@ -46,7 +46,7 @@ Data | Definition
 **Gender** | Gender
 **Language** | Language
 **Nationality** | Nationality
-**Address** | Address containing street, house number, postbox, locality, postcode and country
+**Address** | Address containing street, street number, postal box, locality, postal code and country
 **Passport Number** | Passport Number
 **NRN** | National Registry Number
 **E-ID picture** | Picture taken from the National eID Card in low-resolution.
@@ -485,19 +485,19 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDQwMzM5MzAsMTQ0NDcxMjcyNCwtMT
-UwNDAzMzkzMCwxMTI5NDA1MzI3LDE5MDg3NDkzMjksNjM3MDQ1
-OTcxLDE5MDg3NDkzMjksLTQ1ODUxMDQ3MywyMDkyOTU2NjM1LD
-ExOTg3NzE4NjksLTExODUwODEwOCwxNDkyODY2Njc4LC0xMTg1
-MDgxMDgsMTQ5Mjg2NjY3OCwtMTk2MzIxNDczOSwtOTc3MDQ5NT
-Y2LDgyMTA3NTAwMyw4Nzg2MDcwMzcsOTgwNzA1ODE5LDk2NTMx
-MTQ3MSwtMTM1NDExMDgxOSwtNTEwODU2OTA5LC04OTc2NjkzNS
-wxNjQ2MTE5MjcwLC0yMDc5MDU3NjI4LDE4ODA2NDM2NjIsODU4
-Nzk2MDQ0LC0xMzU1NzU0OTU3LDI1ODQxODIyOSwtMTM1NTc1ND
-k1NywxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMTQwNjM2NDcyNSwy
-MDE1NTU2OTgzLDI5MDEzODc2MCwxMjA0MTM1MTE0LDI5MDEzOD
-c2MCwxMjA0MTM1MTE0LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OCwt
-MjE5MjQ5NzYyLDE2MzM4NTk0ODgsLTEwMDA5Njc0NzEsLTIxND
-Y1MTkxMjMsLTk0NDk2NDgxMiwxNDg1OTQxNTk3LDE3NjIwNjg0
-NjJdfQ==
+eyJoaXN0b3J5IjpbMTk4OTk3NTM1MywxNDQ0NzEyNzI0LC0xNT
+A0MDMzOTMwLDExMjk0MDUzMjcsMTkwODc0OTMyOSw2MzcwNDU5
+NzEsMTkwODc0OTMyOSwtNDU4NTEwNDczLDIwOTI5NTY2MzUsMT
+E5ODc3MTg2OSwtMTE4NTA4MTA4LDE0OTI4NjY2NzgsLTExODUw
+ODEwOCwxNDkyODY2Njc4LC0xOTYzMjE0NzM5LC05NzcwNDk1Nj
+YsODIxMDc1MDAzLDg3ODYwNzAzNyw5ODA3MDU4MTksOTY1MzEx
+NDcxLC0xMzU0MTEwODE5LC01MTA4NTY5MDksLTg5NzY2OTM1LD
+E2NDYxMTkyNzAsLTIwNzkwNTc2MjgsMTg4MDY0MzY2Miw4NTg3
+OTYwNDQsLTEzNTU3NTQ5NTcsMjU4NDE4MjI5LC0xMzU1NzU0OT
+U3LDE0MDYzNjQ3MjUsMjAxNTU1Njk4MywxNDA2MzY0NzI1LDIw
+MTU1NTY5ODMsMjkwMTM4NzYwLDEyMDQxMzUxMTQsMjkwMTM4Nz
+YwLDEyMDQxMzUxMTQsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC0y
+MTkyNDk3NjIsMTYzMzg1OTQ4OCwtMTAwMDk2NzQ3MSwtMjE0Nj
+UxOTEyMywtOTQ0OTY0ODEyLDE0ODU5NDE1OTcsMTc2MjA2ODQ2
+Ml19
 -->
