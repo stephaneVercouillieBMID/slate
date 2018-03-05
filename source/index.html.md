@@ -333,7 +333,7 @@ Scope | Data | Claim
 | | Date of Birth | `birthdate`
 | | Language | `locale`
 **`address`** | Address | `address`, with following subfields: `street_address` (newline separator \\n), `locality`, `postal_code`, `country`
-**`email`** | E-Mail Address | `email`  `email_verified` 
+**`email`** | E-Mail Address | `email` and `email_verified` 
 **`phone`** | Phone Number | `phone_number` or `phone_number_verified`
 
 <aside class="notice">NOTE: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.</aside>
@@ -486,8 +486,8 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAzMzk5NTM0MywtMjA3Njk4MDQwMywtMj
-E5MjQ5NzYyLDE2MzM4NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5
-NDg4LC0xMDAwOTY3NDcxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MT
-IsMTQ4NTk0MTU5NywxNzYyMDY4NDYyXX0=
+eyJoaXN0b3J5IjpbMTIwNDEzNTExNCwyMDMzOTk1MzQzLC0yMT
+kyNDk3NjIsMTYzMzg1OTQ4OCwtMjE5MjQ5NzYyLDE2MzM4NTk0
+ODgsLTEwMDA5Njc0NzEsLTIxNDY1MTkxMjMsLTk0NDk2NDgxMi
+wxNDg1OTQxNTk3LDE3NjIwNjg0NjJdfQ==
 -->
