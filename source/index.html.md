@@ -322,7 +322,7 @@ Content-Type: application/json
 
 As per OpenID Connect specification, scopes can be used to request that specific sets of information be made available as Claim Values in UserInfo Token.
 
-In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims requested via scope as **Essential**. It means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole.
+In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims requested via scope as **Essential**. It means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, as in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims, you should already request claims with appropriate level regarding your business case. TODO => it means we should not request by scope???
 
 The following values for **scope** allow access to predefined sets of Data:
 
@@ -353,8 +353,6 @@ Device | **`tag:sixdots.be,2017-05:claim_device`** | see [Device information](#d
 ??? TODO | **`tag:sixdots.be,2017-05:claim_transaction_info`** | Information available in the context of the current transaction. A JSON object with the following keys: (only keys with cardinality \[1..1\] will be always available)  “securityLevel” \[1..1\]: (supported values: {SOFT\_ONLY, SIM\_ONLY, SIM\_AND\_SOFT}) Security level used during transaction. “bindLevel” \[1..1\]: (supported values: {SOFT\_ONLY, SIM\_ONLY, SIM\_AND\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred.  “mcc” \[0..1\]: the Mobile Country Code. An Integer (three digits) representing the mobile network country. For example: { "securityLevel": "SIM\_AND\_SOFT", "bindLevel": "SIM\_AND\_SOFT", "mcc": 206 }
 E-ID Picture | TODO | TODO
 NRN | TODO | TODO
-
-In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims as **Essential**, even if they are requested as a **Voluntary** claim (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)). However, as in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims, you should already request claims with appropriate level regarding your business case. TODO => it means we should not request by scope???
 
 > Example of Claims request parameter TODO adapt to itsme(r) data
 
@@ -487,7 +485,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwODc0OTMyOSw2MzcwNDU5NzEsMTkwOD
+eyJoaXN0b3J5IjpbMTA0ODAzMjM3NSw2MzcwNDU5NzEsMTkwOD
 c0OTMyOSw2MzcwNDU5NzEsMTkwODc0OTMyOSwtNDU4NTEwNDcz
 LDIwOTI5NTY2MzUsMTE5ODc3MTg2OSwtMTE4NTA4MTA4LDE0OT
 I4NjY2NzgsLTExODUwODEwOCwxNDkyODY2Njc4LC0xOTYzMjE0
