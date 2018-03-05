@@ -69,8 +69,7 @@ Data | Definition
 Data | Definition
 -- | --
 **Phone Number** | Verified phone number associated to the **itsme(r)** user account.  
-**E-Mail Address** | E-Mail address. NOT Verified! itsme does user verification only with associated phone number, 
-verifying itsme user account via e-mail adress is not considered.
+**E-Mail Address** | E-Mail address. NOT Verified! itsme does user verification only with associated phone number, verifying itsme user account via e-mail adress is not considered.
 
 ### Security Data
 
@@ -487,6 +486,6 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY5NDMwNjY4OCwxNDg1OTQxNTk3LDE3Nj
-IwNjg0NjJdfQ==
+eyJoaXN0b3J5IjpbMTAyNTg5NjM0MCwxNjk0MzA2Njg4LDE0OD
+U5NDE1OTcsMTc2MjA2ODQ2Ml19
 -->
