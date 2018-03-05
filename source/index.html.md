@@ -244,7 +244,7 @@ Fllowing the `private_key_jwt` client authentication method, the **client assert
 
 Property | Comment
 -- | --
-**iss** | MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file TODO). 
+**iss** | The issuer of the private_key_jwt (the client ID)MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file TODO). 
 **sub** | MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file TODO). 
 **aud** | Must be the token endpoint URL, e.g. `https://merchant.itsme.be/oidc/token`
 **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
@@ -486,6 +486,6 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDAxODUyODAsMTQxMzE5NTY1MCwtOT
-Q0OTY0ODEyLDE0ODU5NDE1OTcsMTc2MjA2ODQ2Ml19
+eyJoaXN0b3J5IjpbLTIxNDY1MTkxMjMsLTE2NDAxODUyODAsLT
+k0NDk2NDgxMiwxNDg1OTQxNTk3LDE3NjIwNjg0NjJdfQ==
 -->
