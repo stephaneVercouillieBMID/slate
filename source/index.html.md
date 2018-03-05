@@ -161,7 +161,7 @@ For a basic request, specify the following parameters:
 
 Parameter | Required | Comment
 --------- | ------- | -----
-**client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process and this value will be unique to each partner per environment.(This information can be found in on-boarding file 33020 Technical Specification Service Provider Open ID Documentation.) 
+**client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process and this value will be unique to each partner per environment.(This information is in on-boarding file 33020 Technical Specification Service Provider Open ID Documentation.) 
 **response_type** | Required | MUST be <code>code</code>.
 **scope** | Required | MUST contain at least `openid` or an HTTP ERROR `not_implemented` will be returned. `offline_access` value will yield an error. MUST also includes the target service in the form `service:<SERVICE_CODE>` as provided by BMID during the on-boarding process. ***Note**: Requested data will only be provided based on your current accesses*. See *33020 Technical Specification Service Provider Open ID Documentation* for list of available data.
 **redirect_uri** | Required | should be the HTTPS endpoint on your server that will receive the response from **itsme(r)**. This value MUST match one of the values provided to BMID during on-boarding process. ***Note**: the Partner can define different **redirect_uri** specific to each Service.*
@@ -244,7 +244,7 @@ Fllowing the `private_key_jwt` client authentication method, the **client assert
 
 Property | Comment
 -- | --
-**iss** | The issuer of the private_key_jwt (the client ID)MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file TODO). 
+**iss** | The issuer of the private_key_jwt (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file TODO). 
 **sub** | MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file TODO). 
 **aud** | Must be the token endpoint URL, e.g. `https://merchant.itsme.be/oidc/token`
 **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
@@ -486,6 +486,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyOTI0OTA1NzcsLTIxNDY1MTkxMjMsLT
-k0NDk2NDgxMiwxNDg1OTQxNTk3LDE3NjIwNjg0NjJdfQ==
+eyJoaXN0b3J5IjpbLTE0NTE5NDczODIsLTEyOTI0OTA1NzcsLT
+IxNDY1MTkxMjMsLTk0NDk2NDgxMiwxNDg1OTQxNTk3LDE3NjIw
+Njg0NjJdfQ==
 -->
