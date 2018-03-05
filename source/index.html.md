@@ -144,6 +144,19 @@ The first step is forming an HTTPS request with the appropriate URI parameters. 
 
 **itsme(r)** supports the use of the HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters must be serialized using [Form Serialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization).
 
+### Request Examples
+
+>Example of a minimal Authorization request
+
+```http--inline
+GET /authorize?response_type=code
+&scope=openid%20profile%20email%20service%3Aclient.registration
+&client_id=s6BhdRkqt3
+&state=af0ifjsldkj
+&redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb HTTP/1.1
+Host: server.itsme.be
+```
+
 For a basic request, specify the following parameters:
 
 Parameter | Required | Comment
@@ -476,6 +489,6 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ0NjM1ODc1NCwtMTkwNzQ1MDQ4LDY2Nz
-I2NjkxM119
+eyJoaXN0b3J5IjpbLTM3MzcwMzMxNiwxNDQ2MzU4NzU0LC0xOT
+A3NDUwNDgsNjY3MjY2OTEzXX0=
 -->
