@@ -287,7 +287,7 @@ As per the OpenID Connect specification [http://openid.net/specs/openid-connect-
 
 The UserInfo endpoint can only be accessed with a valid **access_token** received from the Token endpoint during User Authentication, and for a very limited duration after end user authentication; there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the UserInfo endpoint.
 
-Your server sends the UserInfo Request using either HTTP `GET` or HTTP `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP `GET` method and the Access Token be sent the using the `Authorization` header field. The HTTP request is sent to the UserInfo endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **userinfo_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/userinfo`. 
+Your server sends the UserInfo Request using either HTTP `GET` or HTTP `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP `GET` method and the Access Token be sent the using the `Authorization` header field. The HTTP request is sent to the UserInfo endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **userinfo_endpoint**.
 
 The Access Token will define the list of Data that will be provided back to the client (TODO). In order to request specific claims, you can [use scopes](#) in the Authentication Request and/or [use the claims parameter](#) of the **request** Object.
 
@@ -486,7 +486,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDYyMDQ4NzAsLTk3NzA0OTU2NiwtMT
+eyJoaXN0b3J5IjpbLTE5NjMyMTQ3MzksLTk3NzA0OTU2NiwtMT
 IwNzU4NTk5NCw4MjEwNzUwMDMsODc4NjA3MDM3LDk4MDcwNTgx
 OSw5NjUzMTE0NzEsLTEzNTQxMTA4MTksLTUxMDg1NjkwOSwtOD
 k3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1NzYyOCwxODgwNjQz
