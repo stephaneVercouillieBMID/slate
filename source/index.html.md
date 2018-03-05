@@ -289,7 +289,7 @@ The UserInfo endpoint can only be accessed with a valid **access_token** receive
 
 Your server sends the UserInfo Request using either HTTP `GET` or HTTP `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP `GET` method and the Access Token be sent the using the `Authorization` header field. The HTTP request is sent to the UserInfo endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **userinfo_endpoint**.
 
-The Access Token will define the list of Data that will be provided back to the client (TODO). In order to request specific claims, you can [use scopes](#stClaims) in the Authentication Request and/or [use the claims parameter](#Authentication-Request) of the **request** Object.
+The Access Token will define the list of Data that will be provided back to the client (TODO). In order to request specific claims, you can [use scopes](#stClaimsAuthentication-Request) in the Authentication Request and/or [use the claims parameter](#) of the **request** Object.
 
 > Example UserInfo Request
 
@@ -346,7 +346,7 @@ Data | Claim | Comment
 Subject | **`sub`** | The subject of the `private_key_jwt` (the client ID). Supports value in request.
 Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | 
 Place of Birth | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** and **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** | TODO
-E-ID Info  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** | Belgian Electronic ID card information encoded in JSON, with the following keys:eid”: the electronic ID card serial number. “issuance\_locality”: the issuance locality. “validity\_from”: eID card validity “from” date. “validity\_to”: eID card validity “to” date. “certificate\_validity”: the certificate validity. “read_date”: the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: "2017-04-01T19:43:37+0000"TODO
+E-ID Info  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** | Belgian Electronic ID card information encoded in JSON, with the following keys:eid: the electronic ID card serial number. “issuance\_locality”: the issuance locality. “validity\_from”: eID card validity “from” date. “validity\_to”: eID card validity “to” date. “certificate\_validity”: the certificate validity. “read_date”: the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: "2017-04-01T19:43:37+0000"TODO
 Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | TODO
 Device | **`tag:sixdots.be,2017-05:claim_device`** | see XXXX (TODO URL)
 ??? TODO | **`tag:sixdots.be,2017-05:claim_transaction_info`** | TODO
@@ -486,15 +486,15 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTMzNTA3NTIsLTExNTczNDU5MTEsLT
-E5NjMyMTQ3MzksLTk3NzA0OTU2Niw4MjEwNzUwMDMsODc4NjA3
-MDM3LDk4MDcwNTgxOSw5NjUzMTE0NzEsLTEzNTQxMTA4MTksLT
-UxMDg1NjkwOSwtODk3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1
-NzYyOCwxODgwNjQzNjYyLDg1ODc5NjA0NCwtMTM1NTc1NDk1Ny
-wyNTg0MTgyMjksLTEzNTU3NTQ5NTcsMTQwNjM2NDcyNSwyMDE1
-NTU2OTgzLDE0MDYzNjQ3MjUsMjAxNTU1Njk4MywyOTAxMzg3Nj
-AsMTIwNDEzNTExNCwyOTAxMzg3NjAsMTIwNDEzNTExNCwtMjE5
-MjQ5NzYyLDE2MzM4NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5ND
-g4LC0xMDAwOTY3NDcxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MTIs
-MTQ4NTk0MTU5NywxNzYyMDY4NDYyXX0=
+eyJoaXN0b3J5IjpbNDc5Mzg4NjcxLC0xODUzMzUwNzUyLC0xOT
+YzMjE0NzM5LC05NzcwNDk1NjYsODIxMDc1MDAzLDg3ODYwNzAz
+Nyw5ODA3MDU4MTksOTY1MzExNDcxLC0xMzU0MTEwODE5LC01MT
+A4NTY5MDksLTg5NzY2OTM1LDE2NDYxMTkyNzAsLTIwNzkwNTc2
+MjgsMTg4MDY0MzY2Miw4NTg3OTYwNDQsLTEzNTU3NTQ5NTcsMj
+U4NDE4MjI5LC0xMzU1NzU0OTU3LDE0MDYzNjQ3MjUsMjAxNTU1
+Njk4MywxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMjkwMTM4NzYwLD
+EyMDQxMzUxMTQsMjkwMTM4NzYwLDEyMDQxMzUxMTQsLTIxOTI0
+OTc2MiwxNjMzODU5NDg4LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OC
+wtMTAwMDk2NzQ3MSwtMjE0NjUxOTEyMywtOTQ0OTY0ODEyLDE0
+ODU5NDE1OTcsMTc2MjA2ODQ2Ml19
 -->
