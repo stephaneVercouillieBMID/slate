@@ -237,7 +237,7 @@ Parameter | Required | Comment
 **grant_type** | Required | Must be `authorization_code`
 **code** | Required | The **code** value provided in the Authentication Response
 **redirect_uri** | Required | The **redirect_uri** used in the Authentication Request
-**client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` ***Note***: this specifies that the authentication method type is `private_key_jwt`, according to 
+**client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` ***Note***: this specifies that the authentication method type is `private_key_jwt`, according to [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification.
 **client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` client authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
 
 According to the `private_key_jwt` client authentication method, the **client assertion** JWT must contain the following properties:
@@ -486,14 +486,15 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODIxMDc1MDAzLDg3ODYwNzAzNyw4MjEwNz
-UwMDMsODc4NjA3MDM3LDk4MDcwNTgxOSw5NjUzMTE0NzEsLTEz
-NTQxMTA4MTksLTUxMDg1NjkwOSwtODk3NjY5MzUsMTY0NjExOT
-I3MCwtMjA3OTA1NzYyOCwxODgwNjQzNjYyLDg1ODc5NjA0NCwt
-MTM1NTc1NDk1NywyNTg0MTgyMjksLTEzNTU3NTQ5NTcsMTQwNj
-M2NDcyNSwyMDE1NTU2OTgzLDE0MDYzNjQ3MjUsMjAxNTU1Njk4
-MywyOTAxMzg3NjAsMTIwNDEzNTExNCwyOTAxMzg3NjAsMTIwND
-EzNTExNCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgsLTIxOTI0OTc2
-MiwxNjMzODU5NDg4LC0xMDAwOTY3NDcxLC0yMTQ2NTE5MTIzLC
-05NDQ5NjQ4MTIsMTQ4NTk0MTU5NywxNzYyMDY4NDYyXX0=
+eyJoaXN0b3J5IjpbLTE2MDE5MjY3OTYsODIxMDc1MDAzLDgyMT
+A3NTAwMyw4Nzg2MDcwMzcsOTgwNzA1ODE5LDk2NTMxMTQ3MSwt
+MTM1NDExMDgxOSwtNTEwODU2OTA5LC04OTc2NjkzNSwxNjQ2MT
+E5MjcwLC0yMDc5MDU3NjI4LDE4ODA2NDM2NjIsODU4Nzk2MDQ0
+LC0xMzU1NzU0OTU3LDI1ODQxODIyOSwtMTM1NTc1NDk1NywxND
+A2MzY0NzI1LDIwMTU1NTY5ODMsMTQwNjM2NDcyNSwyMDE1NTU2
+OTgzLDI5MDEzODc2MCwxMjA0MTM1MTE0LDI5MDEzODc2MCwxMj
+A0MTM1MTE0LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OCwtMjE5MjQ5
+NzYyLDE2MzM4NTk0ODgsLTEwMDA5Njc0NzEsLTIxNDY1MTkxMj
+MsLTk0NDk2NDgxMiwxNDg1OTQxNTk3LDE3NjIwNjg0NjJdfQ==
+
 -->
