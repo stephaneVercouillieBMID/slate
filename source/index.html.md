@@ -257,7 +257,7 @@ POST /token HTTP/1.1
 Host: server.example.com
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=authorization\_code&
+grant_type=authorization_code&
 code=SplxlOBeZQQYbYS6WxSbIA&
 redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
 client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
@@ -486,15 +486,15 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDQ1OTg0MDcxLC0xMjA3NTg1OTk0LDgyMT
-A3NTAwMyw4Nzg2MDcwMzcsOTgwNzA1ODE5LDk2NTMxMTQ3MSwt
-MTM1NDExMDgxOSwtNTEwODU2OTA5LC04OTc2NjkzNSwxNjQ2MT
-E5MjcwLC0yMDc5MDU3NjI4LDE4ODA2NDM2NjIsODU4Nzk2MDQ0
-LC0xMzU1NzU0OTU3LDI1ODQxODIyOSwtMTM1NTc1NDk1NywxND
-A2MzY0NzI1LDIwMTU1NTY5ODMsMTQwNjM2NDcyNSwyMDE1NTU2
-OTgzLDI5MDEzODc2MCwxMjA0MTM1MTE0LDI5MDEzODc2MCwxMj
-A0MTM1MTE0LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OCwtMjE5MjQ5
-NzYyLDE2MzM4NTk0ODgsLTEwMDA5Njc0NzEsLTIxNDY1MTkxMj
-MsLTk0NDk2NDgxMiwxNDg1OTQxNTk3LDE3NjIwNjg0NjJdfQ==
+eyJoaXN0b3J5IjpbLTM0ODkzODg3MywtMTIwNzU4NTk5NCw4Mj
+EwNzUwMDMsODc4NjA3MDM3LDk4MDcwNTgxOSw5NjUzMTE0NzEs
+LTEzNTQxMTA4MTksLTUxMDg1NjkwOSwtODk3NjY5MzUsMTY0Nj
+ExOTI3MCwtMjA3OTA1NzYyOCwxODgwNjQzNjYyLDg1ODc5NjA0
+NCwtMTM1NTc1NDk1NywyNTg0MTgyMjksLTEzNTU3NTQ5NTcsMT
+QwNjM2NDcyNSwyMDE1NTU2OTgzLDE0MDYzNjQ3MjUsMjAxNTU1
+Njk4MywyOTAxMzg3NjAsMTIwNDEzNTExNCwyOTAxMzg3NjAsMT
+IwNDEzNTExNCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgsLTIxOTI0
+OTc2MiwxNjMzODU5NDg4LC0xMDAwOTY3NDcxLC0yMTQ2NTE5MT
+IzLC05NDQ5NjQ4MTIsMTQ4NTk0MTU5NywxNzYyMDY4NDYyXX0=
 
 -->
