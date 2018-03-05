@@ -271,7 +271,7 @@ Parameter | Provided | Comment
 **access_token** | Always | A token that can be sent to the UserInfo endpoint to retrieve additional information about the user.
 **token_type** | Always | Will be `Bearer`
 **id_token** | Always | The JWT `id_token` corresponding to the Authentication Request (signed and  encrypted). 
-**at_hash** | | Current version of itsme(r) Core does not produce the at_hash value
+**at_hash** | | Current version of itsme(r) Core does not produce the `at_hash value
 **refresh_token** | Never | Won't be provided as **itsme(r)** only maintains short-lived session to enforce re-authentication.
 
 ### Errors
@@ -486,15 +486,15 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3NzA0OTU2NiwtMTIwNzU4NTk5NCw4Mj
-EwNzUwMDMsODc4NjA3MDM3LDk4MDcwNTgxOSw5NjUzMTE0NzEs
-LTEzNTQxMTA4MTksLTUxMDg1NjkwOSwtODk3NjY5MzUsMTY0Nj
-ExOTI3MCwtMjA3OTA1NzYyOCwxODgwNjQzNjYyLDg1ODc5NjA0
-NCwtMTM1NTc1NDk1NywyNTg0MTgyMjksLTEzNTU3NTQ5NTcsMT
-QwNjM2NDcyNSwyMDE1NTU2OTgzLDE0MDYzNjQ3MjUsMjAxNTU1
-Njk4MywyOTAxMzg3NjAsMTIwNDEzNTExNCwyOTAxMzg3NjAsMT
-IwNDEzNTExNCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgsLTIxOTI0
-OTc2MiwxNjMzODU5NDg4LC0xMDAwOTY3NDcxLC0yMTQ2NTE5MT
-IzLC05NDQ5NjQ4MTIsMTQ4NTk0MTU5NywxNzYyMDY4NDYyXX0=
-
+eyJoaXN0b3J5IjpbLTE1MjEzNzkwNTAsLTk3NzA0OTU2NiwtMT
+IwNzU4NTk5NCw4MjEwNzUwMDMsODc4NjA3MDM3LDk4MDcwNTgx
+OSw5NjUzMTE0NzEsLTEzNTQxMTA4MTksLTUxMDg1NjkwOSwtOD
+k3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1NzYyOCwxODgwNjQz
+NjYyLDg1ODc5NjA0NCwtMTM1NTc1NDk1NywyNTg0MTgyMjksLT
+EzNTU3NTQ5NTcsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDE0MDYz
+NjQ3MjUsMjAxNTU1Njk4MywyOTAxMzg3NjAsMTIwNDEzNTExNC
+wyOTAxMzg3NjAsMTIwNDEzNTExNCwtMjE5MjQ5NzYyLDE2MzM4
+NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC0xMDAwOTY3ND
+cxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MTIsMTQ4NTk0MTU5Nywx
+NzYyMDY4NDYyXX0=
 -->
