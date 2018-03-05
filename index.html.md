@@ -17,8 +17,7 @@
 </ul>
 <h2 id="search-true">search: true</h2>
 <h1 id="introduction-to-itsme®">Introduction to itsme®</h1>
-<p>This documentation describes our OAuth 2.0 implementation of <strong>itsme® Login</strong>, which conforms to the <a href="http://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect 1.0</a> specifications, and is OpenID certified (TODO).<br>
-(OpenID Connect is based on OAuth 2.0)</p>
+<p>This documentation describes our OAuth 2.0 implementation of <strong>itsme® Login</strong>, which conforms to the <a href="http://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect 1.0</a> specifications, and is OpenID certified (TODO).</p>
 <h2 id="login">Login</h2>
 <p><strong>itsme® Login</strong> is a service provided by <a href="https://www.belgianmobileid.be">Belgian Mobile ID</a> (BMID) to allow End-Users to login securely to your application.</p>
 <p>itsme® Login uses pairwise user identifier, meaning each Partner will have a unique <em>User Code</em> for the same User. Doing so, nobody except BMID can link one given <em>User Code</em> of Partner to a specific User identity.</p>
