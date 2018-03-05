@@ -230,7 +230,7 @@ Error | Description
 
 As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest
 
-The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTTPS `POST` request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **token_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret_[variant]` authentication methods are not supported since they are considered less secure.
+The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTTPS `POST` request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **token_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret_[varian` authentication methods are not supported since they are considered less secure.
 
 The request must include the following parameters in the `POST` body:
 
@@ -488,13 +488,13 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAxNzEyODUxOCw4MDUwOTgyMzAsLTUxMD
-g1NjkwOSwtODk3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1NzYy
-OCwxODgwNjQzNjYyLDg1ODc5NjA0NCwtMTM1NTc1NDk1NywyNT
-g0MTgyMjksLTEzNTU3NTQ5NTcsMTQwNjM2NDcyNSwyMDE1NTU2
-OTgzLDE0MDYzNjQ3MjUsMjAxNTU1Njk4MywyOTAxMzg3NjAsMT
-IwNDEzNTExNCwyOTAxMzg3NjAsMTIwNDEzNTExNCwtMjE5MjQ5
-NzYyLDE2MzM4NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC
-0xMDAwOTY3NDcxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MTIsMTQ4
-NTk0MTU5NywxNzYyMDY4NDYyXX0=
+eyJoaXN0b3J5IjpbLTEzNTQxMTA4MTksMTAxNzEyODUxOCw4MD
+UwOTgyMzAsLTUxMDg1NjkwOSwtODk3NjY5MzUsMTY0NjExOTI3
+MCwtMjA3OTA1NzYyOCwxODgwNjQzNjYyLDg1ODc5NjA0NCwtMT
+M1NTc1NDk1NywyNTg0MTgyMjksLTEzNTU3NTQ5NTcsMTQwNjM2
+NDcyNSwyMDE1NTU2OTgzLDE0MDYzNjQ3MjUsMjAxNTU1Njk4My
+wyOTAxMzg3NjAsMTIwNDEzNTExNCwyOTAxMzg3NjAsMTIwNDEz
+NTExNCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgsLTIxOTI0OTc2Mi
+wxNjMzODU5NDg4LC0xMDAwOTY3NDcxLC0yMTQ2NTE5MTIzLC05
+NDQ5NjQ4MTIsMTQ4NTk0MTU5NywxNzYyMDY4NDYyXX0=
 -->
