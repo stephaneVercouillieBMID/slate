@@ -426,7 +426,7 @@ The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.or
 Property | Required | Comment
 -- | -- | --
 **iss** | Required | Issuer. Must be the `client_id`
-**aud** | Required | Audience. Must be `https://server.itsme.be`
+**aud** | Required | Audience. Must be `https://server.itsme.be` TODO - is it really server.itsme.be??
 
 > Example of claim request before base64url encoding, signing and encryption
 
@@ -485,18 +485,18 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMxMTY4OTE4Myw2MzcwNDU5NzEsMTkwOD
-c0OTMyOSw2MzcwNDU5NzEsMTkwODc0OTMyOSwtNDU4NTEwNDcz
-LDIwOTI5NTY2MzUsMTE5ODc3MTg2OSwtMTE4NTA4MTA4LDE0OT
-I4NjY2NzgsLTExODUwODEwOCwxNDkyODY2Njc4LC0xOTYzMjE0
-NzM5LC05NzcwNDk1NjYsODIxMDc1MDAzLDg3ODYwNzAzNyw5OD
-A3MDU4MTksOTY1MzExNDcxLC0xMzU0MTEwODE5LC01MTA4NTY5
-MDksLTg5NzY2OTM1LDE2NDYxMTkyNzAsLTIwNzkwNTc2MjgsMT
-g4MDY0MzY2Miw4NTg3OTYwNDQsLTEzNTU3NTQ5NTcsMjU4NDE4
-MjI5LC0xMzU1NzU0OTU3LDE0MDYzNjQ3MjUsMjAxNTU1Njk4My
-wxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMjkwMTM4NzYwLDEyMDQx
-MzUxMTQsMjkwMTM4NzYwLDEyMDQxMzUxMTQsLTIxOTI0OTc2Mi
-wxNjMzODU5NDg4LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OCwtMTAw
-MDk2NzQ3MSwtMjE0NjUxOTEyMywtOTQ0OTY0ODEyLDE0ODU5ND
-E1OTcsMTc2MjA2ODQ2Ml19
+eyJoaXN0b3J5IjpbODY5MjY5OTM4LDYzNzA0NTk3MSwxOTA4Nz
+Q5MzI5LDYzNzA0NTk3MSwxOTA4NzQ5MzI5LC00NTg1MTA0NzMs
+MjA5Mjk1NjYzNSwxMTk4NzcxODY5LC0xMTg1MDgxMDgsMTQ5Mj
+g2NjY3OCwtMTE4NTA4MTA4LDE0OTI4NjY2NzgsLTE5NjMyMTQ3
+MzksLTk3NzA0OTU2Niw4MjEwNzUwMDMsODc4NjA3MDM3LDk4MD
+cwNTgxOSw5NjUzMTE0NzEsLTEzNTQxMTA4MTksLTUxMDg1Njkw
+OSwtODk3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1NzYyOCwxOD
+gwNjQzNjYyLDg1ODc5NjA0NCwtMTM1NTc1NDk1NywyNTg0MTgy
+MjksLTEzNTU3NTQ5NTcsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLD
+E0MDYzNjQ3MjUsMjAxNTU1Njk4MywyOTAxMzg3NjAsMTIwNDEz
+NTExNCwyOTAxMzg3NjAsMTIwNDEzNTExNCwtMjE5MjQ5NzYyLD
+E2MzM4NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC0xMDAw
+OTY3NDcxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MTIsMTQ4NTk0MT
+U5NywxNzYyMDY4NDYyXX0=
 -->
