@@ -854,3 +854,6 @@ client_assertion=PHNhbWxwOl ... ZT
 </code></pre>
 <p>It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS</p>
 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTMyNzc4MTg4Nl19
+-->
