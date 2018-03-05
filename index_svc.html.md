@@ -918,7 +918,7 @@ Data | Definition
 **E-ID Metadata** | See [E-ID Metadata Information](#e-id-info)
 
 ### <a name="e-id-info"></a>E-ID Metadata Information
-Provides some information about the eID card readout related to the identity data provided by **itsme(r)**.
+Provides some information about the eID card readout related to the identity data provided by **itsme®**.
 
 Data | Definition
 -- | -- 
@@ -933,7 +933,7 @@ Data | Definition
 
 Data | Definition
 -- | --
-**Phone Number** | Verified phone number associated to the **itsme(r)** user account.  
+**Phone Number** | Verified phone number associated to the **itsme®** user account.  
 **E-Mail Address** | E-Mail address. NOT Verified! TODO
 
 ### Security Data
@@ -1351,5 +1351,5 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3MzU2Nzc2NF19
+eyJoaXN0b3J5IjpbMTc1OTUyMTY1NF19
 -->
