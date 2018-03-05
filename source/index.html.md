@@ -161,9 +161,7 @@ For a basic request, specify the following parameters:
 
 Parameter | Required | Comment
 --------- | ------- | -----
-**client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file MUST be a valid client_id as provided by the itsme administrator. 
-This value will be unique to each partner per environment.
-Onboarding file 33020 Technical Specification Service Provider OpenID Documentation). 
+**client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process and this value will be unique to each partner per environment.(This information can be onboarding file 33020 Technical Specification Service Provider OpenID Documentation). 
 **response_type** | Required | MUST be <code>code</code>.
 **scope** | Required | MUST contain at least `openid` or an HTTP ERROR `not_implemented` will be returned. `offline_access` value will yield an error. MUST also includes the target service in the form `service:<SERVICE_CODE>` as provided by BMID during the on-boarding process. ***Note**: Requested data will only be provided based on your current accesses*. See XXXXXX (TODO) for list of available data.
 **redirect_uri** | Required | should be the HTTPS endpoint on your server that will receive the response from **itsme(r)**. This value MUST match one of the values provided to BMID during on-boarding process. ***Note**: the Partner can define different **redirect_uri** specific to each Service.*
@@ -488,6 +486,6 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMTEwNDA2NjEsLTg4NzQ0OTkzOSwxND
-g1OTQxNTk3LDE3NjIwNjg0NjJdfQ==
+eyJoaXN0b3J5IjpbLTE1MzczNTYyMjAsLTIxMTEwNDA2NjEsMT
+Q4NTk0MTU5NywxNzYyMDY4NDYyXX0=
 -->
