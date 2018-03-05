@@ -428,7 +428,7 @@ Property | Required | Comment
 **iss** | Required | Issuer. Must be the `client_id`
 **aud** | Required | Audience. Must be `https://server.itsme.be` TODO - is it really server.itsme.be??
 
-> Example of claim request before base64url encoding, signing and encryption
+> Example of claim request before base64url encoding, signing and encryption. In this example, the nationality will be returned by the user info
 
 ```json--inline
 {
@@ -485,18 +485,18 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODY5MjY5OTM4LDYzNzA0NTk3MSwxOTA4Nz
-Q5MzI5LDYzNzA0NTk3MSwxOTA4NzQ5MzI5LC00NTg1MTA0NzMs
-MjA5Mjk1NjYzNSwxMTk4NzcxODY5LC0xMTg1MDgxMDgsMTQ5Mj
-g2NjY3OCwtMTE4NTA4MTA4LDE0OTI4NjY2NzgsLTE5NjMyMTQ3
-MzksLTk3NzA0OTU2Niw4MjEwNzUwMDMsODc4NjA3MDM3LDk4MD
-cwNTgxOSw5NjUzMTE0NzEsLTEzNTQxMTA4MTksLTUxMDg1Njkw
-OSwtODk3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1NzYyOCwxOD
-gwNjQzNjYyLDg1ODc5NjA0NCwtMTM1NTc1NDk1NywyNTg0MTgy
-MjksLTEzNTU3NTQ5NTcsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLD
-E0MDYzNjQ3MjUsMjAxNTU1Njk4MywyOTAxMzg3NjAsMTIwNDEz
-NTExNCwyOTAxMzg3NjAsMTIwNDEzNTExNCwtMjE5MjQ5NzYyLD
-E2MzM4NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC0xMDAw
-OTY3NDcxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MTIsMTQ4NTk0MT
-U5NywxNzYyMDY4NDYyXX0=
+eyJoaXN0b3J5IjpbLTExNzExODc4NjUsNjM3MDQ1OTcxLDE5MD
+g3NDkzMjksNjM3MDQ1OTcxLDE5MDg3NDkzMjksLTQ1ODUxMDQ3
+MywyMDkyOTU2NjM1LDExOTg3NzE4NjksLTExODUwODEwOCwxND
+kyODY2Njc4LC0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMTk2MzIx
+NDczOSwtOTc3MDQ5NTY2LDgyMTA3NTAwMyw4Nzg2MDcwMzcsOT
+gwNzA1ODE5LDk2NTMxMTQ3MSwtMTM1NDExMDgxOSwtNTEwODU2
+OTA5LC04OTc2NjkzNSwxNjQ2MTE5MjcwLC0yMDc5MDU3NjI4LD
+E4ODA2NDM2NjIsODU4Nzk2MDQ0LC0xMzU1NzU0OTU3LDI1ODQx
+ODIyOSwtMTM1NTc1NDk1NywxNDA2MzY0NzI1LDIwMTU1NTY5OD
+MsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDI5MDEzODc2MCwxMjA0
+MTM1MTE0LDI5MDEzODc2MCwxMjA0MTM1MTE0LC0yMTkyNDk3Nj
+IsMTYzMzg1OTQ4OCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgsLTEw
+MDA5Njc0NzEsLTIxNDY1MTkxMjMsLTk0NDk2NDgxMiwxNDg1OT
+QxNTk3LDE3NjIwNjg0NjJdfQ==
 -->
