@@ -140,20 +140,6 @@ The Authorization Code Flow goes through the following steps as defined in  [htt
 ## 1. Authentication Request
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
 
-> Example Request
-
-```http--inline
-POST /token HTTP/1.1
-Host: server.example.com
-Content-Type: application/x-www-form-urlencoded
-
-grant_type=authorization\_code&
-code=SplxlOBeZQQYbYS6WxSbIA&
-redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
-client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
-client_assertion=PHNhbWxwOl ... ZT
-```
-
 The first step is forming an HTTPS request with the appropriate URI parameters. Note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the base URI is `https://merchant.itsme.be/oidc/authorization`.
 
 **itsme(r)** supports the use of the HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters must be serialized using [Form Serialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization).
@@ -227,6 +213,20 @@ Error | Description
 ### App to App ??? TODO
 **itsme(r)** Mobile App endpoint : TODO
 
+> Example Request
+
+```http--inline
+POST /token HTTP/1.1
+Host: server.example.com
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=authorization\_code&
+code=SplxlOBeZQQYbYS6WxSbIA&
+redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
+client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
+client_assertion=PHNhbWxwOl ... ZT
+```
+
 ## 2. Token Request
 
 As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest
@@ -250,6 +250,8 @@ Property | Comment
 **aud** | Must be the token endpoint URL, e.g. `https://merchant.itsme.be/oidc/token`
 **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
 **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
+
+
 
 
 ### Successful Token Response
@@ -474,6 +476,6 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzY0NjQxODY0LC0xOTA3NDUwNDgsNjY3Mj
-Y2OTEzXX0=
+eyJoaXN0b3J5IjpbMTQ0NjM1ODc1NCwtMTkwNzQ1MDQ4LDY2Nz
+I2NjkxM119
 -->
