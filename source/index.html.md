@@ -237,7 +237,7 @@ Parameter | Required | Comment
 **grant_type** | Required | Must be `authorization_code`
 **code** | Required | The **code** value provided in the Authentication Response
 **redirect_uri** | Required | The **redirect_uri** used in the Authentication Request
-**client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` **Note**
+**client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` ***Note***
 **client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` client authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
 
 According to the `private_key_jwt` client authentication method, the **client assertion** JWT must contain the following properties:
@@ -486,13 +486,13 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTY1MzExNDcxLDU3NzgwMDQzMywtMTM1ND
-ExMDgxOSwtNTEwODU2OTA5LC04OTc2NjkzNSwxNjQ2MTE5Mjcw
-LC0yMDc5MDU3NjI4LDE4ODA2NDM2NjIsODU4Nzk2MDQ0LC0xMz
-U1NzU0OTU3LDI1ODQxODIyOSwtMTM1NTc1NDk1NywxNDA2MzY0
-NzI1LDIwMTU1NTY5ODMsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLD
-I5MDEzODc2MCwxMjA0MTM1MTE0LDI5MDEzODc2MCwxMjA0MTM1
-MTE0LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OCwtMjE5MjQ5NzYyLD
-E2MzM4NTk0ODgsLTEwMDA5Njc0NzEsLTIxNDY1MTkxMjMsLTk0
-NDk2NDgxMiwxNDg1OTQxNTk3LDE3NjIwNjg0NjJdfQ==
+eyJoaXN0b3J5IjpbLTE3NzAwOTU3OTUsOTY1MzExNDcxLC0xMz
+U0MTEwODE5LC01MTA4NTY5MDksLTg5NzY2OTM1LDE2NDYxMTky
+NzAsLTIwNzkwNTc2MjgsMTg4MDY0MzY2Miw4NTg3OTYwNDQsLT
+EzNTU3NTQ5NTcsMjU4NDE4MjI5LC0xMzU1NzU0OTU3LDE0MDYz
+NjQ3MjUsMjAxNTU1Njk4MywxNDA2MzY0NzI1LDIwMTU1NTY5OD
+MsMjkwMTM4NzYwLDEyMDQxMzUxMTQsMjkwMTM4NzYwLDEyMDQx
+MzUxMTQsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC0yMTkyNDk3Nj
+IsMTYzMzg1OTQ4OCwtMTAwMDk2NzQ3MSwtMjE0NjUxOTEyMywt
+OTQ0OTY0ODEyLDE0ODU5NDE1OTcsMTc2MjA2ODQ2Ml19
 -->
