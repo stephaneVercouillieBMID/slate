@@ -237,8 +237,8 @@ Parameter | Required | Comment
 **grant_type** | Required | Must be `authorization_code`
 **code** | Required | The **code** value provided in the Authentication Response
 **redirect_uri** | Required | The **redirect_uri** used in the Authentication Request
+**client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` **Note**
 **client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` client authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
-**client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
 
 According to the `private_key_jwt` client authentication method, the **client assertion** JWT must contain the following properties:
 
@@ -486,13 +486,13 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzOTY3NTgzLC0zNTI1Nzc2MzUsLTEzNT
-QxMTA4MTksLTUxMDg1NjkwOSwtODk3NjY5MzUsMTY0NjExOTI3
-MCwtMjA3OTA1NzYyOCwxODgwNjQzNjYyLDg1ODc5NjA0NCwtMT
-M1NTc1NDk1NywyNTg0MTgyMjksLTEzNTU3NTQ5NTcsMTQwNjM2
-NDcyNSwyMDE1NTU2OTgzLDE0MDYzNjQ3MjUsMjAxNTU1Njk4My
-wyOTAxMzg3NjAsMTIwNDEzNTExNCwyOTAxMzg3NjAsMTIwNDEz
-NTExNCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgsLTIxOTI0OTc2Mi
-wxNjMzODU5NDg4LC0xMDAwOTY3NDcxLC0yMTQ2NTE5MTIzLC05
-NDQ5NjQ4MTIsMTQ4NTk0MTU5NywxNzYyMDY4NDYyXX0=
+eyJoaXN0b3J5IjpbNTc3ODAwNDMzLDEzMzk2NzU4MywtMTM1ND
+ExMDgxOSwtNTEwODU2OTA5LC04OTc2NjkzNSwxNjQ2MTE5Mjcw
+LC0yMDc5MDU3NjI4LDE4ODA2NDM2NjIsODU4Nzk2MDQ0LC0xMz
+U1NzU0OTU3LDI1ODQxODIyOSwtMTM1NTc1NDk1NywxNDA2MzY0
+NzI1LDIwMTU1NTY5ODMsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLD
+I5MDEzODc2MCwxMjA0MTM1MTE0LDI5MDEzODc2MCwxMjA0MTM1
+MTE0LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OCwtMjE5MjQ5NzYyLD
+E2MzM4NTk0ODgsLTEwMDA5Njc0NzEsLTIxNDY1MTkxMjMsLTk0
+NDk2NDgxMiwxNDg1OTQxNTk3LDE3NjIwNjg0NjJdfQ==
 -->
