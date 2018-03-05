@@ -263,19 +263,6 @@
 <p>The Authorization Code Flow goes through the following steps as defined in  <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps">http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps</a></p>
 <h2 id="authentication-request">1. Authentication Request</h2>
 <p>As per the OpenID Connect specification <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest">http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest</a> and <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint">http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint</a></p>
-<blockquote>
-<p>Example Request</p>
-</blockquote>
-<pre class=" language-http"><code class="prism --inline language-http">POST /token HTTP/1.1
-<span class="token header-name keyword">Host:</span> server.example.com
-<span class="token header-name keyword">Content-Type:</span> application/x-www-form-urlencoded
-
-grant_type=authorization\_code&amp;
-code=SplxlOBeZQQYbYS6WxSbIA&amp;
-redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
-client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&amp;
-client_assertion=PHNhbWxwOl ... ZT
-</code></pre>
 <p>The first step is forming an HTTPS request with the appropriate URI parameters. Note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. You should retrieve the base URI from the <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">Discovery document</a> using the key <strong>authorization_endpoint</strong>. The following discussion assumes the base URI is <code>https://merchant.itsme.be/oidc/authorization</code>.</p>
 <p><strong>itsme®</strong> supports the use of the HTTP <code>GET</code> and <code>POST</code> methods. If using the HTTP <code>POST</code> method, the request parameters must be serialized using <a href="http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization">Form Serialization</a>.</p>
 <p>For a basic request, specify the following parameters:</p>
@@ -458,6 +445,19 @@ client_assertion=PHNhbWxwOl ... ZT
 </tbody>
 </table><h3 id="app-to-app--todo">App to App ??? TODO</h3>
 <p><strong>itsme®</strong> Mobile App endpoint : TODO</p>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class=" language-http"><code class="prism --inline language-http">POST /token HTTP/1.1
+<span class="token header-name keyword">Host:</span> server.example.com
+<span class="token header-name keyword">Content-Type:</span> application/x-www-form-urlencoded
+
+grant_type=authorization\_code&amp;
+code=SplxlOBeZQQYbYS6WxSbIA&amp;
+redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
+client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&amp;
+client_assertion=PHNhbWxwOl ... ZT
+</code></pre>
 <h2 id="token-request">2. Token Request</h2>
 <p>As per the OpenID Connect specification <a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest">http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest</a></p>
 <p>The Authentication Response includes a <code>code</code> parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTTPS <code>POST</code> request. The <code>POST</code> request is sent to the token endpoint, which you should retrieve from the <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">Discovery document</a> using the key <strong>token_endpoint</strong>. The following discussion assumes the endpoint is <code>https://merchant.itsme.be/oidc/token</code>. The request must include the following parameters in the <code>POST</code> body:</p>
