@@ -349,7 +349,7 @@ Place of Birth - city | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`*
 Place of Birth - country | **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** |
 E-ID Info  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** | Belgian Electronic ID card information encoded in JSON, with the following keys: eid': the electronic ID card serial number. `issuance_locality`: the issuance locality. `validity_from`: eID card validity “from” date. `validity_to`: eID card validity “to” date. `certificate_validity`: the certificate validity. `read_date`: the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: "2017-04-01T19:43:37+0000"TODO
 Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | Simple string containing the user’s Passport Serial Number.
-Device | **`tag:sixdots.be,2017-05:claim_device`** | see [Device information](device-information) XXXX (TODO URL)
+Device | **`tag:sixdots.be,2017-05:claim_device`** | see [Device information](#device-information)
 ??? TODO | **`tag:sixdots.be,2017-05:claim_transaction_info`** | Information available in the context of the current transaction. A JSON object with the following keys: (only keys with cardinality \[1..1\] will be always available)  “securityLevel” \[1..1\]: (supported values: {SOFT\_ONLY, SIM\_ONLY, SIM\_AND\_SOFT}) Security level used during transaction. “bindLevel” \[1..1\]: (supported values: {SOFT\_ONLY, SIM\_ONLY, SIM\_AND\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred.  “mcc” \[0..1\]: the Mobile Country Code. An Integer (three digits) representing the mobile network country. For example: { "securityLevel": "SIM\_AND\_SOFT", "bindLevel": "SIM\_AND\_SOFT", "mcc": 206 }
 E-ID Picture | TODO | TODO
 NRN | TODO | TODO
@@ -487,17 +487,17 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcyMTU3MjI4NSw3MDAxNTg1MzMsLTQ1OD
-UxMDQ3MywyMDkyOTU2NjM1LDExOTg3NzE4NjksLTExODUwODEw
-OCwxNDkyODY2Njc4LC0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMT
-k2MzIxNDczOSwtOTc3MDQ5NTY2LDgyMTA3NTAwMyw4Nzg2MDcw
-MzcsOTgwNzA1ODE5LDk2NTMxMTQ3MSwtMTM1NDExMDgxOSwtNT
-EwODU2OTA5LC04OTc2NjkzNSwxNjQ2MTE5MjcwLC0yMDc5MDU3
-NjI4LDE4ODA2NDM2NjIsODU4Nzk2MDQ0LC0xMzU1NzU0OTU3LD
-I1ODQxODIyOSwtMTM1NTc1NDk1NywxNDA2MzY0NzI1LDIwMTU1
-NTY5ODMsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDI5MDEzODc2MC
-wxMjA0MTM1MTE0LDI5MDEzODc2MCwxMjA0MTM1MTE0LC0yMTky
-NDk3NjIsMTYzMzg1OTQ4OCwtMjE5MjQ5NzYyLDE2MzM4NTk0OD
-gsLTEwMDA5Njc0NzEsLTIxNDY1MTkxMjMsLTk0NDk2NDgxMiwx
-NDg1OTQxNTk3LDE3NjIwNjg0NjJdfQ==
+eyJoaXN0b3J5IjpbLTk4NDMxMjI0OCwtNzIxNTcyMjg1LC00NT
+g1MTA0NzMsMjA5Mjk1NjYzNSwxMTk4NzcxODY5LC0xMTg1MDgx
+MDgsMTQ5Mjg2NjY3OCwtMTE4NTA4MTA4LDE0OTI4NjY2NzgsLT
+E5NjMyMTQ3MzksLTk3NzA0OTU2Niw4MjEwNzUwMDMsODc4NjA3
+MDM3LDk4MDcwNTgxOSw5NjUzMTE0NzEsLTEzNTQxMTA4MTksLT
+UxMDg1NjkwOSwtODk3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1
+NzYyOCwxODgwNjQzNjYyLDg1ODc5NjA0NCwtMTM1NTc1NDk1Ny
+wyNTg0MTgyMjksLTEzNTU3NTQ5NTcsMTQwNjM2NDcyNSwyMDE1
+NTU2OTgzLDE0MDYzNjQ3MjUsMjAxNTU1Njk4MywyOTAxMzg3Nj
+AsMTIwNDEzNTExNCwyOTAxMzg3NjAsMTIwNDEzNTExNCwtMjE5
+MjQ5NzYyLDE2MzM4NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5ND
+g4LC0xMDAwOTY3NDcxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MTIs
+MTQ4NTk0MTU5NywxNzYyMDY4NDYyXX0=
 -->
