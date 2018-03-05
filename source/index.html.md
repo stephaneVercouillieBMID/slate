@@ -172,7 +172,7 @@ Parameter | Required | Comment
 **prompt** | Optional | MUST be `consent` if provided.
 **ui_locales** | Optional | Can be used to specify the language to be used by the OpenID login page. Supported languages are: `fr`, `nl`, `en` and `de`. Any other value will be ignored.
 **max_age** | Optional | Supported but not used: **itsme(r)** will always actively re-authenticate the End-User. 
-**acr_values** | Optional | OPTIONAL and supported, though not recommended. Possible values are tag:itsmetag:sixdots.be,2016-06:acr_basic, tag:itsmetag:sixdots.be,2016-06:acr_advanced. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the acr\_values is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the acr\_values list, or the authentication will fail. Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token/
+**acr_values** | Optional | OPTIONAL and supported, though not recommended. Possible values are tag:itsmetag:sixdots.be,2016-06:acr_basic, tag:itsmetag:sixdots.be,2016-06:acr_advanced. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the `acr_values` is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the `acr_values` list, or the authentication will fail. Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token/
 **claims** | Optional | Not recommended. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
 **request** | Optional | See [Passing Request Parameters as JWTs](#JWTRequest)
 **response_mode** | Unsupported | Ignored if provided.
@@ -343,7 +343,7 @@ We have favoured the request of Data in the **scope** values. However, some spec
 
 Data | Claim | Comment
 -- | -- | --
-Subject | **`sub`** | The subject of the private\_key\_jwt (the client ID). Supports value in request.
+Subject | **`sub`** | The subject of the `private_key_jwt` (the client ID). Supports value in request.
 Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | TODO
 Place of Birth | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** and **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** | TODO
 E-ID Info  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** | TODO
@@ -486,15 +486,15 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM0ODkzODg3MywtMTIwNzU4NTk5NCw4Mj
-EwNzUwMDMsODc4NjA3MDM3LDk4MDcwNTgxOSw5NjUzMTE0NzEs
-LTEzNTQxMTA4MTksLTUxMDg1NjkwOSwtODk3NjY5MzUsMTY0Nj
-ExOTI3MCwtMjA3OTA1NzYyOCwxODgwNjQzNjYyLDg1ODc5NjA0
-NCwtMTM1NTc1NDk1NywyNTg0MTgyMjksLTEzNTU3NTQ5NTcsMT
-QwNjM2NDcyNSwyMDE1NTU2OTgzLDE0MDYzNjQ3MjUsMjAxNTU1
-Njk4MywyOTAxMzg3NjAsMTIwNDEzNTExNCwyOTAxMzg3NjAsMT
-IwNDEzNTExNCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgsLTIxOTI0
-OTc2MiwxNjMzODU5NDg4LC0xMDAwOTY3NDcxLC0yMTQ2NTE5MT
-IzLC05NDQ5NjQ4MTIsMTQ4NTk0MTU5NywxNzYyMDY4NDYyXX0=
+eyJoaXN0b3J5IjpbLTExNzkwODE2NjMsLTEyMDc1ODU5OTQsOD
+IxMDc1MDAzLDg3ODYwNzAzNyw5ODA3MDU4MTksOTY1MzExNDcx
+LC0xMzU0MTEwODE5LC01MTA4NTY5MDksLTg5NzY2OTM1LDE2ND
+YxMTkyNzAsLTIwNzkwNTc2MjgsMTg4MDY0MzY2Miw4NTg3OTYw
+NDQsLTEzNTU3NTQ5NTcsMjU4NDE4MjI5LC0xMzU1NzU0OTU3LD
+E0MDYzNjQ3MjUsMjAxNTU1Njk4MywxNDA2MzY0NzI1LDIwMTU1
+NTY5ODMsMjkwMTM4NzYwLDEyMDQxMzUxMTQsMjkwMTM4NzYwLD
+EyMDQxMzUxMTQsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC0yMTky
+NDk3NjIsMTYzMzg1OTQ4OCwtMTAwMDk2NzQ3MSwtMjE0NjUxOT
+EyMywtOTQ0OTY0ODEyLDE0ODU5NDE1OTcsMTc2MjA2ODQ2Ml19
 
 -->
