@@ -349,7 +349,7 @@ Place of Birth | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** and *
 E-ID Info  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** | Belgian Electronic ID card information encoded in JSON, with the following keys: eid': the electronic ID card serial number. `issuance\_locality`: the issuance locality. `validity\_from`: eID card validity “from” date. `validity\_to`: eID card validity “to” date. `certificate\_validity`: the certificate validity. `read_date`: the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: "2017-04-01T19:43:37+0000"TODO
 Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | TODO
 Device | **`tag:sixdots.be,2017-05:claim_device`** | see XXXX (TODO URL)
-??? TODO | **`tag:sixdots.be,2017-05:claim_transaction_info`** | Information available in the context of the current transaction. A JSON object with the following keys: (only keys with cardinality \[1..1\] will be always available) `securityLevel` \[1..1\]: (supported values: {SOFT\_ONLY, SIM\_ONLY, SIM\_AND\_SOFT}) Security level used during transaction.  `bindLevel` \[1..1\]: (supported values: {SOFT\_ONLY, SIM\_ONLY, SIM\_AND\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. · `mcc` \[0..1\]: the Mobile Country Code. An Integer (three digits) representing the mobile network country. For example: { `securityLevel": "SIM\_AND\_SOFT", "bindLevel": "SIM\_AND\_SOFT", "mcc": 206 }
+??? TODO | **`tag:sixdots.be,2017-05:claim_transaction_info`** | Information available in the context of the current transaction. A JSON object with the following keys: (only keys with cardinality \[1..1\] will be always available) `securityLevel` \[1..1\]: (supported values: {SOFT\_ONLY, SIM\_ONLY, SIM\_AND\_SOFT}) Security level used during transaction.  `bindLevel` \[1..1\]: (supported values: {SOFT\_ONLY, SIM\_ONLY, SIM\_AND\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. · `mcc` \[0..1\]: the Mobile Country Code. An Integer (three digits) representing the mobile network country. For example: { `securityLevel`: "SIM\_AND\_SOFT", "bindLevel": "SIM\_AND\_SOFT", "mcc": 206 }
 E-ID Picture | TODO | TODO
 NRN | TODO | TODO
 
@@ -486,17 +486,17 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE0MjY1MjY0NywtMTcyMDA2MzU4LDIwOT
-I5NTY2MzUsMTE5ODc3MTg2OSwtMTE4NTA4MTA4LDE0OTI4NjY2
-NzgsLTExODUwODEwOCwxNDkyODY2Njc4LC0xOTYzMjE0NzM5LC
-05NzcwNDk1NjYsODIxMDc1MDAzLDg3ODYwNzAzNyw5ODA3MDU4
-MTksOTY1MzExNDcxLC0xMzU0MTEwODE5LC01MTA4NTY5MDksLT
-g5NzY2OTM1LDE2NDYxMTkyNzAsLTIwNzkwNTc2MjgsMTg4MDY0
-MzY2Miw4NTg3OTYwNDQsLTEzNTU3NTQ5NTcsMjU4NDE4MjI5LC
-0xMzU1NzU0OTU3LDE0MDYzNjQ3MjUsMjAxNTU1Njk4MywxNDA2
-MzY0NzI1LDIwMTU1NTY5ODMsMjkwMTM4NzYwLDEyMDQxMzUxMT
-QsMjkwMTM4NzYwLDEyMDQxMzUxMTQsLTIxOTI0OTc2MiwxNjMz
-ODU5NDg4LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OCwtMTAwMDk2Nz
-Q3MSwtMjE0NjUxOTEyMywtOTQ0OTY0ODEyLDE0ODU5NDE1OTcs
-MTc2MjA2ODQ2Ml19
+eyJoaXN0b3J5IjpbLTE3MjcwNjk1MzUsLTE3MjAwNjM1OCwyMD
+kyOTU2NjM1LDExOTg3NzE4NjksLTExODUwODEwOCwxNDkyODY2
+Njc4LC0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMTk2MzIxNDczOS
+wtOTc3MDQ5NTY2LDgyMTA3NTAwMyw4Nzg2MDcwMzcsOTgwNzA1
+ODE5LDk2NTMxMTQ3MSwtMTM1NDExMDgxOSwtNTEwODU2OTA5LC
+04OTc2NjkzNSwxNjQ2MTE5MjcwLC0yMDc5MDU3NjI4LDE4ODA2
+NDM2NjIsODU4Nzk2MDQ0LC0xMzU1NzU0OTU3LDI1ODQxODIyOS
+wtMTM1NTc1NDk1NywxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMTQw
+NjM2NDcyNSwyMDE1NTU2OTgzLDI5MDEzODc2MCwxMjA0MTM1MT
+E0LDI5MDEzODc2MCwxMjA0MTM1MTE0LC0yMTkyNDk3NjIsMTYz
+Mzg1OTQ4OCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgsLTEwMDA5Nj
+c0NzEsLTIxNDY1MTkxMjMsLTk0NDk2NDgxMiwxNDg1OTQxNTk3
+LDE3NjIwNjg0NjJdfQ==
 -->
