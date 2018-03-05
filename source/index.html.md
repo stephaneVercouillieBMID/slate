@@ -346,7 +346,7 @@ Data | Claim | Comment
 Subject | **`sub`** | The subject of the `private_key_jwt` (the client ID). Supports value in request.
 Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | 
 Place of Birth | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** and **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** | TODO
-E-ID Info  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** | Belgian Electronic ID card information encoded in JSON, with the following keys: -“eid”: the electronic ID card serial number. “issuance\_locality”: the issuance locality. “validity\_from”: eID card validity “from” date. “validity\_to”: eID card validity “to” date. “certificate\_validity”: the certificate validity. “read_date”: the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: "2017-04-01T19:43:37+0000"TODO
+E-ID Info  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** | Belgian Electronic ID card information encoded in JSON, with the following keys: “eid”: the electronic ID card serial number. “issuance\_locality”: the issuance locality. “validity\_from”: eID card validity “from” date. “validity\_to”: eID card validity “to” date. “certificate\_validity”: the certificate validity. “read_date”: the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: "2017-04-01T19:43:37+0000"TODO
 Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | TODO
 Device | **`tag:sixdots.be,2017-05:claim_device`** | see XXXX (TODO URL)
 ??? TODO | **`tag:sixdots.be,2017-05:claim_transaction_info`** | TODO
@@ -486,15 +486,15 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQ0MjI1NTAxLDQ2MTAwNzgzNSwtMTk2Mz
-IxNDczOSwtOTc3MDQ5NTY2LDgyMTA3NTAwMyw4Nzg2MDcwMzcs
-OTgwNzA1ODE5LDk2NTMxMTQ3MSwtMTM1NDExMDgxOSwtNTEwOD
-U2OTA5LC04OTc2NjkzNSwxNjQ2MTE5MjcwLC0yMDc5MDU3NjI4
-LDE4ODA2NDM2NjIsODU4Nzk2MDQ0LC0xMzU1NzU0OTU3LDI1OD
-QxODIyOSwtMTM1NTc1NDk1NywxNDA2MzY0NzI1LDIwMTU1NTY5
-ODMsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDI5MDEzODc2MCwxMj
-A0MTM1MTE0LDI5MDEzODc2MCwxMjA0MTM1MTE0LC0yMTkyNDk3
-NjIsMTYzMzg1OTQ4OCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgsLT
-EwMDA5Njc0NzEsLTIxNDY1MTkxMjMsLTk0NDk2NDgxMiwxNDg1
-OTQxNTk3LDE3NjIwNjg0NjJdfQ==
+eyJoaXN0b3J5IjpbLTEyODk0MDEwNzgsODQ0MjI1NTAxLC0xOT
+YzMjE0NzM5LC05NzcwNDk1NjYsODIxMDc1MDAzLDg3ODYwNzAz
+Nyw5ODA3MDU4MTksOTY1MzExNDcxLC0xMzU0MTEwODE5LC01MT
+A4NTY5MDksLTg5NzY2OTM1LDE2NDYxMTkyNzAsLTIwNzkwNTc2
+MjgsMTg4MDY0MzY2Miw4NTg3OTYwNDQsLTEzNTU3NTQ5NTcsMj
+U4NDE4MjI5LC0xMzU1NzU0OTU3LDE0MDYzNjQ3MjUsMjAxNTU1
+Njk4MywxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMjkwMTM4NzYwLD
+EyMDQxMzUxMTQsMjkwMTM4NzYwLDEyMDQxMzUxMTQsLTIxOTI0
+OTc2MiwxNjMzODU5NDg4LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OC
+wtMTAwMDk2NzQ3MSwtMjE0NjUxOTEyMywtOTQ0OTY0ODEyLDE0
+ODU5NDE1OTcsMTc2MjA2ODQ2Ml19
 -->
