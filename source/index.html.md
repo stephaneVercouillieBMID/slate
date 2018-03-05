@@ -346,7 +346,7 @@ Data | Claim | Comment
 Subject | **`sub`** | The subject of the `private_key_jwt` (the client ID). Supports value in request.
 Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | 
 Place of Birth | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** and **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** | TODO
-E-ID Info  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** | Belgian Electronic ID card information encoded in JSON, with the following keys: “eid”: the electronic ID card serial number. “issuance\_locality”: the issuance locality. “validity\_from”: eID card validity “from” date. “validity\_to”: eID card validity “to” date. “certificate\_validity”: the certificate validity. “read_date”: the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: "2017-04-01T19:43:37+0000"TODO
+E-ID Info  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** | Belgian Electronic ID card information encoded in JSON, with the following keys:eid”: the electronic ID card serial number. “issuance\_locality”: the issuance locality. “validity\_from”: eID card validity “from” date. “validity\_to”: eID card validity “to” date. “certificate\_validity”: the certificate validity. “read_date”: the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: "2017-04-01T19:43:37+0000"TODO
 Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | TODO
 Device | **`tag:sixdots.be,2017-05:claim_device`** | see XXXX (TODO URL)
 ??? TODO | **`tag:sixdots.be,2017-05:claim_transaction_info`** | TODO
@@ -486,7 +486,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc1MDY5NjI0MSwtMTI4OTQwMTA3OCwtMT
+eyJoaXN0b3J5IjpbLTExNTczNDU5MTEsLTc1MDY5NjI0MSwtMT
 k2MzIxNDczOSwtOTc3MDQ5NTY2LDgyMTA3NTAwMyw4Nzg2MDcw
 MzcsOTgwNzA1ODE5LDk2NTMxMTQ3MSwtMTM1NDExMDgxOSwtNT
 EwODU2OTA5LC04OTc2NjkzNSwxNjQ2MTE5MjcwLC0yMDc5MDU3
