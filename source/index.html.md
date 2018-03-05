@@ -289,7 +289,7 @@ The UserInfo endpoint can only be accessed with a valid **access_token** receive
 
 Your server sends the UserInfo Request using either HTTP `GET` or HTTP `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP `GET` method and the Access Token be sent the using the `Authorization` header field. The HTTP request is sent to the UserInfo endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **userinfo_endpoint**.
 
-The Access Token will define the list of Data that will be provided back to the client (TODO). In order to request specific claims, you can [use scopes](#) in the Authentication Request and/or [use the claims parameter](#) of the **request** Object.
+The Access Token will define the list of Data that will be provided back to the client (TODO). In order to request specific claims, you can [use scopes](#Authentication-Request) in the Authentication Request and/or [use the claims parameter](#Authentication-Request) of the **request** Object.
 
 > Example UserInfo Request
 
@@ -486,7 +486,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an itsme administrator during onboarding of RP. The exposed endpoint must be HTTPS 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwMTQ4NjY3MCw0MTgxOTk4NzYsLTE5Nj
+eyJoaXN0b3J5IjpbLTMyNDUwNDE2LDE5MDE0ODY2NzAsLTE5Nj
 MyMTQ3MzksLTk3NzA0OTU2Niw4MjEwNzUwMDMsODc4NjA3MDM3
 LDk4MDcwNTgxOSw5NjUzMTE0NzEsLTEzNTQxMTA4MTksLTUxMD
 g1NjkwOSwtODk3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1NzYy
