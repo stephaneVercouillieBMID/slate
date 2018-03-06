@@ -216,7 +216,9 @@ Error | Description
 The itsme App itself also leverages the OpenID Connect authentication flow to allow native apps to perform the authentication easily and safely.
 By using this flow, the end user will be automatically redirected from your App (or your web page in the mobile browser) to the itsme App. After authenticating himself (or rejecting the authentication), he will be redirected back to your App.
 
-In case the itsme App is not present on the device, the end user will be redirected to a web page, according to the the OpenID web page of BMID, where he will be able to enter his phone number and continue the authentication flow.
+The technology used for this flow is the [Universal Links]((https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) (iOS)/App Links (Android).
+
+In case the itsme App is not present on the device, the end user will be redirected to a web page, according to the OpenID web page of BMID, where he will be able to enter his phone number and continue the authentication flow.
 
 The technology used for this flow is the Universal Links (iOS)/App Links (Android).
 
@@ -498,7 +500,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI5Mzg1NTI0LC0yNDMwMDU3MTIsLTI5MT
+eyJoaXN0b3J5IjpbLTY1NTQ3NTE1OCwxMjkzODU1MjQsLTI5MT
 M5MTQ3OCwtMTI0NjU4NTUyNiwxMTc2MDI1OTkwLC0xMjQ2NTg1
 NTI2LDExNzYwMjU5OTAsLTEyNDY1ODU1MjYsMTE3NjAyNTk5MC
 wtMTI0NjU4NTUyNiwtMTk5OTQ3NTk3LC0xMTEwNTY1MzY1LDEx
