@@ -183,18 +183,6 @@ Parameter | Required | Comment
 **request_uri** | Unsupported | N/A TODO 
 **registration** | Unsupported | N/A TODO
 
-### Request Examples
-
->Example of a minimal Authorization request
-
-```http--inline
-GET /authorize?response_type=code
-&scope=openid%20profile%20email%20service%3APARTNER_LOGIN
-&client_id=s6BhdRkqt3
-&state=af0ifjsldkj
-&redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb HTTP/1.1
-Host: server.itsme.be
-```
 
 ### Authentication Response
 An Authentication Response is an [OAuth 2.0 Authorization Response](https://tools.ietf.org/html/rfc6749#section-4.1.2) message. As such, the Authentication Response will return the following parameters:
@@ -225,7 +213,7 @@ Error | Description
 `request_uri_not_supported` | does not support use of the request_uri parameter.
 `registration_not_supported` | does not support use of the registration parameter.
 
-### App to App
+### App to App authentication
 Instead of going through the BMID web page where the end user has to enter his phone number, it is possible to trigger the itsme App directly by sending the Authorization Request to a specific endpoint.
 
 **itsme(r)** Mobile App endpoint : TODO
@@ -489,19 +477,19 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTc5NjI3NDg4LDEzNTA2NDU0MTIsMTQ0ND
-cxMjcyNCwtMTUwNDAzMzkzMCwxMTI5NDA1MzI3LDE5MDg3NDkz
-MjksNjM3MDQ1OTcxLDE5MDg3NDkzMjksLTQ1ODUxMDQ3MywyMD
-kyOTU2NjM1LDExOTg3NzE4NjksLTExODUwODEwOCwxNDkyODY2
-Njc4LC0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMTk2MzIxNDczOS
-wtOTc3MDQ5NTY2LDgyMTA3NTAwMyw4Nzg2MDcwMzcsOTgwNzA1
-ODE5LDk2NTMxMTQ3MSwtMTM1NDExMDgxOSwtNTEwODU2OTA5LC
-04OTc2NjkzNSwxNjQ2MTE5MjcwLC0yMDc5MDU3NjI4LDE4ODA2
-NDM2NjIsODU4Nzk2MDQ0LC0xMzU1NzU0OTU3LDI1ODQxODIyOS
-wtMTM1NTc1NDk1NywxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMTQw
-NjM2NDcyNSwyMDE1NTU2OTgzLDI5MDEzODc2MCwxMjA0MTM1MT
-E0LDI5MDEzODc2MCwxMjA0MTM1MTE0LC0yMTkyNDk3NjIsMTYz
-Mzg1OTQ4OCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgsLTEwMDA5Nj
-c0NzEsLTIxNDY1MTkxMjMsLTk0NDk2NDgxMiwxNDg1OTQxNTk3
-LDE3NjIwNjg0NjJdfQ==
+eyJoaXN0b3J5IjpbLTExNzk1OTk2MzgsOTc5NjI3NDg4LDE0ND
+Q3MTI3MjQsLTE1MDQwMzM5MzAsMTEyOTQwNTMyNywxOTA4NzQ5
+MzI5LDYzNzA0NTk3MSwxOTA4NzQ5MzI5LC00NTg1MTA0NzMsMj
+A5Mjk1NjYzNSwxMTk4NzcxODY5LC0xMTg1MDgxMDgsMTQ5Mjg2
+NjY3OCwtMTE4NTA4MTA4LDE0OTI4NjY2NzgsLTE5NjMyMTQ3Mz
+ksLTk3NzA0OTU2Niw4MjEwNzUwMDMsODc4NjA3MDM3LDk4MDcw
+NTgxOSw5NjUzMTE0NzEsLTEzNTQxMTA4MTksLTUxMDg1NjkwOS
+wtODk3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1NzYyOCwxODgw
+NjQzNjYyLDg1ODc5NjA0NCwtMTM1NTc1NDk1NywyNTg0MTgyMj
+ksLTEzNTU3NTQ5NTcsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDE0
+MDYzNjQ3MjUsMjAxNTU1Njk4MywyOTAxMzg3NjAsMTIwNDEzNT
+ExNCwyOTAxMzg3NjAsMTIwNDEzNTExNCwtMjE5MjQ5NzYyLDE2
+MzM4NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC0xMDAwOT
+Y3NDcxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MTIsMTQ4NTk0MTU5
+NywxNzYyMDY4NDYyXX0=
 -->
