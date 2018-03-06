@@ -758,9 +758,14 @@ Parameter | Requested Claim Key Name | Claim Value Type
 ### Template: “Free Text”
 
 Approval template name: `“free_text”`
-As expected, the goal of this template is to be free deciding what is displayed on the end user phone.
+As expected, the goal of this template is to be free deciding what is displayed on the end user phone.<br>
 Expected parameters:
+Parameter | Requested Claim Key Name | Claim Value Type
+-- | -- | --
+**Text** | `tag:sixdots.be,2016-08:claim_approval_text_key` | A string holding any text to be displayed on the end-user phone.
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMDIxMjMyMDQsLTk2MTIyNzAzMl19
+eyJoaXN0b3J5IjpbLTcyNjQ4NDg0NiwtMjEwMjEyMzIwNCwtOT
+YxMjI3MDMyXX0=
 -->
