@@ -236,7 +236,7 @@ BMID exclusively uses Universal/App Links for all communications between your Ap
 If you trigger the itsme App from your own App, you MUST make sure there is a Universal/App Link associated with your App. Please consult the  documentation about [Universal](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html)/[App](https://developer.android.com/training/app-links/index.html) for this. This Universal/App Link MUST be specified to BMID during the onboarding process.
 
 #### Authorization Request specifications
-Authorization Requests in the context of App to App and Web mobile to App flow are subject to more strict specifications as Authorization Requests in  the  Web Desktop Authorization endpoint.
+Authorization Requests in the context of App to App and Web mobile to App flow must be addressed to `https://mobileapp.sixdots.be/mobile/authorize`, and they are subject to more strict specifications as Authorization Requests in  the  Web Desktop flow.
 
 For a basic request, specify the following parameters:
 Parameter | Required | Comment
@@ -521,7 +521,7 @@ It is expected that the RP will also expose their signing and encryption keys in
 ## 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTQ3ODI0MDQsMTc4MTQ1MjM1MiwtMT
+eyJoaXN0b3J5IjpbLTE0NTc5NzE1MTUsMTc4MTQ1MjM1MiwtMT
 I0NjU1MDE2MiwtMTQwNjMzMjYyMiwtMTI0NjU1MDE2MiwxOTc1
 OTYzNzQ2LDE2NzUyOTgyMTQsMTM2ODA4NzYyMCw3MDM1OTQyND
 AsMTM2ODA4NzYyMCw3MDM1OTQyNDAsMTM2ODA4NzYyMCwxNDQ5
