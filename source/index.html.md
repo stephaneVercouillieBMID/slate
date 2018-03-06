@@ -750,12 +750,12 @@ Expected parameters:
 Parameter | Requested Claim Key Name | Claim Value Type
 -- | -- | --
 
-** Amount** | tag:sixdots.be,2016-08:claim_approval_amoa| A token that can be sent to the UserInfo endpoint to retrieve additional information about the user.
-**** | Always | Will be `Bearer`
+**Amount** | `tag:sixdots.be,2016-08:claim_approval_amoa| A token that can be sent to the UserInfo endpoint to retrieve additional information about the user.
+**C** | Always | Will be `Bearer`
 **id_token** | Always | The JWT `id_token` corresponding to the Authentication Request (signed and  encrypted). 
 **at_hash** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcwMjU1MzgwMCwtMTg2NzQxMTM5OSwtMz
+eyJoaXN0b3J5IjpbLTE3Nzc4MzIxODEsMTcwMjU1MzgwMCwtMz
 M1MzE1NDAyLDEwNDA4ODQ0NjAsNTE3MzMyNDMsLTEyNDY1NTAx
 NjIsLTE0MDYzMzI2MjIsLTEyNDY1NTAxNjIsMTk3NTk2Mzc0Ni
 wxNjc1Mjk4MjE0LDEzNjgwODc2MjAsNzAzNTk0MjQwLDEzNjgw
