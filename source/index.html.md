@@ -238,7 +238,7 @@ BMID exclusively uses Universal/App Links for all communications between your Ap
 If you trigger the itsme App from your own App, you MUST make sure there is a Universal/App Link associated with your App. Please consult the  documentation about [Universal](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html)/[App](https://developer.android.com/training/app-links/index.html) for this. This Universal/App Link MUST be specified to BMID during the onboarding process.
 
 #### Authorization Request specifications
-Authorization Requests submitted to `https://mobileapp.sixdots.be/mobile/authorize` are subject to more stri In case of App to App and Web mobile to App authentication, BMID implements more strict specifications on the Authorization Request as in the .
+Authorization Requests submitted to `https://mobileapp.sixdots.be/mobile/authorize` are subject to more strict In case of App to App and Web mobile to App authentication, BMID implements more strict specifications on the Authorization Request as in the .
 
 
 ## 2. Token Request
@@ -498,7 +498,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODQyMzMwMDAsMTQwOTU0NTM5NywtMT
+eyJoaXN0b3J5IjpbLTEyMTc2NDIyMzEsMTQwOTU0NTM5NywtMT
 AyNzk4MDc3NCw2MDAzNDEyMDYsLTMwNjc2NTEwLDI3MjM0OTU5
 OCwtMzA2NzY1MTAsMjcyMzQ5NTk4LC0zMDY3NjUxMCwyNzIzND
 k1OTgsLTMwNjc2NTEwLDI3MjM0OTU5OCwtMzQ5MzgyNTIwLC02
