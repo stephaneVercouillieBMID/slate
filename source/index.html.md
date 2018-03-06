@@ -229,7 +229,7 @@ BMID follows the recommendations of the [OAuth Working Group](https://tools.ietf
 If you trigger the itsme App from your own App, you MUST make sure there is a Universal/App Link associated with your App. Please consult the  documentation about [Universal](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html)/[App](https://developer.android.com/training/app-links/index.html) for this. This Universal/App Link MUST be specified to BMID during the onboarding process.
 
 Universal Links are available on iOS since version 9.0, and the itsme App itself is only available on iOS 9.0 or greater.
-App Links are available on Android since version 6.0. Thereby, itsme supports OpenID Connect authentication only on Android version 6.0 or greater.
+App Links are available on Android since version 6.0. The itsme App is available on Android 4.2 or greater, and supports OpenID Connect authentication only on Android version 6.0 or greater.
 
 #### Requirements for Android apps
 As for iOS, BMID exclusively uses App Links to communicate with itsme. App Links offer guarantees that the legitimate App is launched immediately without asking the user to choose among a list of available apps.
@@ -497,7 +497,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTkxNjEzNzgsLTE5MDc2NTExNzQsLT
+eyJoaXN0b3J5IjpbLTEwNjYxNDU2NzgsLTEzMTkxNjEzNzgsLT
 M0OTM4MjUyMCwtNjU1NDc1MTU4LC0yOTEzOTE0NzgsLTEyNDY1
 ODU1MjYsMTE3NjAyNTk5MCwtMTI0NjU4NTUyNiwxMTc2MDI1OT
 kwLC0xMjQ2NTg1NTI2LDExNzYwMjU5OTAsLTEyNDY1ODU1MjYs
