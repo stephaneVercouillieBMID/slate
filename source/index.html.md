@@ -224,7 +224,7 @@ In order to trigger this flow, you MUST send the Authorization Request to the fo
 
 #### Technical requirements apps
 
-BMID follows the recommendations of the [OAuth Working Group](https://tools.ietf.org/html/draft-ietf-oauth-native-apps-12) about the authentication process in native apps. BMID thus exclusively uses Universal/App Links for all communications between your App and itsme. This mechanism guarantees that the right app is lanched and thus improves the security.
+BMID follows the recommendations of the [OAuth Working Group](https://tools.ietf.org/html/draft-ietf-oauth-native-apps-12) about the authentication process in native apps. BMID thus exclusively uses Universal/App Links for all communications between your App and itsme. This mechanism guarantees that the right app is launched and thus improves the security.
 
 Universal Links are available on iOS since version 9.0, and the itsme App itself is only available on iOS 9.0 or greater.
 App Links are available on Android since version 6.0. Thereby, itsme supports OpenID Connect authentication only on Android version 6.0 or greater.
@@ -497,7 +497,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1NzEyOTc0OSwtNjI3MzgwODQ2LC0zND
+eyJoaXN0b3J5IjpbMTk3OTg0MzQ4MiwtNjI3MzgwODQ2LC0zND
 kzODI1MjAsLTY1NTQ3NTE1OCwtMjkxMzkxNDc4LC0xMjQ2NTg1
 NTI2LDExNzYwMjU5OTAsLTEyNDY1ODU1MjYsMTE3NjAyNTk5MC
 wtMTI0NjU4NTUyNiwxMTc2MDI1OTkwLC0xMjQ2NTg1NTI2LC0x
