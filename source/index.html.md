@@ -216,8 +216,8 @@ Error | Description
 The itsme App itself also leverages the OpenID Connect authentication flow to allow native apps to perform the authentication easily and safely.
 By using this flow, the end user will be automatically redirected from your App (or your web page in the mobile browser) to the itsme App. After authenticating himself (or rejecting the authentication), he will be redirected back to your App.
 
-In order to trigger this flow, the following conditions must be met:
-- You MUST contact the following authorization endpoint: `https://mobileapp.sixdots.be/mobile/authorize`
+In order to trigger this flow, the following conditions  be met:
+- The Authorization Request msut be sent to the following authorization endpoint: `https://mobileapp.sixdots.be/mobile/authorize`
 - The itsme App MUST be installed on the device where the
 
  .
@@ -497,24 +497,24 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0Mzk3ODcyMDEsMTE5NTQzODk5NCwtMT
-I0NjU4NTUyNiwxMTc2MDI1OTkwLC0xMjQ2NTg1NTI2LDExNzYw
-MjU5OTAsLTEyNDY1ODU1MjYsMTE3NjAyNTk5MCwtMTI0NjU4NT
-UyNiwtMTk5OTQ3NTk3LC0xMTEwNTY1MzY1LDExMTQzMjY3Mjcs
-LTEzMjg1NzI1MTMsMTU1Njc1NTA5MywtNTU2NDYyNzY3LDE3Nz
-kwMzkzNDEsLTExNzk1OTk2MzgsNTIzNDI3MzY2LC0xMTc5NTk5
-NjM4LDE0NDQ3MTI3MjQsLTE1MDQwMzM5MzAsMTEyOTQwNTMyNy
-wxOTA4NzQ5MzI5LDYzNzA0NTk3MSwxOTA4NzQ5MzI5LC00NTg1
-MTA0NzMsMjA5Mjk1NjYzNSwxMTk4NzcxODY5LC0xMTg1MDgxMD
-gsMTQ5Mjg2NjY3OCwtMTE4NTA4MTA4LDE0OTI4NjY2NzgsLTE5
-NjMyMTQ3MzksLTk3NzA0OTU2Niw4MjEwNzUwMDMsODc4NjA3MD
-M3LDk4MDcwNTgxOSw5NjUzMTE0NzEsLTEzNTQxMTA4MTksLTUx
-MDg1NjkwOSwtODk3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1Nz
-YyOCwxODgwNjQzNjYyLDg1ODc5NjA0NCwtMTM1NTc1NDk1Nywy
-NTg0MTgyMjksLTEzNTU3NTQ5NTcsMTQwNjM2NDcyNSwyMDE1NT
-U2OTgzLDE0MDYzNjQ3MjUsMjAxNTU1Njk4MywyOTAxMzg3NjAs
-MTIwNDEzNTExNCwyOTAxMzg3NjAsMTIwNDEzNTExNCwtMjE5Mj
-Q5NzYyLDE2MzM4NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5NDg4
-LC0xMDAwOTY3NDcxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MTIsMT
-Q4NTk0MTU5NywxNzYyMDY4NDYyXX0=
+eyJoaXN0b3J5IjpbLTEyNTI0NTY4MzQsLTE0Mzk3ODcyMDEsLT
+EyNDY1ODU1MjYsMTE3NjAyNTk5MCwtMTI0NjU4NTUyNiwxMTc2
+MDI1OTkwLC0xMjQ2NTg1NTI2LDExNzYwMjU5OTAsLTEyNDY1OD
+U1MjYsLTE5OTk0NzU5NywtMTExMDU2NTM2NSwxMTE0MzI2NzI3
+LC0xMzI4NTcyNTEzLDE1NTY3NTUwOTMsLTU1NjQ2Mjc2NywxNz
+c5MDM5MzQxLC0xMTc5NTk5NjM4LDUyMzQyNzM2NiwtMTE3OTU5
+OTYzOCwxNDQ0NzEyNzI0LC0xNTA0MDMzOTMwLDExMjk0MDUzMj
+csMTkwODc0OTMyOSw2MzcwNDU5NzEsMTkwODc0OTMyOSwtNDU4
+NTEwNDczLDIwOTI5NTY2MzUsMTE5ODc3MTg2OSwtMTE4NTA4MT
+A4LDE0OTI4NjY2NzgsLTExODUwODEwOCwxNDkyODY2Njc4LC0x
+OTYzMjE0NzM5LC05NzcwNDk1NjYsODIxMDc1MDAzLDg3ODYwNz
+AzNyw5ODA3MDU4MTksOTY1MzExNDcxLC0xMzU0MTEwODE5LC01
+MTA4NTY5MDksLTg5NzY2OTM1LDE2NDYxMTkyNzAsLTIwNzkwNT
+c2MjgsMTg4MDY0MzY2Miw4NTg3OTYwNDQsLTEzNTU3NTQ5NTcs
+MjU4NDE4MjI5LC0xMzU1NzU0OTU3LDE0MDYzNjQ3MjUsMjAxNT
+U1Njk4MywxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMjkwMTM4NzYw
+LDEyMDQxMzUxMTQsMjkwMTM4NzYwLDEyMDQxMzUxMTQsLTIxOT
+I0OTc2MiwxNjMzODU5NDg4LC0yMTkyNDk3NjIsMTYzMzg1OTQ4
+OCwtMTAwMDk2NzQ3MSwtMjE0NjUxOTEyMywtOTQ0OTY0ODEyLD
+E0ODU5NDE1OTcsMTc2MjA2ODQ2Ml19
 -->
