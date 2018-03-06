@@ -553,60 +553,48 @@ if the user is already logged in, two possible identifiers that could be used to
 - In the “userinfo” JSON section, the “**sub**” requested claim can be used to communicate the subject (end user) identifier already shared between Itsme OP and the SP. This identifier (called “user code”) was previously communicated in the ID token or in the UserInfo token after a successful OIDC login.
 
 - In the “userinfo” JSON section, the “**phone_number**” requested claim can be used to communicate the subject (end user) phone number to be used as unique identifier. The format must match this regular expression
-- 
+
+```http--inline
+\\+?(>\\
+```
+
 Giving one of these two (valid) identifiers in the authorization request will bypass the identification screen where the end user should normally introduce his phone number to identify himself.
 
 Only signed and encrypted valid* OIDC Approval request will lead to an identification screen bypass.
 
 _(*) Valid if the request was emitted by an active partner using one of his active approval services._
 
-<!\[if !supportAnnotations\]>
-
-----------
-
-<!\[endif\]>
-
-<!\[if !supportAnnotations\]>
-
-<!\[endif\]><!\[if !supportAnnotations\]><!\[endif\]>
-
-<!\[if !supportAnnotations\]>[\[SV1\]](#_msoanchor_1)<!\[endif\]>Sure of this regex? I think we are checking the length of the phone number, no? In SOAP I’m quite sure we do...
-
-<!\[if !supportAnnotations\]>
-
-<!\[endif\]>3.	
-
 
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjM0NTM0NjExLC0yMDgzMjM5NzI1LDUxNz
-MzMjQzLC0xMjQ2NTUwMTYyLC0xNDA2MzMyNjIyLC0xMjQ2NTUw
-MTYyLDE5NzU5NjM3NDYsMTY3NTI5ODIxNCwxMzY4MDg3NjIwLD
-cwMzU5NDI0MCwxMzY4MDg3NjIwLDcwMzU5NDI0MCwxMzY4MDg3
-NjIwLDE0NDk2MDYzNDAsLTIwMjk4ODAyMzEsOTk0OTQwMzA5LD
-E3MjYxNzEzODEsOTIzNjYwMDksMTcyNjE3MTM4MSw5MjM2NjAw
-OSwtMTIxNzY0MjIzMSwtMTAyNzk4MDc3NCw2MDAzNDEyMDYsLT
-MwNjc2NTEwLDI3MjM0OTU5OCwtMzA2NzY1MTAsMjcyMzQ5NTk4
-LC0zMDY3NjUxMCwyNzIzNDk1OTgsLTMwNjc2NTEwLDI3MjM0OT
-U5OCwtMzQ5MzgyNTIwLC02NTU0NzUxNTgsLTI5MTM5MTQ3OCwt
-MTI0NjU4NTUyNiwxMTc2MDI1OTkwLC0xMjQ2NTg1NTI2LDExNz
-YwMjU5OTAsLTEyNDY1ODU1MjYsMTE3NjAyNTk5MCwtMTI0NjU4
-NTUyNiwtMTk5OTQ3NTk3LC0xMTEwNTY1MzY1LDExMTQzMjY3Mj
-csLTEzMjg1NzI1MTMsMTU1Njc1NTA5MywtNTU2NDYyNzY3LDE3
-NzkwMzkzNDEsLTExNzk1OTk2MzgsNTIzNDI3MzY2LC0xMTc5NT
-k5NjM4LDE0NDQ3MTI3MjQsLTE1MDQwMzM5MzAsMTEyOTQwNTMy
-NywxOTA4NzQ5MzI5LDYzNzA0NTk3MSwxOTA4NzQ5MzI5LC00NT
-g1MTA0NzMsMjA5Mjk1NjYzNSwxMTk4NzcxODY5LC0xMTg1MDgx
-MDgsMTQ5Mjg2NjY3OCwtMTE4NTA4MTA4LDE0OTI4NjY2NzgsLT
-E5NjMyMTQ3MzksLTk3NzA0OTU2Niw4MjEwNzUwMDMsODc4NjA3
-MDM3LDk4MDcwNTgxOSw5NjUzMTE0NzEsLTEzNTQxMTA4MTksLT
-UxMDg1NjkwOSwtODk3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1
-NzYyOCwxODgwNjQzNjYyLDg1ODc5NjA0NCwtMTM1NTc1NDk1Ny
-wyNTg0MTgyMjksLTEzNTU3NTQ5NTcsMTQwNjM2NDcyNSwyMDE1
-NTU2OTgzLDE0MDYzNjQ3MjUsMjAxNTU1Njk4MywyOTAxMzg3Nj
-AsMTIwNDEzNTExNCwyOTAxMzg3NjAsMTIwNDEzNTExNCwtMjE5
-MjQ5NzYyLDE2MzM4NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5ND
-g4LC0xMDAwOTY3NDcxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MTIs
-MTQ4NTk0MTU5NywxNzYyMDY4NDYyXX0=
+eyJoaXN0b3J5IjpbLTI2MjQ2MTE5NCwtMjA4MzIzOTcyNSw1MT
+czMzI0MywtMTI0NjU1MDE2MiwtMTQwNjMzMjYyMiwtMTI0NjU1
+MDE2MiwxOTc1OTYzNzQ2LDE2NzUyOTgyMTQsMTM2ODA4NzYyMC
+w3MDM1OTQyNDAsMTM2ODA4NzYyMCw3MDM1OTQyNDAsMTM2ODA4
+NzYyMCwxNDQ5NjA2MzQwLC0yMDI5ODgwMjMxLDk5NDk0MDMwOS
+wxNzI2MTcxMzgxLDkyMzY2MDA5LDE3MjYxNzEzODEsOTIzNjYw
+MDksLTEyMTc2NDIyMzEsLTEwMjc5ODA3NzQsNjAwMzQxMjA2LC
+0zMDY3NjUxMCwyNzIzNDk1OTgsLTMwNjc2NTEwLDI3MjM0OTU5
+OCwtMzA2NzY1MTAsMjcyMzQ5NTk4LC0zMDY3NjUxMCwyNzIzND
+k1OTgsLTM0OTM4MjUyMCwtNjU1NDc1MTU4LC0yOTEzOTE0Nzgs
+LTEyNDY1ODU1MjYsMTE3NjAyNTk5MCwtMTI0NjU4NTUyNiwxMT
+c2MDI1OTkwLC0xMjQ2NTg1NTI2LDExNzYwMjU5OTAsLTEyNDY1
+ODU1MjYsLTE5OTk0NzU5NywtMTExMDU2NTM2NSwxMTE0MzI2Nz
+I3LC0xMzI4NTcyNTEzLDE1NTY3NTUwOTMsLTU1NjQ2Mjc2Nywx
+Nzc5MDM5MzQxLC0xMTc5NTk5NjM4LDUyMzQyNzM2NiwtMTE3OT
+U5OTYzOCwxNDQ0NzEyNzI0LC0xNTA0MDMzOTMwLDExMjk0MDUz
+MjcsMTkwODc0OTMyOSw2MzcwNDU5NzEsMTkwODc0OTMyOSwtND
+U4NTEwNDczLDIwOTI5NTY2MzUsMTE5ODc3MTg2OSwtMTE4NTA4
+MTA4LDE0OTI4NjY2NzgsLTExODUwODEwOCwxNDkyODY2Njc4LC
+0xOTYzMjE0NzM5LC05NzcwNDk1NjYsODIxMDc1MDAzLDg3ODYw
+NzAzNyw5ODA3MDU4MTksOTY1MzExNDcxLC0xMzU0MTEwODE5LC
+01MTA4NTY5MDksLTg5NzY2OTM1LDE2NDYxMTkyNzAsLTIwNzkw
+NTc2MjgsMTg4MDY0MzY2Miw4NTg3OTYwNDQsLTEzNTU3NTQ5NT
+csMjU4NDE4MjI5LC0xMzU1NzU0OTU3LDE0MDYzNjQ3MjUsMjAx
+NTU1Njk4MywxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMjkwMTM4Nz
+YwLDEyMDQxMzUxMTQsMjkwMTM4NzYwLDEyMDQxMzUxMTQsLTIx
+OTI0OTc2MiwxNjMzODU5NDg4LC0yMTkyNDk3NjIsMTYzMzg1OT
+Q4OCwtMTAwMDk2NzQ3MSwtMjE0NjUxOTEyMywtOTQ0OTY0ODEy
+LDE0ODU5NDE1OTcsMTc2MjA2ODQ2Ml19
 -->
