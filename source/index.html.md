@@ -215,6 +215,7 @@ Error | Description
 ### App to App authentication
 Instead of going through the BMID web page where the end user has to enter his phone number, it is possible to trigger the itsme App directly by sending the Authorization Request to a specific endpoint.
 
+Doing so, the itsme App will open itself automatically provided
 **itsme(r)** Mobile App endpoint : TODO
 
 ## 2. Token Request
@@ -476,7 +477,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTY4ODAxNzQ2LDY2OTAwNDY5NCwxNzc5MD
+eyJoaXN0b3J5IjpbOTg2MjE3NTMwLDU2ODgwMTc0NiwxNzc5MD
 M5MzQxLC0xMTc5NTk5NjM4LDUyMzQyNzM2NiwtMTE3OTU5OTYz
 OCwxNDQ0NzEyNzI0LC0xNTA0MDMzOTMwLDExMjk0MDUzMjcsMT
 kwODc0OTMyOSw2MzcwNDU5NzEsMTkwODc0OTMyOSwtNDU4NTEw
