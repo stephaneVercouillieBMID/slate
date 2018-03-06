@@ -224,12 +224,12 @@ In order to trigger this flow, you MUST send the Authorization Request to the fo
 
 #### Technical requirements apps
 
-BMID follows the recommendations of the [OAuth Working Group](https://tools.ietf.org/html/draft-ietf-oauth-native-apps-12) about the authentication process in native apps. BMID thus exclusively uses Universal Links / App Links for all communications between your App and itsme. This mechanism guarantees that the right app is lanched and thus improves the security.
+BMID follows the recommendations of the [OAuth Working Group](https://tools.ietf.org/html/draft-ietf-oauth-native-apps-12) about the authentication process in native apps. BMID thus exclusively uses Universal/App Links for all communications between your App and itsme. This mechanism guarantees that the right app is lanched and thus improves the security.
 
 Universal Links are available on iOS since version 9.0, and the itsme App itself is only available on iOS 9.0 or greater.
 App Links are available on Android since version 6.0. Thereby, itsme supports OpenID Connect authentication only on Android version 6.0 or greater.
 
-If you trigger the itsme App from your own App, you MUST make sure there is a Universal Link associated with your iOS App. Please consult the [Apple documentation about Universal Links](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) for this. This Universal Link MUST be specified to BMID during the onboarding process.
+If you trigger the itsme App from your own App, you MUST make sure there is a Universal/App Link associated with your App. Please consult the [Apple documentation about Universal Links](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) for this. This Universal/App Link MUST be specified to BMID during the onboarding process.
 
 #### Requirements for Android apps
 As for iOS, BMID exclusively uses App Links to communicate with itsme. App Links offer guarantees that the legitimate App is launched immediately without asking the user to choose among a list of available apps.
@@ -497,7 +497,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODUyNzc3ODkzLC02MjczODA4NDYsLTM0OT
+eyJoaXN0b3J5IjpbMjUwMjA2MDg5LC02MjczODA4NDYsLTM0OT
 M4MjUyMCwtNjU1NDc1MTU4LC0yOTEzOTE0NzgsLTEyNDY1ODU1
 MjYsMTE3NjAyNTk5MCwtMTI0NjU4NTUyNiwxMTc2MDI1OTkwLC
 0xMjQ2NTg1NTI2LDExNzYwMjU5OTAsLTEyNDY1ODU1MjYsLTE5
