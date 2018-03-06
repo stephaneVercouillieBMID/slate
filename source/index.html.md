@@ -390,7 +390,7 @@ NRN | TODO | TODO
 }
 ```
 
-> Example of JSON device object requested with tag:sixdots.be,2017-05:claim_device
+> Example of JSON device object requested with **tag:sixdots.be,2017-05:claim_device**
 
 ```json--inline
 {  
@@ -498,7 +498,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ0OTYwNjM0MCwtMTMyMzEzMTUyMCwxND
+eyJoaXN0b3J5IjpbMTM2ODA4NzYyMCwtMTMyMzEzMTUyMCwxND
 Q5NjA2MzQwLC0yMDI5ODgwMjMxLDk5NDk0MDMwOSwxNzI2MTcx
 MzgxLDkyMzY2MDA5LDE3MjYxNzEzODEsOTIzNjYwMDksLTEyMT
 c2NDIyMzEsLTEwMjc5ODA3NzQsNjAwMzQxMjA2LC0zMDY3NjUx
