@@ -548,11 +548,43 @@ d.	If the user is already logged in the SP and, it is required that it is this u
 1.	Calling the “User Info” End Point is not mandatory. The “ID Token” already contains all the necessary proof for a simple approval.
 2.	However, the “User Info” End Point can be called to retrieve the requested claims of the user that did the approval. 
 
-if the user is already logged in 
+if the user is already logged in <!\[if !supportAnnotations\]> <!\[endif\]-->
+
+Two possible identifiers that could be used to:
+
+<!\[if !supportLists\]>· <!\[endif\]>In the “userinfo” JSON section, the “**sub**” requested claim can be used to communicate the subject (end user) identifier already shared between Itsme OP and the SP. This identifier (called “user code”) was previously communicated in the ID token or in the UserInfo token after a successful OIDC login.
+
+<!\[if !supportLists\]>· <!\[endif\]>In the “userinfo” JSON section, the “**phone_number**” requested claim can be used to communicate the subject (end user) phone number to be used as unique identifier. The format must match this regular expression<!\[if !supportAnnotations\]>[\[SV1\]](#_msocom_1)<!\[endif\]> :  
+  
+[\\\+?(\\\d{1,3})\[ +\](\\\d*)](file://+%3f(/d%7b1,3%7d)%5b%20+%5d(/d*))  
+<!\[if !supportLineBreakNewLine\]>  
+<!\[endif\]>
+
+Giving one of these two (valid) identifiers in the authorization request will bypass the identification screen where the end user should normally introduce his phone number to identify himself.
+
+Only signed and encrypted valid* OIDC Approval request will lead to an identification screen bypass.
+
+_(*) Valid if the request was emitted by an active partner using one of his active approval services._
+
+<!\[if !supportAnnotations\]>
+
+----------
+
+<!\[endif\]>
+
+<!\[if !supportAnnotations\]>
+
+<!\[endif\]><!\[if !supportAnnotations\]><!\[endif\]>
+
+<!\[if !supportAnnotations\]>[\[SV1\]](#_msoanchor_1)<!\[endif\]>Sure of this regex? I think we are checking the length of the phone number, no? In SOAP I’m quite sure we do...
+
+<!\[if !supportAnnotations\]>
+
+<!\[endif\]>
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk5OTQzMTY0NSw1MTczMzI0MywtMTI0Nj
+eyJoaXN0b3J5IjpbMTk4MjkyNzQzNiw1MTczMzI0MywtMTI0Nj
 U1MDE2MiwtMTQwNjMzMjYyMiwtMTI0NjU1MDE2MiwxOTc1OTYz
 NzQ2LDE2NzUyOTgyMTQsMTM2ODA4NzYyMCw3MDM1OTQyNDAsMT
 M2ODA4NzYyMCw3MDM1OTQyNDAsMTM2ODA4NzYyMCwxNDQ5NjA2
