@@ -261,7 +261,7 @@ Property | Comment
 -- | --
 **iss** | The issuer of the private_key_jwt (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID). 
 **sub** | The subject of the private_key_jwt (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file onboarding file provided by BMID). 
-**aud** | Must be the token endpoint URL,<br>The possible token end point URLs are:<br>https://merchant.itsme.be/oidc/token<br>https://e2emerchant.itsme.be/oidc/token<br>https://uatmerchant.sixdots.be/oidc/token
+**aud** | Must be the token endpoint URL,<br>The possible token endpoint URLs are:<br>https://merchant.itsme.be/oidc/token<br>https://e2emerchant.itsme.be/oidc/token<br>https://uatmerchant.sixdots.be/oidc/token
 **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
 **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 
@@ -498,29 +498,29 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMTI2Nzk3NDUsOTIzNjYwMDksMTcyNj
-E3MTM4MSw5MjM2NjAwOSwxNzI2MTcxMzgxLDkyMzY2MDA5LC0x
-MjE3NjQyMjMxLC0xMDI3OTgwNzc0LDYwMDM0MTIwNiwtMzA2Nz
-Y1MTAsMjcyMzQ5NTk4LC0zMDY3NjUxMCwyNzIzNDk1OTgsLTMw
-Njc2NTEwLDI3MjM0OTU5OCwtMzA2NzY1MTAsMjcyMzQ5NTk4LC
-0zNDkzODI1MjAsLTY1NTQ3NTE1OCwtMjkxMzkxNDc4LC0xMjQ2
-NTg1NTI2LDExNzYwMjU5OTAsLTEyNDY1ODU1MjYsMTE3NjAyNT
-k5MCwtMTI0NjU4NTUyNiwxMTc2MDI1OTkwLC0xMjQ2NTg1NTI2
-LC0xOTk5NDc1OTcsLTExMTA1NjUzNjUsMTExNDMyNjcyNywtMT
-MyODU3MjUxMywxNTU2NzU1MDkzLC01NTY0NjI3NjcsMTc3OTAz
-OTM0MSwtMTE3OTU5OTYzOCw1MjM0MjczNjYsLTExNzk1OTk2Mz
-gsMTQ0NDcxMjcyNCwtMTUwNDAzMzkzMCwxMTI5NDA1MzI3LDE5
-MDg3NDkzMjksNjM3MDQ1OTcxLDE5MDg3NDkzMjksLTQ1ODUxMD
-Q3MywyMDkyOTU2NjM1LDExOTg3NzE4NjksLTExODUwODEwOCwx
-NDkyODY2Njc4LC0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMTk2Mz
-IxNDczOSwtOTc3MDQ5NTY2LDgyMTA3NTAwMyw4Nzg2MDcwMzcs
-OTgwNzA1ODE5LDk2NTMxMTQ3MSwtMTM1NDExMDgxOSwtNTEwOD
-U2OTA5LC04OTc2NjkzNSwxNjQ2MTE5MjcwLC0yMDc5MDU3NjI4
-LDE4ODA2NDM2NjIsODU4Nzk2MDQ0LC0xMzU1NzU0OTU3LDI1OD
-QxODIyOSwtMTM1NTc1NDk1NywxNDA2MzY0NzI1LDIwMTU1NTY5
-ODMsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDI5MDEzODc2MCwxMj
-A0MTM1MTE0LDI5MDEzODc2MCwxMjA0MTM1MTE0LC0yMTkyNDk3
-NjIsMTYzMzg1OTQ4OCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgsLT
-EwMDA5Njc0NzEsLTIxNDY1MTkxMjMsLTk0NDk2NDgxMiwxNDg1
-OTQxNTk3LDE3NjIwNjg0NjJdfQ==
+eyJoaXN0b3J5IjpbLTU5NDg0Mzc3MSw5MjM2NjAwOSwxNzI2MT
+cxMzgxLDkyMzY2MDA5LDE3MjYxNzEzODEsOTIzNjYwMDksLTEy
+MTc2NDIyMzEsLTEwMjc5ODA3NzQsNjAwMzQxMjA2LC0zMDY3Nj
+UxMCwyNzIzNDk1OTgsLTMwNjc2NTEwLDI3MjM0OTU5OCwtMzA2
+NzY1MTAsMjcyMzQ5NTk4LC0zMDY3NjUxMCwyNzIzNDk1OTgsLT
+M0OTM4MjUyMCwtNjU1NDc1MTU4LC0yOTEzOTE0NzgsLTEyNDY1
+ODU1MjYsMTE3NjAyNTk5MCwtMTI0NjU4NTUyNiwxMTc2MDI1OT
+kwLC0xMjQ2NTg1NTI2LDExNzYwMjU5OTAsLTEyNDY1ODU1MjYs
+LTE5OTk0NzU5NywtMTExMDU2NTM2NSwxMTE0MzI2NzI3LC0xMz
+I4NTcyNTEzLDE1NTY3NTUwOTMsLTU1NjQ2Mjc2NywxNzc5MDM5
+MzQxLC0xMTc5NTk5NjM4LDUyMzQyNzM2NiwtMTE3OTU5OTYzOC
+wxNDQ0NzEyNzI0LC0xNTA0MDMzOTMwLDExMjk0MDUzMjcsMTkw
+ODc0OTMyOSw2MzcwNDU5NzEsMTkwODc0OTMyOSwtNDU4NTEwND
+czLDIwOTI5NTY2MzUsMTE5ODc3MTg2OSwtMTE4NTA4MTA4LDE0
+OTI4NjY2NzgsLTExODUwODEwOCwxNDkyODY2Njc4LC0xOTYzMj
+E0NzM5LC05NzcwNDk1NjYsODIxMDc1MDAzLDg3ODYwNzAzNyw5
+ODA3MDU4MTksOTY1MzExNDcxLC0xMzU0MTEwODE5LC01MTA4NT
+Y5MDksLTg5NzY2OTM1LDE2NDYxMTkyNzAsLTIwNzkwNTc2Mjgs
+MTg4MDY0MzY2Miw4NTg3OTYwNDQsLTEzNTU3NTQ5NTcsMjU4ND
+E4MjI5LC0xMzU1NzU0OTU3LDE0MDYzNjQ3MjUsMjAxNTU1Njk4
+MywxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMjkwMTM4NzYwLDEyMD
+QxMzUxMTQsMjkwMTM4NzYwLDEyMDQxMzUxMTQsLTIxOTI0OTc2
+MiwxNjMzODU5NDg4LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OCwtMT
+AwMDk2NzQ3MSwtMjE0NjUxOTEyMywtOTQ0OTY0ODEyLDE0ODU5
+NDE1OTcsMTc2MjA2ODQ2Ml19
 -->
