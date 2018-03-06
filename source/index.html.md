@@ -365,7 +365,7 @@ Place of Birth - country | **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_b
 E-ID Info  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** | Belgian Electronic ID card information encoded in JSON, with the following keys`eid`: the electronic ID card serial number. <br>`issuance_locality`: the issuance locality. <br>`validity_from`: eID card validity “from” date. <br>`validity_to`: eID card validity “to” date. <br>`certificate_validity`: the certificate validity. <br>`read_date`: the data extraction date. <br>Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: "2017-04-01T19:43:37+0000"TODO01T19:43:37+0000"TODO
 Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | Simple string containing the user’s Passport Serial Number.
 Device | **`tag:sixdots.be,2017-05:claim_device`** | see [Device information](#device-information)
-??? TODO | **`tag:sixdots.be,2017-05:claim_transaction_info`** |Information available in the context of the current transaction.<br> A JSON object with the following keys:<br> (only keys with cardinality \[1..1\] will be always availabl·<br> “securityLevel” \[1..1\]: (supported values: <br>{SOFT\_ONLY, SIM\_ONLY, SIM\_AND\_SOFT}) Security level used during transaction. · <br>“bindLevel” \[1..1\]: (supported values: {SOFT\_ONLY, SIM\_ONLY, SIM\_AND\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. · <br>“mcc” \[0..1\]: the Mobile Country Code. An Integer (three digits) representing the mobile network country. <br>For example: { "securityLevel": "SIM\_AND\_SOFT", "bindLevel": "SIM\_AND\_SOFT", "mcc": 206 }
+??? TODO | **`tag:sixdots.be,2017-05:claim_transaction_info`** |Information available in the context of the current transaction.<br> A JSON object with the following keys:<br> (only keys with cardinality \[1..1\] will be always available)<br> “securityLevel” \[1..1\]: (supported values: <br>{SOFT\_ONLY, SIM\_ONLY, SIM\_AND\_SOFT}) Security level used during transaction.· <br>“bindLevel” \[1..1\]: (supported values: {SOFT\_ONLY, SIM\_ONLY, SIM\_AND\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. · <br>“mcc” \[0..1\]: the Mobile Country Code. An Integer (three digits) representing the mobile network country. <br>For example: { "securityLevel": "SIM\_AND\_SOFT", "bindLevel": "SIM\_AND\_SOFT", "mcc": 206 }
 E-ID Picture | TODO | TODO
 NRN | TODO | TODO
 
@@ -498,30 +498,30 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjU2MTY1MjEyLC0yMDI5ODgwMjMxLC0yMD
-I5ODgwMjMxLDk5NDk0MDMwOSwxNzI2MTcxMzgxLDkyMzY2MDA5
-LDE3MjYxNzEzODEsOTIzNjYwMDksLTEyMTc2NDIyMzEsLTEwMj
-c5ODA3NzQsNjAwMzQxMjA2LC0zMDY3NjUxMCwyNzIzNDk1OTgs
-LTMwNjc2NTEwLDI3MjM0OTU5OCwtMzA2NzY1MTAsMjcyMzQ5NT
-k4LC0zMDY3NjUxMCwyNzIzNDk1OTgsLTM0OTM4MjUyMCwtNjU1
-NDc1MTU4LC0yOTEzOTE0NzgsLTEyNDY1ODU1MjYsMTE3NjAyNT
-k5MCwtMTI0NjU4NTUyNiwxMTc2MDI1OTkwLC0xMjQ2NTg1NTI2
-LDExNzYwMjU5OTAsLTEyNDY1ODU1MjYsLTE5OTk0NzU5NywtMT
-ExMDU2NTM2NSwxMTE0MzI2NzI3LC0xMzI4NTcyNTEzLDE1NTY3
-NTUwOTMsLTU1NjQ2Mjc2NywxNzc5MDM5MzQxLC0xMTc5NTk5Nj
-M4LDUyMzQyNzM2NiwtMTE3OTU5OTYzOCwxNDQ0NzEyNzI0LC0x
-NTA0MDMzOTMwLDExMjk0MDUzMjcsMTkwODc0OTMyOSw2MzcwND
-U5NzEsMTkwODc0OTMyOSwtNDU4NTEwNDczLDIwOTI5NTY2MzUs
-MTE5ODc3MTg2OSwtMTE4NTA4MTA4LDE0OTI4NjY2NzgsLTExOD
-UwODEwOCwxNDkyODY2Njc4LC0xOTYzMjE0NzM5LC05NzcwNDk1
-NjYsODIxMDc1MDAzLDg3ODYwNzAzNyw5ODA3MDU4MTksOTY1Mz
-ExNDcxLC0xMzU0MTEwODE5LC01MTA4NTY5MDksLTg5NzY2OTM1
-LDE2NDYxMTkyNzAsLTIwNzkwNTc2MjgsMTg4MDY0MzY2Miw4NT
-g3OTYwNDQsLTEzNTU3NTQ5NTcsMjU4NDE4MjI5LC0xMzU1NzU0
-OTU3LDE0MDYzNjQ3MjUsMjAxNTU1Njk4MywxNDA2MzY0NzI1LD
-IwMTU1NTY5ODMsMjkwMTM4NzYwLDEyMDQxMzUxMTQsMjkwMTM4
-NzYwLDEyMDQxMzUxMTQsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC
-0yMTkyNDk3NjIsMTYzMzg1OTQ4OCwtMTAwMDk2NzQ3MSwtMjE0
-NjUxOTEyMywtOTQ0OTY0ODEyLDE0ODU5NDE1OTcsMTc2MjA2OD
-Q2Ml19
+eyJoaXN0b3J5IjpbLTIwMjgzNzcxNTcsLTIwMjk4ODAyMzEsLT
+IwMjk4ODAyMzEsOTk0OTQwMzA5LDE3MjYxNzEzODEsOTIzNjYw
+MDksMTcyNjE3MTM4MSw5MjM2NjAwOSwtMTIxNzY0MjIzMSwtMT
+AyNzk4MDc3NCw2MDAzNDEyMDYsLTMwNjc2NTEwLDI3MjM0OTU5
+OCwtMzA2NzY1MTAsMjcyMzQ5NTk4LC0zMDY3NjUxMCwyNzIzND
+k1OTgsLTMwNjc2NTEwLDI3MjM0OTU5OCwtMzQ5MzgyNTIwLC02
+NTU0NzUxNTgsLTI5MTM5MTQ3OCwtMTI0NjU4NTUyNiwxMTc2MD
+I1OTkwLC0xMjQ2NTg1NTI2LDExNzYwMjU5OTAsLTEyNDY1ODU1
+MjYsMTE3NjAyNTk5MCwtMTI0NjU4NTUyNiwtMTk5OTQ3NTk3LC
+0xMTEwNTY1MzY1LDExMTQzMjY3MjcsLTEzMjg1NzI1MTMsMTU1
+Njc1NTA5MywtNTU2NDYyNzY3LDE3NzkwMzkzNDEsLTExNzk1OT
+k2MzgsNTIzNDI3MzY2LC0xMTc5NTk5NjM4LDE0NDQ3MTI3MjQs
+LTE1MDQwMzM5MzAsMTEyOTQwNTMyNywxOTA4NzQ5MzI5LDYzNz
+A0NTk3MSwxOTA4NzQ5MzI5LC00NTg1MTA0NzMsMjA5Mjk1NjYz
+NSwxMTk4NzcxODY5LC0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMT
+E4NTA4MTA4LDE0OTI4NjY2NzgsLTE5NjMyMTQ3MzksLTk3NzA0
+OTU2Niw4MjEwNzUwMDMsODc4NjA3MDM3LDk4MDcwNTgxOSw5Nj
+UzMTE0NzEsLTEzNTQxMTA4MTksLTUxMDg1NjkwOSwtODk3NjY5
+MzUsMTY0NjExOTI3MCwtMjA3OTA1NzYyOCwxODgwNjQzNjYyLD
+g1ODc5NjA0NCwtMTM1NTc1NDk1NywyNTg0MTgyMjksLTEzNTU3
+NTQ5NTcsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDE0MDYzNjQ3Mj
+UsMjAxNTU1Njk4MywyOTAxMzg3NjAsMTIwNDEzNTExNCwyOTAx
+Mzg3NjAsMTIwNDEzNTExNCwtMjE5MjQ5NzYyLDE2MzM4NTk0OD
+gsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC0xMDAwOTY3NDcxLC0y
+MTQ2NTE5MTIzLC05NDQ5NjQ4MTIsMTQ4NTk0MTU5NywxNzYyMD
+Y4NDYyXX0=
 -->
