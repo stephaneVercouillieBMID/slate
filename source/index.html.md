@@ -226,7 +226,7 @@ Error | Description
 `registration_not_supported` | does not support use of the registration parameter.
 
 ### App to App
-Instead of the BMID web page, it is possible to use the itsme
+Instead of the BMID web page, it is possible to use the itsme App direc
 **itsme(r)** Mobile App endpoint : TODO
 
 ## 2. Token Request
@@ -488,19 +488,19 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU5NTM5Mjg5MiwxNDQ0NzEyNzI0LC0xNT
-A0MDMzOTMwLDExMjk0MDUzMjcsMTkwODc0OTMyOSw2MzcwNDU5
-NzEsMTkwODc0OTMyOSwtNDU4NTEwNDczLDIwOTI5NTY2MzUsMT
-E5ODc3MTg2OSwtMTE4NTA4MTA4LDE0OTI4NjY2NzgsLTExODUw
-ODEwOCwxNDkyODY2Njc4LC0xOTYzMjE0NzM5LC05NzcwNDk1Nj
-YsODIxMDc1MDAzLDg3ODYwNzAzNyw5ODA3MDU4MTksOTY1MzEx
-NDcxLC0xMzU0MTEwODE5LC01MTA4NTY5MDksLTg5NzY2OTM1LD
-E2NDYxMTkyNzAsLTIwNzkwNTc2MjgsMTg4MDY0MzY2Miw4NTg3
-OTYwNDQsLTEzNTU3NTQ5NTcsMjU4NDE4MjI5LC0xMzU1NzU0OT
-U3LDE0MDYzNjQ3MjUsMjAxNTU1Njk4MywxNDA2MzY0NzI1LDIw
-MTU1NTY5ODMsMjkwMTM4NzYwLDEyMDQxMzUxMTQsMjkwMTM4Nz
-YwLDEyMDQxMzUxMTQsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC0y
-MTkyNDk3NjIsMTYzMzg1OTQ4OCwtMTAwMDk2NzQ3MSwtMjE0Nj
-UxOTEyMywtOTQ0OTY0ODEyLDE0ODU5NDE1OTcsMTc2MjA2ODQ2
-Ml19
+eyJoaXN0b3J5IjpbMjUzNzgyNjMyLDE0NDQ3MTI3MjQsLTE1MD
+QwMzM5MzAsMTEyOTQwNTMyNywxOTA4NzQ5MzI5LDYzNzA0NTk3
+MSwxOTA4NzQ5MzI5LC00NTg1MTA0NzMsMjA5Mjk1NjYzNSwxMT
+k4NzcxODY5LC0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMTE4NTA4
+MTA4LDE0OTI4NjY2NzgsLTE5NjMyMTQ3MzksLTk3NzA0OTU2Ni
+w4MjEwNzUwMDMsODc4NjA3MDM3LDk4MDcwNTgxOSw5NjUzMTE0
+NzEsLTEzNTQxMTA4MTksLTUxMDg1NjkwOSwtODk3NjY5MzUsMT
+Y0NjExOTI3MCwtMjA3OTA1NzYyOCwxODgwNjQzNjYyLDg1ODc5
+NjA0NCwtMTM1NTc1NDk1NywyNTg0MTgyMjksLTEzNTU3NTQ5NT
+csMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDE0MDYzNjQ3MjUsMjAx
+NTU1Njk4MywyOTAxMzg3NjAsMTIwNDEzNTExNCwyOTAxMzg3Nj
+AsMTIwNDEzNTExNCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgsLTIx
+OTI0OTc2MiwxNjMzODU5NDg4LC0xMDAwOTY3NDcxLC0yMTQ2NT
+E5MTIzLC05NDQ5NjQ4MTIsMTQ4NTk0MTU5NywxNzYyMDY4NDYy
+XX0=
 -->
