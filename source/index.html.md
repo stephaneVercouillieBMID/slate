@@ -215,7 +215,7 @@ Error | Description
 ### App to App authentication
 The itsme App itself also leverages the OpenID Connect authentication flow to allow native apps to perform the authentication easily and safely.
 By using this flow, the end user will be automatically redirected from your App (or your web page in the mobile browser) to the itsme App. After authenticating himself (or rejecting the authentication), he will be redirected back to your App.
-This authentication flow is referred as "App to App" flow when occurring from your App to the itsme App, or "Web mobile to App" flow when occurring from the mobile browser to the itsme App. When the context is not ambiguous, we also use "App to App" denomination to de of both flows.
+This authentication flow is referred as "App to App" flow when occurring from your App to the itsme App, or "Web mobile to App" flow when occurring from the mobile browser to the itsme App. When the context is not ambiguous, we also use "App to App" denomination to designate of both flows.
 
 The technology used for this flow is the [Universal Links](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) (iOS)/[App Links](https://developer.android.com/training/app-links/index.html) (Android).
 
@@ -497,28 +497,28 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTExNDM2NzY0LC0xMDI3OTgwNzc0LC0xMD
-I3OTgwNzc0LDYwMDM0MTIwNiwtMzA2NzY1MTAsMjcyMzQ5NTk4
-LC0zMDY3NjUxMCwyNzIzNDk1OTgsLTMwNjc2NTEwLDI3MjM0OT
-U5OCwtMzA2NzY1MTAsMjcyMzQ5NTk4LC0zNDkzODI1MjAsLTY1
-NTQ3NTE1OCwtMjkxMzkxNDc4LC0xMjQ2NTg1NTI2LDExNzYwMj
-U5OTAsLTEyNDY1ODU1MjYsMTE3NjAyNTk5MCwtMTI0NjU4NTUy
-NiwxMTc2MDI1OTkwLC0xMjQ2NTg1NTI2LC0xOTk5NDc1OTcsLT
-ExMTA1NjUzNjUsMTExNDMyNjcyNywtMTMyODU3MjUxMywxNTU2
-NzU1MDkzLC01NTY0NjI3NjcsMTc3OTAzOTM0MSwtMTE3OTU5OT
-YzOCw1MjM0MjczNjYsLTExNzk1OTk2MzgsMTQ0NDcxMjcyNCwt
-MTUwNDAzMzkzMCwxMTI5NDA1MzI3LDE5MDg3NDkzMjksNjM3MD
-Q1OTcxLDE5MDg3NDkzMjksLTQ1ODUxMDQ3MywyMDkyOTU2NjM1
-LDExOTg3NzE4NjksLTExODUwODEwOCwxNDkyODY2Njc4LC0xMT
-g1MDgxMDgsMTQ5Mjg2NjY3OCwtMTk2MzIxNDczOSwtOTc3MDQ5
-NTY2LDgyMTA3NTAwMyw4Nzg2MDcwMzcsOTgwNzA1ODE5LDk2NT
-MxMTQ3MSwtMTM1NDExMDgxOSwtNTEwODU2OTA5LC04OTc2Njkz
-NSwxNjQ2MTE5MjcwLC0yMDc5MDU3NjI4LDE4ODA2NDM2NjIsOD
-U4Nzk2MDQ0LC0xMzU1NzU0OTU3LDI1ODQxODIyOSwtMTM1NTc1
-NDk1NywxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMTQwNjM2NDcyNS
-wyMDE1NTU2OTgzLDI5MDEzODc2MCwxMjA0MTM1MTE0LDI5MDEz
-ODc2MCwxMjA0MTM1MTE0LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OC
-wtMjE5MjQ5NzYyLDE2MzM4NTk0ODgsLTEwMDA5Njc0NzEsLTIx
-NDY1MTkxMjMsLTk0NDk2NDgxMiwxNDg1OTQxNTk3LDE3NjIwNj
-g0NjJdfQ==
+eyJoaXN0b3J5IjpbLTEwODcwMzE0ODMsLTEwMjc5ODA3NzQsLT
+EwMjc5ODA3NzQsNjAwMzQxMjA2LC0zMDY3NjUxMCwyNzIzNDk1
+OTgsLTMwNjc2NTEwLDI3MjM0OTU5OCwtMzA2NzY1MTAsMjcyMz
+Q5NTk4LC0zMDY3NjUxMCwyNzIzNDk1OTgsLTM0OTM4MjUyMCwt
+NjU1NDc1MTU4LC0yOTEzOTE0NzgsLTEyNDY1ODU1MjYsMTE3Nj
+AyNTk5MCwtMTI0NjU4NTUyNiwxMTc2MDI1OTkwLC0xMjQ2NTg1
+NTI2LDExNzYwMjU5OTAsLTEyNDY1ODU1MjYsLTE5OTk0NzU5Ny
+wtMTExMDU2NTM2NSwxMTE0MzI2NzI3LC0xMzI4NTcyNTEzLDE1
+NTY3NTUwOTMsLTU1NjQ2Mjc2NywxNzc5MDM5MzQxLC0xMTc5NT
+k5NjM4LDUyMzQyNzM2NiwtMTE3OTU5OTYzOCwxNDQ0NzEyNzI0
+LC0xNTA0MDMzOTMwLDExMjk0MDUzMjcsMTkwODc0OTMyOSw2Mz
+cwNDU5NzEsMTkwODc0OTMyOSwtNDU4NTEwNDczLDIwOTI5NTY2
+MzUsMTE5ODc3MTg2OSwtMTE4NTA4MTA4LDE0OTI4NjY2NzgsLT
+ExODUwODEwOCwxNDkyODY2Njc4LC0xOTYzMjE0NzM5LC05Nzcw
+NDk1NjYsODIxMDc1MDAzLDg3ODYwNzAzNyw5ODA3MDU4MTksOT
+Y1MzExNDcxLC0xMzU0MTEwODE5LC01MTA4NTY5MDksLTg5NzY2
+OTM1LDE2NDYxMTkyNzAsLTIwNzkwNTc2MjgsMTg4MDY0MzY2Mi
+w4NTg3OTYwNDQsLTEzNTU3NTQ5NTcsMjU4NDE4MjI5LC0xMzU1
+NzU0OTU3LDE0MDYzNjQ3MjUsMjAxNTU1Njk4MywxNDA2MzY0Nz
+I1LDIwMTU1NTY5ODMsMjkwMTM4NzYwLDEyMDQxMzUxMTQsMjkw
+MTM4NzYwLDEyMDQxMzUxMTQsLTIxOTI0OTc2MiwxNjMzODU5ND
+g4LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OCwtMTAwMDk2NzQ3MSwt
+MjE0NjUxOTEyMywtOTQ0OTY0ODEyLDE0ODU5NDE1OTcsMTc2Mj
+A2ODQ2Ml19
 -->
