@@ -222,6 +222,11 @@ In case the itsme App is not present on the device, the end user will be redirec
 
 In order to trigger this flow, you MUST send the Authorization Request to the following authorization endpoint: `https://mobileapp.sixdots.be/mobile/authorize`
 
+#### Pre-requisites
+Universal Links are available on iOS since version 9.0, and the itsme App itself is only available on iOS 9.0 or greater.
+
+App Links are available on Android since version 6.0. The itsme App is available on Android 4.2 or greater, and supports OpenID Connect authentication only on Android version 6.0 or greater. Please note that on Android versions between 4.2 and 6.0, using Universal/App Links could lead to sub-
+
 #### Apps requirements
 
 As per recommendations of [OAuth Working Group about the authentication process in native apps](https://tools.ietf.org/html/draft-ietf-oauth-native-apps-12). 
@@ -230,15 +235,12 @@ BMID exclusively uses Universal/App Links for all communications between your Ap
 
 If you trigger the itsme App from your own App, you MUST make sure there is a Universal/App Link associated with your App. Please consult the  documentation about [Universal](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html)/[App](https://developer.android.com/training/app-links/index.html) for this. This Universal/App Link MUST be specified to BMID during the onboarding process.
 
-Universal Links are available on iOS since version 9.0, and the itsme App itself is only available on iOS 9.0 or greater.
-
-App Links are available on Android since version 6.0. The itsme App is available on Android 4.2 or greater, and supports OpenID Connect authentication only on Android version 6.0 or greater.
 
 ## 2. Token Request
 
 As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest
 
-The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTTPS `POST` request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **token_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret` authentication methods are not supported since they are considered less secure. The Token Request must include the following parameters in the `POST` body:
+The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST` request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **token_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret` authentication methods are not supported since they are considered less secure. The Token Request must include the following parameters in the `POST` body:
 
 Parameter | Required | Comment
 -- | -- | --
@@ -491,27 +493,27 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY4MjI2NTQyNCwtNDUxNjc4Mjk2LC0zMD
-Y3NjUxMCwyNzIzNDk1OTgsLTMwNjc2NTEwLDI3MjM0OTU5OCwt
-MzA2NzY1MTAsMjcyMzQ5NTk4LC0zMDY3NjUxMCwyNzIzNDk1OT
-gsLTM0OTM4MjUyMCwtNjU1NDc1MTU4LC0yOTEzOTE0NzgsLTEy
-NDY1ODU1MjYsMTE3NjAyNTk5MCwtMTI0NjU4NTUyNiwxMTc2MD
-I1OTkwLC0xMjQ2NTg1NTI2LDExNzYwMjU5OTAsLTEyNDY1ODU1
-MjYsLTE5OTk0NzU5NywtMTExMDU2NTM2NSwxMTE0MzI2NzI3LC
-0xMzI4NTcyNTEzLDE1NTY3NTUwOTMsLTU1NjQ2Mjc2NywxNzc5
-MDM5MzQxLC0xMTc5NTk5NjM4LDUyMzQyNzM2NiwtMTE3OTU5OT
-YzOCwxNDQ0NzEyNzI0LC0xNTA0MDMzOTMwLDExMjk0MDUzMjcs
-MTkwODc0OTMyOSw2MzcwNDU5NzEsMTkwODc0OTMyOSwtNDU4NT
-EwNDczLDIwOTI5NTY2MzUsMTE5ODc3MTg2OSwtMTE4NTA4MTA4
-LDE0OTI4NjY2NzgsLTExODUwODEwOCwxNDkyODY2Njc4LC0xOT
-YzMjE0NzM5LC05NzcwNDk1NjYsODIxMDc1MDAzLDg3ODYwNzAz
-Nyw5ODA3MDU4MTksOTY1MzExNDcxLC0xMzU0MTEwODE5LC01MT
-A4NTY5MDksLTg5NzY2OTM1LDE2NDYxMTkyNzAsLTIwNzkwNTc2
-MjgsMTg4MDY0MzY2Miw4NTg3OTYwNDQsLTEzNTU3NTQ5NTcsMj
-U4NDE4MjI5LC0xMzU1NzU0OTU3LDE0MDYzNjQ3MjUsMjAxNTU1
-Njk4MywxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMjkwMTM4NzYwLD
-EyMDQxMzUxMTQsMjkwMTM4NzYwLDEyMDQxMzUxMTQsLTIxOTI0
-OTc2MiwxNjMzODU5NDg4LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OC
-wtMTAwMDk2NzQ3MSwtMjE0NjUxOTEyMywtOTQ0OTY0ODEyLDE0
-ODU5NDE1OTcsMTc2MjA2ODQ2Ml19
+eyJoaXN0b3J5IjpbNTk3MzE5MDA2LC00NTE2NzgyOTYsLTMwNj
+c2NTEwLDI3MjM0OTU5OCwtMzA2NzY1MTAsMjcyMzQ5NTk4LC0z
+MDY3NjUxMCwyNzIzNDk1OTgsLTMwNjc2NTEwLDI3MjM0OTU5OC
+wtMzQ5MzgyNTIwLC02NTU0NzUxNTgsLTI5MTM5MTQ3OCwtMTI0
+NjU4NTUyNiwxMTc2MDI1OTkwLC0xMjQ2NTg1NTI2LDExNzYwMj
+U5OTAsLTEyNDY1ODU1MjYsMTE3NjAyNTk5MCwtMTI0NjU4NTUy
+NiwtMTk5OTQ3NTk3LC0xMTEwNTY1MzY1LDExMTQzMjY3MjcsLT
+EzMjg1NzI1MTMsMTU1Njc1NTA5MywtNTU2NDYyNzY3LDE3Nzkw
+MzkzNDEsLTExNzk1OTk2MzgsNTIzNDI3MzY2LC0xMTc5NTk5Nj
+M4LDE0NDQ3MTI3MjQsLTE1MDQwMzM5MzAsMTEyOTQwNTMyNywx
+OTA4NzQ5MzI5LDYzNzA0NTk3MSwxOTA4NzQ5MzI5LC00NTg1MT
+A0NzMsMjA5Mjk1NjYzNSwxMTk4NzcxODY5LC0xMTg1MDgxMDgs
+MTQ5Mjg2NjY3OCwtMTE4NTA4MTA4LDE0OTI4NjY2NzgsLTE5Nj
+MyMTQ3MzksLTk3NzA0OTU2Niw4MjEwNzUwMDMsODc4NjA3MDM3
+LDk4MDcwNTgxOSw5NjUzMTE0NzEsLTEzNTQxMTA4MTksLTUxMD
+g1NjkwOSwtODk3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1NzYy
+OCwxODgwNjQzNjYyLDg1ODc5NjA0NCwtMTM1NTc1NDk1NywyNT
+g0MTgyMjksLTEzNTU3NTQ5NTcsMTQwNjM2NDcyNSwyMDE1NTU2
+OTgzLDE0MDYzNjQ3MjUsMjAxNTU1Njk4MywyOTAxMzg3NjAsMT
+IwNDEzNTExNCwyOTAxMzg3NjAsMTIwNDEzNTExNCwtMjE5MjQ5
+NzYyLDE2MzM4NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC
+0xMDAwOTY3NDcxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MTIsMTQ4
+NTk0MTU5NywxNzYyMDY4NDYyXX0=
 -->
