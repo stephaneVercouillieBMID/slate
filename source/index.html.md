@@ -181,7 +181,7 @@ Parameter | Required | Comment
 **id\_token\_hint** | Unsupported | Ignored if provided.
 **claims_locales** | Unsupported | None are supported.
 **request_uri** | Unsupported | Not supported (yet)
-**registration** | Unsupported | Not supported due to “client dynamic registration” is not registration process is done during the partner on-boarding.
+**registration** | Unsupported | Not supported due to “client dynamic registration”is n client registration process is done during the partner on-boarding.
 
 ### Authentication Response
 An Authentication Response is an [OAuth 2.0 Authorization Response](https://tools.ietf.org/html/rfc6749#section-4.1.2) message. As such, the Authentication Response will return the following parameters:
@@ -476,20 +476,20 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTk3MTE4ODQzLDE2MTAxODgwNzMsMTc3OT
-AzOTM0MSwtMTE3OTU5OTYzOCw1MjM0MjczNjYsLTExNzk1OTk2
-MzgsMTQ0NDcxMjcyNCwtMTUwNDAzMzkzMCwxMTI5NDA1MzI3LD
-E5MDg3NDkzMjksNjM3MDQ1OTcxLDE5MDg3NDkzMjksLTQ1ODUx
-MDQ3MywyMDkyOTU2NjM1LDExOTg3NzE4NjksLTExODUwODEwOC
-wxNDkyODY2Njc4LC0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMTk2
-MzIxNDczOSwtOTc3MDQ5NTY2LDgyMTA3NTAwMyw4Nzg2MDcwMz
-csOTgwNzA1ODE5LDk2NTMxMTQ3MSwtMTM1NDExMDgxOSwtNTEw
-ODU2OTA5LC04OTc2NjkzNSwxNjQ2MTE5MjcwLC0yMDc5MDU3Nj
-I4LDE4ODA2NDM2NjIsODU4Nzk2MDQ0LC0xMzU1NzU0OTU3LDI1
-ODQxODIyOSwtMTM1NTc1NDk1NywxNDA2MzY0NzI1LDIwMTU1NT
-Y5ODMsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDI5MDEzODc2MCwx
-MjA0MTM1MTE0LDI5MDEzODc2MCwxMjA0MTM1MTE0LC0yMTkyND
-k3NjIsMTYzMzg1OTQ4OCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgs
-LTEwMDA5Njc0NzEsLTIxNDY1MTkxMjMsLTk0NDk2NDgxMiwxND
-g1OTQxNTk3LDE3NjIwNjg0NjJdfQ==
+eyJoaXN0b3J5IjpbLTE1NDQ2MjE0OTksMTYxMDE4ODA3MywxNz
+c5MDM5MzQxLC0xMTc5NTk5NjM4LDUyMzQyNzM2NiwtMTE3OTU5
+OTYzOCwxNDQ0NzEyNzI0LC0xNTA0MDMzOTMwLDExMjk0MDUzMj
+csMTkwODc0OTMyOSw2MzcwNDU5NzEsMTkwODc0OTMyOSwtNDU4
+NTEwNDczLDIwOTI5NTY2MzUsMTE5ODc3MTg2OSwtMTE4NTA4MT
+A4LDE0OTI4NjY2NzgsLTExODUwODEwOCwxNDkyODY2Njc4LC0x
+OTYzMjE0NzM5LC05NzcwNDk1NjYsODIxMDc1MDAzLDg3ODYwNz
+AzNyw5ODA3MDU4MTksOTY1MzExNDcxLC0xMzU0MTEwODE5LC01
+MTA4NTY5MDksLTg5NzY2OTM1LDE2NDYxMTkyNzAsLTIwNzkwNT
+c2MjgsMTg4MDY0MzY2Miw4NTg3OTYwNDQsLTEzNTU3NTQ5NTcs
+MjU4NDE4MjI5LC0xMzU1NzU0OTU3LDE0MDYzNjQ3MjUsMjAxNT
+U1Njk4MywxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMjkwMTM4NzYw
+LDEyMDQxMzUxMTQsMjkwMTM4NzYwLDEyMDQxMzUxMTQsLTIxOT
+I0OTc2MiwxNjMzODU5NDg4LC0yMTkyNDk3NjIsMTYzMzg1OTQ4
+OCwtMTAwMDk2NzQ3MSwtMjE0NjUxOTEyMywtOTQ0OTY0ODEyLD
+E0ODU5NDE1OTcsMTc2MjA2ODQ2Ml19
 -->
