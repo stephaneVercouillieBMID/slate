@@ -366,7 +366,7 @@ E-ID Info  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** | Belgian Electroni
 Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | Simple string containing the user’s Passport Serial Number.
 Device | **`tag:sixdots.be,2017-05:claim_device`** | see [Device information](#device-information)
 Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |Information available in the context of the current transaction.<br> A JSON object with the following keys:<br> (only keys with cardinality \\\[1..1\\\] will be always available)<br> **“securityLevel” \\\[1..1\\\]**: (supported values: <br>{SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) Security level used during transaction. <br>**“bindLevel” \\\[1..1\\\]**: (supported values: {SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. <br>**“mcc” \\\[0..1\\\]**: the Mobile Country Code. An Integer (three digits) representing the mobile network country. <br>For example: { "securityLevel": "SIM\\\_AND\\\_SOFT", "bindLevel": "SIM\\\_AND\\\_SOFT", "mcc": 206 }
-E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**| TODO
+E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
 NRN | TODO | TODO
 
 > Example of Claims request parameter TODO adapt to itsme(r) data
@@ -498,31 +498,31 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY4NDYzODQ1OSw3MDM1OTQyNDAsMTM2OD
-A4NzYyMCw3MDM1OTQyNDAsMTM2ODA4NzYyMCw3MDM1OTQyNDAs
-MTM2ODA4NzYyMCwxNDQ5NjA2MzQwLC0yMDI5ODgwMjMxLDk5ND
-k0MDMwOSwxNzI2MTcxMzgxLDkyMzY2MDA5LDE3MjYxNzEzODEs
-OTIzNjYwMDksLTEyMTc2NDIyMzEsLTEwMjc5ODA3NzQsNjAwMz
-QxMjA2LC0zMDY3NjUxMCwyNzIzNDk1OTgsLTMwNjc2NTEwLDI3
-MjM0OTU5OCwtMzA2NzY1MTAsMjcyMzQ5NTk4LC0zMDY3NjUxMC
-wyNzIzNDk1OTgsLTM0OTM4MjUyMCwtNjU1NDc1MTU4LC0yOTEz
-OTE0NzgsLTEyNDY1ODU1MjYsMTE3NjAyNTk5MCwtMTI0NjU4NT
-UyNiwxMTc2MDI1OTkwLC0xMjQ2NTg1NTI2LDExNzYwMjU5OTAs
-LTEyNDY1ODU1MjYsLTE5OTk0NzU5NywtMTExMDU2NTM2NSwxMT
-E0MzI2NzI3LC0xMzI4NTcyNTEzLDE1NTY3NTUwOTMsLTU1NjQ2
-Mjc2NywxNzc5MDM5MzQxLC0xMTc5NTk5NjM4LDUyMzQyNzM2Ni
-wtMTE3OTU5OTYzOCwxNDQ0NzEyNzI0LC0xNTA0MDMzOTMwLDEx
-Mjk0MDUzMjcsMTkwODc0OTMyOSw2MzcwNDU5NzEsMTkwODc0OT
-MyOSwtNDU4NTEwNDczLDIwOTI5NTY2MzUsMTE5ODc3MTg2OSwt
-MTE4NTA4MTA4LDE0OTI4NjY2NzgsLTExODUwODEwOCwxNDkyOD
-Y2Njc4LC0xOTYzMjE0NzM5LC05NzcwNDk1NjYsODIxMDc1MDAz
-LDg3ODYwNzAzNyw5ODA3MDU4MTksOTY1MzExNDcxLC0xMzU0MT
-EwODE5LC01MTA4NTY5MDksLTg5NzY2OTM1LDE2NDYxMTkyNzAs
-LTIwNzkwNTc2MjgsMTg4MDY0MzY2Miw4NTg3OTYwNDQsLTEzNT
-U3NTQ5NTcsMjU4NDE4MjI5LC0xMzU1NzU0OTU3LDE0MDYzNjQ3
-MjUsMjAxNTU1Njk4MywxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMj
-kwMTM4NzYwLDEyMDQxMzUxMTQsMjkwMTM4NzYwLDEyMDQxMzUx
-MTQsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC0yMTkyNDk3NjIsMT
-YzMzg1OTQ4OCwtMTAwMDk2NzQ3MSwtMjE0NjUxOTEyMywtOTQ0
-OTY0ODEyLDE0ODU5NDE1OTcsMTc2MjA2ODQ2Ml19
+eyJoaXN0b3J5IjpbLTE3ODMwMjY4MTUsNzAzNTk0MjQwLDEzNj
+gwODc2MjAsNzAzNTk0MjQwLDEzNjgwODc2MjAsNzAzNTk0MjQw
+LDEzNjgwODc2MjAsMTQ0OTYwNjM0MCwtMjAyOTg4MDIzMSw5OT
+Q5NDAzMDksMTcyNjE3MTM4MSw5MjM2NjAwOSwxNzI2MTcxMzgx
+LDkyMzY2MDA5LC0xMjE3NjQyMjMxLC0xMDI3OTgwNzc0LDYwMD
+M0MTIwNiwtMzA2NzY1MTAsMjcyMzQ5NTk4LC0zMDY3NjUxMCwy
+NzIzNDk1OTgsLTMwNjc2NTEwLDI3MjM0OTU5OCwtMzA2NzY1MT
+AsMjcyMzQ5NTk4LC0zNDkzODI1MjAsLTY1NTQ3NTE1OCwtMjkx
+MzkxNDc4LC0xMjQ2NTg1NTI2LDExNzYwMjU5OTAsLTEyNDY1OD
+U1MjYsMTE3NjAyNTk5MCwtMTI0NjU4NTUyNiwxMTc2MDI1OTkw
+LC0xMjQ2NTg1NTI2LC0xOTk5NDc1OTcsLTExMTA1NjUzNjUsMT
+ExNDMyNjcyNywtMTMyODU3MjUxMywxNTU2NzU1MDkzLC01NTY0
+NjI3NjcsMTc3OTAzOTM0MSwtMTE3OTU5OTYzOCw1MjM0MjczNj
+YsLTExNzk1OTk2MzgsMTQ0NDcxMjcyNCwtMTUwNDAzMzkzMCwx
+MTI5NDA1MzI3LDE5MDg3NDkzMjksNjM3MDQ1OTcxLDE5MDg3ND
+kzMjksLTQ1ODUxMDQ3MywyMDkyOTU2NjM1LDExOTg3NzE4Njks
+LTExODUwODEwOCwxNDkyODY2Njc4LC0xMTg1MDgxMDgsMTQ5Mj
+g2NjY3OCwtMTk2MzIxNDczOSwtOTc3MDQ5NTY2LDgyMTA3NTAw
+Myw4Nzg2MDcwMzcsOTgwNzA1ODE5LDk2NTMxMTQ3MSwtMTM1ND
+ExMDgxOSwtNTEwODU2OTA5LC04OTc2NjkzNSwxNjQ2MTE5Mjcw
+LC0yMDc5MDU3NjI4LDE4ODA2NDM2NjIsODU4Nzk2MDQ0LC0xMz
+U1NzU0OTU3LDI1ODQxODIyOSwtMTM1NTc1NDk1NywxNDA2MzY0
+NzI1LDIwMTU1NTY5ODMsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLD
+I5MDEzODc2MCwxMjA0MTM1MTE0LDI5MDEzODc2MCwxMjA0MTM1
+MTE0LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OCwtMjE5MjQ5NzYyLD
+E2MzM4NTk0ODgsLTEwMDA5Njc0NzEsLTIxNDY1MTkxMjMsLTk0
+NDk2NDgxMiwxNDg1OTQxNTk3LDE3NjIwNjg0NjJdfQ==
 -->
