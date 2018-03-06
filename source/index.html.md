@@ -394,7 +394,7 @@ Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |Informati
 E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
 NRN | not supported| 
 
-> Example of Claims request parameter adapt to itsme(r) data
+> Example of Claims request parameter adapted to itsme(r) data
 
 ```json--inline
 {
@@ -766,6 +766,6 @@ Parameter | Requested Claim Key Name | Claim Value Type
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTUzNTUzMjcsLTcyNjQ4NDg0NiwtOT
-YxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbLTQzNTc2Njg0NiwtNzI2NDg0ODQ2LC05Nj
+EyMjcwMzJdfQ==
 -->
