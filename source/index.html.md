@@ -213,9 +213,11 @@ Error | Description
 `registration_not_supported` | does not support use of the registration parameter.
 
 ### App to App authentication
+When the user
+
 Instead of going through the BMID web page where the end user has to enter his phone number, it is possible to trigger the itsme App directly by sending the Authorization Request to a specific endpoint.
 
-Doing so, the itsme App will open itself automatically provided that
+Doing so, the itsme App will open itself automatically 
 **itsme(r)** Mobile App endpoint : TODO
 
 ## 2. Token Request
@@ -477,20 +479,20 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjIxMTAyODMzLDIxNDQxMjQzNDEsMTc3OT
-AzOTM0MSwtMTE3OTU5OTYzOCw1MjM0MjczNjYsLTExNzk1OTk2
-MzgsMTQ0NDcxMjcyNCwtMTUwNDAzMzkzMCwxMTI5NDA1MzI3LD
-E5MDg3NDkzMjksNjM3MDQ1OTcxLDE5MDg3NDkzMjksLTQ1ODUx
-MDQ3MywyMDkyOTU2NjM1LDExOTg3NzE4NjksLTExODUwODEwOC
-wxNDkyODY2Njc4LC0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMTk2
-MzIxNDczOSwtOTc3MDQ5NTY2LDgyMTA3NTAwMyw4Nzg2MDcwMz
-csOTgwNzA1ODE5LDk2NTMxMTQ3MSwtMTM1NDExMDgxOSwtNTEw
-ODU2OTA5LC04OTc2NjkzNSwxNjQ2MTE5MjcwLC0yMDc5MDU3Nj
-I4LDE4ODA2NDM2NjIsODU4Nzk2MDQ0LC0xMzU1NzU0OTU3LDI1
-ODQxODIyOSwtMTM1NTc1NDk1NywxNDA2MzY0NzI1LDIwMTU1NT
-Y5ODMsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDI5MDEzODc2MCwx
-MjA0MTM1MTE0LDI5MDEzODc2MCwxMjA0MTM1MTE0LC0yMTkyND
-k3NjIsMTYzMzg1OTQ4OCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgs
-LTEwMDA5Njc0NzEsLTIxNDY1MTkxMjMsLTk0NDk2NDgxMiwxND
-g1OTQxNTk3LDE3NjIwNjg0NjJdfQ==
+eyJoaXN0b3J5IjpbODg5MzY5NzEsNjIxMTAyODMzLDE3NzkwMz
+kzNDEsLTExNzk1OTk2MzgsNTIzNDI3MzY2LC0xMTc5NTk5NjM4
+LDE0NDQ3MTI3MjQsLTE1MDQwMzM5MzAsMTEyOTQwNTMyNywxOT
+A4NzQ5MzI5LDYzNzA0NTk3MSwxOTA4NzQ5MzI5LC00NTg1MTA0
+NzMsMjA5Mjk1NjYzNSwxMTk4NzcxODY5LC0xMTg1MDgxMDgsMT
+Q5Mjg2NjY3OCwtMTE4NTA4MTA4LDE0OTI4NjY2NzgsLTE5NjMy
+MTQ3MzksLTk3NzA0OTU2Niw4MjEwNzUwMDMsODc4NjA3MDM3LD
+k4MDcwNTgxOSw5NjUzMTE0NzEsLTEzNTQxMTA4MTksLTUxMDg1
+NjkwOSwtODk3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1NzYyOC
+wxODgwNjQzNjYyLDg1ODc5NjA0NCwtMTM1NTc1NDk1NywyNTg0
+MTgyMjksLTEzNTU3NTQ5NTcsMTQwNjM2NDcyNSwyMDE1NTU2OT
+gzLDE0MDYzNjQ3MjUsMjAxNTU1Njk4MywyOTAxMzg3NjAsMTIw
+NDEzNTExNCwyOTAxMzg3NjAsMTIwNDEzNTExNCwtMjE5MjQ5Nz
+YyLDE2MzM4NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC0x
+MDAwOTY3NDcxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MTIsMTQ4NT
+k0MTU5NywxNzYyMDY4NDYyXX0=
 -->
