@@ -221,7 +221,7 @@ BMID follows the recommendations of the [OAuth Working Group](https://tools.ietf
 
 Universal Links are available on iOS since version 9.0, and the itsme App itself is only available on iOS >= 9.0.
 
-If you trigger the itsme App from your own App, you MUST make sure there is a Universal Link associated with your iOS App. Please consult the Apple d. It MUST be specified to BMID during the onboarding process.
+If you trigger the itsme App from your own App, you MUST make sure there is a Universal Link associated with your iOS App. Please consult the Apple documentation . It MUST be specified to BMID during the onboarding process.
 
 #### Requirements for Android apps
 As for iOS, we exclusively use App Links to communicate with itsme. App Links offer guarantees that the legitimate App is launched immediately without asking the user to choose among a list of available apps.
@@ -491,7 +491,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzk4MTE0MzAzLC03OTM0MTcyMTgsLTE5OT
+eyJoaXN0b3J5IjpbODY1MjYyMTc1LC03OTM0MTcyMTgsLTE5OT
 k0NzU5NywtMTExMDU2NTM2NSwxMTE0MzI2NzI3LC0xMzI4NTcy
 NTEzLDE1NTY3NTUwOTMsLTU1NjQ2Mjc2NywxNzc5MDM5MzQxLC
 0xMTc5NTk5NjM4LDUyMzQyNzM2NiwtMTE3OTU5OTYzOCwxNDQ0
