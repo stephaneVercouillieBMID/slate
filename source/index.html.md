@@ -534,38 +534,47 @@ It is expected that the RP will also expose their signing and encryption keys in
 5.	Each form parameter that is eligible to be present in the request object MUST also be encoded in the request object itself (because signed and encrypted).
 6.	Only service codes corresponding to a pre-registered “Approval” kind of service MUST be used in the ‘service’ scope parameter. Be sure this service was already created in the system during partner onboarding. 
 7.	The “prompt” parameter can be “login” and/or “consent”.
+Differences in the Token End Point (“/oidc/token”)
+
+1.	The Token end point MUST ALWAYS be called to validate that the authorization code received from the browser is a valid one and corresponds effectively to the approval transaction initiated by the SP.
+2.	Then, the received IDToken MUST ALWAYS be validated by the SP as follow:
+a.	Correctly unencrypted using the SP private key.
+b.	The signature is effectively the one of the Itsme OP.
+c.	The possibly embedded “nonce” value is the same as the one existing in the authorization request (if specified by the SP).
+d.	If the user is already logged in the SP and, it is required that it is this user that validated the transaction, then the user identifier (sub value) must match the one of the currently logged user in the SP.
+
 
 
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM3NTkwOTg4OCwtNzQ4MjM2NzQwLC0xMj
-Q2NTUwMTYyLC0xNDA2MzMyNjIyLC0xMjQ2NTUwMTYyLDE5NzU5
-NjM3NDYsMTY3NTI5ODIxNCwxMzY4MDg3NjIwLDcwMzU5NDI0MC
-wxMzY4MDg3NjIwLDcwMzU5NDI0MCwxMzY4MDg3NjIwLDE0NDk2
-MDYzNDAsLTIwMjk4ODAyMzEsOTk0OTQwMzA5LDE3MjYxNzEzOD
-EsOTIzNjYwMDksMTcyNjE3MTM4MSw5MjM2NjAwOSwtMTIxNzY0
-MjIzMSwtMTAyNzk4MDc3NCw2MDAzNDEyMDYsLTMwNjc2NTEwLD
-I3MjM0OTU5OCwtMzA2NzY1MTAsMjcyMzQ5NTk4LC0zMDY3NjUx
-MCwyNzIzNDk1OTgsLTMwNjc2NTEwLDI3MjM0OTU5OCwtMzQ5Mz
-gyNTIwLC02NTU0NzUxNTgsLTI5MTM5MTQ3OCwtMTI0NjU4NTUy
-NiwxMTc2MDI1OTkwLC0xMjQ2NTg1NTI2LDExNzYwMjU5OTAsLT
-EyNDY1ODU1MjYsMTE3NjAyNTk5MCwtMTI0NjU4NTUyNiwtMTk5
-OTQ3NTk3LC0xMTEwNTY1MzY1LDExMTQzMjY3MjcsLTEzMjg1Nz
-I1MTMsMTU1Njc1NTA5MywtNTU2NDYyNzY3LDE3NzkwMzkzNDEs
-LTExNzk1OTk2MzgsNTIzNDI3MzY2LC0xMTc5NTk5NjM4LDE0ND
-Q3MTI3MjQsLTE1MDQwMzM5MzAsMTEyOTQwNTMyNywxOTA4NzQ5
-MzI5LDYzNzA0NTk3MSwxOTA4NzQ5MzI5LC00NTg1MTA0NzMsMj
-A5Mjk1NjYzNSwxMTk4NzcxODY5LC0xMTg1MDgxMDgsMTQ5Mjg2
-NjY3OCwtMTE4NTA4MTA4LDE0OTI4NjY2NzgsLTE5NjMyMTQ3Mz
-ksLTk3NzA0OTU2Niw4MjEwNzUwMDMsODc4NjA3MDM3LDk4MDcw
-NTgxOSw5NjUzMTE0NzEsLTEzNTQxMTA4MTksLTUxMDg1NjkwOS
-wtODk3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1NzYyOCwxODgw
-NjQzNjYyLDg1ODc5NjA0NCwtMTM1NTc1NDk1NywyNTg0MTgyMj
-ksLTEzNTU3NTQ5NTcsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDE0
-MDYzNjQ3MjUsMjAxNTU1Njk4MywyOTAxMzg3NjAsMTIwNDEzNT
-ExNCwyOTAxMzg3NjAsMTIwNDEzNTExNCwtMjE5MjQ5NzYyLDE2
-MzM4NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC0xMDAwOT
-Y3NDcxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MTIsMTQ4NTk0MTU5
-NywxNzYyMDY4NDYyXX0=
+eyJoaXN0b3J5IjpbNDk1MDMyMjgzLDEzNzU5MDk4ODgsLTEyND
+Y1NTAxNjIsLTE0MDYzMzI2MjIsLTEyNDY1NTAxNjIsMTk3NTk2
+Mzc0NiwxNjc1Mjk4MjE0LDEzNjgwODc2MjAsNzAzNTk0MjQwLD
+EzNjgwODc2MjAsNzAzNTk0MjQwLDEzNjgwODc2MjAsMTQ0OTYw
+NjM0MCwtMjAyOTg4MDIzMSw5OTQ5NDAzMDksMTcyNjE3MTM4MS
+w5MjM2NjAwOSwxNzI2MTcxMzgxLDkyMzY2MDA5LC0xMjE3NjQy
+MjMxLC0xMDI3OTgwNzc0LDYwMDM0MTIwNiwtMzA2NzY1MTAsMj
+cyMzQ5NTk4LC0zMDY3NjUxMCwyNzIzNDk1OTgsLTMwNjc2NTEw
+LDI3MjM0OTU5OCwtMzA2NzY1MTAsMjcyMzQ5NTk4LC0zNDkzOD
+I1MjAsLTY1NTQ3NTE1OCwtMjkxMzkxNDc4LC0xMjQ2NTg1NTI2
+LDExNzYwMjU5OTAsLTEyNDY1ODU1MjYsMTE3NjAyNTk5MCwtMT
+I0NjU4NTUyNiwxMTc2MDI1OTkwLC0xMjQ2NTg1NTI2LC0xOTk5
+NDc1OTcsLTExMTA1NjUzNjUsMTExNDMyNjcyNywtMTMyODU3Mj
+UxMywxNTU2NzU1MDkzLC01NTY0NjI3NjcsMTc3OTAzOTM0MSwt
+MTE3OTU5OTYzOCw1MjM0MjczNjYsLTExNzk1OTk2MzgsMTQ0ND
+cxMjcyNCwtMTUwNDAzMzkzMCwxMTI5NDA1MzI3LDE5MDg3NDkz
+MjksNjM3MDQ1OTcxLDE5MDg3NDkzMjksLTQ1ODUxMDQ3MywyMD
+kyOTU2NjM1LDExOTg3NzE4NjksLTExODUwODEwOCwxNDkyODY2
+Njc4LC0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMTk2MzIxNDczOS
+wtOTc3MDQ5NTY2LDgyMTA3NTAwMyw4Nzg2MDcwMzcsOTgwNzA1
+ODE5LDk2NTMxMTQ3MSwtMTM1NDExMDgxOSwtNTEwODU2OTA5LC
+04OTc2NjkzNSwxNjQ2MTE5MjcwLC0yMDc5MDU3NjI4LDE4ODA2
+NDM2NjIsODU4Nzk2MDQ0LC0xMzU1NzU0OTU3LDI1ODQxODIyOS
+wtMTM1NTc1NDk1NywxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMTQw
+NjM2NDcyNSwyMDE1NTU2OTgzLDI5MDEzODc2MCwxMjA0MTM1MT
+E0LDI5MDEzODc2MCwxMjA0MTM1MTE0LC0yMTkyNDk3NjIsMTYz
+Mzg1OTQ4OCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgsLTEwMDA5Nj
+c0NzEsLTIxNDY1MTkxMjMsLTk0NDk2NDgxMiwxNDg1OTQxNTk3
+LDE3NjIwNjg0NjJdfQ==
 -->
