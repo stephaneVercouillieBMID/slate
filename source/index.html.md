@@ -215,6 +215,7 @@ Error | Description
 ### App to App authentication
 The itsme App itself also leverages the OpenID Connect authentication flow to allow native apps to perform the authentication easily and safely.
 By using this flow, the end user will be automatically redirected from your App (or your web page in the mobile browser) to the itsme App. After authenticating himself (or rejecting the authentication), he will be redirected back to your App.
+
 This authentication flow is referred as "App to App" flow when occurring from your App to the itsme App, or "Web mobile to App" flow when occurring from the mobile browser to the itsme App. When the context is not ambiguous, we also use "App to App" denomination to designate both flows.
 
 The technology used for this flow is the [Universal Links](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) (iOS)/[App Links](https://developer.android.com/training/app-links/index.html) (Android).
@@ -237,7 +238,7 @@ BMID exclusively uses Universal/App Links for all communications between your Ap
 If you trigger the itsme App from your own App, you MUST make sure there is a Universal/App Link associated with your App. Please consult the  documentation about [Universal](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html)/[App](https://developer.android.com/training/app-links/index.html) for this. This Universal/App Link MUST be specified to BMID during the onboarding process.
 
 #### Authorization Request specifications
-In case of App to App authentication
+In case of App to App and Web mobile to App authentication, the Authorization Request MUST follow the 
 
 
 ## 2. Token Request
@@ -497,7 +498,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyNzE2OTI0NiwtMTAyNzk4MDc3NCwtMT
+eyJoaXN0b3J5IjpbLTIzMTU5NzI5OSwtMTAyNzk4MDc3NCwtMT
 AyNzk4MDc3NCw2MDAzNDEyMDYsLTMwNjc2NTEwLDI3MjM0OTU5
 OCwtMzA2NzY1MTAsMjcyMzQ5NTk4LC0zMDY3NjUxMCwyNzIzND
 k1OTgsLTMwNjc2NTEwLDI3MjM0OTU5OCwtMzQ5MzgyNTIwLC02
