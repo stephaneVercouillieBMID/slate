@@ -227,13 +227,16 @@ Universal Links are available on iOS since version 9.0, and the itsme App itself
 
 App Links are available on Android since version 6.0. The itsme App is available on Android 4.2 or greater, and supports OpenID Connect authentication only on Android version 6.0 or greater. Please note that calling `https://mobileapp.sixdots.be/mobile/authorize` on Android versions between 4.2 and 6.0 will lead to sub-optimal user experience or even a non-functional flow, depending on the OS and the actions of the end user.
 
-#### Registering 
+#### Registering Universal/App Links
 
 As per recommendations of [OAuth Working Group about the authentication process in native apps](https://tools.ietf.org/html/draft-ietf-oauth-native-apps-12). 
 
 BMID exclusively uses Universal/App Links for all communications between your App and itsme. Among other advantages, this mechanism guarantees that the right app is launched and thus improves the security.
 
 If you trigger the itsme App from your own App, you MUST make sure there is a Universal/App Link associated with your App. Please consult the  documentation about [Universal](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html)/[App](https://developer.android.com/training/app-links/index.html) for this. This Universal/App Link MUST be specified to BMID during the onboarding process.
+
+#### Authorization Request specifications
+The 
 
 
 ## 2. Token Request
@@ -493,7 +496,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjMxOTQ5NzUsLTEwMjc5ODA3NzQsLT
+eyJoaXN0b3J5IjpbLTEyMjg1MDI1NjAsLTEwMjc5ODA3NzQsLT
 EwMjc5ODA3NzQsNjAwMzQxMjA2LC0zMDY3NjUxMCwyNzIzNDk1
 OTgsLTMwNjc2NTEwLDI3MjM0OTU5OCwtMzA2NzY1MTAsMjcyMz
 Q5NTk4LC0zMDY3NjUxMCwyNzIzNDk1OTgsLTM0OTM4MjUyMCwt
