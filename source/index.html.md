@@ -254,7 +254,7 @@ Parameter | Required | Comment
 **max_age** | Optional | Supported but not used: **itsme(r)** will always actively re-authenticate the End-User. 
 **acr_values** | Optional | OPTIONAL and supported, though not recommended. Possible values are tag:itsmetag:sixdots.be,2016-06:acr_basic, tag:itsmetag:sixdots.be,2016-06:acr_advanced. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the `acr_values` is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the `acr_values` list, or the authentication will fail. Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token/
 **claims** | Optional | Not recommended. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
-**request** | ***Required*** | See [Passing Request Parameters as JWTs](#JWTRequest). ***The *** 
+**request** | ***Required*** | See [Passing Request Parameters as JWTs](#JWTRequest). ***This parameter MUST be signed then encrypted.*** 
 **response_mode** | Unsupported | Ignored if provided.
 **id\_token\_hint** | Unsupported | Ignored if provided.
 **claims_locales** | Unsupported | None are supported.
@@ -537,7 +537,7 @@ Differences in the Authentication End Point (“oidc/authorization”)
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTYxNDc0ODYsLTEwMzA1NDE0OCwtMT
+eyJoaXN0b3J5IjpbMTA3MjE3NzkwNywtMTYxNjE0NzQ4NiwtMT
 I0NjU1MDE2MiwtMTQwNjMzMjYyMiwtMTI0NjU1MDE2MiwxOTc1
 OTYzNzQ2LDE2NzUyOTgyMTQsMTM2ODA4NzYyMCw3MDM1OTQyND
 AsMTM2ODA4NzYyMCw3MDM1OTQyNDAsMTM2ODA4NzYyMCwxNDQ5
