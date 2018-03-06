@@ -746,11 +746,15 @@ Approval template name: `“adv_payment“`
 As expected, the goal of this template is to request an (“advanced”) payment.
 
 Expected parameters:
-Parameter |               Requested Claim Key Name|             Claim Value Type
+Parameter | Requested Claim Key Name| Claim Value Type
 -- | -- | --
-**Amount** tag:sixdots.be,2016-08:claim\_approval\_amount_key 
+
+**access_token** | Always | A token that can be sent to the UserInfo endpoint to retrieve additional information about the user.
+**token_type** | Always | Will be `Bearer`
+**id_token** | Always | The JWT `id_token` corresponding to the Authentication Request (signed and  encrypted). 
+**at_hash** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxMjAzMTY1OSwxMjkyNDIyNTEzLC0zMz
+eyJoaXN0b3J5IjpbLTYyNDI0NDQ5OSwtMzEyMDMxNjU5LC0zMz
 UzMTU0MDIsMTA0MDg4NDQ2MCw1MTczMzI0MywtMTI0NjU1MDE2
 MiwtMTQwNjMzMjYyMiwtMTI0NjU1MDE2MiwxOTc1OTYzNzQ2LD
 E2NzUyOTgyMTQsMTM2ODA4NzYyMCw3MDM1OTQyNDAsMTM2ODA4
