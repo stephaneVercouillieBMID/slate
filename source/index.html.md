@@ -219,7 +219,7 @@ By using this, the end user will be automatically redirected from your App (or y
 #### Requirements for iOS apps
 BMID follows the recommendations of the [OAuth Working Group](https://tools.ietf.org/html/draft-ietf-oauth-native-apps-12) about the authentication process in native apps. We thus exclusively use Universal Links for all communications between the your App and itsme. This mechanism guarantees that the right app is lanched and thus improves the security.
 
-Universal Links are available on iOS since version 9.0. The itsme App only supports OpenID Connect authentication on iOS 9.0 or greater.
+Universal Links are available on iOS since version 9.0, and the itsme App itself is only available on iOS >= 9.0.
 
 A Universal Link associated with the iOS Service Provider App is required and must be specified to Belgian Mobile ID during the on-boarding process.
 
@@ -484,7 +484,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTA1NjUzNjUsMTExNDMyNjcyNywtMT
+eyJoaXN0b3J5IjpbLTE5OTk0NzU5NywtMTExMDU2NTM2NSwtMT
 ExMDU2NTM2NSwxMTE0MzI2NzI3LC0xMzI4NTcyNTEzLDE1NTY3
 NTUwOTMsLTU1NjQ2Mjc2NywxNzc5MDM5MzQxLC0xMTc5NTk5Nj
 M4LDUyMzQyNzM2NiwtMTE3OTU5OTYzOCwxNDQ0NzEyNzI0LC0x
