@@ -366,7 +366,7 @@ E-ID Info  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** | Belgian Electroni
 Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | Simple string containing the user’s Passport Serial Number.
 Device | **`tag:sixdots.be,2017-05:claim_device`** | see [Device information](#device-information)
 Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |Information available in the context of the current transaction.<br> A JSON object with the following keys:<br> (only keys with cardinality \\\[1..1\\\] will be always available)<br> **“securityLevel” \\\[1..1\\\]**: (supported values: <br>{SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) Security level used during transaction. <br>**“bindLevel” \\\[1..1\\\]**: (supported values: {SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. <br>**“mcc” \\\[0..1\\\]**: the Mobile Country Code. An Integer (three digits) representing the mobile network country. <br>For example: { "securityLevel": "SIM\\\_AND\\\_SOFT", "bindLevel": "SIM\\\_AND\\\_SOFT", "mcc": 206 }
-E-ID Picture | **`tag:sixdots.be,2017-05:claim_photo| TODO
+E-ID Picture | **`tag:sixdots.be,2017-05:claim_passport_sn`**| TODO
 NRN | TODO | TODO
 
 > Example of Claims request parameter TODO adapt to itsme(r) data
@@ -498,7 +498,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkzMzU3MTI1LDcwMzU5NDI0MCwxMzY4MD
+eyJoaXN0b3J5IjpbNTI3MjEyODM1LDcwMzU5NDI0MCwxMzY4MD
 g3NjIwLDcwMzU5NDI0MCwxMzY4MDg3NjIwLDcwMzU5NDI0MCwx
 MzY4MDg3NjIwLDE0NDk2MDYzNDAsLTIwMjk4ODAyMzEsOTk0OT
 QwMzA5LDE3MjYxNzEzODEsOTIzNjYwMDksMTcyNjE3MTM4MSw5
