@@ -647,7 +647,7 @@ state=A\_VALID\_STATE
 _Please note that the “request” parameter is represented as a regular JSON formatted object for clarity only. Because it must be correctly encoded, signed and then encrypted as explained in the official OIDC specification._
  Sample OIDC approval authorization request using the “phone_number” identifier
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzMzkwNjAyOSwtMTY5NDcwMjgzMywxMD
+eyJoaXN0b3J5IjpbLTExMzMyOTg4NTcsLTUzMzkwNjAyOSwxMD
 QwODg0NDYwLDUxNzMzMjQzLC0xMjQ2NTUwMTYyLC0xNDA2MzMy
 NjIyLC0xMjQ2NTUwMTYyLDE5NzU5NjM3NDYsMTY3NTI5ODIxNC
 wxMzY4MDg3NjIwLDcwMzU5NDI0MCwxMzY4MDg3NjIwLDcwMzU5
