@@ -217,14 +217,14 @@ The itsme App itself also leverages the OpenID Connect authentication flow to al
 By using this, the end user will be automatically redirected from your App (or your web page in the mobile browser) to the itsme App. After authenticating himself (or rejecting the authentication), he will be redirected back to your App.
 
 #### Requirements for iOS apps
-BMID follows the recommendations of the [OAuth Working Group](https://tools.ietf.org/html/draft-ietf-oauth-native-apps-12) about the authentication process in native apps. We thus exclusively use Universal Links for all communications between the your App and itsme. This mechanism guarantees that the right app is lanched and thus improves the security.
+BMID follows the recommendations of the [OAuth Working Group](https://tools.ietf.org/html/draft-ietf-oauth-native-apps-12) about the authentication process in native apps. We thus exclusively use Universal Links for all communications between your App and itsme. This mechanism guarantees that the right app is lanched and thus improves the security.
 
 Universal Links are available on iOS since version 9.0, and the itsme App itself is only available on iOS >= 9.0.
 
 If you trigger the itsme App from your own App, you MUST make sure there is a Universal Link associated with your iOS App. Please consult the [Apple documentation about Universal Links](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) for this. It MUST be specified to BMID during the onboarding process.
 
 #### Requirements for Android apps
-As for iOS, we exclusively use App Links to communicate with itsme. App Links offer guarantees that the legitimate App is launched immediately without asking the user to choose among a list of available apps.
+As for iOS, BMID exclusively use App Links to communicate with itsme. App Links offer guarantees that the legitimate App is launched immediately without asking the user to choose among a list of available apps.
 
 App Links are available on Android since version 6.0. Thereby, itsme supports OpenID Connect authentication only on Android version 6.0 or greater.
 
@@ -491,7 +491,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2NjU2MzM2MywtMTczNDg2NDQ4NSwtMT
+eyJoaXN0b3J5IjpbMTUyNzE4OTY4NiwtMTczNDg2NDQ4NSwtMT
 k5OTQ3NTk3LC0xMTEwNTY1MzY1LDExMTQzMjY3MjcsLTEzMjg1
 NzI1MTMsMTU1Njc1NTA5MywtNTU2NDYyNzY3LDE3NzkwMzkzND
 EsLTExNzk1OTk2MzgsNTIzNDI3MzY2LC0xMTc5NTk5NjM4LDE0
