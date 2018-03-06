@@ -216,7 +216,7 @@ Error | Description
 The itsme App itself also leverages the OpenID Connect authentication flow to allow native apps to perform the authentication easily and safely.
 By using this flow, the end user will be automatically redirected from your App (or your web page in the mobile browser) to the itsme App. After authenticating himself (or rejecting the authentication), he will be redirected back to your App.
 
-This authentication flow is referred as "App to App" flow when occurring from your App to the itsme App, or "Web mobile to App" flow when occurring from the mobile browser to the itsme App. When the context is not ambiguous, we also use "App to App" denomination to designate both flows.
+This authentication flow is referred as "App to App" flow when occurring from your App to the itsme App, or "Web mobile to App" flow when occurring from the mobile browser to the itsme App. When the context is not ambiguous, we also use "App to App" denomination to designate both flows. We designate by "Web Desktop" the flow where the itsme App is not triggered manually by the end user.
 
 The technology used for this flow is the [Universal Links](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) (iOS)/[App Links](https://developer.android.com/training/app-links/index.html) (Android).
 
@@ -236,7 +236,7 @@ BMID exclusively uses Universal/App Links for all communications between your Ap
 If you trigger the itsme App from your own App, you MUST make sure there is a Universal/App Link associated with your App. Please consult the  documentation about [Universal](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html)/[App](https://developer.android.com/training/app-links/index.html) for this. This Universal/App Link MUST be specified to BMID during the onboarding process.
 
 #### Authorization Request specifications
-Authorization Requests in the context of App to App and Web mobile to App flow are subject to more strict specifications as Authorization Requests submitted to the  Web (desktop) Authorization endpoint.
+Authorization Requests in the context of App to App and Web mobile to App flow are subject to more strict specifications as Authorization Requests in  the  Web Desktop Authorization endpoint.
 
 For a basic request, specify the following parameters:
 Parameter | Required | Comment
@@ -521,7 +521,7 @@ It is expected that the RP will also expose their signing and encryption keys in
 ## 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NjQ4MTc2NzQsMTc4MTQ1MjM1MiwtMT
+eyJoaXN0b3J5IjpbLTE1OTQ3ODI0MDQsMTc4MTQ1MjM1MiwtMT
 I0NjU1MDE2MiwtMTQwNjMzMjYyMiwtMTI0NjU1MDE2MiwxOTc1
 OTYzNzQ2LDE2NzUyOTgyMTQsMTM2ODA4NzYyMCw3MDM1OTQyND
 AsMTM2ODA4NzYyMCw3MDM1OTQyNDAsMTM2ODA4NzYyMCwxNDQ5
