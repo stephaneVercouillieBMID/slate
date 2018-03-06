@@ -566,13 +566,92 @@ _(*) Valid if the request was emitted by an active partner using one of his acti
 #### Sample OIDC approval authorization request using the “sub” identifier
 The value `THE_END_USER_ALREADY_KNOWN_USER_CODE`” must be replaced with a valid user code. This code is the identifier shared between the itsme OP and the SP to represent the end user. This identifier can be obtained after a successful OIDC login.
 
+```http--inline
 
+POST /oidc/authorization
+
+response_type=code
+
+client\_id=MY\_PARTNER_CODE
+
+scope=openid service:MY\_APPROVAL\_SERVICE_CODE
+
+redirect\_uri=https:\\/\\/service-provider.be\\/my\_call\_back\_url  
+nonce=A\_VALID\_NONCE  
+state=A\_VALID\_STATE  
+**request**={
+
+"response_type":"code",
+
+"client\_id":"MY\_PARTNER_CODE",
+
+"redirect\_uri":" https:\\/\\/service-provider.be\\/my\_call\_back\_url",
+
+"aud":"https:\\/\\/merchant.itsme.be\\/oidc",
+
+"scope":"openid service: MY\_APPROVAL\_SERVICE_CODE",
+
+"acr\_values":"tag:sixdots.be,2016-06:acr\_advanced",
+
+"iss":"MY\_PARTNER\_CODE",
+
+"nonce":"A\_VALID\_NONCE",
+
+"state":"A\_VALID\_STATE",
+
+"**claims**":{
+
+"**userinfo**":{
+
+"**sub**":{
+
+"value":"**THE\_END\_USER\_ALREADY\_KNOWN\_USER\_CODE**"
+
+},
+
+"tag:sixdots.be,2016-08:claim\_approval\_template_name":{
+
+"value":"adv_payment",
+
+"essential":true
+
+},
+
+"tag:sixdots.be,2016-08:claim\_approval\_amount_key":{
+
+"value":"100",
+
+"essential":true
+
+},
+
+"tag:sixdots.be,2016-08:claim\_approval\_currency_key":{
+
+"value":"EUR",
+
+"essential":true
+
+},
+
+"tag:sixdots.be,2016-08:claim\_approval\_iban_key":{
+
+"value":"BE00793774892029",
+
+"essential":true
+
+}
+
+}
+
+}
+
+}
 
 
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MDM2NDI0MDQsODM5NTc0ODE2LDEwND
+eyJoaXN0b3J5IjpbMjI4OTE5NTUxLC0xODAzNjQyNDA0LDEwND
 A4ODQ0NjAsNTE3MzMyNDMsLTEyNDY1NTAxNjIsLTE0MDYzMzI2
 MjIsLTEyNDY1NTAxNjIsMTk3NTk2Mzc0NiwxNjc1Mjk4MjE0LD
 EzNjgwODc2MjAsNzAzNTk0MjQwLDEzNjgwODc2MjAsNzAzNTk0
