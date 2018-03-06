@@ -439,7 +439,9 @@ The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.or
 Property | Required | Comment
 -- | -- | --
 **iss** | Required | Issuer. Must be the `client_id`
-**aud** | Required | Audience. 
+**aud** | Required | Audience.<br>https://merchant.itsme.be/oidc/token<br>
+https://e2emerchant.itsme.be/oidc/token<br>
+https://uatmerchant.sixdots.be/oidc/token 
 
 > Example of claim request before base64url encoding, signing and encryption. In this example, the partners is using the login service. The end user email and nationality will be returned by the UserInfo endpoint.
 
@@ -498,7 +500,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyOTMwNzMxMiw3MDM1OTQyNDAsMTM2OD
+eyJoaXN0b3J5IjpbLTUzOTE0NDM0NCw3MDM1OTQyNDAsMTM2OD
 A4NzYyMCw3MDM1OTQyNDAsMTM2ODA4NzYyMCw3MDM1OTQyNDAs
 MTM2ODA4NzYyMCwxNDQ5NjA2MzQwLC0yMDI5ODgwMjMxLDk5ND
 k0MDMwOSwxNzI2MTcxMzgxLDkyMzY2MDA5LDE3MjYxNzEzODEs
