@@ -142,7 +142,7 @@ The Authorization Code Flow goes through the following steps as defined in  [htt
 ## 1. Authentication Request
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
 
-The first step is forming an HTTPS request with the appropriate URI parameters. Please nNote the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**.
+The first step is forming an HTTPS request with the appropriate URI parameters. Please nNote the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
 
 **itsme(r)** supports the use of the HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters must be serialized using [Form Serialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization).
 
@@ -222,7 +222,7 @@ The technology used for this flow is the [Universal Links](https://developer.app
 
 In case the itsme App is not present on the device, the end user will be redirected to a web page in the mobile browser, as per [Universal Links](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) and [App Links](https://developer.android.com/training/app-links/index.html) specifications. Currently, this web page redirects the end user to the OpenID web page of BMID, where he will be able to enter his phone number and continue the authentication flow.
 
-In order to trigger this flow, you MUST send the Authorization Request to the following authorization endpoint: `https://mobileapp.sixdots.be/mobile/authorize`
+In order to trigger this flow, you MUST send the Authorization Request to the following authorization endpoint: `https://mobileapp.sixdots.be/mobile/authorize`. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`.
 
 #### Pre-requisites
 Universal Links are available on iOS since version 9.0, and the itsme App itself is only available on iOS 9.0 or greater.
@@ -238,7 +238,7 @@ BMID exclusively uses Universal/App Links for all communications between your Ap
 If you trigger the itsme App from your own App, you MUST make sure there is a Universal/App Link associated with your App. Please consult the  documentation about [Universal](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html)/[App](https://developer.android.com/training/app-links/index.html) for this. This Universal/App Link MUST be specified to BMID during the onboarding process.
 
 #### Authorization Request specifications
-Authorization Requests submitted to `https://mobileapp.sixdots.be/mobile/authorize` are subject to more strict specifications as Authorization Requests submitted to  In case of App to App and Web mobile to App authentication, BMID implements more strict specifications on the Authorization Request as in the .
+Authorization Requests submitted to the mobile endpoint `https://mobileapp.sixdots.be/mobile/authorize` are subject to more strict specifications as Authorization Requests submitted to   In case of App to App and Web mobile to App authentication, BMID implements more strict specifications on the Authorization Request as in the .
 
 
 ## 2. Token Request
@@ -498,28 +498,28 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjcxNzIxODgwLC0xNjY4OTg2NTQwLC0xMj
-E3NjQyMjMxLC0xMDI3OTgwNzc0LDYwMDM0MTIwNiwtMzA2NzY1
-MTAsMjcyMzQ5NTk4LC0zMDY3NjUxMCwyNzIzNDk1OTgsLTMwNj
-c2NTEwLDI3MjM0OTU5OCwtMzA2NzY1MTAsMjcyMzQ5NTk4LC0z
-NDkzODI1MjAsLTY1NTQ3NTE1OCwtMjkxMzkxNDc4LC0xMjQ2NT
-g1NTI2LDExNzYwMjU5OTAsLTEyNDY1ODU1MjYsMTE3NjAyNTk5
-MCwtMTI0NjU4NTUyNiwxMTc2MDI1OTkwLC0xMjQ2NTg1NTI2LC
-0xOTk5NDc1OTcsLTExMTA1NjUzNjUsMTExNDMyNjcyNywtMTMy
-ODU3MjUxMywxNTU2NzU1MDkzLC01NTY0NjI3NjcsMTc3OTAzOT
-M0MSwtMTE3OTU5OTYzOCw1MjM0MjczNjYsLTExNzk1OTk2Mzgs
-MTQ0NDcxMjcyNCwtMTUwNDAzMzkzMCwxMTI5NDA1MzI3LDE5MD
-g3NDkzMjksNjM3MDQ1OTcxLDE5MDg3NDkzMjksLTQ1ODUxMDQ3
-MywyMDkyOTU2NjM1LDExOTg3NzE4NjksLTExODUwODEwOCwxND
-kyODY2Njc4LC0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMTk2MzIx
-NDczOSwtOTc3MDQ5NTY2LDgyMTA3NTAwMyw4Nzg2MDcwMzcsOT
-gwNzA1ODE5LDk2NTMxMTQ3MSwtMTM1NDExMDgxOSwtNTEwODU2
-OTA5LC04OTc2NjkzNSwxNjQ2MTE5MjcwLC0yMDc5MDU3NjI4LD
-E4ODA2NDM2NjIsODU4Nzk2MDQ0LC0xMzU1NzU0OTU3LDI1ODQx
-ODIyOSwtMTM1NTc1NDk1NywxNDA2MzY0NzI1LDIwMTU1NTY5OD
-MsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDI5MDEzODc2MCwxMjA0
-MTM1MTE0LDI5MDEzODc2MCwxMjA0MTM1MTE0LC0yMTkyNDk3Nj
-IsMTYzMzg1OTQ4OCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgsLTEw
-MDA5Njc0NzEsLTIxNDY1MTkxMjMsLTk0NDk2NDgxMiwxNDg1OT
-QxNTk3LDE3NjIwNjg0NjJdfQ==
+eyJoaXN0b3J5IjpbLTUwMDg5NjEyOCw2NzE3MjE4ODAsLTEyMT
+c2NDIyMzEsLTEwMjc5ODA3NzQsNjAwMzQxMjA2LC0zMDY3NjUx
+MCwyNzIzNDk1OTgsLTMwNjc2NTEwLDI3MjM0OTU5OCwtMzA2Nz
+Y1MTAsMjcyMzQ5NTk4LC0zMDY3NjUxMCwyNzIzNDk1OTgsLTM0
+OTM4MjUyMCwtNjU1NDc1MTU4LC0yOTEzOTE0NzgsLTEyNDY1OD
+U1MjYsMTE3NjAyNTk5MCwtMTI0NjU4NTUyNiwxMTc2MDI1OTkw
+LC0xMjQ2NTg1NTI2LDExNzYwMjU5OTAsLTEyNDY1ODU1MjYsLT
+E5OTk0NzU5NywtMTExMDU2NTM2NSwxMTE0MzI2NzI3LC0xMzI4
+NTcyNTEzLDE1NTY3NTUwOTMsLTU1NjQ2Mjc2NywxNzc5MDM5Mz
+QxLC0xMTc5NTk5NjM4LDUyMzQyNzM2NiwtMTE3OTU5OTYzOCwx
+NDQ0NzEyNzI0LC0xNTA0MDMzOTMwLDExMjk0MDUzMjcsMTkwOD
+c0OTMyOSw2MzcwNDU5NzEsMTkwODc0OTMyOSwtNDU4NTEwNDcz
+LDIwOTI5NTY2MzUsMTE5ODc3MTg2OSwtMTE4NTA4MTA4LDE0OT
+I4NjY2NzgsLTExODUwODEwOCwxNDkyODY2Njc4LC0xOTYzMjE0
+NzM5LC05NzcwNDk1NjYsODIxMDc1MDAzLDg3ODYwNzAzNyw5OD
+A3MDU4MTksOTY1MzExNDcxLC0xMzU0MTEwODE5LC01MTA4NTY5
+MDksLTg5NzY2OTM1LDE2NDYxMTkyNzAsLTIwNzkwNTc2MjgsMT
+g4MDY0MzY2Miw4NTg3OTYwNDQsLTEzNTU3NTQ5NTcsMjU4NDE4
+MjI5LC0xMzU1NzU0OTU3LDE0MDYzNjQ3MjUsMjAxNTU1Njk4My
+wxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMjkwMTM4NzYwLDEyMDQx
+MzUxMTQsMjkwMTM4NzYwLDEyMDQxMzUxMTQsLTIxOTI0OTc2Mi
+wxNjMzODU5NDg4LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OCwtMTAw
+MDk2NzQ3MSwtMjE0NjUxOTEyMywtOTQ0OTY0ODEyLDE0ODU5ND
+E1OTcsMTc2MjA2ODQ2Ml19
 -->
