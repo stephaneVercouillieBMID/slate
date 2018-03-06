@@ -181,9 +181,7 @@ Parameter | Required | Comment
 **id\_token\_hint** | Unsupported | Ignored if provided.
 **claims_locales** | Unsupported | None are supported.
 **request_uri** | Unsupported | Not supported (yet)
-
-This could be really useful for the App2App scenario or to avoid the “too long URL” issue we’ve got when sending AuthN Request using GET queries…
-**registration** | Unsupported | Not supported due to “client dynamic registration”. The client registration process is done during the partner on-boarding.
+**registration** | Unsupported | Not supported due to “client dynamic registration” isient registration process is done during the partner on-boarding.
 
 ### Authentication Response
 An Authentication Response is an [OAuth 2.0 Authorization Response](https://tools.ietf.org/html/rfc6749#section-4.1.2) message. As such, the Authentication Response will return the following parameters:
@@ -478,20 +476,20 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2ODg3MjQwNywxNjEwMTg4MDczLDE3Nz
-kwMzkzNDEsLTExNzk1OTk2MzgsNTIzNDI3MzY2LC0xMTc5NTk5
-NjM4LDE0NDQ3MTI3MjQsLTE1MDQwMzM5MzAsMTEyOTQwNTMyNy
-wxOTA4NzQ5MzI5LDYzNzA0NTk3MSwxOTA4NzQ5MzI5LC00NTg1
-MTA0NzMsMjA5Mjk1NjYzNSwxMTk4NzcxODY5LC0xMTg1MDgxMD
-gsMTQ5Mjg2NjY3OCwtMTE4NTA4MTA4LDE0OTI4NjY2NzgsLTE5
-NjMyMTQ3MzksLTk3NzA0OTU2Niw4MjEwNzUwMDMsODc4NjA3MD
-M3LDk4MDcwNTgxOSw5NjUzMTE0NzEsLTEzNTQxMTA4MTksLTUx
-MDg1NjkwOSwtODk3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1Nz
-YyOCwxODgwNjQzNjYyLDg1ODc5NjA0NCwtMTM1NTc1NDk1Nywy
-NTg0MTgyMjksLTEzNTU3NTQ5NTcsMTQwNjM2NDcyNSwyMDE1NT
-U2OTgzLDE0MDYzNjQ3MjUsMjAxNTU1Njk4MywyOTAxMzg3NjAs
-MTIwNDEzNTExNCwyOTAxMzg3NjAsMTIwNDEzNTExNCwtMjE5Mj
-Q5NzYyLDE2MzM4NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5NDg4
-LC0xMDAwOTY3NDcxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MTIsMT
-Q4NTk0MTU5NywxNzYyMDY4NDYyXX0=
+eyJoaXN0b3J5IjpbODgyOTUxOTgwLDE2MTAxODgwNzMsMTc3OT
+AzOTM0MSwtMTE3OTU5OTYzOCw1MjM0MjczNjYsLTExNzk1OTk2
+MzgsMTQ0NDcxMjcyNCwtMTUwNDAzMzkzMCwxMTI5NDA1MzI3LD
+E5MDg3NDkzMjksNjM3MDQ1OTcxLDE5MDg3NDkzMjksLTQ1ODUx
+MDQ3MywyMDkyOTU2NjM1LDExOTg3NzE4NjksLTExODUwODEwOC
+wxNDkyODY2Njc4LC0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMTk2
+MzIxNDczOSwtOTc3MDQ5NTY2LDgyMTA3NTAwMyw4Nzg2MDcwMz
+csOTgwNzA1ODE5LDk2NTMxMTQ3MSwtMTM1NDExMDgxOSwtNTEw
+ODU2OTA5LC04OTc2NjkzNSwxNjQ2MTE5MjcwLC0yMDc5MDU3Nj
+I4LDE4ODA2NDM2NjIsODU4Nzk2MDQ0LC0xMzU1NzU0OTU3LDI1
+ODQxODIyOSwtMTM1NTc1NDk1NywxNDA2MzY0NzI1LDIwMTU1NT
+Y5ODMsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDI5MDEzODc2MCwx
+MjA0MTM1MTE0LDI5MDEzODc2MCwxMjA0MTM1MTE0LC0yMTkyND
+k3NjIsMTYzMzg1OTQ4OCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgs
+LTEwMDA5Njc0NzEsLTIxNDY1MTkxMjMsLTk0NDk2NDgxMiwxND
+g1OTQxNTk3LDE3NjIwNjg0NjJdfQ==
 -->
