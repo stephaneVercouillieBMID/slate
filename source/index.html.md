@@ -262,7 +262,7 @@ Parameter | Required | Comment
 **registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the partner onboarding.
 
 #### Authorization Response specifications
-Once the authentication is finished (successfully or not), itsme will open the Universal/App Link indicated in the **redirect_uri**. If this **redirec_uri** is not registered as a Universal/App Link on your side, it will be opened as a  default mobile opened
+Once the authentication is finished (successfully or not), itsme will open the Universal/App Link indicated in the **redirect_uri**. If this **redirec_uri** is not registered as a Universal/App Link on your side, it will be opened as a URL in default mobile opened
 
 ## 2. Token Request
 
@@ -755,7 +755,7 @@ Parameter | Requested Claim Key Name | Claim Value Type
 **id_token** | Always | The JWT `id_token` corresponding to the Authentication Request (signed and  encrypted). 
 **at_hash** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg4OTM3ODY5MSwtODM5MjM1ODE0LC0xNz
+eyJoaXN0b3J5IjpbLTkxMjY1ODM0MywtODM5MjM1ODE0LC0xNz
 c3ODMyMTgxLC0zMzUzMTU0MDIsMTA0MDg4NDQ2MCw1MTczMzI0
 MywtMTI0NjU1MDE2MiwtMTQwNjMzMjYyMiwtMTI0NjU1MDE2Mi
 wxOTc1OTYzNzQ2LDE2NzUyOTgyMTQsMTM2ODA4NzYyMCw3MDM1
