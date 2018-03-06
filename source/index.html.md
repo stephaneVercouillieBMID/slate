@@ -226,7 +226,7 @@ Error | Description
 `registration_not_supported` | does not support use of the registration parameter.
 
 ### App to App
-Instead of going through the BMID web page where the end user has to enter his phone number, it is possible to trigger the itsme App directly by sending the Authorization request to a specific endpoint.
+Instead of going through the BMID web page where the end user has to enter his phone number, it is possible to trigger the itsme App directly by sending the Authorization Request to a specific endpoint.
 
 **itsme(r)** Mobile App endpoint : TODO
 
@@ -489,19 +489,19 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODU5OTMxNTYsMTQ0NDcxMjcyNCwtMTUwND
-AzMzkzMCwxMTI5NDA1MzI3LDE5MDg3NDkzMjksNjM3MDQ1OTcx
-LDE5MDg3NDkzMjksLTQ1ODUxMDQ3MywyMDkyOTU2NjM1LDExOT
-g3NzE4NjksLTExODUwODEwOCwxNDkyODY2Njc4LC0xMTg1MDgx
-MDgsMTQ5Mjg2NjY3OCwtMTk2MzIxNDczOSwtOTc3MDQ5NTY2LD
-gyMTA3NTAwMyw4Nzg2MDcwMzcsOTgwNzA1ODE5LDk2NTMxMTQ3
-MSwtMTM1NDExMDgxOSwtNTEwODU2OTA5LC04OTc2NjkzNSwxNj
-Q2MTE5MjcwLC0yMDc5MDU3NjI4LDE4ODA2NDM2NjIsODU4Nzk2
-MDQ0LC0xMzU1NzU0OTU3LDI1ODQxODIyOSwtMTM1NTc1NDk1Ny
-wxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMTQwNjM2NDcyNSwyMDE1
-NTU2OTgzLDI5MDEzODc2MCwxMjA0MTM1MTE0LDI5MDEzODc2MC
-wxMjA0MTM1MTE0LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OCwtMjE5
-MjQ5NzYyLDE2MzM4NTk0ODgsLTEwMDA5Njc0NzEsLTIxNDY1MT
-kxMjMsLTk0NDk2NDgxMiwxNDg1OTQxNTk3LDE3NjIwNjg0NjJd
-fQ==
+eyJoaXN0b3J5IjpbMTM1MDY0NTQxMiwxNDQ0NzEyNzI0LC0xNT
+A0MDMzOTMwLDExMjk0MDUzMjcsMTkwODc0OTMyOSw2MzcwNDU5
+NzEsMTkwODc0OTMyOSwtNDU4NTEwNDczLDIwOTI5NTY2MzUsMT
+E5ODc3MTg2OSwtMTE4NTA4MTA4LDE0OTI4NjY2NzgsLTExODUw
+ODEwOCwxNDkyODY2Njc4LC0xOTYzMjE0NzM5LC05NzcwNDk1Nj
+YsODIxMDc1MDAzLDg3ODYwNzAzNyw5ODA3MDU4MTksOTY1MzEx
+NDcxLC0xMzU0MTEwODE5LC01MTA4NTY5MDksLTg5NzY2OTM1LD
+E2NDYxMTkyNzAsLTIwNzkwNTc2MjgsMTg4MDY0MzY2Miw4NTg3
+OTYwNDQsLTEzNTU3NTQ5NTcsMjU4NDE4MjI5LC0xMzU1NzU0OT
+U3LDE0MDYzNjQ3MjUsMjAxNTU1Njk4MywxNDA2MzY0NzI1LDIw
+MTU1NTY5ODMsMjkwMTM4NzYwLDEyMDQxMzUxMTQsMjkwMTM4Nz
+YwLDEyMDQxMzUxMTQsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC0y
+MTkyNDk3NjIsMTYzMzg1OTQ4OCwtMTAwMDk2NzQ3MSwtMjE0Nj
+UxOTEyMywtOTQ0OTY0ODEyLDE0ODU5NDE1OTcsMTc2MjA2ODQ2
+Ml19
 -->
