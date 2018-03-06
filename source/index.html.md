@@ -746,11 +746,11 @@ Approval template name: `“adv_payment“`
 As expected, the goal of this template is to request an (“advanced”) payment.
 
 Expected parameters:
-Parameter | Requested Claim Key Name| Claim Value Type
+Parameter |               Requested Claim Key Name|             Claim Value Type
 -- | -- | --
 **Amount** tag:sixdots.be,2016-08:claim\_approval\_amount_key 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2ODUxNDQ0NywyNzAzNzk3MTUsLTMzNT
+eyJoaXN0b3J5IjpbMTI5MjQyMjUxMywyNzAzNzk3MTUsLTMzNT
 MxNTQwMiwxMDQwODg0NDYwLDUxNzMzMjQzLC0xMjQ2NTUwMTYy
 LC0xNDA2MzMyNjIyLC0xMjQ2NTUwMTYyLDE5NzU5NjM3NDYsMT
 Y3NTI5ODIxNCwxMzY4MDg3NjIwLDcwMzU5NDI0MCwxMzY4MDg3
