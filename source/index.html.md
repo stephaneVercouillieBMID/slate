@@ -218,7 +218,7 @@ By using this flow, the end user will be automatically redirected from your App 
 
 The technology used for this flow is the [Universal Links](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) (iOS)/[App Links](https://developer.android.com/training/app-links/index.html) (Android).
 
-In case the itsme App is not present on the device, the end user will be redirected to a web page in the mobile browser, as per [Universal Links](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) and [App Links](https://developer.android.com/training/app-links/index.html) specifications. Currently, this web page redirects the end user OpenID web page of BMID, where he will be able to enter his phone number and continue the authentication flow.
+In case the itsme App is not present on the device, the end user will be redirected to a web page in the mobile browser, as per [Universal Links](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) and [App Links](https://developer.android.com/training/app-links/index.html) specifications. Currently, this web page redirects the end user to the OpenID web page of BMID, where he will be able to enter his phone number and continue the authentication flow.
 
 The technology used for this flow is the Universal Links (iOS)/App Links (Android).
 
@@ -500,25 +500,25 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDM5OTQ0NDksLTI2MjQ5NTI5MiwtMz
-Q5MzgyNTIwLC02NTU0NzUxNTgsLTI5MTM5MTQ3OCwtMTI0NjU4
-NTUyNiwxMTc2MDI1OTkwLC0xMjQ2NTg1NTI2LDExNzYwMjU5OT
-AsLTEyNDY1ODU1MjYsMTE3NjAyNTk5MCwtMTI0NjU4NTUyNiwt
-MTk5OTQ3NTk3LC0xMTEwNTY1MzY1LDExMTQzMjY3MjcsLTEzMj
-g1NzI1MTMsMTU1Njc1NTA5MywtNTU2NDYyNzY3LDE3NzkwMzkz
-NDEsLTExNzk1OTk2MzgsNTIzNDI3MzY2LC0xMTc5NTk5NjM4LD
-E0NDQ3MTI3MjQsLTE1MDQwMzM5MzAsMTEyOTQwNTMyNywxOTA4
-NzQ5MzI5LDYzNzA0NTk3MSwxOTA4NzQ5MzI5LC00NTg1MTA0Nz
-MsMjA5Mjk1NjYzNSwxMTk4NzcxODY5LC0xMTg1MDgxMDgsMTQ5
-Mjg2NjY3OCwtMTE4NTA4MTA4LDE0OTI4NjY2NzgsLTE5NjMyMT
-Q3MzksLTk3NzA0OTU2Niw4MjEwNzUwMDMsODc4NjA3MDM3LDk4
-MDcwNTgxOSw5NjUzMTE0NzEsLTEzNTQxMTA4MTksLTUxMDg1Nj
-kwOSwtODk3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1NzYyOCwx
-ODgwNjQzNjYyLDg1ODc5NjA0NCwtMTM1NTc1NDk1NywyNTg0MT
-gyMjksLTEzNTU3NTQ5NTcsMTQwNjM2NDcyNSwyMDE1NTU2OTgz
-LDE0MDYzNjQ3MjUsMjAxNTU1Njk4MywyOTAxMzg3NjAsMTIwND
-EzNTExNCwyOTAxMzg3NjAsMTIwNDEzNTExNCwtMjE5MjQ5NzYy
-LDE2MzM4NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC0xMD
-AwOTY3NDcxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MTIsMTQ4NTk0
-MTU5NywxNzYyMDY4NDYyXX0=
+eyJoaXN0b3J5IjpbMjY3NTA1NTU1LC0yNjI0OTUyOTIsLTM0OT
+M4MjUyMCwtNjU1NDc1MTU4LC0yOTEzOTE0NzgsLTEyNDY1ODU1
+MjYsMTE3NjAyNTk5MCwtMTI0NjU4NTUyNiwxMTc2MDI1OTkwLC
+0xMjQ2NTg1NTI2LDExNzYwMjU5OTAsLTEyNDY1ODU1MjYsLTE5
+OTk0NzU5NywtMTExMDU2NTM2NSwxMTE0MzI2NzI3LC0xMzI4NT
+cyNTEzLDE1NTY3NTUwOTMsLTU1NjQ2Mjc2NywxNzc5MDM5MzQx
+LC0xMTc5NTk5NjM4LDUyMzQyNzM2NiwtMTE3OTU5OTYzOCwxND
+Q0NzEyNzI0LC0xNTA0MDMzOTMwLDExMjk0MDUzMjcsMTkwODc0
+OTMyOSw2MzcwNDU5NzEsMTkwODc0OTMyOSwtNDU4NTEwNDczLD
+IwOTI5NTY2MzUsMTE5ODc3MTg2OSwtMTE4NTA4MTA4LDE0OTI4
+NjY2NzgsLTExODUwODEwOCwxNDkyODY2Njc4LC0xOTYzMjE0Nz
+M5LC05NzcwNDk1NjYsODIxMDc1MDAzLDg3ODYwNzAzNyw5ODA3
+MDU4MTksOTY1MzExNDcxLC0xMzU0MTEwODE5LC01MTA4NTY5MD
+ksLTg5NzY2OTM1LDE2NDYxMTkyNzAsLTIwNzkwNTc2MjgsMTg4
+MDY0MzY2Miw4NTg3OTYwNDQsLTEzNTU3NTQ5NTcsMjU4NDE4Mj
+I5LC0xMzU1NzU0OTU3LDE0MDYzNjQ3MjUsMjAxNTU1Njk4Mywx
+NDA2MzY0NzI1LDIwMTU1NTY5ODMsMjkwMTM4NzYwLDEyMDQxMz
+UxMTQsMjkwMTM4NzYwLDEyMDQxMzUxMTQsLTIxOTI0OTc2Miwx
+NjMzODU5NDg4LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OCwtMTAwMD
+k2NzQ3MSwtMjE0NjUxOTEyMywtOTQ0OTY0ODEyLDE0ODU5NDE1
+OTcsMTc2MjA2ODQ2Ml19
 -->
