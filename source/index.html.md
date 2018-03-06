@@ -6,7 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - http: HTTP
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+ <!-- - <a href='#'>Sign Up for a Developer Key</a> -->
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 search: true
@@ -129,7 +129,7 @@ The OpenID Connect protocol requires the use of multiple endpoints for authentic
 
 To simplify implementations and increase flexibility, OpenID Connect allows the use of a "Discovery document", a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider's configuration, including the URIs of the authorization, token, userinfo, and public-keys endpoints to interact with it. 
 
-<aside class="success">The Discovery document for **itsme® ** service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside>
+<aside class="success">The Discovery document for **itsme®  service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside>
 
 Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
 
@@ -762,5 +762,5 @@ As expected, the goal of this template is to be free deciding what is displayed 
 Expected parameters:
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk2MTIyNzAzMl19
+eyJoaXN0b3J5IjpbLTI0NDE5OTM3NywtOTYxMjI3MDMyXX0=
 -->
