@@ -225,7 +225,8 @@ Error | Description
 `request_uri_not_supported` | does not support use of the request_uri parameter.
 `registration_not_supported` | does not support use of the registration parameter.
 
-### App to App ??? TODO
+### App to App
+Instead of the BMID web page, it is possible to use the itsme
 **itsme(r)** Mobile App endpoint : TODO
 
 ## 2. Token Request
@@ -487,7 +488,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0NzUwMjQ2NywxNDQ0NzEyNzI0LC0xNT
+eyJoaXN0b3J5IjpbMTU5NTM5Mjg5MiwxNDQ0NzEyNzI0LC0xNT
 A0MDMzOTMwLDExMjk0MDUzMjcsMTkwODc0OTMyOSw2MzcwNDU5
 NzEsMTkwODc0OTMyOSwtNDU4NTEwNDczLDIwOTI5NTY2MzUsMT
 E5ODc3MTg2OSwtMTE4NTA4MTA4LDE0OTI4NjY2NzgsLTExODUw
