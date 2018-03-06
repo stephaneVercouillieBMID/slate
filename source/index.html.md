@@ -183,8 +183,7 @@ Parameter | Required | Comment
 **request_uri** | Unsupported | Not supported (yet)
 
 This could be really useful for the App2App scenario or to avoid the “too long URL” issue we’ve got when sending AuthN Request using GET queries…
-**registration** | Unsupported | N/A TODO
-
+**registration** | Unsupported | Not supported due to support “client dynamic registration”. The client registration process is done during the partner onboarding.
 
 ### Authentication Response
 An Authentication Response is an [OAuth 2.0 Authorization Response](https://tools.ietf.org/html/rfc6749#section-4.1.2) message. As such, the Authentication Response will return the following parameters:
@@ -479,7 +478,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3OTAzOTM0MSwxNjEwMTg4MDczLDE3Nz
+eyJoaXN0b3J5IjpbMTc0MTMxNTg4NSwxNjEwMTg4MDczLDE3Nz
 kwMzkzNDEsLTExNzk1OTk2MzgsNTIzNDI3MzY2LC0xMTc5NTk5
 NjM4LDE0NDQ3MTI3MjQsLTE1MDQwMzM5MzAsMTEyOTQwNTMyNy
 wxOTA4NzQ5MzI5LDYzNzA0NTk3MSwxOTA4NzQ5MzI5LC00NTg1
