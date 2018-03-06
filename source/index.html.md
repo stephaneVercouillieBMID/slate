@@ -757,7 +757,10 @@ Parameter | Requested Claim Key Name | Claim Value Type
 
 ### Template: “Free Text”
 
+Approval template name: `“free_text”`
+As expected, the goal of this template is to be free deciding what is displayed on the end user phone.
+Expected parameters:
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDA0MTYxMzJdfQ==
+eyJoaXN0b3J5IjpbLTk2MTIyNzAzMl19
 -->
