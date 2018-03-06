@@ -214,11 +214,11 @@ Error | Description
 
 ### App to App authentication
 The itsme App itself also leverages the OpenID Connect authentication flow to allow native apps to perform the authentication easily and safely.
-By using this, the end user will be automatically redirected from your App (or your web page in the mobile browser) to the itsme App. After authenticating himself (or rejecting the authentication), he will be redirected back to your App.
+By using this flow, the end user will be automatically redirected from your App (or your web page in the mobile browser) to the itsme App. After authenticating himself (or rejecting the authentication), he will be redirected back to your App.
 
-For this to work, the following conditions must be met:
+In order to trigger this flow, the following conditions must be met:
 - You MUST contact the following authorization endpoint: `https://mobileapp.sixdots.be/mobile/authorize`
-- 
+- The 
 
  .
 
@@ -499,7 +499,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYwNjM0NTc5OSwtNjE5OTUzNjUzLC0xMj
+eyJoaXN0b3J5IjpbMTAwODYzMDc5MSwxNjA2MzQ1Nzk5LC0xMj
 Q2NTg1NTI2LDExNzYwMjU5OTAsLTEyNDY1ODU1MjYsMTE3NjAy
 NTk5MCwtMTI0NjU4NTUyNiwxMTc2MDI1OTkwLC0xMjQ2NTg1NT
 I2LC0xOTk5NDc1OTcsLTExMTA1NjUzNjUsMTExNDMyNjcyNywt
