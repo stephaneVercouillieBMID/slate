@@ -548,11 +548,11 @@ d.	If the user is already logged in the SP and, it is required that it is this u
 1.	Calling the “User Info” End Point is not mandatory. The “ID Token” already contains all the necessary proof for a simple approval.
 2.	However, the “User Info” End Point can be called to retrieve the requested claims of the user that did the approval. 
 
-if the user is already logged
+if the user is already logged in 
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwMDE3NzIwOCw1MTczMzI0MywtMTI0Nj
+eyJoaXN0b3J5IjpbMTk5OTQzMTY0NSw1MTczMzI0MywtMTI0Nj
 U1MDE2MiwtMTQwNjMzMjYyMiwtMTI0NjU1MDE2MiwxOTc1OTYz
 NzQ2LDE2NzUyOTgyMTQsMTM2ODA4NzYyMCw3MDM1OTQyNDAsMT
 M2ODA4NzYyMCw3MDM1OTQyNDAsMTM2ODA4NzYyMCwxNDQ5NjA2
