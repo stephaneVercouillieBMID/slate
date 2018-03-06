@@ -216,7 +216,11 @@ Error | Description
 The itsme App itself also leverages the OpenID Connect authentication flow to allow native apps to perform authentication easily and safely.
 By using this, the end user will be automatically redirected from your App (or your web page in the mobile browser) to the itsme App. After authenticating himself (or rejecting the authentication), he will be redirected back to your App.
 
-#### Requirements for iOS App
+#### Requirements for iOS apps
+BMID follows the recommendations of the [OAuth Working Group](https://tools.ietf.org/html/draft-ietf-oauth-native-apps-12) about the authentication process in native apps. So in order to maximize security, and because it guarantees that the right app is launched, we exclusively use Universal Links for inter-app communications — all communications between the Service Provider App and itsme.
+The Service Provider App must exclusively use Universal Links for launching itsme. The itsme app itself will return authentication results by calling back the Service Provider App with its corresponding Universal Link.
+Universal Links are available on iOS since version 9.0. The itsme App only supports OpenID Connect authentication on iOS 9.0 or greater.
+A Universal Link associated with the iOS Service Provider App is required and must be specified to Belgian Mobile ID during the on-boarding process.
 
 **itsme(r)** Mobile App endpoint : TODO
 
@@ -479,7 +483,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzkzMzAyNTEsMjkyODI4NTU5LC0xMzI4NT
+eyJoaXN0b3J5IjpbMzg0Njk1NjUyLDM5MzMwMjUxLC0xMzI4NT
 cyNTEzLDE1NTY3NTUwOTMsLTU1NjQ2Mjc2NywxNzc5MDM5MzQx
 LC0xMTc5NTk5NjM4LDUyMzQyNzM2NiwtMTE3OTU5OTYzOCwxND
 Q0NzEyNzI0LC0xNTA0MDMzOTMwLDExMjk0MDUzMjcsMTkwODc0
