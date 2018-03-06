@@ -550,9 +550,9 @@ d.	If the user is already logged in the SP and, it is required that it is this u
 
 if the user is already logged in, two possible identifiers that could be used to:
 
-<!\[if !supportLists\]>· <!\[endif\]>In the “userinfo” JSON section, the “**sub**” requested claim can be used to communicate the subject (end user) identifier already shared between Itsme OP and the SP. This identifier (called “user code”) was previously communicated in the ID token or in the UserInfo token after a successful OIDC login.
+- In the “userinfo” JSON section, the “**sub**” requested claim can be used to communicate the subject (end user) identifier already shared between Itsme OP and the SP. This identifier (called “user code”) was previously communicated in the ID token or in the UserInfo token after a successful OIDC login.
 
-<!\[if !supportLists\]>· <!\[endif\]>In the “userinfo” JSON section, the “**phone_number**” requested claim can be used to communicate the subject (end user) phone number to be used as unique identifier. The format must match this regular expression<!\[if !supportAnnotations\]>[\[SV1\]](#_msocom_1)<!\[endif\]> :  
+-In the “userinfo” JSON section, the “**phone_number**” requested claim can be used to communicate the subject (end user) phone number to be used as unique identifier. The format must match this regular expression<!\[if !supportAnnotations\]>[\[SV1\]](#_msocom_1)<!\[endif\]> :  
   
 [\\\+?(\\\d{1,3})\[ +\](\\\d*)](file://+%3f(/d%7b1,3%7d)%5b%20+%5d(/d*))  
 <!\[if !supportLineBreakNewLine\]>  
@@ -584,7 +584,7 @@ _(*) Valid if the request was emitted by an active partner using one of his acti
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzNDI0NzE4MSwxNTQxMDU4MTI5LDUxNz
+eyJoaXN0b3J5IjpbLTIxNTU1NjA4MSwxOTM0MjQ3MTgxLDUxNz
 MzMjQzLC0xMjQ2NTUwMTYyLC0xNDA2MzMyNjIyLC0xMjQ2NTUw
 MTYyLDE5NzU5NjM3NDYsMTY3NTI5ODIxNCwxMzY4MDg3NjIwLD
 cwMzU5NDI0MCwxMzY4MDg3NjIwLDcwMzU5NDI0MCwxMzY4MDg3
