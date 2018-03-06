@@ -238,7 +238,7 @@ If you trigger the itsme App from your own App, you MUST make sure there is a Un
 #### Authorization Request specifications
 Authorization Requests in the context of App to App and Web mobile to App flow must be addressed to `https://mobileapp.sixdots.be/mobile/authorize`, and they are subject to more strict specifications as Authorization Requests in  the  Web Desktop flow.
 
-For a basic request, specify the following parameters. The changes compared to the Web Desktop flow :
+For a basic request, specify the following parameters. The changes compared to the Web Desktop flow are :
 Parameter | Required | Comment
 --------- | ------- | -----
 **client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process and this value will be unique to each partner per environment. This information is in the on-boarding file provided by BMID. 
@@ -539,7 +539,7 @@ Introduction
 
 <!\[endif\]>
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEwOTIyNTg1Nyw0MTM0MzUwNDQsLTEyND
+eyJoaXN0b3J5IjpbLTQ2MjI1ODI1MSw0MTM0MzUwNDQsLTEyND
 Y1NTAxNjIsLTE0MDYzMzI2MjIsLTEyNDY1NTAxNjIsMTk3NTk2
 Mzc0NiwxNjc1Mjk4MjE0LDEzNjgwODc2MjAsNzAzNTk0MjQwLD
 EzNjgwODc2MjAsNzAzNTk0MjQwLDEzNjgwODc2MjAsMTQ0OTYw
