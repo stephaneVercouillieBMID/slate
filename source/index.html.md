@@ -733,9 +733,10 @@ request={
 
 }
 ```
+_Please note that the “request” parameter is represented as a regular JSON formatted object for clarity only. Because it must be correctly encoded, signed and then encrypted as explained in the official OIDC specification._
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg5MjI0ODg2NywxNjQ4MzYwMDA3LDEwND
+eyJoaXN0b3J5IjpbMTc5NzU3NDA0NywxNjQ4MzYwMDA3LDEwND
 A4ODQ0NjAsNTE3MzMyNDMsLTEyNDY1NTAxNjIsLTE0MDYzMzI2
 MjIsLTEyNDY1NTAxNjIsMTk3NTk2Mzc0NiwxNjc1Mjk4MjE0LD
 EzNjgwODc2MjAsNzAzNTk0MjQwLDEzNjgwODc2MjAsNzAzNTk0
