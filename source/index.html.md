@@ -226,7 +226,7 @@ Error | Description
 `registration_not_supported` | does not support use of the registration parameter.
 
 ### App to App
-Instead of going through the BMID web page where the end user has to enter his phone number, it is possible to trigger the itsme App directly by sending the Authorization reqa specific endpoint. 
+Instead of going through the BMID web page where the end user has to enter his phone number, it is possible to trigger the itsme App directly by sending the Authorization request to a specific endpoint. 
 **itsme(r)** Mobile App endpoint : TODO
 
 ## 2. Token Request
@@ -488,7 +488,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjY4NTIyMTU2LDE0NDQ3MTI3MjQsLTE1MD
+eyJoaXN0b3J5IjpbODQzNzYwNjYyLDE0NDQ3MTI3MjQsLTE1MD
 QwMzM5MzAsMTEyOTQwNTMyNywxOTA4NzQ5MzI5LDYzNzA0NTk3
 MSwxOTA4NzQ5MzI5LC00NTg1MTA0NzMsMjA5Mjk1NjYzNSwxMT
 k4NzcxODY5LC0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMTE4NTA4
