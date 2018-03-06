@@ -644,11 +644,10 @@ state=A\_VALID\_STATE
 }
 }
 ```
-Please note that quest” parameter is represented as a regular JSON formatted object for clarity only! Because it must be correctly encoded, signed and then encrypted as explained in the official OIDC specification.
- 
- 
+_Please note that the “request” parameter is represented as a regular JSON formatted object for clarity only. Because it must be correctly encoded, signed and then encrypted as explained in the official OIDC specification._
+ Sample OIDC approval authorization request using the “phone_number” identifier
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2OTQ3MDI4MzMsLTg3ODEwMTY4NSwxMD
+eyJoaXN0b3J5IjpbLTUzMzkwNjAyOSwtMTY5NDcwMjgzMywxMD
 QwODg0NDYwLDUxNzMzMjQzLC0xMjQ2NTUwMTYyLC0xNDA2MzMy
 NjIyLC0xMjQ2NTUwMTYyLDE5NzU5NjM3NDYsMTY3NTI5ODIxNC
 wxMzY4MDg3NjIwLDcwMzU5NDI0MCwxMzY4MDg3NjIwLDcwMzU5
