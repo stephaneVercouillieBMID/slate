@@ -216,7 +216,7 @@ Error | Description
 The itsme App itself also leverages the OpenID Connect authentication flow to allow native apps to perform authentication easily and safely.
 By using this, the end user will be automatically redirected from your App (or your web page in the mobile browser) to the itsme App. After authenticating himself (or rejecting the authentication), he will be redirected back to your App.
 
-#### Requirements for 
+#### Requirements for iOS App
 
 **itsme(r)** Mobile App endpoint : TODO
 
@@ -479,7 +479,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzg2ODYwOTUxLC0xMzI4NTcyNTEzLDE1NT
+eyJoaXN0b3J5IjpbMjkyODI4NTU5LC0xMzI4NTcyNTEzLDE1NT
 Y3NTUwOTMsMTU1Njc1NTA5MywtNTU2NDYyNzY3LDE3NzkwMzkz
 NDEsLTExNzk1OTk2MzgsNTIzNDI3MzY2LC0xMTc5NTk5NjM4LD
 E0NDQ3MTI3MjQsLTE1MDQwMzM5MzAsMTEyOTQwNTMyNywxOTA4
