@@ -439,7 +439,7 @@ The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.or
 Property | Required | Comment
 -- | -- | --
 **iss** | Required | Issuer. Must be the `client_id`
-**aud** | Required | Audience.RLs<br>https://merchant.itsme.be/oidc/token<br>
+**aud** | Required | Audience.pLs<br>https://merchant.itsme.be/oidc/token<br>
 https://e2emerchant.itsme.be/oidc/token<br>
 https://uatmerchant.sixdots.be/oidc/token 
 
@@ -501,7 +501,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMjIxMjc5NjksNzAzNTk0MjQwLDEzNj
+eyJoaXN0b3J5IjpbLTE5NDMwMzIxMzEsNzAzNTk0MjQwLDEzNj
 gwODc2MjAsNzAzNTk0MjQwLDEzNjgwODc2MjAsNzAzNTk0MjQw
 LDEzNjgwODc2MjAsMTQ0OTYwNjM0MCwtMjAyOTg4MDIzMSw5OT
 Q5NDAzMDksMTcyNjE3MTM4MSw5MjM2NjAwOSwxNzI2MTcxMzgx
