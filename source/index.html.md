@@ -218,7 +218,7 @@ By using this flow, the end user will be automatically redirected from your App 
 
 In order to trigger this flow, the following conditions MUST be met:
 - The Authorization Request is sent to the following authorization endpoint: `https://mobileapp.sixdots.be/mobile/authorize`
-- The itsme App and your App (or the mobile browser sending the Authoriza
+- The itsme App and your App (or the mobile browser sending the Authorization Request
 
  .
 
@@ -497,7 +497,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA1NzQ2NzM2MCwtMTAzNjUwNjE4MiwtMT
+eyJoaXN0b3J5IjpbMTgwMzQwMDI1OSwtMTAzNjUwNjE4MiwtMT
 I0NjU4NTUyNiwxMTc2MDI1OTkwLC0xMjQ2NTg1NTI2LDExNzYw
 MjU5OTAsLTEyNDY1ODU1MjYsMTE3NjAyNTk5MCwtMTI0NjU4NT
 UyNiwtMTk5OTQ3NTk3LC0xMTEwNTY1MzY1LDExMTQzMjY3Mjcs
