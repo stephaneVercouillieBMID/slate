@@ -38,7 +38,7 @@ The following sets of Data are available:
 
 ### Verified Identity Data
 
-The user identity data provided by **itsme®** are Data coming from the National Registry. These datas are provided to **itsme®** during user enrolment either directly from a card readout or indirectly through an IDentity Registrar (IDR) having a strong identity verification process (e.g. face-to-face KYC with eID readout)  in-place.  
+The user identity data provided by **itsme®** are Data coming from the National eID Card. These datas are provided to **itsme®** during user enrolment either directly from a card readout or indirectly through an Identity Registrar (IDR) having a strong identity verification process (e.g. face-to-face KYC with eID readout)  in-place.  
 
 Data | Definition
 -- | --
@@ -762,5 +762,5 @@ As expected, the goal of this template is to be free deciding what is displayed 
 Expected parameters:
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI0NDE5OTM3NywtOTYxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbLTIxMDIxMjMyMDQsLTk2MTIyNzAzMl19
 -->
