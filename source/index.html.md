@@ -238,7 +238,7 @@ If you trigger the itsme App from your own App, you MUST make sure there is a Un
 #### Authorization Request specifications
 Authorization Requests in the context of App to App and Web mobile to App flow must be addressed to `https://mobileapp.sixdots.be/mobile/authorize`, and they are subject to more strict specifications as Authorization Requests in  the  Web Desktop flow.
 
-For a basic request, specify the following parameters. The changes compared to the Web Desktop flow are ***emphasized in this way:
+For a basic request, specify the following parameters. The changes compared to the Web Desktop flow are ***emphasized in this way***:
 Parameter | Required | Comment
 --------- | ------- | -----
 **client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process and this value will be unique to each partner per environment. This information is in the on-boarding file provided by BMID. 
@@ -254,7 +254,7 @@ Parameter | Required | Comment
 **max_age** | Optional | Supported but not used: **itsme(r)** will always actively re-authenticate the End-User. 
 **acr_values** | Optional | OPTIONAL and supported, though not recommended. Possible values are tag:itsmetag:sixdots.be,2016-06:acr_basic, tag:itsmetag:sixdots.be,2016-06:acr_advanced. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the `acr_values` is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the `acr_values` list, or the authentication will fail. Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token/
 **claims** | Optional | Not recommended. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
-**request** | Optional | See [Passing Request Parameters as JWTs](#JWTRequest)
+**request** | ***Required*** | See [Passing Request Parameters as JWTs](#JWTRequest). ***The *** 
 **response_mode** | Unsupported | Ignored if provided.
 **id\_token\_hint** | Unsupported | Ignored if provided.
 **claims_locales** | Unsupported | None are supported.
@@ -523,11 +523,11 @@ It is expected that the RP will also expose their signing and encryption keys in
  During and OIDC `Approval, the connected user gives his consent on a particular action initiated by the SP, the content detail of this action is displayed on the mobile phone.<>
  The idea of the OIDC Approval”is to follow the OIDC specification and include this new concept in the protocol.
 ## Differences with OpenID Connect Login
-
+ 
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjI3MTk1MDQ0LDE2NjUyNjg1MzcsLTEyND
+eyJoaXN0b3J5IjpbLTEwMzA1NDE0OCw2MjcxOTUwNDQsLTEyND
 Y1NTAxNjIsLTE0MDYzMzI2MjIsLTEyNDY1NTAxNjIsMTk3NTk2
 Mzc0NiwxNjc1Mjk4MjE0LDEzNjgwODc2MjAsNzAzNTk0MjQwLD
 EzNjgwODc2MjAsNzAzNTk0MjQwLDEzNjgwODc2MjAsMTQ0OTYw
