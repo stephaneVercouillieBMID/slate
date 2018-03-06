@@ -213,7 +213,7 @@ Error | Description
 `registration_not_supported` | does not support use of the registration parameter.
 
 ### App to App authentication
-The itsme App itself also leverages the OpenID Connect authentication flow to allow native apps to perform authentication easily and safely.
+The itsme App itself also leverages the OpenID Connect authentication flow to allow native apps to perform the authentication easily and safely.
 By using this, the end user will be automatically redirected from your App (or your web page in the mobile browser) to the itsme App. After authenticating himself (or rejecting the authentication), he will be redirected back to your App.
 
 #### Requirements for iOS apps
@@ -484,7 +484,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEyNTQxNDIxLC03MDAxNTE2MzEsLTE5OT
+eyJoaXN0b3J5IjpbMTM0NjUxNTM5NCwxMTI1NDE0MjEsLTE5OT
 k0NzU5NywtMTExMDU2NTM2NSwxMTE0MzI2NzI3LC0xMzI4NTcy
 NTEzLDE1NTY3NTUwOTMsLTU1NjQ2Mjc2NywxNzc5MDM5MzQxLC
 0xMTc5NTk5NjM4LDUyMzQyNzM2NiwtMTE3OTU5OTYzOCwxNDQ0
