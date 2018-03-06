@@ -226,7 +226,8 @@ Error | Description
 `registration_not_supported` | does not support use of the registration parameter.
 
 ### App to App
-Instead of going through the BMID web page where the end user has to enter his phone number, it is possible to trigger the itsme App directly by sending the Authorization request to a specific endpoint. 
+Instead of going through the BMID web page where the end user has to enter his phone number, it is possible to trigger the itsme App directly by sending the Authorization request to a specific endpoint.
+
 **itsme(r)** Mobile App endpoint : TODO
 
 ## 2. Token Request
@@ -488,19 +489,19 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQzNzYwNjYyLDE0NDQ3MTI3MjQsLTE1MD
-QwMzM5MzAsMTEyOTQwNTMyNywxOTA4NzQ5MzI5LDYzNzA0NTk3
-MSwxOTA4NzQ5MzI5LC00NTg1MTA0NzMsMjA5Mjk1NjYzNSwxMT
-k4NzcxODY5LC0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMTE4NTA4
-MTA4LDE0OTI4NjY2NzgsLTE5NjMyMTQ3MzksLTk3NzA0OTU2Ni
-w4MjEwNzUwMDMsODc4NjA3MDM3LDk4MDcwNTgxOSw5NjUzMTE0
-NzEsLTEzNTQxMTA4MTksLTUxMDg1NjkwOSwtODk3NjY5MzUsMT
-Y0NjExOTI3MCwtMjA3OTA1NzYyOCwxODgwNjQzNjYyLDg1ODc5
-NjA0NCwtMTM1NTc1NDk1NywyNTg0MTgyMjksLTEzNTU3NTQ5NT
-csMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDE0MDYzNjQ3MjUsMjAx
-NTU1Njk4MywyOTAxMzg3NjAsMTIwNDEzNTExNCwyOTAxMzg3Nj
-AsMTIwNDEzNTExNCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgsLTIx
-OTI0OTc2MiwxNjMzODU5NDg4LC0xMDAwOTY3NDcxLC0yMTQ2NT
-E5MTIzLC05NDQ5NjQ4MTIsMTQ4NTk0MTU5NywxNzYyMDY4NDYy
-XX0=
+eyJoaXN0b3J5IjpbODU5OTMxNTYsMTQ0NDcxMjcyNCwtMTUwND
+AzMzkzMCwxMTI5NDA1MzI3LDE5MDg3NDkzMjksNjM3MDQ1OTcx
+LDE5MDg3NDkzMjksLTQ1ODUxMDQ3MywyMDkyOTU2NjM1LDExOT
+g3NzE4NjksLTExODUwODEwOCwxNDkyODY2Njc4LC0xMTg1MDgx
+MDgsMTQ5Mjg2NjY3OCwtMTk2MzIxNDczOSwtOTc3MDQ5NTY2LD
+gyMTA3NTAwMyw4Nzg2MDcwMzcsOTgwNzA1ODE5LDk2NTMxMTQ3
+MSwtMTM1NDExMDgxOSwtNTEwODU2OTA5LC04OTc2NjkzNSwxNj
+Q2MTE5MjcwLC0yMDc5MDU3NjI4LDE4ODA2NDM2NjIsODU4Nzk2
+MDQ0LC0xMzU1NzU0OTU3LDI1ODQxODIyOSwtMTM1NTc1NDk1Ny
+wxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMTQwNjM2NDcyNSwyMDE1
+NTU2OTgzLDI5MDEzODc2MCwxMjA0MTM1MTE0LDI5MDEzODc2MC
+wxMjA0MTM1MTE0LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OCwtMjE5
+MjQ5NzYyLDE2MzM4NTk0ODgsLTEwMDA5Njc0NzEsLTIxNDY1MT
+kxMjMsLTk0NDk2NDgxMiwxNDg1OTQxNTk3LDE3NjIwNjg0NjJd
+fQ==
 -->
