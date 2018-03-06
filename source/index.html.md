@@ -477,7 +477,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0NDEyNDM0MSw1Njg4MDE3NDYsMTc3OT
+eyJoaXN0b3J5IjpbNjIxMTAyODMzLDIxNDQxMjQzNDEsMTc3OT
 AzOTM0MSwtMTE3OTU5OTYzOCw1MjM0MjczNjYsLTExNzk1OTk2
 MzgsMTQ0NDcxMjcyNCwtMTUwNDAzMzkzMCwxMTI5NDA1MzI3LD
 E5MDg3NDkzMjksNjM3MDQ1OTcxLDE5MDg3NDkzMjksLTQ1ODUx
