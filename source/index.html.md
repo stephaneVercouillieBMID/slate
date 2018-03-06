@@ -470,7 +470,7 @@ Supported algorithms and encryption methods for:
 
 Offline access is not supported. TODO
 
-Dynamic client registration is not allowed. TODO 
+Dynamic client registration is not allowed.
 
 itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet) 
 
@@ -479,7 +479,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNDQyMjUxMDQsNjIxMTAyODMzLDE3Nz
+eyJoaXN0b3J5IjpbMzg5NjUwNDE4LC0xMTQ0MjI1MTA0LDE3Nz
 kwMzkzNDEsLTExNzk1OTk2MzgsNTIzNDI3MzY2LC0xMTc5NTk5
 NjM4LDE0NDQ3MTI3MjQsLTE1MDQwMzM5MzAsMTEyOTQwNTMyNy
 wxOTA4NzQ5MzI5LDYzNzA0NTk3MSwxOTA4NzQ5MzI5LC00NTg1
