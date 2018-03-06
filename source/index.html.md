@@ -214,7 +214,7 @@ Error | Description
 
 ### App to App authentication
 The itsme App itself also leverages the OpenID Connect authentication flow to allow native apps to perform authentication easily and safely.
-By using this, the end user will be automatically redirected from your App (or your web page in the mobile browser) to the itsme App. After being authn
+By using this, the end user will be automatically redirected from your App (or your web page in the mobile browser) to the itsme App. After being authenticate
 
 Doing so, the itsme App will open itself automatically 
 **itsme(r)** Mobile App endpoint : TODO
@@ -478,21 +478,21 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODc5MTA5MjMsMzQ2OTQ3MDcyLDE1NT
-Y3NTUwOTMsMTU1Njc1NTA5MywtNTU2NDYyNzY3LDE3NzkwMzkz
-NDEsLTExNzk1OTk2MzgsNTIzNDI3MzY2LC0xMTc5NTk5NjM4LD
-E0NDQ3MTI3MjQsLTE1MDQwMzM5MzAsMTEyOTQwNTMyNywxOTA4
-NzQ5MzI5LDYzNzA0NTk3MSwxOTA4NzQ5MzI5LC00NTg1MTA0Nz
-MsMjA5Mjk1NjYzNSwxMTk4NzcxODY5LC0xMTg1MDgxMDgsMTQ5
-Mjg2NjY3OCwtMTE4NTA4MTA4LDE0OTI4NjY2NzgsLTE5NjMyMT
-Q3MzksLTk3NzA0OTU2Niw4MjEwNzUwMDMsODc4NjA3MDM3LDk4
-MDcwNTgxOSw5NjUzMTE0NzEsLTEzNTQxMTA4MTksLTUxMDg1Nj
-kwOSwtODk3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1NzYyOCwx
-ODgwNjQzNjYyLDg1ODc5NjA0NCwtMTM1NTc1NDk1NywyNTg0MT
-gyMjksLTEzNTU3NTQ5NTcsMTQwNjM2NDcyNSwyMDE1NTU2OTgz
-LDE0MDYzNjQ3MjUsMjAxNTU1Njk4MywyOTAxMzg3NjAsMTIwND
-EzNTExNCwyOTAxMzg3NjAsMTIwNDEzNTExNCwtMjE5MjQ5NzYy
-LDE2MzM4NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC0xMD
-AwOTY3NDcxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MTIsMTQ4NTk0
-MTU5NywxNzYyMDY4NDYyXX0=
+eyJoaXN0b3J5IjpbMTMyNDc2OTEzMCwzNDY5NDcwNzIsMTU1Nj
+c1NTA5MywxNTU2NzU1MDkzLC01NTY0NjI3NjcsMTc3OTAzOTM0
+MSwtMTE3OTU5OTYzOCw1MjM0MjczNjYsLTExNzk1OTk2MzgsMT
+Q0NDcxMjcyNCwtMTUwNDAzMzkzMCwxMTI5NDA1MzI3LDE5MDg3
+NDkzMjksNjM3MDQ1OTcxLDE5MDg3NDkzMjksLTQ1ODUxMDQ3My
+wyMDkyOTU2NjM1LDExOTg3NzE4NjksLTExODUwODEwOCwxNDky
+ODY2Njc4LC0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMTk2MzIxND
+czOSwtOTc3MDQ5NTY2LDgyMTA3NTAwMyw4Nzg2MDcwMzcsOTgw
+NzA1ODE5LDk2NTMxMTQ3MSwtMTM1NDExMDgxOSwtNTEwODU2OT
+A5LC04OTc2NjkzNSwxNjQ2MTE5MjcwLC0yMDc5MDU3NjI4LDE4
+ODA2NDM2NjIsODU4Nzk2MDQ0LC0xMzU1NzU0OTU3LDI1ODQxOD
+IyOSwtMTM1NTc1NDk1NywxNDA2MzY0NzI1LDIwMTU1NTY5ODMs
+MTQwNjM2NDcyNSwyMDE1NTU2OTgzLDI5MDEzODc2MCwxMjA0MT
+M1MTE0LDI5MDEzODc2MCwxMjA0MTM1MTE0LC0yMTkyNDk3NjIs
+MTYzMzg1OTQ4OCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgsLTEwMD
+A5Njc0NzEsLTIxNDY1MTkxMjMsLTk0NDk2NDgxMiwxNDg1OTQx
+NTk3LDE3NjIwNjg0NjJdfQ==
 -->
