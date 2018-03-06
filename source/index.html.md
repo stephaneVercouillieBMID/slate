@@ -224,7 +224,8 @@ In order to trigger this flow, you MUST send the Authorization Request to the fo
 
 #### Apps requirements
 
-As per [OAuth Working Group](https://tools.ietf.org/html/draft-ietf-oauth-native-apps-12) about the authentication process in native apps. BMID thus exclusively uses Universal/App Links for all communications between your App and itsme. This mechanism guarantees that the right app is launched and thus improves the security.
+As per recommendations of [OAuth Working Group about the authentication process in native apps](https://tools.ietf.org/html/draft-ietf-oauth-native-apps-12). 
+BMID thus exclusively uses Universal/App Links for all communications between your App and itsme. This mechanism guarantees that the right app is launched and thus improves the security.
 
 If you trigger the itsme App from your own App, you MUST make sure there is a Universal/App Link associated with your App. Please consult the  documentation about [Universal](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html)/[App](https://developer.android.com/training/app-links/index.html) for this. This Universal/App Link MUST be specified to BMID during the onboarding process.
 
@@ -489,27 +490,27 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc1NjY3MDIwMSwtMzQ5NjQwMjEsLTMwNj
-c2NTEwLDI3MjM0OTU5OCwtMzA2NzY1MTAsMjcyMzQ5NTk4LC0z
-MDY3NjUxMCwyNzIzNDk1OTgsLTMwNjc2NTEwLDI3MjM0OTU5OC
-wtMzQ5MzgyNTIwLC02NTU0NzUxNTgsLTI5MTM5MTQ3OCwtMTI0
-NjU4NTUyNiwxMTc2MDI1OTkwLC0xMjQ2NTg1NTI2LDExNzYwMj
-U5OTAsLTEyNDY1ODU1MjYsMTE3NjAyNTk5MCwtMTI0NjU4NTUy
-NiwtMTk5OTQ3NTk3LC0xMTEwNTY1MzY1LDExMTQzMjY3MjcsLT
-EzMjg1NzI1MTMsMTU1Njc1NTA5MywtNTU2NDYyNzY3LDE3Nzkw
-MzkzNDEsLTExNzk1OTk2MzgsNTIzNDI3MzY2LC0xMTc5NTk5Nj
-M4LDE0NDQ3MTI3MjQsLTE1MDQwMzM5MzAsMTEyOTQwNTMyNywx
-OTA4NzQ5MzI5LDYzNzA0NTk3MSwxOTA4NzQ5MzI5LC00NTg1MT
-A0NzMsMjA5Mjk1NjYzNSwxMTk4NzcxODY5LC0xMTg1MDgxMDgs
-MTQ5Mjg2NjY3OCwtMTE4NTA4MTA4LDE0OTI4NjY2NzgsLTE5Nj
-MyMTQ3MzksLTk3NzA0OTU2Niw4MjEwNzUwMDMsODc4NjA3MDM3
-LDk4MDcwNTgxOSw5NjUzMTE0NzEsLTEzNTQxMTA4MTksLTUxMD
-g1NjkwOSwtODk3NjY5MzUsMTY0NjExOTI3MCwtMjA3OTA1NzYy
-OCwxODgwNjQzNjYyLDg1ODc5NjA0NCwtMTM1NTc1NDk1NywyNT
-g0MTgyMjksLTEzNTU3NTQ5NTcsMTQwNjM2NDcyNSwyMDE1NTU2
-OTgzLDE0MDYzNjQ3MjUsMjAxNTU1Njk4MywyOTAxMzg3NjAsMT
-IwNDEzNTExNCwyOTAxMzg3NjAsMTIwNDEzNTExNCwtMjE5MjQ5
-NzYyLDE2MzM4NTk0ODgsLTIxOTI0OTc2MiwxNjMzODU5NDg4LC
-0xMDAwOTY3NDcxLC0yMTQ2NTE5MTIzLC05NDQ5NjQ4MTIsMTQ4
-NTk0MTU5NywxNzYyMDY4NDYyXX0=
+eyJoaXN0b3J5IjpbLTE4NDUyMzQzMzIsLTc1NjY3MDIwMSwtMz
+A2NzY1MTAsMjcyMzQ5NTk4LC0zMDY3NjUxMCwyNzIzNDk1OTgs
+LTMwNjc2NTEwLDI3MjM0OTU5OCwtMzA2NzY1MTAsMjcyMzQ5NT
+k4LC0zNDkzODI1MjAsLTY1NTQ3NTE1OCwtMjkxMzkxNDc4LC0x
+MjQ2NTg1NTI2LDExNzYwMjU5OTAsLTEyNDY1ODU1MjYsMTE3Nj
+AyNTk5MCwtMTI0NjU4NTUyNiwxMTc2MDI1OTkwLC0xMjQ2NTg1
+NTI2LC0xOTk5NDc1OTcsLTExMTA1NjUzNjUsMTExNDMyNjcyNy
+wtMTMyODU3MjUxMywxNTU2NzU1MDkzLC01NTY0NjI3NjcsMTc3
+OTAzOTM0MSwtMTE3OTU5OTYzOCw1MjM0MjczNjYsLTExNzk1OT
+k2MzgsMTQ0NDcxMjcyNCwtMTUwNDAzMzkzMCwxMTI5NDA1MzI3
+LDE5MDg3NDkzMjksNjM3MDQ1OTcxLDE5MDg3NDkzMjksLTQ1OD
+UxMDQ3MywyMDkyOTU2NjM1LDExOTg3NzE4NjksLTExODUwODEw
+OCwxNDkyODY2Njc4LC0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMT
+k2MzIxNDczOSwtOTc3MDQ5NTY2LDgyMTA3NTAwMyw4Nzg2MDcw
+MzcsOTgwNzA1ODE5LDk2NTMxMTQ3MSwtMTM1NDExMDgxOSwtNT
+EwODU2OTA5LC04OTc2NjkzNSwxNjQ2MTE5MjcwLC0yMDc5MDU3
+NjI4LDE4ODA2NDM2NjIsODU4Nzk2MDQ0LC0xMzU1NzU0OTU3LD
+I1ODQxODIyOSwtMTM1NTc1NDk1NywxNDA2MzY0NzI1LDIwMTU1
+NTY5ODMsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDI5MDEzODc2MC
+wxMjA0MTM1MTE0LDI5MDEzODc2MCwxMjA0MTM1MTE0LC0yMTky
+NDk3NjIsMTYzMzg1OTQ4OCwtMjE5MjQ5NzYyLDE2MzM4NTk0OD
+gsLTEwMDA5Njc0NzEsLTIxNDY1MTkxMjMsLTk0NDk2NDgxMiwx
+NDg1OTQxNTk3LDE3NjIwNjg0NjJdfQ==
 -->
