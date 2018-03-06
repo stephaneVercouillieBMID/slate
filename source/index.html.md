@@ -129,7 +129,7 @@ The OpenID Connect protocol requires the use of multiple endpoints for authentic
 
 To simplify implementations and increase flexibility, OpenID Connect allows the use of a "Discovery document", a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider's configuration, including the URIs of the authorization, token, userinfo, and public-keys endpoints to interact with it. 
 
-<aside class="success">The Discovery document for <b>itsme® </b> service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside>
+<aside class="success">The Discovery document for **itsme® ** service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside>
 
 Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
 
@@ -749,44 +749,15 @@ As expected, the goal of this template is to request an (“advanced”) payment
 
 Expected parameters:
 
-Parameter | Reqested Claim Key Name | Claim Value Type
+Parameter | Requested Claim Key Name | Claim Value Type
 -- | -- | --
-
 **Amount** | `tag:sixdots.be,2016-08:claim_approval_amount_key` | A string holding an integer value inside
 **Currency** | `tag:sixdots.be,2016-08:claim_approval_currency_key` | A string holding a valid currency code (e.g. "EUR").<br>
 **IBAN** | `tag:sixdots.be,2016-08:claim_approval_iban_key` | A string holding a valid IBAN account number.
 
 ### Template: “Free Text”
 
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTkwODY5NDYsNTgxMzIzOTU1LC0zNj
-E3NzU2NDIsLTE3Nzc4MzIxODEsLTMzNTMxNTQwMiwxMDQwODg0
-NDYwLDUxNzMzMjQzLC0xMjQ2NTUwMTYyLC0xNDA2MzMyNjIyLC
-0xMjQ2NTUwMTYyLDE5NzU5NjM3NDYsMTY3NTI5ODIxNCwxMzY4
-MDg3NjIwLDcwMzU5NDI0MCwxMzY4MDg3NjIwLDcwMzU5NDI0MC
-wxMzY4MDg3NjIwLDE0NDk2MDYzNDAsLTIwMjk4ODAyMzEsOTk0
-OTQwMzA5LDE3MjYxNzEzODEsOTIzNjYwMDksMTcyNjE3MTM4MS
-w5MjM2NjAwOSwtMTIxNzY0MjIzMSwtMTAyNzk4MDc3NCw2MDAz
-NDEyMDYsLTMwNjc2NTEwLDI3MjM0OTU5OCwtMzA2NzY1MTAsMj
-cyMzQ5NTk4LC0zMDY3NjUxMCwyNzIzNDk1OTgsLTMwNjc2NTEw
-LDI3MjM0OTU5OCwtMzQ5MzgyNTIwLC02NTU0NzUxNTgsLTI5MT
-M5MTQ3OCwtMTI0NjU4NTUyNiwxMTc2MDI1OTkwLC0xMjQ2NTg1
-NTI2LDExNzYwMjU5OTAsLTEyNDY1ODU1MjYsMTE3NjAyNTk5MC
-wtMTI0NjU4NTUyNiwtMTk5OTQ3NTk3LC0xMTEwNTY1MzY1LDEx
-MTQzMjY3MjcsLTEzMjg1NzI1MTMsMTU1Njc1NTA5MywtNTU2ND
-YyNzY3LDE3NzkwMzkzNDEsLTExNzk1OTk2MzgsNTIzNDI3MzY2
-LC0xMTc5NTk5NjM4LDE0NDQ3MTI3MjQsLTE1MDQwMzM5MzAsMT
-EyOTQwNTMyNywxOTA4NzQ5MzI5LDYzNzA0NTk3MSwxOTA4NzQ5
-MzI5LC00NTg1MTA0NzMsMjA5Mjk1NjYzNSwxMTk4NzcxODY5LC
-0xMTg1MDgxMDgsMTQ5Mjg2NjY3OCwtMTE4NTA4MTA4LDE0OTI4
-NjY2NzgsLTE5NjMyMTQ3MzksLTk3NzA0OTU2Niw4MjEwNzUwMD
-MsODc4NjA3MDM3LDk4MDcwNTgxOSw5NjUzMTE0NzEsLTEzNTQx
-MTA4MTksLTUxMDg1NjkwOSwtODk3NjY5MzUsMTY0NjExOTI3MC
-wtMjA3OTA1NzYyOCwxODgwNjQzNjYyLDg1ODc5NjA0NCwtMTM1
-NTc1NDk1NywyNTg0MTgyMjksLTEzNTU3NTQ5NTcsMTQwNjM2ND
-cyNSwyMDE1NTU2OTgzLDE0MDYzNjQ3MjUsMjAxNTU1Njk4Mywy
-OTAxMzg3NjAsMTIwNDEzNTExNCwyOTAxMzg3NjAsMTIwNDEzNT
-ExNCwtMjE5MjQ5NzYyLDE2MzM4NTk0ODgsLTIxOTI0OTc2Miwx
-NjMzODU5NDg4LC0xMDAwOTY3NDcxLC0yMTQ2NTE5MTIzLC05ND
-Q5NjQ4MTIsMTQ4NTk0MTU5NywxNzYyMDY4NDYyXX0=
+eyJoaXN0b3J5IjpbLTEyNDA0MTYxMzJdfQ==
 -->
