@@ -555,7 +555,7 @@ if the user is already logged in, two possible identifiers that could be used to
 - In the “userinfo” JSON section, the “**phone_number**” requested claim can be used to communicate the subject (end user) phone number to be used as unique identifier. The format must match this regular expression
 
 ```http--inline
-\\+?(>\\
+\\+?(>\\d{1,3})[ +]--> +\](\ an>
 ```
 - 
 Giving one of these two (valid) identifiers in the authorization request will bypass the identification screen where the end user should normally introduce his phone number to identify himself.
@@ -584,7 +584,7 @@ _(*) Valid if the request was emitted by an active partner using one of his acti
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA0MDg4NDQ2MCwtMjYyNDYxMTk0LDUxNz
+eyJoaXN0b3J5IjpbLTc5NzU4MTMzNywxMDQwODg0NDYwLDUxNz
 MzMjQzLC0xMjQ2NTUwMTYyLC0xNDA2MzMyNjIyLC0xMjQ2NTUw
 MTYyLDE5NzU5NjM3NDYsMTY3NTI5ODIxNCwxMzY4MDg3NjIwLD
 cwMzU5NDI0MCwxMzY4MDg3NjIwLDcwMzU5NDI0MCwxMzY4MDg3
