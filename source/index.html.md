@@ -214,7 +214,8 @@ Error | Description
 
 ### App to App authentication
 The itsme App itself also leverages the OpenID Connect authentication flow to allow native apps to perform authentication easily and safely.
-
+This enables the following user experience:
+- dsqfd
 
 Doing so, the itsme App will open itself automatically 
 **itsme(r)** Mobile App endpoint : TODO
@@ -478,7 +479,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MzUyMDYyMTIsMTU1Njc1NTA5MywxNT
+eyJoaXN0b3J5IjpbLTIxMTIyMDUxMDgsMTU1Njc1NTA5MywxNT
 U2NzU1MDkzLC01NTY0NjI3NjcsMTc3OTAzOTM0MSwtMTE3OTU5
 OTYzOCw1MjM0MjczNjYsLTExNzk1OTk2MzgsMTQ0NDcxMjcyNC
 wtMTUwNDAzMzkzMCwxMTI5NDA1MzI3LDE5MDg3NDkzMjksNjM3
