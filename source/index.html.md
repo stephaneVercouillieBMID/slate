@@ -129,7 +129,7 @@ The OpenID Connect protocol requires the use of multiple endpoints for authentic
 
 To simplify implementations and increase flexibility, OpenID Connect allows the use of a "Discovery document", a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider's configuration, including the URIs of the authorization, token, userinfo, and public-keys endpoints to interact with it. 
 
-<aside class="success">The Discovery document for <b>itsme® <b service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside>
+<aside class="success">The Discovery document for <b>itsme® <b/> service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside>
 
 Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
 
@@ -759,7 +759,7 @@ Parameter | Reqested Claim Key Name | Claim Value Type
 ### Template: “Free Text”
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzE5MTg2NjEzLDU4MTMyMzk1NSwtMzYxNz
+eyJoaXN0b3J5IjpbNjYxMTc2MTY0LDU4MTMyMzk1NSwtMzYxNz
 c1NjQyLC0xNzc3ODMyMTgxLC0zMzUzMTU0MDIsMTA0MDg4NDQ2
 MCw1MTczMzI0MywtMTI0NjU1MDE2MiwtMTQwNjMzMjYyMiwtMT
 I0NjU1MDE2MiwxOTc1OTYzNzQ2LDE2NzUyOTgyMTQsMTM2ODA4
