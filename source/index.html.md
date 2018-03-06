@@ -519,27 +519,12 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 # OIDC Approval
-## 
-Introduction
- During and OIDC <!\[if !supportAnnotations\]> <!\[endif\]--> “Approval”, the connected user gives his consent on a particular action initiated by the SP, the content detail of this action is displayed on the mobile phone.<!\[if !supportAnnotations\]>[\[SV1\]](#_msocom_1)<!\[endif\]>
-
-<!\[if !supportAnnotations\]>
-
-----------
-
-<!\[endif\]>
-
-<!\[if !supportAnnotations\]>
-
-<!\[endif\]><!\[if !supportAnnotations\]><!\[endif\]>
-
-<!\[if !supportAnnotations\]>[\[SV1\]](#_msoanchor_1)<!\[endif\]>Ok, but we decide to include ID sharing in the approval as well. So the main difference left is the fact that there is no possible free text in the login.
-
-<!\[if !supportAnnotations\]>
-
-<!\[endif\]>
+## Introduction
+ During and OIDC  “Approval”, the connected user gives his consent on a particular action initiated by the SP, the content detail of this action is displayed on the mobile phone.
+ 
+ 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2MjI1ODI1MSw0MTM0MzUwNDQsLTEyND
+eyJoaXN0b3J5IjpbNTcyNDE5MTMyLC00NjIyNTgyNTEsLTEyND
 Y1NTAxNjIsLTE0MDYzMzI2MjIsLTEyNDY1NTAxNjIsMTk3NTk2
 Mzc0NiwxNjc1Mjk4MjE0LDEzNjgwODc2MjAsNzAzNTk0MjQwLD
 EzNjgwODc2MjAsNzAzNTk0MjQwLDEzNjgwODc2MjAsMTQ0OTYw
