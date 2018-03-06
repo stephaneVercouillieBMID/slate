@@ -261,11 +261,7 @@ Property | Comment
 -- | --
 **iss** | The issuer of the private_key_jwt (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID). 
 **sub** | The subject of the private_key_jwt (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file onboarding file provided by BMID). 
-**aud** | Must be the token endpoint URL, possible token end point URLs are:https://**merchant**.itsme.be/oidc/token
-
-https://**e2e****merchant**.itsme.be/oidc/token
-
-https://**uat****merchant**.sixdots.be/oidc/token
+**aud** | Must be the token endpoint URL, possible token end point URLs: https://**merchant**.itsme.be/oidc/token
 **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
 **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 
@@ -502,7 +498,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjUxNjIzNjc4LDkyMzY2MDA5LDE3MjYxNz
+eyJoaXN0b3J5IjpbNjk2MzkxMjE0LDkyMzY2MDA5LDE3MjYxNz
 EzODEsOTIzNjYwMDksMTcyNjE3MTM4MSw5MjM2NjAwOSwtMTIx
 NzY0MjIzMSwtMTAyNzk4MDc3NCw2MDAzNDEyMDYsLTMwNjc2NT
 EwLDI3MjM0OTU5OCwtMzA2NzY1MTAsMjcyMzQ5NTk4LC0zMDY3
