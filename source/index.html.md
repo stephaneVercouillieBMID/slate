@@ -548,9 +548,7 @@ d.	If the user is already logged in the SP and, it is required that it is this u
 1.	Calling the “User Info” End Point is not mandatory. The “ID Token” already contains all the necessary proof for a simple approval.
 2.	However, the “User Info” End Point can be called to retrieve the requested claims of the user that did the approval. 
 
-if the user is already logged in <!\[if !supportAnnotations\]> <!\[endif\]-->
-
-Two possible identifiers that could be used to:
+if the user is already logged in, two possible identifiers that could be used to:
 
 <!\[if !supportLists\]>· <!\[endif\]>In the “userinfo” JSON section, the “**sub**” requested claim can be used to communicate the subject (end user) identifier already shared between Itsme OP and the SP. This identifier (called “user code”) was previously communicated in the ID token or in the UserInfo token after a successful OIDC login.
 
@@ -586,7 +584,7 @@ _(*) Valid if the request was emitted by an active partner using one of his acti
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg4NTE5MzgyNCwtODIwMDM4NTA3LDUxNz
+eyJoaXN0b3J5IjpbMTU0MTA1ODEyOSwxODg1MTkzODI0LDUxNz
 MzMjQzLC0xMjQ2NTUwMTYyLC0xNDA2MzMyNjIyLC0xMjQ2NTUw
 MTYyLDE5NzU5NjM3NDYsMTY3NTI5ODIxNCwxMzY4MDg3NjIwLD
 cwMzU5NDI0MCwxMzY4MDg3NjIwLDcwMzU5NDI0MCwxMzY4MDg3
