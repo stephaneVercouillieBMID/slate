@@ -54,7 +54,7 @@ Data | Definition
 **E-ID picture** | Picture taken from the National eID Card in low-resolution.
 **E-ID Metadata** | See [E-ID Metadata Information](#e-id-info)
 
-### <a name="e-id-info"></a>E-ID Metadata Information
+#### <a name="e-id-info"></a>E-ID Metadata Information
 Provides some information about the eID card readout related to the identity data provided by **itsme(r)**.
 
 Data | Definition
@@ -766,6 +766,6 @@ Parameter | Requested Claim Key Name | Claim Value Type
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcyNjQ4NDg0NiwtMjEwMjEyMzIwNCwtOT
+eyJoaXN0b3J5IjpbLTIwOTk4MzIxMjcsLTcyNjQ4NDg0NiwtOT
 YxMjI3MDMyXX0=
 -->
