@@ -262,7 +262,7 @@ Parameter | Required | Comment
 **registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the partner onboarding.
 
 #### Authorization Response specifications
-Once the authentication is finished (successfully or not), itsme will call back the calling application (your App or the mobile bro
+Once the authentication is finished (successfully or not), itsme will call back the calling application (your App or the mobile browser
 
 ## 2. Token Request
 
@@ -653,7 +653,7 @@ _Please note that the “request” parameter is represented as a regular JSON f
 The key `THE\_END\_USER\_PHONE\_VALUE` must be replaced with a valid user phone value.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTc3OTU1OTM2LC0xOTY5MDkyMTgxLDEwND
+eyJoaXN0b3J5IjpbNTU0NzI4MTY5LC0xOTY5MDkyMTgxLDEwND
 A4ODQ0NjAsNTE3MzMyNDMsLTEyNDY1NTAxNjIsLTE0MDYzMzI2
 MjIsLTEyNDY1NTAxNjIsMTk3NTk2Mzc0NiwxNjc1Mjk4MjE0LD
 EzNjgwODc2MjAsNzAzNTk0MjQwLDEzNjgwODc2MjAsNzAzNTk0
