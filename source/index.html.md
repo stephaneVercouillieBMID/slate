@@ -222,13 +222,14 @@ In case the itsme App is not present on the device, the end user will be redirec
 
 In order to trigger this flow, you MUST send the Authorization Request to the following authorization endpoint: `https://mobileapp.sixdots.be/mobile/authorize`
 
-#### Technical requirements apps
+#### Apps requirements
 
-BMID follows the recommendations of the [OAuth Working Group](https://tools.ietf.org/html/draft-ietf-oauth-native-apps-12) about the authentication process in native apps. BMID thus exclusively uses Universal/App Links for all communications between your App and itsme. This mechanism guarantees that the right app is launched and thus improves the security.
+As per [OAuth Working Group](https://tools.ietf.org/html/draft-ietf-oauth-native-apps-12) about the authentication process in native apps. BMID thus exclusively uses Universal/App Links for all communications between your App and itsme. This mechanism guarantees that the right app is launched and thus improves the security.
 
 If you trigger the itsme App from your own App, you MUST make sure there is a Universal/App Link associated with your App. Please consult the  documentation about [Universal](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html)/[App](https://developer.android.com/training/app-links/index.html) for this. This Universal/App Link MUST be specified to BMID during the onboarding process.
 
 Universal Links are available on iOS since version 9.0, and the itsme App itself is only available on iOS 9.0 or greater.
+
 App Links are available on Android since version 6.0. The itsme App is available on Android 4.2 or greater, and supports OpenID Connect authentication only on Android version 6.0 or greater.
 
 ## 2. Token Request
@@ -488,7 +489,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMwNjc2NTEwLDI3MjM0OTU5OCwtMzA2Nz
+eyJoaXN0b3J5IjpbLTM0OTY0MDIxLC0zMDY3NjUxMCwtMzA2Nz
 Y1MTAsMjcyMzQ5NTk4LC0zMDY3NjUxMCwyNzIzNDk1OTgsLTMw
 Njc2NTEwLDI3MjM0OTU5OCwtMzA2NzY1MTAsMjcyMzQ5NTk4LC
 0zNDkzODI1MjAsLTY1NTQ3NTE1OCwtMjkxMzkxNDc4LC0xMjQ2
