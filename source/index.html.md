@@ -749,13 +749,17 @@ As expected, the goal of this template is to request an (“advanced”) payment
 
 Expected parameters:
 
-Parameter | Requested Claim Key Name | Claim Value Type
+Parameter | Reqested Claim Key Name | Claim Value Type
 -- | -- | --
 
+**Amount** | `tag:sixdots.be,2016-08:claim_approval_amount_key` | A string holding an integer value inside
+**Currency** | `tag:sixdots.be,2016-08:claim_approval_currency_key` | A string holding a valid currency code (e.g. "EUR").<br>
+**IBAN** | `tag:sixdots.be,2016-08:claim_approval_iban_key` | A string holding a valid IBAN account number.
 
+### Template: “Free Text”
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYwNDkzMzY4NywxNDQ4MDM4OTQsLTM2MT
+eyJoaXN0b3J5IjpbNTgxMzIzOTU1LDE2MDQ5MzM2ODcsLTM2MT
 c3NTY0MiwtMTc3NzgzMjE4MSwtMzM1MzE1NDAyLDEwNDA4ODQ0
 NjAsNTE3MzMyNDMsLTEyNDY1NTAxNjIsLTE0MDYzMzI2MjIsLT
 EyNDY1NTAxNjIsMTk3NTk2Mzc0NiwxNjc1Mjk4MjE0LDEzNjgw
