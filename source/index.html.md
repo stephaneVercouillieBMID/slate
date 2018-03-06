@@ -16,7 +16,7 @@ This document is intended to be read by Service Provider developers who are in c
 
 # The itsme® services in a few words
 
-This documentation describes our OAuth 2.0 implementation of **itsme® Login**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications.
+This documentation describes our OAuth 2.0 implementation of **itsme® Login** and **itsme(r) Approval**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications.
 
 ## Login
 
@@ -755,7 +755,7 @@ Parameter | Requested Claim Key Name | Claim Value Type
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ0ODAzODk0LC0yMzk1ODc0MjcsLTM2MT
+eyJoaXN0b3J5IjpbMTYwNDkzMzY4NywxNDQ4MDM4OTQsLTM2MT
 c3NTY0MiwtMTc3NzgzMjE4MSwtMzM1MzE1NDAyLDEwNDA4ODQ0
 NjAsNTE3MzMyNDMsLTEyNDY1NTAxNjIsLTE0MDYzMzI2MjIsLT
 EyNDY1NTAxNjIsMTk3NTk2Mzc0NiwxNjc1Mjk4MjE0LDEzNjgw
