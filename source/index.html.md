@@ -262,7 +262,7 @@ Parameter | Required | Comment
 **registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the partner onboarding.
 
 #### Authorization Response specifications
-Once the authentication is finished (successfully or not), itsme will open the Universal/App Link indicated in the **redirect_uri**. If this **redirect_uri** is not registered as a Universal/App Link on your side, it will be opened as a URL in the default mobile browser.
+Once the authentication is finished (successfully or not), itsme will open the Universal/App Link indicated in the **redirect_uri**. If this **redirect_uri** is not registered as a Universal/App Link on your side, it will be opened as a URL in theinterpreted as an default mobile browser.
 
 The content of the Authorization Response is exactly the same as per Web Desktop flow.
 
@@ -752,39 +752,37 @@ Expected parameters:
 Parameter | Requested Claim Key Name | Claim Value Type
 -- | -- | --
 
-**Amount** | `tag:sixdots.be,2016-08:claim_approval_amoa| A token that can be sent to the UserInfo endpoint to retrieve additional information about the user.
-**C** | Always | Will be `Bearer`
-**id_token** | Always | The JWT `id_token` corresponding to the Authentication Request (signed and  encrypted). 
-**at_hash** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIzOTU4NzQyNywtMzYxNzc1NjQyLC0xNz
-c3ODMyMTgxLC0zMzUzMTU0MDIsMTA0MDg4NDQ2MCw1MTczMzI0
-MywtMTI0NjU1MDE2MiwtMTQwNjMzMjYyMiwtMTI0NjU1MDE2Mi
-wxOTc1OTYzNzQ2LDE2NzUyOTgyMTQsMTM2ODA4NzYyMCw3MDM1
-OTQyNDAsMTM2ODA4NzYyMCw3MDM1OTQyNDAsMTM2ODA4NzYyMC
-wxNDQ5NjA2MzQwLC0yMDI5ODgwMjMxLDk5NDk0MDMwOSwxNzI2
-MTcxMzgxLDkyMzY2MDA5LDE3MjYxNzEzODEsOTIzNjYwMDksLT
-EyMTc2NDIyMzEsLTEwMjc5ODA3NzQsNjAwMzQxMjA2LC0zMDY3
-NjUxMCwyNzIzNDk1OTgsLTMwNjc2NTEwLDI3MjM0OTU5OCwtMz
-A2NzY1MTAsMjcyMzQ5NTk4LC0zMDY3NjUxMCwyNzIzNDk1OTgs
-LTM0OTM4MjUyMCwtNjU1NDc1MTU4LC0yOTEzOTE0NzgsLTEyND
-Y1ODU1MjYsMTE3NjAyNTk5MCwtMTI0NjU4NTUyNiwxMTc2MDI1
-OTkwLC0xMjQ2NTg1NTI2LDExNzYwMjU5OTAsLTEyNDY1ODU1Mj
-YsLTE5OTk0NzU5NywtMTExMDU2NTM2NSwxMTE0MzI2NzI3LC0x
-MzI4NTcyNTEzLDE1NTY3NTUwOTMsLTU1NjQ2Mjc2NywxNzc5MD
-M5MzQxLC0xMTc5NTk5NjM4LDUyMzQyNzM2NiwtMTE3OTU5OTYz
-OCwxNDQ0NzEyNzI0LC0xNTA0MDMzOTMwLDExMjk0MDUzMjcsMT
-kwODc0OTMyOSw2MzcwNDU5NzEsMTkwODc0OTMyOSwtNDU4NTEw
-NDczLDIwOTI5NTY2MzUsMTE5ODc3MTg2OSwtMTE4NTA4MTA4LD
-E0OTI4NjY2NzgsLTExODUwODEwOCwxNDkyODY2Njc4LC0xOTYz
-MjE0NzM5LC05NzcwNDk1NjYsODIxMDc1MDAzLDg3ODYwNzAzNy
-w5ODA3MDU4MTksOTY1MzExNDcxLC0xMzU0MTEwODE5LC01MTA4
-NTY5MDksLTg5NzY2OTM1LDE2NDYxMTkyNzAsLTIwNzkwNTc2Mj
-gsMTg4MDY0MzY2Miw4NTg3OTYwNDQsLTEzNTU3NTQ5NTcsMjU4
-NDE4MjI5LC0xMzU1NzU0OTU3LDE0MDYzNjQ3MjUsMjAxNTU1Nj
-k4MywxNDA2MzY0NzI1LDIwMTU1NTY5ODMsMjkwMTM4NzYwLDEy
-MDQxMzUxMTQsMjkwMTM4NzYwLDEyMDQxMzUxMTQsLTIxOTI0OT
-c2MiwxNjMzODU5NDg4LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OCwt
-MTAwMDk2NzQ3MSwtMjE0NjUxOTEyMywtOTQ0OTY0ODEyLDE0OD
-U5NDE1OTcsMTc2MjA2ODQ2Ml19
+eyJoaXN0b3J5IjpbMTQ0ODAzODk0LC0yMzk1ODc0MjcsLTM2MT
+c3NTY0MiwtMTc3NzgzMjE4MSwtMzM1MzE1NDAyLDEwNDA4ODQ0
+NjAsNTE3MzMyNDMsLTEyNDY1NTAxNjIsLTE0MDYzMzI2MjIsLT
+EyNDY1NTAxNjIsMTk3NTk2Mzc0NiwxNjc1Mjk4MjE0LDEzNjgw
+ODc2MjAsNzAzNTk0MjQwLDEzNjgwODc2MjAsNzAzNTk0MjQwLD
+EzNjgwODc2MjAsMTQ0OTYwNjM0MCwtMjAyOTg4MDIzMSw5OTQ5
+NDAzMDksMTcyNjE3MTM4MSw5MjM2NjAwOSwxNzI2MTcxMzgxLD
+kyMzY2MDA5LC0xMjE3NjQyMjMxLC0xMDI3OTgwNzc0LDYwMDM0
+MTIwNiwtMzA2NzY1MTAsMjcyMzQ5NTk4LC0zMDY3NjUxMCwyNz
+IzNDk1OTgsLTMwNjc2NTEwLDI3MjM0OTU5OCwtMzA2NzY1MTAs
+MjcyMzQ5NTk4LC0zNDkzODI1MjAsLTY1NTQ3NTE1OCwtMjkxMz
+kxNDc4LC0xMjQ2NTg1NTI2LDExNzYwMjU5OTAsLTEyNDY1ODU1
+MjYsMTE3NjAyNTk5MCwtMTI0NjU4NTUyNiwxMTc2MDI1OTkwLC
+0xMjQ2NTg1NTI2LC0xOTk5NDc1OTcsLTExMTA1NjUzNjUsMTEx
+NDMyNjcyNywtMTMyODU3MjUxMywxNTU2NzU1MDkzLC01NTY0Nj
+I3NjcsMTc3OTAzOTM0MSwtMTE3OTU5OTYzOCw1MjM0MjczNjYs
+LTExNzk1OTk2MzgsMTQ0NDcxMjcyNCwtMTUwNDAzMzkzMCwxMT
+I5NDA1MzI3LDE5MDg3NDkzMjksNjM3MDQ1OTcxLDE5MDg3NDkz
+MjksLTQ1ODUxMDQ3MywyMDkyOTU2NjM1LDExOTg3NzE4NjksLT
+ExODUwODEwOCwxNDkyODY2Njc4LC0xMTg1MDgxMDgsMTQ5Mjg2
+NjY3OCwtMTk2MzIxNDczOSwtOTc3MDQ5NTY2LDgyMTA3NTAwMy
+w4Nzg2MDcwMzcsOTgwNzA1ODE5LDk2NTMxMTQ3MSwtMTM1NDEx
+MDgxOSwtNTEwODU2OTA5LC04OTc2NjkzNSwxNjQ2MTE5MjcwLC
+0yMDc5MDU3NjI4LDE4ODA2NDM2NjIsODU4Nzk2MDQ0LC0xMzU1
+NzU0OTU3LDI1ODQxODIyOSwtMTM1NTc1NDk1NywxNDA2MzY0Nz
+I1LDIwMTU1NTY5ODMsMTQwNjM2NDcyNSwyMDE1NTU2OTgzLDI5
+MDEzODc2MCwxMjA0MTM1MTE0LDI5MDEzODc2MCwxMjA0MTM1MT
+E0LC0yMTkyNDk3NjIsMTYzMzg1OTQ4OCwtMjE5MjQ5NzYyLDE2
+MzM4NTk0ODgsLTEwMDA5Njc0NzEsLTIxNDY1MTkxMjMsLTk0ND
+k2NDgxMiwxNDg1OTQxNTk3LDE3NjIwNjg0NjJdfQ==
 -->
