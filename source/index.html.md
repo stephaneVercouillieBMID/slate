@@ -181,7 +181,7 @@ Parameter | Required | Comment
 **id\_token\_hint** | Unsupported | Ignored if provided.
 **claims_locales** | Unsupported | None are supported.
 **request_uri** | Unsupported | Not supported (yet)
-**registration** | Unsupported | Not supported due to “client dynamic registration” The client registration process is done during the partner on-boarding.
+**registration** | Unsupported | Not supported due to “client dynamic registration”. The client registration process is done during the partner on-boarding.
 
 ### Authentication Response
 An Authentication Response is an [OAuth 2.0 Authorization Response](https://tools.ietf.org/html/rfc6749#section-4.1.2) message. As such, the Authentication Response will return the following parameters:
@@ -476,7 +476,7 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 It is expected that the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQyODQzNzc0LDE2MTAxODgwNzMsMTc3OT
+eyJoaXN0b3J5IjpbNDUwNzA2Nzg0LDE2MTAxODgwNzMsMTc3OT
 AzOTM0MSwtMTE3OTU5OTYzOCw1MjM0MjczNjYsLTExNzk1OTk2
 MzgsMTQ0NDcxMjcyNCwtMTUwNDAzMzkzMCwxMTI5NDA1MzI3LD
 E5MDg3NDkzMjksNjM3MDQ1OTcxLDE5MDg3NDkzMjksLTQ1ODUx
