@@ -565,7 +565,7 @@ Only signed and encrypted valid* OIDC Approval request will lead to an identific
 _(*) Valid if the request was emitted by an active partner using one of his active approval services._
 
 ### Sample OIDC approval authorization request using the “sub” identifier
-The value `THE_END_USER_ALREADY_KNOWN_USER_CODE`” must be replaced with a valid user code. This code is the identifier shared between the itsme OP and the SP to represent the end user. This identifier can be obtained after a successful OIDC login.
+The value `THE_END_USER_ALREADY_KNOWN_USER_CODE` must be replaced with a valid user code. This code is the identifier shared between the itsme OP and the SP to represent the end user. This identifier can be obtained after a successful OIDC login.
 
 ```http--inline
 
@@ -648,11 +648,10 @@ _Please note that the “request” parameter is represented as a regular JSON f
 
 #### Sample OIDC approval authorization request using the “phone_number” identifier
 
-The key `**THE\_END\_USER\_PHONE\_VALUE”** must be replaced with a valid user phone value.
-
+The key `THE\_END\_USER\_PHONE\_VALUE”** must be replaced with a valid user phone value.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQ3ODkxODQxLDUzMTI0MTY2MSwxMDQwOD
+eyJoaXN0b3J5IjpbMTU1ODY3MjE0LDc0Nzg5MTg0MSwxMDQwOD
 g0NDYwLDUxNzMzMjQzLC0xMjQ2NTUwMTYyLC0xNDA2MzMyNjIy
 LC0xMjQ2NTUwMTYyLDE5NzU5NjM3NDYsMTY3NTI5ODIxNCwxMz
 Y4MDg3NjIwLDcwMzU5NDI0MCwxMzY4MDg3NjIwLDcwMzU5NDI0
