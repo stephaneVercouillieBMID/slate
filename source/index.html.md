@@ -830,10 +830,10 @@ You can find the configuration parameters in in document « 33020 Technical Spec
  ## What should I do once I changed my JWKSet (but not the URL, so no new certificates)?<br>
  You should contact support and mention the change to allow a refresh of the cache on back-end side, this should be solved in March where the refresh time will be 30 min.
  
-A workaround to force a refresh, let the SP send a request with an unknown **"KID" (key id).
+A workaround to force a refresh, let the SP send a request with an unknown **"KID"** (key id).
 Because not found in the current cache, this one will be refreshed.
 But the client has to correct his JwkSet first, if not yet done.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NTUyNjc5OTQsLTQzNTc2Njg0NiwtOT
+eyJoaXN0b3J5IjpbLTEyODE3NDcwMzQsLTQzNTc2Njg0NiwtOT
 YxMjI3MDMyXX0=
 -->
