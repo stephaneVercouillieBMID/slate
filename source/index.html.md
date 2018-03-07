@@ -213,27 +213,27 @@ Error | Description
 `registration_not_supported` | does not support use of the registration parameter.
 
 ### App to App authentication
-The itsme App itself also leverages the OpenID Connect authentication flow to allow native apps to perform the authentication easily and safely.
-By using this flow, the end user will be automatically redirected from your App (or your web page in the mobile browser) to the itsme App. After authenticating himself (or rejecting the authentication), he will be redirected back to your App.
+The itsme(r) App itself also leverages the OpenID Connect authentication flow to allow native apps to perform the authentication easily and safely.
+By using this flow, the end user will be automatically redirected from your App (or your web page in the mobile browser) to the itsme(r)  App. After authenticating himself (or rejecting the authentication), he will be redirected back to your App.
 
-This authentication flow is referred as "App to App" flow when occurring from your App to the itsme App, or "Web mobile to App" flow when occurring from the mobile browser to the itsme App. When the context is not ambiguous, we also use "App to App" denomination to designate both flows. We designate by "Web Desktop" the flow where the itsme App is not triggered manually by the end user.
+This authentication flow is referred as "App to App" flow when occurring from your App to the itsme(r)  App, or "Web mobile to App" flow when occurring from the mobile browser to the itsme(r) App. When the context is not ambiguous, we also use "App to App" denomination to designate both flows. We designate by "Web Desktop" the flow where the itsme(r) App is not triggered manually by the end user.
 
 The technology used for this flow is the [Universal Links](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) (iOS)/[App Links](https://developer.android.com/training/app-links/index.html) (Android).
 
-In case the itsme App is not present on the device, the end user will be redirected to a web page in the mobile browser, as per [Universal Links](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) and [App Links](https://developer.android.com/training/app-links/index.html) specifications. Currently, this web page redirects the end user to the OpenID web page of BMID, where he will be able to enter his phone number and continue the authentication flow.
+In case the itsme(r) App is not present on the device, the end user will be redirected to a web page in the mobile browser, as per [Universal Links](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) and [App Links](https://developer.android.com/training/app-links/index.html) specifications. Currently, this web page redirects the end user to the OpenID web page of BMID, where he will be able to enter his phone number and continue the authentication flow.
 
 #### Pre-requisites
-Universal Links are available on iOS since version 9.0, and the itsme App itself is only available on iOS 9.0 or greater.
+Universal Links are available on iOS since version 9.0, and the itsme(r)  App itself is only available on iOS 9.0 or greater.
 
-App Links are available on Android since version 6.0. The itsme App is available on Android 4.2 or greater, and supports OpenID Connect authentication only on Android version 6.0 or greater. Please note that calling the mobile authorization endpoint on Android versions between 4.2 and 6.0 will lead to sub-optimal user experience or even a non-functional flow, depending on the OS and the actions of the end user.
+App Links are available on Android since version 6.0. The itsme(r)  App is available on Android 4.2 or greater, and supports OpenID Connect authentication only on Android version 6.0 or greater. Please note that calling the mobile authorization endpoint on Android versions between 4.2 and 6.0 will lead to sub-optimal user experience or even a non-functional flow, depending on the OS and the actions of the end user.
 
 #### Registering Universal/App Links
 
 As per recommendations of [OAuth Working Group about the authentication process in native apps](https://tools.ietf.org/html/draft-ietf-oauth-native-apps-12). 
 
-BMID exclusively uses Universal/App Links for all communications between your App and itsme. Among other advantages, this mechanism guarantees that the right app is launched and thus improves the security.
+BMID exclusively uses Universal/App Links for all communications between your App and itsme(r). Among other advantages, this mechanism guarantees that the right app is launched and thus improves the security.
 
-If you trigger the itsme App from your own App, you MUST make sure there is a Universal/App Link associated with your App. Please consult the  documentation about [Universal](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html)/[App](https://developer.android.com/training/app-links/index.html) for this. This Universal/App Link MUST be specified to BMID during the onboarding process.
+If you trigger the itsme(r) App from your own App, you MUST make sure there is a Universal/App Link associated with your App. Please consult the  documentation about [Universal](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html)/[App](https://developer.android.com/training/app-links/index.html) for this. This Universal/App Link MUST be specified to BMID during the onboarding process.
 
 #### Authorization Request specifications
 Authorization Requests in the context of App to App and Web mobile to App flow must be addressed to `https://mobileapp.sixdots.be/mobile/authorize`, and they are subject to more strict specifications as Authorization Requests in  the  Web Desktop flow.
@@ -767,6 +767,6 @@ Parameter | Requested Claim Key Name | Claim Value Type
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUxNTk0NzE5NiwtNDM1NzY2ODQ2LC05Nj
-EyMjcwMzJdfQ==
+eyJoaXN0b3J5IjpbLTEwMDk2NjA3NjgsLTQzNTc2Njg0NiwtOT
+YxMjI3MDMyXX0=
 -->
