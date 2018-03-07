@@ -12,7 +12,7 @@ toc_footers:
 search: true
 ---
 # Who should read this document
-This document is intended to be read by Service Provider developers who are in charge of developing and integrating the itsme services. In this document, we speak directly to the developers, using 'you' to designate them.
+This document is intended to be read by Service Provider developers who are in charge of developing and integrating the itsme(r) services. In this document, we speak directly to the developers, using 'you' to designate them.
 
 # The itsme® services in a few words
 
@@ -71,7 +71,7 @@ Data | Definition
 Data | Definition
 -- | --
 **Phone Number** | Verified phone number associated to the **itsme(r)** user account.  
-**E-Mail Address** | E-Mail address. Not Verified. itsme does not yet make use of email .
+**E-Mail Address** | E-Mail address. Not Verified. itsme(r) does not yet make use of email .
 
 ### Security Data
 
@@ -767,6 +767,6 @@ Parameter | Requested Claim Key Name | Claim Value Type
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTkzMjU4OTY4LC00MzU3NjY4NDYsLTk2MT
-IyNzAzMl19
+eyJoaXN0b3J5IjpbLTUxNTk0NzE5NiwtNDM1NzY2ODQ2LC05Nj
+EyMjcwMzJdfQ==
 -->
