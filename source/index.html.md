@@ -803,7 +803,7 @@ https://www.npmjs.com/package/rsa-pem-to-jwk
 In the JWKSet, encryption should be done with **RSA256**,  the signature in **SHA256** (in short the encryption algorithm is RS256) and the key size is 2048 bits.
 
 As a comparison here's the public keys for itsme UAT JWKSet.<br>
- JWKSET ITSME UAT 
+ JWKSET itsme(r) UAT 
 
 ```http--inline
 {
@@ -825,12 +825,10 @@ As a comparison here's the public keys for itsme UAT JWKSet.<br>
 ]
 }
 ```  
-You can fin back the configuration parameters via the following backend url:
- 
-https://uatmerchant.sixdots.be/oidc/.well-known/openid-configuration
- 
+You can find the configuration parameters via the following backend url:
+ https://uatmerchant.sixdots.be/oidc/.well-known/openid-configuration
 (or in document « 33020 Technical Specification Service Provider OpenID Documentation »)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTgwMTgyODI3LC00MzU3NjY4NDYsLTk2MT
+eyJoaXN0b3J5IjpbNzg3ODY1NTQ5LC00MzU3NjY4NDYsLTk2MT
 IyNzAzMl19
 -->
