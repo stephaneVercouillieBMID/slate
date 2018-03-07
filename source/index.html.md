@@ -827,8 +827,8 @@ As a comparison here's the public keys for itsme UAT JWKSet.<br>
 ```  
 You can find the configuration parameters in in document « 33020 Technical Specification Service Provider OpenID Documentation » or via the following back-end URL:
  https://uatmerchant.sixdots.be/oidc/.well-known/openid-configuration
- 
+ ## What should I do once I changed my JWKSet (but not the URL, so no new certificates)?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzOTQ3MzM5NDQsLTQzNTc2Njg0NiwtOT
-YxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbMTk5NjkxNzI1MCwtNDM1NzY2ODQ2LC05Nj
+EyMjcwMzJdfQ==
 -->
