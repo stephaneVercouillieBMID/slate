@@ -789,20 +789,17 @@ In contrary, the key pairs used for signing and/or encrypting the OIDC JWT token
 
 ## How to create JWKSet?
 
-The following JSON Web Key Generator can be used to create JWKSet:
-https://mkjwk.org/ <br>
+The following JSON Web Key Generator can be used to create JWKSe`t ``
+https://mkjwk.org/ ```<br>
 Another resource you could use to generate your JWKSet is:
 https://connect2id.com/products/nimbus-jose-jwt/examples/jwk-generation <br>
 Another option (using python) is available at:
 https://stackoverflow.com/questions/42504079/how-do-you-extract-n-and-e-from-a-rsa-public-key-in-python<br>
 ## How to Transfer JWKSets?
-The following link can be used to convert encoded public and private keys to JWKSet format:< a href=https://www.npmjs.com/package/rsa-pem-to-jwk
-
+The following link can be used to convert encoded public and private keys to JWKSet format:
+https://www.npmjs.com/package/rsa-pem-to-jwk
 ## What are the JWKSet requirements?
 In Opend ID Connect 1.0 the important is the jwKset which is exposed on a public URL and the linked chain of certificates which is included in our trust store.
-```
-<a href="https://www.npmjs.com/package/rsa-pem-to-jwk</a>
-```
 
 This is 1 per partner. So in UAT 1, in Prod, for your 4 clients, it would be 1 JWKSet if it's under Norbloc name or 4 JWKSet if it's under each client name.
 
@@ -853,6 +850,6 @@ A workaround to force a refresh, let the SP send a request with an unknown **"KI
 Because not found in the current cache, this one will be refreshed. But the client has to correct his JwkSet first, if not yet done.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjg4MzU4NTU2LC00MzU3NjY4NDYsLTk2MT
-IyNzAzMl19
+eyJoaXN0b3J5IjpbLTE4MDQ1NDcyNTksLTQzNTc2Njg0NiwtOT
+YxMjI3MDMyXX0=
 -->
