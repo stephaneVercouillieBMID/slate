@@ -795,10 +795,11 @@ Another resource you could use to generate your JWKSet is:
 https://connect2id.com/products/nimbus-jose-jwt/examples/jwk-generation <br>
 Another option (using python) is available at:
 https://stackoverflow.com/questions/42504079/how-do-you-extract-n-and-e-from-a-rsa-public-key-in-python<br>
+## How to Transfer JWKSets?
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA3NzM2ODg4MywtNDM1NzY2ODQ2LC05Nj
+eyJoaXN0b3J5IjpbLTEzMjg4MDYxNywtNDM1NzY2ODQ2LC05Nj
 EyMjcwMzJdfQ==
 -->
