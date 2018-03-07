@@ -783,12 +783,13 @@ This JWKSet is accessible, using a secured HTTPS URL.
 This HTTPS URL must be communicated to us, during the partner on-boarding.<br>
 This HTTPS URL must be protected using a valid certificates chain starting from a Root CA trusted by our backend.
  
-During onboarding, we can check that we have all the required certificates to establish the trust.
+During on-boarding, we can check that we have all the required certificates to establish the trust.<br>
 So, on the HTTPS protocol level, the connections must be secured using trusted Root CA (not self-signed).
 In contrary, the key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.
 
 
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAxODcxNDE5NiwtNDM1NzY2ODQ2LC05Nj
-EyMjcwMzJdfQ==
+eyJoaXN0b3J5IjpbLTE2MzU2NjM0MjUsLTQzNTc2Njg0NiwtOT
+YxMjI3MDMyXX0=
 -->
