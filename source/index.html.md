@@ -796,10 +796,10 @@ https://connect2id.com/products/nimbus-jose-jwt/examples/jwk-generation <br>
 Another option (using python) is available at:
 https://stackoverflow.com/questions/42504079/how-do-you-extract-n-and-e-from-a-rsa-public-key-in-python<br>
 ## How to Transfer JWKSets?
-
+The following link can be used to convert public and private keys to JWKSet https://www.npmjs.com/package/rsa-pem-to-jwk
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMjg4MDYxNywtNDM1NzY2ODQ2LC05Nj
-EyMjcwMzJdfQ==
+eyJoaXN0b3J5IjpbODAyOTY1NDAwLC00MzU3NjY4NDYsLTk2MT
+IyNzAzMl19
 -->
