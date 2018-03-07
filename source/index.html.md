@@ -764,7 +764,7 @@ Parameter | Requested Claim Key Name | Claim Value Type
 -- | -- | --
 **Text** | `tag:sixdots.be,2016-08:claim_approval_text_key` | A string holding any text to be displayed on the end-user phone.<br>
 # FAQ
-## What is a JWKSET?
+## What is a JWKSet?
 We require you to expose a set of public key (a signature key & one encryption key) to setup the connectivity.
 
 For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there).
@@ -787,11 +787,12 @@ During on-boarding, we can check that we have all the required certificates to e
 So, on the HTTPS protocol level, the connections must be secured using trusted Root CA (not self-signed).
 In contrary, the key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.
 
+## How to create JWKSet?
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI3MTU3MzY0NCwtNDM1NzY2ODQ2LC05Nj
-EyMjcwMzJdfQ==
+eyJoaXN0b3J5IjpbLTEwMDI3Mjc3MjIsLTQzNTc2Njg0NiwtOT
+YxMjI3MDMyXX0=
 -->
