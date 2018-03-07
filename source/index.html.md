@@ -825,10 +825,10 @@ As a comparison here's the public keys for itsme UAT JWKSet.<br>
 ]
 }
 ```  
-You can find the configuration parameters via the following backend url:
+You can find the configuration parameters in in document « 33020 Technical Specification Service Provider OpenID Documentation » or via the following back-end URL:
  https://uatmerchant.sixdots.be/oidc/.well-known/openid-configuration
-(or in document « 33020 Technical Specification Service Provider OpenID Documentation »)
+ 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzg3ODY1NTQ5LC00MzU3NjY4NDYsLTk2MT
-IyNzAzMl19
+eyJoaXN0b3J5IjpbLTEzOTQ3MzM5NDQsLTQzNTc2Njg0NiwtOT
+YxMjI3MDMyXX0=
 -->
