@@ -569,7 +569,7 @@ Only signed and encrypted valid* OIDC Approval request will lead to an identific
 _(*) Valid if the request was emitted by an active partner using one of his active approval services._
 
 ### Sample OIDC approval authorization request using the “sub” identifier
-The value `THE_END_USER_ALREADY_KNOWN_USER_CODE` must be replaced with a valid user code. This code is the identifier shared between the itsme(r)  OP and the SP to represent the end user. This identifier can be obtained after a successful OIDC login.
+The value `THE_END_USER_ALREADY_KNOWN_USER_CODE` must be replaced with a valid user code. This code is the identifier shared between the itsme(r) OP and the SP to represent the end user. This identifier can be obtained after a successful OIDC login.
 
 ```http--inline
 
@@ -767,6 +767,6 @@ Parameter | Requested Claim Key Name | Claim Value Type
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzNzY5NjExNSwtNDM1NzY2ODQ2LC05Nj
-EyMjcwMzJdfQ==
+eyJoaXN0b3J5IjpbNDgxNzA1NjkzLC00MzU3NjY4NDYsLTk2MT
+IyNzAzMl19
 -->
