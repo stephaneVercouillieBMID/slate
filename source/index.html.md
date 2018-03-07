@@ -799,8 +799,9 @@ https://stackoverflow.com/questions/42504079/how-do-you-extract-n-and-e-from-a-r
 The following link can be used to convert encoded public and private keys to JWKSet format:
 https://www.npmjs.com/package/rsa-pem-to-jwk
 
+## What are the JWKSet encryption requirements?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc4MTI2MjAxLC00MzU3NjY4NDYsLTk2MT
-IyNzAzMl19
+eyJoaXN0b3J5IjpbLTEzNDI3MTgyMzYsLTQzNTc2Njg0NiwtOT
+YxMjI3MDMyXX0=
 -->
