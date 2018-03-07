@@ -765,7 +765,8 @@ Parameter | Requested Claim Key Name | Claim Value Type
 **Text** | `tag:sixdots.be,2016-08:claim_approval_text_key` | A string holding any text to be displayed on the end-user phone.
 
 
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTEyMDE1MzgsLTQzNTc2Njg0NiwtOT
-YxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbMTE0NjIyMjI1MiwtNDM1NzY2ODQ2LC05Nj
+EyMjcwMzJdfQ==
 -->
