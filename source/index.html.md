@@ -767,7 +767,7 @@ Parameter | Requested Claim Key Name | Claim Value Type
 ## What is a JWKSET?
 We require you to expose a set of public key (a signature key & one encryption key) to setup the connectivity.
 
-For example our E2E jwkSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there).
+For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there).
  
 The signature key is used to verify the Service provider when they come fetch data on a client.<br>
 The encryption key is used to encrypt data so that nobody can read the data which we are transfering apart from the service provider component who has the right to access these data (so that you can encode/reencode the https in intern in a less secured component; it stays crypted).
@@ -790,6 +790,6 @@ In contrary, the key pairs used for signing and/or encrypting the OIDC JWT token
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MzU2NjM0MjUsLTQzNTc2Njg0NiwtOT
-YxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbLTM3NTc1NzQwOSwtNDM1NzY2ODQ2LC05Nj
+EyMjcwMzJdfQ==
 -->
