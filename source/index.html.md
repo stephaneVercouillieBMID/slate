@@ -800,8 +800,36 @@ The following link can be used to convert encoded public and private keys to JWK
 https://www.npmjs.com/package/rsa-pem-to-jwk
 
 ## What are the JWKSet encryption requirements?
+In the JWKSet, encryption should be done with **RSA256**,  the signature in **SHA256** (in short the encryption algorithm is RS256) and the key size is 2048 bits.
 
+As a comparison here's the public keys for itsme UAT JWKSet.
+
+*** JWKSET ITSME UAT ***
+{
+"keys": [
+{
+"kty": "RSA",
+"e": "AQAB",
+"use": "sig",
+"kid": "s1",
+"n": "46FaPodZLqflpnRlFpxwDWT7WNweWAtJ_QYJML2XjB71AlgW20D97VekezlxIudYXbp3aNSkIBcaBQGhzTNHQWuBPwTfemeH9KC2iOTEm3Bu2CsAtaeLzAJT2BjSC2Q4ZUAP2pUq1UQh1XoqjzViXzZIRV35eesKZD301bPsJ6E4z4VKkuzcCeG4jIicNWmbWjkdbdhDe39Ja-BhZrhRmfeoVUe_h2SuplVip4MycLggaO89LomHWF7GktNsmHkt1xOtBgWeCNYj7exXSegoR-29HMS4lzFielxOlr3K0oS8ImMHx-6aRbe3635vfn6Jy6Q9_uAlbWTUsdtFhnpofw"
+},
+{
+"kty": "RSA",
+"e": "AQAB",
+"use": "enc",
+"kid": "e1",
+"n": "rvwzdu-sVCABIgd4plRfoLifTZw6K7JKHuA8HeSgJvUYDUk5MPA7xNKQ5xIXyxisKUzMqIeGaWuaHoFTg4uy-mBFOpm-vG5yGr5GdMCtsA1Ub80x_MmdbkUG3MFsGqz7hE4VpQw0docrrsoS2D9plAMpGA3-_a2u6T1fxomBY5_sxFvyW3erkvjFPG3waU3b34txVIEvdZ6KAjAWR57Y6C749T6ky0eL_uBvPwcq9xmQ6O327MKU8sakEBXb57KDqe4Vm8CbezwIUAC23ia5sO1grqlJGDZW_dbosTcggCxgHW7m6j9RdkGR_mnmECukitwlNvXeCLQPFSunlUh52Q"
+}
+]
+}
+  
+You can fin back the configuration parameters via the following backend url:
+ 
+https://uatmerchant.sixdots.be/oidc/.well-known/openid-configuration
+ 
+(or in document « 33020 Technical Specification Service Provider OpenID Documentation »)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNDI3MTgyMzYsLTQzNTc2Njg0NiwtOT
-YxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbMjAzMTg4ODYzOCwtNDM1NzY2ODQ2LC05Nj
+EyMjcwMzJdfQ==
 -->
