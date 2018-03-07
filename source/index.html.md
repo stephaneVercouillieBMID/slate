@@ -803,7 +803,9 @@ https://stackoverflow.com/questions/42504079/how-do-you-extract-n-and-e-from-a-r
  ```
 ## How to Transfer JWKSets?
 The following link can be used to convert encoded public and private keys to JWKSet format:
+ ```
 https://www.npmjs.com/package/rsa-pem-to-jwk
+ ```
 ## What are the JWKSet requirements?
 In Opend ID Connect 1.0 the important is the jwKset which is exposed on a public URL and the linked chain of certificates which is included in our trust store.
 
@@ -846,7 +848,9 @@ As a comparison here's the public keys for itsme UAT JWKSet.<br>
 }
 ```  
 You can find the configuration parameters in in document « 33020 Technical Specification Service Provider OpenID Documentation » or via the following back-end URL:
+ ```
  https://uatmerchant.sixdots.be/oidc/.well-known/openid-configuration<br> 
+  ```
  ## What should I do once I changed my JWKSet?
  Please notify Support and create a new certificate.
  ## What should I do once I changed my JWKSet but not the URL, does it mean no new certificates?<br>
@@ -856,6 +860,6 @@ A workaround to force a refresh, let the SP send a request with an unknown **"KI
 Because not found in the current cache, this one will be refreshed. But the client has to correct his JwkSet first, if not yet done.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg1OTcyNTQ3NSwtNDM1NzY2ODQ2LC05Nj
+eyJoaXN0b3J5IjpbMTY2NTkyMTg5OSwtNDM1NzY2ODQ2LC05Nj
 EyMjcwMzJdfQ==
 -->
