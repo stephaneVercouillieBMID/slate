@@ -793,11 +793,12 @@ The following JSON Web Key Generator can be used to create JWKSet:
 https://mkjwk.org/ <br>
 Another resource you could use to generate your JWKSet is:
 https://connect2id.com/products/nimbus-jose-jwt/examples/jwk-generation <br>
-for an example on how to generate the right JWKSet.
-Another option (using python) is available at https://stackoverflow.com/questions/42504079/how-do-you-extract-n-and-e-from-a-rsa-public-key-in-python
+Another option (using python) is available at:
+https://stackoverflow.com/questions/42504079/how-do-you-extract-n-and-e-from-a-rsa-public-key-in-python<br>
+
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjI4ODc0MjQ5LC00MzU3NjY4NDYsLTk2MT
-IyNzAzMl19
+eyJoaXN0b3J5IjpbMjA3NzM2ODg4MywtNDM1NzY2ODQ2LC05Nj
+EyMjcwMzJdfQ==
 -->
