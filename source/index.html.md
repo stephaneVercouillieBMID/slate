@@ -856,9 +856,9 @@ You can find the configuration parameters in in document « 33020 Technical Spec
  You should contact support and mention the change to allow a refresh of the cache on back-end side, this should be solved in March where the refresh time will be 30 min.
  
 A workaround to force a refresh, let the SP send a request with an unknown **"KID"** (key id).<br>
-Because not found in the current cache, this one will be refreshed. But the client has to correct his JwkSet first, if not yet done.
+Because not found in the current cache, this one will be refreshed. But the client has to correct his JWKSet first, if not yet done. 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE0MDc2OTM5NSwtNDM1NzY2ODQ2LC05Nj
-EyMjcwMzJdfQ==
+eyJoaXN0b3J5IjpbNTIxODg4NzAxLC00MzU3NjY4NDYsLTk2MT
+IyNzAzMl19
 -->
