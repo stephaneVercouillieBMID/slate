@@ -762,12 +762,12 @@ As expected, the goal of this template is to be free deciding what is displayed 
 Expected parameters:
 Parameter | Requested Claim Key Name | Claim Value Type
 -- | -- | --
-**Text** | `tag:sixdots.be,2016-08:claim_approval_text_key` | A string holding any text to be displayed on the end-user phone.<be
+**Text** | `tag:sixdots.be,2016-08:claim_approval_text_key` | A string holding any text to be displayed on the end-user phone.<br>
 # FAQ
  
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNjg1OTMwOTcsLTQzNTc2Njg0NiwtOT
-YxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbLTUwNTQ0ODIzNCwtNDM1NzY2ODQ2LC05Nj
+EyMjcwMzJdfQ==
 -->
