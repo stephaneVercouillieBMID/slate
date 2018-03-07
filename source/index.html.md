@@ -284,8 +284,8 @@ According to the `private_key_jwt` client authentication method, the **client as
 
 Property | Comment
 -- | --
-**iss** | The issuer of the private_key_jwt (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID). 
-**sub** | The subject of the private_key_jwt (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file onboarding file provided by BMID). 
+**iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID). 
+**sub** | The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file onboarding file provided by BMID). 
 **aud** | Must be the token endpoint URL
 **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
 **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
@@ -767,6 +767,6 @@ Parameter | Requested Claim Key Name | Claim Value Type
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE0NjIyMjI1MiwtNDM1NzY2ODQ2LC05Nj
-EyMjcwMzJdfQ==
+eyJoaXN0b3J5IjpbNTkzMjU4OTY4LC00MzU3NjY4NDYsLTk2MT
+IyNzAzMl19
 -->
