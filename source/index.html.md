@@ -806,7 +806,8 @@ This is 1 per partner. So in UAT 1, in Prod, for your 4 clients, it would be 1 J
 When you send request to us,
 
   - You sign the request with your 'sign' private key and to encrypt it you use our 'encryption' public key.
-  - Once we answer your request, we send an encrypted JWT token (based on your 'encryption' public key) which needs to be decrypted with your 'encryption' private key. Once decrypted, you need to validate our signature with our 'public' sign key found in our JWKSet.
+  - Once we answer your request, we send an encrypted JWT token (based on your 'encryption' public key) which needs to be decrypted with your 'encryption' private key. 
+  - Once decrypted, you need to validate our signature with our 'public' sign key found in our JWKSet.
 
 We are here working in HTTPS Client Authentication.For more details the best is to refer to the Open ID Connect documentation(http://openid.net/connect/) - and more specifically follow links relating JWT encryption & signing.
 
@@ -849,6 +850,6 @@ A workaround to force a refresh, let the SP send a request with an unknown **"KI
 Because not found in the current cache, this one will be refreshed. But the client has to correct his JwkSet first, if not yet done.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNzI4NTk4NDYsLTQzNTc2Njg0NiwtOT
-YxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbMTg2OTYxMDY1NSwtNDM1NzY2ODQ2LC05Nj
+EyMjcwMzJdfQ==
 -->
