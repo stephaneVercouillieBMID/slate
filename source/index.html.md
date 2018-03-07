@@ -764,10 +764,30 @@ Parameter | Requested Claim Key Name | Claim Value Type
 -- | -- | --
 **Text** | `tag:sixdots.be,2016-08:claim_approval_text_key` | A string holding any text to be displayed on the end-user phone.<br>
 # FAQ
- 
+## What is a JWKSET?
+We require you to expose a set of public key (a signature key & one encryption key) otherwise we cannot setup the connectivity.
+For example our E2E jwkSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there)
+ 
+The signature key is used to verify the Service provider when they come fetch data on a client.
+The encryption key is used to encrypt data so that nobody can read the data which we are transfering apart from the service provider component who has the right to access these data (so that you can encode/reencode the https in intern in a less secured component; it stays crypted).
+ 
+If the question is ONLY related to OpenID Connect (OIDC) aspects,
+ “For signature and encryption, does BMID accept either RP self-signed certificates or certificates signed by an internal PKI (in which case we need to provide also our internal CA certificate)?”
+ The RP (the partner) provides his public key used for encryption and the other one used for signature of OIDC JWT (= JSON Web Tokens), using a JSON file called “JWKSet”.
+ (sample JWKSet for Itsme OpenID Provider)
+
+This JWKSet is accessible, using a secured HTTPS URL.
+(sample HTTPS URL for OpenID Provider = https://merchant.itsme.be/oidc/jwkSet)
+ 
+This HTTPS URL must be communicated to us, during the partner onboarding.
+This HTTPS URL must be protected using a valid certificates chain starting from a Root CA trusted by our backend.
+ 
+During onboarding, we can check that we have all the required certificates to establish the trust.
+So, on the HTTPS protocol level, the connections must be secured using trusted Root CA (not self-signed).
+In contrary, the key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUwNTQ0ODIzNCwtNDM1NzY2ODQ2LC05Nj
-EyMjcwMzJdfQ==
+eyJoaXN0b3J5IjpbNTEwNjY5ODI5LC00MzU3NjY4NDYsLTk2MT
+IyNzAzMl19
 -->
