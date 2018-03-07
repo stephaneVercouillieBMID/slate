@@ -773,8 +773,9 @@ The signature key is used to verify the Service provider when they come fetch da
 The encryption key is used to encrypt data so that nobody can read the data which we are transfering apart from the service provider component who has the right to access these data (so that you can encode/reencode the https in intern in a less secured component; it stays crypted).
  
 If the question is ONLY related to OpenID Connect (OIDC) aspects,
- “For signature and encryption, does BMID accept either RP self-signed certificates or certificates signed by an internal PKI (in which case we need to provide also our internal CA certificate)?”
- The RP (the partner) provides his public key used for encryption and the other one used for signature of OIDC JWT (= JSON Web Tokens), using a JSON file called “JWKSet”.
+
+ _“For signature and encryption, does BMID accept either RP self-signed certificates or certificates signed by an internal PKI (in which case we need to provide also our internal CA certificate)?”
+ The RP (the partner) provides his public key used for encryption and the other one used for signature of OIDC JWT (= JSON Web Tokens), using a JSON file called “JWKSet”._
  (sample JWKSet for Itsme OpenID Provider)
 
 This JWKSet is accessible, using a secured HTTPS URL.
@@ -789,6 +790,6 @@ In contrary, the key pairs used for signing and/or encrypting the OIDC JWT token
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ5NzkwNDA0MywtNDM1NzY2ODQ2LC05Nj
+eyJoaXN0b3J5IjpbMjE0MDIwMzU3NywtNDM1NzY2ODQ2LC05Nj
 EyMjcwMzJdfQ==
 -->
