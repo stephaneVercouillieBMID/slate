@@ -789,7 +789,8 @@ In contrary, the key pairs used for signing and/or encrypting the OIDC JWT token
 
 ## How to create JWKSet?
 
-The following JSON Web Key Generator can be used to create JWKSet ```
+The following JSON Web Key Generator can be used to create JWKSet
+ ```
 https://mkjwk.org/ ```<br>
 Another resource you could use to generate your JWKSet is:
 https://connect2id.com/products/nimbus-jose-jwt/examples/jwk-generation <br>
@@ -850,6 +851,6 @@ A workaround to force a refresh, let the SP send a request with an unknown **"KI
 Because not found in the current cache, this one will be refreshed. But the client has to correct his JwkSet first, if not yet done.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NTI5OTY3NTUsLTQzNTc2Njg0NiwtOT
+eyJoaXN0b3J5IjpbLTE2NTMwMzg2NTcsLTQzNTc2Njg0NiwtOT
 YxMjI3MDMyXX0=
 -->
