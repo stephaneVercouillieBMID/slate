@@ -825,7 +825,8 @@ For the call back URI (not URL) you will need in UAT 4 URI, one per service. So 
 In the JWKSet, encryption should be done with **RSA256**,  the signature in **SHA256** (in short the encryption algorithm is RS256) and the key size is 2048 bits.
 
 As a comparison here's the public keys for itsme UAT JWKSet.<br>
- JWKSET itsme(r) UAT 
+>JWKSET itsme(r) UAT 
+ 
 
 ```http--inline
 {
@@ -859,6 +860,6 @@ A workaround to force a refresh, let the SP send a request with an unknown **"KI
 Because not found in the current cache, this one will be refreshed. But the client has to correct his JWKSet first, if not yet done. 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTIxODg4NzAxLC00MzU3NjY4NDYsLTk2MT
-IyNzAzMl19
+eyJoaXN0b3J5IjpbMTgzNDE2MDkyOSwtNDM1NzY2ODQ2LC05Nj
+EyMjcwMzJdfQ==
 -->
