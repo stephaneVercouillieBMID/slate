@@ -799,7 +799,8 @@ https://connect2id.com/products/nimbus-jose-jwt/examples/jwk-generation
  ```
 Another option (using python) is available at:
  ```
-https://stackoverflow.com/questions/42504079/how-do-you-extract-n-and-e-from-a-rsa-public-key-in-python ```
+https://stackoverflow.com/questions/42504079/how-do-you-extract-n-and-e-from-a-rsa-public-key-in-python
+
 ## How to Transfer JWKSets?
 The following link can be used to convert encoded public and private keys to JWKSet format:
 https://www.npmjs.com/package/rsa-pem-to-jwk
@@ -855,6 +856,6 @@ A workaround to force a refresh, let the SP send a request with an unknown **"KI
 Because not found in the current cache, this one will be refreshed. But the client has to correct his JwkSet first, if not yet done.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ1NTI4MjY3LC00MzU3NjY4NDYsLTk2MT
-IyNzAzMl19
+eyJoaXN0b3J5IjpbLTk5OTYyNjE0MSwtNDM1NzY2ODQ2LC05Nj
+EyMjcwMzJdfQ==
 -->
