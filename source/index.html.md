@@ -775,6 +775,7 @@ The encryption key is used to encrypt data so that nobody can read the data whic
 If the question is ONLY related to OpenID Connect (OIDC) aspects,
 >
 > _“For signature and encryption, does BMID accept either RP self-signed certificates or certificates signed by an internal PKI (in which case we need to provide also our internal CA certificate)?”
+> 
  The RP (the partner) provides his public key used for encryption and the other one used for signature of OIDC JWT (= JSON Web Tokens), using a JSON file called “JWKSet”._ (sample JWKSet for Itsme OpenID Provider)
 >
 - This JWKSet is accessible, using a secured HTTPS URL.
@@ -886,6 +887,6 @@ For testing, you could use a self signed certificate like that you could define 
 >
 >
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxNzM4MDMyMywyMDI5MjgzNjg2LDE4Mz
+eyJoaXN0b3J5IjpbMTg4OTAyNjE1MywyMDI5MjgzNjg2LDE4Mz
 QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
