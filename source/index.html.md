@@ -938,8 +938,8 @@ https://docs.microsoft.com/en-us/aspnet/core/migration/1x-to-2x/identity-2x
 >## Is ` GET` request supported?
 No, only `POST` request is supported.
 
-
+Why App 2 Backend communication exists but a App2B2B connection does not?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQxNzczNzcyOSwyMDI5MjgzNjg2LDE4Mz
-QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbLTIwOTMyODg0NTIsMjAyOTI4MzY4NiwxOD
+M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
 -->
