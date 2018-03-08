@@ -906,13 +906,13 @@ With standard login/password on web app : you only have to provide something you
 With itsme, web2app, you obviously have two factors : the itsme PIN and the mobile device.  
 With app2app, it is still the same, as the two apps needs to be running on the same smartphone. Therefore, the attacker needs the device to initiate any malicious transaction. So there are still two factors : you must possess the mobile AND know the PIN.  
   
-When you say (or your customer says) “Since you no longer need a second device to do the confirmation.” It is a _miscomprehension_ of two factors. You don’t need to possess two things.  
+When you say (or your customer says) “Since you no longer need a second device to do the confirmation.” It is a miscomprehension of two factors. You don’t need to possess two things.  
   
 Aside of that there's:  
 With Rogue Apps, an attacker can attempt to intercept Codes, PIN, transaction details and (try to …) replay them: No need to “Possess” the Compromised Device, and attacker will in time obtain “Knowledge” of the PIN, compromising the 2 factors required. In theory this remains possible.  
   
 So far for theory: We acknowledge this risk, treat it accordingly, and test if it works. itsme’s apps (iOS and Android) are safeguarded to detect device compromises (and block). On top, even when compromised, make it (extremely) difficult to intercept the PIN, or replay transactions. As the official test by French ANSSI Authorities state it, for Gemalto’s SDK on Android: “Even if root rights obtained, PIN cannot be obtained to generate OTP / Authentication Response”
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0Njg1MjM2MjMsMjAyOTI4MzY4NiwxOD
-M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
+eyJoaXN0b3J5IjpbLTUyMTAxMTAyMSwyMDI5MjgzNjg2LDE4Mz
+QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
