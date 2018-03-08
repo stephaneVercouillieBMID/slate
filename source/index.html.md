@@ -856,10 +856,10 @@ As a comparison here's the public keys for itsme UAT JWKSet.<br>
 You can find the configuration parameters in in document « 33020 Technical Specification Service Provider OpenID Documentation » or via the following back-end URL:
 
  https://uatmerchant.sixdots.be/oidc/.well-known/openid-configuration<br> 
- >## What should I do once I changed my JWKSet?
+ >### What should I do once I changed my JWKSet?
  Please notify Support and create a new certificate.
 
->## What should I do once I changed my JWKSet but not the URL, does it mean no new certificates?<br>
+>### What should I do once I changed my JWKSet but not the URL, does it mean no new certificates?<br>
  You should contact support and mention the change to allow a refresh of the cache on back-end side, this should be solved in March where the refresh time will be 30 min.
  
 A workaround to force a refresh, let the SP send a request with an unknown **"KID"** (key id).<br>
@@ -888,6 +888,6 @@ Currently, the certificate is used to protect the JWKSet and is not directly lin
 >
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NjE3NDA5MTMsMjAyOTI4MzY4NiwxOD
-M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
+eyJoaXN0b3J5IjpbMTI4MzU1MjY4MSwyMDI5MjgzNjg2LDE4Mz
+QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
