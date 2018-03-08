@@ -866,8 +866,8 @@ Because not found in the current cache, this one will be refreshed. But the clie
 For testing, you could use a self signed certificate like that you could define validity period. 
 >
 >### What format does the certificate need to be?
->It needs to be a ZIP file,  X509 format (cer or crt). Not a pem file
+>It needs to be a ZIP file,  X509 format (cer or crt). _(Not a pem file)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDUyMDg2ODc3LDE4MzQxNjA5MjksLTQzNT
+eyJoaXN0b3J5IjpbODA0NTI1Mzc0LDE4MzQxNjA5MjksLTQzNT
 c2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
