@@ -867,12 +867,11 @@ Because not found in the current cache, this one will be refreshed. But the clie
 >
 >Certificate is used to retrieve your JWKSet. We don't need client certificate, just root and intermediate CA and final public certificate.<br>
 For testing, you could use a self signed certificate like that you could define validity period. 
->
+
 >### What format does the certificate need to be?
 >It needs to be a ZIP file,  X509 format (cer or crt). _(Not a pem file)_
 > ### Can I use a self signed certificate for my integration?
-> In Sandbox - **Yes**
-> 
+> In Sandbox - **Yes** 
 > In Production - **No**, for production we need the certificate & its intermediate chain.
 >### Should I notify BMID if the certificate is changed?
 >Yes, BMID should be notified immediately.
@@ -881,6 +880,6 @@ For testing, you could use a self signed certificate like that you could define 
 >
 >
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY5NTE3OTU4LDIwMjkyODM2ODYsMTgzND
-E2MDkyOSwtNDM1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
+eyJoaXN0b3J5IjpbMTU2NDg5OTk0MCwyMDI5MjgzNjg2LDE4Mz
+QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
