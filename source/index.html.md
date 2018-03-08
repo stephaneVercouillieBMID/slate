@@ -914,9 +914,12 @@ With Rogue Apps, an attacker can attempt to intercept Codes, PIN, transaction de
 So far for theory: We acknowledge this risk, treat it accordingly, and test if it works. itsme’s apps (iOS and Android) are safeguarded to detect device compromises (and block). On top, even when compromised, make it (extremely) difficult to intercept the PIN, or replay transactions. As the official test by French ANSSI Authorities state it, for Gemalto’s SDK on Android: “Even if root rights obtained, PIN cannot be obtained to generate OTP / Authentication Response”.
 
 ># CALL
-## Should there be 2 calls to itsme for this schedule, one for Token request & one for Userinfo request?
-
+>## Should there be 2 calls to itsme for this schedule?(One for Token request & one for Userinfo request)
+You indeed need to perform two Back-End to Back-End calls:  
+\- The Token Request  
+\- The UserInfo Request  
+On top of this, the Authorization Request (AuthN Request in the schedule) consists of an HTTP redirection to the OpenID webpage of BMID. The content of this HTTP request is to be crafted by your system, it is actually a third call from your side to BMID, this one being Front-End to Back-End.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2MzIyNjMzMywyMDI5MjgzNjg2LDE4Mz
-QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbLTEzOTcxMjA4ODUsMjAyOTI4MzY4NiwxOD
+M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
 -->
