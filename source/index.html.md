@@ -764,6 +764,7 @@ Parameter | Requested Claim Key Name | Claim Value Type
 -- | -- | --
 **Text** | `tag:sixdots.be,2016-08:claim_approval_text_key` | A string holding any text to be displayed on the end-user phone.<br>
 ># **FAQ**
+>
 >## What is a JWKSet?
 We require you to expose a set of public key (a signature key & one encryption key) to setup the connectivity.
 
@@ -789,33 +790,33 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 In contrary, the key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.
 
 >## How to create JWKSet?
->
->The following JSON Web Key Generator can be used to create JWKSet
- >```
->https://mkjwk.org/ 
- >```
->Another resource you could use to generate your JWKSet is: 
-> ```
->https://connect2id.com/products/nimbus-jose-jwt/examples/jwk-generation
-> ```
->Another option (using python) is available at:
-> ```
->https://stackoverflow.com/questions/42504079/how-do-you-extract-n-and-e-from-a-rsa-public-key-in-python
-> ``` 
->
+
+The following JSON Web Key Generator can be used to create JWKSet
+ ```
+https://mkjwk.org/ 
+ ```
+Another resource you could use to generate your JWKSet is: 
+ ```
+https://connect2id.com/products/nimbus-jose-jwt/examples/jwk-generation
+ ```
+Another option (using python) is available at:
+ ```
+https://stackoverflow.com/questions/42504079/how-do-you-extract-n-and-e-from-a-rsa-public-key-in-python
+ ``` 
+
 
 >## How to Transfer JWKSets?
->The following link can be used to convert encoded public and private keys to JWKSet format:
+The following link can be used to convert encoded public and private keys to JWKSet format:
  ```
 https://www.npmjs.com/package/rsa-pem-to-jwk
  ```
  >
 >## What are the JWKSet requirements?
->In Opend ID Connect 1.0 the important is the jwKset which is exposed on a public URL and the linked chain of certificates which is included in our trust store.
+In Opend ID Connect 1.0 the important is the jwKset which is exposed on a public URL and the linked chain of certificates which is included in our trust store.
 >
->This is 1 per partner. So in UAT 1, in Prod, for your 4 clients, it would be 1 JWKSet if it's under Norbloc name or 4 JWKSet if it's under each client name.
+This is 1 per partner. So in UAT 1, in Prod, for your 4 clients, it would be 1 JWKSet if it's under Norbloc name or 4 JWKSet if it's under each client name.
 >
->When you send request to us,
+When you send request to us,
 
   - You sign the request with your 'sign' private key and to encrypt it you use our 'encryption' public key.
   - Once we answer your request, we send an encrypted JWT token (based on your 'encryption' public key) which needs to be decrypted with your 'encryption' private key. 
@@ -887,6 +888,6 @@ For testing, you could use a self signed certificate like that you could define 
 >
 >
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgyMDgwMDMwNSwyMDI5MjgzNjg2LDE4Mz
+eyJoaXN0b3J5IjpbLTY1MTIyMzU3OSwyMDI5MjgzNjg2LDE4Mz
 QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
