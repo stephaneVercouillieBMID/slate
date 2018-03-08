@@ -922,8 +922,13 @@ You need to perform two Back-End to Back-End calls indeed:
 
 On top of this, the Authorization Request (AuthN Request in the schedule) consists of an HTTP redirection to the OpenID webpage of BMID. The content of this HTTP request is to be crafted by your system, it is actually a third call from your side to BMID, this one being Front-End to Back-End.
 
-
+>## How to set the level of security at the level of the App? (5 digit code only without fingerprint or facial recognition eg.)
+>
+You can configure this option through the parameter “acr_values”, documented in the section 2.1.2.1 of the document “33020 Technical Specification Service Provider OpenID”.  
+Two values are supported:  
+• tag:sixdots.be,2016-06:acr_basic : Basic level will let the User the choice to use either fingerprint (if Device is compatible) or his PIN  
+• tag:sixdots.be,2016-06:acr_advanced: Advanced level will force the User to use his PIN
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5ODE3MTE5LDIwMjkyODM2ODYsMTgzND
+eyJoaXN0b3J5IjpbMjI4MTY4NDE5LDIwMjkyODM2ODYsMTgzND
 E2MDkyOSwtNDM1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
 -->
