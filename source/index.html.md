@@ -868,9 +868,10 @@ For testing, you could use a self signed certificate like that you could define 
 >### What format does the certificate need to be?
 >It needs to be a ZIP file,  X509 format (cer or crt). _(Not a pem file)_
 > ### Can I use a self signed certificate for my integration?
-> In Sandbox - Yes 
-> In Production - No, for production where we need the certificate & its intermediate chain.
+> In Sandbox - **Yes**
+> In Production - **No**, for production we need the certificate & its intermediate chain.
+>
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzNTUyODE3NCwxODM0MTYwOTI5LC00Mz
+eyJoaXN0b3J5IjpbLTE4ODU3MzM0NywxODM0MTYwOTI5LC00Mz
 U3NjY4NDYsLTk2MTIyNzAzMl19
 -->
