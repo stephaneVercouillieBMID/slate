@@ -917,7 +917,7 @@ So far for theory: We acknowledge this risk, treat it accordingly, and test if i
 >## Should there be 2 calls to itsme for this schedule?(One for Token request & one for Userinfo request)
 You need to perform two Back-End to Back-End calls indeed:
 
-\- **The Token Request 
+\- $$The Token Request  
 \- The UserInfo Request  
 
 On top of this, the Authorization Request (AuthN Request in the schedule) consists of an HTTP redirection to the OpenID webpage of BMID. The content of this HTTP request is to be crafted by your system, it is actually a third call from your side to BMID, this one being Front-End to Back-End.
@@ -948,6 +948,6 @@ We require you to expose a set of public key (a signature key & one encryption k
 For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there).
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk0MDk2NDE4OSwyMDI5MjgzNjg2LDE4Mz
+eyJoaXN0b3J5IjpbLTc2ODUxMzUzMywyMDI5MjgzNjg2LDE4Mz
 QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
