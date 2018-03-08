@@ -889,11 +889,13 @@ Currently, the certificate is used to protect the JWKSet and is not directly lin
 >
 >## AUTHENTICATION
 >### Do we need a App Client Secret on the OpenID client?
->
->OpenID allows multiple ways for authentication as a Service ProviderWe only support the private\_key\_jwt, with all the SSL requirements exposed via JWKSET, use the corresponding private key to encrypt/sign and decrypt/validate exchanged information.  
+
+OpenID allows multiple ways for authentication as a Service ProviderWe only support the private\_key\_jwt, with all the SSL requirements exposed via JWKSet, use the corresponding private key to encrypt/sign and decrypt/validate exchanged information.  
 So other authentication ways such as client_secret (Open ID Connect default method but the less secured one)
 
+## What does two factor authentication mean?
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjY3NjY3MjYxLDIwMjkyODM2ODYsMTgzND
-E2MDkyOSwtNDM1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
+eyJoaXN0b3J5IjpbLTEwODA3NjE3MTEsMjAyOTI4MzY4NiwxOD
+M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
 -->
