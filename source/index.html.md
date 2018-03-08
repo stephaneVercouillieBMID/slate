@@ -808,6 +808,7 @@ In contrary, the key pairs used for signing and/or encrypting the OIDC JWT token
  ```
 https://www.npmjs.com/package/rsa-pem-to-jwk
  ```
+ >
 >## What are the JWKSet requirements?
 In Opend ID Connect 1.0 the important is the jwKset which is exposed on a public URL and the linked chain of certificates which is included in our trust store.
 
@@ -879,6 +880,6 @@ For testing, you could use a self signed certificate like that you could define 
 >Currently, the certificate is used to protect the JWKSet and is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.
 >
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY1ODY2NjE2NiwxODM0MTYwOTI5LC00Mz
+eyJoaXN0b3J5IjpbMjAyOTI4MzY4NiwxODM0MTYwOTI5LC00Mz
 U3NjY4NDYsLTk2MTIyNzAzMl19
 -->
