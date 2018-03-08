@@ -763,16 +763,16 @@ Expected parameters:
 Parameter | Requested Claim Key Name | Claim Value Type
 -- | -- | --
 **Text** | `tag:sixdots.be,2016-08:claim_approval_text_key` | A string holding any text to be displayed on the end-user phone.<br>
->#**FAQ
+># **FAQ**
 >## What is a JWKSet?
->We require you to expose a set of public key (a signature key & one encryption key) to setup the connectivity.
->
->For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there).
- >
->The signature key is used to verify the Service provider when they come fetch data on a client.<br>
+We require you to expose a set of public key (a signature key & one encryption key) to setup the connectivity.
+
+For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there).
+ 
+The signature key is used to verify the Service provider when they come fetch data on a client.<br>
 The encryption key is used to encrypt data so that nobody can read the data which we are transfering apart from the service provider component who has the right to access these data (so that you can encode/reencode the https in intern in a less secured component; it stays crypted).
-> 
->If the question is ONLY related to OpenID Connect (OIDC) aspects,
+ 
+If the question is ONLY related to OpenID Connect (OIDC) aspects,
 >
 > _“For signature and encryption, does BMID accept either RP self-signed certificates or certificates signed by an internal PKI (in which case we need to provide also our internal CA certificate)?”
  The RP (the partner) provides his public key used for encryption and the other one used for signature of OIDC JWT (= JSON Web Tokens), using a JSON file called “JWKSet”._ (sample JWKSet for Itsme OpenID Provider)
@@ -886,6 +886,6 @@ For testing, you could use a self signed certificate like that you could define 
 >
 >
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NzEwNzc0MDQsMjAyOTI4MzY4NiwxOD
-M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
+eyJoaXN0b3J5IjpbMzc5ODQ4MzcwLDIwMjkyODM2ODYsMTgzND
+E2MDkyOSwtNDM1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
 -->
