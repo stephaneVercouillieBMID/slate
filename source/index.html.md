@@ -828,7 +828,7 @@ For the call back URI (not URL) you will need in UAT 4 URI, one per service. So 
 >In the JWKSet, encryption should be done with **RSA256**,  the signature in **SHA256** (in short the encryption algorithm is RS256) and the key size is 2048 bits.
 
 >As a comparison here's the public keys for itsme UAT JWKSet.<br>
->**JWKSET itsme(r) UAT 
+>**JWKSET itsme(r) UAT**
  
 
 ```json--inline
@@ -886,6 +886,6 @@ For testing, you could use a self signed certificate like that you could define 
 >
 >
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MDU5NzUwODgsMjAyOTI4MzY4NiwxOD
-M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
+eyJoaXN0b3J5IjpbMTcwOTc2MjM1NiwyMDI5MjgzNjg2LDE4Mz
+QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
