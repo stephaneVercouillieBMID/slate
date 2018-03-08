@@ -930,8 +930,10 @@ Two values are supported:
 ` tag:sixdots.be,2016-06:acr_basic` : Basic level will let the User the choice to use either fingerprint (if Device is compatible) or his PIN.
 ` tag:sixdots.be,2016-06:acr_advanced`: Advanced level will force the User to use his PIN.
 
-
+Is there any .NET sample code available?
+Please check the following li
+https://docs.microsoft.com/en-us/aspnet/core/migration/1x-to-2x/identity-2x
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU1ODY5MzAwNSwyMDI5MjgzNjg2LDE4Mz
+eyJoaXN0b3J5IjpbLTUyOTY0NjY4MiwyMDI5MjgzNjg2LDE4Mz
 QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
