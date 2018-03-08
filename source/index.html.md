@@ -860,6 +860,6 @@ A workaround to force a refresh, let the SP send a request with an unknown **"KI
 Because not found in the current cache, this one will be refreshed. But the client has to correct his JWKSet first, if not yet done. 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgzNDE2MDkyOSwtNDM1NzY2ODQ2LC05Nj
-EyMjcwMzJdfQ==
+eyJoaXN0b3J5IjpbLTg5Njg4NjI5NSwxODM0MTYwOTI5LC00Mz
+U3NjY4NDYsLTk2MTIyNzAzMl19
 -->
