@@ -869,9 +869,11 @@ For testing, you could use a self signed certificate like that you could define 
 >It needs to be a ZIP file,  X509 format (cer or crt). _(Not a pem file)_
 > ### Can I use a self signed certificate for my integration?
 > In Sandbox - **Yes**
+> 
 > In Production - **No**, for production we need the certificate & its intermediate chain.
->###Should I notify BMID if the certificate is changed?
+>### Should I notify BMID if the certificate is changed?
+>Yes, BMID should be notified immediately.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0MjQ5NjgxOSwxODM0MTYwOTI5LC00Mz
-U3NjY4NDYsLTk2MTIyNzAzMl19
+eyJoaXN0b3J5IjpbLTE1ODI5NjEwLDE4MzQxNjA5MjksLTQzNT
+c2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
