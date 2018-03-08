@@ -874,8 +874,9 @@ For testing, you could use a self signed certificate like that you could define 
 >### Should I notify BMID if the certificate is changed?
 >Yes, BMID should be notified immediately.
 >### Can a same service point to separate SSL Certificates?
->Currently, the certificate is used to protect the JWKSet and is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSET. 
+>Currently, the certificate is used to protect the JWKSet and is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.
+>
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk0MTM0NDc3MCwxODM0MTYwOTI5LC00Mz
+eyJoaXN0b3J5IjpbMTI5MTg0NTU1NCwxODM0MTYwOTI5LC00Mz
 U3NjY4NDYsLTk2MTIyNzAzMl19
 -->
