@@ -831,7 +831,7 @@ As a comparison here's the public keys for itsme UAT JWKSet.<br>
 >JWKSET itsme(r) UAT 
  
 
-```http--inline
+```json--inline
 {
 "keys": [
 {
@@ -879,8 +879,8 @@ For testing, you could use a self signed certificate like that you could define 
 >### Can a same service point to separate SSL Certificates?
 >Currently, the certificate is used to protect the JWKSet and is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.
 >
-
+>
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNjU2NDM2MDAsMjAyOTI4MzY4NiwxOD
-M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
+eyJoaXN0b3J5IjpbMTY5NTE3OTU4LDIwMjkyODM2ODYsMTgzND
+E2MDkyOSwtNDM1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
 -->
