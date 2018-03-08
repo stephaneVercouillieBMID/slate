@@ -763,7 +763,7 @@ Expected parameters:
 Parameter | Requested Claim Key Name | Claim Value Type
 -- | -- | --
 **Text** | `tag:sixdots.be,2016-08:claim_approval_text_key` | A string holding any text to be displayed on the end-user phone.<br>
-># FAQ
+>#**FAQ
 >## What is a JWKSet?
 >We require you to expose a set of public key (a signature key & one encryption key) to setup the connectivity.
 >
@@ -886,6 +886,6 @@ For testing, you could use a self signed certificate like that you could define 
 >
 >
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMTc4ODM4NjAsMjAyOTI4MzY4NiwxOD
+eyJoaXN0b3J5IjpbLTE3NzEwNzc0MDQsMjAyOTI4MzY4NiwxOD
 M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
 -->
