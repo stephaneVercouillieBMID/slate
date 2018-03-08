@@ -800,7 +800,9 @@ In contrary, the key pairs used for signing and/or encrypting the OIDC JWT token
 >Another option (using python) is available at:
 > ```
 >https://stackoverflow.com/questions/42504079/how-do-you-extract-n-and-e-from-a-rsa-public-key-in-python
-> ```
+ ``` 
+><br>
+
 >## How to Transfer JWKSets?
 >The following link can be used to convert encoded public and private keys to JWKSet format:
  ```
@@ -877,6 +879,6 @@ For testing, you could use a self signed certificate like that you could define 
 >Currently, the certificate is used to protect the JWKSet and is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.
 >
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTA4OTk5OTYwLDE4MzQxNjA5MjksLTQzNT
-c2Njg0NiwtOTYxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbLTU5ODA2MDQwNCwxODM0MTYwOTI5LC00Mz
+U3NjY4NDYsLTk2MTIyNzAzMl19
 -->
