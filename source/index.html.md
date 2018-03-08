@@ -935,9 +935,9 @@ Please check the following link,
 
 https://docs.microsoft.com/en-us/aspnet/core/migration/1x-to-2x/identity-2x
 
->## Is GET request supported?
-
+>## Is ` GET` request supported?
+No, only `POST` request is supported.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcxNDM5NDA0OSwyMDI5MjgzNjg2LDE4Mz
-QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbNzgyNjMyODY5LDIwMjkyODM2ODYsMTgzND
+E2MDkyOSwtNDM1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
 -->
