@@ -887,9 +887,13 @@ Yes, BMID should be notified immediately.
 Currently, the certificate is used to protect the JWKSet and is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.
 
 >
-Do we need a App Client Secret on the OpenID client?
+>## AUTHENTICATION
+>### Do we need a App Client Secret on the OpenID client?
+>
+>OpenID allows multiple ways for authentication as a Service ProviderWe only support the private\_key\_jwt, with all the SSL requirements exposed via JWKSET, use the corresponding private key to encrypt/sign and decrypt/validate exchanged information.  
+So other authentication ways such as client_secret (Open ID Connect default method but the less secured one)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2NTg0MjQyMCwyMDI5MjgzNjg2LDE4Mz
-QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbNjY3NjY3MjYxLDIwMjkyODM2ODYsMTgzND
+E2MDkyOSwtNDM1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
 -->
