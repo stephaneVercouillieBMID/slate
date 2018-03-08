@@ -886,10 +886,9 @@ Yes, BMID should be notified immediately.
 >### **Can a same service point to separate SSL Certificates?**
 Currently, the certificate is used to protect the JWKSet and is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.
 
-
 >
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2Mjc4NTEwMSwyMDI5MjgzNjg2LDE4Mz
+eyJoaXN0b3J5IjpbMTI2MTA0MzE2OSwyMDI5MjgzNjg2LDE4Mz
 QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
