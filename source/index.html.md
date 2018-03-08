@@ -870,8 +870,8 @@ For testing, you could use a self signed certificate like that you could define 
 > ### Can I use a self signed certificate for my integration?
 > In Sandbox - **Yes**
 > In Production - **No**, for production we need the certificate & its intermediate chain.
->
+>###Should I notify BMID if the certificate is changed?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4ODU3MzM0NywxODM0MTYwOTI5LC00Mz
+eyJoaXN0b3J5IjpbMTg0MjQ5NjgxOSwxODM0MTYwOTI5LC00Mz
 U3NjY4NDYsLTk2MTIyNzAzMl19
 -->
