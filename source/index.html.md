@@ -858,13 +858,15 @@ You can find the configuration parameters in in document « 33020 Technical Spec
  
 A workaround to force a refresh, let the SP send a request with an unknown **"KID"** (key id).<br>
 Because not found in the current cache, this one will be refreshed. But the client has to correct his JWKSet first, if not yet done. 
-> CERTIFICATE
+> ## CERTIFICATE
 > 
->What is the use of our Certificate?
+>### What is the use of our Certificate?
 >
 >Certificate is used to retrieve your JWKSet. We don't need client certificate, just root and intermediate CA and final public certificate.
 For testing, you could use a self signed certificate like that you could define validity period. 
+>
+>
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDgwNDc4ODYsMTgzNDE2MDkyOSwtND
-M1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
+eyJoaXN0b3J5IjpbMTE3NjgxNDA3NSwxODM0MTYwOTI5LC00Mz
+U3NjY4NDYsLTk2MTIyNzAzMl19
 -->
