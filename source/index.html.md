@@ -868,15 +868,15 @@ Because not found in the current cache, this one will be refreshed. But the clie
 
 > ## **CERTIFICATE**
 > 
->### What is the use of our Certificate?
+>### **What is the use of our Certificate?**
 >
 Certificate is used to retrieve your JWKSet. We don't need client certificate, just root and intermediate CA and final public certificate.<br>
 For testing, you could use a self signed certificate like that you could define validity period. 
 
->### What format does the certificate need to be?
+>### **What format does the certificate need to be?**
 It needs to be a ZIP file,  X509 format (cer or crt). _(Not a pem file)_
 
-> ### Can I use a self signed certificate for my integration?
+> ### **Can I use a self signed certificate for my integration?**
  In Sandbox - **Yes** 
 In Production - **No**, for production we need the certificate & its intermediate chain.
 
@@ -888,6 +888,6 @@ Currently, the certificate is used to protect the JWKSet and is not directly lin
 >
 >
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDQwMzk2NDEsMjAyOTI4MzY4NiwxOD
-M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
+eyJoaXN0b3J5IjpbMjQ3NDY4MzI3LDIwMjkyODM2ODYsMTgzND
+E2MDkyOSwtNDM1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
 -->
