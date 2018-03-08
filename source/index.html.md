@@ -873,8 +873,9 @@ For testing, you could use a self signed certificate like that you could define 
 > In Production - **No**, for production we need the certificate & its intermediate chain.
 >### Should I notify BMID if the certificate is changed?
 >Yes, BMID should be notified immediately.
->### Can a same service point to separate SSL Certificates
+>### Can a same service point to separate SSL Certificates?
+>Currently, the certificate is used to protect the JWet and is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSET. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU3ODY4Mjc2OSwxODM0MTYwOTI5LC00Mz
+eyJoaXN0b3J5IjpbMTkzMzM0ODU2NiwxODM0MTYwOTI5LC00Mz
 U3NjY4NDYsLTk2MTIyNzAzMl19
 -->
