@@ -865,8 +865,9 @@ Because not found in the current cache, this one will be refreshed. But the clie
 >Certificate is used to retrieve your JWKSet. We don't need client certificate, just root and intermediate CA and final public certificate.
 For testing, you could use a self signed certificate like that you could define validity period. 
 >
+>### What format does the certificate need to be?
 >
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE3NjgxNDA3NSwxODM0MTYwOTI5LC00Mz
-U3NjY4NDYsLTk2MTIyNzAzMl19
+eyJoaXN0b3J5IjpbLTE4OTQxNzM1MTEsMTgzNDE2MDkyOSwtND
+M1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
 -->
