@@ -821,7 +821,7 @@ We are here working in HTTPS Client Authentication.For more details the best is 
 
 For the call back URI (not URL) you will need in UAT 4 URI, one per service. So in Prod, for 4 clients using each the 4 services, you would have at least 16 Service codes.
 
-## What are the JWKSet encryption requirements?
+>## What are the JWKSet encryption requirements?
 In the JWKSet, encryption should be done with **RSA256**,  the signature in **SHA256** (in short the encryption algorithm is RS256) and the key size is 2048 bits.
 
 As a comparison here's the public keys for itsme UAT JWKSet.<br>
@@ -877,6 +877,6 @@ For testing, you could use a self signed certificate like that you could define 
 >Currently, the certificate is used to protect the JWKSet and is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.
 >
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDg0Mjg1ODYsMTgzNDE2MDkyOSwtND
-M1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
+eyJoaXN0b3J5IjpbLTM4OTg1NzE4LDE4MzQxNjA5MjksLTQzNT
+c2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
