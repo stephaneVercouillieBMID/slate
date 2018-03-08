@@ -893,9 +893,26 @@ Currently, the certificate is used to protect the JWKSet and is not directly lin
 OpenID allows multiple ways for authentication as a Service ProviderWe only support the private\_key\_jwt, with all the SSL requirements exposed via JWKSet, use the corresponding private key to encrypt/sign and decrypt/validate exchanged information.  
 So other authentication ways such as client_secret (Open ID Connect default method but the less secured one)
 
-## What does two factor authentication mean?
-
+>### What does two factor authentication mean?
+Two factor means:  
+  
+You must provide at least two from this list :  
+\- knowledge (something you know), Eg. password  
+\- possession (something you have), Eg. mobile phone  
+\- inherence (something you are). Eg. biometrics  
+  
+With standard login/password on web app : you only have to provide something you know (i.e. the password).  
+  
+With itsme, web2app, you obviously have two factors : the itsme PIN and the mobile device.  
+With app2app, it is still the same, as the two apps needs to be running on the same smartphone. Therefore, the attacker needs the device to initiate any malicious transaction. So there are still two factors : you must possess the mobile AND know the PIN.  
+  
+When you say (or your customer says) “Since you no longer need a second device to do the confirmation.” It is a miscomprehension of two factors. You don’t need to possess two things.  
+  
+Aside of that there's:  
+With Rogue Apps, an attacker can attempt to intercept Codes, PIN, transaction details and (try to …) replay them: No need to “Possess” the Compromised Device, and attacker will in time obtain “Knowledge” of the PIN, compromising the 2 factors required. In theory this remains possible.  
+  
+So far for theory: We acknowledge this risk, treat it accordingly, and test if it works. itsme’s apps (iOS and Android) are safeguarded to detect device compromises (and block). On top, even when compromised, make it (extremely) difficult to intercept the PIN, or replay transactions. As the official test by French ANSSI Authorities state it, for Gemalto’s SDK on Android: “Even if root rights obtained, PIN cannot be obtained to generate OTP / Authentication Response”
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwODA3NjE3MTEsMjAyOTI4MzY4NiwxOD
-M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
+eyJoaXN0b3J5IjpbLTUyMTAxMTAyMSwyMDI5MjgzNjg2LDE4Mz
+QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
