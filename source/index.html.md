@@ -861,7 +861,10 @@ Because not found in the current cache, this one will be refreshed. But the clie
 > CERTIFICATE
 > 
 >What is the use of our Certificate?
+>
+>Certificate is used to retrieve your JWKSet. We don't need client certificate, just root and intermediate CA and final public certificate.
+For testing, you could use a self signed certificate like that you could define validity period. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3Mjg5MTQ5MzMsMTgzNDE2MDkyOSwtND
+eyJoaXN0b3J5IjpbLTE1MDgwNDc4ODYsMTgzNDE2MDkyOSwtND
 M1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
 -->
