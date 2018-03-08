@@ -764,7 +764,7 @@ Parameter | Requested Claim Key Name | Claim Value Type
 -- | -- | --
 **Text** | `tag:sixdots.be,2016-08:claim_approval_text_key` | A string holding any text to be displayed on the end-user phone.<br>
 # FAQ
-## What is a JWKSet?
+>## What is a JWKSet?
 We require you to expose a set of public key (a signature key & one encryption key) to setup the connectivity.
 
 For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there).
@@ -787,7 +787,7 @@ During on-boarding, we can check that we have all the required certificates to e
 So, on the HTTPS protocol level, the connections must be secured using trusted Root CA (not self-signed).
 In contrary, the key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.
 
-## How to create JWKSet?
+>## How to create JWKSet?
 
 The following JSON Web Key Generator can be used to create JWKSet
  ```
@@ -801,12 +801,12 @@ Another option (using python) is available at:
  ```
 https://stackoverflow.com/questions/42504079/how-do-you-extract-n-and-e-from-a-rsa-public-key-in-python
  ```
-## How to Transfer JWKSets?
+>## How to Transfer JWKSets?
 The following link can be used to convert encoded public and private keys to JWKSet format:
  ```
 https://www.npmjs.com/package/rsa-pem-to-jwk
  ```
-## What are the JWKSet requirements?
+>## What are the JWKSet requirements?
 In Opend ID Connect 1.0 the important is the jwKset which is exposed on a public URL and the linked chain of certificates which is included in our trust store.
 
 This is 1 per partner. So in UAT 1, in Prod, for your 4 clients, it would be 1 JWKSet if it's under Norbloc name or 4 JWKSet if it's under each client name.
@@ -877,6 +877,6 @@ For testing, you could use a self signed certificate like that you could define 
 >Currently, the certificate is used to protect the JWKSet and is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.
 >
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI5MTg0NTU1NCwxODM0MTYwOTI5LC00Mz
-U3NjY4NDYsLTk2MTIyNzAzMl19
+eyJoaXN0b3J5IjpbLTE5NDg0Mjg1ODYsMTgzNDE2MDkyOSwtND
+M1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
 -->
