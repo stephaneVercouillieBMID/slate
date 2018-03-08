@@ -887,7 +887,8 @@ Yes, BMID should be notified immediately.
 Currently, the certificate is used to protect the JWKSet and is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.
 >
 >
+>
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQ3NDY4MzI3LDIwMjkyODM2ODYsMTgzND
-E2MDkyOSwtNDM1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
+eyJoaXN0b3J5IjpbLTIwOTY0NzM2MzEsMjAyOTI4MzY4NiwxOD
+M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
 -->
