@@ -873,8 +873,8 @@ For testing, you could use a self signed certificate like that you could define 
 > In Production - **No**, for production we need the certificate & its intermediate chain.
 >### Should I notify BMID if the certificate is changed?
 >Yes, BMID should be notified immediately.
->
+>### Can a same service point to separate SSL Certificates
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODk5OTM0OTk0LDE4MzQxNjA5MjksLTQzNT
-c2Njg0NiwtOTYxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbMTU3ODY4Mjc2OSwxODM0MTYwOTI5LC00Mz
+U3NjY4NDYsLTk2MTIyNzAzMl19
 -->
