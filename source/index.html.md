@@ -880,7 +880,7 @@ It needs to be a ZIP file,  X509 format (cer or crt). _(Not a pem file)_
  In Sandbox - **Yes** 
 In Production - **No**, for production we need the certificate & its intermediate chain.
 
->### Should I notify BMID if the certificate is changed?
+>### **Should I notify BMID if the certificate is changed?**
 Yes, BMID should be notified immediately.
 
 >### **Can a same service point to separate SSL Certificates?**
@@ -888,6 +888,6 @@ Currently, the certificate is used to protect the JWKSet and is not directly lin
 >
 >
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDA3Mjk4OTE5LDIwMjkyODM2ODYsMTgzND
-E2MDkyOSwtNDM1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
+eyJoaXN0b3J5IjpbLTE1MDQwMzk2NDEsMjAyOTI4MzY4NiwxOD
+M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
 -->
