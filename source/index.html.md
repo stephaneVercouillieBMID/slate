@@ -939,13 +939,13 @@ https://docs.microsoft.com/en-us/aspnet/core/migration/1x-to-2x/identity-2x
 No, only `POST` request is supported.
 
 >## Why App to Back-end communication exists but a App2B2B connection does not?
-We are sending the user information not through an app but to a highly authentified server (which implies to put in place necessary measure to protect the data confidentiality)  
+We are sending the user information not through an app but thoa highly authentified server (which implies to put in place necessary measure to protect the data confidentiality)  
   
 This condition implies the need to put in place a backend layer on your side.  
   
 We require you to expose a set of public key (a signature key & one encruption key) otherwise we cannot setup the connectivity with them.  
 For example our E2E jwkSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAwOTM2NzQ2NSwyMDI5MjgzNjg2LDE4Mz
+eyJoaXN0b3J5IjpbLTk0MTc1NzA2OSwyMDI5MjgzNjg2LDE4Mz
 QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
