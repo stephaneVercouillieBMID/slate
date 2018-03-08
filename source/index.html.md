@@ -924,11 +924,14 @@ On top of this, the Authorization Request (AuthN Request in the schedule) consis
 
 >## How to set the level of security at the level of the App? (5 digit code only without fingerprint or facial recognition eg.)
 >
-You can configure this option through the parameter “acr_values”, documented in the section 2.1.2.1 of the document “33020 Technical Specification Service Provider OpenID”.  
+You can configure this option through the parameter “acr_values”, documented in the section 2.1.2.1 of the document _“33020 Technical Specification Service Provider OpenID”_.  
+
 Two values are supported:  
-• tag:sixdots.be,2016-06:acr_basic : Basic level will let the User the choice to use either fingerprint (if Device is compatible) or his PIN  
-• tag:sixdots.be,2016-06:acr_advanced: Advanced level will force the User to use his PIN
+` tag:sixdots.be,2016-06:acr_basic` : Basic level will let the User the choice to use either fingerprint (if Device is compatible) or his PIN.
+` tag:sixdots.be,2016-06:acr_advanced`: Advanced level will force the User to use his PIN.
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjI4MTY4NDE5LDIwMjkyODM2ODYsMTgzND
-E2MDkyOSwtNDM1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
+eyJoaXN0b3J5IjpbLTU1ODY5MzAwNSwyMDI5MjgzNjg2LDE4Mz
+QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
