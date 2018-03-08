@@ -873,7 +873,8 @@ For testing, you could use a self signed certificate like that you could define 
 > In Production - **No**, for production we need the certificate & its intermediate chain.
 >### Should I notify BMID if the certificate is changed?
 >Yes, BMID should be notified immediately.
+>
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1ODI5NjEwLDE4MzQxNjA5MjksLTQzNT
+eyJoaXN0b3J5IjpbODk5OTM0OTk0LDE4MzQxNjA5MjksLTQzNT
 c2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
