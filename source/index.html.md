@@ -867,8 +867,9 @@ For testing, you could use a self signed certificate like that you could define 
 >
 >### What format does the certificate need to be?
 >It needs to be a ZIP file,  X509 format (cer or crt). _(Not a pem file)_
->
+> ### Can I use a self signed certificate for my integration?
+> 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NzU3MzE0MjgsMTgzNDE2MDkyOSwtND
-M1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
+eyJoaXN0b3J5IjpbMTQ4MzU3ODAwNSwxODM0MTYwOTI5LC00Mz
+U3NjY4NDYsLTk2MTIyNzAzMl19
 -->
