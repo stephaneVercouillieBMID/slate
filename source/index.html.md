@@ -887,8 +887,9 @@ Yes, BMID should be notified immediately.
 Currently, the certificate is used to protect the JWKSet and is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.
 
 >
->### **What is the lay-out of the Identity Data that we get back in the Userinfo Response**?
+Do we need a App Client Secret on the OpenID client?
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTgwOTE5NTksMjAyOTI4MzY4NiwxOD
-M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
+eyJoaXN0b3J5IjpbLTU2NTg0MjQyMCwyMDI5MjgzNjg2LDE4Mz
+QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
