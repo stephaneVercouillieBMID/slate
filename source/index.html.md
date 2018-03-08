@@ -858,8 +858,10 @@ You can find the configuration parameters in in document « 33020 Technical Spec
  
 A workaround to force a refresh, let the SP send a request with an unknown **"KID"** (key id).<br>
 Because not found in the current cache, this one will be refreshed. But the client has to correct his JWKSet first, if not yet done. 
-
+> CERTIFICATE
+> 
+>What is the use of our Certificate?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5Njg4NjI5NSwxODM0MTYwOTI5LC00Mz
-U3NjY4NDYsLTk2MTIyNzAzMl19
+eyJoaXN0b3J5IjpbLTE3Mjg5MTQ5MzMsMTgzNDE2MDkyOSwtND
+M1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
 -->
