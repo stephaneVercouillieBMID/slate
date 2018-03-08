@@ -870,16 +870,19 @@ For testing, you could use a self signed certificate like that you could define 
 
 >### What format does the certificate need to be?
 >It needs to be a ZIP file,  X509 format (cer or crt). _(Not a pem file)_
+
 > ### Can I use a self signed certificate for my integration?
 > In Sandbox - **Yes** 
 > In Production - **No**, for production we need the certificate & its intermediate chain.
+
 >### Should I notify BMID if the certificate is changed?
 >Yes, BMID should be notified immediately.
+
 >### Can a same service point to separate SSL Certificates?
 >Currently, the certificate is used to protect the JWKSet and is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.
 >
 >
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU2NDg5OTk0MCwyMDI5MjgzNjg2LDE4Mz
+eyJoaXN0b3J5IjpbLTU0Mzc4NDkxNCwyMDI5MjgzNjg2LDE4Mz
 QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
