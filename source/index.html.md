@@ -786,9 +786,9 @@ The encryption key is used to encrypt data so that nobody can read the data whic
 >During on-boarding, we can check that we have all the required certificates to establish the trust.<br>
 So, on the HTTPS protocol level, the connections must be secured using trusted Root CA (not self-signed).
 In contrary, the key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.
-
+>
 >## How to create JWKSet?
-
+>
 The following JSON Web Key Generator can be used to create JWKSet
  ```
 https://mkjwk.org/ 
@@ -877,6 +877,6 @@ For testing, you could use a self signed certificate like that you could define 
 >Currently, the certificate is used to protect the JWKSet and is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.
 >
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxMzE3OTAyMCwxODM0MTYwOTI5LC00Mz
-U3NjY4NDYsLTk2MTIyNzAzMl19
+eyJoaXN0b3J5IjpbNDcxMDI1MTgwLDE4MzQxNjA5MjksLTQzNT
+c2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
