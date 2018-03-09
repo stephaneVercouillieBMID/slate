@@ -938,7 +938,7 @@ https://docs.microsoft.com/en-us/aspnet/core/migration/1x-to-2x/identity-2x
 >## Is ` GET` request supported?
 No, only `POST` request is supported.
 
->## Why App-to-Backend communication exists but a App-to B2B connection does not?
+>## Why App-to-Backend communication exists but a App-to-B2B connection does not?
 We are sending the user information not through an app but through a highly authenticated server (which implies to put in place necessary measure to protect the data confidentiality)  
   
 This condition implies the need to put in place a back-end layer on your side.  
@@ -949,6 +949,6 @@ For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE3MDM5NzUxMCwyMDI5MjgzNjg2LDE4Mz
+eyJoaXN0b3J5IjpbMjA4MTEzMDE5NSwyMDI5MjgzNjg2LDE4Mz
 QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
