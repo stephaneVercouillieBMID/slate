@@ -1105,7 +1105,7 @@ The "/token" end point must be called using:
   
 The following type should not be used. "*/*, Accept: application/json,text/plain,*/*,."  
   
-(2) the returned media type will be "application/json". Please make sure to accept it in the request.  
+(2) the returned media type will be "application/json". _Please make sure to accept it in the request._ 
   
 (3) `POST` is the only http method allowed to call this entry point. Do not use `GET`.  
   
@@ -1119,7 +1119,7 @@ token. The Itsme backend will then use his own private encryption key to decode 
   
 signing key to validate your signature.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2OTU4NjMzNCwtNzYwMTUwNTU2LC0zMT
+eyJoaXN0b3J5IjpbLTk5MzEwODY1NCwtNzYwMTUwNTU2LC0zMT
 A3ODc2MzYsLTc2MDE1MDU1NiwtMzEwNzg3NjM2LC03NjAxNTA1
 NTYsLTMxMDc4NzYzNiwyMDc2NzEzNTI1LDE2ODM5NjU0NjksMj
 A3NjcxMzUyNSwxNjgzOTY1NDY5XX0=
