@@ -1053,11 +1053,23 @@ UserInfo should be used to retrieve data and so NRN if it was available, however
 Taking into account you allowed to receive the NRN from us, we can't and get access to NRN and block the access to the eID group else it would prevent you to receive the NRN.
 
 >## Error: Token endpoint - unauthorized_client. What should I do?
-
+The client_assertion you have to provide is expected to contain a body section AND a HEADER one.  
+  
+The header must contain the following information:  
+  ```json--inline
+{  
+"alg": "<THE\_ALGO\_YOU_USED>",  
+"typ": "JWT",  
+"kid": "<THE\_KEY\_ID\_YOU\_USED\_TO\_SIGN>"  
+}  
+ ``` 
+Did you provide this information in the encrypted assertion?  
+Did you signed also the assertion before encrypting it?  
+Do not forget to mention the correct "kid", the "alg", and the constant value "JWT"
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0ODI2MTcxMDYsLTc2MDE1MDU1NiwtMz
-EwNzg3NjM2LC03NjAxNTA1NTYsLTMxMDc4NzYzNiwtNzYwMTUw
-NTU2LC0zMTA3ODc2MzYsMjA3NjcxMzUyNSwxNjgzOTY1NDY5LD
-IwNzY3MTM1MjUsMTY4Mzk2NTQ2OV19
+eyJoaXN0b3J5IjpbLTIyNzU4NDUyLC03NjAxNTA1NTYsLTMxMD
+c4NzYzNiwtNzYwMTUwNTU2LC0zMTA3ODc2MzYsLTc2MDE1MDU1
+NiwtMzEwNzg3NjM2LDIwNzY3MTM1MjUsMTY4Mzk2NTQ2OSwyMD
+c2NzEzNTI1LDE2ODM5NjU0NjldfQ==
 -->
