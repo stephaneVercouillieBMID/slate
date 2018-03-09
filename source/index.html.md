@@ -971,7 +971,7 @@ For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We 
 
 \- In header the Content-Type : _application/x-www-form-urlencoded_ must be added.
 
->## Is token encryption mandatory?
+>### Is token encryption mandatory?
 We require you to expose a set of public key (a signature key & one encruption key) otherwise we cannot setup the connectivity with them.  
 
 For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there)  
@@ -983,6 +983,6 @@ _Document 33020 Technical Specifications Service Provider Open ID_ should help y
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA0MDM2NzY5OSwyMDI5MjgzNjg2LDE4Mz
-QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbMzUzOTY3NTY4LDIwMjkyODM2ODYsMTgzND
+E2MDkyOSwtNDM1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
 -->
