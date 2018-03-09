@@ -994,7 +994,9 @@ Select : Trust
 
 >### Can I have my own itsme app (production) together with the itsme UAT app?
 No, you can only have 1 itsme(r) app on your device one at a time, regardless of the which environment you have E.g. Production, UAT or E2E.
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NDIwNDg1NDcsMjAyOTI4MzY4NiwxOD
-M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
+eyJoaXN0b3J5IjpbMTk2NzQ2NjU1MywyMDI5MjgzNjg2LDE4Mz
+QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
