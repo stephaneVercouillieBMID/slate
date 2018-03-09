@@ -914,8 +914,8 @@ With Rogue Apps, an attacker can attempt to intercept Codes, PIN, transaction de
   
 So far for theory: We acknowledge this risk, treat it accordingly, and test if it works. itsme’s apps (iOS and Android) are safeguarded to detect device compromises (and block). On top, even when compromised, make it (extremely) difficult to intercept the PIN, or replay transactions. As the official test by French ANSSI Authorities state it, for Gemalto’s SDK on Android: “Even if root rights obtained, PIN cannot be obtained to generate OTP / Authentication Response”.
 
-># CALL
->## How does the call work?
+>## CALL
+>### How does the call work?
 
 For each Partner 1 JWKSet per environment (Sandbox & PROD) exposed on a public (https protected) URL.  
 
@@ -931,7 +931,7 @@ Once we answer your request, we send an encrypted JWT token based on your 'encry
 \- Decrypt request with your 'encryption' private key  
 \-  Validate our signature with our ‘signing’ public key found in our JWKSet
 
->## Should there be 2 calls to itsme for this schedule?(One for Token request & one for Userinfo request)
+>### Should there be 2 calls to itsme for this schedule?(One for Token request & one for Userinfo request)
 You need to perform two Back-End to Back-End calls indeed:
 
 \- The Token Request  
@@ -939,7 +939,7 @@ You need to perform two Back-End to Back-End calls indeed:
 
 On top of this, the Authorization Request (AuthN Request in the schedule) consists of an HTTP redirection to the OpenID webpage of BMID. The content of this HTTP request is to be crafted by your system, it is actually a third call from your side to BMID, this one being Front-End to Back-End.
 
->## How to set the level of security at the level of the App? (5 digit code only without fingerprint or facial recognition eg.)
+>### How to set the level of security at the level of the App? (5 digit code only without fingerprint or facial recognition eg.)
 >
 You can configure this option through the parameter “acr_values”, documented in the section 2.1.2.1 of the document _“33020 Technical Specification Service Provider OpenID”_.  
 
@@ -947,15 +947,15 @@ Two values are supported:
 ` tag:sixdots.be,2016-06:acr_basic` : Basic level will let the User the choice to use either fingerprint (if Device is compatible) or his PIN.
 ` tag:sixdots.be,2016-06:acr_advanced`: Advanced level will force the User to use his PIN.
 
->## Is there any .NET sample code available?
+>### Is there any .NET sample code available?
 Please check the following link,
 
 https://docs.microsoft.com/en-us/aspnet/core/migration/1x-to-2x/identity-2x
 
->## Is `GET` request supported?
+>### Is `GET` request supported?
 No, only `POST` request is supported.
 
->## Why App-to-Backend communication exists but a App-to-B2B connection does not?
+>### Why App-to-Backend communication exists but a App-to-B2B connection does not?
 We are sending the user information not through an app but through a highly authenticated server (which implies to put in place necessary measure to protect the data confidentiality)  
   
 This condition implies the need to put in place a back-end layer on your side.  
@@ -965,7 +965,7 @@ We require you to expose a set of public key (a signature key & one encryption k
 For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there).
 
 
-> ## Which information must be present to contact the token endpoint?
+> ### Which information must be present to contact the token endpoint?
 
 \-  This is a `POST` request and not a `GET`;
 
@@ -983,6 +983,6 @@ _Document 33020 Technical Specifications Service Provider Open ID_ should help y
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwOTU5NTUzNzEsMjAyOTI4MzY4NiwxOD
-M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
+eyJoaXN0b3J5IjpbMTA0MDM2NzY5OSwyMDI5MjgzNjg2LDE4Mz
+QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
