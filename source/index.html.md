@@ -1064,16 +1064,17 @@ The header must contain the following information:
 }  
  ``` 
 
-**Please make sure that,
+**Please make sure that,**
 
- \-You provide this information in the encrypted assertion
-\-You signed also the assertion before encrypting it
+ **\-You provide this information in the encrypted assertion**
+**\-You signed also the assertion before encrypting it**
+**\-You  mention the correct "kid", the "alg" and the constant value "JWT"**
 
-**Do not forget to mention the correct "kid", the "alg", and the constant value "JWT"**
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTM5ODgzNzgsLTc2MDE1MDU1NiwtMz
-EwNzg3NjM2LC03NjAxNTA1NTYsLTMxMDc4NzYzNiwtNzYwMTUw
-NTU2LC0zMTA3ODc2MzYsMjA3NjcxMzUyNSwxNjgzOTY1NDY5LD
-IwNzY3MTM1MjUsMTY4Mzk2NTQ2OV19
+eyJoaXN0b3J5IjpbLTExMTczODUyMiwtNzYwMTUwNTU2LC0zMT
+A3ODc2MzYsLTc2MDE1MDU1NiwtMzEwNzg3NjM2LC03NjAxNTA1
+NTYsLTMxMDc4NzYzNiwyMDc2NzEzNTI1LDE2ODM5NjU0NjksMj
+A3NjcxMzUyNSwxNjgzOTY1NDY5XX0=
 -->
