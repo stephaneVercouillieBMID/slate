@@ -981,7 +981,7 @@ The encryption key is used to encrypt data so that nobody can read the data whic
   
 _Document 33020 Technical Specifications Service Provider Open ID_ should help you go further. Otherwise standard Open ID documentation (http://openid.net/connect/) should also help you.
 
->## Test-App
+>## Test App
 >### After installing Itsme-UAT through Hockey-app on iPhone7, i get this message:"Non-trusted company app developer". What should i do?
 To be able to use itsme on Hockey App, you need to :  
   
@@ -996,7 +996,23 @@ Select : Trust
 No, you can only have 1 itsme(r) app on your device one at a time, regardless of the which environment you have E.g. Production, UAT or E2E.
 
 
+>Is this page auto generated: https://uatmerchant.sixdots.be/oidc/.well-known/openid-configuration
 
+>What is the purpose of the https://uatmerchant.sixdots.be/oidc/register? Seems to be a link to be registered as a SP, but do we make use of it?
+
+Is it possible to register multiple valid callback URIs/jwkset URIs for one environment, or will they have to change this every time they switch URIs?
+
+When the end-user is redirected to itsme in the browser, then we specify a redirect\_uri. We have to provide BMID the redirect uri’s. Can we give additional parameters? Or does the entire redirect\_uri needs to match?”
+
+  
+  
+Has itsme app in Prod & UAT different URL-scheme's ?  
+  
+  
+  
+eg itsme://...  
+  
+itsmeUAT://...
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTE2MzQzOTNdfQ==
+eyJoaXN0b3J5IjpbLTEwMDU2MTQ1ODddfQ==
 -->
