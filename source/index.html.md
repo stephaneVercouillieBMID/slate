@@ -1027,6 +1027,17 @@ No, we will create new services for the OIDC.
 >### Can we re-use the same service, but seperate SSL certificate?”
 Currently, the certificate is used to protect the jwkset and is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSET. If my understanding is correct they want to use a service using the Belfius Partner Code.
 
+### Company A and B have a joint project : login with ItsMe for the website “C”.  
+This is a joint project because C reuses the front-application layer of B, ans also backend systems of B.  
+B is with regard to ItsMe an “identity provider”, whereas C is a “service provider”.  
+  
+Does SixDots agree that B connectivity platform is used by C to call the “get token” and the “user info” services ?  
+  
+This platform is already processing calls from SixDots to B and from B to SixDots (enrollment of B customers via their mobile device).  
+This implies that C would reuse the current ssl communication channel between B’ s connectivity platform and sixDots.  
+  
+Note: B uses SOAP. C would use Open Id Connect.
+>We require that you present a dedicated SSL certificate so that we can distinguish the different calls in the logs & we could revoke access per service.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODAzMTM4NzUxXX0=
+eyJoaXN0b3J5IjpbMTY4Mzk2NTQ2OV19
 -->
