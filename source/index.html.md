@@ -26,7 +26,7 @@ In order to let you identify the user authenticated, BMID uses pairwise user ide
 
 ## Share Data
 
-If purpose of use is stated during the on-boarding process and consent is provided by the End-User during Authentication, Dend user data can be shared with your application.
+If purpose of use is stated during the on-boarding process and consent is provided by the End-User during Authentication, end user data can be shared with your application.
 
 ata is currently shared only during Login or Approval. Off-line access to User information is not authorised.
 
@@ -949,6 +949,6 @@ For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MTcyNzg1MzUsMjAyOTI4MzY4NiwxOD
-M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
+eyJoaXN0b3J5IjpbMTA3OTkyMjQyNSwyMDI5MjgzNjg2LDE4Mz
+QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
