@@ -1066,9 +1066,9 @@ The header must contain the following information:
 
 **Please make sure that,**
 
- **\-You provide this information in the encrypted assertion**
-**\-You signed also the assertion before encrypting it**
-**\-You  mention the correct "kid", the "alg" and the constant value "JWT"**
+ >**You provide this information in the encrypted assertion**
+**You signed also the assertion before encrypting it**
+**You  mention the correct "kid", the "alg" and the constant value "JWT"**
 
 >## I make a call to the token endpoint, the server returns a 500. What should I do?
 
@@ -1128,8 +1128,8 @@ So we would need a service code for the register operation with the following ca
 
 First, you need to  validate that you are able (and **authorized**) to keep the "xxx UAT JWKset signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3MjcwODgxOCwtNzYwMTUwNTU2LC0zMT
-A3ODc2MzYsLTc2MDE1MDU1NiwtMzEwNzg3NjM2LC03NjAxNTA1
-NTYsLTMxMDc4NzYzNiwyMDc2NzEzNTI1LDE2ODM5NjU0NjksMj
-A3NjcxMzUyNSwxNjgzOTY1NDY5XX0=
+eyJoaXN0b3J5IjpbMzk2OTIxNTA1LC03NjAxNTA1NTYsLTMxMD
+c4NzYzNiwtNzYwMTUwNTU2LC0zMTA3ODc2MzYsLTc2MDE1MDU1
+NiwtMzEwNzg3NjM2LDIwNzY3MTM1MjUsMTY4Mzk2NTQ2OSwyMD
+c2NzEzNTI1LDE2ODM5NjU0NjldfQ==
 -->
