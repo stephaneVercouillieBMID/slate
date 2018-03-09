@@ -1007,13 +1007,21 @@ The redirect url is specified in each Authorization request, the User will be re
 The entire redirect_uri must match therefore no additional parameter is allowed.
   
   
->### Has itsme app in Prod & UAT different URL-scheme's?  
-  
-  
-  
-eg itsme://...  
-  
-itsmeUAT://...
+>### Has itsme app in Prod & UAT different URL-scheme's?  eg itsme://...  itsmeUAT://...
+On iOS:  
+\- for enrollment, it's always "be.bmid.itsme://" "  
+\- for app to app actions, it's based on universal links and these are different for each environment:<br>
+UAT  
+https://uatmobileapp.sixdots.be/mobile/processAction  
+https://uatmobileapp.sixdots.be/mobile/authorize  
+E2E  
+https://e2emobileapp.sixdots.be/mobile/processAction  
+https://e2emobileapp.sixdots.be/mobile/authorize  
+PRD  
+https://mobileapp.sixdots.be/mobile/processAction  
+https://mobileapp.sixdots.be/mobile/authorize
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTE5MTI1NjA2XX0=
+eyJoaXN0b3J5IjpbLTM0NDczMjU4NF19
 -->
