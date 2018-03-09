@@ -928,7 +928,7 @@ We will decrypt your request with our 'encryption' private key and use your 'sig
   
 Once we answer your request, we send an encrypted JWT token based on your 'encryption' public key  
 \- Decrypt request with your 'encryption' private key  
-\-  Validate our signature with our ‘signing’ public key found in our jwkset
+\-  Validate our signature with our ‘signing’ public key found in our JWKSet
 
 >## Should there be 2 calls to itsme for this schedule?(One for Token request & one for Userinfo request)
 You need to perform two Back-End to Back-End calls indeed:
@@ -972,6 +972,6 @@ For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDMzMzY2Mzk5LDIwMjkyODM2ODYsMTgzND
-E2MDkyOSwtNDM1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
+eyJoaXN0b3J5IjpbMTI4MDc0ODkyNywyMDI5MjgzNjg2LDE4Mz
+QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
