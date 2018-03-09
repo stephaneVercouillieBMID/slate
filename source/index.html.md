@@ -1063,15 +1063,17 @@ The header must contain the following information:
 "kid": "<THE\_KEY\_ID\_YOU\_USED\_TO\_SIGN>"  
 }  
  ``` 
-Please make sure that,
-You provide this information in the encrypted assertion
 
-Did you signed also the assertion before encrypting it?  
+**Please make sure that,
+
+ \-You provide this information in the encrypted assertion
+\-You signed also the assertion before encrypting it
+
 **Do not forget to mention the correct "kid", the "alg", and the constant value "JWT"**
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzgyNTUwNzU0LC03NjAxNTA1NTYsLTMxMD
-c4NzYzNiwtNzYwMTUwNTU2LC0zMTA3ODc2MzYsLTc2MDE1MDU1
-NiwtMzEwNzg3NjM2LDIwNzY3MTM1MjUsMTY4Mzk2NTQ2OSwyMD
-c2NzEzNTI1LDE2ODM5NjU0NjldfQ==
+eyJoaXN0b3J5IjpbLTE4NTM5ODgzNzgsLTc2MDE1MDU1NiwtMz
+EwNzg3NjM2LC03NjAxNTA1NTYsLTMxMDc4NzYzNiwtNzYwMTUw
+NTU2LC0zMTA3ODc2MzYsMjA3NjcxMzUyNSwxNjgzOTY1NDY5LD
+IwNzY3MTM1MjUsMTY4Mzk2NTQ2OV19
 -->
