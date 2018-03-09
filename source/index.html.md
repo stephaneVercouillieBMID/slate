@@ -919,8 +919,8 @@ So far for theory: We acknowledge this risk, treat it accordingly, and test if i
 For each Partner 1 JWKset per environment (Sandbox & PROD) exposed on a public (https protected) URL.  
 The full certificate chain of the server hosting the JwkSet file must be communicated so we can add it in our own trust store.  
 When you send a request to us,  
-• Sign request with your 'signing' private key  
-• Encrypt it based on our 'encryption' public key.  
+\- Sign request with your 'signing' private key  
+\-  Encrypt it based on our 'encryption' public key.  
   
 We will decrypt your request with our 'encryption' private key and use your 'sign' public key for the signed part.  
   
@@ -970,6 +970,6 @@ For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE1MDIwODkxNSwyMDI5MjgzNjg2LDE4Mz
-QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbLTEwMzUxMzkzNTMsMjAyOTI4MzY4NiwxOD
+M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
 -->
