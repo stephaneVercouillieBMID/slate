@@ -1039,10 +1039,10 @@ This implies that C would reuse the current ssl communication channel between Bâ
 Note: B uses SOAP. C would use Open Id Connect.
 >We require that you present a dedicated SSL certificate so that we can distinguish the different calls in the logs & we could revoke access per service.
 
-
+Should I notify BMID if the IP changes?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMjQ1MzA1MjAsLTc2MDE1MDU1NiwtMz
-EwNzg3NjM2LC03NjAxNTA1NTYsLTMxMDc4NzYzNiwtNzYwMTUw
-NTU2LC0zMTA3ODc2MzYsMjA3NjcxMzUyNSwxNjgzOTY1NDY5LD
-IwNzY3MTM1MjUsMTY4Mzk2NTQ2OV19
+eyJoaXN0b3J5IjpbODgxNTA4NzcwLC03NjAxNTA1NTYsLTMxMD
+c4NzYzNiwtNzYwMTUwNTU2LC0zMTA3ODc2MzYsLTc2MDE1MDU1
+NiwtMzEwNzg3NjM2LDIwNzY3MTM1MjUsMTY4Mzk2NTQ2OSwyMD
+c2NzEzNTI1LDE2ODM5NjU0NjldfQ==
 -->
