@@ -993,8 +993,8 @@ Select : Belgian Mobile ID NV
 Select : Trust
 
 >### Can I have my own itsme app (production) together with the itsme UAT app?
-No, you can only have 1 itsme app on your device at one moment in time independantly of Production, UAT or E2E
+No, you can only have 1 itsme app on your device at one moment in time regardless of the environment you have Production, UAT or E2E
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzMzU5MDk3NywyMDI5MjgzNjg2LDE4Mz
+eyJoaXN0b3J5IjpbLTkzOTg1NjY4NSwyMDI5MjgzNjg2LDE4Mz
 QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
