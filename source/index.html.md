@@ -978,8 +978,10 @@ For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We 
 The signature key is used to verify the Service provider when they come fetch data on a client.  
 The encryption key is used to encrypt data so that nobody can read the data which we are transfering apart from the service provider component who has the right to access these data (so that you can encode/reencode the https in intern in a less secured component; it stays crypted).  
   
-Document 33020 Technical Specifications Service Provider Open ID should help you go further. Otherwise standard Open ID documentation (http://openid.net/connect/) should also help you.
+_Document 33020 Technical Specifications Service Provider Open ID_ should help you go further. Otherwise standard Open ID documentation (http://openid.net/connect/) should also help you.
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjYxNTExOTgsMjAyOTI4MzY4NiwxODM0MT
-YwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
+eyJoaXN0b3J5IjpbNTg0NDg5MjgwLDIwMjkyODM2ODYsMTgzND
+E2MDkyOSwtNDM1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
 -->
