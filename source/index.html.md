@@ -1103,11 +1103,11 @@ The "/token" end point must be called using:
   
 (1)  "application/x-www-form-urlencoded" content type.  
   
-We can see that you used "*/*, Accept: application/json,text/plain,*/*,."  
+The following type should not be used. "*/*, Accept: application/json,text/plain,*/*,."  
   
 (2) the returned media type will be "application/json". Be sure to accept it in the request.  
   
-(3) POST is the only http method allowed to call this entry point. Do not use GET.  
+(3) `POST` is the only http method allowed to call this entry point. Do not use `GET`.  
   
 (4) You mentioned that you used your private key to encrypt the JWT token...  
   
@@ -1119,8 +1119,8 @@ token. The Itsme backend will then use his own private encryption key to decode 
   
 signing key to validate your signature.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQ5MTUwNzE1LC03NjAxNTA1NTYsLTMxMD
-c4NzYzNiwtNzYwMTUwNTU2LC0zMTA3ODc2MzYsLTc2MDE1MDU1
-NiwtMzEwNzg3NjM2LDIwNzY3MTM1MjUsMTY4Mzk2NTQ2OSwyMD
-c2NzEzNTI1LDE2ODM5NjU0NjldfQ==
+eyJoaXN0b3J5IjpbMTQ4NTgwNzUyOSwtNzYwMTUwNTU2LC0zMT
+A3ODc2MzYsLTc2MDE1MDU1NiwtMzEwNzg3NjM2LC03NjAxNTA1
+NTYsLTMxMDc4NzYzNiwyMDc2NzEzNTI1LDE2ODM5NjU0NjksMj
+A3NjcxMzUyNSwxNjgzOTY1NDY5XX0=
 -->
