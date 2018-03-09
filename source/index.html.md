@@ -1076,9 +1076,10 @@ I make a call to the token endpoint, (https://uatmerchant.sixdots.be/oidc/token)
 ```json--inline
 grant\_type=authorization\_code&code=80fmc3ydci8vuid18oh61l8hq33dwszhni0n&redirect\_uri=https%3A%2F%2Fixxx-nodejs-itsme-poc.herokuapp.com%2Fapi%2Fitsme%2Flogin&client\_assertion=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3MzAxZDg2Zi0yNjEzLTQ2MDAtOTA4ZS0wYmE2MWZkODQ3YjQiLCJpYXQiOjE1MTYxODUwNzEsImV4cCI6MTUxNjE4ODY3MSwiYXVkIjoiaHR0cHM6Ly91YXRtZXJjaGFudC5zaXhkb3RzLmJlL29pZGMvdG9rZW4iLCJpc3MiOiJJQ0FQUFMiLCJzdWIiOiJJQ0FQUFMifQ.L68iMbrrt0ETNBTJtBTCD29d0vKAyxPQ\_6lnBibtlB0&client\_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer  
 ``` 
-The JWT token, encrypted with our private key, contains:  
+>The JWT token, encrypted with our private key, contains:  
   
  ```json--inline
+
 decoded {  
   
 "jti": "7301d86f-2613-4600-908e-0ba61fd847b4",  
@@ -1095,11 +1096,31 @@ decoded {
   
 }  
  ```
-The server returns a 500. No extra information.
+>The server returns a 500. No extra information.
 
+### Solution:
+The "/token" end point must be called using:  
+  
+(1)  "application/x-www-form-urlencoded" content type.  
+  
+We can see that you used "*/*, Accept: application/json,text/plain,*/*,."  
+  
+(2) the returned media type will be "application/json". Be sure to accept it in the request.  
+  
+(3) POST is the only http method allowed to call this entry point. Do not use GET.  
+  
+(4) You mentioned that you used your private key to encrypt the JWT token...  
+  
+That's not the way you should use your private key.  
+  
+You have to use your private key to firstly, sign the token, then use the Itsme encryption public key to encrypt the  
+  
+token. The Itsme backend will then use his own private encryption key to decode your token and, your public  
+  
+signing key to validate your signature.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTQyNzYyMzksLTc2MDE1MDU1NiwtMz
-EwNzg3NjM2LC03NjAxNTA1NTYsLTMxMDc4NzYzNiwtNzYwMTUw
-NTU2LC0zMTA3ODc2MzYsMjA3NjcxMzUyNSwxNjgzOTY1NDY5LD
-IwNzY3MTM1MjUsMTY4Mzk2NTQ2OV19
+eyJoaXN0b3J5IjpbODQ5MTUwNzE1LC03NjAxNTA1NTYsLTMxMD
+c4NzYzNiwtNzYwMTUwNTU2LC0zMTA3ODc2MzYsLTc2MDE1MDU1
+NiwtMzEwNzg3NjM2LDIwNzY3MTM1MjUsMTY4Mzk2NTQ2OSwyMD
+c2NzEzNTI1LDE2ODM5NjU0NjldfQ==
 -->
