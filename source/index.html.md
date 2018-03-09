@@ -1113,9 +1113,12 @@ The following type should not be used. "*/*, Accept: application/json,text/plain
   
 You need to use your private key to firstly, sign the token, then use the itsme(r) encryption public key to encrypt the  token. The itsme(r) backend will then use his own private encryption key to decode your token and your public  signing key to validate your signature.
 
-## We would like to integrate itsme(r) but we only have 1 development machine & so no unique IP for the back-end in test as he isn't unique & runs in local on each machine
+## We would like to integrate itsme(r) but..
+We would like to integrate itsme(r) but we only have 1 development machine & so no unique IP for the back-end in test as it isn't unique & runs in local on each machine.
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYwMDY4NzcwNSwtNzYwMTUwNTU2LC0zMT
+eyJoaXN0b3J5IjpbMTUzMzQ4MjQzOSwtNzYwMTUwNTU2LC0zMT
 A3ODc2MzYsLTc2MDE1MDU1NiwtMzEwNzg3NjM2LC03NjAxNTA1
 NTYsLTMxMDc4NzYzNiwyMDc2NzEzNTI1LDE2ODM5NjU0NjksMj
 A3NjcxMzUyNSwxNjgzOTY1NDY5XX0=
