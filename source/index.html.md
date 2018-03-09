@@ -935,7 +935,7 @@ Please check the following link,
 
 https://docs.microsoft.com/en-us/aspnet/core/migration/1x-to-2x/identity-2x
 
->## Is ` GET` request supported?
+>## Is `GET` request supported?
 No, only `POST` request is supported.
 
 >## Why App-to-Backend communication exists but a App-to-B2B connection does not?
@@ -949,6 +949,6 @@ For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA4MTEzMDE5NSwyMDI5MjgzNjg2LDE4Mz
-QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbOTU3NTU3NzI1LDIwMjkyODM2ODYsMTgzND
+E2MDkyOSwtNDM1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
 -->
