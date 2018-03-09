@@ -982,8 +982,9 @@ The encryption key is used to encrypt data so that nobody can read the data whic
 _Document 33020 Technical Specifications Service Provider Open ID_ should help you go further. Otherwise standard Open ID documentation (http://openid.net/connect/) should also help you.
 
 ## Test-App
-
+###After installing Itsme-UAT through Hockey-app on iPhone7, i get this message:
+"Non-trusted company app developer"
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM0NTc1ODEzMiwyMDI5MjgzNjg2LDE4Mz
-QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbLTEzNTE0MjcyNzcsMjAyOTI4MzY4NiwxOD
+M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
 -->
