@@ -897,9 +897,9 @@ So other authentication ways such as client_secret (Open ID Connect default meth
 Two factor means:  
   
 You must provide at least two from this list :  
-\- knowledge (something you know), Eg. password  
-\- possession (something you have), Eg. mobile phone  
-\- inherence (something you are). Eg. biometrics  
+\- **knowledge** (something you know), Eg. password  
+\- **possession** (something you have), Eg. mobile phone  
+\- **inherence** (something you are). Eg. biometrics  
   
 With standard login/password on web app : you only have to provide something you know (i.e. the password).  
   
@@ -972,6 +972,6 @@ For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI4MDc0ODkyNywyMDI5MjgzNjg2LDE4Mz
+eyJoaXN0b3J5IjpbMTkxNjY0MzUxOSwyMDI5MjgzNjg2LDE4Mz
 QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
