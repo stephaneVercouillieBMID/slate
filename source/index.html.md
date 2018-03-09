@@ -1039,8 +1039,8 @@ This implies that C would reuse the current ssl communication channel between Bâ
 Note: B uses SOAP. C would use Open Id Connect.
 >We require that you present a dedicated SSL certificate so that we can distinguish the different calls in the logs & we could revoke access per service.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxMDc4NzYzNiwtNzYwMTUwNTU2LC0zMT
-A3ODc2MzYsLTc2MDE1MDU1NiwtMzEwNzg3NjM2LDIwNzY3MTM1
-MjUsMTY4Mzk2NTQ2OSwyMDc2NzEzNTI1LDE2ODM5NjU0NjldfQ
-==
+eyJoaXN0b3J5IjpbLTc2MDE1MDU1NiwtMzEwNzg3NjM2LC03Nj
+AxNTA1NTYsLTMxMDc4NzYzNiwtNzYwMTUwNTU2LC0zMTA3ODc2
+MzYsMjA3NjcxMzUyNSwxNjgzOTY1NDY5LDIwNzY3MTM1MjUsMT
+Y4Mzk2NTQ2OV19
 -->
