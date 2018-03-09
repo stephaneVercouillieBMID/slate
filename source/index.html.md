@@ -950,10 +950,10 @@ For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We 
 
 > ## Which information must be present to contact the token endpoint?
 
-- This is a POST request and not a GET;
+\-  This is a POST request and not a GET;
 
-- Add in header the Content-Type : application/x-www-form-urlencoded
+- Add in header the Content-Type : application/x-www-form-urlencoded 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTcyOTIwOTUwLDIwMjkyODM2ODYsMTgzND
-E2MDkyOSwtNDM1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
+eyJoaXN0b3J5IjpbLTMwMTYwMTcxNiwyMDI5MjgzNjg2LDE4Mz
+QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
