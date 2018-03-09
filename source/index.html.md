@@ -954,7 +954,8 @@ For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We 
 
 \- In header the Content-Type : _application/x-www-form-urlencoded_ must be added.
 
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxODcxMDczMSwyMDI5MjgzNjg2LDE4Mz
-QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbLTE5ODg5OTY1NzMsMjAyOTI4MzY4NiwxOD
+M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
 -->
