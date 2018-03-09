@@ -914,6 +914,20 @@ With Rogue Apps, an attacker can attempt to intercept Codes, PIN, transaction de
 So far for theory: We acknowledge this risk, treat it accordingly, and test if it works. itsme’s apps (iOS and Android) are safeguarded to detect device compromises (and block). On top, even when compromised, make it (extremely) difficult to intercept the PIN, or replay transactions. As the official test by French ANSSI Authorities state it, for Gemalto’s SDK on Android: “Even if root rights obtained, PIN cannot be obtained to generate OTP / Authentication Response”.
 
 ># CALL
+>## How does the call work?
+
+For each Partner 1 JWKset per environment (Sandbox & PROD) exposed on a public (https protected) URL.  
+The full certificate chain of the server hosting the JwkSet file must be communicated so we can add it in our own trust store.  
+When you send a request to us,  
+• Sign request with your 'signing' private key  
+• Encrypt it based on our 'encryption' public key.  
+  
+We will decrypt your request with our 'encryption' private key and use your 'sign' public key for the signed part.  
+  
+Once we answer your request, we send an encrypted JWT token based on your 'encryption' public key  
+• Decrypt request with your 'encryption' private key  
+• Validate our signature with our ‘signing’ public key found in our jwkset
+
 >## Should there be 2 calls to itsme for this schedule?(One for Token request & one for Userinfo request)
 You need to perform two Back-End to Back-End calls indeed:
 
@@ -956,6 +970,6 @@ For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5ODg5OTY1NzMsMjAyOTI4MzY4NiwxOD
-M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
+eyJoaXN0b3J5IjpbMTE1MDIwODkxNSwyMDI5MjgzNjg2LDE4Mz
+QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
 -->
