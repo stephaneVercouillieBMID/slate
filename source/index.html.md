@@ -1022,8 +1022,11 @@ https://mobileapp.sixdots.be/mobile/processAction
 https://mobileapp.sixdots.be/mobile/authorize
 
 >### Can we re-use the same service for another environment
+No, we will create new services for the OIDC.
 
-### Can we re-use the same service, but seperate SSL certificate?”
+>### Can we re-use the same service, but seperate SSL certificate?”
+Currently, the certificate is used to protect the jwkset and is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSET. If my understanding is correct they want to use a service using the Belfius Partner Code.
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI4ODU0NDgxNl19
+eyJoaXN0b3J5IjpbODAzMTM4NzUxXX0=
 -->
