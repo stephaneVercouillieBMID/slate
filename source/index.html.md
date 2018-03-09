@@ -764,9 +764,9 @@ Parameter | Requested Claim Key Name | Claim Value Type
 -- | -- | --
 **Text** | `tag:sixdots.be,2016-08:claim_approval_text_key` | A string holding any text to be displayed on the end-user phone.<br>
 ># **FAQ**
-># JWKSet
+>## JWKSet
 >
->## What is a JWKSet?
+>### What is a JWKSet?
 We require you to expose a set of public key (a signature key & one encryption key) to setup the connectivity.
 
 For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there).
@@ -790,7 +790,7 @@ During on-boarding, we can check that we have all the required certificates to e
 So, on the HTTPS protocol level, the connections must be secured using trusted Root CA (not self-signed).
 In contrary, the key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.
 
->## How to create JWKSet?
+>### How to create JWKSet?
 
 The following JSON Web Key Generator can be used to create JWKSet
  ```
@@ -806,13 +806,13 @@ https://stackoverflow.com/questions/42504079/how-do-you-extract-n-and-e-from-a-r
  ``` 
 
 
->## How to Transfer JWKSets?
+>### How to Transfer JWKSets?
 The following link can be used to convert encoded public and private keys to JWKSet format:
  ```
 https://www.npmjs.com/package/rsa-pem-to-jwk
  ```
  >
->## What are the JWKSet requirements?
+>### What are the JWKSet requirements?
 In Opend ID Connect 1.0 the important is the jwKset which is exposed on a public URL and the linked chain of certificates which is included in our trust store.
 >
 This is 1 per partner. So in UAT 1, in Prod, for your 4 clients, it would be 1 JWKSet if it's under Norbloc name or 4 JWKSet if it's under each client name.
@@ -827,7 +827,7 @@ We are here working in HTTPS Client Authentication.For more details the best is 
 
 For the call back URI (not URL) you will need in UAT 4 URI, one per service. So in Prod, for 4 clients using each the 4 services, you would have at least 16 Service codes.
 
->## What are the JWKSet encryption requirements?
+>### What are the JWKSet encryption requirements?
 In the JWKSet, encryption should be done with **RSA256**,  the signature in **SHA256** (in short the encryption algorithm is RS256) and the key size is 2048 bits.
 
 As a comparison here's the public keys for itsme UAT JWKSet.<br>
@@ -857,10 +857,10 @@ As a comparison here's the public keys for itsme UAT JWKSet.<br>
 You can find the configuration parameters in in document « 33020 Technical Specification Service Provider OpenID Documentation » or via the following back-end URL:
 
  https://uatmerchant.sixdots.be/oidc/.well-known/openid-configuration<br> 
- >## What should I do once I changed my JWKSet?
+ >### What should I do once I changed my JWKSet?
  Please notify Support and create a new certificate.
 
->## What should I do once I changed my JWKSet but not the URL, does it mean no new certificates?<br>
+>### What should I do once I changed my JWKSet but not the URL, does it mean no new certificates?<br>
  You should contact support and mention the change to allow a refresh of the cache on back-end side, this should be solved in March where the refresh time will be 30 min.
  
 A workaround to force a refresh, let the SP send a request with an unknown **"KID"** (key id).<br>
@@ -983,6 +983,6 @@ _Document 33020 Technical Specifications Service Provider Open ID_ should help y
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTYyMjQ1NDEzLDIwMjkyODM2ODYsMTgzND
-E2MDkyOSwtNDM1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
+eyJoaXN0b3J5IjpbLTIwOTU5NTUzNzEsMjAyOTI4MzY4NiwxOD
+M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
 -->
