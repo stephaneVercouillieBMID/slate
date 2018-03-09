@@ -1000,9 +1000,9 @@ No, you can only have 1 itsme(r) app on your device one at a time, regardless of
 
 >What is the purpose of the https://uatmerchant.sixdots.be/oidc/register? Seems to be a link to be registered as a SP, but do we make use of it?
 
-Is it possible to register multiple valid callback URIs/jwkset URIs for one environment, or will they have to change this every time they switch URIs?
+>Is it possible to register multiple valid callback URIs/jwkset URIs for one environment, or will they have to change this every time they switch URIs?
 
-When the end-user is redirected to itsme in the browser, then we specify a redirect\_uri. We have to provide BMID the redirect uri’s. Can we give additional parameters? Or does the entire redirect\_uri needs to match?”
+>When the end-user is redirected to itsme in the browser, then we specify a redirect\_uri. We have to provide BMID the redirect uri’s. Can we give additional parameters? Or does the entire redirect\_uri needs to match?”
 
   
   
@@ -1014,5 +1014,5 @@ eg itsme://...
   
 itsmeUAT://...
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMDU2MTQ1ODddfQ==
+eyJoaXN0b3J5IjpbLTM2ODU1MzE0N119
 -->
