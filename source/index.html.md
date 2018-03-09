@@ -1042,10 +1042,17 @@ Note: B uses SOAP. C would use Open Id Connect.
 >## Should I notify BMID if the IP changes?
 No, this is not required.
 
+>## What is the lay-out of the Identity Data that we get back in the Userinfo Response
+They are the same as on the eID card
 
+>## Do we need to call the UserInfo endpoint to get the National Register number or can it be part of the ID Token?
+
+UserInfo should be used to retrieve data and so NRN if it was available, however, today we cannot send the NRN to private organizations.
+
+>## I would like the access to the NRN data but not other eID data
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTA3NDE5ODQ1LC03NjAxNTA1NTYsLTMxMD
-c4NzYzNiwtNzYwMTUwNTU2LC0zMTA3ODc2MzYsLTc2MDE1MDU1
-NiwtMzEwNzg3NjM2LDIwNzY3MTM1MjUsMTY4Mzk2NTQ2OSwyMD
-c2NzEzNTI1LDE2ODM5NjU0NjldfQ==
+eyJoaXN0b3J5IjpbLTc3MzgwMDMxMSwtNzYwMTUwNTU2LC0zMT
+A3ODc2MzYsLTc2MDE1MDU1NiwtMzEwNzg3NjM2LC03NjAxNTA1
+NTYsLTMxMDc4NzYzNiwyMDc2NzEzNTI1LDE2ODM5NjU0NjksMj
+A3NjcxMzUyNSwxNjgzOTY1NDY5XX0=
 -->
