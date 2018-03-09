@@ -1113,16 +1113,23 @@ The following type should not be used. "*/*, Accept: application/json,text/plain
   
 You need to use your private key to firstly, sign the token, then use the itsme(r) encryption public key to encrypt the  token. The itsme(r) backend will then use his own private encryption key to decode your token and your public  signing key to validate your signature.
 
-## We would like to integrate itsme(r) but..
+>## We would like to integrate itsme(r) but..
 We would like to integrate itsme(r) but we only have 1 development machine & so no unique IP for the back-end in test as it isn't unique & runs in local on each machine.
-
   
-Could you give us a machine name (URL with host-name) so that once the redirect received, it points to your machine. On your local machine, this URL with host-name must point to your local machine (/ ETC / HOSTS) In other words: This will be the only URI we will accept in OpenID queries. So, if it is to be able to use the solution from different dev machines, the best thing is to create a unique redirect_uri like `https: // my-dev-sp / mycallbackuri` and that each developer maps `my-dev-sp` on the 127.0.0.1 via its hosts file.
+We need you to provide us a machine name (URL with host-name) so that once the redirect received, it points to your machine. On your local machine, this URL with host-name must point to your local machine (/ ETC / HOSTS) In other words: This will be the only URI we will accept in OpenID queries. So, if it is to be able to use the solution from different dev machines, the best thing is to create a unique redirect_uri like `https: // my-dev-sp / mycallbackuri` and that each developer maps `my-dev-sp` on the 127.0.0.1 via its hosts file.
 
 For the rest, if each developer has the private key of the SP on his post, she/he can impersonate the SP during calls to "/ token" and "/ userinfo". There is no check on the source IP, only the signature JWT account.
+
+  
+
+>### I would like to receive a new service code to do my local development.  
+  
+So I would need  a service code for the register operation with the following callback URL: http://localhost:23874/web2app/Identify/IdentificationCallBack  
+
+Can you first validate that you are able (and authorized!) to keep the "xxx UAT JWKset signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODM5MzYyMTk5LC03NjAxNTA1NTYsLTMxMD
-c4NzYzNiwtNzYwMTUwNTU2LC0zMTA3ODc2MzYsLTc2MDE1MDU1
-NiwtMzEwNzg3NjM2LDIwNzY3MTM1MjUsMTY4Mzk2NTQ2OSwyMD
-c2NzEzNTI1LDE2ODM5NjU0NjldfQ==
+eyJoaXN0b3J5IjpbMTExNzk5MDM2NywtNzYwMTUwNTU2LC0zMT
+A3ODc2MzYsLTc2MDE1MDU1NiwtMzEwNzg3NjM2LC03NjAxNTA1
+NTYsLTMxMDc4NzYzNiwyMDc2NzEzNTI1LDE2ODM5NjU0NjksMj
+A3NjcxMzUyNSwxNjgzOTY1NDY5XX0=
 -->
