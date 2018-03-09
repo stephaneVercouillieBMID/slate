@@ -764,7 +764,7 @@ Parameter | Requested Claim Key Name | Claim Value Type
 -- | -- | --
 **Text** | `tag:sixdots.be,2016-08:claim_approval_text_key` | A string holding any text to be displayed on the end-user phone.<br>
 ># **FAQ**
-># 
+># JWK
 >
 >## What is a JWKSet?
 We require you to expose a set of public key (a signature key & one encryption key) to setup the connectivity.
@@ -983,6 +983,6 @@ _Document 33020 Technical Specifications Service Provider Open ID_ should help y
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1MjIzNjI4OSwyMDI5MjgzNjg2LDE4Mz
-QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbLTE1MjAxMjI2OTksMjAyOTI4MzY4NiwxOD
+M0MTYwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
 -->
