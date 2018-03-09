@@ -981,7 +981,7 @@ The encryption key is used to encrypt data so that nobody can read the data whic
   
 _Document 33020 Technical Specifications Service Provider Open ID_ should help you go further. Otherwise standard Open ID documentation (http://openid.net/connect/) should also help you.
 
->## Test App
+>## Test Application
 >### After installing Itsme-UAT through Hockey-app on iPhone7, i get this message:"Non-trusted company app developer". What should i do?
 To be able to use itsme on Hockey App, you need to :  
   
@@ -1039,7 +1039,7 @@ This implies that C would reuse the current ssl communication channel between Bâ
 Note: B uses SOAP. C would use Open Id Connect.
 >We require that you present a dedicated SSL certificate so that we can distinguish the different calls in the logs & we could revoke access per service.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA3NjcxMzUyNSwxNjgzOTY1NDY5LDIwNz
+eyJoaXN0b3J5IjpbLTMxMDc4NzYzNiwyMDc2NzEzNTI1LDIwNz
 Y3MTM1MjUsMTY4Mzk2NTQ2OSwyMDc2NzEzNTI1LDE2ODM5NjU0
 NjldfQ==
 -->
