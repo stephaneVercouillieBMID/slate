@@ -1021,20 +1021,21 @@ PRD
 https://mobileapp.sixdots.be/mobile/processAction  
 https://mobileapp.sixdots.be/mobile/authorize
 
-># Service 
->### Can we re-use the same service for another environment
+>## SERVICE
+>### Can we re-use the same service for another environment?
 No, we will create new services for the OIDC.
 
 >### Can we re-use the same service, but seperate SSL certificate?”
 Currently, the certificate is used to protect the jwkset and is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSET. If my understanding is correct they want to use a service using the Belfius Partner Code.
 
-### Company A and B have a joint project : login with ItsMe for the website “C”.  
+>### Company A and B have a joint project : login with ItsMe for the website “C”.  
 This is a joint project because C reuses the front-application layer of B, ans also backend systems of B.  
 B is with regard to ItsMe an “identity provider”, whereas C is a “service provider”.  
   
-Does SixDots agree that B connectivity platform is used by C to call the “get token” and the “user info” services ?  
+>### Does SixDots agree that B connectivity platform is used by C to call the “get token” and the “user info” services ?  
   
 This platform is already processing calls from SixDots to B and from B to SixDots (enrollment of B customers via their mobile device).  
+
 This implies that C would reuse the current ssl communication channel between B’ s connectivity platform and sixDots.  
   
 Note: B uses SOAP. C would use Open Id Connect.
@@ -1129,8 +1130,8 @@ So we would need a service code for the register operation with the following ca
 
 First, you need to  validate that you are able (and **authorized**) to keep the "xxx UAT JWKset signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0OTg5MTE4ODksLTc2MDE1MDU1NiwtMz
-EwNzg3NjM2LC03NjAxNTA1NTYsLTMxMDc4NzYzNiwtNzYwMTUw
-NTU2LC0zMTA3ODc2MzYsMjA3NjcxMzUyNSwxNjgzOTY1NDY5LD
-IwNzY3MTM1MjUsMTY4Mzk2NTQ2OV19
+eyJoaXN0b3J5IjpbLTQ0MTY4ODMzNiwtNzYwMTUwNTU2LC0zMT
+A3ODc2MzYsLTc2MDE1MDU1NiwtMzEwNzg3NjM2LC03NjAxNTA1
+NTYsLTMxMDc4NzYzNiwyMDc2NzEzNTI1LDE2ODM5NjU0NjksMj
+A3NjcxMzUyNSwxNjgzOTY1NDY5XX0=
 -->
