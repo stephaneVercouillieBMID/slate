@@ -1021,6 +1021,7 @@ PRD
 https://mobileapp.sixdots.be/mobile/processAction  
 https://mobileapp.sixdots.be/mobile/authorize
 
+># Service 
 >### Can we re-use the same service for another environment
 No, we will create new services for the OIDC.
 
@@ -1128,8 +1129,8 @@ So we would need a service code for the register operation with the following ca
 
 First, you need to  validate that you are able (and **authorized**) to keep the "xxx UAT JWKset signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzk2OTIxNTA1LC03NjAxNTA1NTYsLTMxMD
-c4NzYzNiwtNzYwMTUwNTU2LC0zMTA3ODc2MzYsLTc2MDE1MDU1
-NiwtMzEwNzg3NjM2LDIwNzY3MTM1MjUsMTY4Mzk2NTQ2OSwyMD
-c2NzEzNTI1LDE2ODM5NjU0NjldfQ==
+eyJoaXN0b3J5IjpbLTE0OTg5MTE4ODksLTc2MDE1MDU1NiwtMz
+EwNzg3NjM2LC03NjAxNTA1NTYsLTMxMDc4NzYzNiwtNzYwMTUw
+NTU2LC0zMTA3ODc2MzYsMjA3NjcxMzUyNSwxNjgzOTY1NDY5LD
+IwNzY3MTM1MjUsMTY4Mzk2NTQ2OV19
 -->
