@@ -1004,7 +1004,7 @@ We do not use this. It is part of the OIDC standard. Normally used to register n
 While it is possible to register several redirect urls, it is not possible to register several jwkset urls.  
 The redirect url is specified in each Authorization request, the User will be redirected to that url after the (failed or successful) authentication in the itsme App. You need to specify it in the onboarding file because it needs to be whitelisted by our F5. We can whitelist several urls. The jwkset urls, however, is used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know what URL to contact, and thus we can register only one jwkset url.
 >### When the end-user is redirected to itsme in the browser, then we specify a redirect\_uri. We have to provide BMID the redirect uri’s. Can we give additional parameters? Or does the entire redirect\_uri needs to match?”
-
+The entire redirect_uri must match therefore no additional parameter is allowed.
   
   
 >### Has itsme app in Prod & UAT different URL-scheme's?  
@@ -1015,5 +1015,5 @@ eg itsme://...
   
 itsmeUAT://...
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2OTM2MDQyXX0=
+eyJoaXN0b3J5IjpbNTE5MTI1NjA2XX0=
 -->
