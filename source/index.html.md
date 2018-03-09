@@ -1113,12 +1113,12 @@ The following type should not be used. "*/*, Accept: application/json,text/plain
   
 Private key should not be used in this way.
   
-You have to use your private key to firstly, sign the token, then use the Itsme encryption public key to encrypt the  token. The Itsme(r) backend will then use his own private encryption key to decode your token and, your public  
+You have to use your private key to firstly, sign the token, then use the Itsme encryption public key to encrypt the  token. The itsme(r) backend will then use his own private encryption key to decode your token and, your public  
   
 signing key to validate your signature.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzNzYzMjM2MSwtNzYwMTUwNTU2LC0zMT
-A3ODc2MzYsLTc2MDE1MDU1NiwtMzEwNzg3NjM2LC03NjAxNTA1
-NTYsLTMxMDc4NzYzNiwyMDc2NzEzNTI1LDE2ODM5NjU0NjksMj
-A3NjcxMzUyNSwxNjgzOTY1NDY5XX0=
+eyJoaXN0b3J5IjpbMjg4ODUzNjQxLC03NjAxNTA1NTYsLTMxMD
+c4NzYzNiwtNzYwMTUwNTU2LC0zMTA3ODc2MzYsLTc2MDE1MDU1
+NiwtMzEwNzg3NjM2LDIwNzY3MTM1MjUsMTY4Mzk2NTQ2OSwyMD
+c2NzEzNTI1LDE2ODM5NjU0NjldfQ==
 -->
