@@ -970,8 +970,16 @@ For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We 
 
 \- In header the Content-Type : _application/x-www-form-urlencoded_ must be added.
 
+>## Is token encryption mandatory?
+We require you to expose a set of public key (a signature key & one encruption key) otherwise we cannot setup the connectivity with them.  
 
+For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there)  
+  
+The signature key is used to verify the Service provider when they come fetch data on a client.  
+The encryption key is used to encrypt data so that nobody can read the data which we are transfering apart from the service provider component who has the right to access these data (so that you can encode/reencode the https in intern in a less secured component; it stays crypted).  
+  
+Document 33020 Technical Specifications Service Provider Open ID should help you go further. Otherwise standard Open ID documentation (http://openid.net/connect/) should also help you.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkxNjY0MzUxOSwyMDI5MjgzNjg2LDE4Mz
-QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbMjYxNTExOTgsMjAyOTI4MzY4NiwxODM0MT
+YwOTI5LC00MzU3NjY4NDYsLTk2MTIyNzAzMl19
 -->
