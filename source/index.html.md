@@ -1109,7 +1109,7 @@ The following type should not be used. "*/*, Accept: application/json,text/plain
   
 (3) `POST` is the only http method allowed to call this entry point. Do not use `GET`.  
   
-(4) Please make sure that your private key is not used encrypt the You mentioned that you used your private key to encrypt the JWT token.
+(4) Please make sure that your private key is not used encrypt the JWT tokeYou mentioned that you used your private key to encrypt the JWT token.
   
 Private key should not be used in this way.
   
@@ -1117,7 +1117,7 @@ You need to use your private key to firstly, sign the token, then use the itsme(
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3MDc4OTM2NSwtNzYwMTUwNTU2LC0zMT
+eyJoaXN0b3J5IjpbMTY2OTAyOTU5NywtNzYwMTUwNTU2LC0zMT
 A3ODc2MzYsLTc2MDE1MDU1NiwtMzEwNzg3NjM2LC03NjAxNTA1
 NTYsLTMxMDc4NzYzNiwyMDc2NzEzNTI1LDE2ODM5NjU0NjksMj
 A3NjcxMzUyNSwxNjgzOTY1NDY5XX0=
