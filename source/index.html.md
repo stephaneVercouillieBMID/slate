@@ -948,8 +948,12 @@ We require you to expose a set of public key (a signature key & one encryption k
 For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there).
 
 
-Which information To contact the token endpoint, the following information must be present : 
+> ## Which information must be present to contact the token endpoint?
+
+- This is a POST request and not a GET;
+
+- Add in header the Content-Type : application/x-www-form-urlencoded
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg1MTQ1OTcwNSwyMDI5MjgzNjg2LDE4Mz
-QxNjA5MjksLTQzNTc2Njg0NiwtOTYxMjI3MDMyXX0=
+eyJoaXN0b3J5IjpbOTcyOTIwOTUwLDIwMjkyODM2ODYsMTgzND
+E2MDkyOSwtNDM1NzY2ODQ2LC05NjEyMjcwMzJdfQ==
 -->
