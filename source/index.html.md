@@ -1006,7 +1006,7 @@ No, you can only have 1 itsme(r) app on your device one at a time, regardless of
 
   
   
-Has itsme app in Prod & UAT different URL-scheme's ?  
+>Has itsme app in Prod & UAT different URL-scheme's ?  
   
   
   
@@ -1014,5 +1014,5 @@ eg itsme://...
   
 itsmeUAT://...
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2ODU1MzE0N119
+eyJoaXN0b3J5IjpbMTgwNDYyNjgxN119
 -->
