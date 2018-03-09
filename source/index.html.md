@@ -1052,10 +1052,12 @@ UserInfo should be used to retrieve data and so NRN if it was available, however
 >## I would like the access to the NRN data but not other eID data, is it possible?
 Taking into account you allowed to receive the NRN from us, we can't and get access to NRN and block the access to the eID group else it would prevent you to receive the NRN.
 
+>## Error: Token endpoint - unauthorized_client. What should I do?
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUwNDMwNDYzOSwtNzYwMTUwNTU2LC0zMT
-A3ODc2MzYsLTc2MDE1MDU1NiwtMzEwNzg3NjM2LC03NjAxNTA1
-NTYsLTMxMDc4NzYzNiwyMDc2NzEzNTI1LDE2ODM5NjU0NjksMj
-A3NjcxMzUyNSwxNjgzOTY1NDY5XX0=
+eyJoaXN0b3J5IjpbLTE0ODI2MTcxMDYsLTc2MDE1MDU1NiwtMz
+EwNzg3NjM2LC03NjAxNTA1NTYsLTMxMDc4NzYzNiwtNzYwMTUw
+NTU2LC0zMTA3ODc2MzYsMjA3NjcxMzUyNSwxNjgzOTY1NDY5LD
+IwNzY3MTM1MjUsMTY4Mzk2NTQ2OV19
 -->
