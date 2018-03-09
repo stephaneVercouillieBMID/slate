@@ -1126,9 +1126,9 @@ For the rest, if each developer has the private key of the SP on his post, she/h
   
 So I would need  a service code for the register operation with the following callback URL: http://localhost:23874/web2app/Identify/IdentificationCallBack  
 
-Can you first validate that you are able (and authorized!) to keep the "xxx UAT JWKset signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens
+First, you need to  validate that you are able (and **authorized**) to keep the "xxx UAT JWKset signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExNzk5MDM2NywtNzYwMTUwNTU2LC0zMT
+eyJoaXN0b3J5IjpbLTMyNzgxNzU4NywtNzYwMTUwNTU2LC0zMT
 A3ODc2MzYsLTc2MDE1MDU1NiwtMzEwNzg3NjM2LC03NjAxNTA1
 NTYsLTMxMDc4NzYzNiwyMDc2NzEzNTI1LDE2ODM5NjU0NjksMj
 A3NjcxMzUyNSwxNjgzOTY1NDY5XX0=
