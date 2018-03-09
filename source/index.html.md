@@ -1073,13 +1073,12 @@ The header must contain the following information:
 >## I make a call to the token endpoint, the server returns a 500. What should I do?
 
 I make a call to the token endpoint, (https://uatmerchant.sixdots.be/oidc/token) with the following params:  
- ```json--inline
+```json--inline
 grant\_type=authorization\_code&code=80fmc3ydci8vuid18oh61l8hq33dwszhni0n&redirect\_uri=https%3A%2F%2Fixxx-nodejs-itsme-poc.herokuapp.com%2Fapi%2Fitsme%2Flogin&client\_assertion=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3MzAxZDg2Zi0yNjEzLTQ2MDAtOTA4ZS0wYmE2MWZkODQ3YjQiLCJpYXQiOjE1MTYxODUwNzEsImV4cCI6MTUxNjE4ODY3MSwiYXVkIjoiaHR0cHM6Ly91YXRtZXJjaGFudC5zaXhkb3RzLmJlL29pZGMvdG9rZW4iLCJpc3MiOiJJQ0FQUFMiLCJzdWIiOiJJQ0FQUFMifQ.L68iMbrrt0ETNBTJtBTCD29d0vKAyxPQ\_6lnBibtlB0&client\_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer  
-  ``` 
+``` 
 The JWT token, encrypted with our private key, contains:  
   
-  
-  
+ ```json--inline
 decoded {  
   
 "jti": "7301d86f-2613-4600-908e-0ba61fd847b4",  
@@ -1095,11 +1094,11 @@ decoded {
 "sub": "xxx"  
   
 }  
-  
+ ```
 The server returns a 500. No extra information.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDE3MzYyOTAsLTc2MDE1MDU1NiwtMz
+eyJoaXN0b3J5IjpbLTExMTQyNzYyMzksLTc2MDE1MDU1NiwtMz
 EwNzg3NjM2LC03NjAxNTA1NTYsLTMxMDc4NzYzNiwtNzYwMTUw
 NTU2LC0zMTA3ODc2MzYsMjA3NjcxMzUyNSwxNjgzOTY1NDY5LD
 IwNzY3MTM1MjUsMTY4Mzk2NTQ2OV19
