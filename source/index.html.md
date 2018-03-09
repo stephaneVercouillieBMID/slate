@@ -1021,7 +1021,9 @@ PRD
 https://mobileapp.sixdots.be/mobile/processAction  
 https://mobileapp.sixdots.be/mobile/authorize
 
+>### Can we re-use the same service for another environment
 
+### Can we re-use the same service, but seperate SSL certificate?”
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM0NDczMjU4NF19
+eyJoaXN0b3J5IjpbLTI4ODU0NDgxNl19
 -->
