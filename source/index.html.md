@@ -1049,9 +1049,12 @@ They are the same as on the eID card
 
 UserInfo should be used to retrieve data and so NRN if it was available, however, today we cannot send the NRN to private organizations.
 
->## I would like the access to the NRN data but not other eID data
+>## I would like the access to the NRN data but not other eID data, is it possible?
+Taking into account you allowed to receive the NRN from us, we can't and get access to NRN and block the access to the eID group else it would prevent you to receive the NRN.
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc3MzgwMDMxMSwtNzYwMTUwNTU2LC0zMT
+eyJoaXN0b3J5IjpbLTUwNDMwNDYzOSwtNzYwMTUwNTU2LC0zMT
 A3ODc2MzYsLTc2MDE1MDU1NiwtMzEwNzg3NjM2LC03NjAxNTA1
 NTYsLTMxMDc4NzYzNiwyMDc2NzEzNTI1LDE2ODM5NjU0NjksMj
 A3NjcxMzUyNSwxNjgzOTY1NDY5XX0=
