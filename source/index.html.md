@@ -944,8 +944,8 @@ On top of this, the Authorization Request (AuthN Request in the schedule) consis
 You can configure this option through the parameter “acr_values”, documented in the section 2.1.2.1 of the document _“33020 Technical Specification Service Provider OpenID”_.  
 
 Two values are supported:  
-` tag:sixdots.be,2016-06:acr_basic` : Basic level will let the User the choice to use either fingerprint (if Device is compatible) or his PIN.
-` tag:sixdots.be,2016-06:acr_advanced`: Advanced level will force the User to use his PIN.
+` tag:sixdots.be,2016-06:acr_basic` : Basic level will let the User the choice to use either fingerprint (if Device is compatible) or his PIN.<br>
+` tag:sixdots.be,2016-06:acr_advanced`: Advanced level will force the User to use her/his PIN.
 
 >### Is there any .NET sample code available?
 Please check the following link,
@@ -1130,6 +1130,6 @@ So we would need a service code for the register operation with the following ca
 
 First, you need to  validate that you are able (and **authorized**) to keep the "xxx UAT JWKset signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzkzNTQ3ODksMTQzNzUyMzMzLDczODI2ND
-M1OCw5NDcxNTI2NDhdfQ==
+eyJoaXN0b3J5IjpbMTQwMTU4Nzg5NywzOTM1NDc4OSwxNDM3NT
+IzMzMsNzM4MjY0MzU4LDk0NzE1MjY0OF19
 -->
