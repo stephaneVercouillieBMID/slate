@@ -1003,7 +1003,7 @@ We do not use this. It is part of the OIDC standard. Normally used to register n
 >### Is it possible to register multiple valid callback URIs/jwkset URIs for one environment, or will they have to change this every time they switch URIs?
 While it is possible to register several redirect urls, it is not possible to register several jwkset urls.  
 The redirect url is specified in each Authorisation request, the User will be redirected to that url after the (failed or successful) authentication in the itsme(r) App. You need to specify it in the onboarding file because it needs to be white-listed by our F5. We can white-list several URLs. The JWKSet URLs, however, is used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know what URL to contact, and thus we can register only one JWKSet URL.
->### When the end-user is redirected to itsme( in the browser, then we specify a redirect\_uri. We have to provide BMID the redirect uri’s. Can we give additional parameters? Or does the entire redirect\_uri needs to match?”
+>### When the end-user is redirected to itsme(r) in the browser, then we specify a redirect\_uri. We have to provide BMID the redirect uri’s. Can we give additional parameters? Or does the entire redirect\_uri needs to match?”
 The entire redirect_uri must match therefore no additional parameter is allowed.
   
   
@@ -1130,6 +1130,6 @@ So we would need a service code for the register operation with the following ca
 
 First, you need to  validate that you are able (and **authorized**) to keep the "xxx UAT JWKset signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTU4MTg0OTI2LDM5MzU0Nzg5LDE0Mzc1Mj
+eyJoaXN0b3J5IjpbNDg4Mzg5MzE5LDM5MzU0Nzg5LDE0Mzc1Mj
 MzMyw3MzgyNjQzNTgsOTQ3MTUyNjQ4XX0=
 -->
