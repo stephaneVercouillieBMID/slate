@@ -830,7 +830,7 @@ For the call back URI (not URL) you will need in UAT 4 URI, one per service. So 
 >### What are the JWKSet encryption requirements?
 In the JWKSet, encryption should be done with **RSA256**,  the signature in **SHA256** (in short the encryption algorithm is RS256) and the key size is 2048 bits.
 
-As a comparison here's the public keys for itsme UAT JWKSet.<br>
+As a comparison here's the public keys for itsme UAT JWKSet.<br/>
 >**JWKSET itsme(r) UAT**
  
 
@@ -1130,6 +1130,6 @@ So we would need a service code for the register operation with the following ca
 
 First, you need to  validate that you are able (and **authorized**) to keep the "xxx UAT JWKset signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTQ3MTUyNjQ4LDczODI2NDM1OCw5NDcxNT
+eyJoaXN0b3J5IjpbMTQzNzUyMzMzLDczODI2NDM1OCw5NDcxNT
 I2NDgsLTQ0MTY4ODMzNl19
 -->
