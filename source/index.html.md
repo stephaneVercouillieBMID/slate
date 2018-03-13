@@ -22,13 +22,16 @@ This documentation describes our OAuth 2.0 implementation of **itsme® Login** a
 
 **itsme® Login** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) (BMID) to allow End-Users to login securely to your application. During your login flow, you will delegate the end user authentication to BMID.
 
-In order to let you identify the user authenticated, BMID uses pairwise user identifier, meaning each Partner will have a unique *User Code* for the same User. Doing so, nobody except BMID can link one given *User Code* of Partner to a specific User identity.  
+In order to let you identify the user authenticated, BMID uses pairwise user identifier, meaning each Partner will have a unique *User Code* for the same User. Doing so, nobody except BMID can link one given *User Code* of Partner to a specific User identity. 
+
+## Approval
+**itsme® Approval** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) (BMID) to allow End-Users to login securely to your application. During your login flow, you will delegate the end user authentication to BMID.
 
 ## Share Data
 
 If purpose of use is stated during the on-boarding process and consent is provided by the End-User during Authentication, end user data can be shared with your application.
 
-ata is currently shared only during Login or Approval. Off-line access to User information is not authorised.
+Data is currently shared only during Login or Approval. Off-line access to User information is not authorised.
 
 The following sets of Data are available:
 
@@ -1130,6 +1133,6 @@ So we would need a service code for the register operation with the following ca
 
 First, you need to  validate that you are able (and **authorized**) to keep the "xxx UAT JWKset signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNjU3NTU2NTQsLTE0NTM3NDY1MjEsMz
-kzNTQ3ODksNzM4MjY0MzU4LDk0NzE1MjY0OF19
+eyJoaXN0b3J5IjpbNTcyNzMyNzg0LC0xNDUzNzQ2NTIxLDM5Mz
+U0Nzg5LDczODI2NDM1OCw5NDcxNTI2NDhdfQ==
 -->
