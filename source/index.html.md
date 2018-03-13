@@ -1130,6 +1130,6 @@ So we would need a service code for the register operation with the following ca
 
 First, you need to  validate that you are able (and **authorized**) to keep the "xxx UAT JWKset signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NTM3NDY1MjEsMzkzNTQ3ODksMTQzNz
-UyMzMzLDczODI2NDM1OCw5NDcxNTI2NDhdfQ==
+eyJoaXN0b3J5IjpbNTczMzk3OTAzLC0xNDUzNzQ2NTIxLDM5Mz
+U0Nzg5LDczODI2NDM1OCw5NDcxNTI2NDhdfQ==
 -->
