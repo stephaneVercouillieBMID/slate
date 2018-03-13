@@ -25,7 +25,7 @@ This documentation describes our OAuth 2.0 implementation of **itsme® Login** a
 In order to let you identify the user authenticated, BMID uses pairwise user identifier, meaning each Partner will have a unique *User Code* for the same User. Doing so, nobody except BMID can link one given *User Code* of Partner to a specific User identity. 
 
 ## Confirm
-**itsme® Confirm** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) (BMID) to allow End-Users to give their consent to a specific action. You will use this service when you need to have a strong .  From regulation perspective, the consent obtained from the end user through **itsme(r) Confirm** has the same strength as a payment confirmation in a web banking interface using card readers.  During your login flow, you will delegate the end user authentication to BMID.
+**itsme® Confirm** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) (BMID) to allow End-Users to give their consent to a specific action. You will use this service when you need to have a strong consent.  From regulation perspective, the consent obtained from the end user through **itsme(r) Confirm** has the same strength as a payment confirmation in a web banking interface using card readers.  During your login flow, you will delegate the end user authentication to BMID.
 
 ## Share Data
 
@@ -1133,7 +1133,7 @@ So we would need a service code for the register operation with the following ca
 
 First, you need to  validate that you are able (and **authorized**) to keep the "xxx UAT JWKset signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2OTc1MTkwNzgsNjE0NTY4MTAzLC0xND
+eyJoaXN0b3J5IjpbLTE5NDA2NDM4MDYsNjE0NTY4MTAzLC0xND
 UzNzQ2NTIxLDM5MzU0Nzg5LDczODI2NDM1OCw5NDcxNTI2NDhd
 fQ==
 -->
