@@ -25,7 +25,7 @@ This documentation describes our OAuth 2.0 implementation of **itsme® Login** a
 In order to let you identify the user authenticated, BMID uses pairwise user identifier, meaning each Partner will have a unique *User Code* for the same User. Doing so, nobody except BMID can link one given *User Code* of Partner to a specific User identity. 
 
 ## Confirm
-**itsme® Confirm** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) (BMID) to allow End-Users to give their consent to a specific action. You will use this service when you need to have a strong consent TODO.  From regulation perspective, the consent obtained from the end user through **itsme(r) Confirm** has the same strength as a payment confirmation in a web banking interface using card readers. 
+**itsme® Confirm** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) (BMID) to allow End-Users to give their consent to a specific action. You will use this service when you need to have a strong consent.  From regulation perspective, the consent obtained from the end user through **itsme(r) Confirm** has the same strength as a payment confirmation in a web banking interface using card readers. 
 
 ## Share Data
 
@@ -477,7 +477,5 @@ It is expected that the RP will also expose their signing and encryption keys in
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODAyODk4ODA5LDYxNDU2ODEwMywtMTQ1Mz
-c0NjUyMSwzOTM1NDc4OSw3MzgyNjQzNTgsOTQ3MTUyNjQ4XX0=
-
+eyJoaXN0b3J5IjpbNjgxNTg1MjY5XX0=
 -->
