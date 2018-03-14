@@ -215,59 +215,8 @@ Error | Description
 `request_uri_not_supported` | does not support use of the request_uri parameter.
 `registration_not_supported` | does not support use of the registration parameter.
 
-### App to App authentication
-The itsme(r) App itself also leverages the OpenID Connect authentication flow to allow native apps to perform the authentication easily and safely.
-By using this flow, the end user will be automatically redirected from your App (or your web page in the mobile browser) to the itsme(r)  App. After authenticating himself (or rejecting the authentication), he will be redirected back to your App.
 
-This authentication flow is referred as "App to App" flow when occurring from your App to the itsme(r)  App, or "Web mobile to App" flow when occurring from the mobile browser to the itsme(r) App. When the context is not ambiguous, we also use "App to App" denomination to designate both flows. We designate by "Web Desktop" the flow where the itsme(r) App is not triggered manually by the end user.
 
-The technology used for this flow is the [Universal Links](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) (iOS)/[App Links](https://developer.android.com/training/app-links/index.html) (Android).
-
-In case the itsme(r) App is not present on the device, the end user will be redirected to a web page in the mobile browser, as per [Universal Links](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) and [App Links](https://developer.android.com/training/app-links/index.html) specifications. Currently, this web page redirects the end user to the OpenID web page of BMID, where he will be able to enter his phone number and continue the authentication flow.
-
-#### Pre-requisites
-Universal Links are available on iOS since version 9.0, and the itsme(r)  App itself is only available on iOS 9.0 or greater.
-
-App Links are available on Android since version 6.0. The itsme(r)  App is available on Android 4.2 or greater, and supports OpenID Connect authentication only on Android version 6.0 or greater. Please note that calling the mobile authorization endpoint on Android versions between 4.2 and 6.0 will lead to sub-optimal user experience or even a non-functional flow, depending on the OS and the actions of the end user.
-
-#### Registering Universal/App Links
-
-As per recommendations of [OAuth Working Group about the authentication process in native apps](https://tools.ietf.org/html/draft-ietf-oauth-native-apps-12). 
-
-BMID exclusively uses Universal/App Links for all communications between your App and itsme(r). Among other advantages, this mechanism guarantees that the right app is launched and thus improves the security.
-
-If you trigger the itsme(r) App from your own App, you MUST make sure there is a Universal/App Link associated with your App. Please consult the  documentation about [Universal](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html)/[App](https://developer.android.com/training/app-links/index.html) for this. This Universal/App Link MUST be specified to BMID during the onboarding process.
-
-#### Authorization Request specifications
-Authorization Requests in the context of App to App and Web mobile to App flow must be addressed to `https://mobileapp.sixdots.be/mobile/authorize`, and they are subject to more strict specifications as Authorization Requests in  the  Web Desktop flow.
-
-For a basic request, specify the following parameters. The changes compared to the Web Desktop flow are ***emphasized in this way***:
-Parameter | Required | Comment
---------- | ------- | -----
-**client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process and this value will be unique to each partner per environment. This information is in the on-boarding file provided by BMID. 
-**response_type** | Required | MUST be <code>code</code>.
-**scope** | Required | MUST contain at least `openid` or an HTTP ERROR `not_implemented` will be returned. `offline_access` value will yield an error. MUST also includes the target service in the form `service:<SERVICE_CODE>` as provided by BMID during the on-boarding process. ***Note**: Requested data will only be provided based on your current accesses*. These accesses are specified in the on-boarding file provided by BMID.
-**redirect_uri** | Required | ***Should be the Universal/App Link registered for your App. If you only intend to use the mobile browser, the redirect_uri should then be should be the HTTPS endpoint on your server that will receive the response from*** **itsme(r)**. This value MUST match one of the values provided to BMID during on-boarding process. ***Note**: the Partner can define different **redirect_uri** specific to each Service.*
-**state** | ***Required*** | should include the value of the anti-forgery unique session token, as well as any other information needed to recover the context when the user returns to your application.
-**nonce** | ***Required*** | a random value generated by your app that enables replay protection when present. This value can only be used once per authentication.
-**login_hint** | Optional | OPTIONAL and supported, though not recommended. Only phone numbers are supported as `login_hint`. Format is: `<coutrycode>+<phonenumber>`. E.g. `login_hint=32+123456789`. Usage of claim value `phone_number` in an encrypted request object is recommended in order to avoid disclosure of phone number of the enduser on the user agent (such as mobile app or web browser). ***In App to App flow, it will only be used if the itsme(r) App is not installed on the end user device.***
-**display** | Optional | MUST be `page` if provided. Other values will yield an HTTP ERROR `not_implemented`.
-**prompt** | Optional | MUST be `consent` if provided.
-**ui_locales** | Optional | Can be used to specify the language to be used by the OpenID login page. Supported languages are: `fr`, `nl`, `en` and `de`. Any other value will be ignored.
-**max_age** | Optional | Supported but not used: **itsme(r)** will always actively re-authenticate the End-User. 
-**acr_values** | Optional | OPTIONAL and supported, though not recommended. Possible values are tag:itsmetag:sixdots.be,2016-06:acr_basic, tag:itsmetag:sixdots.be,2016-06:acr_advanced. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme(r)  Core, even if the `acr_values` is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the `acr_values` list, or the authentication will fail. Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token/
-**claims** | Optional | Not recommended. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
-**request** | ***Required*** | See [Passing Request Parameters as JWTs](#JWTRequest). ***This parameter MUST be signed then encrypted.*** 
-**response_mode** | Unsupported | Ignored if provided.
-**id\_token\_hint** | Unsupported | Ignored if provided.
-**claims_locales** | Unsupported | None are supported.
-**request_uri** | Unsupported | Not supported (yet)
-**registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the partner onboarding.
-
-#### Authorization Response specifications
-Once the authentication is finished (successfully or not), itsme(r) will open the Universal/App Link indicated in the **redirect_uri**. If this **redirect_uri** is not registered as a Universal/App Link on your side, it will be opened as a URL in theinterpreted as an default mobile browser.
-
-The content of the Authorization Response is exactly the same as per Web Desktop flow.
 
 ## 2. Token Request
 
@@ -1133,7 +1082,7 @@ So we would need a service code for the register operation with the following ca
 
 First, you need to  validate that you are able (and **authorized**) to keep the "xxx UAT JWKset signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMTMxMTE3NDUsNjE0NTY4MTAzLC0xND
-UzNzQ2NTIxLDM5MzU0Nzg5LDczODI2NDM1OCw5NDcxNTI2NDhd
-fQ==
+eyJoaXN0b3J5IjpbLTcwNDAwNTYzNSw2MTQ1NjgxMDMsLTE0NT
+M3NDY1MjEsMzkzNTQ3ODksNzM4MjY0MzU4LDk0NzE1MjY0OF19
+
 -->
