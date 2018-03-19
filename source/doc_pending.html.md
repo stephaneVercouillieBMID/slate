@@ -442,7 +442,7 @@ You must provide at least two from this list :
 With standard login/password on web app : you only have to provide something you know (i.e. the password).  
   
 With itsme, web2app, you obviously have two factors : the itsme PIN and the mobile device.  
-With app2app, it is still the same, as the two apps needs to be running on the same smartphone. Therefore, the attacker needs the device to initiate any malicious transaction. So there are still two factors : you must possess the mobile AND know the PIN.  
+With app2app, it is still the same, as the two apps need to be running on the same smartphone. Therefore, the attacker needs the device to initiate any malicious transaction. So there are still two factors : you must possess the mobile AND know the PIN.  
   
 When you say (or your customer says) “Since you no longer need a second device to do the confirmation.” It is a miscomprehension of two factors. You don’t need to possess two things.  
   
@@ -667,5 +667,5 @@ So we would need a service code for the register operation with the following ca
 
 First, you need to  validate that you are able (and **authorized**) to keep the "xxx UAT JWKset signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExNjg1ODVdfQ==
+eyJoaXN0b3J5IjpbLTE4Nzg1Nzg0NTZdfQ==
 -->
