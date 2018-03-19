@@ -4,7 +4,7 @@
 
 ### Basic request
 
-### Web to App Specifics
+### Specifics
 #### Specifics to Login
 
 #### Specifics to Approval
@@ -686,11 +686,11 @@ Then make sure this request is compliant with the service you want to use (Login
 +eyJoaXN0b3J5IjpbLTE4Nzg1Nzg0NTZdfQ==
  -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMTA2ODA2MjQsMTU1MTU2NzYyMCwxNj
-c4MTUxMDcyLC0xNDExMDc3MzAyLDE2NzgxNTEwNzIsLTE0MTEw
-NzczMDIsMTY3ODE1MTA3MiwtMTQxMTA3NzMwMiwxNjc4MTUxMD
-cyLC0xNDExMDc3MzAyLC05MzMwNzM2NzAsMTY5MDc2MjI3Niwt
-OTMzMDczNjcwLDE2OTA3NjIyNzYsLTE4MzM5NjM5MDAsMjA0Nz
-U1Mzg4MiwtMTgzMzk2MzkwMCwyMDQ3NTUzODgyLC0xODMzOTYz
-OTAwLDIwNDc1NTM4ODJdfQ==
+eyJoaXN0b3J5IjpbNTc0NDcxOTI2LDE1NTE1Njc2MjAsMTY3OD
+E1MTA3MiwtMTQxMTA3NzMwMiwxNjc4MTUxMDcyLC0xNDExMDc3
+MzAyLDE2NzgxNTEwNzIsLTE0MTEwNzczMDIsMTY3ODE1MTA3Mi
+wtMTQxMTA3NzMwMiwtOTMzMDczNjcwLDE2OTA3NjIyNzYsLTkz
+MzA3MzY3MCwxNjkwNzYyMjc2LC0xODMzOTYzOTAwLDIwNDc1NT
+M4ODIsLTE4MzM5NjM5MDAsMjA0NzU1Mzg4MiwtMTgzMzk2Mzkw
+MCwyMDQ3NTUzODgyXX0=
 -->
