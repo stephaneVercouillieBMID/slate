@@ -10,7 +10,11 @@ Somehow, I'm explaining to the developer that the basic request is a web Desktop
 #### Specifics to Login
 
 #### Specifics to Approval
-
+  
+  During and OIDC `Approval, the connected user gives his consent on a particular action initiated by the SP, the content detail of this action is displayed on the mobile phone.<>
+  The idea of the OIDC Approval”is to follow the OIDC specification and include this new concept in the protocol.
+ ## Differences with OpenID Connect Login
+  The approval extension must fit into the official OpenID Connect specification. You will find below what are the differences with the login specification defined above in this document. The login specification must be understood first, before going further into the next paragraphs.
 #### App to App specifics
 Perform a basic Authentication Request, with the following modifications:
 
@@ -688,13 +692,13 @@ Then make sure this request is compliant with the service you want to use (Login
 +eyJoaXN0b3J5IjpbLTE4Nzg1Nzg0NTZdfQ==
  -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjM1MTM2MzEsLTEzMTc5MDM0MywtOD
-g4MjAwMTcsLTEzMTc5MDM0MywtODg4MjAwMTcsLTEzMTc5MDM0
-MywtODg4MjAwMTcsLTEzMTc5MDM0MywtODg4MjAwMTcsLTEzMT
-c5MDM0MywxNjc4MTUxMDcyLC0xNDExMDc3MzAyLDE2NzgxNTEw
-NzIsLTE0MTEwNzczMDIsMTY3ODE1MTA3MiwtMTQxMTA3NzMwMi
-wxNjc4MTUxMDcyLC0xNDExMDc3MzAyLC05MzMwNzM2NzAsMTY5
-MDc2MjI3NiwtOTMzMDczNjcwLDE2OTA3NjIyNzYsLTE4MzM5Nj
-M5MDAsMjA0NzU1Mzg4MiwtMTgzMzk2MzkwMCwyMDQ3NTUzODgy
-LC0xODMzOTYzOTAwLDIwNDc1NTM4ODJdfQ==
+eyJoaXN0b3J5IjpbLTQ1MDgxODEwOSwtMTMxNzkwMzQzLC04OD
+gyMDAxNywtMTMxNzkwMzQzLC04ODgyMDAxNywtMTMxNzkwMzQz
+LC04ODgyMDAxNywtMTMxNzkwMzQzLC04ODgyMDAxNywtMTMxNz
+kwMzQzLDE2NzgxNTEwNzIsLTE0MTEwNzczMDIsMTY3ODE1MTA3
+MiwtMTQxMTA3NzMwMiwxNjc4MTUxMDcyLC0xNDExMDc3MzAyLD
+E2NzgxNTEwNzIsLTE0MTEwNzczMDIsLTkzMzA3MzY3MCwxNjkw
+NzYyMjc2LC05MzMwNzM2NzAsMTY5MDc2MjI3NiwtMTgzMzk2Mz
+kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
+LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19
 -->
