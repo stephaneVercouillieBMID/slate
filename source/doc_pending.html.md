@@ -1,6 +1,10 @@
 
 > Written with [StackEdit](https://stackedit.io/).
-## 
+## Authentication request
+
+### Basic request
+
+###  
 
  ### App to App authentication
  The itsme(r) App itself also leverages the OpenID Connect authentication flow to allow native apps to perform the authentication easily and safely.
@@ -671,11 +675,11 @@
 +eyJoaXN0b3J5IjpbLTE4Nzg1Nzg0NTZdfQ==
  -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcyNTA2ODQ5OCwtMTYxNjE0Njk4NCwxNj
-c4MTUxMDcyLC0xNDExMDc3MzAyLDE2NzgxNTEwNzIsLTE0MTEw
-NzczMDIsMTY3ODE1MTA3MiwtMTQxMTA3NzMwMiwxNjc4MTUxMD
-cyLC0xNDExMDc3MzAyLC05MzMwNzM2NzAsMTY5MDc2MjI3Niwt
-OTMzMDczNjcwLDE2OTA3NjIyNzYsLTE4MzM5NjM5MDAsMjA0Nz
-U1Mzg4MiwtMTgzMzk2MzkwMCwyMDQ3NTUzODgyLC0xODMzOTYz
-OTAwLDIwNDc1NTM4ODJdfQ==
+eyJoaXN0b3J5IjpbNzMyNzAxMzU4LC03MjUwNjg0OTgsMTY3OD
+E1MTA3MiwtMTQxMTA3NzMwMiwxNjc4MTUxMDcyLC0xNDExMDc3
+MzAyLDE2NzgxNTEwNzIsLTE0MTEwNzczMDIsMTY3ODE1MTA3Mi
+wtMTQxMTA3NzMwMiwtOTMzMDczNjcwLDE2OTA3NjIyNzYsLTkz
+MzA3MzY3MCwxNjkwNzYyMjc2LC0xODMzOTYzOTAwLDIwNDc1NT
+M4ODIsLTE4MzM5NjM5MDAsMjA0NzU1Mzg4MiwtMTgzMzk2Mzkw
+MCwyMDQ3NTUzODgyXX0=
 -->
