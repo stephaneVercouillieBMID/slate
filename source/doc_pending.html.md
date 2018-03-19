@@ -4,10 +4,10 @@
 
 ### Basic request
 
-### Specifics
-Specifics to login 
+### Web to App Specifics
+#### Specifics to Login
 
-### Specifics to Approval
+#### Specifics to Approval
 
 #### App to App authentication
 
@@ -680,11 +680,11 @@ Specifics to login
 +eyJoaXN0b3J5IjpbLTE4Nzg1Nzg0NTZdfQ==
  -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTQ1NDQ0NzgzLDE1NTE1Njc2MjAsMTY3OD
-E1MTA3MiwtMTQxMTA3NzMwMiwxNjc4MTUxMDcyLC0xNDExMDc3
-MzAyLDE2NzgxNTEwNzIsLTE0MTEwNzczMDIsMTY3ODE1MTA3Mi
-wtMTQxMTA3NzMwMiwtOTMzMDczNjcwLDE2OTA3NjIyNzYsLTkz
-MzA3MzY3MCwxNjkwNzYyMjc2LC0xODMzOTYzOTAwLDIwNDc1NT
-M4ODIsLTE4MzM5NjM5MDAsMjA0NzU1Mzg4MiwtMTgzMzk2Mzkw
-MCwyMDQ3NTUzODgyXX0=
+eyJoaXN0b3J5IjpbMTgwMzU4NjM5MiwxNTUxNTY3NjIwLDE2Nz
+gxNTEwNzIsLTE0MTEwNzczMDIsMTY3ODE1MTA3MiwtMTQxMTA3
+NzMwMiwxNjc4MTUxMDcyLC0xNDExMDc3MzAyLDE2NzgxNTEwNz
+IsLTE0MTEwNzczMDIsLTkzMzA3MzY3MCwxNjkwNzYyMjc2LC05
+MzMwNzM2NzAsMTY5MDc2MjI3NiwtMTgzMzk2MzkwMCwyMDQ3NT
+UzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIsLTE4MzM5NjM5
+MDAsMjA0NzU1Mzg4Ml19
 -->
