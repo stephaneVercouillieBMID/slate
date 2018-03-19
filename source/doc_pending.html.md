@@ -1,6 +1,7 @@
 
 > Written with [StackEdit](https://stackedit.io/).
- 
+## 
+
  ### App to App authentication
  The itsme(r) App itself also leverages the OpenID Connect authentication flow to allow native apps to perform the authentication easily and safely.
  By using this flow, the end user will be automatically redirected from your App (or your web page in the mobile browser) to the itsme(r)  App. After authenticating himself (or rejecting the authentication), he will be redirected back to your App.
@@ -670,7 +671,7 @@
 +eyJoaXN0b3J5IjpbLTE4Nzg1Nzg0NTZdfQ==
  -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY3ODE1MTA3MiwtMTQxMTA3NzMwMiwxNj
+eyJoaXN0b3J5IjpbLTE2MTYxNDY5ODQsMTY3ODE1MTA3MiwxNj
 c4MTUxMDcyLC0xNDExMDc3MzAyLDE2NzgxNTEwNzIsLTE0MTEw
 NzczMDIsMTY3ODE1MTA3MiwtMTQxMTA3NzMwMiwxNjc4MTUxMD
 cyLC0xNDExMDc3MzAyLC05MzMwNzM2NzAsMTY5MDc2MjI3Niwt
