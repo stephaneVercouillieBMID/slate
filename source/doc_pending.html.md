@@ -267,7 +267,8 @@ Then make sure this request is compliant with the service you want to use (Login
  
  This authentication flow is referred as "App to App" flow when occurring from your App to the itsme(r)  App, or "Web mobile to App" flow when occurring from the mobile browser to the itsme(r) App. When the context is not ambiguous, we also use "App to App" denomination to designate both flows. We designate by "Web Desktop" the flow where the itsme(r) App is not triggered manually by the end user.
  
- The technology used for this flow is the [Universal Links](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) (iOS)/[App Links](https://developer.android.com/training/app-links/index.html) (Android).
+ The technology used for this flow is the [Universal Links](https://developer.apple.com/library/
+ content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) (iOS)/[App Links](https://developer.android.com/training/app-links/index.html) (Android).
  
  In case the itsme(r) App is not present on the device, the end user will be redirected to a web page in the mobile browser, as per [Universal Links](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) and [App Links](https://developer.android.com/training/app-links/index.html) specifications. Currently, this web page redirects the end user to the OpenID web page of BMID, where he will be able to enter his phone number and continue the authentication flow.
  
@@ -930,13 +931,13 @@ Then make sure this request is compliant with the service you want to use (Login
 +eyJoaXN0b3J5IjpbLTE4Nzg1Nzg0NTZdfQ==
  -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzE0OTQ0NTI3LC0xMzE3OTAzNDMsLTg4OD
-IwMDE3LC0xMzE3OTAzNDMsLTg4ODIwMDE3LC0xMzE3OTAzNDMs
-LTg4ODIwMDE3LC0xMzE3OTAzNDMsLTg4ODIwMDE3LC0xMzE3OT
-AzNDMsMTY3ODE1MTA3MiwtMTQxMTA3NzMwMiwxNjc4MTUxMDcy
-LC0xNDExMDc3MzAyLDE2NzgxNTEwNzIsLTE0MTEwNzczMDIsMT
-Y3ODE1MTA3MiwtMTQxMTA3NzMwMiwtOTMzMDczNjcwLDE2OTA3
-NjIyNzYsLTkzMzA3MzY3MCwxNjkwNzYyMjc2LC0xODMzOTYzOT
-AwLDIwNDc1NTM4ODIsLTE4MzM5NjM5MDAsMjA0NzU1Mzg4Miwt
-MTgzMzk2MzkwMCwyMDQ3NTUzODgyXX0=
+eyJoaXN0b3J5IjpbLTEwOTkyMjYxMTMsLTEzMTc5MDM0MywtOD
+g4MjAwMTcsLTEzMTc5MDM0MywtODg4MjAwMTcsLTEzMTc5MDM0
+MywtODg4MjAwMTcsLTEzMTc5MDM0MywtODg4MjAwMTcsLTEzMT
+c5MDM0MywxNjc4MTUxMDcyLC0xNDExMDc3MzAyLDE2NzgxNTEw
+NzIsLTE0MTEwNzczMDIsMTY3ODE1MTA3MiwtMTQxMTA3NzMwMi
+wxNjc4MTUxMDcyLC0xNDExMDc3MzAyLC05MzMwNzM2NzAsMTY5
+MDc2MjI3NiwtOTMzMDczNjcwLDE2OTA3NjIyNzYsLTE4MzM5Nj
+M5MDAsMjA0NzU1Mzg4MiwtMTgzMzk2MzkwMCwyMDQ3NTUzODgy
+LC0xODMzOTYzOTAwLDIwNDc1NTM4ODJdfQ==
 -->
