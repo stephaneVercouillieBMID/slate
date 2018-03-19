@@ -29,7 +29,7 @@ Somehow, I'm explaining to the developer that the basic request is a web Desktop
  6.	Only service codes corresponding to a pre-registered “Approval” kind of service MUST be used in the ‘service’ scope parameter. Be sure this service was already created in the system during partner onboarding. 
  7.	The “prompt” parameter can be “login” and/or “consent”.
  
- ### Differences in the Token End Point (“/oidc/token”)
+ ###### Differences in the Token End Point (“/oidc/token”)
  1.	The Token end point MUST ALWAYS be called to validate that the authorization code received from the browser is a valid one and corresponds effectively to the approval transaction initiated by the SP.
  2.	Then, the received IDToken MUST ALWAYS be validated by the SP as follow:
  a.	Correctly unencrypted using the SP private key.
@@ -37,7 +37,7 @@ Somehow, I'm explaining to the developer that the basic request is a web Desktop
  c.	The possibly embedded “nonce” value is the same as the one existing in the authorization request (if specified by the SP).
  d.	If the user is already logged in the SP and, it is required that it is this user that validated the transaction, then the user identifier (sub value) must match the one of the currently logged user in the SP.
  
- ### Differences in the User Info End Point (“/oidc/userinfo”)
+ ######  Differences in the User Info End Point (“/oidc/userinfo”)
  
  1.	Calling the “User Info” End Point is not mandatory. The “ID Token” already contains all the necessary proof for a simple approval.
  2.	However, the “User Info” End Point can be called to retrieve the requested claims of the user that did the approval. 
@@ -58,7 +58,7 @@ Somehow, I'm explaining to the developer that the basic request is a web Desktop
  
  _(*) Valid if the request was emitted by an active partner using one of his active approval services._
  
- ### Sample OIDC approval authorization request using the “sub” identifier
+ ###### Sample OIDC approval authorization request using the “sub” identifier
  The value `THE_END_USER_ALREADY_KNOWN_USER_CODE` must be replaced with a valid user code. This code is the identifier shared between the itsme(r) OP and the SP to represent the end user. This identifier can be obtained after a successful OIDC login.
  
  ```http--inline
@@ -140,7 +140,7 @@ Somehow, I'm explaining to the developer that the basic request is a web Desktop
  ```
  _Please note that the “request” parameter is represented as a regular JSON formatted object for clarity only. Because it must be correctly encoded, signed and then encrypted as explained in the official OIDC specification._
  
- #### Sample OIDC approval authorization request using the “phone_number” identifier
+ ###### Sample OIDC approval authorization request using the “phone_number” identifier
  
  The key `THE\_END\_USER\_PHONE\_VALUE` must be replaced with a valid user phone value.
  
@@ -233,7 +233,7 @@ Somehow, I'm explaining to the developer that the basic request is a web Desktop
  Here is the key name: `“tag:sixdots.be,2016-08:claim\_approval\_template_name”`.
  
  
- ### Template: “Advanced Payment”
+ ###### Template: “Advanced Payment”
  Approval template name: `“adv_payment“`
  As expected, the goal of this template is to request an (“advanced”) payment.
  
@@ -245,7 +245,7 @@ Somehow, I'm explaining to the developer that the basic request is a web Desktop
  **Currency** | `tag:sixdots.be,2016-08:claim_approval_currency_key` | A string holding a valid currency code (e.g. "EUR").<br>
  **IBAN** | `tag:sixdots.be,2016-08:claim_approval_iban_key` | A string holding a valid IBAN account number.
  
- ### Template: “Free Text”
+ ###### Template: “Free Text”
  
  Approval template name: `“free_text”`
  As expected, the goal of this template is to be free deciding what is displayed on the end user phone.<br>
@@ -930,13 +930,13 @@ Then make sure this request is compliant with the service you want to use (Login
 +eyJoaXN0b3J5IjpbLTE4Nzg1Nzg0NTZdfQ==
  -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1NjMxNDI0NCwtMTMxNzkwMzQzLC04OD
-gyMDAxNywtMTMxNzkwMzQzLC04ODgyMDAxNywtMTMxNzkwMzQz
-LC04ODgyMDAxNywtMTMxNzkwMzQzLC04ODgyMDAxNywtMTMxNz
-kwMzQzLDE2NzgxNTEwNzIsLTE0MTEwNzczMDIsMTY3ODE1MTA3
-MiwtMTQxMTA3NzMwMiwxNjc4MTUxMDcyLC0xNDExMDc3MzAyLD
-E2NzgxNTEwNzIsLTE0MTEwNzczMDIsLTkzMzA3MzY3MCwxNjkw
-NzYyMjc2LC05MzMwNzM2NzAsMTY5MDc2MjI3NiwtMTgzMzk2Mz
-kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
-LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19
+eyJoaXN0b3J5IjpbMzE0OTQ0NTI3LC0xMzE3OTAzNDMsLTg4OD
+IwMDE3LC0xMzE3OTAzNDMsLTg4ODIwMDE3LC0xMzE3OTAzNDMs
+LTg4ODIwMDE3LC0xMzE3OTAzNDMsLTg4ODIwMDE3LC0xMzE3OT
+AzNDMsMTY3ODE1MTA3MiwtMTQxMTA3NzMwMiwxNjc4MTUxMDcy
+LC0xNDExMDc3MzAyLDE2NzgxNTEwNzIsLTE0MTEwNzczMDIsMT
+Y3ODE1MTA3MiwtMTQxMTA3NzMwMiwtOTMzMDczNjcwLDE2OTA3
+NjIyNzYsLTkzMzA3MzY3MCwxNjkwNzYyMjc2LC0xODMzOTYzOT
+AwLDIwNDc1NTM4ODIsLTE4MzM5NjM5MDAsMjA0NzU1Mzg4Miwt
+MTgzMzk2MzkwMCwyMDQ3NTUzODgyXX0=
 -->
