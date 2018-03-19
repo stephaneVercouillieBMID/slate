@@ -4,7 +4,12 @@
 
 ### Basic request
 
-###  
+### Specifics
+Specifics to login 
+
+### Specifics to Approval
+
+#### App to App authentication
 
  ### App to App authentication
  The itsme(r) App itself also leverages the OpenID Connect authentication flow to allow native apps to perform the authentication easily and safely.
@@ -675,7 +680,7 @@
 +eyJoaXN0b3J5IjpbLTE4Nzg1Nzg0NTZdfQ==
  -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU1MTU2NzYyMCw3MzI3MDEzNTgsMTY3OD
+eyJoaXN0b3J5IjpbOTQ1NDQ0NzgzLDE1NTE1Njc2MjAsMTY3OD
 E1MTA3MiwtMTQxMTA3NzMwMiwxNjc4MTUxMDcyLC0xNDExMDc3
 MzAyLDE2NzgxNTEwNzIsLTE0MTEwNzczMDIsMTY3ODE1MTA3Mi
 wtMTQxMTA3NzMwMiwtOTMzMDczNjcwLDE2OTA3NjIyNzYsLTkz
