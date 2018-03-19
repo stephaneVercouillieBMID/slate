@@ -11,10 +11,248 @@ Somehow, I'm explaining to the developer that the basic request is a web Desktop
 
 #### Specifics to Approval
   
+
+ # OIDC Approval
+ ## Introduction
   During and OIDC `Approval, the connected user gives his consent on a particular action initiated by the SP, the content detail of this action is displayed on the mobile phone.<>
   The idea of the OIDC Approval”is to follow the OIDC specification and include this new concept in the protocol.
  ## Differences with OpenID Connect Login
   The approval extension must fit into the official OpenID Connect specification. You will find below what are the differences with the login specification defined above in this document. The login specification must be understood first, before going further into the next paragraphs.
+  
+ ### Differences in the Authentication End Point (“oidc/authorization”)
+ 
+ 1.	Authorization queries MUST be communicated using HTTP `POST` protocol ONLY using “application/x-www-form-urlencoded” media type. HTTP `GET `calls will be refused for approval OIDC requests. This is because in case of an approval action, the Authorization request can contain sensitive data.
+ 2.	Using the “request object” parameter is mandatory (parameter “request” in the authorization request query string).
+ 3.	The “request object” MUST be signed and encrypted by the service provider. Signed, using his private signing key and, encrypted using the itsme(r) OP public encryption key. The later can be found, of course, in the OP JwkSet JSON file.
+ 4.	Parameters encoded in the “request object” have priority over the same parameters put as a` GET` query parameter. If not explicitly required by the OIDC protocol, it is mandatory to put the corresponding parameter inside the “request object” instead of putting it as a simple form parameter (because the request object is signed and encrypted).
+ 5.	Each form parameter that is eligible to be present in the request object MUST also be encoded in the request object itself (because signed and encrypted).
+ 6.	Only service codes corresponding to a pre-registered “Approval” kind of service MUST be used in the ‘service’ scope parameter. Be sure this service was already created in the system during partner onboarding. 
+ 7.	The “prompt” parameter can be “login” and/or “consent”.
+ 
+ ### Differences in the Token End Point (“/oidc/token”)
+ 1.	The Token end point MUST ALWAYS be called to validate that the authorization code received from the browser is a valid one and corresponds effectively to the approval transaction initiated by the SP.
+ 2.	Then, the received IDToken MUST ALWAYS be validated by the SP as follow:
+ a.	Correctly unencrypted using the SP private key.
+ b.	The signature is effectively the one of the itsme(r) OP.
+ c.	The possibly embedded “nonce” value is the same as the one existing in the authorization request (if specified by the SP).
+ d.	If the user is already logged in the SP and, it is required that it is this user that validated the transaction, then the user identifier (sub value) must match the one of the currently logged user in the SP.
+ 
+ ### Differences in the User Info End Point (“/oidc/userinfo”)
+ 
+ 1.	Calling the “User Info” End Point is not mandatory. The “ID Token” already contains all the necessary proof for a simple approval.
+ 2.	However, the “User Info” End Point can be called to retrieve the requested claims of the user that did the approval. 
+ 
+ if the user is already logged in, two possible identifiers that could be used to:
+ 
+ - In the “userinfo” JSON section, the “**sub**” requested claim can be used to communicate the subject (end user) identifier already shared between itsme(r) OP and the SP. This identifier (called “user code”) was previously communicated in the ID token or in the UserInfo token after a successful OIDC login.
+ 
+ - In the “userinfo” JSON section, the “**phone_number**” requested claim can be used to communicate the subject (end user) phone number to be used as unique identifier. The format must match this regular expression
+ 
+ ```http--inline
+ \\+?(\\d{1,3})[ +](\\d*)
+ ```
+ 
+ Giving one of these two (valid) identifiers in the authorization request will bypass the identification screen where the end user should normally introduce his phone number to identify himself.
+ 
+ Only signed and encrypted valid* OIDC Approval request will lead to an identification screen bypass.
+ 
+ _(*) Valid if the request was emitted by an active partner using one of his active approval services._
+ 
+ ### Sample OIDC approval authorization request using the “sub” identifier
+ The value `THE_END_USER_ALREADY_KNOWN_USER_CODE` must be replaced with a valid user code. This code is the identifier shared between the itsme(r) OP and the SP to represent the end user. This identifier can be obtained after a successful OIDC login.
+ 
+ ```http--inline
+ 
+ POST /oidc/authorization
+ 
+ response_type=code
+ 
+ client\_id=MY\_PARTNER_CODE
+ 
+ scope=openid service:MY\_APPROVAL\_SERVICE_CODE
+ 
+ redirect\_uri=https:\\/\\/service-provider.be\\/my\_call\_back\_url  
+ nonce=A\_VALID\_NONCE  
+ state=A\_VALID\_STATE  
+ request={
+ 
+ "response_type":"code",
+ 
+ "client\_id":"MY\_PARTNER_CODE",
+ 
+ "redirect\_uri":" https:\\/\\/service-provider.be\\/my\_call\_back\_url",
+ 
+ "aud":"https:\\/\\/merchant.itsme.be\\/oidc",
+ 
+ "scope":"openid service: MY\_APPROVAL\_SERVICE_CODE",
+ 
+ "acr\_values":"tag:sixdots.be,2016-06:acr\_advanced",
+ 
+ "iss":"MY\_PARTNER\_CODE",
+ 
+ "nonce":"A\_VALID\_NONCE",
+ 
+ "state":"A\_VALID\_STATE",
+ 
+ "claims":{
+ 
+ "userinfo":{
+ 
+ "sub":{
+ 
+ "value":"THE\_END\_USER\_ALREADY\_KNOWN\_USER\_CODE"
+ 
+ },
+ 
+ "tag:sixdots.be,2016-08:claim\_approval\_template_name":{
+ 
+ "value":"adv_payment",
+ 
+ "essential":true
+ 
+ },
+ 
+ "tag:sixdots.be,2016-08:claim\_approval\_amount_key":{
+ 
+ "value":"100",
+ 
+ "essential":true
+ 
+ },
+ 
+ "tag:sixdots.be,2016-08:claim\_approval\_currency_key":{
+ 
+ "value":"EUR",
+ 
+ "essential":true
+ 
+ },
+ 
+ "tag:sixdots.be,2016-08:claim\_approval\_iban_key":{
+ 
+ "value":"BE00793774892029",
+ 
+ "essential":true
+ }
+ }
+ }
+ }
+ ```
+ _Please note that the “request” parameter is represented as a regular JSON formatted object for clarity only. Because it must be correctly encoded, signed and then encrypted as explained in the official OIDC specification._
+ 
+ #### Sample OIDC approval authorization request using the “phone_number” identifier
+ 
+ The key `THE\_END\_USER\_PHONE\_VALUE` must be replaced with a valid user phone value.
+ 
+ ```http-inline
+ 
+ POST /oidc/authorization
+ 
+ response_type=code
+ 
+ client\_id=MY\_PARTNER_CODE
+ 
+ scope=openid service:MY\_APPROVAL\_SERVICE_CODE
+ 
+ redirect\_uri=https:\\/\\/service-provider.be\\/my\_call\_back\_url  
+ nonce=A\_VALID\_NONCE  
+ state=A\_VALID\_STATE  
+ request={
+ 
+ "response_type":"code",
+ 
+ "client\_id":"MY\_PARTNER_CODE",
+ 
+ "redirect\_uri":" https:\\/\\/service-provider.be\\/my\_call\_back\_url",
+ 
+ "aud":"https:\\/\\/merchant.itsme.be\\/oidc",
+ 
+ "scope":"openid service: MY\_APPROVAL\_SERVICE_CODE",
+ 
+ "acr\_values":"tag:sixdots.be,2016-06:acr\_advanced",
+ 
+ "iss":"MY\_PARTNER\_CODE",
+ 
+ "nonce":"A\_VALID\_NONCE",
+ 
+ "state":"A\_VALID\_STATE",
+ 
+ "claims":{
+ 
+ "userinfo":{
+ 
+ "phone_number":{
+ 
+ "value":"THE\_END\_USER\_PHONE\_VALUE"
+ 
+ },
+ 
+ "tag:sixdots.be,2016-08:claim\_approval\_template_name":{
+ 
+ "value":"adv_payment",
+ 
+ "essential":true
+ 
+ },
+ 
+ "tag:sixdots.be,2016-08:claim\_approval\_amount_key":{
+ 
+ "value":"100",
+ 
+ "essential":true
+ 
+ },
+ 
+ "tag:sixdots.be,2016-08:claim\_approval\_currency_key":{
+ 
+ "value":"EUR",
+ 
+ "essential":true
+ 
+ },
+ 
+ "tag:sixdots.be,2016-08:claim\_approval\_iban_key":{
+ 
+ "value":"BE00793774892029",
+ 
+ "essential":true
+ 
+ }
+ 
+ }
+ 
+ }
+ 
+ }
+ ```
+ _Please note that the “request” parameter is represented as a regular JSON formatted object for clarity only. Because it must be correctly encoded, signed and then encrypted as explained in the official OIDC specification._
+ 
+ Sample OIDC approval authorization request using the `phone_number` identifier In order to specify what must be approved by the end user, there are currently two templates that can be used in OIDC approval authorization requests…
+ 
+ The template to be used MUST be specified using his identifier in the dedicated OIDC requested claim.  
+ Here is the key name: `“tag:sixdots.be,2016-08:claim\_approval\_template_name”`.
+ 
+ 
+ ### Template: “Advanced Payment”
+ Approval template name: `“adv_payment“`
+ As expected, the goal of this template is to request an (“advanced”) payment.
+ 
+ Expected parameters:
+ 
+ Parameter | Requested Claim Key Name | Claim Value Type
+ -- | -- | --
+ **Amount** | `tag:sixdots.be,2016-08:claim_approval_amount_key` | A string holding an integer value inside
+ **Currency** | `tag:sixdots.be,2016-08:claim_approval_currency_key` | A string holding a valid currency code (e.g. "EUR").<br>
+ **IBAN** | `tag:sixdots.be,2016-08:claim_approval_iban_key` | A string holding a valid IBAN account number.
+ 
+ ### Template: “Free Text”
+ 
+ Approval template name: `“free_text”`
+ As expected, the goal of this template is to be free deciding what is displayed on the end user phone.<br>
+ Expected parameters:
+ Parameter | Requested Claim Key Name | Claim Value Type
+ -- | -- | --
+ **Text** | `tag:sixdots.be,2016-08:claim_approval_text_key` | A string holding any text to be displayed on the end-user phone.<br>
 #### App to App specifics
 Perform a basic Authentication Request, with the following modifications:
 
@@ -692,13 +930,13 @@ Then make sure this request is compliant with the service you want to use (Login
 +eyJoaXN0b3J5IjpbLTE4Nzg1Nzg0NTZdfQ==
  -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ1MDgxODEwOSwtMTMxNzkwMzQzLC04OD
-gyMDAxNywtMTMxNzkwMzQzLC04ODgyMDAxNywtMTMxNzkwMzQz
-LC04ODgyMDAxNywtMTMxNzkwMzQzLC04ODgyMDAxNywtMTMxNz
-kwMzQzLDE2NzgxNTEwNzIsLTE0MTEwNzczMDIsMTY3ODE1MTA3
-MiwtMTQxMTA3NzMwMiwxNjc4MTUxMDcyLC0xNDExMDc3MzAyLD
-E2NzgxNTEwNzIsLTE0MTEwNzczMDIsLTkzMzA3MzY3MCwxNjkw
-NzYyMjc2LC05MzMwNzM2NzAsMTY5MDc2MjI3NiwtMTgzMzk2Mz
-kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
-LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19
+eyJoaXN0b3J5IjpbLTE1NjAwMDU4NjUsLTEzMTc5MDM0MywtOD
+g4MjAwMTcsLTEzMTc5MDM0MywtODg4MjAwMTcsLTEzMTc5MDM0
+MywtODg4MjAwMTcsLTEzMTc5MDM0MywtODg4MjAwMTcsLTEzMT
+c5MDM0MywxNjc4MTUxMDcyLC0xNDExMDc3MzAyLDE2NzgxNTEw
+NzIsLTE0MTEwNzczMDIsMTY3ODE1MTA3MiwtMTQxMTA3NzMwMi
+wxNjc4MTUxMDcyLC0xNDExMDc3MzAyLC05MzMwNzM2NzAsMTY5
+MDc2MjI3NiwtOTMzMDczNjcwLDE2OTA3NjIyNzYsLTE4MzM5Nj
+M5MDAsMjA0NzU1Mzg4MiwtMTgzMzk2MzkwMCwyMDQ3NTUzODgy
+LC0xODMzOTYzOTAwLDIwNDc1NTM4ODJdfQ==
 -->
