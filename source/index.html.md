@@ -270,8 +270,6 @@ Parameter | Provided | Comment
 
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse](http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse)
 
-TODO if specifics
-
 # Requesting User Data
 ## 3. UserInfo Request
 
@@ -477,8 +475,8 @@ It is expected that the RP will also expose their signing and encryption keys in
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc4MDkxMTc4LC00NDgxMzg5MTgsMTc4MD
-kxMTc4LC00NDgxMzg5MTgsMTc4MDkxMTc4LC00NDgxMzg5MTgs
-MTc4MDkxMTc4LC00NDgxMzg5MTgsNjgxNTg1MjY5LDc0NTgyMj
-gxMyw2ODE1ODUyNjldfQ==
+eyJoaXN0b3J5IjpbMzMxMjY5OTc0LDE3ODA5MTE3OCwxNzgwOT
+ExNzgsLTQ0ODEzODkxOCwxNzgwOTExNzgsLTQ0ODEzODkxOCwx
+NzgwOTExNzgsLTQ0ODEzODkxOCw2ODE1ODUyNjksNzQ1ODIyOD
+EzLDY4MTU4NTI2OV19
 -->
