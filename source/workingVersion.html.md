@@ -146,7 +146,9 @@
   #### <a name="ServiceCodes"></a> Service Code Concept
   The service code is the identifier of an instance of an itsme service. 
   
-For each itsme service(login, confirm, sign, share data), there is a service instance issued and a Service Provider may utilise multiple service instances. By being provided a service instance, you can use itsme(r) services one action type can be taken forward such as login, confirm, sign, share data or activate at a time.
+For each itsme service(login, confirm, sign, share data), there is a service instance issued and a Service Provider may utilise multiple service instances. By being provided a service instance, you can use itsme(r) services. One action type can be taken forward such as login, confirm, sign, share data or activate at a time.
+
+ for example using login service, 
   
  # Authenticating the User
  
@@ -497,18 +499,18 @@ For each itsme service(login, confirm, sign, share data), there is a service ins
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5NTY2NjA2MCwtMTUzNDQwMjM0MSwtMT
-k5ODg0OTYwNSwtMTM3MzM5NTA5NywyMTM2NjU3Njk4LC0xNjUw
-MjM2NDY2LDIxMzY2NTc2OTgsLTE2NTAyMzY0NjYsMjEzNjY1Nz
-Y5OCw5OTc5MzExNzAsLTExNjc4MTU3OCw5OTc5MzExNzAsLTEx
-Njc4MTU3OCw5OTc5MzExNzAsMTc0NDQwNzQ0MiwtMTAzODIxND
-MzOCwxMjYyMzYxOTgzLDg2NzcwODI0MywtMTEzMDk3MDM0OCwt
-MTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMT
-EzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1
-MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMD
-k3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDky
-OTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MD
-M0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4
-NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OC
-w0NTcxOTE4NzEsNDQxMDI2OTYzXX0=
+eyJoaXN0b3J5IjpbMTc3ODI3MTczLC0xNTM0NDAyMzQxLC0xOT
+k4ODQ5NjA1LC0xMzczMzk1MDk3LDIxMzY2NTc2OTgsLTE2NTAy
+MzY0NjYsMjEzNjY1NzY5OCwtMTY1MDIzNjQ2NiwyMTM2NjU3Nj
+k4LDk5NzkzMTE3MCwtMTE2NzgxNTc4LDk5NzkzMTE3MCwtMTE2
+NzgxNTc4LDk5NzkzMTE3MCwxNzQ0NDA3NDQyLC0xMDM4MjE0Mz
+M4LDEyNjIzNjE5ODMsODY3NzA4MjQzLC0xMTMwOTcwMzQ4LC0x
+NjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMT
+MwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUw
+OTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOT
+cwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5
+OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMz
+Q4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0
+LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LD
+Q1NzE5MTg3MSw0NDEwMjY5NjNdfQ==
 -->
