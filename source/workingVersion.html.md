@@ -146,7 +146,8 @@
   #### <a name="ServiceCodes"></a> Service Code Concept
   The service code is the identifier of an instance of an itsme service. 
   
-  For each itsme service, there is a service instance issued and a Service Provider may utilize multiple service instances. 
+For each itsme service(login, confirm, sign, share data), there is a service instance issued and a Service Provider may utilize multiple service instances. 
+  
  # Authenticating the User
  
  **itsme(r) Login** is based on the [Authorization Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
@@ -496,7 +497,7 @@
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NTY3MjQ2MzIsLTE1MzQ0MDIzNDEsLT
+eyJoaXN0b3J5IjpbLTEwMTg4NTk2NzIsLTE1MzQ0MDIzNDEsLT
 E5OTg4NDk2MDUsLTEzNzMzOTUwOTcsMjEzNjY1NzY5OCwtMTY1
 MDIzNjQ2NiwyMTM2NjU3Njk4LC0xNjUwMjM2NDY2LDIxMzY2NT
 c2OTgsOTk3OTMxMTcwLC0xMTY3ODE1NzgsOTk3OTMxMTcwLC0x
