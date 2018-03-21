@@ -147,7 +147,7 @@
  
 To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
 
-For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. 
+For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Customisation of the consent screen is available for different instances.
  
  # Authenticating the User
  
@@ -498,18 +498,18 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDA4NDg2MzY3LC0xOTQ0OTgzNjY5LC0xOT
-k4ODQ5NjA1LC0xMzczMzk1MDk3LDIxMzY2NTc2OTgsLTE2NTAy
-MzY0NjYsMjEzNjY1NzY5OCwtMTY1MDIzNjQ2NiwyMTM2NjU3Nj
-k4LDk5NzkzMTE3MCwtMTE2NzgxNTc4LDk5NzkzMTE3MCwtMTE2
-NzgxNTc4LDk5NzkzMTE3MCwxNzQ0NDA3NDQyLC0xMDM4MjE0Mz
-M4LDEyNjIzNjE5ODMsODY3NzA4MjQzLC0xMTMwOTcwMzQ4LC0x
-NjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMT
-MwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUw
-OTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOT
-cwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5
-OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMz
-Q4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0
-LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LD
-Q1NzE5MTg3MSw0NDEwMjY5NjNdfQ==
+eyJoaXN0b3J5IjpbMTYyNTY0Mzk1Miw0MDg0ODYzNjcsLTE5OT
+g4NDk2MDUsLTEzNzMzOTUwOTcsMjEzNjY1NzY5OCwtMTY1MDIz
+NjQ2NiwyMTM2NjU3Njk4LC0xNjUwMjM2NDY2LDIxMzY2NTc2OT
+gsOTk3OTMxMTcwLC0xMTY3ODE1NzgsOTk3OTMxMTcwLC0xMTY3
+ODE1NzgsOTk3OTMxMTcwLDE3NDQ0MDc0NDIsLTEwMzgyMTQzMz
+gsMTI2MjM2MTk4Myw4Njc3MDgyNDMsLTExMzA5NzAzNDgsLTE2
+NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMz
+A5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5
+Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5Nz
+AzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5
+ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzND
+gsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQs
+LTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsND
+U3MTkxODcxLDQ0MTAyNjk2M119
 -->
