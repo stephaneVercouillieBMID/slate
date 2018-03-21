@@ -147,7 +147,7 @@
  
 To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
 
-For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login service, one for business banking login service. 
+For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. 
  
  # Authenticating the User
  
@@ -498,18 +498,18 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg4MzAyMjQ0NiwtNTY4NjQ1NjIyLC0xOT
-k4ODQ5NjA1LC0xMzczMzk1MDk3LDIxMzY2NTc2OTgsLTE2NTAy
-MzY0NjYsMjEzNjY1NzY5OCwtMTY1MDIzNjQ2NiwyMTM2NjU3Nj
-k4LDk5NzkzMTE3MCwtMTE2NzgxNTc4LDk5NzkzMTE3MCwtMTE2
-NzgxNTc4LDk5NzkzMTE3MCwxNzQ0NDA3NDQyLC0xMDM4MjE0Mz
-M4LDEyNjIzNjE5ODMsODY3NzA4MjQzLC0xMTMwOTcwMzQ4LC0x
-NjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMT
-MwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUw
-OTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOT
-cwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5
-OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMz
-Q4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0
-LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LD
-Q1NzE5MTg3MSw0NDEwMjY5NjNdfQ==
+eyJoaXN0b3J5IjpbLTE5NDQ5ODM2NjksLTU2ODY0NTYyMiwtMT
+k5ODg0OTYwNSwtMTM3MzM5NTA5NywyMTM2NjU3Njk4LC0xNjUw
+MjM2NDY2LDIxMzY2NTc2OTgsLTE2NTAyMzY0NjYsMjEzNjY1Nz
+Y5OCw5OTc5MzExNzAsLTExNjc4MTU3OCw5OTc5MzExNzAsLTEx
+Njc4MTU3OCw5OTc5MzExNzAsMTc0NDQwNzQ0MiwtMTAzODIxND
+MzOCwxMjYyMzYxOTgzLDg2NzcwODI0MywtMTEzMDk3MDM0OCwt
+MTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMT
+EzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1
+MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMD
+k3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDky
+OTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MD
+M0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4
+NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OC
+w0NTcxOTE4NzEsNDQxMDI2OTYzXX0=
 -->
