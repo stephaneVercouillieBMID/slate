@@ -145,7 +145,7 @@
  
   #### <a name="ServiceCodes"></a> Service Code Concept
  
-To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. For each itsme service, there is a service instance issued and a Service Provider may utilise multiple service instances.  The service code is the identifier of an instance of an itsme service. 
+To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of an instance of an itsme service. For each itsme service, there is a service instance issued and a Service Provider may utilise several service instances.  
  
  # Authenticating the User
  
@@ -496,7 +496,7 @@ To be able to use an itsme service (such as login, confirm, sign, share data) yo
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcyNDc4MTc3MSwtMTUzNDQwMjM0MSwtMT
+eyJoaXN0b3J5IjpbLTM3NTM1MTQwMywtMTUzNDQwMjM0MSwtMT
 k5ODg0OTYwNSwtMTM3MzM5NTA5NywyMTM2NjU3Njk4LC0xNjUw
 MjM2NDY2LDIxMzY2NTc2OTgsLTE2NTAyMzY0NjYsMjEzNjY1Nz
 Y5OCw5OTc5MzExNzAsLTExNjc4MTU3OCw5OTc5MzExNzAsLTEx
