@@ -144,10 +144,9 @@
  Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
  
   #### <a name="ServiceCodes"></a> Service Code Concept
-  The service code is the identifier of an instance of an itsme service. 
-  
-To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. For each itsme service, there is a service instance issued and a Service Provider may utilise multiple service instances. By being provided a service instance, one action type can be taken forward (such as login, confirm, sign, share data or activate at a time).
-  
+ 
+To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. For each itsme service, there is a service instance issued and a Service Provider may utilise multiple service instances.  The service code is the identifier of an instance of an itsme service. 
+ 
  # Authenticating the User
  
  **itsme(r) Login** is based on the [Authorization Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
@@ -497,18 +496,18 @@ To be able to use an itsme service (such as login, confirm, sign, share data) yo
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDgwMjQ1MTAsLTE1MzQ0MDIzNDEsLT
-E5OTg4NDk2MDUsLTEzNzMzOTUwOTcsMjEzNjY1NzY5OCwtMTY1
-MDIzNjQ2NiwyMTM2NjU3Njk4LC0xNjUwMjM2NDY2LDIxMzY2NT
-c2OTgsOTk3OTMxMTcwLC0xMTY3ODE1NzgsOTk3OTMxMTcwLC0x
-MTY3ODE1NzgsOTk3OTMxMTcwLDE3NDQ0MDc0NDIsLTEwMzgyMT
-QzMzgsMTI2MjM2MTk4Myw4Njc3MDgyNDMsLTExMzA5NzAzNDgs
-LTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLT
-ExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2
-NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMz
-A5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5
-Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5Nz
-AzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5
-ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzND
-gsNDU3MTkxODcxLDQ0MTAyNjk2M119
+eyJoaXN0b3J5IjpbMTcyNDc4MTc3MSwtMTUzNDQwMjM0MSwtMT
+k5ODg0OTYwNSwtMTM3MzM5NTA5NywyMTM2NjU3Njk4LC0xNjUw
+MjM2NDY2LDIxMzY2NTc2OTgsLTE2NTAyMzY0NjYsMjEzNjY1Nz
+Y5OCw5OTc5MzExNzAsLTExNjc4MTU3OCw5OTc5MzExNzAsLTEx
+Njc4MTU3OCw5OTc5MzExNzAsMTc0NDQwNzQ0MiwtMTAzODIxND
+MzOCwxMjYyMzYxOTgzLDg2NzcwODI0MywtMTEzMDk3MDM0OCwt
+MTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMT
+EzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1
+MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMD
+k3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDky
+OTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MD
+M0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4
+NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OC
+w0NTcxOTE4NzEsNDQxMDI2OTYzXX0=
 -->
