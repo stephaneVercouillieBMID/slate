@@ -146,7 +146,7 @@
   #### <a name="ServiceCodes"></a> Service Code Concept
   The service code is the identifier of an instance of an itsme service. 
   
-For each itsme service(login, confirm, sign, share data), there is a service instance issued and a Service Provider may utilize multiple service instances. 
+For each itsme service(login, confirm, sign, share data), there is a service instance issued and a Service Provider may utilise multiple service instances. By being provided a service instance, one action type can be taken forward such as login, confirm, sign, share data or a at a time, 
   
  # Authenticating the User
  
@@ -497,18 +497,18 @@ For each itsme service(login, confirm, sign, share data), there is a service ins
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMTg4NTk2NzIsLTE1MzQ0MDIzNDEsLT
-E5OTg4NDk2MDUsLTEzNzMzOTUwOTcsMjEzNjY1NzY5OCwtMTY1
-MDIzNjQ2NiwyMTM2NjU3Njk4LC0xNjUwMjM2NDY2LDIxMzY2NT
-c2OTgsOTk3OTMxMTcwLC0xMTY3ODE1NzgsOTk3OTMxMTcwLC0x
-MTY3ODE1NzgsOTk3OTMxMTcwLDE3NDQ0MDc0NDIsLTEwMzgyMT
-QzMzgsMTI2MjM2MTk4Myw4Njc3MDgyNDMsLTExMzA5NzAzNDgs
-LTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLT
-ExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2
-NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMz
-A5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5
-Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5Nz
-AzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5
-ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzND
-gsNDU3MTkxODcxLDQ0MTAyNjk2M119
+eyJoaXN0b3J5IjpbLTcwNzc5NTI1MywtMTUzNDQwMjM0MSwtMT
+k5ODg0OTYwNSwtMTM3MzM5NTA5NywyMTM2NjU3Njk4LC0xNjUw
+MjM2NDY2LDIxMzY2NTc2OTgsLTE2NTAyMzY0NjYsMjEzNjY1Nz
+Y5OCw5OTc5MzExNzAsLTExNjc4MTU3OCw5OTc5MzExNzAsLTEx
+Njc4MTU3OCw5OTc5MzExNzAsMTc0NDQwNzQ0MiwtMTAzODIxND
+MzOCwxMjYyMzYxOTgzLDg2NzcwODI0MywtMTEzMDk3MDM0OCwt
+MTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMT
+EzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1
+MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMD
+k3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDky
+OTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MD
+M0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4
+NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OC
+w0NTcxOTE4NzEsNDQxMDI2OTYzXX0=
 -->
