@@ -146,7 +146,7 @@
   #### <a name="ServiceCodes"></a> Service Code Concept
   The service code is the identifier of an instance of an itsme service. 
   
-For each itsme service(login, confirm, sign, share data), there is a service instance issued and a Service Provider may utilise multiple service instances. By being provided a service instance, one action type can be taken forward such as login, confirm, sign, share data or a at a time, 
+For each itsme service(login, confirm, sign, share data), there is a service instance issued and a Service Provider may utilise multiple service instances. By being provided a service instance, you can use itsme(r) services one action type can be taken forward such as login, confirm, sign, share data or activate at a time.
   
  # Authenticating the User
  
@@ -497,7 +497,7 @@ For each itsme service(login, confirm, sign, share data), there is a service ins
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcwNzc5NTI1MywtMTUzNDQwMjM0MSwtMT
+eyJoaXN0b3J5IjpbMjA5NTY2NjA2MCwtMTUzNDQwMjM0MSwtMT
 k5ODg0OTYwNSwtMTM3MzM5NTA5NywyMTM2NjU3Njk4LC0xNjUw
 MjM2NDY2LDIxMzY2NTc2OTgsLTE2NTAyMzY0NjYsMjEzNjY1Nz
 Y5OCw5OTc5MzExNzAsLTExNjc4MTU3OCw5OTc5MzExNzAsLTEx
