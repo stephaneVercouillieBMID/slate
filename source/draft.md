@@ -311,7 +311,7 @@ Login specification defined above in this document as follows,<br>
 
  By using this flow, the end user will be automatically redirected from your App (or your web page in the mobile browser) to the itsme(r)  App. After authenticating himself (or rejecting the authentication), he will be redirected back to your App.
  
- This authentication flow is referred as "App to App" flow when occurring from your App to the itsme(r)  App, or "Web mobile to App" flow when occurring from the mobile browser to the itsme(r) App. When the context is not ambiguous, we also use "App to App" denomination to designate both flows. We designate by "Web Desktop" the flow where the itsme(r) App is not triggered manually by the end user.
+ This authentication flow is referred as "App to App" flow when occurring from your App to the itsme(r)  App, or "Web Mobile" flow when occurring from the mobile browser to the itsme(r) App. When the context is not ambiguous, we also use "App to App" denomination to designate both flows. We designate by "Web Desktop" the flow where the itsme(r) App is not triggered manually by the end user.
  
  The technology used for this flow is the [Universal Links](https://developer.apple.com/library/
  content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) (iOS)/[App Links](https://developer.android.com/training/app-links/index.html) (Android).
@@ -735,9 +735,9 @@ Login specification defined above in this document as follows,<br>
 +eyJoaXN0b3J5IjpbLTE4Nzg1Nzg0NTZdfQ==
  -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjM4MDAwODk3LDE0MzE4NzkzNTMsNjM4MD
-AwODk3LDE0MzE4NzkzNTMsNjM4MDAwODk3LDE0MzE4NzkzNTMs
-NjM4MDAwODk3LDE0MzE4NzkzNTMsNjM4MDAwODk3LDE0MzE4Nz
-kzNTMsNjM4MDAwODk3LDE0MzE4NzkzNTMsNjM4MDAwODk3XX0=
+eyJoaXN0b3J5IjpbMjY2MDE4ODY5LDYzODAwMDg5Nyw2MzgwMD
+A4OTcsMTQzMTg3OTM1Myw2MzgwMDA4OTcsMTQzMTg3OTM1Myw2
+MzgwMDA4OTcsMTQzMTg3OTM1Myw2MzgwMDA4OTcsMTQzMTg3OT
+M1Myw2MzgwMDA4OTcsMTQzMTg3OTM1Myw2MzgwMDA4OTddfQ==
 
 -->
