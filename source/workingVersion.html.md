@@ -147,11 +147,11 @@
  
 To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
 
-For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customized for each instance.
+For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
  
  # Authenticating the User
  
- **itsme(r) Login** is based on the [Authorization Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
+ **itsme(r) Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
   
  The Authorization Code Flow goes through the following steps as defined in  [http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps)
  
@@ -498,18 +498,18 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODM1NDEwODg2LC05MjIyNjgzMDIsLTE5OT
-g4NDk2MDUsLTEzNzMzOTUwOTcsMjEzNjY1NzY5OCwtMTY1MDIz
-NjQ2NiwyMTM2NjU3Njk4LC0xNjUwMjM2NDY2LDIxMzY2NTc2OT
-gsOTk3OTMxMTcwLC0xMTY3ODE1NzgsOTk3OTMxMTcwLC0xMTY3
-ODE1NzgsOTk3OTMxMTcwLDE3NDQ0MDc0NDIsLTEwMzgyMTQzMz
-gsMTI2MjM2MTk4Myw4Njc3MDgyNDMsLTExMzA5NzAzNDgsLTE2
-NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMz
-A5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5
-Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5Nz
-AzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5
-ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzND
-gsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQs
-LTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsND
-U3MTkxODcxLDQ0MTAyNjk2M119
+eyJoaXN0b3J5IjpbMTMxMjA5MjI4OCw4MzU0MTA4ODYsLTkyMj
+I2ODMwMiwtMTk5ODg0OTYwNSwtMTM3MzM5NTA5NywyMTM2NjU3
+Njk4LC0xNjUwMjM2NDY2LDIxMzY2NTc2OTgsLTE2NTAyMzY0Nj
+YsMjEzNjY1NzY5OCw5OTc5MzExNzAsLTExNjc4MTU3OCw5OTc5
+MzExNzAsLTExNjc4MTU3OCw5OTc5MzExNzAsMTc0NDQwNzQ0Mi
+wtMTAzODIxNDMzOCwxMjYyMzYxOTgzLDg2NzcwODI0MywtMTEz
+MDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MD
+kyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3
+MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOT
+k4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0
+OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NC
+wtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwt
+MTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMT
+EzMDk3MDM0OCw0NTcxOTE4NzEsNDQxMDI2OTYzXX0=
 -->
