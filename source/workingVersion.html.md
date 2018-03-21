@@ -147,7 +147,7 @@
  
 To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
 
-For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Customisation of the consent screen is available for different instances.
+For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customized for each instance.
  
  # Authenticating the User
  
@@ -498,7 +498,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MzA5OTM5NTYsMTYyNTY0Mzk1MiwtMT
+eyJoaXN0b3J5IjpbLTkyMjI2ODMwMiwtMTgzMDk5Mzk1NiwtMT
 k5ODg0OTYwNSwtMTM3MzM5NTA5NywyMTM2NjU3Njk4LC0xNjUw
 MjM2NDY2LDIxMzY2NTc2OTgsLTE2NTAyMzY0NjYsMjEzNjY1Nz
 Y5OCw5OTc5MzExNzAsLTExNjc4MTU3OCw5OTc5MzExNzAsLTEx
