@@ -144,7 +144,7 @@
  Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
  
   #### <a name="ServiceCodes"></a> Service Code Concept
-  The service code is the identifier of an instance of an itsme
+  The service code is the identifier of an instance of an itsme service. 
   
  # Authenticating the User
  
@@ -495,7 +495,7 @@
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEzNjY1NzY5OCwtMTY1MDIzNjQ2NiwyMT
+eyJoaXN0b3J5IjpbLTEzNzMzOTUwOTcsMjEzNjY1NzY5OCwyMT
 M2NjU3Njk4LC0xNjUwMjM2NDY2LDIxMzY2NTc2OTgsLTE2NTAy
 MzY0NjYsMjEzNjY1NzY5OCw5OTc5MzExNzAsLTExNjc4MTU3OC
 w5OTc5MzExNzAsLTExNjc4MTU3OCw5OTc5MzExNzAsMTc0NDQw
