@@ -118,7 +118,7 @@ SP provides
 BMID provides 
 
 - Partner Code, used as **client_id**
-- Service Code for each Service.
+- Service Code for each Service (see )
 
 ### Set a redirect URI and Certificates
 SP provides 
@@ -475,10 +475,10 @@ It is expected that the RP will also expose their signing and encryption keys in
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzMxMjY5OTc0LC0xNTA5NTY3OTk0LDMzMT
-I2OTk3NCwtMTUwOTU2Nzk5NCwzMzEyNjk5NzQsLTE1MDk1Njc5
-OTQsMzMxMjY5OTc0LC0xNTA5NTY3OTk0LDMzMTI2OTk3NCwxNz
-gwOTExNzgsLTQ0ODEzODkxOCwxNzgwOTExNzgsLTQ0ODEzODkx
-OCwxNzgwOTExNzgsLTQ0ODEzODkxOCw2ODE1ODUyNjksNzQ1OD
-IyODEzLDY4MTU4NTI2OV19
+eyJoaXN0b3J5IjpbNzIzMTcyNDksMzMxMjY5OTc0LC0xNTA5NT
+Y3OTk0LDMzMTI2OTk3NCwtMTUwOTU2Nzk5NCwzMzEyNjk5NzQs
+LTE1MDk1Njc5OTQsMzMxMjY5OTc0LC0xNTA5NTY3OTk0LDMzMT
+I2OTk3NCwxNzgwOTExNzgsLTQ0ODEzODkxOCwxNzgwOTExNzgs
+LTQ0ODEzODkxOCwxNzgwOTExNzgsLTQ0ODEzODkxOCw3NDU4Mj
+I4MTMsNjgxNTg1MjY5XX0=
 -->
