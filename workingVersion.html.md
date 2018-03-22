@@ -193,7 +193,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  **acr_values** | Optional | OPTIONAL and supported, though not recommended. Possible values are tag:itsmetag:sixdots.be,2016-06:acr_basic, tag:itsmetag:sixdots.be,2016-06:acr_advanced. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the `acr_values` is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the `acr_values` list, or the authentication will fail. Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token/
  **claims** | Optional | Not recommended. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
  **request** | Optional | See [Passing Request Parameters as JWTs](#JWTRequest)
- **response_mode** | Unsupported | Ignored if provided.
+ **response_mode** | Unsupported | MUST not be used. Any supplied value will be ignored.
  **id\_token\_hint** | Unsupported | Ignored if provided.
  **claims_locales** | Unsupported | None are supported.
  **request_uri** | Unsupported | Not supported (yet)
@@ -498,5 +498,5 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4OTc5MDM2MjRdfQ==
+eyJoaXN0b3J5IjpbLTgxMDA3OTYxNl19
 -->
