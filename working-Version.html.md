@@ -179,7 +179,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  
  Parameter | Required | Comment | Parameter Explained
  --------- | ------| ------| ------------------
- **client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process and this value will be unique to each partner per environment. This information is in the on-boarding file provided by BMID.| This is the client identifier of the Relying Party at the Open
+ **client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process and this value will be unique to each partner per environment. This information is in the on-boarding file provided by BMID.| This is the client identifier of the Relying Party at the OpenID Provider.
  **response_type** | Required | MUST be set to <code>code</code>.|Used to indicate an authorisation code flow.
  **scope** | Required | MUST contain at least `openid` or an HTTP ERROR `not_implemented` will be returned. `offline_access` value will yield an error. MUST also includes the target service in the form `service:<SERVICE_CODE>` as provided by BMID during the on-boarding process (see [Service Code concept](#ServiceCode) for further information). ***Note**: Requested data will only be provided based on your current accesses*. These accesses are specified in the on-boarding file provided by BMID.| Used to specify the scope of the requested authorisation in OAuth. The scope value `openid` signals a request for OpenID authentication and ID token.
  **redirect_uri** | Required | should be the HTTPS endpoint on your server that will receive the response from **itsme(r)**. This value MUST match one of the values provided to BMID during on-boarding process. ***Note**: the Partner can define different **redirect_uri** specific to each Service.* | The RP (Relying Party) callback URI for the authentication response.
@@ -498,5 +498,5 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MzE2MDIxNDVdfQ==
+eyJoaXN0b3J5IjpbLTU3ODkyMjIwMV19
 -->
