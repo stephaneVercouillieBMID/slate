@@ -6,6 +6,7 @@
 Basic request is a "Web Desktop" where the itsme(r) App is not triggered manually by the end user.
 
 For a basic request, specify the following parameters:
+
 Parameter | Required | Comment
 --------- | ------- | -----
 **client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process and this value will be unique to each partner per environment. This information is in the on-boarding file provided by BMID. 
@@ -735,7 +736,7 @@ Login specification defined above in this document as follows,<br>
 +eyJoaXN0b3J5IjpbLTE4Nzg1Nzg0NTZdfQ==
  -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3MDEzOTUsMjY2MDE4ODY5LC01NzAxMz
+eyJoaXN0b3J5IjpbMjgyOTIzMzk5LC01NzAxMzk1LC01NzAxMz
 k1LDI2NjAxODg2OSwtNTcwMTM5NSwyNjYwMTg4NjksLTU3MDEz
 OTUsMjY2MDE4ODY5LC01NzAxMzk1XX0=
 -->
