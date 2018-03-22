@@ -331,9 +331,9 @@ For example, assuming that one SP would like to use login as an itsme(r) service
 
  | Data | Claim
  -- | -- | --
- **`profile`** |given\_name  family\_name • name • gender • birthdate • locale | `name` and `given_name` and `family_name` 
- | **`email`** | Gender | `gender`
- | **`phone`** | Date of Birth | `birthdate`
+ **`profile`** |given\_name <br> family\_name <br> name <br> gender <br>birthdate <br> locale | `name` and `given_name` and `family_name` 
+ | **`email`** | email<br> email_verified<br>| `gender`
+ | **`phone`** | phone\_number • phone\_number_verified | `birthdate`
  |	| Language | `locale`
  **`address`** | Address | `address`, with following subfields: `street_address` (newline separator \\n), `locality`, `postal_code`, `country`
  **`email`** | E-Mail Address | `email` and `email_verified` 
@@ -498,22 +498,22 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQxMzc4NTEyLDE4MzA0OTg5ODYsLTExMT
-c5NDgyOTAsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwtMTIyNTE5
-NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1ODIwLDEzMTIwOTIyOD
-gsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwtMTIyNTE5NTgyMCwx
-MzEyMDkyMjg4LC0xMjI1MTk1ODIwLDEzMTIwOTIyODgsLTkyMj
-I2ODMwMiwtMTk5ODg0OTYwNSwtMTM3MzM5NTA5NywyMTM2NjU3
-Njk4LC0xNjUwMjM2NDY2LDIxMzY2NTc2OTgsLTE2NTAyMzY0Nj
-YsMjEzNjY1NzY5OCw5OTc5MzExNzAsLTExNjc4MTU3OCw5OTc5
-MzExNzAsLTExNjc4MTU3OCw5OTc5MzExNzAsMTc0NDQwNzQ0Mi
-wtMTAzODIxNDMzOCwxMjYyMzYxOTgzLDg2NzcwODI0MywtMTEz
-MDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MD
-kyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3
-MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOT
-k4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0
-OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NC
-wtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwt
-MTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMT
-EzMDk3MDM0OCw0NTcxOTE4NzEsNDQxMDI2OTYzXX0=
+eyJoaXN0b3J5IjpbLTE4NTM5NjgxMTEsMTgzMDQ5ODk4NiwtMT
+ExNzk0ODI5MCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1
+MTk1ODIwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5Mj
+I4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1ODIw
+LDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwtOT
+IyMjY4MzAyLC0xOTk4ODQ5NjA1LC0xMzczMzk1MDk3LDIxMzY2
+NTc2OTgsLTE2NTAyMzY0NjYsMjEzNjY1NzY5OCwtMTY1MDIzNj
+Q2NiwyMTM2NjU3Njk4LDk5NzkzMTE3MCwtMTE2NzgxNTc4LDk5
+NzkzMTE3MCwtMTE2NzgxNTc4LDk5NzkzMTE3MCwxNzQ0NDA3ND
+QyLC0xMDM4MjE0MzM4LDEyNjIzNjE5ODMsODY3NzA4MjQzLC0x
+MTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNj
+UwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMw
+OTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOT
+I5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcw
+MzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OT
+g0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4
+LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC
+0xMTMwOTcwMzQ4LDQ1NzE5MTg3MSw0NDEwMjY5NjNdfQ==
 -->
