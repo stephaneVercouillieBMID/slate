@@ -178,7 +178,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  For a basic request, specify the following parameters:
  
  Parameter | Required | Comment | Parameter Explained
- --------- | ------- | -------- | --------------
+ --------- | ------| ------| ------------------
  **client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process and this value will be unique to each partner per environment. This information is in the on-boarding file provided by BMID.|
  **response_type** | Required | MUST be <code>code</code>.
  **scope** | Required | MUST contain at least `openid` or an HTTP ERROR `not_implemented` will be returned. `offline_access` value will yield an error. MUST also includes the target service in the form `service:<SERVICE_CODE>` as provided by BMID during the on-boarding process (see [Service Code concept](#ServiceCode) for further information). ***Note**: Requested data will only be provided based on your current accesses*. These accesses are specified in the on-boarding file provided by BMID.
@@ -498,5 +498,5 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY5MzkwMjU1NF19
+eyJoaXN0b3J5IjpbNTAxNDk0MDU3XX0=
 -->
