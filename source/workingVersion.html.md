@@ -333,13 +333,13 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -- | -- | --
  **`profile`** |given\_name <br> family\_name <br> name <br> gender <br>birthdate <br> locale | `name` and `given_name` and `family_name` 
  | **`email`** | email<br> email_verified<br>| `gender`
- | **`phone`** | phone\_number • phone\_number_verified | `birthdate`
- |	| Language | `locale`
+ | **`phone`** | phone\_number<br>phone\_number_verified<br>| 
  **`address`** | Address | `address`, with following subfields: `street_address` (newline separator \\n), `locality`, `postal_code`, `country`
- **`email`** | E-Mail Address | `email` and `email_verified` 
- **`phone`** | Phone Number | `phone_number` or `phone_number_verified`
+
+
+ <aside class="notice">
  
- <aside class="notice">NOTE: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.</aside>
+ NOTE: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.</aside>
  
  ## <a name="Claims-Request"></a>Requesting Claims using the "claims" Request Parameter
  We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. Here are these claims:
@@ -498,22 +498,22 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTM5NjgxMTEsMTgzMDQ5ODk4NiwtMT
-ExNzk0ODI5MCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1
-MTk1ODIwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5Mj
-I4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1ODIw
-LDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwtOT
-IyMjY4MzAyLC0xOTk4ODQ5NjA1LC0xMzczMzk1MDk3LDIxMzY2
-NTc2OTgsLTE2NTAyMzY0NjYsMjEzNjY1NzY5OCwtMTY1MDIzNj
-Q2NiwyMTM2NjU3Njk4LDk5NzkzMTE3MCwtMTE2NzgxNTc4LDk5
-NzkzMTE3MCwtMTE2NzgxNTc4LDk5NzkzMTE3MCwxNzQ0NDA3ND
-QyLC0xMDM4MjE0MzM4LDEyNjIzNjE5ODMsODY3NzA4MjQzLC0x
-MTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNj
-UwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMw
-OTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOT
-I5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcw
-MzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OT
-g0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4
-LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC
-0xMTMwOTcwMzQ4LDQ1NzE5MTg3MSw0NDEwMjY5NjNdfQ==
+eyJoaXN0b3J5IjpbMTU5Njg2MTY3MCwxODMwNDk4OTg2LC0xMT
+E3OTQ4MjkwLC0xMjI1MTk1ODIwLDEzMTIwOTIyODgsLTEyMjUx
+OTU4MjAsMTMxMjA5MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMj
+g4LC0xMjI1MTk1ODIwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAs
+MTMxMjA5MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC05Mj
+IyNjgzMDIsLTE5OTg4NDk2MDUsLTEzNzMzOTUwOTcsMjEzNjY1
+NzY5OCwtMTY1MDIzNjQ2NiwyMTM2NjU3Njk4LC0xNjUwMjM2ND
+Y2LDIxMzY2NTc2OTgsOTk3OTMxMTcwLC0xMTY3ODE1NzgsOTk3
+OTMxMTcwLC0xMTY3ODE1NzgsOTk3OTMxMTcwLDE3NDQ0MDc0ND
+IsLTEwMzgyMTQzMzgsMTI2MjM2MTk4Myw4Njc3MDgyNDMsLTEx
+MzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NT
+A5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5
+NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mj
+k5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAz
+NDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5OD
+QsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgs
+LTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLT
+ExMzA5NzAzNDgsNDU3MTkxODcxLDQ0MTAyNjk2M119
 -->
