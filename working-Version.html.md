@@ -177,7 +177,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  
  For a basic request, specify the following parameters:
  
- Parameter | Required | Comment
+ Parameter | Required |  Comment
  --------- | ------- | -----
  **client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process and this value will be unique to each partner per environment. This information is in the on-boarding file provided by BMID. 
  **response_type** | Required | MUST be <code>code</code>.
@@ -498,5 +498,5 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgxMDA3OTYxNl19
+eyJoaXN0b3J5IjpbMTc4NDQ1NTU0MF19
 -->
