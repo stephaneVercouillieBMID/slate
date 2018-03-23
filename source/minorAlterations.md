@@ -374,7 +374,7 @@ Login specification defined above in this document as follows,<br>
   
  The signature key is used to verify the Service provider when they come fetch data on a client.
  
- The encryption key is used to encrypt data so that nobody can read the data which we are transfering apart from the service provider component who has the right to access these data (so that you can encode/reencode the https in intern in a less secured component; it stays crypted).
+ The encryption key is used to encrypt data so that nobody can read the data which we are transfering apart from the service provider component who has the right to access these data (so that you can encode/reencode the https in intern in a less secured component; it stays encrypted).
   
  If the question is ONLY related to OpenID Connect (OIDC) aspects,
  >
@@ -737,7 +737,7 @@ Login specification defined above in this document as follows,<br>
 +eyJoaXN0b3J5IjpbLTE4Nzg1Nzg0NTZdfQ==
  -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1NzA5NDMzNSwtNTcwMTM5NSwtNTcwMT
+eyJoaXN0b3J5IjpbLTE2MjY0NjE2OCwtNTcwMTM5NSwtNTcwMT
 M5NSwyNjYwMTg4NjksLTU3MDEzOTUsMjY2MDE4ODY5LC01NzAx
 Mzk1LDI2NjAxODg2OSwtNTcwMTM5NV19
 -->
