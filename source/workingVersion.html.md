@@ -499,6 +499,10 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 
 <!--- Roadmap
+Services Provided
+
+what specifics
+
 1.  [Create an anti-forgery state token]
  2.  [Send an authentication request to itsme]
 2.  [Confirm the anti-forgery state token]
@@ -513,7 +517,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  .
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NzM3MTYxOTYsLTIyODg0NzQwNCwtOD
+eyJoaXN0b3J5IjpbLTE0MzA1MjEwNjYsLTIyODg0NzQwNCwtOD
 EwMDc5NjE2LC0xMTE3OTQ4MjkwLC0xMjI1MTk1ODIwLDEzMTIw
 OTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwtMTIyNTE5NT
 gyMCwxMzEyMDkyMjg4LC0xMjI1MTk1ODIwLDEzMTIwOTIyODgs
