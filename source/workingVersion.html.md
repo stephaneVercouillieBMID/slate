@@ -193,7 +193,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  **acr_values** | Optional | OPTIONAL and supported, though NOT RECOMMENDED. Possible values are `tag:itsmetag:sixdots.be,2016-06:acr_basic`, `tag:itsmetag:sixdots.be,2016-06:acr_advanced`. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the `acr_values` is requested as a voluntarily claim, the `acr` value returned will always be the more constraining method in the `acr_values` list, or the authentication will fail. Usage of `acr` parameter in the request object is recommended over this parameter as it will be signed in the JWT token.
  **claims** | Optional | NOT RECOMMENDED. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
  **request** | Optional | See [Passing Request Parameters as JWTs](#JWTRequest)
- **response_mode** | Unsupported | MUST not be used. Any supplied value will be ignored.
+ **response_mode** | Unsupported | MUST not be used. Any supplied value will be ignored.|Informs the Authorization Server of the mechanism to be used for returning parameters from the Authorization Endpoint. This use of this parameter is NOT RECOMMENDED when the Response Mode that would be requested is the default mode specified for the Response Type
  **id\_token\_hint** | Unsupported | Ignored if provided.
  **claims_locales** | Unsupported | None are supported.
  **request_uri** | Unsupported | Not supported (yet)
@@ -498,23 +498,23 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5Njk3NjU4MCwtMjI4ODQ3NDA0LC04MT
-AwNzk2MTYsLTExMTc5NDgyOTAsLTEyMjUxOTU4MjAsMTMxMjA5
-MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1OD
-IwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwt
-MTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1ODIwLDEzMT
-IwOTIyODgsLTkyMjI2ODMwMiwtMTk5ODg0OTYwNSwtMTM3MzM5
-NTA5NywyMTM2NjU3Njk4LC0xNjUwMjM2NDY2LDIxMzY2NTc2OT
-gsLTE2NTAyMzY0NjYsMjEzNjY1NzY5OCw5OTc5MzExNzAsLTEx
-Njc4MTU3OCw5OTc5MzExNzAsLTExNjc4MTU3OCw5OTc5MzExNz
-AsMTc0NDQwNzQ0MiwtMTAzODIxNDMzOCwxMjYyMzYxOTgzLDg2
-NzcwODI0MywtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMD
-k3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDky
-OTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MD
-M0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4
-NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OC
-wtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwt
-MTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMT
-Y1MDkyOTk4NCwtMTEzMDk3MDM0OCw0NTcxOTE4NzEsNDQxMDI2
-OTYzXX0=
+eyJoaXN0b3J5IjpbLTkxMjA4ODA4LC0yMjg4NDc0MDQsLTgxMD
+A3OTYxNiwtMTExNzk0ODI5MCwtMTIyNTE5NTgyMCwxMzEyMDky
+Mjg4LC0xMjI1MTk1ODIwLDEzMTIwOTIyODgsLTEyMjUxOTU4Mj
+AsMTMxMjA5MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0x
+MjI1MTk1ODIwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMj
+A5MjI4OCwtOTIyMjY4MzAyLC0xOTk4ODQ5NjA1LC0xMzczMzk1
+MDk3LDIxMzY2NTc2OTgsLTE2NTAyMzY0NjYsMjEzNjY1NzY5OC
+wtMTY1MDIzNjQ2NiwyMTM2NjU3Njk4LDk5NzkzMTE3MCwtMTE2
+NzgxNTc4LDk5NzkzMTE3MCwtMTE2NzgxNTc4LDk5NzkzMTE3MC
+wxNzQ0NDA3NDQyLC0xMDM4MjE0MzM4LDEyNjIzNjE5ODMsODY3
+NzA4MjQzLC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOT
+cwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5
+OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMz
+Q4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0
+LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC
+0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0x
+MTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNj
+UwOTI5OTg0LC0xMTMwOTcwMzQ4LDQ1NzE5MTg3MSw0NDEwMjY5
+NjNdfQ==
 -->
