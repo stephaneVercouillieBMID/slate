@@ -498,30 +498,31 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 
-/* 1.  [Create an anti-forgery state token](https://developers.google.com/identity/protocols/OpenIDConnect#createxsrftoken)
+<!--- 
+1.  [Create an anti-forgery state token](https://developers.google.com/identity/protocols/OpenIDConnect#createxsrftoken)
  2.  [Send an authentication request to Google](https://developers.google.com/identity/protocols/OpenIDConnect#sendauthrequest)
 3.  [Confirm the anti-forgery state token](https://developers.google.com/identity/protocols/OpenIDConnect#confirmxsrftoken)
 4.  [Exchange  `code`  for access token and ID token](https://developers.google.com/identity/protocols/OpenIDConnect#exchangecode)
 5.  [Obtain user information from the ID token](https://developers.google.com/identity/protocols/OpenIDConnect#obtainuserinfo)
-6.  [Authenticate the user](https://developers.google.com/identity/protocols/OpenIDConnect#authuser) */
+6.  [Authenticate the user](https://developers.google.com/identity/protocols/OpenIDConnect#authuser) 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMTc1MjA1MiwtMjI4ODQ3NDA0LC04MT
-AwNzk2MTYsLTExMTc5NDgyOTAsLTEyMjUxOTU4MjAsMTMxMjA5
-MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1OD
-IwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwt
-MTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1ODIwLDEzMT
-IwOTIyODgsLTkyMjI2ODMwMiwtMTk5ODg0OTYwNSwtMTM3MzM5
-NTA5NywyMTM2NjU3Njk4LC0xNjUwMjM2NDY2LDIxMzY2NTc2OT
-gsLTE2NTAyMzY0NjYsMjEzNjY1NzY5OCw5OTc5MzExNzAsLTEx
-Njc4MTU3OCw5OTc5MzExNzAsLTExNjc4MTU3OCw5OTc5MzExNz
-AsMTc0NDQwNzQ0MiwtMTAzODIxNDMzOCwxMjYyMzYxOTgzLDg2
-NzcwODI0MywtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMD
-k3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDky
-OTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MD
-M0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4
-NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OC
-wtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwt
-MTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMT
-Y1MDkyOTk4NCwtMTEzMDk3MDM0OCw0NTcxOTE4NzEsNDQxMDI2
-OTYzXX0=
+eyJoaXN0b3J5IjpbOTUyMjU4MTM0LC0yMjg4NDc0MDQsLTgxMD
+A3OTYxNiwtMTExNzk0ODI5MCwtMTIyNTE5NTgyMCwxMzEyMDky
+Mjg4LC0xMjI1MTk1ODIwLDEzMTIwOTIyODgsLTEyMjUxOTU4Mj
+AsMTMxMjA5MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0x
+MjI1MTk1ODIwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMj
+A5MjI4OCwtOTIyMjY4MzAyLC0xOTk4ODQ5NjA1LC0xMzczMzk1
+MDk3LDIxMzY2NTc2OTgsLTE2NTAyMzY0NjYsMjEzNjY1NzY5OC
+wtMTY1MDIzNjQ2NiwyMTM2NjU3Njk4LDk5NzkzMTE3MCwtMTE2
+NzgxNTc4LDk5NzkzMTE3MCwtMTE2NzgxNTc4LDk5NzkzMTE3MC
+wxNzQ0NDA3NDQyLC0xMDM4MjE0MzM4LDEyNjIzNjE5ODMsODY3
+NzA4MjQzLC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOT
+cwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5
+OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMz
+Q4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0
+LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC
+0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0x
+MTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNj
+UwOTI5OTg0LC0xMTMwOTcwMzQ4LDQ1NzE5MTg3MSw0NDEwMjY5
+NjNdfQ==
 -->
