@@ -190,7 +190,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  **prompt** | Optional | MUST be `consent` if provided.
  **ui_locales** | Optional | Can be used to specify the language to be used by the OpenID login page. Supported languages are: `fr`, `nl`, `en` and `de`. Any other value will be ignored.
  **max_age** | Optional | Supported but not used: **itsme(r)** will always actively re-authenticate the End-User. 
- **acr_values** | Optional | OPTIONAL and supported, though not recommended. Possible values are `tag:itsmetag:sixdots.be,2016-06:acr_basic, tag:itsmetag:sixdots.be,2016-06:acr_advanced. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the `acr_values` is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the `acr_values` list, or the authentication will fail. Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token/
+ **acr_values** | Optional | OPTIONAL and supported, though not recommended. Possible values are `tag:itsmetag:sixdots.be,2016-06:acr_basic`, `tag:itsmetag:sixdots.be,2016-06:acr_advanced`. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the `acr_values` is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the `acr_values` list, or the authentication will fail. Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token/
  **claims** | Optional | Not recommended. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
  **request** | Optional | See [Passing Request Parameters as JWTs](#JWTRequest)
  **response_mode** | Unsupported | MUST not be used. Any supplied value will be ignored.
@@ -498,23 +498,23 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjU4MjI1OTg3LC0yMjg4NDc0MDQsLTgxMD
-A3OTYxNiwtMTExNzk0ODI5MCwtMTIyNTE5NTgyMCwxMzEyMDky
-Mjg4LC0xMjI1MTk1ODIwLDEzMTIwOTIyODgsLTEyMjUxOTU4Mj
-AsMTMxMjA5MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0x
-MjI1MTk1ODIwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMj
-A5MjI4OCwtOTIyMjY4MzAyLC0xOTk4ODQ5NjA1LC0xMzczMzk1
-MDk3LDIxMzY2NTc2OTgsLTE2NTAyMzY0NjYsMjEzNjY1NzY5OC
-wtMTY1MDIzNjQ2NiwyMTM2NjU3Njk4LDk5NzkzMTE3MCwtMTE2
-NzgxNTc4LDk5NzkzMTE3MCwtMTE2NzgxNTc4LDk5NzkzMTE3MC
-wxNzQ0NDA3NDQyLC0xMDM4MjE0MzM4LDEyNjIzNjE5ODMsODY3
-NzA4MjQzLC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOT
-cwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5
-OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMz
-Q4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0
-LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC
-0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0x
-MTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNj
-UwOTI5OTg0LC0xMTMwOTcwMzQ4LDQ1NzE5MTg3MSw0NDEwMjY5
-NjNdfQ==
+eyJoaXN0b3J5IjpbLTE1NzQzMTU2OTEsLTIyODg0NzQwNCwtOD
+EwMDc5NjE2LC0xMTE3OTQ4MjkwLC0xMjI1MTk1ODIwLDEzMTIw
+OTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwtMTIyNTE5NT
+gyMCwxMzEyMDkyMjg4LC0xMjI1MTk1ODIwLDEzMTIwOTIyODgs
+LTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwtMTIyNTE5NTgyMCwxMz
+EyMDkyMjg4LC05MjIyNjgzMDIsLTE5OTg4NDk2MDUsLTEzNzMz
+OTUwOTcsMjEzNjY1NzY5OCwtMTY1MDIzNjQ2NiwyMTM2NjU3Nj
+k4LC0xNjUwMjM2NDY2LDIxMzY2NTc2OTgsOTk3OTMxMTcwLC0x
+MTY3ODE1NzgsOTk3OTMxMTcwLC0xMTY3ODE1NzgsOTk3OTMxMT
+cwLDE3NDQ0MDc0NDIsLTEwMzgyMTQzMzgsMTI2MjM2MTk4Myw4
+Njc3MDgyNDMsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMz
+A5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5
+Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5Nz
+AzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5
+ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzND
+gsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQs
+LTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLT
+E2NTA5Mjk5ODQsLTExMzA5NzAzNDgsNDU3MTkxODcxLDQ0MTAy
+Njk2M119
 -->
