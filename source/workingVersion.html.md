@@ -500,13 +500,15 @@ For example, assuming that one SP would like to use login as an itsme(r) service
 
 <!--- Roadmap
 1.  [Create an anti-forgery state token]
- 2.  [Send an authentication request to Google]
-3.  [Confirm the anti-forgery state token]
-4.  [Exchange  `code`  for access token and ID token]
-5.  [Obtain user information from the ID token]
-6.  [Authenticate the user]
+ 2.  [Send an authentication request to itsme]
+2.  [Confirm the anti-forgery state token]
+3.  [Exchange  `code`  for access token and ID token]
+4.  [Obtain user information from the ID token]
+5.  [Authenticate the user]
+6. Advanced topics
+ Passing Request Parameters as JWTs
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0NDE0NDY3MiwtMjI4ODQ3NDA0LC04MT
+eyJoaXN0b3J5IjpbLTQ2MTIyMzU2NywtMjI4ODQ3NDA0LC04MT
 AwNzk2MTYsLTExMTc5NDgyOTAsLTEyMjUxOTU4MjAsMTMxMjA5
 MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1OD
 IwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwt
