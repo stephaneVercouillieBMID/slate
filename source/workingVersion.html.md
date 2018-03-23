@@ -179,7 +179,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  
  Parameter | Required | Comment| Parameter Explained
  --------- | ------- | -----|-----
- **client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process and this value will be unique to each partner per environment. This information is in the on-boarding file provided by BMID. 
+ **client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process and this value will be unique to each partner per environment. This information is in the on-boarding file provided by BMID.
  **response_type** | Required | MUST be <code>code</code>.
  **scope** | Required | MUST contain at least `openid` or an HTTP ERROR `not_implemented` will be returned. `offline_access` value will yield an error. MUST also includes the target service in the form `service:<SERVICE_CODE>` as provided by BMID during the on-boarding process (see [Service Code concept](#ServiceCode) for further information). ***Note**: Requested data will only be provided based on your current accesses*. These accesses are specified in the on-boarding file provided by BMID.
  **redirect_uri** | Required | should be the HTTPS endpoint on your server that will receive the response from **itsme(r)**. This value MUST match one of the values provided to BMID during on-boarding process. ***Note**: the Partner can define different **redirect_uri** specific to each Service.*
@@ -498,23 +498,23 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAyMjI4MzI0NCwtMjI4ODQ3NDA0LC04MT
-AwNzk2MTYsLTExMTc5NDgyOTAsLTEyMjUxOTU4MjAsMTMxMjA5
-MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1OD
-IwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwt
-MTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1ODIwLDEzMT
-IwOTIyODgsLTkyMjI2ODMwMiwtMTk5ODg0OTYwNSwtMTM3MzM5
-NTA5NywyMTM2NjU3Njk4LC0xNjUwMjM2NDY2LDIxMzY2NTc2OT
-gsLTE2NTAyMzY0NjYsMjEzNjY1NzY5OCw5OTc5MzExNzAsLTEx
-Njc4MTU3OCw5OTc5MzExNzAsLTExNjc4MTU3OCw5OTc5MzExNz
-AsMTc0NDQwNzQ0MiwtMTAzODIxNDMzOCwxMjYyMzYxOTgzLDg2
-NzcwODI0MywtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMD
-k3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDky
-OTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MD
-M0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4
-NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OC
-wtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwt
-MTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMT
-Y1MDkyOTk4NCwtMTEzMDk3MDM0OCw0NTcxOTE4NzEsNDQxMDI2
-OTYzXX0=
+eyJoaXN0b3J5IjpbLTEwNTMzNDI2NzAsLTIyODg0NzQwNCwtOD
+EwMDc5NjE2LC0xMTE3OTQ4MjkwLC0xMjI1MTk1ODIwLDEzMTIw
+OTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwtMTIyNTE5NT
+gyMCwxMzEyMDkyMjg4LC0xMjI1MTk1ODIwLDEzMTIwOTIyODgs
+LTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwtMTIyNTE5NTgyMCwxMz
+EyMDkyMjg4LC05MjIyNjgzMDIsLTE5OTg4NDk2MDUsLTEzNzMz
+OTUwOTcsMjEzNjY1NzY5OCwtMTY1MDIzNjQ2NiwyMTM2NjU3Nj
+k4LC0xNjUwMjM2NDY2LDIxMzY2NTc2OTgsOTk3OTMxMTcwLC0x
+MTY3ODE1NzgsOTk3OTMxMTcwLC0xMTY3ODE1NzgsOTk3OTMxMT
+cwLDE3NDQ0MDc0NDIsLTEwMzgyMTQzMzgsMTI2MjM2MTk4Myw4
+Njc3MDgyNDMsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMz
+A5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5
+Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5Nz
+AzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5
+ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzND
+gsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQs
+LTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLT
+E2NTA5Mjk5ODQsLTExMzA5NzAzNDgsNDU3MTkxODcxLDQ0MTAy
+Njk2M119
 -->
