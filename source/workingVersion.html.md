@@ -501,7 +501,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
 <!--- Roadmap
 Intro
 Services Provided
-login ( authentication request)
+login ( authentication request, request types)
 confirm
 share data
 what specifics
@@ -520,7 +520,7 @@ what specifics
  .
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNjE1MDI1NDQsLTIyODg0NzQwNCwtOD
+eyJoaXN0b3J5IjpbLTE2ODI1NDczMjIsLTIyODg0NzQwNCwtOD
 EwMDc5NjE2LC0xMTE3OTQ4MjkwLC0xMjI1MTk1ODIwLDEzMTIw
 OTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwtMTIyNTE5NT
 gyMCwxMzEyMDkyMjg4LC0xMjI1MTk1ODIwLDEzMTIwOTIyODgs
