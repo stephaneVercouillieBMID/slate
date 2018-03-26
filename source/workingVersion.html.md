@@ -250,7 +250,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  Property | Comment
  -- | --
  **iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID). 
- **sub** | Identity of the user. The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file onboarding file provided by BMID). 
+ **sub** | Identity of the user. The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the on boarding file provided by BMID). 
  **aud** | Must be the token endpoint URL
  **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
  **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
@@ -521,23 +521,23 @@ what specifics
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgyNTgwNzMyOSwtMjI4ODQ3NDA0LC04MT
-AwNzk2MTYsLTExMTc5NDgyOTAsLTEyMjUxOTU4MjAsMTMxMjA5
-MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1OD
-IwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwt
-MTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1ODIwLDEzMT
-IwOTIyODgsLTkyMjI2ODMwMiwtMTk5ODg0OTYwNSwtMTM3MzM5
-NTA5NywyMTM2NjU3Njk4LC0xNjUwMjM2NDY2LDIxMzY2NTc2OT
-gsLTE2NTAyMzY0NjYsMjEzNjY1NzY5OCw5OTc5MzExNzAsLTEx
-Njc4MTU3OCw5OTc5MzExNzAsLTExNjc4MTU3OCw5OTc5MzExNz
-AsMTc0NDQwNzQ0MiwtMTAzODIxNDMzOCwxMjYyMzYxOTgzLDg2
-NzcwODI0MywtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMD
-k3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDky
-OTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MD
-M0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4
-NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OC
-wtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwt
-MTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMT
-Y1MDkyOTk4NCwtMTEzMDk3MDM0OCw0NTcxOTE4NzEsNDQxMDI2
-OTYzXX0=
+eyJoaXN0b3J5IjpbNTE5NTE5NzQyLC0yMjg4NDc0MDQsLTgxMD
+A3OTYxNiwtMTExNzk0ODI5MCwtMTIyNTE5NTgyMCwxMzEyMDky
+Mjg4LC0xMjI1MTk1ODIwLDEzMTIwOTIyODgsLTEyMjUxOTU4Mj
+AsMTMxMjA5MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0x
+MjI1MTk1ODIwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMj
+A5MjI4OCwtOTIyMjY4MzAyLC0xOTk4ODQ5NjA1LC0xMzczMzk1
+MDk3LDIxMzY2NTc2OTgsLTE2NTAyMzY0NjYsMjEzNjY1NzY5OC
+wtMTY1MDIzNjQ2NiwyMTM2NjU3Njk4LDk5NzkzMTE3MCwtMTE2
+NzgxNTc4LDk5NzkzMTE3MCwtMTE2NzgxNTc4LDk5NzkzMTE3MC
+wxNzQ0NDA3NDQyLC0xMDM4MjE0MzM4LDEyNjIzNjE5ODMsODY3
+NzA4MjQzLC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOT
+cwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5
+OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMz
+Q4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0
+LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC
+0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0x
+MTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNj
+UwOTI5OTg0LC0xMTMwOTcwMzQ4LDQ1NzE5MTg3MSw0NDEwMjY5
+NjNdfQ==
 -->
