@@ -58,7 +58,7 @@
  **E-ID picture** | Picture taken from the National eID Card in low-resolution.
  **E-ID Metadata** | See [E-ID Metadata Information](#e-id-info)
  
- #### <a name="e-id-info"></a>E-ID Metadata Information
+ ##### <a name="e-id-info"></a>E-ID Metadata Information
  Provides some information about the eID card readout related to the identity data provided by **itsme(r)**.
  
  Data | Definition
@@ -70,20 +70,20 @@
  **Certificate Validity** | the certificate validity.
  **Read Date** | the data extraction date.
  
- ### Commercial Data
+ #### Commercial Data
  
  Data | Definition
  -- | --
  **Phone Number** | Verified phone number associated to the **itsme(r)** user account.  
  **E-Mail Address** | E-Mail address. Not Verified. itsme(r) does not yet make use of email .
  
- ### Security Data
+ #### Security Data
  
  Data | Definition
  -- | --
  **Device** | Information about the end user device. See [Device Information](#device-information)
  
- #### <a name="device-information"></a>Device Information 
+ ##### <a name="device-information"></a>Device Information 
  
  Data | Definition
  -- | -- 
@@ -529,7 +529,7 @@ FAQ
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQwMjIwMTA2OCwtMjI4ODQ3NDA0LC04MT
+eyJoaXN0b3J5IjpbLTk4NjE0NTg2MiwtMjI4ODQ3NDA0LC04MT
 AwNzk2MTYsLTExMTc5NDgyOTAsLTEyMjUxOTU4MjAsMTMxMjA5
 MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1OD
 IwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwt
