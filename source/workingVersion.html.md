@@ -426,7 +426,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  
  Property | Required | Comment
  -- | -- | --
- **iss** | Required | Issuer. Must be the `client_id`
+ **iss** | Required | Specifies the issuing authority. Must be the `client_id`
  **aud** | Required | Audience. Possible token end-point URLs:<br>https://merchant.itsme.be/oidc/token<br>https://e2emerchant.itsme.be/oidc/token<br>https://uatmerchant.sixdots.be/oidc/token
  
  > Example of claim request before base64url encoding, signing and encryption. In this example, the partners is using the login service. The end user email and nationality will be returned by the UserInfo endpoint.
@@ -521,7 +521,7 @@ what specifics
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTE5NTE5NzQyLC0yMjg4NDc0MDQsLTgxMD
+eyJoaXN0b3J5IjpbMTE5OTc4NzYyLC0yMjg4NDc0MDQsLTgxMD
 A3OTYxNiwtMTExNzk0ODI5MCwtMTIyNTE5NTgyMCwxMzEyMDky
 Mjg4LC0xMjI1MTk1ODIwLDEzMTIwOTIyODgsLTEyMjUxOTU4Mj
 AsMTMxMjA5MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0x
