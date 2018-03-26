@@ -328,6 +328,8 @@ For example, assuming that one SP would like to use login as an itsme(r) service
 As per OpenID Connect specification, scopes can be used to request that specific sets of information be made available as Claim Values in UserInfo Token.
  
 In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims requested via scope as **Essential** (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)). It means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, as in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims, you should already request claims with appropriate level regarding your business case. 
+
+There are two ways to request a 
  
  The following values for **scope** allow access to predefined sets of Identity Data:
 
@@ -525,7 +527,7 @@ FAQ
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg2OTIxMzU1MywtMjI4ODQ3NDA0LC04MT
+eyJoaXN0b3J5IjpbMTYzMjU2NTgzMiwtMjI4ODQ3NDA0LC04MT
 AwNzk2MTYsLTExMTc5NDgyOTAsLTEyMjUxOTU4MjAsMTMxMjA5
 MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1OD
 IwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwt
