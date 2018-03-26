@@ -331,8 +331,8 @@ In current version and in contradiction to the OpenID Connect specification, **i
 
 You can request claims in two ways:
 
-  An entire claims category by its  `scope`  value (see the table below for the scope value to claim mappings)
--   Individually, with the optional  [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter.
+  1. An entire claims category by its  `scope`  value (see the table below for the scope value to claim mappings)
+ 2.  Individually, with the optional  [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter.
  
  The following values for **scope** allow access to predefined sets of Identity Data:
 
@@ -348,7 +348,7 @@ You can request claims in two ways:
 
 NOTE: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.</aside>
  
- ### <a name="Claims-Request"></a>Requesting Claims using the "claims" Request Parameter
+ ### <a name="Claims-Request"></a>2. Requesting Claims using the "claims" Request Parameter
  We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. Here are these claims:
  
  Data | Claim | Comment
@@ -529,23 +529,23 @@ FAQ
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAwMjYyOTgzMSwtMjI4ODQ3NDA0LC04MT
-AwNzk2MTYsLTExMTc5NDgyOTAsLTEyMjUxOTU4MjAsMTMxMjA5
-MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1OD
-IwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwt
-MTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1ODIwLDEzMT
-IwOTIyODgsLTkyMjI2ODMwMiwtMTk5ODg0OTYwNSwtMTM3MzM5
-NTA5NywyMTM2NjU3Njk4LC0xNjUwMjM2NDY2LDIxMzY2NTc2OT
-gsLTE2NTAyMzY0NjYsMjEzNjY1NzY5OCw5OTc5MzExNzAsLTEx
-Njc4MTU3OCw5OTc5MzExNzAsLTExNjc4MTU3OCw5OTc5MzExNz
-AsMTc0NDQwNzQ0MiwtMTAzODIxNDMzOCwxMjYyMzYxOTgzLDg2
-NzcwODI0MywtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMD
-k3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDky
-OTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MD
-M0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4
-NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OC
-wtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwt
-MTEzMDk3MDM0OCwtMTY1MDkyOTk4NCwtMTEzMDk3MDM0OCwtMT
-Y1MDkyOTk4NCwtMTEzMDk3MDM0OCw0NTcxOTE4NzEsNDQxMDI2
-OTYzXX0=
+eyJoaXN0b3J5IjpbNTMwMzU2ODY3LC0yMjg4NDc0MDQsLTgxMD
+A3OTYxNiwtMTExNzk0ODI5MCwtMTIyNTE5NTgyMCwxMzEyMDky
+Mjg4LC0xMjI1MTk1ODIwLDEzMTIwOTIyODgsLTEyMjUxOTU4Mj
+AsMTMxMjA5MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0x
+MjI1MTk1ODIwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMj
+A5MjI4OCwtOTIyMjY4MzAyLC0xOTk4ODQ5NjA1LC0xMzczMzk1
+MDk3LDIxMzY2NTc2OTgsLTE2NTAyMzY0NjYsMjEzNjY1NzY5OC
+wtMTY1MDIzNjQ2NiwyMTM2NjU3Njk4LDk5NzkzMTE3MCwtMTE2
+NzgxNTc4LDk5NzkzMTE3MCwtMTE2NzgxNTc4LDk5NzkzMTE3MC
+wxNzQ0NDA3NDQyLC0xMDM4MjE0MzM4LDEyNjIzNjE5ODMsODY3
+NzA4MjQzLC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOT
+cwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5
+OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMz
+Q4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0
+LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC
+0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0x
+MTMwOTcwMzQ4LC0xNjUwOTI5OTg0LC0xMTMwOTcwMzQ4LC0xNj
+UwOTI5OTg0LC0xMTMwOTcwMzQ4LDQ1NzE5MTg3MSw0NDEwMjY5
+NjNdfQ==
 -->
