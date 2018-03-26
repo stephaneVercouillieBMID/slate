@@ -523,11 +523,11 @@ what specifics
  .
 identity token
 how to request token
-
+example of how to obtain identity token
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTEzNjkwODYsLTIyODg0NzQwNCwtOD
+eyJoaXN0b3J5IjpbLTIxMTUwOTkxOTgsLTIyODg0NzQwNCwtOD
 EwMDc5NjE2LC0xMTE3OTQ4MjkwLC0xMjI1MTk1ODIwLDEzMTIw
 OTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwtMTIyNTE5NT
 gyMCwxMzEyMDkyMjg4LC0xMjI1MTk1ODIwLDEzMTIwOTIyODgs
