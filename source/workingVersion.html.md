@@ -537,10 +537,10 @@ in mobile browser calls itsme app - direct contact with app using webpage
 
 Web to App
 
-
 Approval (=Confirm) use case
 
-Claims(user info)
+4.User Identification
+4.1.Claims(user info)
 
 Endpoints - Authorisation endpoint - Token endpoint - User info endpoint
 Advanced topics
@@ -550,7 +550,7 @@ FAQ
  
   ----->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcwODkyNTc3NCwtMjI4ODQ3NDA0LC04MT
+eyJoaXN0b3J5IjpbMTk4MDk1MzI2OCwtMjI4ODQ3NDA0LC04MT
 AwNzk2MTYsLTExMTc5NDgyOTAsLTEyMjUxOTU4MjAsMTMxMjA5
 MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1OD
 IwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwt
