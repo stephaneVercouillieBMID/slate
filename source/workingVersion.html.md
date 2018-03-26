@@ -515,7 +515,7 @@ Intro
 2.what is jwt - refer to Stéphane's doc
 when to use
 
-3.Authorisation Request
+Authorisation Request
 2.identity token 
 how to request token
 Create an anti-forgery state token
@@ -534,7 +534,7 @@ FAQ
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg2NTUyMjMxMCwtMjI4ODQ3NDA0LC04MT
+eyJoaXN0b3J5IjpbMTM5ODcxODgxNSwtMjI4ODQ3NDA0LC04MT
 AwNzk2MTYsLTExMTc5NDgyOTAsLTEyMjUxOTU4MjAsMTMxMjA5
 MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1OD
 IwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwt
