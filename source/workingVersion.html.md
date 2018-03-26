@@ -529,8 +529,13 @@ Exchange  `code`  for access token and ID token
 3.2.Obtain user information from the ID token
 
 two ways of initiating transc
+
 App to app (tbd) channel for the end-user 
 1. SP app contacts itsme
+2. Web mobile flow
+in mobile browser calls itsme app - direct contact with app using webpage
+
+
 
 Web to App
 1.
@@ -548,7 +553,7 @@ FAQ
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMwOTAxNjczNCwtMjI4ODQ3NDA0LC04MT
+eyJoaXN0b3J5IjpbMTcwNTEwMDEzNSwtMjI4ODQ3NDA0LC04MT
 AwNzk2MTYsLTExMTc5NDgyOTAsLTEyMjUxOTU4MjAsMTMxMjA5
 MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1OD
 IwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwt
