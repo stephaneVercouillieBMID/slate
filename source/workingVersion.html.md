@@ -250,7 +250,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  Property | Comment
  -- | --
  **iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID). 
- **sub** | The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file onboarding file provided by BMID). 
+ **sub** | Identity of the user. The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file onboarding file provided by BMID). 
  **aud** | Must be the token endpoint URL
  **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
  **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
@@ -518,10 +518,10 @@ what specifics
  Requests Signing and Encryption
  .
  .
- .
+ 
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc2OTM4NDUwMCwtMjI4ODQ3NDA0LC04MT
+eyJoaXN0b3J5IjpbLTgyNTgwNzMyOSwtMjI4ODQ3NDA0LC04MT
 AwNzk2MTYsLTExMTc5NDgyOTAsLTEyMjUxOTU4MjAsMTMxMjA5
 MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1OD
 IwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwt
