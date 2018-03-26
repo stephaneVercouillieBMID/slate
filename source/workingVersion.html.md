@@ -510,8 +510,8 @@ share data
 
 what specifics
 ----
-1.  [Create an anti-forgery state token]
- 2.  [Send an authentication request to itsme]
+
+ 2.  []
 2.  [Confirm the anti-forgery state token]
 3.  [Exchange  `code`  for access token and ID token]
 4.  [Obtain user information from the ID token]
@@ -523,7 +523,10 @@ what specifics
  .
 identity token
 how to request token
-example of how to obtain identity token(authentication)
+Create an anti-forgery state token
+example of how to obtain identity token(authentication)_Send an authentication request to itsme
+Confirm the anti-forgery state token
+Exchange  `code`  for access token and ID token
 app to app / 
 claims(user info)
 Endpoints - Authorisation endpoint - Token endpoint - User info endpoint
@@ -531,23 +534,23 @@ FAQ
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTYwMTUwMzAsLTIyODg0NzQwNCwtOD
-EwMDc5NjE2LC0xMTE3OTQ4MjkwLC0xMjI1MTk1ODIwLDEzMTIw
-OTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwtMTIyNTE5NT
-gyMCwxMzEyMDkyMjg4LC0xMjI1MTk1ODIwLDEzMTIwOTIyODgs
-LTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwtMTIyNTE5NTgyMCwxMz
-EyMDkyMjg4LC05MjIyNjgzMDIsLTE5OTg4NDk2MDUsLTEzNzMz
-OTUwOTcsMjEzNjY1NzY5OCwtMTY1MDIzNjQ2NiwyMTM2NjU3Nj
-k4LC0xNjUwMjM2NDY2LDIxMzY2NTc2OTgsOTk3OTMxMTcwLC0x
-MTY3ODE1NzgsOTk3OTMxMTcwLC0xMTY3ODE1NzgsOTk3OTMxMT
-cwLDE3NDQ0MDc0NDIsLTEwMzgyMTQzMzgsMTI2MjM2MTk4Myw4
-Njc3MDgyNDMsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMz
-A5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5
-Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5Nz
+eyJoaXN0b3J5IjpbMTk3MTU2NzEsLTIyODg0NzQwNCwtODEwMD
+c5NjE2LC0xMTE3OTQ4MjkwLC0xMjI1MTk1ODIwLDEzMTIwOTIy
+ODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwtMTIyNTE5NTgyMC
+wxMzEyMDkyMjg4LC0xMjI1MTk1ODIwLDEzMTIwOTIyODgsLTEy
+MjUxOTU4MjAsMTMxMjA5MjI4OCwtMTIyNTE5NTgyMCwxMzEyMD
+kyMjg4LC05MjIyNjgzMDIsLTE5OTg4NDk2MDUsLTEzNzMzOTUw
+OTcsMjEzNjY1NzY5OCwtMTY1MDIzNjQ2NiwyMTM2NjU3Njk4LC
+0xNjUwMjM2NDY2LDIxMzY2NTc2OTgsOTk3OTMxMTcwLC0xMTY3
+ODE1NzgsOTk3OTMxMTcwLC0xMTY3ODE1NzgsOTk3OTMxMTcwLD
+E3NDQ0MDc0NDIsLTEwMzgyMTQzMzgsMTI2MjM2MTk4Myw4Njc3
+MDgyNDMsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5Nz
 AzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5
 ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzND
 gsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQs
 LTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLT
-E2NTA5Mjk5ODQsLTExMzA5NzAzNDgsNDU3MTkxODcxLDQ0MTAy
-Njk2M119
+E2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTEx
+MzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NT
+A5Mjk5ODQsLTExMzA5NzAzNDgsNDU3MTkxODcxLDQ0MTAyNjk2
+M119
 -->
