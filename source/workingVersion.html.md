@@ -490,7 +490,7 @@ NOTE: Any claim requested by using the scope value can only be obtained from the
  
      https://merchant.itsme.be/oidc/jwkSet
  
- It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
+ It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
  
  
  
@@ -529,7 +529,7 @@ FAQ
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTg4MjEwNTAsLTIyODg0NzQwNCwtOD
+eyJoaXN0b3J5IjpbLTE2MzE4MDMzODEsLTIyODg0NzQwNCwtOD
 EwMDc5NjE2LC0xMTE3OTQ4MjkwLC0xMjI1MTk1ODIwLDEzMTIw
 OTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwtMTIyNTE5NT
 gyMCwxMzEyMDkyMjg4LC0xMjI1MTk1ODIwLDEzMTIwOTIyODgs
