@@ -249,7 +249,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  
  Property | Comment
  -- | --
- **iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID). 
+ **iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID). The iss value is a case sensitive URL using the https scheme that contains scheme, host, and optionally, port number and path components and no query or fragment components.
  **sub** | Identity of the user. The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the on boarding file provided by BMID). 
  **aud** | Audience for the id_token. Must be the token endpoint URL
  **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
@@ -524,23 +524,23 @@ what specifics
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MDA0NTY5NDgsLTIyODg0NzQwNCwtOD
-EwMDc5NjE2LC0xMTE3OTQ4MjkwLC0xMjI1MTk1ODIwLDEzMTIw
-OTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwtMTIyNTE5NT
-gyMCwxMzEyMDkyMjg4LC0xMjI1MTk1ODIwLDEzMTIwOTIyODgs
-LTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwtMTIyNTE5NTgyMCwxMz
-EyMDkyMjg4LC05MjIyNjgzMDIsLTE5OTg4NDk2MDUsLTEzNzMz
-OTUwOTcsMjEzNjY1NzY5OCwtMTY1MDIzNjQ2NiwyMTM2NjU3Nj
-k4LC0xNjUwMjM2NDY2LDIxMzY2NTc2OTgsOTk3OTMxMTcwLC0x
-MTY3ODE1NzgsOTk3OTMxMTcwLC0xMTY3ODE1NzgsOTk3OTMxMT
-cwLDE3NDQ0MDc0NDIsLTEwMzgyMTQzMzgsMTI2MjM2MTk4Myw4
-Njc3MDgyNDMsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMz
-A5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5
-Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5Nz
+eyJoaXN0b3J5IjpbNzc2OTMwOTAsLTIyODg0NzQwNCwtODEwMD
+c5NjE2LC0xMTE3OTQ4MjkwLC0xMjI1MTk1ODIwLDEzMTIwOTIy
+ODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwtMTIyNTE5NTgyMC
+wxMzEyMDkyMjg4LC0xMjI1MTk1ODIwLDEzMTIwOTIyODgsLTEy
+MjUxOTU4MjAsMTMxMjA5MjI4OCwtMTIyNTE5NTgyMCwxMzEyMD
+kyMjg4LC05MjIyNjgzMDIsLTE5OTg4NDk2MDUsLTEzNzMzOTUw
+OTcsMjEzNjY1NzY5OCwtMTY1MDIzNjQ2NiwyMTM2NjU3Njk4LC
+0xNjUwMjM2NDY2LDIxMzY2NTc2OTgsOTk3OTMxMTcwLC0xMTY3
+ODE1NzgsOTk3OTMxMTcwLC0xMTY3ODE1NzgsOTk3OTMxMTcwLD
+E3NDQ0MDc0NDIsLTEwMzgyMTQzMzgsMTI2MjM2MTk4Myw4Njc3
+MDgyNDMsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5Nz
 AzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5
 ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzND
 gsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQs
 LTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLT
-E2NTA5Mjk5ODQsLTExMzA5NzAzNDgsNDU3MTkxODcxLDQ0MTAy
-Njk2M119
+E2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTEx
+MzA5NzAzNDgsLTE2NTA5Mjk5ODQsLTExMzA5NzAzNDgsLTE2NT
+A5Mjk5ODQsLTExMzA5NzAzNDgsNDU3MTkxODcxLDQ0MTAyNjk2
+M119
 -->
