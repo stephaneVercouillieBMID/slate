@@ -511,6 +511,9 @@ Intro
 1.1-login ( authentication request, request types)
 1.2-confirm
 1.3-share data
+
+OpenID 
+
 2.identity token
 how to request token
 Create an anti-forgery state token
@@ -529,7 +532,7 @@ FAQ
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1OTc0MzQ0OSwtMjI4ODQ3NDA0LC04MT
+eyJoaXN0b3J5IjpbLTk5NzE2NDg5MiwtMjI4ODQ3NDA0LC04MT
 AwNzk2MTYsLTExMTc5NDgyOTAsLTEyMjUxOTU4MjAsMTMxMjA5
 MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1OD
 IwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwt
