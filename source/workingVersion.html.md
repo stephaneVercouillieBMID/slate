@@ -319,7 +319,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  }
  ```
  
- ## <a name="Claims-Scope"></a>Requesting Claims using Scope Values
+ ## <a name="Claims-Scope"></a>Claims (User Inf
  
  <aside class="notice"><bold>Note</bold>: itsme(r) won't deliver any <a href="http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims">aggregated nor distributed claims</a> in the current version.</aside>
  
@@ -521,7 +521,7 @@ what specifics
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5OTc4NzYyLC0yMjg4NDc0MDQsLTgxMD
+eyJoaXN0b3J5IjpbNTg0MjYzMTQxLC0yMjg4NDc0MDQsLTgxMD
 A3OTYxNiwtMTExNzk0ODI5MCwtMTIyNTE5NTgyMCwxMzEyMDky
 Mjg4LC0xMjI1MTk1ODIwLDEzMTIwOTIyODgsLTEyMjUxOTU4Mj
 AsMTMxMjA5MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0x
