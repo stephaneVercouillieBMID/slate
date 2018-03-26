@@ -512,9 +512,10 @@ Intro
 1.2-confirm
 1.3-share data
 
-2.What is jwt - refer to Stéphane's doc
+What is jwt - refer to Stéphane's doc
 When to use
 details...
+OpenID
 
 2.identity token 
 how to request token
@@ -527,7 +528,7 @@ Exchange  `code`  for access token and ID token
 3.1.Authorisation Request
 3.2.Obtain user information from the ID token
 
-App to app (tbd) / Approval (Confirm)
+App to app (tbd) / Approval (=Confirm) use cade
 Claims(user info)
 
 Endpoints - Authorisation endpoint - Token endpoint - User info endpoint
@@ -538,7 +539,7 @@ FAQ
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MTQwNDQ0MTQsLTIyODg0NzQwNCwtOD
+eyJoaXN0b3J5IjpbLTE4MjI1MzU2NjAsLTIyODg0NzQwNCwtOD
 EwMDc5NjE2LC0xMTE3OTQ4MjkwLC0xMjI1MTk1ODIwLDEzMTIw
 OTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwtMTIyNTE5NT
 gyMCwxMzEyMDkyMjg4LC0xMjI1MTk1ODIwLDEzMTIwOTIyODgs
