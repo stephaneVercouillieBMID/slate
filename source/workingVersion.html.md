@@ -507,11 +507,11 @@ NOTE: Any claim requested by using the scope value can only be obtained from the
 
 <!--- Roadmap
 Intro
-Services Provided
-login ( authentication request, request types)
-confirm
-share data
-identity token
+1.Services Provided
+1.1-login ( authentication request, request types)
+1.2-confirm
+1.3-share data
+2.identity token
 how to request token
 Create an anti-forgery state token
 example of how to obtain identity token(authentication)_Send an authentication request to itsme
@@ -529,7 +529,7 @@ FAQ
  
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk4NjE0NTg2MiwtMjI4ODQ3NDA0LC04MT
+eyJoaXN0b3J5IjpbMTk1OTc0MzQ0OSwtMjI4ODQ3NDA0LC04MT
 AwNzk2MTYsLTExMTc5NDgyOTAsLTEyMjUxOTU4MjAsMTMxMjA5
 MjI4OCwtMTIyNTE5NTgyMCwxMzEyMDkyMjg4LC0xMjI1MTk1OD
 IwLDEzMTIwOTIyODgsLTEyMjUxOTU4MjAsMTMxMjA5MjI4OCwt
