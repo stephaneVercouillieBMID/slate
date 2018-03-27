@@ -363,7 +363,7 @@ You can request claims in two ways:
 
  ### Individually, with the optional  [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter.
  
-  #### <a name="Requesting Claims using Scope Values"></a> Requesting Claims using Scope Values
+  #### <a name="RCBSV"></a> Requesting Claims using Scope Values
  An entire claims category by its  `scope`  value (see the table below for the scope value to claim mappings)
 The following values for **scope** allow access to predefined sets of Identity Data:
 
@@ -591,5 +591,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk4NTUxMDQwOV19
+eyJoaXN0b3J5IjpbMTc1MTE3MDIzXX0=
 -->
