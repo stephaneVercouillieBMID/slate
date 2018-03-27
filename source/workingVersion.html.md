@@ -72,7 +72,7 @@ itsme(r) offers following services,
  -- | --
  **Device** | Information about the end user device. See [Device Information](#device-information)
  
- ##### <a name="device-information"></a>Device Information 
+ #### <a name="device-information"></a>Device Information 
  
  Data | Definition
  -- | -- 
@@ -546,5 +546,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyMzI2MjAyNl19
+eyJoaXN0b3J5IjpbMTM0Mjc5NDA3XX0=
 -->
