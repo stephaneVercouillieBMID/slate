@@ -138,14 +138,14 @@ To be able to use an itsme service (such as login, confirm, sign, share data) yo
 
 For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
  
- # Authenticating the User
+ # Us
  
  **itsme(r) Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
   
  The Authorization Code Flow goes through the following steps as defined in  [http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps)
  
  ## Authentication Request
- As per the [OpenID Connect Specification Authentication Request](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) (http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
+ As per the [**OpenID Connect Specification Authentication Request**](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) (http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
  
  The first step is forming an HTTPS request with the appropriate URI parameters. Please nNote the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
  
@@ -546,5 +546,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODU4Nzk4ODQ2XX0=
+eyJoaXN0b3J5IjpbMTc5MTczMjE2NF19
 -->
