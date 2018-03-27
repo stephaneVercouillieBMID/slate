@@ -145,8 +145,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  The Authorization Code Flow goes through the following steps as defined in  [http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps)
  
  ## Authentication Request
- As per the  [**OpenID Connect Specification Authentication Request**](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and 
-[http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
+ As per the  [**OpenID Connect Specification Authentication Request**](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [**OpenID Connect Specification Authorization Endpoint**](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
  
  
 
@@ -550,5 +549,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgyMDMzNTk4Ml19
+eyJoaXN0b3J5IjpbLTE1NzMzNjEwODNdfQ==
 -->
