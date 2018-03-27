@@ -168,12 +168,14 @@ HTTP  `GET`calls will be refused for approval OIDC requests. This is because in 
 5.  Parameters encoded in the `request object` have priority over the same parameters put as a`GET`  query parameter. If not explicitly required by the OIDC protocol, it is mandatory to put the corresponding parameter inside the `request object` instead of putting it as a simple form parameter (because the request object is signed and encrypted).
 6.  Each form parameter that is eligible to be present in the request object MUST also be encoded in the request object itself (because signed and encrypted).
 7.  Only service codes corresponding to a pre-registered “Approval” kind of service MUST be used in the ‘service’ scope parameter. Be sure this service was already created in the system during partner onboarding.
-8.  The “prompt” parameter can be “login” and/or “consent”.
+8.  The `prompt` parameter can be `login` and/or `consent`.
 
 ##### [](https://github.com/belgianmobileid/slate/blob/master/source/minorAlterations.md#differences-in-the-token-end-point-oidctoken)Differences in the Token End Point (“/oidc/token”)
 
-1.  The Token end point MUST ALWAYS be called to validate that the authorization code received from the browser is a valid one and corresponds effectively to the approval transaction initiated by the SP.
-2.  Then, the received IDToken MUST ALWAYS be validated by the SP as follow: a. Correctly unencrypted using the SP private key. b. The signature is effectively the one of the itsme(r) OP. c. The possibly embedded “nonce” value is the same as the one existing in the authorization request (if specified by the SP). d. If the user is already logged in the SP and, it is required that it is this user that validated the transaction, then the user identifier (sub value) must match the one of the currently logged user in the SP.
+1.  The Token end point MUST ALWAYS be called to validate that the authorization code received from the browser is a valid one and corresponds effectively to the approval transaction initiated by the SP. 
+
+2.  Then, the received IDToken MUST ALWAYS be validated by the SP as follow: 
+a. Correctly unencrypted using the SP private key. b. The signature is effectively the one of the itsme(r) OP. c. The possibly embedded “nonce” value is the same as the one existing in the authorization request (if specified by the SP). d. If the user is already logged in the SP and, it is required that it is this user that validated the transaction, then the user identifier (sub value) must match the one of the currently logged user in the SP.
 
 ##### [](https://github.com/belgianmobileid/slate/blob/master/source/minorAlterations.md#differences-in-the-user-info-end-point-oidcuserinfo)Differences in the User Info End Point (“/oidc/userinfo”)
 
@@ -578,5 +580,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk2NjM3MzUzN119
+eyJoaXN0b3J5IjpbMjA5ODE2MjYxOF19
 -->
