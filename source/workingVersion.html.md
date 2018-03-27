@@ -359,14 +359,12 @@ You can request claims in two ways:
 1. [Requesting Claims Using Scope Values](#RCBSV)
 2. [Requesting Claims using the "claims" Request Parameter](#RCBRP)
 
- ### Individually, with the optional  [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter.
  
   #### <a name="RCBSV"></a> Requesting Claims using Scope Values
 In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims requested via scope as **Essential** (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)).
 
  It means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, as in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims, you should already request claims with appropriate level regarding your business case. 
  
-An entire claims category by its  `scope`  value (see the table below for the 
 The following values for **scope** allow access to predefined sets of Identity Data:
 
 Scope  | Data| Claim
@@ -379,12 +377,11 @@ Scope  | Data| Claim
  | **`phone`** | Phone number |`phone_number` or `phone_number_verified`<br>| 
  **`address`** | Address | `address`, with following subfields: `street_address` (newline separator \\n), `locality`, `postal_code`, `country`
 
-
  <aside class="notice">
 
-NOTE: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.</aside>
+**NOTE: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.</aside>**
  
- ### <a name="Claims-Request"></a>Requesting Claims using the "claims" Request Parameter
+ ####<a name="Claims-Request"></a>Requesting Claims using the "claims" Request Parameter
  We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. Here are these claims:
  
  Data | Claim | Comment
@@ -593,5 +590,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYzNjU5NDM0NV19
+eyJoaXN0b3J5IjpbLTEyMTE2MDI4MzZdfQ==
 -->
