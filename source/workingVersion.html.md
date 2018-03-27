@@ -155,7 +155,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
   
  The Authorization Code Flow goes through the following steps as defined in  [http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps)
  
- ## 1. Authentication Request
+ ## Authentication Request
  As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
  
  The first step is forming an HTTPS request with the appropriate URI parameters. Please nNote the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
@@ -231,7 +231,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  
  
  
- ## 2. Token Request
+ ## Token Request
  
  As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest
  
@@ -284,7 +284,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse](http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse)
  
  # Requesting User Data
- ## 3. UserInfo Request
+ ## UserInfo Request
  
  As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
  
@@ -348,7 +348,7 @@ You can request claims in two ways:
 
 NOTE: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.</aside>
  
- ### <a name="Claims-Request"></a>2. Requesting Claims using the "claims" Request Parameter
+ ### <a name="Claims-Request"></a>Requesting Claims using the "claims" Request Parameter
  We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. Here are these claims:
  
  Data | Claim | Comment
@@ -557,5 +557,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM1Mjk3OTM1MV19
+eyJoaXN0b3J5IjpbMjAxOTk5MzkxNV19
 -->
