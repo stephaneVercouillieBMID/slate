@@ -359,7 +359,8 @@ As per OpenID Connect specification, scopes can be used to request that specific
  It means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, as in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims, you should already request claims with appropriate level regarding your business case. 
 
 You can request claims in two ways:
-[Requesting Claims Using Scope Values](#RCBSV)
+1. [Requesting Claims Using Scope Values](#RCBSV)
+2. [Requesting Claims using the "claims" Request Parameter](#RCBRV)
 
  ### Individually, with the optional  [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter.
  
@@ -591,5 +592,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1MTE3MDIzXX0=
+eyJoaXN0b3J5IjpbMTU2MTMyMzAxM119
 -->
