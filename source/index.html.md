@@ -7,7 +7,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 toc_footers:
  <!-- - <a href='#'>Sign Up for a Developer Key</a> -->
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+  - <a href='https://github.com/louéSlate</a>
 
 search: true
 ---
@@ -475,7 +475,7 @@ It is expected that the RP will also expose their signing and encryption keys in
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTY4NjIyMDc3LDUwNDc5MDE3OCw1Njg2Mj
+eyJoaXN0b3J5IjpbNzYwNzM1MzgzLDUwNDc5MDE3OCw1Njg2Mj
 IwNzcsLTE1MDk1Njc5OTQsMzMxMjY5OTc0LC0xNTA5NTY3OTk0
 LDMzMTI2OTk3NCwtMTUwOTU2Nzk5NCwzMzEyNjk5NzQsLTE1MD
 k1Njc5OTQsMzMxMjY5OTc0LDE3ODA5MTE3OCwtNDQ4MTM4OTE4
