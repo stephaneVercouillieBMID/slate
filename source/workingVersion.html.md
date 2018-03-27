@@ -145,10 +145,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  The Authorization Code Flow goes through the following steps as defined in  [http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps)
  
  ## Authentication Request
- As per the [**OpenID Connect Specification Authentication Request**](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) (http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
+ As per the  #### [**OpenID Connect Specification Authentication Request**](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and 
+[http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
  
  
- ### [**itsme®Login**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/login-with-itsme)
+
  
  The first step is forming an HTTPS request with the appropriate URI parameters. Please nNote the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
  
@@ -549,5 +550,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg2NTY2NzU2NV19
+eyJoaXN0b3J5IjpbNjE2Mjg1MjIwXX0=
 -->
