@@ -140,7 +140,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  
  # User Authentication
  
-## **itsme(r) Login** 
+## **itsme(r) Login Specifics** 
 itsme(r) Login is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
   
  The Authorization Code Flow goes through the following steps as defined in [OpenID Connect Core Authorization Code Flow Steps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps).
@@ -584,5 +584,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTA0MzQyNDhdfQ==
+eyJoaXN0b3J5IjpbLTE5Mzc1MjUxNjFdfQ==
 -->
