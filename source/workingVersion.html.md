@@ -138,7 +138,7 @@ To be able to use an itsme service (such as login, confirm, sign, share data) yo
 
 For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
  
- # User Authentication
+ # Authenticating the User
  
  **itsme(r) Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
   
@@ -148,9 +148,8 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  As per the  [**OpenID Connect Specification Authentication Request**](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [**OpenID Connect Specification Authorization Endpoint**](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
  
  
-
  
- The first step is forming an HTTPS request with the appropriate URI parameters. Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are **refused**. You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
+ The first step is forming an HTTPS request with the appropriate URI parameters. Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
  
  **itsme(r)** supports the use of the HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters must be serialized using [Form Serialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization).
  
@@ -549,5 +548,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzMzNjEwODNdfQ==
+eyJoaXN0b3J5IjpbNDEwOTcxMjYwXX0=
 -->
