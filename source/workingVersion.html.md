@@ -176,7 +176,9 @@ HTTP  `GET`calls will be refused for approval OIDC requests. This is because in 
 
 2.  Then, the received IDToken MUST ALWAYS be validated by the SP as follow: 
 a. Correctly un-encrypted using the SP private key. 
-b. The signature is effectively the one of the itsme(r) OP. c. The possibly embedded `nonce` value is the same as the one existing in the authorisation request (if specified by the SP). d. If the user is already logged in the SP and, it is required that it is this user that validated the transaction, then the user identifier (sub value) must match the one of the currently logged user in the SP.
+b. The signature is effectively the one of the itsme(r) OP. 
+c. The possibly embedded `nonce` value is the same as the one existing in the authorisation request (if specified by the SP). 
+d. If the user is already logged in the SP and, it is required that it is this user that validated the transaction, then the user identifier (sub value) must match the one of the currently logged user in the SP.
 
 ##### [](https://github.com/belgianmobileid/slate/blob/master/source/minorAlterations.md#differences-in-the-user-info-end-point-oidcuserinfo)Differences in the User Info End Point (“/oidc/userinfo”)
 
@@ -581,5 +583,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM3NDg0NDI5M119
+eyJoaXN0b3J5IjpbLTU1OTczMjk1MV19
 -->
