@@ -161,7 +161,8 @@ You should retrieve the base URI from the [Discovery document](https://merchant.
 > “application/x-www-form-urlencoded” 
 
 HTTP  `GET`calls will be refused for approval OIDC requests. This is because in case of an approval action, the Authorization request can contain sensitive data.
-2.  Using the “request object” parameter is mandatory (parameter “request” in the authorization request query string).
+
+2.  Using the `request object` parameter is mandatory (parameter `request` in the authorisation request query string).
 3.  The “request object” MUST be signed and encrypted by the service provider. Signed, using his private signing key and, encrypted using the itsme(r) OP public encryption key. The later can be found, of course, in the OP JWKSet JSON file.
 4.  Parameters encoded in the “request object” have priority over the same parameters put as a`GET`  query parameter. If not explicitly required by the OIDC protocol, it is mandatory to put the corresponding parameter inside the “request object” instead of putting it as a simple form parameter (because the request object is signed and encrypted).
 5.  Each form parameter that is eligible to be present in the request object MUST also be encoded in the request object itself (because signed and encrypted).
@@ -576,5 +577,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MTk5NTA5OTldfQ==
+eyJoaXN0b3J5IjpbLTExNTA4NjgyOTZdfQ==
 -->
