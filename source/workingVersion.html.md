@@ -365,7 +365,7 @@ You can request claims in two ways:
  
  The following values for **scope** allow access to predefined sets of Identity Data:
 
- | Claim| Data
+Scope  | Data| Claim
  -- | -- | --
  **`profile`** |given\_name <br> family\_name <br> name <br> gender <br>birthdate <br> locale | `name` and `given_name` and `family_name` 
  | **`email`** | email<br> email_verified<br>| `gender`
@@ -586,5 +586,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI0MTI4ODg4M119
+eyJoaXN0b3J5IjpbLTE3ODA3MzY5NTddfQ==
 -->
