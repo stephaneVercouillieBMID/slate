@@ -381,7 +381,10 @@ Scope  | Data| Claim
 
 **NOTE: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.</aside>**
  
- ####<a name="Claims-Request"></a>Requesting Claims using the "claims" Request Parameter
+ #### <a name="Claims-Request"></a>Requesting Claims using the "claims" Request Parameter
+ 
+ Individually, with the optional  [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter.
+ 
  We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. Here are these claims:
  
  Data | Claim | Comment
@@ -440,7 +443,7 @@ Scope  | Data| Claim
  }
  ```
  
- ## Unsupported Standard Claims
+ ### Unsupported Standard Claims
  The following standard claims (check http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) won’t be provided if requested: 
  
   - `middle_name` 
@@ -540,55 +543,8 @@ Scope  | Data| Claim
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 
-<!--- Roadmap
-Intro
-1.Services Provided
-1.1-login ( authentication request, request types)
-1.2-confirm
-1.3-share data
 
-What is jwt - refer to Stéphane's doc
-When to use
-details...
-OpenID
-
-2.identity token 
-how to request token
-Create an anti-forgery state token
-example of how to obtain identity token(authentication)_Send an authentication request to itsme
-Confirm the anti-forgery state token
-Exchange  `code`  for access token and ID token
-
-3.Authenticate the user
-3.1.Authorisation Request
-3.2.Obtain user information from the ID token
-
-two ways of initiating transc
-
-App to app (tbd) channel for the end-user 
-1. SP app contacts itsme
-2. Web mobile flow
-in mobile browser calls itsme app - direct contact with app using webpage
-
-Web to App
-
-Approval (=Confirm) use case
-
-4.User Identification
-4.1.Claims(user info)
-
-Endpoints - 
-Authorisation endpoint Authorisation
- Token endpoint - Token
- User info endpoint - User info
- 
-Advanced topics
- Passing Request Parameters as JWTs
-  Requests Signing and Encryption 
-FAQ
- 
-  ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMTE2MDI4MzZdfQ==
+eyJoaXN0b3J5IjpbMTExMDI5OTQyN119
 -->
