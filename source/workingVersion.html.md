@@ -20,16 +20,11 @@
  This documentation describes our OAuth 2.0 implementation of **itsme® Login** and **itsme(r) Approval**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications.
  
  
- [**itsme®Login**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/login-with-itsme)
+## [**itsme®Login**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/login-with-itsme)
  
  ## [**itsme®Confirm**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/confirm-with-itsme)
  
- ## Share Data
- 
- If purpose of use is stated during the on-boarding process and consent is provided by the End-User during Authentication, end user data can be shared with your application.
- 
- Data is currently shared only during Login or Approval. Off-line access to User information is not authorised.
- 
+ ## [**itsme®Shared Data**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/shared-data)
  The following sets of Data are available:
  
  - **Verified Identity Data**: identity information retrieved from the National eID Card 
@@ -553,5 +548,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5OTcxNjg3OTRdfQ==
+eyJoaXN0b3J5IjpbLTE0NzAzNDk1ODddfQ==
 -->
