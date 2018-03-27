@@ -156,7 +156,11 @@ You should retrieve the base URI from the [Discovery document](https://merchant.
 
 ##### [](https://github.com/belgianmobileid/slate/blob/master/source/minorAlterations.md#differences-in-the-authentication-end-point-oidcauthorization)Differences in the Authentication End Point (“oidc/authorization”)
 
-1.  Authorization queries MUST be communicated using HTTP  `POST`  protocol ONLY using “application/x-www-form-urlencoded” media type. HTTP  `GET`calls will be refused for approval OIDC requests. This is because in case of an approval action, the Authorization request can contain sensitive data.
+1.  Authorization queries MUST be communicated using HTTP  `POST`  protocol ONLY using the following media type,
+
+> “application/x-www-form-urlencoded” 
+
+HTTP  `GET`calls will be refused for approval OIDC requests. This is because in case of an approval action, the Authorization request can contain sensitive data.
 2.  Using the “request object” parameter is mandatory (parameter “request” in the authorization request query string).
 3.  The “request object” MUST be signed and encrypted by the service provider. Signed, using his private signing key and, encrypted using the itsme(r) OP public encryption key. The later can be found, of course, in the OP JWKSet JSON file.
 4.  Parameters encoded in the “request object” have priority over the same parameters put as a`GET`  query parameter. If not explicitly required by the OIDC protocol, it is mandatory to put the corresponding parameter inside the “request object” instead of putting it as a simple form parameter (because the request object is signed and encrypted).
@@ -572,5 +576,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQzODA2ODAyNV19
+eyJoaXN0b3J5IjpbLTE0MTk5NTA5OTldfQ==
 -->
