@@ -368,8 +368,8 @@ You can request claims in two ways:
 Scope  | Data| Claim
  -- | -- | --
  **`profile`** |Full name| `name` and `given_name` and `family_name`
- <br>  |Gender| `gender`<br> Birthdate|<br> Language | `gender`
- | **`email`** | email| <br> email_verified<br>| `gender`
+ <br>  |Gender| `gender`<br> |Birthdate|<br> Language | `gender`
+ | **`email`** | Email Adress | <br> `email` and `email_verified`<br>| `gender`
  | **`phone`** | Phone number |`phone_number` or `phone_number_verified`<br>| 
  **`address`** | Address | `address`, with following subfields: `street_address` (newline separator \\n), `locality`, `postal_code`, `country`
 
@@ -587,5 +587,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3Nzc1ODY0NDldfQ==
+eyJoaXN0b3J5IjpbMTc3MjY0ODE5Ml19
 -->
