@@ -19,7 +19,7 @@
  
  This documentation describes our OAuth 2.0 implementation of **itsme® Login** and **itsme(r) Confirm**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications.
  
- 
+ The services that i
 ## [**itsme®Login**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/login-with-itsme)
  
  ## [**itsme®Confirm**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/confirm-with-itsme)
@@ -548,5 +548,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTM2OTg4MjM2XX0=
+eyJoaXN0b3J5IjpbMTQwOTkyMzQ0M119
 -->
