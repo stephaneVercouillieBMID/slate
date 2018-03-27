@@ -23,75 +23,6 @@ itsme(r) offers following services,
 ### [**itsme®Login**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/login-with-itsme)
 ### [**itsme®Confirm**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/confirm-with-itsme)
  ### [**itsme®Shared Data**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/shared-data)
- The following sets of Data are available:
- 
- - **Verified Identity Data**: identity information retrieved from the National eID Card 
- - **Commercial Information**: information provided by the end-user 
- - **Security Information**: information retrieved during execution of the service that could impact security level of the transaction. 
- 
- #### Verified Identity Data
- 
- The user identity data provided by **itsme®** are Data coming from the National eID Card. These datas are provided to **itsme®** during user enrolment either directly from a card readout or indirectly through an Identity Registrar (IDR) having a strong identity verification process (e.g. face-to-face KYC with eID readout)  in-place.  
- 
- Data | Definition
- -- | --
- **Full Name** | Full name is a concatenation of firstname, middlenames and lastname.
- **Date of birth** | Birthdate 
- **Place of birth** | Place of birth. ***Note**: this information can be localized* 
- **Gender** | Gender
- **Language** | Language
- **Nationality** | Nationality
- **Address** | Address containing street, street number, postal box, locality, postal code and country
- **Passport Number** | Passport Number
- **NRN** | National Registry Number
- **E-ID picture** | Picture taken from the National eID Card in low-resolution.
- **E-ID Metadata** | See [E-ID Metadata Information](#e-id-info)
- 
- #### <a name="e-id-info"></a>E-ID Metadata Information
- Provides some information about the eID card readout related to the identity data provided by **itsme(r)**.
- 
- Data | Definition
- -- | -- 
- **eID Serial Number** | the electronic ID card serial number.
- **issuance_locality** | the issuance locality.
- **Validity from** | eID card validity “from” date.
- **Validity to** | eID card validity “to” date.
- **Certificate Validity** | the certificate validity.
- **Read Date** | the data extraction date.
- 
- #### Commercial Data
- 
- Data | Definition
- -- | --
- **Phone Number** | Verified phone number associated to the **itsme(r)** user account.  
- **E-Mail Address** | E-Mail address. Not Verified. itsme(r) does not yet make use of email .
- 
- #### Security Data
- 
- Data | Definition
- -- | --
- **Device** | Information about the end user device. See [Device Information](#device-information)
- 
- #### <a name="device-information"></a>Device Information 
- 
- Data | Definition
- -- | -- 
- **OS** | the device operating system (supported values: {`ANDROID`, `IOS`})
- **Device Identifier** | Device identifier.
- **Application Name** | Application name.
- **Application Release** | Application current release.
- **Device Label** | Name of the device.
- **Debug Enabled** | True if debug mode is activated.
- **OS Release** | Version of the OS running on your Device.
- **Manufacturer** | Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android). 
- **SIM Enabled** | True if there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing **itsme(r)** on a tablet.
- **Lock Level** | The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.
- **SMS Enabled** | True if can send SMS. On iOS, this means it’s an iPhone. 
- **Rooted** | True if the device is jailbreaked/rooted.
- **IMEI** | Device IMEI value.
- **Model** | Model of the Device. e.g. SAMSUNG GALAXY A5
- **MSISDN** | User’s phone number. 
- **SDK Release** | SDK release 
  
  ## On-boarding Process
  
@@ -546,5 +477,5 @@ Scope  | Data| Claim
 
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExMDI5OTQyN119
+eyJoaXN0b3J5IjpbMTQ3ODI4MjY3Ml19
 -->
