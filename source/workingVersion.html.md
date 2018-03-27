@@ -138,9 +138,10 @@ To be able to use an itsme service (such as login, confirm, sign, share data) yo
 
 For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
  
- # Authenticating the User
+ # User Authentication
  
- **itsme(r) Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
+## **itsme(r) Login** 
+itsme(r) Login is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
   
  The Authorization Code Flow goes through the following steps as defined in [OpenID Connect Core Authorization Code Flow Steps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps).
  
@@ -548,5 +549,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNjk1Mjg1MjJdfQ==
+eyJoaXN0b3J5IjpbLTYxNTYzNTEwN119
 -->
