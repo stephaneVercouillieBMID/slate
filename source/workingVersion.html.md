@@ -145,9 +145,8 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  The Authorization Code Flow goes through the following steps as defined in [OpenID Connect Core Authorization Code Flow Steps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps).
  
  ## Authentication Request
- As per the  [OpenID Connect Specification Authentication Request](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [OpenID Connect Specification Authorization Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
-
-The first step is forming an HTTPS request with the appropriate URI parameters. Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
+ As per the [OpenID Connect Specification Authentication Request](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [OpenID Connect Specification Authorization Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint), the first step is forming an HTTPS request with the appropriate URI parameters. 
+*Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused*. You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
  
  **itsme(r)** supports the use of the HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters must be serialized using [Form Serialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization).
  
@@ -546,5 +545,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTkzMzc3NF19
+eyJoaXN0b3J5IjpbMTIwNTU0ODIwNF19
 -->
