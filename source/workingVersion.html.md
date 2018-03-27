@@ -360,10 +360,9 @@ As per OpenID Connect specification, scopes can be used to request that specific
 
 You can request claims in two ways:
 
- ###  Requesting Claims using Scope Values
  ### Individually, with the optional  [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter.
  
-(#Requesting Claims using Scope Values)
+  #### <a name="Requesting Claims using Scope Values"></a> Requesting Claims using Scope Values
  An entire claims category by its  `scope`  value (see the table below for the scope value to claim mappings)
 The following values for **scope** allow access to predefined sets of Identity Data:
 
@@ -591,5 +590,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyNTk1OTAwOV19
+eyJoaXN0b3J5IjpbLTEyODg3MTI4NDNdfQ==
 -->
