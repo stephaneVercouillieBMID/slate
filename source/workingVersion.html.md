@@ -183,9 +183,10 @@ d. If the user is already logged in the SP and, it is required that it is this u
 ##### [](https://github.com/belgianmobileid/slate/blob/master/source/minorAlterations.md#differences-in-the-user-info-end-point-oidcuserinfo)Differences in the User Info End Point (“/oidc/userinfo”)
 
 1.  Calling the “User Info” End Point is not mandatory. The “ID Token” already contains all the necessary proof for a simple approval.
-2.  However, the “User Info” End Point can be called to retrieve the requested claims of the user that did the approval.
 
-if the user is already logged in, two possible identifiers that could be used to:
+3.  However, the “User Info” End Point can be called to retrieve the requested claims of the user that did the approval.
+
+If the user is already logged in, two possible identifiers that could be used to:
 
 -   In the “userinfo” JSON section, the “**sub**” requested claim can be used to communicate the subject (end user) identifier already shared between itsme(r) OP and the SP. This identifier (called “user code”) was previously communicated in the ID token or in the UserInfo token after a successful OIDC login.
  ### Request Examples
@@ -583,5 +584,5 @@ FAQ
   ----->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU1OTczMjk1MV19
+eyJoaXN0b3J5IjpbLTE5MTA0MzQyNDhdfQ==
 -->
