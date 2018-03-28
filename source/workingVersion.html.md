@@ -155,7 +155,187 @@ If the user is already logged in, two possible identifiers that could be used to
  **id\_token\_hint** | Unsupported | Ignored if provided.
  **claims_locales** | Unsupported | None are supported.|End-User's preferred languages and scripts for Claims being returned
  **request_uri** | Unsupported | Not supported (yet)|The request_uri value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. This parameter enables Open ID Connect requests to be passed by reference, rather than by value.
- **registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the partner onboarding.|This parameter is used by the Client to provide information about itself to a Self-Issued OP that would normally be provided to an OP during Dynamic Client Registration.
+ **registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the partner onboarding.|This parameter is used by the Client to provide information about itself to a Self-Issued OP that would normally be provided to an OP during Dynamic Client RegistrationApproval**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications.
+ 
+ ## Login
+ 
+ **itsme® Login** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) (BMID) to allow End-Users to login securely to your application. During your login flow, you will delegate the end user authentication to BMID.
+ 
+ In order to let you identify the user authenticated, BMID uses pairwise user identifier, meaning each Partner will have a unique *User Code* for the same User. Doing so, nobody except BMID can link one given *User Code* of Partner to a specific User identity. 
+ 
+ ## Confirm
+ **itsme® Confirm** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) (BMID) to allow End-Users to give their consent to a specific action. You will use this service when you need to have a strong consent.  From regulation perspective, the consent obtained from the end user through **itsme(r) Confirm** has the same strength as a payment confirmation in a web banking interface using card readers. 
+ 
+ ## Share Data
+ 
+ If purpose of use is stated during the on-boarding process and consent is provided by the End-User during Authentication, end user data can be shared with your application.
+ 
+ Data is currently shared only during Login or Approval. Off-line access to User information is not authorised.
+ 
+ The following sets of Data are available:
+ 
+ - **Verified Identity Data**: identity information retrieved from the National eID Card 
+ - **Commercial Information**: information provided by the end-user 
+ - **Security Information**: information retrieved during execution of the service that could impact security level of the transaction. 
+ 
+ ### Verified Identity Data
+ 
+ The user identity data provided by **itsme®** are Data coming from the National eID Card. These datas are provided to **itsme®** during user enrolment either directly from a card readout or indirectly through an Identity Registrar (IDR) having a strong identity verification process (e.g. face-to-face KYC with eID readout)  in-place.  
+ 
+ Data | Definition
+ -- | --
+ **Full Name** | Full name is a concatenation of firstname, middlenames and lastname.
+ **Date of birth** | Birthdate 
+ **Place of birth** | Place of birth. ***Note**: this information can be localized* 
+ **Gender** | Gender
+ **Language** | Language
+ **Nationality** | Nationality
+ **Address** | Address containing street, street number, postal box, locality, postal code and country
+ **Passport Number** | Passport Number
+ **NRN** | National Registry Number
+ **E-ID picture** | Picture taken from the National eID Card in low-resolution.
+ **E-ID Metadata** | See [E-ID Metadata Information](#e-id-info)
+ 
+ #### <a name="e-id-info"></a>E-ID Metadata Information
+ Provides some information about the eID card readout related to the identity data provided by **itsme(r)**.
+ 
+ Data | Definition
+ -- | -- 
+ **eID Serial Number** | the electronic ID card serial number.
+ **issuance_locality** | the issuance locality.
+ **Validity from** | eID card validity “from” date.
+ **Validity to** | eID card validity “to” date.
+ **Certificate Validity** | the certificate validity.
+ **Read Date** | the data extraction date.
+ 
+ ### Commercial Data
+ 
+ Data | Definition
+ -- | --
+ **Phone Number** | Verified phone number associated to the **itsme(r)** user account.  
+ **E-Mail Address** | E-Mail address. Not Verified. itsme(r) does not yet make use of email .
+ 
+ ### Security Data
+ 
+ Data | Definition
+ -- | --
+ **Device** | Information about the end user device. See [Device Information](#device-information)
+ 
+ #### <a name="device-information"></a>Device Information 
+ 
+ Data | Definition
+ -- | -- 
+ **OS** | the device operating system (supported values: {`ANDROID`, `IOS`})
+ **Device Identifier** | Device identifier.
+ **Application Name** | Application name.
+ **Application Release** | Application current release.
+ **Device Label** | Name of the device.
+ **Debug Enabled** | True if debug mode is activated.
+ **OS Release** | Version of the OS running on your Device.
+ **Manufacturer** | Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android). 
+ **SIM Enabled** | True if there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing **itsme(r)** on a tablet.
+ **Lock Level** | The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.
+ **SMS Enabled** | True if can send SMS. On iOS, this means it’s an iPhone. 
+ **Rooted** | True if the device is jailbreaked/rooted.
+ **IMEI** | Device IMEI value.
+ **Model** | Model of the Device. e.g. SAMSUNG GALAXY A5
+ **MSISDN** | User’s phone number. 
+ **SDK Release** | SDK release 
+ 
+ ## On-boarding Process
+ 
+ Before your application can use **itsme®** for user login, you must set up a project to obtain OIDC credentials, set redirect URIs for your services, and customise the branding information that your users see on the **itsme®** user-consent screen.
+ 
+ ### Customize the user consent screen
+ SP provides 
+ 
+ - Partner name, description and localized labels
+ - Services' name, description and localized labels
+ - Data access with justification (to comply with GDPR)
+ 
+ ### Obtain OAuth 2.0 credentials
+ BMID provides 
+ 
+ - Partner Code, used as **client_id**
+ - Service Code for each Service (see [Service Code concept](#ServiceCodes))
+
+ ### Set a redirect URI and Certificates
+ SP provides 
+ 
+ - the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
+ - the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.
+ - the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.
+ 
+ ### itsme® OpenID Configuration
+ The OpenID Connect protocol requires the use of multiple endpoints for authenticating users, and for requesting resources including tokens, user information, and public keys.
+ 
+ To simplify implementations and increase flexibility, OpenID Connect allows the use of a "Discovery document", a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider's configuration including, 
+- URIs of the authorization, 
+- token, 
+- userinfo, 
+- supported claims 
+-  public-keys endpoints to interact with it. 
+ 
+ <aside class="success">The Discovery document for itsme® service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside>
+ 
+ 
+ Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
+ 
+  #### <a name="ServiceCodes"></a> Service Code Concept
+ 
+To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
+
+For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
+ 
+ # Authenticating the User
+ 
+ **itsme(r) Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
+  
+ The Authorization Code Flow goes through the following steps as defined in  [http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps)
+ 
+ ## 1. Authentication Request
+ As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
+ 
+ The first step is forming an HTTPS request with the appropriate URI parameters. Please nNote the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
+ 
+ **itsme(r)** supports the use of the HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters must be serialized using [Form Serialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization).
+ 
+ ### Request Examples
+ 
+ >Example of a minimal Authorization request
+ 
+ ```http--inline
+ GET /authorize?response_type=code
+ &scope=openid%20profile%20email%20service%3Aclient.registration
+ &client_id=s6BhdRkqt3
+ &state=af0ifjsldkj
+ &redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb HTTP/1.1
+ Host: server.itsme.be
+ ```
+ 
+ For a basic request, specify the following parameters:
+ 
+ Parameter | Required | Comment
+ --------- | ------- | -----
+ **client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process and this value will be unique to each partner per environment. This information is in the on-boarding file provided by BMID. 
+ **response_type** | Required | MUST be <code>code</code>.
+ **scope** | Required | MUST contain at least `openid` or an HTTP ERROR `not_implemented` will be returned. `offline_access` value will yield an error. MUST also includes the target service in the form `service:<SERVICE_CODE>` as provided by BMID during the on-boarding process (see [Service Code concept](#ServiceCode) for further information). ***Note**: Requested data will only be provided based on your current accesses*. These accesses are specified in the on-boarding file provided by BMID.
+ **redirect_uri** | Required | should be the HTTPS endpoint on your server that will receive the response from **itsme(r)**. This value MUST match one of the values provided to BMID during on-boarding process. ***Note**: the Partner can define different **redirect_uri** specific to each Service.*
+ **state** | an appropriate value is RECOMMENDED | should include the value of the anti-forgery unique session token, as well as any other information needed to recover the context when the user returns to your application.
+ **nonce** | Optional | a random value generated by your app that enables replay protection when present.
+ **login_hint** | Optional | OPTIONAL and supported, though not recommended. Only phone numbers are supported as `login_hint`. Format is: `<coutrycode>+<phonenumber>`. E.g. `login_hint=32+123456789`. Usage of claim value `phone_number` in an encrypted request object is recommended in order to avoid disclosure of phone number of the enduser on the user agent (such as mobile app or web browser)
+ **display** | Optional | MUST be `page` if provided. Other values will yield an HTTP ERROR `not_implemented`.
+ **prompt** | Optional | MUST be `consent` if provided.
+ **ui_locales** | Optional | Can be used to specify the language to be used by the OpenID login page. Supported languages are: `fr`, `nl`, `en` and `de`. Any other value will be ignored.
+ **max_age** | Optional | Supported but not used: **itsme(r)** will always actively re-authenticate the End-User. 
+ **acr_values** | Optional | OPTIONAL and supported, though not recommended. Possible values are tag:itsmetag:sixdots.be,2016-06:acr_basic, tag:itsmetag:sixdots.be,2016-06:acr_advanced. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the `acr_values` is requested as a voluntarily claim, the acr value returned will always be the more constraining method in the `acr_values` list, or the authentication will fail. Usage of acr parameter in the request object is recommended over this parameter as it will be signed in the JWT token/
+ **claims** | Optional | Not recommended. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
+ **request** | Optional | See [Passing Request Parameters as JWTs](#JWTRequest)
+ **response_mode** | Unsupported | MUST not be used. Any supplied value will be ignored.
+ **id\_token\_hint** | Unsupported | Ignored if provided.
+ **claims_locales** | Unsupported | None are supported.
+ **request_uri** | Unsupported | Not supported (yet)
+ **registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the partner onboarding.
  
  ### Authentication Response
  An Authentication Response is an [OAuth 2.0 Authorization Response](https://tools.ietf.org/html/rfc6749#section-4.1.2) message. As such, the Authentication Response will return the following parameters:
@@ -189,7 +369,7 @@ If the user is already logged in, two possible identifiers that could be used to
  
  
  
- ## Token Request
+ ## 2. Token Request
  
  As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest
  
@@ -209,7 +389,9 @@ If the user is already logged in, two possible identifiers that could be used to
  -- | --
  **iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID). The iss value is a case sensitive URL using the https scheme that contains scheme, host, and optionally, port number and path components and no query or fragment components.
  **sub** | Identity of the user. The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the on boarding file provided by BMID). 
- **aud** | Audience for the id_token. Must be the token endpoint URL
+ **aud** | Audience for the id_token.
+ **sub** | The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file onboarding file provided by BMID). 
+ **aud** | Must be the token endpoint URL
  **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
  **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
  
@@ -242,7 +424,7 @@ If the user is already logged in, two possible identifiers that could be used to
  As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse](http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse)
  
  # Requesting User Data
- ## UserInfo Request
+ ## 3. UserInfo Request
  
  As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
  
@@ -277,7 +459,7 @@ If the user is already logged in, two possible identifiers that could be used to
  }
  ```
  
- ## <a name="Claims-Scope"></a>Claims (User Info)
+ ## <a name="Claims-Scope"></a>Claims (User Info)Requesting Claims using Scope Values
  
  <aside class="notice"><bold>Note</bold>: itsme(r) won't deliver any <a href="http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims">aggregated nor distributed claims</a> in the current version.</aside>
  
@@ -305,8 +487,19 @@ Scope  | Data| Claim
 ||Birthdate|`birthdate`
 ||Language |`locale`
  | **`email`** | Email Adress | <br> `email` and `email_verified`<br>| `gender`
- | **`phone`** | Phone number |`phone_number` or `phone_number_verified`<br>| 
+ | **`phone`** | Phone number |`phone_number` or `phone_number_verified`As per OpenID Connect specification, scopes can be used to request that specific sets of information be made available as Claim Values in UserInfo Token.
+ 
+ In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims requested via scope as **Essential** (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)). It means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, as in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims, you should already request claims with appropriate level regarding your business case. 
+ 
+ The following values for **scope** allow access to predefined sets of Identity Data:
+
+ | Data | Claim
+ -- | -- | --
+ **`profile`** |given\_name <br> family\_name <br> name <br> gender <br>birthdate <br> locale | `name` and `given_name` and `family_name` 
+ | **`email`** | email<br> email_verified<br>| `gender`
+ | **`phone`** | phone\_number<br>phone\_number_verified<br>| 
  **`address`** | Address | `address`, with following subfields: `street_address` (newline separator \\n), `locality`, `postal_code`, `country`
+
 
  <aside class="notice">
 
@@ -315,7 +508,10 @@ Scope  | Data| Claim
  #### <a name="Claims-Request"></a>Requesting Claims using the "claims" Request Parameter
  
  Individually, with the optional  [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter.
+  
+ NOTE: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.</aside>
  
+ ## <a name="Claims-Request"></a>Requesting Claims using the "claims" Request Parameter
  We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. Here are these claims:
  
  Data | Claim | Comment
@@ -400,7 +596,7 @@ Scope  | Data| Claim
  
  Property | Required | Comment
  -- | -- | --
- **iss** | Required | Specifies the issuing authority. Issuer of the id_token. Must be the `client_id`
+ **iss** | Required | Specifies the issuing authority. Issuer of the id_tokenIssuer. Must be the `client_id`
  **aud** | Required | Audience. Possible token end-point URLs:<br>https://merchant.itsme.be/oidc/token<br>https://e2emerchant.itsme.be/oidc/token<br>https://uatmerchant.sixdots.be/oidc/token
  
  > Example of claim request before base64url encoding, signing and encryption. In this example, the partners is using the login service. The end user email and nationality will be returned by the UserInfo endpoint.
@@ -460,7 +656,8 @@ Scope  | Data| Claim
  It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HT
 
 
-----------
+----------the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
+ 
  
  
  <!--stackedit_data:
@@ -477,5 +674,5 @@ Scope  | Data| Claim
 
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ3ODI4MjY3Ml19
+eyJoaXN0b3J5IjpbMTY3NDQyNTg5NywxNDc4MjgyNjcyXX0=
 -->
