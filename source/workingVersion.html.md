@@ -369,7 +369,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  
  
  
- ## 2. Token Request
+ ## Token Request
  
  As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest
  
@@ -674,7 +674,7 @@ Scope  | Data| Claim
 
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY3NDQyNTg5NywtMTYzMDQ4ODc4NSwxNj
-c0NDI1ODk3LC0xNjMwNDg4Nzg1LDE2NzQ0MjU4OTcsLTE2MzA0
-ODg3ODUsMTY3NDQyNTg5N119
+eyJoaXN0b3J5IjpbLTEwMDExNTY5MzMsLTE2MzA0ODg3ODUsMT
+Y3NDQyNTg5NywtMTYzMDQ4ODc4NSwxNjc0NDI1ODk3LC0xNjMw
+NDg4Nzg1LDE2NzQ0MjU4OTddfQ==
 -->
