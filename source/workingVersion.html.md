@@ -34,6 +34,8 @@ Consent is used to allow an end user to grant a client access to resources and c
 
 You request access to the information user release using the `scope` parameter.
 
+In order to customize your con
+
 Service Provider (you) will provide,
  
  - Partner name, description and localized labels
@@ -1053,7 +1055,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMD
+eyJoaXN0b3J5IjpbMTAxNDkwMDQxNSwtMjExNzEyOTE2MSwyMD
 c3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcx
 MjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MT
 I5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEs
