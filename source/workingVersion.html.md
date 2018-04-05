@@ -30,7 +30,7 @@ itsme(r) offers following services,
  Before your application can use **itsme®** for user login, you must set up a project to obtain OIDC credentials, set redirect URIs for your services, and customise the branding information that your users see on the **itsme®** user-consent screen.
  
  ## Customize the user consent screen
-Consent is used to allow an end user to grant a client access to resources and consent screen  describes the information that the user is releasing and the terms that apply.
+Consent is used to allow an end user to grant a client access to resources and consent screen describes the information that the user is releasing and the terms that apply.
 
 
  SP provides 
@@ -678,7 +678,7 @@ Scope  | Data| Claim
 
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3NTQ4NTI2MiwtMTAwMTE1NjkzMyw2OT
+eyJoaXN0b3J5IjpbMTUyNDk1ODYwNCwtMTAwMTE1NjkzMyw2OT
 M3MzgzNTcsLTEwMDExNTY5MzMsNjkzNzM4MzU3LC0xMDAxMTU2
 OTMzLDY5MzczODM1NywtMTAwMTE1NjkzMyw2OTM3MzgzNTcsLT
 EwMDExNTY5MzMsNjkzNzM4MzU3LC0xMDAxMTU2OTMzLDY5Mzcz
