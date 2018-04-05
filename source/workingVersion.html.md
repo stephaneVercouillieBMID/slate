@@ -29,27 +29,27 @@ itsme(r) offers following services,
  
  Before your application can use **itsme®** for user login, you must set up a project to obtain OIDC credentials, set redirect URIs for your services, and customise the branding information that your users see on the **itsme®** user-consent screen.
  
- ### Customize the user consent screen
+ ## Customize the user consent screen
  SP provides 
  
  - Partner name, description and localized labels
  - Services' name, description and localized labels
  - Data access with justification (to comply with GDPR)
  
- ### Obtain OAuth 2.0 credentials
+ ## Obtain OAuth 2.0 credentials
  BMID provides 
  
  - Partner Code, used as **client_id**
  - Service Code for each Service (see [Service Code concept](#ServiceCodes))
 
- ### Set a redirect URI and Certificates
+ ## Set a redirect URI and Certificates
  SP provides 
  
  - the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
  - the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.
  - the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.
  
- ### itsme® OpenID Configuration
+ ## itsme® OpenID Configuration
  The OpenID Connect protocol requires the use of multiple endpoints for authenticating users, and for requesting resources including tokens, user information, and public keys.
  
  To simplify implementations and increase flexibility, OpenID Connect allows the use of a "Discovery document", a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider's configuration including, 
@@ -64,7 +64,7 @@ itsme(r) offers following services,
  
  Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
  
-  #### <a name="ServiceCodes"></a> Service Code Concept
+  ### <a name="ServiceCodes"></a> Service Code Concept
  
 To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
 
@@ -675,11 +675,11 @@ Scope  | Data| Claim
 
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2NTg1OTQ0OSwtMTAwMTE1NjkzMyw2OT
-M3MzgzNTcsLTEwMDExNTY5MzMsNjkzNzM4MzU3LC0xMDAxMTU2
-OTMzLDY5MzczODM1NywtMTAwMTE1NjkzMyw2OTM3MzgzNTcsLT
-EwMDExNTY5MzMsNjkzNzM4MzU3LC0xMDAxMTU2OTMzLDY5Mzcz
-ODM1NywtMTAwMTE1NjkzMywxNjc0NDI1ODk3LC0xNjMwNDg4Nz
-g1LDE2NzQ0MjU4OTcsLTE2MzA0ODg3ODUsMTY3NDQyNTg5N119
+eyJoaXN0b3J5IjpbNzE0NTk2MDQ2LC0xMDAxMTU2OTMzLDY5Mz
+czODM1NywtMTAwMTE1NjkzMyw2OTM3MzgzNTcsLTEwMDExNTY5
+MzMsNjkzNzM4MzU3LC0xMDAxMTU2OTMzLDY5MzczODM1NywtMT
+AwMTE1NjkzMyw2OTM3MzgzNTcsLTEwMDExNTY5MzMsNjkzNzM4
+MzU3LC0xMDAxMTU2OTMzLDE2NzQ0MjU4OTcsLTE2MzA0ODg3OD
+UsMTY3NDQyNTg5NywtMTYzMDQ4ODc4NSwxNjc0NDI1ODk3XX0=
 
 -->
