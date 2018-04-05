@@ -31,7 +31,7 @@ itsme(r) offers following services,
  
  ## Customize the user consent screen
 Consent is used to allow an end user to grant a client access to resources and consent screen describes the information that the user is releasing and the terms that apply.
-The information user release 
+You request access to the information user release and 
 
  SP provides 
  
@@ -678,11 +678,11 @@ Scope  | Data| Claim
 
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5NjcwMjU5NSwtMTAwMTE1NjkzMyw2OT
-M3MzgzNTcsLTEwMDExNTY5MzMsNjkzNzM4MzU3LC0xMDAxMTU2
-OTMzLDY5MzczODM1NywtMTAwMTE1NjkzMyw2OTM3MzgzNTcsLT
-EwMDExNTY5MzMsNjkzNzM4MzU3LC0xMDAxMTU2OTMzLDY5Mzcz
-ODM1NywtMTAwMTE1NjkzMywxNjc0NDI1ODk3LC0xNjMwNDg4Nz
-g1LDE2NzQ0MjU4OTcsLTE2MzA0ODg3ODUsMTY3NDQyNTg5N119
+eyJoaXN0b3J5IjpbNjY3MTM1NTA5LC0xMDAxMTU2OTMzLDY5Mz
+czODM1NywtMTAwMTE1NjkzMyw2OTM3MzgzNTcsLTEwMDExNTY5
+MzMsNjkzNzM4MzU3LC0xMDAxMTU2OTMzLDY5MzczODM1NywtMT
+AwMTE1NjkzMyw2OTM3MzgzNTcsLTEwMDExNTY5MzMsNjkzNzM4
+MzU3LC0xMDAxMTU2OTMzLDE2NzQ0MjU4OTcsLTE2MzA0ODg3OD
+UsMTY3NDQyNTg5NywtMTYzMDQ4ODc4NSwxNjc0NDI1ODk3XX0=
 
 -->
