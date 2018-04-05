@@ -680,7 +680,7 @@ Scope  | Data| Claim
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 
  ># **FAQ**
- >##[JWKSet](#jwks) 
+ >## [JWKSet](#jwks) 
  >
  >### What is a JWKSet?
  We require you to expose a set of public key (a signature key & one encryption key) to setup the connectivity.
@@ -1053,7 +1053,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNTUzMjgwNSwxMjMzMzQ1NzA4LDE5Nj
+eyJoaXN0b3J5IjpbMTk3NTMxNDEzNywxMjMzMzQ1NzA4LDE5Nj
 I2NzY5MTQsMTIzMzM0NTcwOCwxOTYyNjc2OTE0LDEyMzMzNDU3
 MDgsMTk2MjY3NjkxNCwxMjMzMzQ1NzA4LDE5NjI2NzY5MTQsMT
 IzMzM0NTcwOCwxOTYyNjc2OTE0LDY5MzczODM1NywtMTAwMTE1
