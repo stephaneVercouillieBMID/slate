@@ -34,7 +34,7 @@ Consent is used to allow an end user to grant a client access to resources and c
 
 You request access to the information user release using the `scope` parameter.
 
-In order to customize your consent screen, feel free to follow the instructions via this [link](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/let-s-get-started#/step-by-step-guide/4-customize-your-sandbox).
+In order to customize your consent screen, feel free to follow the steps via this [link](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/let-s-get-started#/step-by-step-guide/4-customize-your-sandbox).
 
 Service Provider (you) will provide,
  
@@ -1055,7 +1055,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyOTEwNTE0NCwtMjExNzEyOTE2MSwyMD
+eyJoaXN0b3J5IjpbMTA5OTAwNjg2MiwtMjExNzEyOTE2MSwyMD
 c3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcx
 MjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MT
 I5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEs
