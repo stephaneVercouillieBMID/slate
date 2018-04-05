@@ -41,6 +41,9 @@ Service Provider (you) will provide,
  - Data access with justification (to comply with GDPR)
  
  ## Obtain OAuth 2.0 credentials
+ 
+OAuth 2.0 means one protocol for authentication and authorisation (obtaining access tokens).
+
  BMID provides 
  
  - Partner Code, used as **client_id**
@@ -679,13 +682,13 @@ Scope  | Data| Claim
 
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk2MjY3NjkxNCwxMjMzMzQ1NzA4LDE5Nj
-I2NzY5MTQsMTIzMzM0NTcwOCwxOTYyNjc2OTE0LDEyMzMzNDU3
-MDgsMTk2MjY3NjkxNCwxMjMzMzQ1NzA4LDE5NjI2NzY5MTQsMT
-IzMzM0NTcwOCwxOTYyNjc2OTE0LDY5MzczODM1NywtMTAwMTE1
-NjkzMyw2OTM3MzgzNTcsLTEwMDExNTY5MzMsNjkzNzM4MzU3LC
-0xMDAxMTU2OTMzLDY5MzczODM1NywtMTAwMTE1NjkzMyw2OTM3
-MzgzNTcsLTEwMDExNTY5MzMsNjkzNzM4MzU3LC0xMDAxMTU2OT
-MzLDE2NzQ0MjU4OTcsLTE2MzA0ODg3ODUsMTY3NDQyNTg5Nywt
-MTYzMDQ4ODc4NSwxNjc0NDI1ODk3XX0=
+eyJoaXN0b3J5IjpbLTEyMDg2NTQ2MTMsMTIzMzM0NTcwOCwxOT
+YyNjc2OTE0LDEyMzMzNDU3MDgsMTk2MjY3NjkxNCwxMjMzMzQ1
+NzA4LDE5NjI2NzY5MTQsMTIzMzM0NTcwOCwxOTYyNjc2OTE0LD
+EyMzMzNDU3MDgsMTk2MjY3NjkxNCw2OTM3MzgzNTcsLTEwMDEx
+NTY5MzMsNjkzNzM4MzU3LC0xMDAxMTU2OTMzLDY5MzczODM1Ny
+wtMTAwMTE1NjkzMyw2OTM3MzgzNTcsLTEwMDExNTY5MzMsNjkz
+NzM4MzU3LC0xMDAxMTU2OTMzLDY5MzczODM1NywtMTAwMTE1Nj
+kzMywxNjc0NDI1ODk3LC0xNjMwNDg4Nzg1LDE2NzQ0MjU4OTcs
+LTE2MzA0ODg3ODUsMTY3NDQyNTg5N119
 -->
