@@ -19,7 +19,7 @@
  This documentation describes our OAuth 2.0 implementation of **itsme® Login** and **itsme(r) Confirm**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications.
   ## The itsme® services in a few words
  
-itsme® offers 4 strong enablers for every process digitalization project:
+itsme® offers 4 strong enablers for every process digitalization project. Further information is provided 
 ### 1. [**itsme®Login**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/login-with-itsme)
 ### 2. [**itsme®Confirm**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/confirm-with-itsme)
  ### 3. [**itsme®Shared Data**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/shared-data)
@@ -1052,13 +1052,13 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjMyNjcwODMxLDEyMzMzNDU3MDgsMTk2Mj
-Y3NjkxNCwxMjMzMzQ1NzA4LDE5NjI2NzY5MTQsMTIzMzM0NTcw
-OCwxOTYyNjc2OTE0LDEyMzMzNDU3MDgsMTk2MjY3NjkxNCwxMj
-MzMzQ1NzA4LDE5NjI2NzY5MTQsNjkzNzM4MzU3LC0xMDAxMTU2
-OTMzLDY5MzczODM1NywtMTAwMTE1NjkzMyw2OTM3MzgzNTcsLT
-EwMDExNTY5MzMsNjkzNzM4MzU3LC0xMDAxMTU2OTMzLDY5Mzcz
-ODM1NywtMTAwMTE1NjkzMyw2OTM3MzgzNTcsLTEwMDExNTY5Mz
-MsMTY3NDQyNTg5NywtMTYzMDQ4ODc4NSwxNjc0NDI1ODk3LC0x
-NjMwNDg4Nzg1LDE2NzQ0MjU4OTddfQ==
+eyJoaXN0b3J5IjpbMTU0Nzk3NzUyNCwxMjMzMzQ1NzA4LDE5Nj
+I2NzY5MTQsMTIzMzM0NTcwOCwxOTYyNjc2OTE0LDEyMzMzNDU3
+MDgsMTk2MjY3NjkxNCwxMjMzMzQ1NzA4LDE5NjI2NzY5MTQsMT
+IzMzM0NTcwOCwxOTYyNjc2OTE0LDY5MzczODM1NywtMTAwMTE1
+NjkzMyw2OTM3MzgzNTcsLTEwMDExNTY5MzMsNjkzNzM4MzU3LC
+0xMDAxMTU2OTMzLDY5MzczODM1NywtMTAwMTE1NjkzMyw2OTM3
+MzgzNTcsLTEwMDExNTY5MzMsNjkzNzM4MzU3LC0xMDAxMTU2OT
+MzLDE2NzQ0MjU4OTcsLTE2MzA0ODg3ODUsMTY3NDQyNTg5Nywt
+MTYzMDQ4ODc4NSwxNjc0NDI1ODk3XX0=
 -->
