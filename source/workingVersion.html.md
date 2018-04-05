@@ -31,9 +31,10 @@ itsme(r) offers following services,
  
  ## Customize the user consent screen
 Consent is used to allow an end user to grant a client access to resources and consent screen describes the information that the user is releasing and the terms that apply.
-You request access to the information user release and 
 
- SP provides 
+You request access to the information user release and You request access to this information using the [`scope`]
+
+ S provides 
  
  - Partner name, description and localized labels
  - Services' name, description and localized labels
@@ -678,7 +679,7 @@ Scope  | Data| Claim
 
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjY3MTM1NTA5LC0xMDAxMTU2OTMzLDY5Mz
+eyJoaXN0b3J5IjpbOTU3NDUzNjU1LC0xMDAxMTU2OTMzLDY5Mz
 czODM1NywtMTAwMTE1NjkzMyw2OTM3MzgzNTcsLTEwMDExNTY5
 MzMsNjkzNzM4MzU3LC0xMDAxMTU2OTMzLDY5MzczODM1NywtMT
 AwMTE1NjkzMyw2OTM3MzgzNTcsLTEwMDExNTY5MzMsNjkzNzM4
