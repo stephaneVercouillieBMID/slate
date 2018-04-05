@@ -16,15 +16,14 @@
  ## Who should read this document
  This document is intended to be read by Service Provider developers who are in charge of developing and integrating the itsme(r) services. In this document, we speak directly to the developers, using 'you' to designate them.
  
- ## The itsme® services in a few words
- 
  This documentation describes our OAuth 2.0 implementation of **itsme® Login** and **itsme(r) Confirm**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications.
+  ## The itsme® services in a few words
  
 itsme® offers 4 strong enablers for every process digitalization project:
 ### 1. [**itsme®Login**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/login-with-itsme)
 ### 2. [**itsme®Confirm**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/confirm-with-itsme)
  ### 3. [**itsme®Shared Data**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/shared-data)
-  ### 4. *Sign**Coming Soon
+  ### 4. Sign (*Coming Soon*)
  # On-boarding Process
  
  Before your application can use **itsme®** for user login, you must set up a project to obtain OIDC credentials, set redirect URIs for your services, and customise the branding information that your users see on the **itsme®** user-consent screen.
@@ -1053,7 +1052,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQzMTg1MjY4LDEyMzMzNDU3MDgsMTk2Mj
+eyJoaXN0b3J5IjpbNjMyNjcwODMxLDEyMzMzNDU3MDgsMTk2Mj
 Y3NjkxNCwxMjMzMzQ1NzA4LDE5NjI2NzY5MTQsMTIzMzM0NTcw
 OCwxOTYyNjc2OTE0LDEyMzMzNDU3MDgsMTk2MjY3NjkxNCwxMj
 MzMzQ1NzA4LDE5NjI2NzY5MTQsNjkzNzM4MzU3LC0xMDAxMTU2
