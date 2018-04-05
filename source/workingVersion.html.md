@@ -34,7 +34,7 @@ Consent is used to allow an end user to grant a client access to resources and c
 
 You request access to the information user release using the `scope` parameter.
 
-In order to customize your consent screen, feel free to follow the instructions via this [link](#https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/let-s-get-started#/step-by-step-guide/4-customize-your-sandbox)
+In order to customize your consent screen, feel free to follow the instructions via this [link](#https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/let-s-get-started#/step-by-step-guide/4-customize-your-sandbox).
 
 Service Provider (you) will provide,
  
@@ -1055,20 +1055,20 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzY3NTQyMTEzLC0yMTE3MTI5MTYxLDIwNz
+eyJoaXN0b3J5IjpbMTA5NjExMTgwNSwtMjExNzEyOTE2MSwyMD
+c3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcx
+MjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MT
+I5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEs
+MjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMT
+E3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3
+NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5MT
+YxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwt
+MjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNz
 cxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEy
 OTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMj
 ksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwy
 MDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMT
 cxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0
 MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNj
-EsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0y
-MTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3Nz
-E3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5
-MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOS
-wtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIw
-NzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNz
-EyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQx
-MjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MS
-wyMDc3MTc0MTI5XX0=
+EsMjA3NzE3NDEyOV19
 -->
