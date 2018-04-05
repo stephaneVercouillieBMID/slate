@@ -24,7 +24,7 @@ itsme® offers 4 strong enablers for every process digitalization project:
 ### [**itsme®Login**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/login-with-itsme)
 ### [**itsme®Confirm**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/confirm-with-itsme)
  ### [**itsme®Shared Data**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/shared-data)
- 
+  ### **Sign** Coming Soon
  # On-boarding Process
  
  Before your application can use **itsme®** for user login, you must set up a project to obtain OIDC credentials, set redirect URIs for your services, and customise the branding information that your users see on the **itsme®** user-consent screen.
@@ -1053,13 +1053,13 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMDA4OTIzNTQsMTIzMzM0NTcwOCwxOT
-YyNjc2OTE0LDEyMzMzNDU3MDgsMTk2MjY3NjkxNCwxMjMzMzQ1
-NzA4LDE5NjI2NzY5MTQsMTIzMzM0NTcwOCwxOTYyNjc2OTE0LD
-EyMzMzNDU3MDgsMTk2MjY3NjkxNCw2OTM3MzgzNTcsLTEwMDEx
-NTY5MzMsNjkzNzM4MzU3LC0xMDAxMTU2OTMzLDY5MzczODM1Ny
-wtMTAwMTE1NjkzMyw2OTM3MzgzNTcsLTEwMDExNTY5MzMsNjkz
-NzM4MzU3LC0xMDAxMTU2OTMzLDY5MzczODM1NywtMTAwMTE1Nj
-kzMywxNjc0NDI1ODk3LC0xNjMwNDg4Nzg1LDE2NzQ0MjU4OTcs
-LTE2MzA0ODg3ODUsMTY3NDQyNTg5N119
+eyJoaXN0b3J5IjpbMjM5NzA0OTE4LDEyMzMzNDU3MDgsMTk2Mj
+Y3NjkxNCwxMjMzMzQ1NzA4LDE5NjI2NzY5MTQsMTIzMzM0NTcw
+OCwxOTYyNjc2OTE0LDEyMzMzNDU3MDgsMTk2MjY3NjkxNCwxMj
+MzMzQ1NzA4LDE5NjI2NzY5MTQsNjkzNzM4MzU3LC0xMDAxMTU2
+OTMzLDY5MzczODM1NywtMTAwMTE1NjkzMyw2OTM3MzgzNTcsLT
+EwMDExNTY5MzMsNjkzNzM4MzU3LC0xMDAxMTU2OTMzLDY5Mzcz
+ODM1NywtMTAwMTE1NjkzMyw2OTM3MzgzNTcsLTEwMDExNTY5Mz
+MsMTY3NDQyNTg5NywtMTYzMDQ4ODc4NSwxNjc0NDI1ODk3LC0x
+NjMwNDg4Nzg1LDE2NzQ0MjU4OTddfQ==
 -->
