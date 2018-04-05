@@ -12,6 +12,7 @@
  
  search: true
  ---
+ #
  # Who should read this document
  This document is intended to be read by Service Provider developers who are in charge of developing and integrating the itsme(r) services. In this document, we speak directly to the developers, using 'you' to designate them.
  
@@ -674,7 +675,7 @@ Scope  | Data| Claim
 
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjkzNzM4MzU3LC0xMDAxMTU2OTMzLDY5Mz
+eyJoaXN0b3J5IjpbOTQ1ODc4NjY2LC0xMDAxMTU2OTMzLDY5Mz
 czODM1NywtMTAwMTE1NjkzMyw2OTM3MzgzNTcsLTEwMDExNTY5
 MzMsNjkzNzM4MzU3LC0xMDAxMTU2OTMzLDY5MzczODM1NywtMT
 AwMTE1NjkzMyw2OTM3MzgzNTcsLTEwMDExNTY5MzMsNjkzNzM4
