@@ -64,7 +64,7 @@ OAuth 2.0 means one protocol for authentication and authorisation (obtaining acc
 - token, 
 - userinfo, 
 - supported claims 
--  JWKSet endpoints to interact with it. 
+-  JWK endpoints to interact with it. 
  
  <aside class="success">The Discovery document for itsme® service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside>
  
@@ -682,7 +682,7 @@ Scope  | Data| Claim
 
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk0MTA3NDIyMSwxMjMzMzQ1NzA4LDE5Nj
+eyJoaXN0b3J5IjpbMTYxMjg4Njk3MSwxMjMzMzQ1NzA4LDE5Nj
 I2NzY5MTQsMTIzMzM0NTcwOCwxOTYyNjc2OTE0LDEyMzMzNDU3
 MDgsMTk2MjY3NjkxNCwxMjMzMzQ1NzA4LDE5NjI2NzY5MTQsMT
 IzMzM0NTcwOCwxOTYyNjc2OTE0LDY5MzczODM1NywtMTAwMTE1
