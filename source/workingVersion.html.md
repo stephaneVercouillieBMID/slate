@@ -387,7 +387,7 @@ After a user successfully authorizes an application, the authorization server wi
  -- | -- | --
  **grant_type** | Required | Must be `authorization_code`
  **code** | Required | The **code** value provided in the Authentication Response
- **redirect_uri** | Required | The **redirect_uri** used in the Authentication Request
+ **redirect_uri** | Required | The **redirect_uri** used in the Authentication Request. This is the URL to which you want the user to be redirected after the authorization is complete
  **client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` ***Note***: this specifies that the authentication method type is `private_key_jwt`, according to [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification.
  **client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` client authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
  
@@ -1053,20 +1053,20 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODEyMDE0NjE0LDE1MDU3NzIxNjgsMTA5OT
-AwNjg2MiwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQx
-MjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MS
-wyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIx
-MTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MT
-c0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkx
-NjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC
-0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3
-NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MT
-I5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3NDEy
-OSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLD
-IwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjEx
-NzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNz
-QxMjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2
-MSwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLT
-IxMTcxMjkxNjEsMjA3NzE3NDEyOV19
+eyJoaXN0b3J5IjpbLTEyMjIzNTc3MTMsMTUwNTc3MjE2OCwxMD
+k5MDA2ODYyLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3
+NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5MT
+YxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwt
+MjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNz
+cxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEy
+OTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMj
+ksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwy
+MDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMT
+cxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0
+MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNj
+EsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0y
+MTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3Nz
+E3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5
+MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOS
+wtMjExNzEyOTE2MSwyMDc3MTc0MTI5XX0=
 -->
