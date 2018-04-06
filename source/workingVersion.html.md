@@ -385,7 +385,7 @@ After a user successfully authorizes an application, the authorization server wi
  
  Parameter | Required | Comment
  -- | -- | --
- **grant_type** | Required | Must be `authorization_code`
+ **grant_type** | Required | Must be `authorization_code`. 
  **code** | Required | The **code** value provided in the Authentication Response
  **redirect_uri** | Required | The **redirect_uri** used in the Authentication Request. This is the URL to which you want the user to be redirected after the authorisation is complete.
  **client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` ***Note***: this specifies that the authentication method type is `private_key_jwt`, according to [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification.
@@ -1053,7 +1053,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM1NDkxNjQ1MiwxNTA1NzcyMTY4LDEwOT
+eyJoaXN0b3J5IjpbLTM1Mjc1NzI3MCwxNTA1NzcyMTY4LDEwOT
 kwMDY4NjIsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0
 MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNj
 EsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0y
