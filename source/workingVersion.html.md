@@ -291,11 +291,7 @@ If the user is already logged in, two possible identifiers that could be used to
  
  Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
  
-  #### <a name="ServiceCodes"></a> Service Code Concept
  
-To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
-
-For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
  
  # Authenticating the User
  
@@ -1055,20 +1051,20 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA5OTAwNjg2MiwxNTA1NzcyMTY4LDEwOT
-kwMDY4NjIsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0
-MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNj
-EsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0y
-MTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3Nz
-E3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5
-MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOS
-wtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIw
-NzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNz
-EyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQx
+eyJoaXN0b3J5IjpbMzA1OTc0NTQxLDE1MDU3NzIxNjgsMTA5OT
+AwNjg2MiwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQx
 MjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MS
 wyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIx
 MTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MT
 c0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkx
 NjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC
-0yMTE3MTI5MTYxLDIwNzcxNzQxMjldfQ==
+0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3
+NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MT
+I5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3NDEy
+OSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLD
+IwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjEx
+NzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNz
+QxMjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2
+MSwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLT
+IxMTcxMjkxNjEsMjA3NzE3NDEyOV19
 -->
