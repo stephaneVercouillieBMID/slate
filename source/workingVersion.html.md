@@ -167,107 +167,6 @@ If the user is already logged in, two possible identifiers that could be used to
  **request_uri** | Unsupported | Not supported (yet)|The request_uri value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. This parameter enables Open ID Connect requests to be passed by reference, rather than by value.
  **registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the partner onboarding.|This parameter is used by the Client to provide information about itself to a Self-Issued OP that would normally be provided to an OP during Dynamic Client RegistrationApproval**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications.
  
- ## Login
- 
- **itsme® Login** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) (BMID) to allow End-Users to login securely to your application. During your login flow, you will delegate the end user authentication to BMID.
- 
- In order to let you identify the user authenticated, BMID uses pairwise user identifier, meaning each Partner will have a unique *User Code* for the same User. Doing so, nobody except BMID can link one given *User Code* of Partner to a specific User identity. 
- 
- ## Confirm
- **itsme® Confirm** is a service provided by [Belgian Mobile ID](https://www.belgianmobileid.be) (BMID) to allow End-Users to give their consent to a specific action. You will use this service when you need to have a strong consent.  From regulation perspective, the consent obtained from the end user through **itsme(r) Confirm** has the same strength as a payment confirmation in a web banking interface using card readers. 
- 
- ## Share Data
- 
- If purpose of use is stated during the on-boarding process and consent is provided by the End-User during Authentication, end user data can be shared with your application.
- 
- Data is currently shared only during Login or Approval. Off-line access to User information is not authorised.
- 
- The following sets of Data are available:
- 
- - **Verified Identity Data**: identity information retrieved from the National eID Card 
- - **Commercial Information**: information provided by the end-user 
- - **Security Information**: information retrieved during execution of the service that could impact security level of the transaction. 
- 
- ### Verified Identity Data
- 
- The user identity data provided by **itsme®** are Data coming from the National eID Card. These datas are provided to **itsme®** during user enrolment either directly from a card readout or indirectly through an Identity Registrar (IDR) having a strong identity verification process (e.g. face-to-face KYC with eID readout)  in-place.  
- 
- Data | Definition
- -- | --
- **Full Name** | Full name is a concatenation of firstname, middlenames and lastname.
- **Date of birth** | Birthdate 
- **Place of birth** | Place of birth. ***Note**: this information can be localized* 
- **Gender** | Gender
- **Language** | Language
- **Nationality** | Nationality
- **Address** | Address containing street, street number, postal box, locality, postal code and country
- **Passport Number** | Passport Number
- **NRN** | National Registry Number
- **E-ID picture** | Picture taken from the National eID Card in low-resolution.
- **E-ID Metadata** | See [E-ID Metadata Information](#e-id-info)
- 
- #### <a name="e-id-info"></a>E-ID Metadata Information
- Provides some information about the eID card readout related to the identity data provided by **itsme(r)**.
- 
- Data | Definition
- -- | -- 
- **eID Serial Number** | the electronic ID card serial number.
- **issuance_locality** | the issuance locality.
- **Validity from** | eID card validity “from” date.
- **Validity to** | eID card validity “to” date.
- **Certificate Validity** | the certificate validity.
- **Read Date** | the data extraction date.
- 
- ### Commercial Data
- 
- Data | Definition
- -- | --
- **Phone Number** | Verified phone number associated to the **itsme(r)** user account.  
- **E-Mail Address** | E-Mail address. Not Verified. itsme(r) does not yet make use of email .
- 
- ### Security Data
- 
- Data | Definition
- -- | --
- **Device** | Information about the end user device. See [Device Information](#device-information)
- 
- #### <a name="device-information"></a>Device Information 
- 
- Data | Definition
- -- | -- 
- **OS** | the device operating system (supported values: {`ANDROID`, `IOS`})
- **Device Identifier** | Device identifier.
- **Application Name** | Application name.
- **Application Release** | Application current release.
- **Device Label** | Name of the device.
- **Debug Enabled** | True if debug mode is activated.
- **OS Release** | Version of the OS running on your Device.
- **Manufacturer** | Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android). 
- **SIM Enabled** | True if there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing **itsme(r)** on a tablet.
- **Lock Level** | The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.
- **SMS Enabled** | True if can send SMS. On iOS, this means it’s an iPhone. 
- **Rooted** | True if the device is jailbreaked/rooted.
- **IMEI** | Device IMEI value.
- **Model** | Model of the Device. e.g. SAMSUNG GALAXY A5
- **MSISDN** | User’s phone number. 
- **SDK Release** | SDK release 
- 
- ## On-boarding Process
- 
- Before your application can use **itsme®** for user login, you must set up a project to obtain OIDC credentials, set redirect URIs for your services, and customise the branding information that your users see on the **itsme®** user-consent screen.
- 
- ### Customize the user consent screen
- SP provides 
- 
- - Partner name, description and localized labels
- - Services' name, description and localized labels
- - Data access with justification (to comply with GDPR)
- 
- ### Obtain OAuth 2.0 credentials
- BMID provides 
- 
- - Partner Code, used as **client_id**
- - Service Code for each Service (see [Service Code concept](#ServiceCodes))
 
  ### Set a redirect URI and Certificates
  SP provides 
@@ -1053,20 +952,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM1Mjc1NzI3MCwxNTA1NzcyMTY4LDEwOT
-kwMDY4NjIsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0
-MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNj
-EsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0y
-MTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3Nz
-E3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5
-MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOS
-wtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIw
-NzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNz
-EyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQx
-MjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MS
-wyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIx
-MTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MT
-c0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkx
+eyJoaXN0b3J5IjpbNjI2MTg1MDgwLC0zNTI3NTcyNzAsMTUwNT
+c3MjE2OCwxMDk5MDA2ODYyLDIwNzcxNzQxMjksLTIxMTcxMjkx
 NjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC
-0yMTE3MTI5MTYxLDIwNzcxNzQxMjldfQ==
+0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3
+NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MT
+I5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3NDEy
+OSwtMjExNzEyOTE2MV19
 -->
