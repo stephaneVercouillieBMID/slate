@@ -135,20 +135,20 @@ You should retrieve the base URI from the [Discovery document](https://merchant.
  **request_uri** | Unsupported | Not supported (yet)|The request_uri value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. This parameter enables Open ID Connect requests to be passed by reference, rather than by value.
  **registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the partner onboarding.|This parameter is used by the Client to provide information about itself to a Self-Issued OP that would normally be provided to an OP during Dynamic Client RegistrationApproval**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications.
 
- # 4.Authenticating the User
+ # 4. Authenticating the User
  
  **itsme(r) Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
   
  The Authorization Code Flow goes through the following steps as defined in  [http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps)
  
- ## 1. Authentication Request
+ ## 4.1. Authentication Request
  As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
  
  The first step is forming an HTTPS request with the appropriate URI parameters. Please nNote the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
  
  **itsme(r)** supports the use of the HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters must be serialized using [Form Serialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization).
  
- ### Request Examples
+ ### 4.1.1. Request Examples
  
  >Example of a minimal Authorization request
  
@@ -185,7 +185,7 @@ You should retrieve the base URI from the [Discovery document](https://merchant.
  **request_uri** | Unsupported | Not supported (yet)
  **registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the partner onboarding.
  
- ### Authentication Response
+ ### 4.1.2. Authentication Response
  An Authentication Response is an [OAuth 2.0 Authorization Response](https://tools.ietf.org/html/rfc6749#section-4.1.2) message. As such, the Authentication Response will return the following parameters:
  
  Parameter | Provided | Description
@@ -202,7 +202,7 @@ You should retrieve the base URI from the [Discovery document](https://merchant.
    &state=af0ifjsldkj
  ```
  
- ### Errors
+ ### 4.1.3. Errors
  As per http://openid.net/specs/openid-connect-core-1_0.html#AuthError
  
  If the authentication is NOT successful, the following errors can be triggered by itsme(r)
@@ -217,7 +217,7 @@ You should retrieve the base URI from the [Discovery document](https://merchant.
  
  
  
- ## Token Request
+ ## 4.2. Token Request
  
  As per the OpenID Connect specification http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest
  
@@ -257,7 +257,7 @@ You should retrieve the base URI from the [Discovery document](https://merchant.
  client_assertion=PHNhbWxwOl ... ZT
  ```
  
- ### Successful Token Response
+ ### 4.2.1. Successful Token Response
  
  Parameter | Provided | Comment
  -- | -- | --
@@ -893,7 +893,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA1OTkxOTQyNiw4NDg4MTAzMTIsLTE4Mz
+eyJoaXN0b3J5IjpbMTc0MDUxODYyNiw4NDg4MTAzMTIsLTE4Mz
 YwNzQ4MzcsMTk4Mjk0NjE0NCw4ODEyMzg3NDYsMTk4Mjk0NjE0
 NCw4ODEyMzg3NDYsMTk4Mjk0NjE0NCw4ODEyMzg3NDYsMTk4Mj
 k0NjE0NF19
