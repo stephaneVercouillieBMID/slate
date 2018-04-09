@@ -49,7 +49,7 @@ OAuth 2.0 means one protocol for authentication and authorisation (obtaining acc
  BMID provides 
  
  - Partner Code, used as **client_id**
- - Service Code for each Service (see [Service Code concept](glossary#glossaryServiceCode))
+ - Service Code for each Service (see [Service Code concept](glossary.md#glossaryServiceCode))
  
  ## Set a redirect URI and Certificates
  SP provides 
@@ -928,11 +928,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2MDY1MjM2MSwxNTkyNjc5MDg0LDE1Mz
-YxNjcyNDIsNTUzNjk3NjM4LC0yMjg5NzAyMjEsMTYzODcxNjgw
-OSwtMTU3MzcyMzU0NSw2MjYxODUwODAsLTM1Mjc1NzI3MCwxNT
-A1NzcyMTY4LDEwOTkwMDY4NjIsMjA3NzE3NDEyOSwtMjExNzEy
-OTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMj
-ksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwy
-MDc3MTc0MTI5XX0=
+eyJoaXN0b3J5IjpbOTkyNzY0ODIyLC00NjA2NTIzNjEsMTU5Mj
+Y3OTA4NCwxNTM2MTY3MjQyLDU1MzY5NzYzOCwtMjI4OTcwMjIx
+LDE2Mzg3MTY4MDksLTE1NzM3MjM1NDUsNjI2MTg1MDgwLC0zNT
+I3NTcyNzAsMTUwNTc3MjE2OCwxMDk5MDA2ODYyLDIwNzcxNzQx
+MjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MS
+wyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIx
+MTcxMjkxNjFdfQ==
 -->
