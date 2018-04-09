@@ -321,7 +321,7 @@ You can request claims in two ways:
 2. [Requesting Claims using the "claims" Request Parameter](#RCBRP)
 
  
-  ####5.2.1.1. <a name="RCBSV"></a> Requesting Claims using Scope Values
+  #### 5.2.1.1. <a name="RCBSV"></a> Requesting Claims using Scope Values
 In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims requested via scope as **Essential** (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)).
 
  It means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, as in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims, you should already request claims with appropriate level regarding your business case. 
@@ -353,13 +353,13 @@ Scope  | Data| Claim
 
 **NOTE: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.</aside>**
  
- #### <a name="Claims-Request"></a>Requesting Claims using the "claims" Request Parameter
+ #### 5.2.1.2. <a name="Claims-Request"></a>Requesting Claims using the "claims" Request Parameter
  
  Individually, with the optional  [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter.
   
  NOTE: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.</aside>
  
- ## <a name="Claims-Request"></a>Requesting Claims using the "claims" Request Parameter
+ ## 5.3. <a name="Claims-Request"></a>Requesting Claims using the "claims" Request Parameter
  We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. Here are these claims:
  
  Data | Claim | Comment
@@ -418,7 +418,7 @@ Scope  | Data| Claim
  }
  ```
  
- ### Unsupported Standard Claims
+ ### 5.3.1. Unsupported Standard Claims
  The following standard claims (check http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) won’t be provided if requested: 
  
   - `middle_name` 
@@ -429,9 +429,9 @@ Scope  | Data| Claim
   - `zoneinfo` 
   - `updated_at`
  
- # Advanced topics
+ # 6. Advanced topics
  
- ## <a name="JWTRequest"></a>Passing Request Parameters as JWTs
+ ## 6.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs
  
  OpenID Connect defines the following Authentication Request parameters to enable Authentication Requests to be signed and optionally encrypted:
  
@@ -893,8 +893,8 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjc5MTUwMzI1LDg0ODgxMDMxMiwtMTgzNj
-A3NDgzNywxOTgyOTQ2MTQ0LDg4MTIzODc0NiwxOTgyOTQ2MTQ0
-LDg4MTIzODc0NiwxOTgyOTQ2MTQ0LDg4MTIzODc0NiwxOTgyOT
-Q2MTQ0XX0=
+eyJoaXN0b3J5IjpbLTExOTk4MzUzNjksODQ4ODEwMzEyLC0xOD
+M2MDc0ODM3LDE5ODI5NDYxNDQsODgxMjM4NzQ2LDE5ODI5NDYx
+NDQsODgxMjM4NzQ2LDE5ODI5NDYxNDQsODgxMjM4NzQ2LDE5OD
+I5NDYxNDRdfQ==
 -->
