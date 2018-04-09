@@ -474,7 +474,7 @@ Scope  | Data| Claim
  }
  ```
  
- ## Requests Signing and Encryption 
+ ## 6.1. Requests Signing and Encryption 
  
  Encryption algorithm used: RSA SHA-256
  
@@ -519,7 +519,7 @@ Scope  | Data| Claim
  kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
  LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 
- ># **FAQ**
+ ># 7. **FAQ**
  >## [JWKSet](#jwks) 
  >
  >### What is a JWKSet?
@@ -893,8 +893,8 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExOTk4MzUzNjksODQ4ODEwMzEyLC0xOD
-M2MDc0ODM3LDE5ODI5NDYxNDQsODgxMjM4NzQ2LDE5ODI5NDYx
-NDQsODgxMjM4NzQ2LDE5ODI5NDYxNDQsODgxMjM4NzQ2LDE5OD
-I5NDYxNDRdfQ==
+eyJoaXN0b3J5IjpbLTQ1NDkxNzQ3NSw4NDg4MTAzMTIsLTE4Mz
+YwNzQ4MzcsMTk4Mjk0NjE0NCw4ODEyMzg3NDYsMTk4Mjk0NjE0
+NCw4ODEyMzg3NDYsMTk4Mjk0NjE0NCw4ODEyMzg3NDYsMTk4Mj
+k0NjE0NF19
 -->
