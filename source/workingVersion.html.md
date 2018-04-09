@@ -161,7 +161,8 @@ If the user is already logged in, two possible identifiers that could be used to
  **prompt** | Optional | MUST be `consent` if provided.|A space-delimited list of string values that specifies whether the authorisation server prompts the user for re authentication and consent. By giving 'consent' as value, the authorisation server prompts the user for consent before returning information to the client.
  **ui_locales** | Optional | Can be used to specify the language to be used by the Open ID login page. Supported values are: {“fr”, “nl”, “en”, “de”}. Any other value will be ignored. |Open ID Providers MUST support requests for preferred languages and scripts for the user interface and for Claims via the ui_locales. For instance, the value "fr-CA fr en" represents a preference for French as spoken in Canada, then French (without a region designation), followed by English (without a region designation).
  **max_age** | Optional | Supported but not used: **itsme(r)** will always actively re-authenticate the End-User. |Specifies the allowable elapsed time in seconds since the last time the End-User was actively authenticated by the OP. If the elapsed time is greater than this value, the OP MUST attempt to actively re-authenticate the End-User.
- **acr_values** | Optional | OPTIONAL and supported, though NOT RECOMMENDED. Possible values are `tag:itsmetag:sixdots.be,2016-06:acr_basic`, `tag:itsmetag:sixdots.be,2016-06:acr_advanced`. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the `acr_values` is requested as a voluntarily claim, the `acr` value returned will always be the more constraining method in the `acr_values` list, or the authentication will fail. Usage of `acr` parameter in the request object is recommended over this parameter as it will be signed in the JWT token.| ACR values MUST comply with the eIDAS Specification and have the following values: http://eidas.europa.eu/LoA/high -http://eidas.europa.eu/LoA/substantial
+ **acr_values** | Optional | OPTIONAL and supported, though NOT RECOMMENDED. Possible values are `tag:itsmetag:sixdots.be,2016-06:acr_basic`, `tag:itsmetag:sixdots.be,2016-06:acr_advanced`. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the `acr_values` is requested as a voluntarily claim, the `acr` value returned will always be the more constraining method in the `acr_values` list, or the authentication will fail. Usage of `acr` parameter in the request object is recommended over this parameter as it will be signed in the JWT token.| ACR values MUST comply with the eIDAS Specification and have the following values: -      http://eidas.europa.eu/LoA/high 
+ -http://eidas.europa.eu/LoA/substantial
  **claims** | Optional | NOT RECOMMENDED. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted
  **request** | Optional | See [Passing Request Parameters as JWTs](#JWTRequest)
  **response_mode** | Unsupported | MUST not be used. Any supplied value will be ignored.|Informs the Authorization Server of the mechanism to be used for returning parameters from the Authorization Endpoint. 
@@ -928,11 +929,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjgxNzM5NTksMTY2MzE3MTUyMiwyNzk0NT
-U2MzIsOTkyNzY0ODIyLC00NjA2NTIzNjEsMTU5MjY3OTA4NCwx
-NTM2MTY3MjQyLDU1MzY5NzYzOCwtMjI4OTcwMjIxLDE2Mzg3MT
-Y4MDksLTE1NzM3MjM1NDUsNjI2MTg1MDgwLC0zNTI3NTcyNzAs
-MTUwNTc3MjE2OCwxMDk5MDA2ODYyLDIwNzcxNzQxMjksLTIxMT
-cxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0
-MTI5XX0=
+eyJoaXN0b3J5IjpbLTE2MTkzOTY5MjIsMTY2MzE3MTUyMiwyNz
+k0NTU2MzIsOTkyNzY0ODIyLC00NjA2NTIzNjEsMTU5MjY3OTA4
+NCwxNTM2MTY3MjQyLDU1MzY5NzYzOCwtMjI4OTcwMjIxLDE2Mz
+g3MTY4MDksLTE1NzM3MjM1NDUsNjI2MTg1MDgwLC0zNTI3NTcy
+NzAsMTUwNTc3MjE2OCwxMDk5MDA2ODYyLDIwNzcxNzQxMjksLT
+IxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3
+MTc0MTI5XX0=
 -->
