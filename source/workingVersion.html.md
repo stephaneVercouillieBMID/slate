@@ -53,7 +53,7 @@ OAuth 2.0 means one protocol for authentication and authorisation (obtaining acc
  
  ## Set a redirect URI and Certificates
  SP provides 
- 
+
  
  - the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
 
@@ -928,11 +928,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjc5NDU1NjMyLDE2NjMxNzE1MjIsOTkyNz
-Y0ODIyLC00NjA2NTIzNjEsMTU5MjY3OTA4NCwxNTM2MTY3MjQy
-LDU1MzY5NzYzOCwtMjI4OTcwMjIxLDE2Mzg3MTY4MDksLTE1Nz
-M3MjM1NDUsNjI2MTg1MDgwLC0zNTI3NTcyNzAsMTUwNTc3MjE2
-OCwxMDk5MDA2ODYyLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMj
-A3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3
-MTI5MTYxXX0=
+eyJoaXN0b3J5IjpbMTY2MzE3MTUyMiwyNzk0NTU2MzIsMTY2Mz
+E3MTUyMiw5OTI3NjQ4MjIsLTQ2MDY1MjM2MSwxNTkyNjc5MDg0
+LDE1MzYxNjcyNDIsNTUzNjk3NjM4LC0yMjg5NzAyMjEsMTYzOD
+cxNjgwOSwtMTU3MzcyMzU0NSw2MjYxODUwODAsLTM1Mjc1NzI3
+MCwxNTA1NzcyMTY4LDEwOTkwMDY4NjIsMjA3NzE3NDEyOSwtMj
+ExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcx
+NzQxMjldfQ==
 -->
