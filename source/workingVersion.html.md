@@ -54,7 +54,6 @@ OAuth 2.0 means one protocol for authentication and authorisation (obtaining acc
  ## Set a redirect URI and Certificates
  SP provides 
 
- 
  - the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
 
 After a user successfully authorizes an application, the authorization server will redirect the user back to the application with either an authorization code or access token in the URL
@@ -928,11 +927,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTE2MTA5MzgsMTI2ODM3NDE0NCwtMT
-g1MTYxMDkzOCwxMjY4Mzc0MTQ0LDE2NjMxNzE1MjIsMjc5NDU1
-NjMyLDk5Mjc2NDgyMiwtNDYwNjUyMzYxLDE1OTI2NzkwODQsMT
-UzNjE2NzI0Miw1NTM2OTc2MzgsLTIyODk3MDIyMSwxNjM4NzE2
-ODA5LC0xNTczNzIzNTQ1LDYyNjE4NTA4MCwtMzUyNzU3MjcwLD
-E1MDU3NzIxNjgsMTA5OTAwNjg2MiwyMDc3MTc0MTI5LC0yMTE3
-MTI5MTYxXX0=
+eyJoaXN0b3J5IjpbMTk4Mjk0NjE0NCwtMTg1MTYxMDkzOCwxMj
+Y4Mzc0MTQ0LC0xODUxNjEwOTM4LDEyNjgzNzQxNDQsMTY2MzE3
+MTUyMiwyNzk0NTU2MzIsOTkyNzY0ODIyLC00NjA2NTIzNjEsMT
+U5MjY3OTA4NCwxNTM2MTY3MjQyLDU1MzY5NzYzOCwtMjI4OTcw
+MjIxLDE2Mzg3MTY4MDksLTE1NzM3MjM1NDUsNjI2MTg1MDgwLC
+0zNTI3NTcyNzAsMTUwNTc3MjE2OCwxMDk5MDA2ODYyLDIwNzcx
+NzQxMjldfQ==
 -->
