@@ -13,11 +13,11 @@
  search: true
  ---
  # 1. Introduction
- ## Who should read this document
+ ## 1.1. Who should read this document
  This document is intended to be read by Service Provider developers who are in charge of developing and integrating the itsme(r) services. In this document, we speak directly to the developers, using 'you' to designate them.
  
  This documentation describes our OAuth 2.0 implementation of **itsme® Login** and **itsme(r) Confirm**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications.
-  ## The itsme® services in a few words
+  ## 1.2. The itsme® services in a few words
  
 itsme® offers 4 strong enablers for every process digitalization project. Further information is provided in the links about itsme(r) services.
 
@@ -25,11 +25,11 @@ itsme® offers 4 strong enablers for every process digitalization project. Furth
 ### 2. [**itsme®Confirm**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/confirm-with-itsme)
  ### 3. [**itsme®Shared Data**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/shared-data)
   ### 4. Sign (*Coming Soon*)
- # On-boarding Process
+ # 2. On-boarding Process
  
  Before your application can use **itsme®** for user login, you must set up a project to obtain OIDC credentials, set redirect URIs for your services, and customise the branding information that your users see on the **itsme®** user-consent screen.
  
- ## Customize the user consent screen
+ ## 2.1. Customize the user consent screen
 Consent is used to allow an end user to grant a client access to resources and consent screen describes the information that the user is releasing and the terms that apply.
 
 You request access to the information user release using the `scope` parameter.
@@ -42,7 +42,7 @@ Service Provider (you) will provide,
  - Services' name, description and localized labels
  - Data access with justification (to comply with GDPR)
  
- ## Obtain OAuth 2.0 credentials
+ ## 2.2. Obtain OAuth 2.0 credentials
  
 OAuth 2.0 means one protocol for authentication and authorisation (obtaining access tokens).
 
@@ -51,7 +51,7 @@ OAuth 2.0 means one protocol for authentication and authorisation (obtaining acc
  - Partner Code, used as **client_id**
  - Service Code for each Service (see [Service Code concept](glossary.md#glossaryServiceCode))
  
- ## Set a redirect URI and Certificates
+ ## 2.3. Set a redirect URI and Certificates
  SP provides 
 
  - the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
@@ -60,7 +60,7 @@ After a user successfully authorizes an application, the authorization server wi
  - the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.
  - the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.
  
- ## itsme® OpenID Configuration
+ ## 2.4. itsme® OpenID Configuration
  The OpenID Connect protocol requires the use of multiple endpoints for authenticating users, and for requesting resources including tokens, user information and public keys.
  
  To simplify implementations and increase flexibility, OpenID Connect allows the use of a "Discovery document", a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider's configuration including, 
@@ -75,13 +75,13 @@ After a user successfully authorizes an application, the authorization server wi
  
  Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
  
-  ###  Service Code Concept
+  ###  2.4.1. Service Code Concept
  
 To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
 
 For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
  
- # User Authentication
+ # 3. User Authentication
  
 ## **itsme(r) Login Specifics** 
 itsme(r) Login is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
@@ -927,7 +927,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MzYwNzQ4MzcsLTY2MTA5MjYyMywxOT
-gyOTQ2MTQ0LDg4MTIzODc0NiwxOTgyOTQ2MTQ0LDg4MTIzODc0
-NiwxOTgyOTQ2MTQ0LDg4MTIzODc0NiwxOTgyOTQ2MTQ0XX0=
+eyJoaXN0b3J5IjpbODQ4ODEwMzEyLC0xODM2MDc0ODM3LDE5OD
+I5NDYxNDQsODgxMjM4NzQ2LDE5ODI5NDYxNDQsODgxMjM4NzQ2
+LDE5ODI5NDYxNDQsODgxMjM4NzQ2LDE5ODI5NDYxNDRdfQ==
 -->
