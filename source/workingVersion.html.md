@@ -170,25 +170,6 @@ If the user is already logged in, two possible identifiers that could be used to
  **request_uri** | Unsupported | Not supported (yet)|The request_uri value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. This parameter enables Open ID Connect requests to be passed by reference, rather than by value.
  **registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the partner onboarding.|This parameter is used by the Client to provide information about itself to a Self-Issued OP that would normally be provided to an OP during Dynamic Client RegistrationApproval**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications.
 
-
- 
- ### itsme® OpenID Configuration
- The OpenID Connect protocol requires the use of multiple endpoints for authenticating users, and for requesting resources including tokens, user information, and public keys.
- 
- To simplify implementations and increase flexibility, OpenID Connect allows the use of a "Discovery document", a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider's configuration including, 
-- URIs of the authorization, 
-- token, 
-- userinfo, 
-- supported claims 
--  public-keys endpoints to interact with it. 
- 
- <aside class="success">The Discovery document for itsme® service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside>
- 
- 
- Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
- 
- 
- 
  # Authenticating the User
  
  **itsme(r) Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
@@ -947,7 +928,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDE1ODk2NTIsNjI2MTg1MDgwLC0zNT
+eyJoaXN0b3J5IjpbLTE1NzM3MjM1NDUsNjI2MTg1MDgwLC0zNT
 I3NTcyNzAsMTUwNTc3MjE2OCwxMDk5MDA2ODYyLDIwNzcxNzQx
 MjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MS
 wyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIx
