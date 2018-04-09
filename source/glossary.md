@@ -3,7 +3,7 @@
 
 Written with [StackEdit](https://stackedit.io/).
 ># S
- ### <a name="glossaryServiceCodes"></a> Service Code Concept 
+ ### Service Code Concept (#glossaryServiceCodes)
  
 To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
 
@@ -27,5 +27,5 @@ The JWKset is a set of public keys exposed by the expeditor of a JWT token. The 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyNjg1ODc0OV19
+eyJoaXN0b3J5IjpbLTE0OTA1OTM4ODAsLTQyNjg1ODc0OV19
 -->
