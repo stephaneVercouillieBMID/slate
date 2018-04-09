@@ -97,42 +97,8 @@ You should retrieve the base URI from the [Discovery document](https://merchant.
  
  **itsme(r)** supports the use of the HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters must be serialized using [Form Serialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization). Login specification defined above in this document as follows,  
 
-##### [fjkdls] (https://github.com/belgianmobileid/slate/blob/master/source/minorAlterations.md#differences-in-the-authentication-end-point-oidcauthorization)Differences in the Authentication End Point (“oidc/authorization”)
 
-1.  Authorization queries MUST be communicated using HTTP  `POST`  protocol ONLY using the following media type,
-
-> “application/x-www-form-urlencoded” 
-
-HTTP  `GET`calls will be refused for approval OIDC requests. This is because in case of an approval action, the Authorization request can contain sensitive data.
-
-2.  Using the `request object` parameter is mandatory (parameter `request` in the authorisation request query string).
-3.  The `request object`MUST be signed and encrypted by the service provider. Signed, using his private signing key and, encrypted using the itsme(r) OP public encryption key. The later can be found, of course, in the OP JWKSet JSON file.
-
-5.  Parameters encoded in the `request object` have priority over the same parameters put as a`GET`  query parameter. If not explicitly required by the OIDC protocol, it is mandatory to put the corresponding parameter inside the `request object` instead of putting it as a simple form parameter (because the request object is signed and encrypted).
-6.  Each form parameter that is eligible to be present in the request object MUST also be encoded in the request object itself (because signed and encrypted).
-7.  Only service codes corresponding to a pre-registered “Approval” kind of service MUST be used in the ‘service’ scope parameter. Be sure this service was already created in the system during partner onboarding.
-8.  The `prompt` parameter can be `login` and/or `consent`.
-
-##### [](https://github.com/belgianmobileid/slate/blob/master/source/minorAlterations.md#differences-in-the-token-end-point-oidctoken)Differences in the Token End Point (“/oidc/token”)
-
-1.  The Token end point MUST ALWAYS be called to validate that the authorization code received from the browser is a valid one and corresponds effectively to the approval transaction initiated by the SP. 
-
-2.  Then, the received IDToken MUST ALWAYS be validated by the SP as follow: 
-a. Correctly un-encrypted using the SP private key. 
-b. The signature is effectively the one of the itsme(r) OP. 
-c. The possibly embedded `nonce` value is the same as the one existing in the authorisation request (if specified by the SP). 
-d. If the user is already logged in the SP and, it is required that it is this user that validated the transaction, then the user identifier (sub value) must match the one of the currently logged user in the SP.
-
-##### [](https://github.com/belgianmobileid/slate/blob/master/source/minorAlterations.md#differences-in-the-user-info-end-point-oidcuserinfo)Differences in the User Info End Point (“/oidc/userinfo”)
-
-1.  Calling the “User Info” End Point is not mandatory. The “ID Token” already contains all the necessary proof for a simple approval.
-
-3.  However, the “User Info” End Point can be called to retrieve the requested claims of the user that did the approval.
-
-If the user is already logged in, two possible identifiers that could be used to:
-
--   In the “userinfo” JSON section, the “**sub**” requested claim can be used to communicate the subject (end user) identifier already shared between itsme(r) OP and the SP. This identifier (called “user code”) was previously communicated in the ID token or in the UserInfo token after a successful OIDC login.
- ### Request Examples
+ ### 3.2.1. Request Examples
  
  >Example of a minimal Authorization request
  
@@ -169,7 +135,7 @@ If the user is already logged in, two possible identifiers that could be used to
  **request_uri** | Unsupported | Not supported (yet)|The request_uri value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. This parameter enables Open ID Connect requests to be passed by reference, rather than by value.
  **registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the partner onboarding.|This parameter is used by the Client to provide information about itself to a Self-Issued OP that would normally be provided to an OP during Dynamic Client RegistrationApproval**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications.
 
- # Authenticating the User
+ # 4.Authenticating the User
  
  **itsme(r) Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
   
@@ -927,8 +893,8 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNzE2OTE4NjEsODQ4ODEwMzEyLC0xOD
-M2MDc0ODM3LDE5ODI5NDYxNDQsODgxMjM4NzQ2LDE5ODI5NDYx
-NDQsODgxMjM4NzQ2LDE5ODI5NDYxNDQsODgxMjM4NzQ2LDE5OD
-I5NDYxNDRdfQ==
+eyJoaXN0b3J5IjpbMTA1OTkxOTQyNiw4NDg4MTAzMTIsLTE4Mz
+YwNzQ4MzcsMTk4Mjk0NjE0NCw4ODEyMzg3NDYsMTk4Mjk0NjE0
+NCw4ODEyMzg3NDYsMTk4Mjk0NjE0NCw4ODEyMzg3NDYsMTk4Mj
+k0NjE0NF19
 -->
