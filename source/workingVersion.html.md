@@ -49,7 +49,7 @@ OAuth 2.0 means one protocol for authentication and authorisation (obtaining acc
  BMID provides 
  
  - Partner Code, used as **client_id**
- - Service Code for each Service (see [Service Code concept](glossary.md#glossaryServiceCode))
+ - Service Code for each Service (see [Service Code concept](glossary.html#glossaryServiceCode))
  
  ## Set a redirect URI and Certificates
  SP provides 
@@ -76,7 +76,7 @@ After a user successfully authorizes an application, the authorization server wi
  
  Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
  
-  ### <a name="glossaryServiceCodes"></a> Service Code Concept
+  ###  Service Code Concept
  
 To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
 
@@ -928,11 +928,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTkyNzY0ODIyLC00NjA2NTIzNjEsMTU5Mj
-Y3OTA4NCwxNTM2MTY3MjQyLDU1MzY5NzYzOCwtMjI4OTcwMjIx
-LDE2Mzg3MTY4MDksLTE1NzM3MjM1NDUsNjI2MTg1MDgwLC0zNT
-I3NTcyNzAsMTUwNTc3MjE2OCwxMDk5MDA2ODYyLDIwNzcxNzQx
-MjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MS
-wyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIx
-MTcxMjkxNjFdfQ==
+eyJoaXN0b3J5IjpbNjcyMzI2ODcwLDk5Mjc2NDgyMiwtNDYwNj
+UyMzYxLDE1OTI2NzkwODQsMTUzNjE2NzI0Miw1NTM2OTc2Mzgs
+LTIyODk3MDIyMSwxNjM4NzE2ODA5LC0xNTczNzIzNTQ1LDYyNj
+E4NTA4MCwtMzUyNzU3MjcwLDE1MDU3NzIxNjgsMTA5OTAwNjg2
+MiwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLT
+IxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3
+MTc0MTI5XX0=
 -->
