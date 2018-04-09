@@ -267,12 +267,12 @@ You should retrieve the base URI from the [Discovery document](https://merchant.
  **at_hash** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
  **refresh_token** | Never | Won't be provided as **itsme(r)** only maintains short-lived session to enforce re-authentication.
  
- ### Errors
+ ### 4.2.2. Errors
  
  As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse](http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse)
  
- # Requesting User Data
- ## 3. UserInfo Request
+ # 5. Requesting User Data
+ ## 5.1. UserInfo Request
  
  As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
  
@@ -290,7 +290,7 @@ You should retrieve the base URI from the [Discovery document](https://merchant.
  Authorization: Bearer SlAV32hkKG
  ```
   
- ### Successful UserInfo Response
+ ### 5.1.1. Successful UserInfo Response
  
  The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed.
  
@@ -307,7 +307,7 @@ You should retrieve the base URI from the [Discovery document](https://merchant.
  }
  ```
  
- ## <a name="Claims-Scope"></a>Claims (User Info)Requesting Claims using Scope Values
+ ## 5.2. <a name="Claims-Scope"></a>Claims (User Info)Requesting Claims using Scope Values
  
  <aside class="notice"><bold>Note</bold>: itsme(r) won't deliver any <a href="http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims">aggregated nor distributed claims</a> in the current version.</aside>
  
@@ -321,7 +321,7 @@ You can request claims in two ways:
 2. [Requesting Claims using the "claims" Request Parameter](#RCBRP)
 
  
-  #### <a name="RCBSV"></a> Requesting Claims using Scope Values
+  ####5.2.1.1. <a name="RCBSV"></a> Requesting Claims using Scope Values
 In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims requested via scope as **Essential** (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)).
 
  It means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, as in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims, you should already request claims with appropriate level regarding your business case. 
@@ -893,8 +893,8 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0MDUxODYyNiw4NDg4MTAzMTIsLTE4Mz
-YwNzQ4MzcsMTk4Mjk0NjE0NCw4ODEyMzg3NDYsMTk4Mjk0NjE0
-NCw4ODEyMzg3NDYsMTk4Mjk0NjE0NCw4ODEyMzg3NDYsMTk4Mj
-k0NjE0NF19
+eyJoaXN0b3J5IjpbNjc5MTUwMzI1LDg0ODgxMDMxMiwtMTgzNj
+A3NDgzNywxOTgyOTQ2MTQ0LDg4MTIzODc0NiwxOTgyOTQ2MTQ0
+LDg4MTIzODc0NiwxOTgyOTQ2MTQ0LDg4MTIzODc0NiwxOTgyOT
+Q2MTQ0XX0=
 -->
