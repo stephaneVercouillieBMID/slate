@@ -83,12 +83,12 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  
  # 3. User Authentication
  
-## **itsme(r) Login Specifics** 
+## 3.1. **itsme(r) Login Specifics** 
 itsme(r) Login is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
   
  The Authorization Code Flow goes through the following steps as defined in [OpenID Connect Core Authorization Code Flow Steps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps).
  
- ## itsme(r) Login Authentication Request
+ ## 3.2. itsme(r) Login Authentication Request
  As per the [OpenID Connect Specification Authentication Request](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [OpenID Connect Specification Authorization Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint), the first step is forming an HTTPS request with the appropriate URI parameters. 
 
 *Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are **refused***. 
@@ -97,7 +97,7 @@ You should retrieve the base URI from the [Discovery document](https://merchant.
  
  **itsme(r)** supports the use of the HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters must be serialized using [Form Serialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization). Login specification defined above in this document as follows,  
 
-##### [](https://github.com/belgianmobileid/slate/blob/master/source/minorAlterations.md#differences-in-the-authentication-end-point-oidcauthorization)Differences in the Authentication End Point (“oidc/authorization”)
+##### [fjkdls] (https://github.com/belgianmobileid/slate/blob/master/source/minorAlterations.md#differences-in-the-authentication-end-point-oidcauthorization)Differences in the Authentication End Point (“oidc/authorization”)
 
 1.  Authorization queries MUST be communicated using HTTP  `POST`  protocol ONLY using the following media type,
 
@@ -927,7 +927,8 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQ4ODEwMzEyLC0xODM2MDc0ODM3LDE5OD
-I5NDYxNDQsODgxMjM4NzQ2LDE5ODI5NDYxNDQsODgxMjM4NzQ2
-LDE5ODI5NDYxNDQsODgxMjM4NzQ2LDE5ODI5NDYxNDRdfQ==
+eyJoaXN0b3J5IjpbLTEyNzE2OTE4NjEsODQ4ODEwMzEyLC0xOD
+M2MDc0ODM3LDE5ODI5NDYxNDQsODgxMjM4NzQ2LDE5ODI5NDYx
+NDQsODgxMjM4NzQ2LDE5ODI5NDYxNDQsODgxMjM4NzQ2LDE5OD
+I5NDYxNDRdfQ==
 -->
