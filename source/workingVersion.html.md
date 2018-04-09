@@ -53,8 +53,11 @@ OAuth 2.0 means one protocol for authentication and authorisation (obtaining acc
 
  ## Set a redirect URI and Certificates
  SP provides 
+
  
  - the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
+
+After a user successfully authorizes an application, the authorization server will redirect the user back to the application with either an authorization code or access token in the URL
  - the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.
  - the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.
  
@@ -169,13 +172,8 @@ If the user is already logged in, two possible identifiers that could be used to
  
 
  ### Set a redirect URI and Certificates
- SP provides 
- 
- - the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
 
-After a user successfully authorizes an application, the authorization server will redirect the user back to the application with either an authorization code or access token in the URL
- - the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.
- - the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.
+
  
  ### itsme® OpenID Configuration
  The OpenID Connect protocol requires the use of multiple endpoints for authenticating users, and for requesting resources including tokens, user information, and public keys.
@@ -952,11 +950,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjI2MTg1MDgwLC0zNTI3NTcyNzAsMTUwNT
-c3MjE2OCwxMDk5MDA2ODYyLDIwNzcxNzQxMjksLTIxMTcxMjkx
-NjEsMjA3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC
-0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3
-NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MT
-I5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3NDEy
-OSwtMjExNzEyOTE2MV19
+eyJoaXN0b3J5IjpbNzY1MjY2ODExLDYyNjE4NTA4MCwtMzUyNz
+U3MjcwLDE1MDU3NzIxNjgsMTA5OTAwNjg2MiwyMDc3MTc0MTI5
+LC0yMTE3MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMj
+A3NzE3NDEyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3
+MTI5MTYxLDIwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3ND
+EyOSwtMjExNzEyOTE2MSwyMDc3MTc0MTI5LC0yMTE3MTI5MTYx
+LDIwNzcxNzQxMjldfQ==
 -->
