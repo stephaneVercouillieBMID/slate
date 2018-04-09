@@ -49,7 +49,7 @@ OAuth 2.0 means one protocol for authentication and authorisation (obtaining acc
  BMID provides 
  
  - Partner Code, used as **client_id**
- - Service Code for each Service (see [Service Code concept](https://stackedit.io/app#glossaryServiceCodes))
+ - Service Code for each Service (see [Service Code concept](app#glossaryServiceCodes))
 
  ## Set a redirect URI and Certificates
  SP provides 
@@ -928,7 +928,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5ODcyOTIwNywxNjM4NzE2ODA5LC0xNT
+eyJoaXN0b3J5IjpbLTIyODk3MDIyMSwxNjM4NzE2ODA5LC0xNT
 czNzIzNTQ1LDYyNjE4NTA4MCwtMzUyNzU3MjcwLDE1MDU3NzIx
 NjgsMTA5OTAwNjg2MiwyMDc3MTc0MTI5LC0yMTE3MTI5MTYxLD
 IwNzcxNzQxMjksLTIxMTcxMjkxNjEsMjA3NzE3NDEyOSwtMjEx
