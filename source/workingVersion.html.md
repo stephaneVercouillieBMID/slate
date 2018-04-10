@@ -251,10 +251,12 @@ Distributed Claims are claims that are asserted by a Claims Provider other than 
 
 Aggregated and distributed Claims are represented by using special `_claim_names` and `_claim_sources`members of the JSON object containing the Claims.
 
-|Special Members| f |
+|Special Members| Feature |
 |--|--|
-|  |  |
-
+|  _claim_names|  JSON object whose member names are the Claim Names for the Aggregated and Distributed Claims. The member values are references to the member names in the _claim_sources member from which the actual Claim Values can be retrieved.|
+|--|--|
+|--|--|
+|--|--|
 Normal Claims MUST be supported. Support for Aggregated Claims and Distributed Claims is OPTIONAL.
 Claims are typically packaged in a JSON object.
 
@@ -871,7 +873,7 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYzNTcwMDAwMCwtMTE3MTcwMzA3NiwtMT
+eyJoaXN0b3J5IjpbLTY3NTIxNDg5MiwtMTE3MTcwMzA3NiwtMT
 AyMjkyMDU5NCwtMTQ5Nzk2Njg0OCw3NjE1NjM0ODIsLTE3Nzk0
 MjY4NTAsLTEwMTk5OTAzMjMsLTE2NDM5MjM1OCwtODAwNzQ4OD
 A1LDE2NDQxMjY3MTUsLTEzNjUyNDA5MTEsNDE4NzYyNzE4LC0x
