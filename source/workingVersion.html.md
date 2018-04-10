@@ -80,13 +80,8 @@ After a user successfully is authorized, the authorization server will redirect 
  
  Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
  
-  ###  2.4.1. Service Code Concept
- 
-To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it.
 
-The service code is the identifier of this instance. 
 
-The same Service Provider may utilise several service instances. For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
  # 3. Authenticating User
  **itsme® Login** is based on the [Authorization Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
  
@@ -865,6 +860,14 @@ It is expected that you will also expose their signing and encryption keys in su
   To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
 
 For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
+
+  ###  2.4.1. Service Code Concept
+ 
+To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it.
+
+The service code is the identifier of this instance. 
+
+The same Service Provider may utilise several service instances. For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
   >
  
  >### I would like to receive a new service code to do my local development...
@@ -878,11 +881,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2NDk4ODkzOCwtOTQwNDk0MDA1LC04NT
-U2NjUwMzMsOTc0NjM1ODE4LC0xMTcxNzAzMDc2LC0xMDIyOTIw
-NTk0LC0xNDk3OTY2ODQ4LDc2MTU2MzQ4MiwtMTc3OTQyNjg1MC
-wtMTAxOTk5MDMyMywtMTY0MzkyMzU4LC04MDA3NDg4MDUsMTY0
-NDEyNjcxNSwtMTM2NTI0MDkxMSw0MTg3NjI3MTgsLTE4MDI3Nz
-A2MDYsMTQ0MDI0NDE3NiwxMDE2Njg1MzUsMTgwOTY0NjM2NSw0
-OTY3NjU2MjldfQ==
+eyJoaXN0b3J5IjpbLTY4NDIxMDQzNiwtNTY0OTg4OTM4LC05ND
+A0OTQwMDUsLTg1NTY2NTAzMyw5NzQ2MzU4MTgsLTExNzE3MDMw
+NzYsLTEwMjI5MjA1OTQsLTE0OTc5NjY4NDgsNzYxNTYzNDgyLC
+0xNzc5NDI2ODUwLC0xMDE5OTkwMzIzLC0xNjQzOTIzNTgsLTgw
+MDc0ODgwNSwxNjQ0MTI2NzE1LC0xMzY1MjQwOTExLDQxODc2Mj
+cxOCwtMTgwMjc3MDYwNiwxNDQwMjQ0MTc2LDEwMTY2ODUzNSwx
+ODA5NjQ2MzY1XX0=
 -->
