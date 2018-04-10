@@ -212,6 +212,8 @@ Please see the following link for token errors,
 [http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse](http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse).
 # 4. User Data
 ## 4.1. What is a claim?
+Claims are name/value pairs that contain information about a user, as well meta-information about the OIDC service. The official definition from the spec is a [“piece of information asserted about an Entity.”](http://openid.net/specs/openid-connect-core-1_0.html#Terminology)
+
 
  # 4. Authenticating the User
  
@@ -972,11 +974,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk2MTU2NTExMywtMTgyNzEyMTQ4MCwyMT
-M2NjAyOTA0LC0yMTExODU1NTIyLC0xNjkwNzg4Nzc2LC0xODMz
-MDA2MzA2LC0xNjkwNzg4Nzc2LC0xNjkwNzg4Nzc2LC0xODMzMD
-A2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4
-Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2Mz
-A2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2
-LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2XX0=
+eyJoaXN0b3J5IjpbOTA1MDY2ODE3LC0xODI3MTIxNDgwLDIxMz
+Y2MDI5MDQsLTIxMTE4NTU1MjIsLTE2OTA3ODg3NzYsLTE4MzMw
+MDYzMDYsLTE2OTA3ODg3NzYsLTE2OTA3ODg3NzYsLTE4MzMwMD
+YzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3
+NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMD
+YsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYs
+LTE4MzMwMDYzMDYsLTE2OTA3ODg3NzZdfQ==
 -->
