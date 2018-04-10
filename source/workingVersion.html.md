@@ -51,7 +51,7 @@ OAuth 2.0 means one protocol for authentication and authorisation (obtaining acc
  - Partner Code, used as **client_id**
  - Service Code for each Service (see [Service Code concept](glossary.md#glossaryServiceCode))
  
- ## 2.3. Set a redirect URI and Certificates
+ ## 2.3. Setting a redirect URI and Certificates
  Service Providers provides,
 
  - the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
@@ -834,7 +834,7 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMwNjEzMTc0MywtMTc3OTQyNjg1MCwtMT
+eyJoaXN0b3J5IjpbMTI3MTgwNzQzOSwtMTc3OTQyNjg1MCwtMT
 AxOTk5MDMyMywtMTY0MzkyMzU4LC04MDA3NDg4MDUsMTY0NDEy
 NjcxNSwtMTM2NTI0MDkxMSw0MTg3NjI3MTgsLTE4MDI3NzA2MD
 YsMTQ0MDI0NDE3NiwxMDE2Njg1MzUsMTgwOTY0NjM2NSw0OTY3
