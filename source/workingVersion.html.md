@@ -223,6 +223,7 @@ Please see the following link for token errors,
  
  **itsme(r)** supports the use of the HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters must be serialized using [Form Serialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization).
  
+ 
  ### 4.1.1. Request Examples
  
  >Example of a minimal Authorization request
@@ -968,11 +969,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEzNjYwMjkwNCwtMjExMTg1NTUyMiwtMT
-Y5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5
-MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMz
-AwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4
-ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNj
-MwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3
-NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3Nl19
+eyJoaXN0b3J5IjpbLTE4MjcxMjE0ODAsMjEzNjYwMjkwNCwtMj
+ExMTg1NTUyMiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5
+MDc4ODc3NiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MD
+c4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAw
+NjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4OD
+c3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMw
+NiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNl19
 -->
