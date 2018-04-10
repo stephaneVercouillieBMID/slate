@@ -258,13 +258,26 @@ Aggregated and distributed Claims are represented by using special `_claim_names
 
  **Aggregated Claims**
  
-JSON object that MUST contain the JWT member whose value is a [JWT](http://openid.net/specs/openid-connect-core-1_0.html#JWT) [JWT] that MUST contain all the Claims in the _claim_names object that references the corresponding _claim_sources member. Other members MAY be present. Any members used that are not understood MUST be ignored.
+>JSON object that MUST contain the JWT member whose value is a [JWT](http://openid.net/specs/openid-connect-core-1_0.html#JWT) [JWT] that MUST contain all the Claims in the _claim_names object that references the corresponding _claim_sources member. Other members MAY be present. Any members used that are not understood MUST be ignored.
+>
 >JWT
 > REQUIRED. JWT containing Claim Values.
+>
+>The JWT SHOULD NOT contain a  sub  (subject) Claim unless its value is an identifier for the End-User at the Claims Provider (and not for the OpenID Provider or another party); this typically means that a  sub  Claim SHOULD NOT be provided.
 
-The JWT SHOULD NOT contain a  sub  (subject) Claim unless its value is an identifier for the End-User at the Claims Provider (and not for the OpenID Provider or another party); this typically means that a  sub  Claim SHOULD NOT be provided.
+**Distributed Claims**
 
+JSON object that contains the following members and values:
 
+> endpoint
+> 
+> REQUIRED. OAuth 2.0 resource endpoint from which the associated Claim can be retrieved. The endpoint URL MUST return the Claim as a JWT.
+> 
+> access_token
+> 
+> OPTIONAL. Access Token enabling retrieval of the Claims from the endpoint URL by using the  [OAuth 2.0 Bearer Token Usage](http://openid.net/specs/openid-connect-core-1_0.html#RFC6750)  [RFC6750] protocol. Claims SHOULD be requested using the Authorization Request header field and Claims Providers MUST support this method. If the Access Token is not available, RPs MAY need to retrieve the Access Token out of band or use an Access Token that was pre-negotiated between the Claims Provider and RP, or the Claims Provider MAY reauthenticate the End-User and/or reauthorize the RP.
+
+A  sub  (subject) Claim SHOULD NOT be returned from the Claims Provider unless its value is an identifier for the End-User at the Claims Provider (and not for the OpenID Provider or another party); this typically means that a  sub  Claim SHOULD NOT be provided.
 Normal Claims MUST be supported. Support for Aggregated Claims and Distributed Claims is OPTIONAL.
 Claims are typically packaged in a JSON object.
 
@@ -881,11 +894,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTA4NDgxNTE3LC0xMTcxNzAzMDc2LC0xMD
-IyOTIwNTk0LC0xNDk3OTY2ODQ4LDc2MTU2MzQ4MiwtMTc3OTQy
-Njg1MCwtMTAxOTk5MDMyMywtMTY0MzkyMzU4LC04MDA3NDg4MD
-UsMTY0NDEyNjcxNSwtMTM2NTI0MDkxMSw0MTg3NjI3MTgsLTE4
-MDI3NzA2MDYsMTQ0MDI0NDE3NiwxMDE2Njg1MzUsMTgwOTY0Nj
-M2NSw0OTY3NjU2MjksLTE2NzAxNzExNDAsODc2NjQxNzYwLDE4
-NzcxMzUyMV19
+eyJoaXN0b3J5IjpbLTY2MDk4MjI5MCwtMTE3MTcwMzA3NiwtMT
+AyMjkyMDU5NCwtMTQ5Nzk2Njg0OCw3NjE1NjM0ODIsLTE3Nzk0
+MjY4NTAsLTEwMTk5OTAzMjMsLTE2NDM5MjM1OCwtODAwNzQ4OD
+A1LDE2NDQxMjY3MTUsLTEzNjUyNDA5MTEsNDE4NzYyNzE4LC0x
+ODAyNzcwNjA2LDE0NDAyNDQxNzYsMTAxNjY4NTM1LDE4MDk2ND
+YzNjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0MTc2MCwx
+ODc3MTM1MjFdfQ==
 -->
