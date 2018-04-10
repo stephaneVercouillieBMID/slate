@@ -176,6 +176,9 @@ According to the `private_key_jwt` client authentication method, the **client as
  **aud** | Must be the token endpoint URL
  **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
  **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
+
+### 3.2.2. Token Request Example
+
  # 4. Authenticating the User
  
  **itsme(r) Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
@@ -934,7 +937,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2Mzk5Nzk1NTUsLTIxMTE4NTU1MjIsLT
+eyJoaXN0b3J5IjpbLTEyODc4MzA2OTksLTIxMTE4NTU1MjIsLT
 E2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE2
 OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4Mz
 MwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3
