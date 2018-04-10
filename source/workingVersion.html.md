@@ -83,18 +83,16 @@ To be able to use an itsme service (such as login, confirm, sign, share data) yo
 
 The service code is the identifier of this instance. 
 
-The same Service Provider may utilise several service instances. 
-For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
- 
+The same Service Provider may utilise several service instances. For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
  # 3. Authenticating User
- **itsme® Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
+ **itsme® Login** is based on the [Authorization Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
  
 The Authorization Code Flow goes through the following steps as defined in [OpenID Connect Core Authorization Code Flow Steps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps).
 
 Here following diagram depicts the Authorisation flow,
 
 ![enter image description here](https://lh3.googleusercontent.com/ejKrqmWqa9N-eaNA2CbCGq8_2OzkFZX5OfS5GRierzPGzktBUPcnJx35jEahwcu-qJ936Bz3g30 "auth flow")
-## 3.1. **Authorisation Endpoint** 
+## 3.1. **Authorization Endpoint** 
 ### 3.1.1. Authentication Request Specifications
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
 
@@ -839,11 +837,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkyMzg1Mzg3Miw3NjE1NjM0ODIsLTE3Nz
-k0MjY4NTAsLTEwMTk5OTAzMjMsLTE2NDM5MjM1OCwtODAwNzQ4
-ODA1LDE2NDQxMjY3MTUsLTEzNjUyNDA5MTEsNDE4NzYyNzE4LC
-0xODAyNzcwNjA2LDE0NDAyNDQxNzYsMTAxNjY4NTM1LDE4MDk2
-NDYzNjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0MTc2MC
-wxODc3MTM1MjEsLTMzMDY5NTQ2OCwtMTM2MTcxMjMyMSwtMTgy
-NzEyMTQ4MF19
+eyJoaXN0b3J5IjpbLTE0OTc5NjY4NDgsNzYxNTYzNDgyLC0xNz
+c5NDI2ODUwLC0xMDE5OTkwMzIzLC0xNjQzOTIzNTgsLTgwMDc0
+ODgwNSwxNjQ0MTI2NzE1LC0xMzY1MjQwOTExLDQxODc2MjcxOC
+wtMTgwMjc3MDYwNiwxNDQwMjQ0MTc2LDEwMTY2ODUzNSwxODA5
+NjQ2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3MTE0MCw4NzY2NDE3Nj
+AsMTg3NzEzNTIxLC0zMzA2OTU0NjgsLTEzNjE3MTIzMjEsLTE4
+MjcxMjE0ODBdfQ==
 -->
