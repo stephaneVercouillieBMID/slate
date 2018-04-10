@@ -224,7 +224,7 @@ Here is a typical set of claims,
     "sub": "248289761001",
     "name": "Jane Doe",
     "email": "janedoe@example.com" 
- "updated_at":  
+    "updated_at": 1470288956```
  }
  ```
 ## 4.2. Declaring Claims
@@ -986,7 +986,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwODk4Mjc2MzMsMTAxNjY4NTM1LDE4MD
+eyJoaXN0b3J5IjpbLTEzMzM1MTg2MTUsMTAxNjY4NTM1LDE4MD
 k2NDYzNjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0MTc2
 MCwxODc3MTM1MjEsLTMzMDY5NTQ2OCwtMTM2MTcxMjMyMSwtMT
 gyNzEyMTQ4MCwyMTM2NjAyOTA0LC0yMTExODU1NTIyLC0xNjkw
