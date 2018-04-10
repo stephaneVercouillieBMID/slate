@@ -145,6 +145,12 @@ An Authentication Response is an [OAuth 2.0 Authorization Response](https://tool
  ```
 ### 3.1.5. Authentication Errors
 As per [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://openid.net/specs/openid-connect-core-1_0.html#AuthError), if the authentication is NOT successful, the following errors can be triggered by itsme®:
+ Error | Description
+ -- | --
+ `interaction_required`  | The Authorization Server requires End-User interaction of some form to proceed.
+ `invalid_request_object` | The request parameter contains an invalid Request Object.
+ `request_uri_not_supported` | does not support use of the request_uri parameter.
+ `registration_not_supported` | does not support use of the registration parameter.
 
  # 4. Authenticating the User
  
@@ -904,11 +910,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgxNjc0Nzk0NiwtMjExMTg1NTUyMiwtMT
-Y5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5
-MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMz
-AwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4
-ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNj
-MwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3
-NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3Nl19
+eyJoaXN0b3J5IjpbNTkyMzQ0MTUzLC0yMTExODU1NTIyLC0xNj
+kwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xNjkw
+Nzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMD
+A2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4
+Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2Mz
+A2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2
+LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2XX0=
 -->
