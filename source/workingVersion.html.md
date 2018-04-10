@@ -255,7 +255,6 @@ Scope  | Data| Claim
  | **email** | Email Adress | <br> `email` and `email_verified`<br>| `gender`
  | **phone** | Phone number |`phone_number` or `phone_number_verified`
  
- T
 **NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>**
  
 
@@ -1004,11 +1003,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDAyOTcyMzgsMTAxNjY4NTM1LDE4MDk2ND
-YzNjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0MTc2MCwx
-ODc3MTM1MjEsLTMzMDY5NTQ2OCwtMTM2MTcxMjMyMSwtMTgyNz
-EyMTQ4MCwyMTM2NjAyOTA0LC0yMTExODU1NTIyLC0xNjkwNzg4
-Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xNjkwNzg4Nz
-c2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2
-LC0xNjkwNzg4Nzc2XX0=
+eyJoaXN0b3J5IjpbMTQ0MDI0NDE3NiwxMDE2Njg1MzUsMTgwOT
+Y0NjM2NSw0OTY3NjU2MjksLTE2NzAxNzExNDAsODc2NjQxNzYw
+LDE4NzcxMzUyMSwtMzMwNjk1NDY4LC0xMzYxNzEyMzIxLC0xOD
+I3MTIxNDgwLDIxMzY2MDI5MDQsLTIxMTE4NTU1MjIsLTE2OTA3
+ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE2OTA3OD
+g3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYz
+MDYsLTE2OTA3ODg3NzZdfQ==
 -->
