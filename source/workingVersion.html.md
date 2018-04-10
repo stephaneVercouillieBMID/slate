@@ -79,8 +79,11 @@ After a user successfully is authorized, the authorization server will redirect 
  
   ###  2.4.1. Service Code Concept
  
-To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
+To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it.
 
+The service code is the identifier of this instance. 
+
+The same Service Provider may utilise several service instances. 
 For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
  
  # 3. Authenticating User
@@ -836,11 +839,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzYxNTYzNDgyLC0xNzc5NDI2ODUwLC0xMD
-E5OTkwMzIzLC0xNjQzOTIzNTgsLTgwMDc0ODgwNSwxNjQ0MTI2
-NzE1LC0xMzY1MjQwOTExLDQxODc2MjcxOCwtMTgwMjc3MDYwNi
-wxNDQwMjQ0MTc2LDEwMTY2ODUzNSwxODA5NjQ2MzY1LDQ5Njc2
-NTYyOSwtMTY3MDE3MTE0MCw4NzY2NDE3NjAsMTg3NzEzNTIxLC
-0zMzA2OTU0NjgsLTEzNjE3MTIzMjEsLTE4MjcxMjE0ODAsMjEz
-NjYwMjkwNF19
+eyJoaXN0b3J5IjpbLTkyMzg1Mzg3Miw3NjE1NjM0ODIsLTE3Nz
+k0MjY4NTAsLTEwMTk5OTAzMjMsLTE2NDM5MjM1OCwtODAwNzQ4
+ODA1LDE2NDQxMjY3MTUsLTEzNjUyNDA5MTEsNDE4NzYyNzE4LC
+0xODAyNzcwNjA2LDE0NDAyNDQxNzYsMTAxNjY4NTM1LDE4MDk2
+NDYzNjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0MTc2MC
+wxODc3MTM1MjEsLTMzMDY5NTQ2OCwtMTM2MTcxMjMyMSwtMTgy
+NzEyMTQ4MF19
 -->
