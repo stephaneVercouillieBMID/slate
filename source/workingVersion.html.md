@@ -218,7 +218,14 @@ Please see the following link for token errors,
 ## 4.1. What is a claim?
 Claims are name/value pairs that contain information about a user, as well meta-information about the OIDC service. The official definition from the spec is a [“piece of information asserted about an Entity.”](http://openid.net/specs/openid-connect-core-1_0.html#Terminology)
 
-Here is a typical 
+Here is a typical set of claims,
+ ```http--inline
+ {
+    "sub": "248289761001",
+    "name": "Jane Doe",
+    "email": "janedoe@example.com"
+ }
+ ```
 ## 4.2. Declaring Claims
 
 ### 4.2.1. Scope
@@ -978,11 +985,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3MTA3MjMzNywxMDE2Njg1MzUsMTgwOT
-Y0NjM2NSw0OTY3NjU2MjksLTE2NzAxNzExNDAsODc2NjQxNzYw
-LDE4NzcxMzUyMSwtMzMwNjk1NDY4LC0xMzYxNzEyMzIxLC0xOD
-I3MTIxNDgwLDIxMzY2MDI5MDQsLTIxMTE4NTU1MjIsLTE2OTA3
-ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE2OTA3OD
-g3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYz
-MDYsLTE2OTA3ODg3NzZdfQ==
+eyJoaXN0b3J5IjpbNzQwNDk0MjE4LDEwMTY2ODUzNSwxODA5Nj
+Q2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3MTE0MCw4NzY2NDE3NjAs
+MTg3NzEzNTIxLC0zMzA2OTU0NjgsLTEzNjE3MTIzMjEsLTE4Mj
+cxMjE0ODAsMjEzNjYwMjkwNCwtMjExMTg1NTUyMiwtMTY5MDc4
+ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5MDc4OD
+c3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMw
+NiwtMTY5MDc4ODc3Nl19
 -->
