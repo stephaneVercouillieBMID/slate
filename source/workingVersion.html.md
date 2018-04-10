@@ -461,9 +461,9 @@ The Access Token will define the list of Data that will be provided back to the 
  
  <aside class="notice"><bold>Note</bold>: itsme(r) won't deliver any <a href="http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims">aggregated nor distributed claims</a> in the current version.</aside>
  
- OpenID Connect specifies a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) or user attributes. They are intended to supply the client app with consented user details such as email, name upon request.
+ Open ID Connect specifies a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) or user attributes. They are intended to supply the client app with consented user details such as email, name upon request.
  
-As per OpenID Connect specification, scopes can be used to request that specific sets of information be made available as Claim Values in User Info Token.
+As per Open ID Connect specification, scopes can be used to request that specific sets of information be made available as Claim Values in User Info Token.
 
 
 You can request claims in two ways:
@@ -955,9 +955,9 @@ Scope  | Data| Claim
  >## What is the lay-out of the Identity Data that we get back in the User Info Response
  They are the same as on the eID card
  
- >## Do we need to call the UserInfo endpoint to get the National Register number or can it be part of the ID Token?
+ >## Do we need to call the User Info endpoint to get the National Register number or can it be part of the ID Token?
  
- UserInfo should be used to retrieve data and so NRN if it was available, however, today we cannot send the NRN to private organizations.
+ User Info should be used to retrieve data and so NRN if it was available, however, today we cannot send the NRN to private organisations.
  
  >## I would like the access to the NRN data but not other eID data, is it possible?
  Taking into account you allowed to receive the NRN from us, we can't and get access to NRN and block the access to the eID group else it would prevent you to receive the NRN.
@@ -1043,11 +1043,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODc2NjQxNzYwLDE4NzcxMzUyMSwtMzMwNj
-k1NDY4LC0xMzYxNzEyMzIxLC0xODI3MTIxNDgwLDIxMzY2MDI5
-MDQsLTIxMTE4NTU1MjIsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMD
-YsLTE2OTA3ODg3NzYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYs
-LTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLT
-E4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2
-OTA3ODg3NzYsLTE4MzMwMDYzMDZdfQ==
+eyJoaXN0b3J5IjpbLTUzNTYxODQwNSw4NzY2NDE3NjAsMTg3Nz
+EzNTIxLC0zMzA2OTU0NjgsLTEzNjE3MTIzMjEsLTE4MjcxMjE0
+ODAsMjEzNjYwMjkwNCwtMjExMTg1NTUyMiwtMTY5MDc4ODc3Ni
+wtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5MDc4ODc3Niwt
+MTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMT
+Y5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgz
+MzAwNjMwNiwtMTY5MDc4ODc3Nl19
 -->
