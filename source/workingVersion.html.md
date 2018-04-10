@@ -249,7 +249,7 @@ Aggregated Claims that are asserted by a Claims Provider other than the Open ID 
 
 Distributed Claims are claims that are asserted by a Claims Provider other than the Open ID Provider but are returned as references by the Open ID Provider.
 
-
+Aggregated and distributed Claims are represented by using special `_claim_names` and `_claim_sources`members of the JSON object containing the Claims.
 
 
 Normal Claims MUST be supported. Support for Aggregated Claims and Distributed Claims is OPTIONAL.
@@ -868,11 +868,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNzE3MDMwNzYsLTEwMjI5MjA1OTQsLT
-E0OTc5NjY4NDgsNzYxNTYzNDgyLC0xNzc5NDI2ODUwLC0xMDE5
-OTkwMzIzLC0xNjQzOTIzNTgsLTgwMDc0ODgwNSwxNjQ0MTI2Nz
-E1LC0xMzY1MjQwOTExLDQxODc2MjcxOCwtMTgwMjc3MDYwNiwx
-NDQwMjQ0MTc2LDEwMTY2ODUzNSwxODA5NjQ2MzY1LDQ5Njc2NT
-YyOSwtMTY3MDE3MTE0MCw4NzY2NDE3NjAsMTg3NzEzNTIxLC0z
-MzA2OTU0NjhdfQ==
+eyJoaXN0b3J5IjpbLTEzODUwNDM4MiwtMTE3MTcwMzA3NiwtMT
+AyMjkyMDU5NCwtMTQ5Nzk2Njg0OCw3NjE1NjM0ODIsLTE3Nzk0
+MjY4NTAsLTEwMTk5OTAzMjMsLTE2NDM5MjM1OCwtODAwNzQ4OD
+A1LDE2NDQxMjY3MTUsLTEzNjUyNDA5MTEsNDE4NzYyNzE4LC0x
+ODAyNzcwNjA2LDE0NDAyNDQxNzYsMTAxNjY4NTM1LDE4MDk2ND
+YzNjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0MTc2MCwx
+ODc3MTM1MjFdfQ==
 -->
