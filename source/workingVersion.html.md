@@ -805,11 +805,11 @@ It is expected that you will also expose their signing and encryption keys in su
  }  
   ``` 
  
- *Please make sure that,**
+ Please make sure that,
  
-  >*You provide this information in the encrypted assertion*
- *You signed also the assertion before encrypting it*
- *You  mention the correct "kid", the "alg" and the constant value "JWT"*
+  - *You provide this information in the encrypted assertion*
+ - *You signed also the assertion before encrypting it*
+ - *You  mention the correct "kid", the "alg" and the constant value "JWT"*
  
  >## I make a call to the token endpoint, the server returns a 500. What should I do?
  
@@ -878,11 +878,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNzc3MzI0MjYsLTk0MDQ5NDAwNSwtOD
-U1NjY1MDMzLDk3NDYzNTgxOCwtMTE3MTcwMzA3NiwtMTAyMjky
-MDU5NCwtMTQ5Nzk2Njg0OCw3NjE1NjM0ODIsLTE3Nzk0MjY4NT
-AsLTEwMTk5OTAzMjMsLTE2NDM5MjM1OCwtODAwNzQ4ODA1LDE2
-NDQxMjY3MTUsLTEzNjUyNDA5MTEsNDE4NzYyNzE4LC0xODAyNz
-cwNjA2LDE0NDAyNDQxNzYsMTAxNjY4NTM1LDE4MDk2NDYzNjUs
-NDk2NzY1NjI5XX0=
+eyJoaXN0b3J5IjpbMTY0MTcwNjcwOSwtOTQwNDk0MDA1LC04NT
+U2NjUwMzMsOTc0NjM1ODE4LC0xMTcxNzAzMDc2LC0xMDIyOTIw
+NTk0LC0xNDk3OTY2ODQ4LDc2MTU2MzQ4MiwtMTc3OTQyNjg1MC
+wtMTAxOTk5MDMyMywtMTY0MzkyMzU4LC04MDA3NDg4MDUsMTY0
+NDEyNjcxNSwtMTM2NTI0MDkxMSw0MTg3NjI3MTgsLTE4MDI3Nz
+A2MDYsMTQ0MDI0NDE3NiwxMDE2Njg1MzUsMTgwOTY0NjM2NSw0
+OTY3NjU2MjldfQ==
 -->
