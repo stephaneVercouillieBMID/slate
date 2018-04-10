@@ -445,13 +445,7 @@ The Access Token will define the list of Data that will be provided back to the 
  
      https://merchant.itsme.be/oidc/jwkSet
  
-It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. 
-The exposed endpoint must be HT
-
-
-----------the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
- 
-
+It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
  ># 6. **FAQ**
  >## [JWKSet](#jwks) 
  >
@@ -826,11 +820,11 @@ The exposed endpoint must be HT
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzMDAxODc1NiwtMTgwMjc3MDYwNiwxND
-QwMjQ0MTc2LDEwMTY2ODUzNSwxODA5NjQ2MzY1LDQ5Njc2NTYy
-OSwtMTY3MDE3MTE0MCw4NzY2NDE3NjAsMTg3NzEzNTIxLC0zMz
-A2OTU0NjgsLTEzNjE3MTIzMjEsLTE4MjcxMjE0ODAsMjEzNjYw
-MjkwNCwtMjExMTg1NTUyMiwtMTY5MDc4ODc3NiwtMTgzMzAwNj
-MwNiwtMTY5MDc4ODc3NiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMw
-NiwtMTY5MDc4ODc3Nl19
+eyJoaXN0b3J5IjpbNDE4NzYyNzE4LC0xODAyNzcwNjA2LDE0ND
+AyNDQxNzYsMTAxNjY4NTM1LDE4MDk2NDYzNjUsNDk2NzY1NjI5
+LC0xNjcwMTcxMTQwLDg3NjY0MTc2MCwxODc3MTM1MjEsLTMzMD
+Y5NTQ2OCwtMTM2MTcxMjMyMSwtMTgyNzEyMTQ4MCwyMTM2NjAy
+OTA0LC0yMTExODU1NTIyLC0xNjkwNzg4Nzc2LC0xODMzMDA2Mz
+A2LC0xNjkwNzg4Nzc2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2
+LC0xNjkwNzg4Nzc2XX0=
 -->
