@@ -131,21 +131,10 @@ Parameter | Required | Comment| Parameter Explained
 
 ### 3.1.3. Authentication Response Specification
 An Authentication Response is an [OAuth 2.0 Authorization Response](https://tools.ietf.org/html/rfc6749#section-4.1.2) message. As such, the Authentication Response will return the following parameters:
-**Parameter**
-
-**Provided**
-
-**Description**
-
-**code**
-
-Always
-
-Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.
-
-**state**
-
-The exact value received from the client, if the parameter was present in the Authentication Request.
+ Parameter | Provided | Description
+ -- | -- | --
+ **code** | Always | Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.
+ **state** |  | The exact value received from the client, if the parameter was present in the Authentication Request.
 
  # 4. Authenticating the User
  
@@ -905,11 +894,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDg1NTEzOTUzLC0yMTExODU1NTIyLC0xNj
-kwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xNjkw
-Nzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMD
-A2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4
-Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2Mz
-A2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2
-LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2XX0=
+eyJoaXN0b3J5IjpbMTI3ODA4NTI3OSwtMjExMTg1NTUyMiwtMT
+Y5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5
+MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMz
+AwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4
+ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNj
+MwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3
+NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3Nl19
 -->
