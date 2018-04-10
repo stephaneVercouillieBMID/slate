@@ -279,7 +279,7 @@ Any claim requested by using the scope value can only be obtained from the User 
 #### 4.2.2.3. Set of Requested
 
 #### 4.2.2.4. Example of a Valid “claims” Object
-Example of JSON device object requested with **tag:sixdots.be,2017-05:claim_device**
+Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_device`
  
  ```json--inline
  {  
@@ -1035,11 +1035,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNzY0NDU4MTYsMTQ0MDI0NDE3NiwxMD
-E2Njg1MzUsMTgwOTY0NjM2NSw0OTY3NjU2MjksLTE2NzAxNzEx
-NDAsODc2NjQxNzYwLDE4NzcxMzUyMSwtMzMwNjk1NDY4LC0xMz
-YxNzEyMzIxLC0xODI3MTIxNDgwLDIxMzY2MDI5MDQsLTIxMTE4
-NTU1MjIsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3OD
-g3NzYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3
-NzYsLTE4MzMwMDYzMDZdfQ==
+eyJoaXN0b3J5IjpbNTQ1MTEzNTIwLDE0NDAyNDQxNzYsMTAxNj
+Y4NTM1LDE4MDk2NDYzNjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQw
+LDg3NjY0MTc2MCwxODc3MTM1MjEsLTMzMDY5NTQ2OCwtMTM2MT
+cxMjMyMSwtMTgyNzEyMTQ4MCwyMTM2NjAyOTA0LC0yMTExODU1
+NTIyLC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nz
+c2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2
+LC0xODMzMDA2MzA2XX0=
 -->
