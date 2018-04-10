@@ -248,7 +248,6 @@ The following is a non-normative response containing Normal Claims:
   ```
 
  #### 4.1.1.2. Aggregated Claims and Distributed Claims
-Aggregated Claims that are asserted by a Claims Provider other than the Open ID Provider but are returned by Open ID Provider.
 
 Distributed Claims are claims that are asserted by a Claims Provider other than the Open ID Provider but are returned as references by the Open ID Provider.
 
@@ -260,13 +259,17 @@ Aggregated and distributed Claims are represented by using special `_claim_names
 |_claim_sources|JSON object whose member names are referenced by the member values of the _claim_names member. The member values contain sets of Aggregated Claims or reference locations for Distributed Claims. The member values can have one of the following formats depending on whether it is providing Aggregated or Distributed Claims:
 
  **Aggregated Claims**
- 
+
+Aggregated Claims that are asserted by a Claims Provider other than the Open ID Provider but are returned by Open ID Provider.
+
 >JSON object that MUST contain the JWT member whose value is a [JWT](http://openid.net/specs/openid-connect-core-1_0.html#JWT) [JWT] that MUST contain all the Claims in the _claim_names object that references the corresponding _claim_sources member. Other members MAY be present. Any members used that are not understood MUST be ignored.
 >
 >JWT
 > REQUIRED. JWT containing Claim Values.
 >
 >The JWT SHOULD NOT contain a  sub  (subject) Claim unless its value is an identifier for the End-User at the Claims Provider (and not for the OpenID Provider or another party); this typically means that a  sub  Claim SHOULD NOT be provided.
+
+ Example of Aggregated Claims:
 
 **Distributed Claims**
 
@@ -889,11 +892,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MTkwNDk2MDksLTExNzE3MDMwNzYsLT
-EwMjI5MjA1OTQsLTE0OTc5NjY4NDgsNzYxNTYzNDgyLC0xNzc5
-NDI2ODUwLC0xMDE5OTkwMzIzLC0xNjQzOTIzNTgsLTgwMDc0OD
-gwNSwxNjQ0MTI2NzE1LC0xMzY1MjQwOTExLDQxODc2MjcxOCwt
-MTgwMjc3MDYwNiwxNDQwMjQ0MTc2LDEwMTY2ODUzNSwxODA5Nj
-Q2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3MTE0MCw4NzY2NDE3NjAs
-MTg3NzEzNTIxXX0=
+eyJoaXN0b3J5IjpbOTc0NjM1ODE4LC0xMTcxNzAzMDc2LC0xMD
+IyOTIwNTk0LC0xNDk3OTY2ODQ4LDc2MTU2MzQ4MiwtMTc3OTQy
+Njg1MCwtMTAxOTk5MDMyMywtMTY0MzkyMzU4LC04MDA3NDg4MD
+UsMTY0NDEyNjcxNSwtMTM2NTI0MDkxMSw0MTg3NjI3MTgsLTE4
+MDI3NzA2MDYsMTQ0MDI0NDE3NiwxMDE2Njg1MzUsMTgwOTY0Nj
+M2NSw0OTY3NjU2MjksLTE2NzAxNzExNDAsODc2NjQxNzYwLDE4
+NzcxMzUyMV19
 -->
