@@ -25,7 +25,7 @@ itsme® offers 4 strong enablers for every process digitalization project. Furth
 ### 2. [**itsme®Confirm**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/confirm-with-itsme)
  ### 3. [**itsme®Shared Data**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/shared-data)
   ### 4. Sign (*Coming Soon*)
- # 2. Integration Preparation: On boarding
+ # 2. Integration Preparation: On boarding Process
  
  Before your application can use **itsme®** for user login, you must set up a project to obtain OIDC credentials, set redirect URIs for your services, and customise the branding information that your users see on the **itsme®** user-consent screen.
  
@@ -52,7 +52,7 @@ OAuth 2.0 means one protocol for authentication and authorisation (obtaining acc
  - Service Code for each Service (see [Service Code concept](glossary.md#glossaryServiceCode))
  
  ## 2.3. Set a redirect URI and Certificates
- SP provides 
+ Service Providers provides,
 
  - the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
 
@@ -893,11 +893,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU1NDI4MDY3OSwtMTY5MDc4ODc3NiwtMT
-gzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5MDc4ODc3NiwtMTgz
-MzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MD
-c4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAw
-NjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4OD
-c3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMw
-NiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNl19
+eyJoaXN0b3J5IjpbNzY3NzkxMjAwLC0xNjkwNzg4Nzc2LC0xOD
+MzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xNjkwNzg4Nzc2LC0xODMz
+MDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNz
+g4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2
+MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nz
+c2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2
+LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2XX0=
 -->
