@@ -255,8 +255,10 @@ Scope  | Data| Claim
  
 **NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>**
  
-
 ### 4.2.2 “claims” Parameter
+Individually, with the optional  [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter.
+
+NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.
 
 #### 4.2.2.1. User Info Endpoint
 
@@ -1001,7 +1003,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM0NDgxMDA2NCwxNDQwMjQ0MTc2LDEwMT
+eyJoaXN0b3J5IjpbMTYyODE2ODM1MCwxNDQwMjQ0MTc2LDEwMT
 Y2ODUzNSwxODA5NjQ2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3MTE0
 MCw4NzY2NDE3NjAsMTg3NzEzNTIxLC0zMzA2OTU0NjgsLTEzNj
 E3MTIzMjEsLTE4MjcxMjE0ODAsMjEzNjYwMjkwNCwtMjExMTg1
