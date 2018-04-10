@@ -158,10 +158,11 @@ The Authentication Response includes a `code` parameter, a one-time authorizatio
 
 ### 3.2.1. Token Request Specification
 The Token Request must include the following parameters in the POST body:
-
-**Parameter**| **Required**| **Comment**
+|Parameter|  Required| Comment
+|--|--|--
+|  |  | 
 ----------
-**grant_type**
+
 
 Required
 
@@ -949,7 +950,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTQyNTcxNDEsLTIxMTE4NTU1MjIsLT
+eyJoaXN0b3J5IjpbLTE5NDk5MjYxNDAsLTIxMTE4NTU1MjIsLT
 E2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE2
 OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4Mz
 MwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3
