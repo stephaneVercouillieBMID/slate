@@ -298,9 +298,8 @@ Scope  | Data| Claim
 **NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>**
  
 ### 4.2.2 “claims” Parameter
-Individually, with the optional  [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter.
 
-We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. 
+We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter of the Authentication Request. 
 
 Here are these claims:
  
@@ -872,11 +871,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg1NTY2NTAzMyw5NzQ2MzU4MTgsLTExNz
-E3MDMwNzYsLTEwMjI5MjA1OTQsLTE0OTc5NjY4NDgsNzYxNTYz
-NDgyLC0xNzc5NDI2ODUwLC0xMDE5OTkwMzIzLC0xNjQzOTIzNT
-gsLTgwMDc0ODgwNSwxNjQ0MTI2NzE1LC0xMzY1MjQwOTExLDQx
-ODc2MjcxOCwtMTgwMjc3MDYwNiwxNDQwMjQ0MTc2LDEwMTY2OD
-UzNSwxODA5NjQ2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3MTE0MCw4
-NzY2NDE3NjBdfQ==
+eyJoaXN0b3J5IjpbLTEwNDA2MjEyMDQsLTg1NTY2NTAzMyw5Nz
+Q2MzU4MTgsLTExNzE3MDMwNzYsLTEwMjI5MjA1OTQsLTE0OTc5
+NjY4NDgsNzYxNTYzNDgyLC0xNzc5NDI2ODUwLC0xMDE5OTkwMz
+IzLC0xNjQzOTIzNTgsLTgwMDc0ODgwNSwxNjQ0MTI2NzE1LC0x
+MzY1MjQwOTExLDQxODc2MjcxOCwtMTgwMjc3MDYwNiwxNDQwMj
+Q0MTc2LDEwMTY2ODUzNSwxODA5NjQ2MzY1LDQ5Njc2NTYyOSwt
+MTY3MDE3MTE0MF19
 -->
