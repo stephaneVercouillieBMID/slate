@@ -239,7 +239,7 @@ The UserInfo endpoint can only be accessed with a valid  **access_token**  recei
 
 Your server sends the UserInfo Request using either HTTP  `GET`  or HTTP  `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP  `GET`method and the Access Token be sent the using the  `Authorization`  header field. The HTTP request is sent to the UserInfo endpoint, which you should retrieve from the  [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration)  using the key  **userinfo_endpoint**.
 
-The Access Token will define the list of Data that will be provided back to the client (TODO). In order to request specific claims, you can  [use scopes](https://stackedit.io/app#stClaims)  in the Authentication Request and/or  [use the claims parameter](https://stackedit.io/app#Claims-Request)  of the  **request**Object.
+The Access Token will define the list of Data that will be provided back to the client. In order to request specific claims, you can  [use scopes](https://stackedit.io/app#stClaims)  in the Authentication Request and/or  [use the claims parameter](https://stackedit.io/app#Claims-Request)  of the  request Object.
 
 ### 4.3.1. User Info Endpoint
 As per the OpenID Connect specification  [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
@@ -1041,11 +1041,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3NzEzNTIxLC0zMzA2OTU0NjgsLTEzNj
-E3MTIzMjEsLTE4MjcxMjE0ODAsMjEzNjYwMjkwNCwtMjExMTg1
-NTUyMiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4OD
-c3NiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3
-NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNi
-wtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3Niwt
-MTgzMzAwNjMwNiwtMTY5MDc4ODc3Nl19
+eyJoaXN0b3J5IjpbNjM0NTI0NjY0LDE4NzcxMzUyMSwtMzMwNj
+k1NDY4LC0xMzYxNzEyMzIxLC0xODI3MTIxNDgwLDIxMzY2MDI5
+MDQsLTIxMTE4NTU1MjIsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMD
+YsLTE2OTA3ODg3NzYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYs
+LTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLT
+E4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2
+OTA3ODg3NzYsLTE4MzMwMDYzMDZdfQ==
 -->
