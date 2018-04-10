@@ -235,18 +235,20 @@ Claims are name/value pairs that contain information about a user, as well meta-
 
 As per the OpenID Connect specification  [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
 
-The UserInfo endpoint can only be accessed with a valid  **access_token**  received from the Token endpoint during User Authentication, and for a very limited duration after end user authentication; there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the UserInfo endpoint.
+The User Info endpoint can only be accessed with a valid  **access_token**  received from the Token endpoint during User Authentication, and for a very limited duration after end user authentication; there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info endpoint.
 
-Your server sends the UserInfo Request using either HTTP  `GET`  or HTTP  `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP  `GET`method and the Access Token be sent the using the  `Authorization`  header field. The HTTP request is sent to the UserInfo endpoint, which you should retrieve from the  [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration)  using the key  **userinfo_endpoint**.
+Your server sends the User Info Request using either HTTP  `GET`  or HTTP  `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP  `GET`method and the Access Token be sent the using the  `Authorization`  header field. The HTTP request is sent to the User Info endpoint, which you should retrieve from the  [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration)  using the key  **userinfo_endpoint**.
 
 The Access Token will define the list of Data that will be provided back to the client. In order to request specific claims, you can  [use scopes](https://stackedit.io/app#stClaims)  in the Authentication Request and/or  [use the claims parameter](https://stackedit.io/app#Claims-Request)  of the  request Object.
 
 ### 4.3.1. User Info Endpoint
 As per the OpenID Connect specification  [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
 
-The UserInfo endpoint can only be accessed with a valid  **access_token**  received from the Token endpoint during User Authentication, and for a very limited duration after end user authentication; there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the UserInfo endpoint.
+The User Info endpoint can only be accessed with a valid  **access_token**  received from the Token endpoint during User Authentication, and for a very limited duration after end user authentication; there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info endpoint.
 
-Your server sends the UserInfo Request using either HTTP  `GET`  or HTTP  `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP  `GET`method and the Access Token be sent the using the  `Authorization`  header field. The HTTP request is sent to the UserInfo endpoint, which you should retrieve from the  [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration)  using the key  **userinfo_endpoint**.
+Your server sends the User Info Request using either HTTP  `GET`  or HTTP  `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP  `GET`method and the Access Token be sent the using the  `Authorization`  header field. The HTTP request is sent to the User 
+
+Info endpoint, which you should retrieve from the  [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration)  using the key  **userinfo_endpoint**.
 #### 4.3.1.1. User info Request Specification
 The Access Token will define the list of Data that will be provided back to the client (TODO). In order to request specific claims, you can [use scopes](https://stackedit.io/app#stClaims) in the Authentication Request and/or [use the claims parameter](https://stackedit.io/app#Claims-Request) of the request Object.
 #### 4.3.1.2. User info Request Example
@@ -1041,11 +1043,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjM0NTI0NjY0LDE4NzcxMzUyMSwtMzMwNj
-k1NDY4LC0xMzYxNzEyMzIxLC0xODI3MTIxNDgwLDIxMzY2MDI5
-MDQsLTIxMTE4NTU1MjIsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMD
-YsLTE2OTA3ODg3NzYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYs
-LTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLT
-E4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2
-OTA3ODg3NzYsLTE4MzMwMDYzMDZdfQ==
+eyJoaXN0b3J5IjpbLTczODY4NDQ5NiwxODc3MTM1MjEsLTMzMD
+Y5NTQ2OCwtMTM2MTcxMjMyMSwtMTgyNzEyMTQ4MCwyMTM2NjAy
+OTA0LC0yMTExODU1NTIyLC0xNjkwNzg4Nzc2LC0xODMzMDA2Mz
+A2LC0xNjkwNzg4Nzc2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2
+LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC
+0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0x
+NjkwNzg4Nzc2LC0xODMzMDA2MzA2XX0=
 -->
