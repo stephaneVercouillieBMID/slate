@@ -226,6 +226,7 @@ Claims are name/value pairs that contain information about a user, as well meta-
 
 Claims are typically packaged in a JSON object.
 
+
 Here is a typical set of claims,
  ```http--inline
  {
@@ -838,11 +839,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMjI5MjA1OTQsLTE0OTc5NjY4NDgsNz
-YxNTYzNDgyLC0xNzc5NDI2ODUwLC0xMDE5OTkwMzIzLC0xNjQz
-OTIzNTgsLTgwMDc0ODgwNSwxNjQ0MTI2NzE1LC0xMzY1MjQwOT
-ExLDQxODc2MjcxOCwtMTgwMjc3MDYwNiwxNDQwMjQ0MTc2LDEw
-MTY2ODUzNSwxODA5NjQ2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3MT
-E0MCw4NzY2NDE3NjAsMTg3NzEzNTIxLC0zMzA2OTU0NjgsLTEz
-NjE3MTIzMjFdfQ==
+eyJoaXN0b3J5IjpbNTYyMTEyMjU2LC0xMDIyOTIwNTk0LC0xND
+k3OTY2ODQ4LDc2MTU2MzQ4MiwtMTc3OTQyNjg1MCwtMTAxOTk5
+MDMyMywtMTY0MzkyMzU4LC04MDA3NDg4MDUsMTY0NDEyNjcxNS
+wtMTM2NTI0MDkxMSw0MTg3NjI3MTgsLTE4MDI3NzA2MDYsMTQ0
+MDI0NDE3NiwxMDE2Njg1MzUsMTgwOTY0NjM2NSw0OTY3NjU2Mj
+ksLTE2NzAxNzExNDAsODc2NjQxNzYwLDE4NzcxMzUyMSwtMzMw
+Njk1NDY4XX0=
 -->
