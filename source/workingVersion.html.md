@@ -281,7 +281,7 @@ Here are these claims:
 #### 4.2.2.1. User Info Endpoint
 Any claim requested by using the scope value can only be obtained from the User Info endpoint.
 #### 4.2.2.2. Token Endpoint
-As defined in this link. (http://openid.net/specs/openid-connect-core-1_0.html#TokenEndpoint
+As defined in this link. http://openid.net/specs/openid-connect-core-1_0.html#TokenEndpoint
 #### 4.2.2.3. Set of Request Parameted Adapted to itsme(r)
 ```json--inline
  {
@@ -837,7 +837,7 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTczNTAwNzUsLTE2NDM5MjM1OCwtOD
+eyJoaXN0b3J5IjpbLTEzMjc1MTMzMDMsLTE2NDM5MjM1OCwtOD
 AwNzQ4ODA1LDE2NDQxMjY3MTUsLTEzNjUyNDA5MTEsNDE4NzYy
 NzE4LC0xODAyNzcwNjA2LDE0NDAyNDQxNzYsMTAxNjY4NTM1LD
 E4MDk2NDYzNjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0
