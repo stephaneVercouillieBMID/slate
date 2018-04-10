@@ -85,6 +85,9 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  **itsme® Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
  
 The Authorization Code Flow goes through the following steps as defined in [OpenID Connect Core Authorization Code Flow Steps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps).
+
+Here following diagram depicts the Authorisation flow,
+
 ## 3.1. **Authorisation Endpoint** 
 ### 3.1.1. Authentication Request Specifications
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
@@ -966,11 +969,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NzAxNzExNDAsODc2NjQxNzYwLDE4Nz
-cxMzUyMSwtMzMwNjk1NDY4LC0xMzYxNzEyMzIxLC0xODI3MTIx
-NDgwLDIxMzY2MDI5MDQsLTIxMTE4NTU1MjIsLTE2OTA3ODg3Nz
-YsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE2OTA3ODg3NzYs
-LTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLT
-E2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4
-MzMwMDYzMDYsLTE2OTA3ODg3NzZdfQ==
+eyJoaXN0b3J5IjpbNDk2NzY1NjI5LC0xNjcwMTcxMTQwLDg3Nj
+Y0MTc2MCwxODc3MTM1MjEsLTMzMDY5NTQ2OCwtMTM2MTcxMjMy
+MSwtMTgyNzEyMTQ4MCwyMTM2NjAyOTA0LC0yMTExODU1NTIyLC
+0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0x
+NjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xOD
+MzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkw
+Nzg4Nzc2LC0xODMzMDA2MzA2XX0=
 -->
