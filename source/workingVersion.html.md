@@ -88,6 +88,7 @@ The Authorization Code Flow goes through the following steps as defined in [Open
 
 Here following diagram depicts the Authorisation flow,
 
+![enter image description here](https://lh3.googleusercontent.com/ejKrqmWqa9N-eaNA2CbCGq8_2OzkFZX5OfS5GRierzPGzktBUPcnJx35jEahwcu-qJ936Bz3g30 "auth flow")
 ## 3.1. **Authorisation Endpoint** 
 ### 3.1.1. Authentication Request Specifications
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
@@ -969,11 +970,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDk2NzY1NjI5LC0xNjcwMTcxMTQwLDg3Nj
-Y0MTc2MCwxODc3MTM1MjEsLTMzMDY5NTQ2OCwtMTM2MTcxMjMy
-MSwtMTgyNzEyMTQ4MCwyMTM2NjAyOTA0LC0yMTExODU1NTIyLC
-0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0x
-NjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xOD
-MzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkw
-Nzg4Nzc2LC0xODMzMDA2MzA2XX0=
+eyJoaXN0b3J5IjpbMTgwOTY0NjM2NSw0OTY3NjU2MjksLTE2Nz
+AxNzExNDAsODc2NjQxNzYwLDE4NzcxMzUyMSwtMzMwNjk1NDY4
+LC0xMzYxNzEyMzIxLC0xODI3MTIxNDgwLDIxMzY2MDI5MDQsLT
+IxMTE4NTU1MjIsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2
+OTA3ODg3NzYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OT
+A3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMw
+MDYzMDYsLTE2OTA3ODg3NzZdfQ==
 -->
