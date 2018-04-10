@@ -256,12 +256,23 @@ Scope  | Data| Claim
 **NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>**
  
 ### 4.2.2 “claims” Parameter
-Individually, with the optional  [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter.
 
-NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.
-
+We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. Here are these claims:
+ 
+ Data | Claim | Comment
+ -- | -- | --
+ Subject | **`sub`** | The subject of the `private_key_jwt` (the client ID). Supports value in request.
+ Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | An error will be raised if request as a value element for the claim
+ Place of Birth - city | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** |  An error will be raised if request as a value element for the claim
+ Place of Birth - country | **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** | An error will be raised if request as a value element for the claim
+ E-ID Info  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** | Belgian Electronic ID card information encoded in JSON, with the following keys<br>`eid`: the electronic ID card serial number. <br>`issuance_locality`: the issuance locality. <br>`validity_from`: eID card validity “from” date. <br>`validity_to`: eID card validity “to” date. <br>`certificate_validity`: the certificate validity. <br>`read_date`: the data extraction date. <br>Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: 2017-04-01T19:43:37+0000
+ Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | Simple string containing the user’s Passport Serial Number.
+ Device | **`tag:sixdots.be,2017-05:claim_device`** | see [Device information](#device-information)
+ Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |Information available in the context of the current transaction.<br> A JSON object with the following keys:<br> (only keys with cardinality \\\[1..1\\\] will be always available)<br> **“securityLevel” \\\[1..1\\\]**: (supported values: <br>{SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) Security level used during transaction. <br>**“bindLevel” \\\[1..1\\\]**: (supported values: {SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. <br>**“mcc” \\\[0..1\\\]**: the Mobile Country Code. An Integer (three digits) representing the mobile network country. <br>For example: { "securityLevel": "SIM\\\_AND\\\_SOFT", "bindLevel": "SIM\\\_AND\\\_SOFT", "mcc": 206 }
+ E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
+ NRN | not supported| 
 #### 4.2.2.1. User Info Endpoint
-
+Any claim requested by using the scope value can only be obtained from the User Info endpoint.
 #### 4.2.2.2. Token Endpoint
 
 #### 4.2.2.3. Set of Requested
@@ -1003,7 +1014,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYyODE2ODM1MCwxNDQwMjQ0MTc2LDEwMT
+eyJoaXN0b3J5IjpbLTkzNzE1MTc0MywxNDQwMjQ0MTc2LDEwMT
 Y2ODUzNSwxODA5NjQ2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3MTE0
 MCw4NzY2NDE3NjAsMTg3NzEzNTIxLC0zMzA2OTU0NjgsLTEzNj
 E3MTIzMjEsLTE4MjcxMjE0ODAsMjEzNjYwMjkwNCwtMjExMTg1
