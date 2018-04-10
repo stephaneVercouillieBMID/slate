@@ -160,15 +160,16 @@ The Authentication Response includes a `code` parameter, a one-time authorizatio
 The Token Request must include the following parameters in the POST body:
 |Parameter|  Required| Comment
 |--|--|--
-|  |  | 
+| **grant_type** |Required  | Must be authorization_code.
+ode**
 ----------
 
 
-Required
 
-Must be authorization_code.
 
-**code**
+
+
+
 
 Required
 
@@ -950,11 +951,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDk5MjYxNDAsLTIxMTE4NTU1MjIsLT
-E2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE2
-OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4Mz
-MwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3
-ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMD
-YzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3
-NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzZdfQ==
+eyJoaXN0b3J5IjpbMTEzODIwMDQ0OCwtMjExMTg1NTUyMiwtMT
+Y5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5
+MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMz
+AwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4
+ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNj
+MwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3
+NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3Nl19
 -->
