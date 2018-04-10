@@ -27,7 +27,7 @@ itsme® offers 4 strong enablers for every process digitalization project. Furth
   ### 4. Sign (*Coming Soon*)
  # 2. Integration Preparation: On boarding Process
  
- Before your application can use **itsme®** for user login, you must set up a project to obtain OIDC credentials, set redirect URIs for your services, and customise the branding information that your users see on the **itsme®** user-consent screen.
+ Before your application can use **itsme®** for user login, you must set up a project to obtain OIDC credentials, set redirect URIs for your services, and customise the branding information that your users see on the **itsme®** user consent screen.
  
  ## 2.1. Customize the user consent screen
 Consent is used to allow an end user to grant a client access to resources and consent screen describes the information that the user is releasing and the terms that apply.
@@ -834,11 +834,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzgyOTg4MjA5LC0xMDE5OTkwMzIzLC0xNj
-QzOTIzNTgsLTgwMDc0ODgwNSwxNjQ0MTI2NzE1LC0xMzY1MjQw
-OTExLDQxODc2MjcxOCwtMTgwMjc3MDYwNiwxNDQwMjQ0MTc2LD
-EwMTY2ODUzNSwxODA5NjQ2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3
-MTE0MCw4NzY2NDE3NjAsMTg3NzEzNTIxLC0zMzA2OTU0NjgsLT
-EzNjE3MTIzMjEsLTE4MjcxMjE0ODAsMjEzNjYwMjkwNCwtMjEx
-MTg1NTUyMl19
+eyJoaXN0b3J5IjpbLTE3Nzk0MjY4NTAsLTEwMTk5OTAzMjMsLT
+E2NDM5MjM1OCwtODAwNzQ4ODA1LDE2NDQxMjY3MTUsLTEzNjUy
+NDA5MTEsNDE4NzYyNzE4LC0xODAyNzcwNjA2LDE0NDAyNDQxNz
+YsMTAxNjY4NTM1LDE4MDk2NDYzNjUsNDk2NzY1NjI5LC0xNjcw
+MTcxMTQwLDg3NjY0MTc2MCwxODc3MTM1MjEsLTMzMDY5NTQ2OC
+wtMTM2MTcxMjMyMSwtMTgyNzEyMTQ4MCwyMTM2NjAyOTA0LC0y
+MTExODU1NTIyXX0=
 -->
