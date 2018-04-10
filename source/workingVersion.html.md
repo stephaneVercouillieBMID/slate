@@ -118,7 +118,7 @@ Parameter | Required | Comment| Parameter Explained
  **request_uri** | Unsupported | Not supported (yet)|The request_uri value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. This parameter enables Open ID Connect requests to be passed by reference, rather than by value.
  **registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the partner onboarding.|This parameter is used by the Client to provide information about itself to a Self-Issued OP that would normally be provided to an OP during Dynamic Client RegistrationApproval**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications.
 
- ## 3.1.2. Authentication Request Examples
+ ### 3.1.2. Authentication Request Examples
  
   ```http--inline
  GET /authorize?response_type=code
@@ -128,6 +128,11 @@ Parameter | Required | Comment| Parameter Explained
  &redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb HTTP/1.1
  Host: server.itsme.be
  ```
+
+
+### 3.1.3. Authentication Response Specification
+An Authentication Response is an [OAuth 2.0 Authorization Response](https://tools.ietf.org/html/rfc6749#section-4.1.2) message. As such, the Authentication Response will return the following parameters:
+
 
  # 4. Authenticating the User
  
@@ -887,7 +892,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTQ2Njc0NjQsLTIxMTE4NTU1MjIsLT
+eyJoaXN0b3J5IjpbLTE1OTg0NTU2MjgsLTIxMTE4NTU1MjIsLT
 E2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE2
 OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4Mz
 MwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3
