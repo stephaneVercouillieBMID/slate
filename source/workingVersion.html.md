@@ -260,16 +260,9 @@ Aggregated and distributed Claims are represented by using special `_claim_names
 
  **Aggregated Claims**
 
-Aggregated Claims that are asserted by a Claims Provider other than the Open ID Provider but are returned by Open ID Provider.
+Aggregated Claims that are asserted by a Claims Provider other than the Open ID Provider but are returned by Open ID Provider. See the link (http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims) for further details
 
->JSON object that MUST contain the JWT member whose value is a [JWT](http://openid.net/specs/openid-connect-core-1_0.html#JWT) [JWT] that MUST contain all the Claims in the _claim_names object that references the corresponding _claim_sources member. Other members MAY be present. Any members used that are not understood MUST be ignored.
->
->JWT
-> REQUIRED. JWT containing Claim Values.
->
->The JWT SHOULD NOT contain a  sub  (subject) Claim unless its value is an identifier for the End-User at the Claims Provider (and not for the OpenID Provider or another party); this typically means that a  sub  Claim SHOULD NOT be provided.
-
- Example of Aggregated Claims http://openid.net/specs/openid-connect-core-1_0.html#AggregatedExample
+ Example of Aggregated Claims (http://openid.net/specs/openid-connect-core-1_0.html#AggregatedExample)
 
 **Distributed Claims**
 
@@ -892,7 +885,7 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc2ODM2MzQwMCw5NzQ2MzU4MTgsLTExNz
+eyJoaXN0b3J5IjpbMjAxNTM5ODQxNSw5NzQ2MzU4MTgsLTExNz
 E3MDMwNzYsLTEwMjI5MjA1OTQsLTE0OTc5NjY4NDgsNzYxNTYz
 NDgyLC0xNzc5NDI2ODUwLC0xMDE5OTkwMzIzLC0xNjQzOTIzNT
 gsLTgwMDc0ODgwNSwxNjQ0MTI2NzE1LC0xMzY1MjQwOTExLDQx
