@@ -420,8 +420,7 @@ The following is a non-normative example of a UserInfo Error Response:
 #### 4.3.2.1. See [3.2 Token Endpoint](#TokenEndpoint)
 
 #### 4.3.2.2 Example of Id Token Containing “claims”
- 
-
+*Will be provided soon*
  # 5. Advanced topics
  
  ## 5.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs
@@ -874,11 +873,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTgwNjg3NDU5LC01NjQ5ODg5MzgsLTk0MD
-Q5NDAwNSwtODU1NjY1MDMzLDk3NDYzNTgxOCwtMTE3MTcwMzA3
-NiwtMTAyMjkyMDU5NCwtMTQ5Nzk2Njg0OCw3NjE1NjM0ODIsLT
-E3Nzk0MjY4NTAsLTEwMTk5OTAzMjMsLTE2NDM5MjM1OCwtODAw
-NzQ4ODA1LDE2NDQxMjY3MTUsLTEzNjUyNDA5MTEsNDE4NzYyNz
-E4LC0xODAyNzcwNjA2LDE0NDAyNDQxNzYsMTAxNjY4NTM1LDE4
-MDk2NDYzNjVdfQ==
+eyJoaXN0b3J5IjpbLTE4NjM2NTM0NjIsNTgwNjg3NDU5LC01Nj
+Q5ODg5MzgsLTk0MDQ5NDAwNSwtODU1NjY1MDMzLDk3NDYzNTgx
+OCwtMTE3MTcwMzA3NiwtMTAyMjkyMDU5NCwtMTQ5Nzk2Njg0OC
+w3NjE1NjM0ODIsLTE3Nzk0MjY4NTAsLTEwMTk5OTAzMjMsLTE2
+NDM5MjM1OCwtODAwNzQ4ODA1LDE2NDQxMjY3MTUsLTEzNjUyND
+A5MTEsNDE4NzYyNzE4LC0xODAyNzcwNjA2LDE0NDAyNDQxNzYs
+MTAxNjY4NTM1XX0=
 -->
