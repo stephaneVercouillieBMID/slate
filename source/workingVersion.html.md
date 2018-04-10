@@ -258,7 +258,8 @@ Scope  | Data| Claim
 ### 4.2.2 “claims” Parameter
 Individually, with the optional  [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter.
 
-We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. Here are these claims:
+We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. 
+Here are these claims:
  
  Data | Claim | Comment
  -- | -- | --
@@ -276,8 +277,25 @@ We have favoured the request of Data in the **scope** values. However, some spec
 Any claim requested by using the scope value can only be obtained from the User Info endpoint.
 #### 4.2.2.2. Token Endpoint
 
-#### 4.2.2.3. Set of Requested
-
+#### 4.2.2.3. Set of Request Parameted Adapted to itsme(r)
+```json--inline
+ {
+    "userinfo":
+     {
+      "given_name": {"essential": true},
+      "nickname": null,
+      "email": {"essential": true},
+      "email_verified": {"essential": true},
+      "picture": null,
+      "http://example.info/claims/groups": null
+     },
+    "id_token":
+     {
+      "auth_time": {"essential": true},
+      "acr": {"values": ["urn:mace:incommon:iap:silver"] }
+     }
+ }
+ ```
 #### 4.2.2.4. Example of a Valid “claims” Object
 Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_device`
  
@@ -1035,11 +1053,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTQ1MTEzNTIwLDE0NDAyNDQxNzYsMTAxNj
-Y4NTM1LDE4MDk2NDYzNjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQw
-LDg3NjY0MTc2MCwxODc3MTM1MjEsLTMzMDY5NTQ2OCwtMTM2MT
-cxMjMyMSwtMTgyNzEyMTQ4MCwyMTM2NjAyOTA0LC0yMTExODU1
-NTIyLC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nz
-c2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2
-LC0xODMzMDA2MzA2XX0=
+eyJoaXN0b3J5IjpbMTk3MzgwMTk4MiwxNDQwMjQ0MTc2LDEwMT
+Y2ODUzNSwxODA5NjQ2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3MTE0
+MCw4NzY2NDE3NjAsMTg3NzEzNTIxLC0zMzA2OTU0NjgsLTEzNj
+E3MTIzMjEsLTE4MjcxMjE0ODAsMjEzNjYwMjkwNCwtMjExMTg1
+NTUyMiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4OD
+c3NiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3
+NiwtMTgzMzAwNjMwNl19
 -->
