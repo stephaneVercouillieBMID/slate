@@ -284,7 +284,7 @@ The Access Token will define the list of Data that will be provided back to the 
 #### 4.3.2.1. See 3.2 Token Endpoint
 
 #### 4.3.2.2 Example of Id Token Containing “claims”
- # 4. Authenticating the User
+/# 4. Authenticating the User
  
  **itsme(r) Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
   
@@ -1043,7 +1043,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzNTYxODQwNSw4NzY2NDE3NjAsMTg3Nz
+eyJoaXN0b3J5IjpbLTI4MzM5MzEwOCw4NzY2NDE3NjAsMTg3Nz
 EzNTIxLC0zMzA2OTU0NjgsLTEzNjE3MTIzMjEsLTE4MjcxMjE0
 ODAsMjEzNjYwMjkwNCwtMjExMTg1NTUyMiwtMTY5MDc4ODc3Ni
 wtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5MDc4ODc3Niwt
