@@ -369,7 +369,15 @@ The Access Token will define the list of Data that will be provided back to the 
  }
  ```
 #### 4.3.1.5. User info Errors
+When an error condition occurs, the UserInfo Endpoint returns an Error Response as defined in Section 3 of  [OAuth 2.0 Bearer Token Usage](http://openid.net/specs/openid-connect-core-1_0.html#RFC6750)  [RFC6750]. (HTTP errors unrelated to RFC 6750 are returned to the User Agent using the appropriate HTTP status code.)
 
+The following is a non-normative example of a UserInfo Error Response:
+```http--inline
+  HTTP/1.1 401 Unauthorized
+  WWW-Authenticate: error="invalid_token",
+    error_description="The Access Token expired"
+ ```
+    
 ### 4.3.2. Token Endpoint
 
 #### 4.3.2.1. See 3.2 Token Endpoint
@@ -824,11 +832,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY0NDEyNjcxNSwtMTM2NTI0MDkxMSw0MT
-g3NjI3MTgsLTE4MDI3NzA2MDYsMTQ0MDI0NDE3NiwxMDE2Njg1
-MzUsMTgwOTY0NjM2NSw0OTY3NjU2MjksLTE2NzAxNzExNDAsOD
-c2NjQxNzYwLDE4NzcxMzUyMSwtMzMwNjk1NDY4LC0xMzYxNzEy
-MzIxLC0xODI3MTIxNDgwLDIxMzY2MDI5MDQsLTIxMTE4NTU1Mj
-IsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYs
+eyJoaXN0b3J5IjpbLTEzMjg4NjU5NTQsMTY0NDEyNjcxNSwtMT
+M2NTI0MDkxMSw0MTg3NjI3MTgsLTE4MDI3NzA2MDYsMTQ0MDI0
+NDE3NiwxMDE2Njg1MzUsMTgwOTY0NjM2NSw0OTY3NjU2MjksLT
+E2NzAxNzExNDAsODc2NjQxNzYwLDE4NzcxMzUyMSwtMzMwNjk1
+NDY4LC0xMzYxNzEyMzIxLC0xODI3MTIxNDgwLDIxMzY2MDI5MD
+QsLTIxMTE4NTU1MjIsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYs
 LTE2OTA3ODg3NzZdfQ==
 -->
