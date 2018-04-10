@@ -156,7 +156,9 @@ As per [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://o
  `request_uri_not_supported` | does not support use of the request_uri parameter.
  `registration_not_supported` | does not support use of the registration parameter.
 ## 3.2. Token Endpoint
-As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest)
+As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
+
+
 
 The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **token_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret` authentication methods are not supported since they are considered less secure.
 
@@ -834,11 +836,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwMDc0ODgwNSwxNjQ0MTI2NzE1LC0xMz
-Y1MjQwOTExLDQxODc2MjcxOCwtMTgwMjc3MDYwNiwxNDQwMjQ0
-MTc2LDEwMTY2ODUzNSwxODA5NjQ2MzY1LDQ5Njc2NTYyOSwtMT
-Y3MDE3MTE0MCw4NzY2NDE3NjAsMTg3NzEzNTIxLC0zMzA2OTU0
-NjgsLTEzNjE3MTIzMjEsLTE4MjcxMjE0ODAsMjEzNjYwMjkwNC
-wtMjExMTg1NTUyMiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwt
-MTY5MDc4ODc3Nl19
+eyJoaXN0b3J5IjpbLTIxMDc1MzYwNzMsLTgwMDc0ODgwNSwxNj
+Q0MTI2NzE1LC0xMzY1MjQwOTExLDQxODc2MjcxOCwtMTgwMjc3
+MDYwNiwxNDQwMjQ0MTc2LDEwMTY2ODUzNSwxODA5NjQ2MzY1LD
+Q5Njc2NTYyOSwtMTY3MDE3MTE0MCw4NzY2NDE3NjAsMTg3NzEz
+NTIxLC0zMzA2OTU0NjgsLTEzNjE3MTIzMjEsLTE4MjcxMjE0OD
+AsMjEzNjYwMjkwNCwtMjExMTg1NTUyMiwtMTY5MDc4ODc3Niwt
+MTgzMzAwNjMwNl19
 -->
