@@ -118,7 +118,7 @@ Parameter | Required | Comment| Parameter Explained
  **request_uri** | Unsupported | Not supported (yet)|The request_uri value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. This parameter enables Open ID Connect requests to be passed by reference, rather than by value.
  **registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the partner onboarding.|This parameter is used by the Client to provide information about itself to a Self-Issued OP that would normally be provided to an OP during Dynamic Client RegistrationApproval**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications.
 
- ## 3.2. itsme(r) Login Authentication Request
+ ## 3.1.2. Authentication Request Examples
  As per the [OpenID Connect Specification Authentication Request](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [OpenID Connect Specification Authorization Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint), the first step is forming an HTTPS request with the appropriate URI parameters. 
 
 *Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are **refused***. 
@@ -132,14 +132,7 @@ You should retrieve the base URI from the [Discovery document](https://merchant.
  
  >Example of a minimal Authorization request
  
- ```http--inline
- GET /authorize?response_type=code
- &scope=openid%20profile%20email%20service%3Aclient.registration
- &client_id=s6BhdRkqt3
- &state=af0ifjsldkj
- &redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb HTTP/1.1
- Host: server.itsme.be
- ```
+
  
  For a basic request, specify the following parameters:
 
@@ -902,11 +895,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMTE4NTU1MjIsLTE2OTA3ODg3NzYsLT
-E4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE2OTA3ODg3NzYsLTE4
-MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OT
-A3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMw
-MDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3OD
-g3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYz
-MDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDZdfQ==
+eyJoaXN0b3J5IjpbMTg2NTczODcxMiwtMjExMTg1NTUyMiwtMT
+Y5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5
+MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMz
+AwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4
+ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNj
+MwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3
+NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3Nl19
 -->
