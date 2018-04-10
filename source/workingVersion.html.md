@@ -50,8 +50,7 @@ OAuth 2.0 means one protocol for authentication and authorization (obtaining acc
  
  - Partner Code, used as **client_id**
  - Service Code for each Service (see [Service Code concept](#ServiceCode))
- ### <a name="glossaryServiceCodes"></a>Service Code Concept 
- 
+
 To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
 
 For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
@@ -862,7 +861,7 @@ It is expected that you will also expose their signing and encryption keys in su
  
  For the rest, if each developer has the private key of the SP on his post, she/he can impersonate the SP during calls to "/ token" and "/ userinfo". There is no check on the source IP, only the signature JWT account.
  
-  >### What is service code?
+  >### <a name="ServiceCode"></a>Service Code Concept, h
   >
  
  >### I would like to receive a new service code to do my local development.  
@@ -876,11 +875,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3MjUzNzQ1MCwtOTQwNDk0MDA1LC04NT
-U2NjUwMzMsOTc0NjM1ODE4LC0xMTcxNzAzMDc2LC0xMDIyOTIw
-NTk0LC0xNDk3OTY2ODQ4LDc2MTU2MzQ4MiwtMTc3OTQyNjg1MC
-wtMTAxOTk5MDMyMywtMTY0MzkyMzU4LC04MDA3NDg4MDUsMTY0
-NDEyNjcxNSwtMTM2NTI0MDkxMSw0MTg3NjI3MTgsLTE4MDI3Nz
-A2MDYsMTQ0MDI0NDE3NiwxMDE2Njg1MzUsMTgwOTY0NjM2NSw0
-OTY3NjU2MjldfQ==
+eyJoaXN0b3J5IjpbLTcxNDI3NTMzLC05NDA0OTQwMDUsLTg1NT
+Y2NTAzMyw5NzQ2MzU4MTgsLTExNzE3MDMwNzYsLTEwMjI5MjA1
+OTQsLTE0OTc5NjY4NDgsNzYxNTYzNDgyLC0xNzc5NDI2ODUwLC
+0xMDE5OTkwMzIzLC0xNjQzOTIzNTgsLTgwMDc0ODgwNSwxNjQ0
+MTI2NzE1LC0xMzY1MjQwOTExLDQxODc2MjcxOCwtMTgwMjc3MD
+YwNiwxNDQwMjQ0MTc2LDEwMTY2ODUzNSwxODA5NjQ2MzY1LDQ5
+Njc2NTYyOV19
 -->
