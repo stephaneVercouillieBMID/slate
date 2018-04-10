@@ -200,7 +200,15 @@ Client must validate following parameters,
  **id_token** | Always | The JWT `id_token` corresponding to the Authentication Request (signed and  encrypted). 
  **at_hash** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
  **refresh_token** | Never | Won't be provided as **itsme(r)** only maintains short-lived session to enforce re-authentication.
- 
+ <![endif]-->
+
+### 3.2.4. Token Response Example
+
+Example will be provided.
+
+### 3.2.5. Token Errors
+
+Please see the following link for token errors;[http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse](http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse).
  # 4. Authenticating the User
  
  **itsme(r) Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
@@ -959,7 +967,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5ODU2MTQ4MjUsLTIxMTE4NTU1MjIsLT
+eyJoaXN0b3J5IjpbLTE4MzI4MTY2NDcsLTIxMTE4NTU1MjIsLT
 E2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE2
 OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4Mz
 MwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3
