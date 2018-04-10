@@ -200,7 +200,7 @@ Client must validate following parameters,
  **id_token** | Always | The JWT `id_token` corresponding to the Authentication Request (signed and  encrypted). 
  **at_hash** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
  **refresh_token** | Never | Won't be provided as **itsme(r)** only maintains short-lived session to enforce re-authentication.
- <![endif]-->
+
 
 ### 3.2.4. Token Response Example
 
@@ -969,11 +969,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjcxMjE0ODAsMjEzNjYwMjkwNCwtMj
-ExMTg1NTUyMiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5
-MDc4ODc3NiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MD
-c4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAw
-NjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4OD
-c3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMw
-NiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNl19
+eyJoaXN0b3J5IjpbNzgzNDU3MjQ5LC0xODI3MTIxNDgwLDIxMz
+Y2MDI5MDQsLTIxMTE4NTU1MjIsLTE2OTA3ODg3NzYsLTE4MzMw
+MDYzMDYsLTE2OTA3ODg3NzYsLTE2OTA3ODg3NzYsLTE4MzMwMD
+YzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3
+NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMD
+YsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYs
+LTE4MzMwMDYzMDYsLTE2OTA3ODg3NzZdfQ==
 -->
