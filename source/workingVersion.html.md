@@ -269,7 +269,7 @@ Aggregated Claims that are asserted by a Claims Provider other than the Open ID 
 >
 >The JWT SHOULD NOT contain a  sub  (subject) Claim unless its value is an identifier for the End-User at the Claims Provider (and not for the OpenID Provider or another party); this typically means that a  sub  Claim SHOULD NOT be provided.
 
- Example of Aggregated Claims:
+ Example of Aggregated Claims http://openid.net/specs/openid-connect-core-1_0.html#AggregatedExample
 
 **Distributed Claims**
 
@@ -892,11 +892,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTc0NjM1ODE4LC0xMTcxNzAzMDc2LC0xMD
-IyOTIwNTk0LC0xNDk3OTY2ODQ4LDc2MTU2MzQ4MiwtMTc3OTQy
-Njg1MCwtMTAxOTk5MDMyMywtMTY0MzkyMzU4LC04MDA3NDg4MD
-UsMTY0NDEyNjcxNSwtMTM2NTI0MDkxMSw0MTg3NjI3MTgsLTE4
-MDI3NzA2MDYsMTQ0MDI0NDE3NiwxMDE2Njg1MzUsMTgwOTY0Nj
-M2NSw0OTY3NjU2MjksLTE2NzAxNzExNDAsODc2NjQxNzYwLDE4
-NzcxMzUyMV19
+eyJoaXN0b3J5IjpbMTc2ODM2MzQwMCw5NzQ2MzU4MTgsLTExNz
+E3MDMwNzYsLTEwMjI5MjA1OTQsLTE0OTc5NjY4NDgsNzYxNTYz
+NDgyLC0xNzc5NDI2ODUwLC0xMDE5OTkwMzIzLC0xNjQzOTIzNT
+gsLTgwMDc0ODgwNSwxNjQ0MTI2NzE1LC0xMzY1MjQwOTExLDQx
+ODc2MjcxOCwtMTgwMjc3MDYwNiwxNDQwMjQ0MTc2LDEwMTY2OD
+UzNSwxODA5NjQ2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3MTE0MCw4
+NzY2NDE3NjBdfQ==
 -->
