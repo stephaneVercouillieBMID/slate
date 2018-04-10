@@ -221,7 +221,9 @@ Claims are name/value pairs that contain information about a user, as well meta-
 
 ### 4.2.1. Scope
 
-/ (always User Info Endpoint) /
+/* (always User Info Endpoint) /
+
+
 
 #### 4.2.1.1 Set of Supported Scope Values
 
@@ -970,7 +972,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgwOTY0NjM2NSwxODA5NjQ2MzY1LDQ5Nj
+eyJoaXN0b3J5IjpbMTk0MTEwNjE1NywxODA5NjQ2MzY1LDQ5Nj
 c2NTYyOSwtMTY3MDE3MTE0MCw4NzY2NDE3NjAsMTg3NzEzNTIx
 LC0zMzA2OTU0NjgsLTEzNjE3MTIzMjEsLTE4MjcxMjE0ODAsMj
 EzNjYwMjkwNCwtMjExMTg1NTUyMiwtMTY5MDc4ODc3NiwtMTgz
