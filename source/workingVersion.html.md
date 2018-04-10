@@ -159,6 +159,42 @@ The Authentication Response includes a `code` parameter, a one-time authorizatio
 ### 3.2.1. Token Request Specification
 The Token Request must include the following parameters in the POST body:
 
+**Parameter**
+
+**Required**
+
+**Comment**
+
+**grant_type**
+
+Required
+
+Must be authorization_code.
+
+**code**
+
+Required
+
+The **code** value provided in the Authentication Response
+
+**redirect_uri**
+
+Required
+
+The **redirect_uri** used in the Authentication Request. This is the URL to which you want the user to be redirected after the authorisation is complete.
+
+**client_assertion_type**
+
+Required
+
+Must be urn:ietf:params:oauth:client-assertion-type:jwt-bearer **_Note_**: this specifies that the authentication method type is private_key_jwt, according to [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification.
+
+**client_assertion**
+
+Required
+
+Must be a valid JWT complying with the private_key_jwtclient authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
+
  # 4. Authenticating the User
  
  **itsme(r) Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
@@ -917,11 +953,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzYxNDcxMTA2LC0yMTExODU1NTIyLC0xNj
-kwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xNjkw
-Nzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMD
-A2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4
-Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2Mz
-A2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2
-LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2XX0=
+eyJoaXN0b3J5IjpbLTE4NzEwNzgyOTMsLTIxMTE4NTU1MjIsLT
+E2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE2
+OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4Mz
+MwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3
+ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMD
+YzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3
+NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzZdfQ==
 -->
