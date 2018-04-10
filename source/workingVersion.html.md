@@ -240,7 +240,37 @@ Open ID Connect specifies a set of  [standard claims](https://openid.net/specs/o
 As per Open ID Connect specification, scopes can be used to request that specific sets of information be made available as Claim Values in User Info Token.
 
 #### 4.2.1.1 Set of Supported Scope Values
+In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims requested via scope as **Essential** (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)).
 
+ It means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, as in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims, you should already request claims with appropriate level regarding your business case. 
+ 
+The following values for **scope** allow access to predefined sets of Identity Data:
+
+Scope  | Data| Claim
+ -- | -- | --
+ **`profile`** |Full name| `name` and `given_name` and `family_name`
+ <br>  |Gender| `gender`<br>
+||Birthdate|`birthdate`
+||Language |`locale`
+ | **`email`** | Email Adress | <br> `email` and `email_verified`<br>| `gender`
+ | **`phone`** | Phone number |`phone_number` or `phone_number_verified`As per OpenID Connect specification, scopes can be used to request that specific sets of information be made available as Claim Values in User Info Token.
+ 
+ In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims requested via scope as **Essential** (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)). It means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, as in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims, you should already request claims with appropriate level regarding your business case. 
+ 
+ The following values for **scope** allow access to predefined sets of Identity Data:
+
+ | Data | Claim
+ -- | -- | --
+ **`profile`** |given\_name <br> family\_name <br> name <br> gender <br>birthdate <br> locale | `name` and `given_name` and `family_name` 
+ | **`email`** | email<br> email_verified<br>| `gender`
+ | **`phone`** | phone\_number<br>phone\_number_verified<br>| 
+ **`address`** | Address | `address`, with following subfields: `street_address` (newline separator \\n), `locality`, `postal_code`, `country`
+
+
+ <aside class="notice">
+
+**NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>**
+ 
 
 ### 4.2.2 “claims” Parameter
 
@@ -987,11 +1017,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNDQ0OTA0MDksMTAxNjY4NTM1LDE4MD
-k2NDYzNjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0MTc2
-MCwxODc3MTM1MjEsLTMzMDY5NTQ2OCwtMTM2MTcxMjMyMSwtMT
-gyNzEyMTQ4MCwyMTM2NjAyOTA0LC0yMTExODU1NTIyLC0xNjkw
-Nzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xNjkwNz
-g4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2
-MzA2LC0xNjkwNzg4Nzc2XX0=
+eyJoaXN0b3J5IjpbLTM5MTA2MDUwLDEwMTY2ODUzNSwxODA5Nj
+Q2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3MTE0MCw4NzY2NDE3NjAs
+MTg3NzEzNTIxLC0zMzA2OTU0NjgsLTEzNjE3MTIzMjEsLTE4Mj
+cxMjE0ODAsMjEzNjYwMjkwNCwtMjExMTg1NTUyMiwtMTY5MDc4
+ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5MDc4OD
+c3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMw
+NiwtMTY5MDc4ODc3Nl19
 -->
