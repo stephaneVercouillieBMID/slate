@@ -383,7 +383,7 @@ The following is a non-normative example of a UserInfo Error Response:
 
 ### 4.3.2. Token Endpoint
 
-#### 4.3.2.1. See 3.2 Token Endpoint
+#### 4.3.2.1. See [3.2 Token Endpoint](
 
 #### 4.3.2.2 Example of Id Token Containing “claims”
  
@@ -835,11 +835,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMTk5OTAzMjMsLTE2NDM5MjM1OCwtOD
-AwNzQ4ODA1LDE2NDQxMjY3MTUsLTEzNjUyNDA5MTEsNDE4NzYy
-NzE4LC0xODAyNzcwNjA2LDE0NDAyNDQxNzYsMTAxNjY4NTM1LD
-E4MDk2NDYzNjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0
-MTc2MCwxODc3MTM1MjEsLTMzMDY5NTQ2OCwtMTM2MTcxMjMyMS
-wtMTgyNzEyMTQ4MCwyMTM2NjAyOTA0LC0yMTExODU1NTIyLC0x
-NjkwNzg4Nzc2XX0=
+eyJoaXN0b3J5IjpbODUxNDM3Nzk1LC0xMDE5OTkwMzIzLC0xNj
+QzOTIzNTgsLTgwMDc0ODgwNSwxNjQ0MTI2NzE1LC0xMzY1MjQw
+OTExLDQxODc2MjcxOCwtMTgwMjc3MDYwNiwxNDQwMjQ0MTc2LD
+EwMTY2ODUzNSwxODA5NjQ2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3
+MTE0MCw4NzY2NDE3NjAsMTg3NzEzNTIxLC0zMzA2OTU0NjgsLT
+EzNjE3MTIzMjEsLTE4MjcxMjE0ODAsMjEzNjYwMjkwNCwtMjEx
+MTg1NTUyMl19
 -->
