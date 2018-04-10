@@ -248,27 +248,14 @@ The following values for **scope** allow access to predefined sets of Identity D
 
 Scope  | Data| Claim
  -- | -- | --
- **`profile`** |Full name| `name` and `given_name` and `family_name`
+ **profile** |Full name| `name` and `given_name` and `family_name`
  <br>  |Gender| `gender`<br>
 ||Birthdate|`birthdate`
 ||Language |`locale`
- | **`email`** | Email Adress | <br> `email` and `email_verified`<br>| `gender`
- | **`phone`** | Phone number |`phone_number` or `phone_number_verified`As per OpenID Connect specification, scopes can be used to request that specific sets of information be made available as Claim Values in User Info Token.
+ | **email** | Email Adress | <br> `email` and `email_verified`<br>| `gender`
+ | **phone** | Phone number |`phone_number` or `phone_number_verified`
  
- I
- 
- The following values for **scope** allow access to predefined sets of Identity Data:
-
- | Data | Claim
- -- | -- | --
- **`profile`** |given\_name <br> family\_name <br> name <br> gender <br>birthdate <br> locale | `name` and `given_name` and `family_name` 
- | **`email`** | email<br> email_verified<br>| `gender`
- | **`phone`** | phone\_number<br>phone\_number_verified<br>| 
- **`address`** | Address | `address`, with following subfields: `street_address` (newline separator \\n), `locality`, `postal_code`, `country`
-
-
- <aside class="notice">
-
+ T
 **NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>**
  
 
@@ -1017,7 +1004,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQ5NTU1MDAsMTAxNjY4NTM1LDE4MDk2ND
+eyJoaXN0b3J5IjpbNDAyOTcyMzgsMTAxNjY4NTM1LDE4MDk2ND
 YzNjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0MTc2MCwx
 ODc3MTM1MjEsLTMzMDY5NTQ2OCwtMTM2MTcxMjMyMSwtMTgyNz
 EyMTQ4MCwyMTM2NjAyOTA0LC0yMTExODU1NTIyLC0xNjkwNzg4
