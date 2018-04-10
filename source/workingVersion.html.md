@@ -223,6 +223,9 @@ Please see the following link for token errors,
 # 4. User Data
 ## 4.1. What is a claim?
 Claims are name/value pairs that contain information about a user, as well meta-information about the OIDC service. The official definition from the spec is a [“piece of information asserted about an Entity.”](http://openid.net/specs/openid-connect-core-1_0.html#Terminology)
+
+Claims are typically packaged in a JSON object.
+
 ### 4.1.1. Claim Types
 Three representations of Claim Values are defined officially: 
 - Normal Claims
@@ -277,10 +280,9 @@ JSON object that contains the following members and values:
 > 
 > OPTIONAL. Access Token enabling retrieval of the Claims from the endpoint URL by using the  [OAuth 2.0 Bearer Token Usage](http://openid.net/specs/openid-connect-core-1_0.html#RFC6750)  [RFC6750] protocol. Claims SHOULD be requested using the Authorization Request header field and Claims Providers MUST support this method. If the Access Token is not available, RPs MAY need to retrieve the Access Token out of band or use an Access Token that was pre-negotiated between the Claims Provider and RP, or the Claims Provider MAY reauthenticate the End-User and/or reauthorize the RP.
 
-A  sub  (subject) Claim SHOULD NOT be returned from the Claims Provider unless its value is an identifier for the End-User at the Claims Provider (and not for the OpenID Provider or another party); this typically means that a  sub  Claim SHOULD NOT be provided.
-Normal Claims MUST be supported. Support for Aggregated Claims and Distributed Claims is OPTIONAL.
-Claims are typically packaged in a JSON object.
+*A  sub  (subject) Claim SHOULD NOT be returned from the Claims Provider unless its value is an identifier for the End-User at the Claims Provider (and not for the OpenID Provider or another party); this typically means that a  sub  Claim SHOULD NOT be provided.*
 
+*Normal Claims MUST be supported. Support for Aggregated Claims and Distributed Claims is OPTIONAL.
 
 Here is a typical set of claims,
  ```http--inline
@@ -894,11 +896,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2MDk4MjI5MCwtMTE3MTcwMzA3NiwtMT
-AyMjkyMDU5NCwtMTQ5Nzk2Njg0OCw3NjE1NjM0ODIsLTE3Nzk0
-MjY4NTAsLTEwMTk5OTAzMjMsLTE2NDM5MjM1OCwtODAwNzQ4OD
-A1LDE2NDQxMjY3MTUsLTEzNjUyNDA5MTEsNDE4NzYyNzE4LC0x
-ODAyNzcwNjA2LDE0NDAyNDQxNzYsMTAxNjY4NTM1LDE4MDk2ND
-YzNjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0MTc2MCwx
-ODc3MTM1MjFdfQ==
+eyJoaXN0b3J5IjpbLTEyMjc5OTYzMDgsLTExNzE3MDMwNzYsLT
+EwMjI5MjA1OTQsLTE0OTc5NjY4NDgsNzYxNTYzNDgyLC0xNzc5
+NDI2ODUwLC0xMDE5OTkwMzIzLC0xNjQzOTIzNTgsLTgwMDc0OD
+gwNSwxNjQ0MTI2NzE1LC0xMzY1MjQwOTExLDQxODc2MjcxOCwt
+MTgwMjc3MDYwNiwxNDQwMjQ0MTc2LDEwMTY2ODUzNSwxODA5Nj
+Q2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3MTE0MCw4NzY2NDE3NjAs
+MTg3NzEzNTIxXX0=
 -->
