@@ -223,7 +223,22 @@ Please see the following link for token errors,
 # 4. User Data
 ## 4.1. What is a claim?
 Claims are name/value pairs that contain information about a user, as well meta-information about the OIDC service. The official definition from the spec is a [“piece of information asserted about an Entity.”](http://openid.net/specs/openid-connect-core-1_0.html#Terminology)
+### 4.1.1. Claim Types
+Three representations of Claim Values are defined officially:
 
+Normal Claims
+> 
+> Claims that are directly asserted by the OpenID Provider.
+> 
+Aggregated Claims
+ 
+ Claims that are asserted by a Claims Provider other than the OpenID Provider but are returned by OpenID Provider.
+> 
+Distributed Claims
+> 
+> Claims that are asserted by a Claims Provider other than the OpenID Provider but are returned as references by the OpenID Provider.
+
+Normal Claims MUST be supported. Support for Aggregated Claims and Distributed Claims is OPTIONAL.
 Claims are typically packaged in a JSON object.
 
 
@@ -839,11 +854,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTYyMTEyMjU2LC0xMDIyOTIwNTk0LC0xND
-k3OTY2ODQ4LDc2MTU2MzQ4MiwtMTc3OTQyNjg1MCwtMTAxOTk5
-MDMyMywtMTY0MzkyMzU4LC04MDA3NDg4MDUsMTY0NDEyNjcxNS
-wtMTM2NTI0MDkxMSw0MTg3NjI3MTgsLTE4MDI3NzA2MDYsMTQ0
-MDI0NDE3NiwxMDE2Njg1MzUsMTgwOTY0NjM2NSw0OTY3NjU2Mj
-ksLTE2NzAxNzExNDAsODc2NjQxNzYwLDE4NzcxMzUyMSwtMzMw
-Njk1NDY4XX0=
+eyJoaXN0b3J5IjpbMTMwMzM2NjYyOSwtMTAyMjkyMDU5NCwtMT
+Q5Nzk2Njg0OCw3NjE1NjM0ODIsLTE3Nzk0MjY4NTAsLTEwMTk5
+OTAzMjMsLTE2NDM5MjM1OCwtODAwNzQ4ODA1LDE2NDQxMjY3MT
+UsLTEzNjUyNDA5MTEsNDE4NzYyNzE4LC0xODAyNzcwNjA2LDE0
+NDAyNDQxNzYsMTAxNjY4NTM1LDE4MDk2NDYzNjUsNDk2NzY1Nj
+I5LC0xNjcwMTcxMTQwLDg3NjY0MTc2MCwxODc3MTM1MjEsLTMz
+MDY5NTQ2OF19
 -->
