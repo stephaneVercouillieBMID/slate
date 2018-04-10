@@ -213,8 +213,43 @@ Please see the following link for token errors,
 # 4. User Data
 ## 4.1. What is a claim?
 Claims are name/value pairs that contain information about a user, as well meta-information about the OIDC service. The official definition from the spec is a [“piece of information asserted about an Entity.”](http://openid.net/specs/openid-connect-core-1_0.html#Terminology)
+## 4.2. Declaring Claims
 
+### 4.2.1. Scope
 
+/ (always User Info Endpoint) /
+
+#### 4.2.1.1 Set of Supported Scope Values
+
+### 4.2.2 “claims” Parameter
+
+#### 4.2.2.1. User Info Endpoint
+
+#### 4.2.2.2. Token Endpoint
+
+#### 4.2.2.3. Set of Requested
+
+#### 4.2.2.4. Example of a Valid “claims” Object
+
+## 4.3. Getting Data
+
+### 4.3.1. User Info Endpoint
+
+#### 4.3.1.1. User info Request Specification
+
+#### 4.3.1.2. User info Request Example
+
+#### 4.3.1.3. User info Response Specification
+
+#### 4.3.1.4. User info Response Example
+
+#### 4.3.1.5. User info Errors
+
+### 4.3.2. Token Endpoint
+
+#### 4.3.2.1. See 3.2 Token Endpoint
+
+#### 4.3.2.2 Example of Id Token Containing “claims”
  # 4. Authenticating the User
  
  **itsme(r) Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
@@ -974,11 +1009,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTA1MDY2ODE3LC0xODI3MTIxNDgwLDIxMz
-Y2MDI5MDQsLTIxMTE4NTU1MjIsLTE2OTA3ODg3NzYsLTE4MzMw
-MDYzMDYsLTE2OTA3ODg3NzYsLTE2OTA3ODg3NzYsLTE4MzMwMD
-YzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3
-NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMD
-YsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYs
-LTE4MzMwMDYzMDYsLTE2OTA3ODg3NzZdfQ==
+eyJoaXN0b3J5IjpbLTEzNjE3MTIzMjEsLTE4MjcxMjE0ODAsMj
+EzNjYwMjkwNCwtMjExMTg1NTUyMiwtMTY5MDc4ODc3NiwtMTgz
+MzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5MDc4ODc3NiwtMTgzMz
+AwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4
+ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNj
+MwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3
+NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3Nl19
 -->
