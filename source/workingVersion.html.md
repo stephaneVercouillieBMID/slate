@@ -246,7 +246,14 @@ In current version and in contradiction to the OpenID Connect specification, **i
  
 The following values for **scope** allow access to predefined sets of Identity Data:
 
-As per OpenID Connect specification, scopes can be used to request that specific sets of information be made available as Claim Values in User Info Token.
+Scope  | Data| Claim
+ -- | -- | --
+ **`profile`** |Full name| `name` and `given_name` and `family_name`
+ <br>  |Gender| `gender`<br>
+||Birthdate|`birthdate`
+||Language |`locale`
+ | **`email`** | Email Adress | <br> `email` and `email_verified`<br>| `gender`
+ | **`phone`** | Phone number |`phone_number` or `phone_number_verified`As per OpenID Connect specification, scopes can be used to request that specific sets of information be made available as Claim Values in User Info Token.
  
  I
  
@@ -1010,11 +1017,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzM5MTQwMzQ1LDEwMTY2ODUzNSwxODA5Nj
-Q2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3MTE0MCw4NzY2NDE3NjAs
-MTg3NzEzNTIxLC0zMzA2OTU0NjgsLTEzNjE3MTIzMjEsLTE4Mj
-cxMjE0ODAsMjEzNjYwMjkwNCwtMjExMTg1NTUyMiwtMTY5MDc4
-ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5MDc4OD
-c3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMw
-NiwtMTY5MDc4ODc3Nl19
+eyJoaXN0b3J5IjpbODQ5NTU1MDAsMTAxNjY4NTM1LDE4MDk2ND
+YzNjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0MTc2MCwx
+ODc3MTM1MjEsLTMzMDY5NTQ2OCwtMTM2MTcxMjMyMSwtMTgyNz
+EyMTQ4MCwyMTM2NjAyOTA0LC0yMTExODU1NTIyLC0xNjkwNzg4
+Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xNjkwNzg4Nz
+c2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2
+LC0xNjkwNzg4Nzc2XX0=
 -->
