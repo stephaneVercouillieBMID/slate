@@ -233,6 +233,14 @@ Claims are name/value pairs that contain information about a user, as well meta-
 
 ## 4.3. Getting Data
 
+As per the OpenID Connect specification  [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
+
+The UserInfo endpoint can only be accessed with a valid  **access_token**  received from the Token endpoint during User Authentication, and for a very limited duration after end user authentication; there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the UserInfo endpoint.
+
+Your server sends the UserInfo Request using either HTTP  `GET`  or HTTP  `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP  `GET`method and the Access Token be sent the using the  `Authorization`  header field. The HTTP request is sent to the UserInfo endpoint, which you should retrieve from the  [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration)  using the key  **userinfo_endpoint**.
+
+The Access Token will define the list of Data that will be provided back to the client (TODO). In order to request specific claims, you can  [use scopes](https://stackedit.io/app#stClaims)  in the Authentication Request and/or  [use the claims parameter](https://stackedit.io/app#Claims-Request)  of the  **request**Object.
+
 ### 4.3.1. User Info Endpoint
 
 #### 4.3.1.1. User info Request Specification
@@ -1023,7 +1031,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcxMzY2NDQyNywtMTM2MTcxMjMyMSwtMT
+eyJoaXN0b3J5IjpbLTMzMDY5NTQ2OCwtMTM2MTcxMjMyMSwtMT
 gyNzEyMTQ4MCwyMTM2NjAyOTA0LC0yMTExODU1NTIyLC0xNjkw
 Nzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xNjkwNz
 g4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2
