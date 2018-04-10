@@ -178,7 +178,20 @@ According to the `private_key_jwt` client authentication method, the **client as
  **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 
 ### 3.2.2. Token Request Example
+ ```http--inline
+ POST /token HTTP/1.1
+ Host: server.example.com
+ Content-Type: application/x-www-form-urlencoded
+ 
+ grant_type=authorization_code&
+ code=SplxlOBeZQQYbYS6WxSbIA&
+ redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
+ client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
+ client_assertion=PHNhbWxwOl ... ZT
+ ```
 
+### 3.2.3. Token Response Specification
+Client must validate following parameters,
  # 4. Authenticating the User
  
  **itsme(r) Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
@@ -937,11 +950,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyODc4MzA2OTksLTIxMTE4NTU1MjIsLT
-E2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE2
-OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4Mz
-MwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3
-ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMD
-YzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3
-NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzZdfQ==
+eyJoaXN0b3J5IjpbMTgzOTc1NDc1NSwtMjExMTg1NTUyMiwtMT
+Y5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5
+MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMz
+AwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4
+ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNj
+MwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3
+NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3Nl19
 -->
