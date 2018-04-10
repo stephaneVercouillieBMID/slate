@@ -83,7 +83,39 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  
  # 3. Authenticating User
  **itsme® Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
- 
+<![if !supportAnnotations]> <![endif]-->
+
+The Authorization Code Flow<![if !supportAnnotations]>[[SV1]](#_msocom_1)<![endif]> goes through the following steps<![if !supportAnnotations]>[[SV2]](#_msocom_2)<![endif]> as defined in [http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps)
+
+<![if !supportAnnotations]>
+
+----------
+
+<![endif]>
+
+<![if !supportAnnotations]>
+
+<![endif]><![if !supportAnnotations]><![endif]>
+
+<![if !supportAnnotations]>[[SV1]](#_msoanchor_1)<![endif]>I moved the sentence one step below.
+
+Have a look to the OID spec TOC. You’ll see that the Authorization Code Flow includes interactions with both Authorization and Token endpoints 😉
+
+<![if !supportAnnotations]>
+
+<![endif]>
+
+<![if !supportAnnotations]>
+
+<![endif]><![if !supportAnnotations]><![endif]>
+
+<![if !supportAnnotations]>[[SV2]](#_msoanchor_2)<![endif]>What following steps? A nice-to-have would be to insert a little diagram of the Authorization Code Flow (there is one in the 23040 doc), so that the reader can see the ‘following’ next steps.
+
+This would also serve as an introduction to next sections.
+
+<![if !supportAnnotations]>
+
+<![endif]>
 ## 3.1. **Authorisation Endpoint** 
 itsme(r) Login is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
   
@@ -894,11 +926,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQxMzI4MTI2OSwtMTY5MDc4ODc3NiwtMT
-gzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5MDc4ODc3NiwtMTgz
-MzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MD
-c4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAw
-NjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4OD
-c3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMw
-NiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNl19
+eyJoaXN0b3J5IjpbLTExODc1NzY3LC0xNjkwNzg4Nzc2LC0xOD
+MzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xNjkwNzg4Nzc2LC0xODMz
+MDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNz
+g4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2
+MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nz
+c2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2
+LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2XX0=
 -->
