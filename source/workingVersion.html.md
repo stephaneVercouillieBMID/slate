@@ -119,23 +119,15 @@ Parameter | Required | Comment| Parameter Explained
  **registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the partner onboarding.|This parameter is used by the Client to provide information about itself to a Self-Issued OP that would normally be provided to an OP during Dynamic Client RegistrationApproval**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications.
 
  ## 3.1.2. Authentication Request Examples
- As per the [OpenID Connect Specification Authentication Request](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [OpenID Connect Specification Authorization Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint), the first step is forming an HTTPS request with the appropriate URI parameters. 
-
-*Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are **refused***. 
-
-You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
  
- **itsme(r)** supports the use of the HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters must be serialized using [Form Serialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization). Login specification defined above in this document as follows,  
-
-
- ### 3.2.1. Request Examples
- 
- >Example of a minimal Authorization request
- 
-
- 
- For a basic request, specify the following parameters:
-
+  ```http--inline
+ GET /authorize?response_type=code
+ &scope=openid%20profile%20email%20service%3Aclient.registration
+ &client_id=s6BhdRkqt3
+ &state=af0ifjsldkj
+ &redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb HTTP/1.1
+ Host: server.itsme.be
+ ```
 
  # 4. Authenticating the User
  
@@ -895,11 +887,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg2NTczODcxMiwtMjExMTg1NTUyMiwtMT
-Y5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5
-MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMz
-AwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4
-ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNj
-MwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3
-NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3Nl19
+eyJoaXN0b3J5IjpbLTEyNTQ2Njc0NjQsLTIxMTE4NTU1MjIsLT
+E2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE2
+OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4Mz
+MwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3
+ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMD
+YzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3
+NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzZdfQ==
 -->
