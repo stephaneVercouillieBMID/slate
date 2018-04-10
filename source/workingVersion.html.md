@@ -158,40 +158,14 @@ The Authentication Response includes a `code` parameter, a one-time authorizatio
 
 ### 3.2.1. Token Request Specification
 The Token Request must include the following parameters in the POST body:
-|Parameter|  Required| Comment
-|--|--|--
-| **grant_type** |Required  | Must be authorization_code.
-ode**
-----------
 
-
-
-
-
-
-
-
-Required
-
-The **code** value provided in the Authentication Response
-
-**redirect_uri**
-
-Required
-
-The **redirect_uri** used in the Authentication Request. This is the URL to which you want the user to be redirected after the authorisation is complete.
-
-**client_assertion_type**
-
-Required
-
-Must be urn:ietf:params:oauth:client-assertion-type:jwt-bearer **_Note_**: this specifies that the authentication method type is private_key_jwt, according to [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification.
-
-**client_assertion**
-
-Required
-
-Must be a valid JWT complying with the private_key_jwtclient authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
+Parameter | Required | Comment
+ -- | -- | --
+ **grant_type** | Required | Must be `authorization_code`. 
+ **code** | Required | The **code** value provided in the Authentication Response
+ **redirect_uri** | Required | The **redirect_uri** used in the Authentication Request. This is the URL to which you want the user to be redirected after the authorisation is complete.
+ **client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` ***Note***: this specifies that the authentication method type is `private_key_jwt`, according to [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification.
+ **client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` client authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed
 
  # 4. Authenticating the User
  
@@ -951,11 +925,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzODIwMDQ0OCwtMjExMTg1NTUyMiwtMT
-Y5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5
-MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMz
-AwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4
-ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNj
-MwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3
-NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3Nl19
+eyJoaXN0b3J5IjpbNTQ4MDY0MDQzLC0yMTExODU1NTIyLC0xNj
+kwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xNjkw
+Nzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMD
+A2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4
+Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2Mz
+A2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2
+LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2XX0=
 -->
