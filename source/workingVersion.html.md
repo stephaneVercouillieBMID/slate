@@ -247,6 +247,10 @@ The following is a non-normative response containing Normal Claims:
  #### 4.1.1.2. Aggregated Claims and Distributed Claims
 Aggregated Claims that are asserted by a Claims Provider other than the Open ID Provider but are returned by Open ID Provider.
 
+Distributed Claims are claims that are asserted by a Claims Provider other than the Open ID Provider but are returned as references by the Open ID Provider.
+
+
+
 
 Normal Claims MUST be supported. Support for Aggregated Claims and Distributed Claims is OPTIONAL.
 Claims are typically packaged in a JSON object.
@@ -864,11 +868,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4MjkwMTEyMSwtMTAyMjkyMDU5NCwtMT
-Q5Nzk2Njg0OCw3NjE1NjM0ODIsLTE3Nzk0MjY4NTAsLTEwMTk5
-OTAzMjMsLTE2NDM5MjM1OCwtODAwNzQ4ODA1LDE2NDQxMjY3MT
-UsLTEzNjUyNDA5MTEsNDE4NzYyNzE4LC0xODAyNzcwNjA2LDE0
-NDAyNDQxNzYsMTAxNjY4NTM1LDE4MDk2NDYzNjUsNDk2NzY1Nj
-I5LC0xNjcwMTcxMTQwLDg3NjY0MTc2MCwxODc3MTM1MjEsLTMz
-MDY5NTQ2OF19
+eyJoaXN0b3J5IjpbLTExNzE3MDMwNzYsLTEwMjI5MjA1OTQsLT
+E0OTc5NjY4NDgsNzYxNTYzNDgyLC0xNzc5NDI2ODUwLC0xMDE5
+OTkwMzIzLC0xNjQzOTIzNTgsLTgwMDc0ODgwNSwxNjQ0MTI2Nz
+E1LC0xMzY1MjQwOTExLDQxODc2MjcxOCwtMTgwMjc3MDYwNiwx
+NDQwMjQ0MTc2LDEwMTY2ODUzNSwxODA5NjQ2MzY1LDQ5Njc2NT
+YyOSwtMTY3MDE3MTE0MCw4NzY2NDE3NjAsMTg3NzEzNTIxLC0z
+MzA2OTU0NjhdfQ==
 -->
