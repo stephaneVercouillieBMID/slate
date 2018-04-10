@@ -241,6 +241,7 @@ As per Open ID Connect specification, scopes can be used to request that specifi
 
 #### 4.2.1.1 Set of Supported Scope Values
 
+
 ### 4.2.2 “claims” Parameter
 
 #### 4.2.2.1. User Info Endpoint
@@ -986,7 +987,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzM1MTg2MTUsMTAxNjY4NTM1LDE4MD
+eyJoaXN0b3J5IjpbLTIwNDQ0OTA0MDksMTAxNjY4NTM1LDE4MD
 k2NDYzNjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0MTc2
 MCwxODc3MTM1MjEsLTMzMDY5NTQ2OCwtMTM2MTcxMjMyMSwtMT
 gyNzEyMTQ4MCwyMTM2NjAyOTA0LC0yMTExODU1NTIyLC0xNjkw
