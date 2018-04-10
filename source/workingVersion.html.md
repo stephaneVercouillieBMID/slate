@@ -379,6 +379,8 @@ The following is a non-normative example of a UserInfo Error Response:
  ```
 
 ### 4.3.2. Token Endpoint
+There are three types of tokens in OIDC: `id_token`, `access_token` and `refresh_token`.
+
 
 #### 4.3.2.1. See 3.2 Token Endpoint
 
@@ -832,11 +834,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTE5NjAyNzgyLDE2NDQxMjY3MTUsLTEzNj
-UyNDA5MTEsNDE4NzYyNzE4LC0xODAyNzcwNjA2LDE0NDAyNDQx
-NzYsMTAxNjY4NTM1LDE4MDk2NDYzNjUsNDk2NzY1NjI5LC0xNj
-cwMTcxMTQwLDg3NjY0MTc2MCwxODc3MTM1MjEsLTMzMDY5NTQ2
-OCwtMTM2MTcxMjMyMSwtMTgyNzEyMTQ4MCwyMTM2NjAyOTA0LC
-0yMTExODU1NTIyLC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0x
-NjkwNzg4Nzc2XX0=
+eyJoaXN0b3J5IjpbLTgwMDc0ODgwNSwxNjQ0MTI2NzE1LC0xMz
+Y1MjQwOTExLDQxODc2MjcxOCwtMTgwMjc3MDYwNiwxNDQwMjQ0
+MTc2LDEwMTY2ODUzNSwxODA5NjQ2MzY1LDQ5Njc2NTYyOSwtMT
+Y3MDE3MTE0MCw4NzY2NDE3NjAsMTg3NzEzNTIxLC0zMzA2OTU0
+NjgsLTEzNjE3MTIzMjEsLTE4MjcxMjE0ODAsMjEzNjYwMjkwNC
+wtMjExMTg1NTUyMiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwt
+MTY5MDc4ODc3Nl19
 -->
