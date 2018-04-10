@@ -121,9 +121,7 @@ You should retrieve the base URI from the [Discovery document](https://merchant.
  Host: server.itsme.be
  ```
  
- For a basic request, specify the following parameters:
- 
- Parameter | Required | Comment| Parameter Explained
+ For a basic request, specify the following parameters: Parameter | Required | Comment| Parameter Explained
  --------- | ------- | -----|-----
  **client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process and this value will be unique to each partner per environment. This information is in the on-boarding file provided by BMID.|This is your client identifier at the OpenID Provider.
  **response_type** | Required | MUST be <code>code</code>.|Used to indicate an authorisation code flow.
@@ -144,6 +142,7 @@ You should retrieve the base URI from the [Discovery document](https://merchant.
  **claims_locales** | Unsupported | None are supported.|End-User's preferred languages and scripts for Claims being returned
  **request_uri** | Unsupported | Not supported (yet)|The request_uri value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. This parameter enables Open ID Connect requests to be passed by reference, rather than by value.
  **registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the partner onboarding.|This parameter is used by the Client to provide information about itself to a Self-Issued OP that would normally be provided to an OP during Dynamic Client RegistrationApproval**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications.
+
 
  # 4. Authenticating the User
  
@@ -903,11 +902,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjg5MTQyMjAwLC0xNjkwNzg4Nzc2LC0xOD
-MzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xNjkwNzg4Nzc2LC0xODMz
-MDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNz
-g4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2
-MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nz
-c2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2
-LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2XX0=
+eyJoaXN0b3J5IjpbLTE5NjUwMTE0NjIsLTE2OTA3ODg3NzYsLT
+E4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE2OTA3ODg3NzYsLTE4
+MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OT
+A3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMw
+MDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3OD
+g3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYz
+MDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDZdfQ==
 -->
