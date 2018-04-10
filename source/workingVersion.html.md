@@ -52,14 +52,16 @@ OAuth 2.0 means one protocol for authentication and authorisation (obtaining acc
  - Service Code for each Service (see [Service Code concept](glossary.md#glossaryServiceCode))
  
  ## 2.3. Setting a redirect URI and Certificates
- Service Providers provides,
-
- - the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
-
-After a user successfully is authorised, the authorisation server will redirect the user back to the application with either an **authorisation code** or **access token** in the URL.
+After a user successfully is authorised, the authorisation server will redirect the user back to the application with either an **authorization code** or **access token** in the URL.
  - the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.
  - the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.
  
+ Service Providers provides,
+- the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
+
+
+
+ _Ensure that the  redirect_uri  parameter value is identical to the  redirect_uri  parameter value that was included in the initial Authorization Request. If the  redirect_uri  parameter value is not present when there is only one registered  redirect_uri  value, the Authorization Server MAY return an error (since the Client should have included the parameter) or MAY proceed without an error (since OAuth 2.0 permits the parameter to be omitted in this case)._
  ## 2.4. itsme® OpenID Configuration
  The OpenID Connect protocol requires the use of multiple endpoints for authenticating users, and for requesting resources including tokens, user information and public keys.
  
@@ -834,11 +836,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3MTgwNzQzOSwtMTc3OTQyNjg1MCwtMT
-AxOTk5MDMyMywtMTY0MzkyMzU4LC04MDA3NDg4MDUsMTY0NDEy
-NjcxNSwtMTM2NTI0MDkxMSw0MTg3NjI3MTgsLTE4MDI3NzA2MD
-YsMTQ0MDI0NDE3NiwxMDE2Njg1MzUsMTgwOTY0NjM2NSw0OTY3
-NjU2MjksLTE2NzAxNzExNDAsODc2NjQxNzYwLDE4NzcxMzUyMS
-wtMzMwNjk1NDY4LC0xMzYxNzEyMzIxLC0xODI3MTIxNDgwLDIx
-MzY2MDI5MDRdfQ==
+eyJoaXN0b3J5IjpbLTIxMDQ0OTQzODUsLTE3Nzk0MjY4NTAsLT
+EwMTk5OTAzMjMsLTE2NDM5MjM1OCwtODAwNzQ4ODA1LDE2NDQx
+MjY3MTUsLTEzNjUyNDA5MTEsNDE4NzYyNzE4LC0xODAyNzcwNj
+A2LDE0NDAyNDQxNzYsMTAxNjY4NTM1LDE4MDk2NDYzNjUsNDk2
+NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0MTc2MCwxODc3MTM1Mj
+EsLTMzMDY5NTQ2OCwtMTM2MTcxMjMyMSwtMTgyNzEyMTQ4MCwy
+MTM2NjAyOTA0XX0=
 -->
