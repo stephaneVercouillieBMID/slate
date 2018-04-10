@@ -221,9 +221,13 @@ Claims are name/value pairs that contain information about a user, as well meta-
 
 ### 4.2.1. Scope
 
-/* (always User Info Endpoint) /
+Scopes are space-separated lists of identifiers used to specify what access privileges are being requested. Valid scope identifiers are specified in [RFC 6749](https://tools.ietf.org/html/rfc6749).
 
+ (always User Info Endpoint)
 
+Open ID Connect specifies a set of  [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims)  or user attributes. They are intended to supply the client app with consented user details such as email, name upon request.
+
+As per Open ID Connect specification, scopes can be used to request that specific sets of information be made available as Claim Values in User Info Token.
 
 #### 4.2.1.1 Set of Supported Scope Values
 
@@ -972,11 +976,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk0MTEwNjE1NywxODA5NjQ2MzY1LDQ5Nj
-c2NTYyOSwtMTY3MDE3MTE0MCw4NzY2NDE3NjAsMTg3NzEzNTIx
-LC0zMzA2OTU0NjgsLTEzNjE3MTIzMjEsLTE4MjcxMjE0ODAsMj
-EzNjYwMjkwNCwtMjExMTg1NTUyMiwtMTY5MDc4ODc3NiwtMTgz
-MzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5MDc4ODc3NiwtMTgzMz
-AwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4
-ODc3NiwtMTgzMzAwNjMwNl19
+eyJoaXN0b3J5IjpbMTAxNjY4NTM1LDE4MDk2NDYzNjUsNDk2Nz
+Y1NjI5LC0xNjcwMTcxMTQwLDg3NjY0MTc2MCwxODc3MTM1MjEs
+LTMzMDY5NTQ2OCwtMTM2MTcxMjMyMSwtMTgyNzEyMTQ4MCwyMT
+M2NjAyOTA0LC0yMTExODU1NTIyLC0xNjkwNzg4Nzc2LC0xODMz
+MDA2MzA2LC0xNjkwNzg4Nzc2LC0xNjkwNzg4Nzc2LC0xODMzMD
+A2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4
+Nzc2LC0xODMzMDA2MzA2XX0=
 -->
