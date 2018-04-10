@@ -83,43 +83,16 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  
  # 3. Authenticating User
  **itsme® Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
-<![if !supportAnnotations]> <![endif]-->
-
-The Authorization Code Flow<![if !supportAnnotations]>[[SV1]](#_msocom_1)<![endif]> goes through the following steps<![if !supportAnnotations]>[[SV2]](#_msocom_2)<![endif]> as defined in [http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps)
-
-<![if !supportAnnotations]>
-
-----------
-
-<![endif]>
-
-<![if !supportAnnotations]>
-
-<![endif]><![if !supportAnnotations]><![endif]>
-
-<![if !supportAnnotations]>[[SV1]](#_msoanchor_1)<![endif]>I moved the sentence one step below.
-
-Have a look to the OID spec TOC. You’ll see that the Authorization Code Flow includes interactions with both Authorization and Token endpoints 😉
-
-<![if !supportAnnotations]>
-
-<![endif]>
-
-<![if !supportAnnotations]>
-
-<![endif]><![if !supportAnnotations]><![endif]>
-
-<![if !supportAnnotations]>[[SV2]](#_msoanchor_2)<![endif]>What following steps? A nice-to-have would be to insert a little diagram of the Authorization Code Flow (there is one in the 23040 doc), so that the reader can see the ‘following’ next steps.
-
-This would also serve as an introduction to next sections.
-
-<![if !supportAnnotations]>
-
-<![endif]>
+ 
+The Authorization Code Flow goes through the following steps as defined in [OpenID Connect Core Authorization Code Flow Steps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps).
 ## 3.1. **Authorisation Endpoint** 
-itsme(r) Login is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
-  
- The Authorization Code Flow goes through the following steps as defined in [OpenID Connect Core Authorization Code Flow Steps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps).
+As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
+
+The first step is forming an HTTPS request with the appropriate URI parameters. Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused.
+
+You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
+
+**itsme®** supports the use of both HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters must be serialized using [Form Serialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization).
  
  ## 3.2. itsme(r) Login Authentication Request
  As per the [OpenID Connect Specification Authentication Request](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [OpenID Connect Specification Authorization Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint), the first step is forming an HTTPS request with the appropriate URI parameters. 
@@ -926,7 +899,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODc1NzY3LC0xNjkwNzg4Nzc2LC0xOD
+eyJoaXN0b3J5IjpbNjYxOTQyODkwLC0xNjkwNzg4Nzc2LC0xOD
 MzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xNjkwNzg4Nzc2LC0xODMz
 MDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNz
 g4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2
