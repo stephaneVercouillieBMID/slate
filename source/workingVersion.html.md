@@ -246,16 +246,9 @@ In current version and in contradiction to the OpenID Connect specification, **i
  
 The following values for **scope** allow access to predefined sets of Identity Data:
 
-Scope  | Data| Claim
- -- | -- | --
- **`profile`** |Full name| `name` and `given_name` and `family_name`
- <br>  |Gender| `gender`<br>
-||Birthdate|`birthdate`
-||Language |`locale`
- | **`email`** | Email Adress | <br> `email` and `email_verified`<br>| `gender`
- | **`phone`** | Phone number |`phone_number` or `phone_number_verified`As per OpenID Connect specification, scopes can be used to request that specific sets of information be made available as Claim Values in User Info Token.
+As per OpenID Connect specification, scopes can be used to request that specific sets of information be made available as Claim Values in User Info Token.
  
- In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims requested via scope as **Essential** (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)). It means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, as in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims, you should already request claims with appropriate level regarding your business case. 
+ I
  
  The following values for **scope** allow access to predefined sets of Identity Data:
 
@@ -1017,7 +1010,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5MTA2MDUwLDEwMTY2ODUzNSwxODA5Nj
+eyJoaXN0b3J5IjpbNzM5MTQwMzQ1LDEwMTY2ODUzNSwxODA5Nj
 Q2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3MTE0MCw4NzY2NDE3NjAs
 MTg3NzEzNTIxLC0zMzA2OTU0NjgsLTEzNjE3MTIzMjEsLTE4Mj
 cxMjE0ODAsMjEzNjYwMjkwNCwtMjExMTg1NTUyMiwtMTY5MDc4
