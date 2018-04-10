@@ -155,11 +155,11 @@ As per [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://o
  `invalid_request_object` | The request parameter contains an invalid Request Object.
  `request_uri_not_supported` | does not support use of the request_uri parameter.
  `registration_not_supported` | does not support use of the registration parameter.
-## 3.2. Token Endpoint
+## 3.2. Token Endpoint (#Token Endpoint)
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
 ### 3.2.1. About Tokens
 There are three types of tokens in OIDC: `id_token`, `access_token` and `refresh_token`.
-## 3.2. Token Endpoint
+
 
 The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **token_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret` authentication methods are not supported since they are considered less secure.
 
@@ -383,7 +383,7 @@ The following is a non-normative example of a UserInfo Error Response:
 
 ### 4.3.2. Token Endpoint
 
-#### 4.3.2.1. See [3.2 Token Endpoint](
+#### 4.3.2.1. See [3.2 Token Endpoint](#Token Endpoint)
 
 #### 4.3.2.2 Example of Id Token Containing “claims”
  
@@ -835,11 +835,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjU5NzE5NjU2LC0xMDE5OTkwMzIzLC0xNj
-QzOTIzNTgsLTgwMDc0ODgwNSwxNjQ0MTI2NzE1LC0xMzY1MjQw
-OTExLDQxODc2MjcxOCwtMTgwMjc3MDYwNiwxNDQwMjQ0MTc2LD
-EwMTY2ODUzNSwxODA5NjQ2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3
-MTE0MCw4NzY2NDE3NjAsMTg3NzEzNTIxLC0zMzA2OTU0NjgsLT
-EzNjE3MTIzMjEsLTE4MjcxMjE0ODAsMjEzNjYwMjkwNCwtMjEx
-MTg1NTUyMl19
+eyJoaXN0b3J5IjpbLTE3OTUxODE3ODEsLTEwMTk5OTAzMjMsLT
+E2NDM5MjM1OCwtODAwNzQ4ODA1LDE2NDQxMjY3MTUsLTEzNjUy
+NDA5MTEsNDE4NzYyNzE4LC0xODAyNzcwNjA2LDE0NDAyNDQxNz
+YsMTAxNjY4NTM1LDE4MDk2NDYzNjUsNDk2NzY1NjI5LC0xNjcw
+MTcxMTQwLDg3NjY0MTc2MCwxODc3MTM1MjEsLTMzMDY5NTQ2OC
+wtMTM2MTcxMjMyMSwtMTgyNzEyMTQ4MCwyMTM2NjAyOTA0LC0y
+MTExODU1NTIyXX0=
 -->
