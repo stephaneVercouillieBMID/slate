@@ -284,15 +284,8 @@ JSON object that contains the following members and values:
 
 *Normal Claims MUST be supported. Support for Aggregated Claims and Distributed Claims is OPTIONAL.
 
-Here is a typical set of claims,
- ```http--inline
- {
-    "sub": "248289761001",
-    "name": "Jane Doe",
-    "email": "janedoe@example.com" 
-    "updated_at": 1470288956```
- }
- ```
+
+
 ## 4.2. Declaring Claims
 
 ### 4.2.1. Scope
@@ -896,7 +889,7 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjc5OTYzMDgsLTExNzE3MDMwNzYsLT
+eyJoaXN0b3J5IjpbLTE4MTkwNDk2MDksLTExNzE3MDMwNzYsLT
 EwMjI5MjA1OTQsLTE0OTc5NjY4NDgsNzYxNTYzNDgyLC0xNzc5
 NDI2ODUwLC0xMDE5OTkwMzIzLC0xNjQzOTIzNTgsLTgwMDc0OD
 gwNSwxNjQ0MTI2NzE1LC0xMzY1MjQwOTExLDQxODc2MjcxOCwt
