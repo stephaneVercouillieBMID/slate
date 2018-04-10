@@ -241,8 +241,22 @@ Claims are name/value pairs that contain information about a user, as well meta-
 
 #### 4.3.1.3. User info Response Specification
 
+ The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed.
+ 
 #### 4.3.1.4. User info Response Example
 
+ (Not encrypted nor signed)
+ 
+ ```http--inline
+ HTTP/1.1 200 OK
+ Content-Type: application/json
+ 
+ {
+    "sub": "248289761001",
+    "name": "Jane Doe",
+    "email": "janedoe@example.com"
+ }
+ ```
 #### 4.3.1.5. User info Errors
 
 ### 4.3.2. Token Endpoint
@@ -1009,11 +1023,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNjE3MTIzMjEsLTE4MjcxMjE0ODAsMj
-EzNjYwMjkwNCwtMjExMTg1NTUyMiwtMTY5MDc4ODc3NiwtMTgz
-MzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5MDc4ODc3NiwtMTgzMz
-AwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4
-ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNj
-MwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3
-NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3Nl19
+eyJoaXN0b3J5IjpbLTcxMzY2NDQyNywtMTM2MTcxMjMyMSwtMT
+gyNzEyMTQ4MCwyMTM2NjAyOTA0LC0yMTExODU1NTIyLC0xNjkw
+Nzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xNjkwNz
+g4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2
+MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nz
+c2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2
+LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2XX0=
 -->
