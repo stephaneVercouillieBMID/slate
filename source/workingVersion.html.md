@@ -261,15 +261,13 @@ Aggregated and distributed Claims are represented by using special `_claim_names
 Aggregated Claims that are asserted by a Claims Provider other than the Open ID Provider but are returned by Open ID Provider. 
 
 See the [link](http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims) for further details.
-
 See the [link](http://openid.net/specs/openid-connect-core-1_0.html#AggregatedExample) for an example of aggregated claims.
 
 **Distributed Claims**
-Distributed Claims are claims that are asserted by a Claims Provider other than the Open ID Provider but are returned as references by the Open ID Provider. See the [link](http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims) for further details.
-See the [link](http://openid.net/specs/openid-connect-core-1_0.html#AggregatedExample) for an example of aggregated claims.
-*Normal Claims MUST be supported. Support for Aggregated Claims and Distributed Claims is OPTIONAL.
+Distributed Claims are claims that are asserted by a Claims Provider other than the Open ID Provider but are returned as references by the Open ID Provider. 
 
-
+See the [link](http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims) for further details.
+See the [link](http://openid.net/specs/openid-connect-core-1_0.html#DistributedExample) for an example of distributed claims.
 
 ## 4.2. Declaring Claims
 
@@ -874,7 +872,7 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwODI2NzQwOCw5NzQ2MzU4MTgsLTExNz
+eyJoaXN0b3J5IjpbLTg1NTY2NTAzMyw5NzQ2MzU4MTgsLTExNz
 E3MDMwNzYsLTEwMjI5MjA1OTQsLTE0OTc5NjY4NDgsNzYxNTYz
 NDgyLC0xNzc5NDI2ODUwLC0xMDE5OTkwMzIzLC0xNjQzOTIzNT
 gsLTgwMDc0ODgwNSwxNjQ0MTI2NzE1LC0xMzY1MjQwOTExLDQx
