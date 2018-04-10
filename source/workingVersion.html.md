@@ -144,9 +144,8 @@ An Authentication Response is an [OAuth 2.0 Authorization Response](https://tool
    &state=af0ifjsldkj
  ```
 ### 3.1.5. Authentication Errors
-As per [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://openid.net/specs/openid-connect-core-1_0.html#AuthError)
+As per [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://openid.net/specs/openid-connect-core-1_0.html#AuthError), if the authentication is NOT successful, the following errors can be triggered by itsme®:
 
-If the authentication is NOT successful, the following errors can be triggered by itsme®
  # 4. Authenticating the User
  
  **itsme(r) Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
@@ -905,7 +904,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3MzM3NDc1OCwtMjExMTg1NTUyMiwtMT
+eyJoaXN0b3J5IjpbMTgxNjc0Nzk0NiwtMjExMTg1NTUyMiwtMT
 Y5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5
 MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMz
 AwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4
