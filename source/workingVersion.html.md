@@ -267,6 +267,7 @@ Scope  | Data| Claim
 Individually, with the optional  [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter.
 
 We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. 
+
 Here are these claims:
  
  Data | Claim | Comment
@@ -837,11 +838,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0OTc5NjY4NDgsNzYxNTYzNDgyLC0xNz
-c5NDI2ODUwLC0xMDE5OTkwMzIzLC0xNjQzOTIzNTgsLTgwMDc0
-ODgwNSwxNjQ0MTI2NzE1LC0xMzY1MjQwOTExLDQxODc2MjcxOC
-wtMTgwMjc3MDYwNiwxNDQwMjQ0MTc2LDEwMTY2ODUzNSwxODA5
-NjQ2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3MTE0MCw4NzY2NDE3Nj
-AsMTg3NzEzNTIxLC0zMzA2OTU0NjgsLTEzNjE3MTIzMjEsLTE4
-MjcxMjE0ODBdfQ==
+eyJoaXN0b3J5IjpbLTEwMjI5MjA1OTQsLTE0OTc5NjY4NDgsNz
+YxNTYzNDgyLC0xNzc5NDI2ODUwLC0xMDE5OTkwMzIzLC0xNjQz
+OTIzNTgsLTgwMDc0ODgwNSwxNjQ0MTI2NzE1LC0xMzY1MjQwOT
+ExLDQxODc2MjcxOCwtMTgwMjc3MDYwNiwxNDQwMjQ0MTc2LDEw
+MTY2ODUzNSwxODA5NjQ2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3MT
+E0MCw4NzY2NDE3NjAsMTg3NzEzNTIxLC0zMzA2OTU0NjgsLTEz
+NjE3MTIzMjFdfQ==
 -->
