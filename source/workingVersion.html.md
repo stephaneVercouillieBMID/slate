@@ -228,9 +228,20 @@ Three representations of Claim Values are defined officially:
 - Normal Claims
 - Aggregated Claims
 - Distributed Claims
- 4:
+ #### 4.1.1.1 Normal Claims
 Claims that are directly asserted by the OpenID Provider.
 
+Normal Claims are represented as members in a JSON object. The Claim Name is the member name and the Claim Value is the member value.
+
+The following is a non-normative response containing Normal Claims:
+
+  {
+   "name": "Char",
+   "given_name": "Jane",
+   "family_name": "Doe",
+   "email": "janedoe@example.com",
+   "picture": "http://example.com/janedoe/me.jpg"
+  }
 Aggregated Claims
  
  Claims that are asserted by a Claims Provider other than the OpenID Provider but are returned by OpenID Provider.
@@ -855,11 +866,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMTA5MjY1MzQsLTEwMjI5MjA1OTQsLT
-E0OTc5NjY4NDgsNzYxNTYzNDgyLC0xNzc5NDI2ODUwLC0xMDE5
-OTkwMzIzLC0xNjQzOTIzNTgsLTgwMDc0ODgwNSwxNjQ0MTI2Nz
-E1LC0xMzY1MjQwOTExLDQxODc2MjcxOCwtMTgwMjc3MDYwNiwx
-NDQwMjQ0MTc2LDEwMTY2ODUzNSwxODA5NjQ2MzY1LDQ5Njc2NT
-YyOSwtMTY3MDE3MTE0MCw4NzY2NDE3NjAsMTg3NzEzNTIxLC0z
-MzA2OTU0NjhdfQ==
+eyJoaXN0b3J5IjpbNDc3MzU1OTYzLC0xMDIyOTIwNTk0LC0xND
+k3OTY2ODQ4LDc2MTU2MzQ4MiwtMTc3OTQyNjg1MCwtMTAxOTk5
+MDMyMywtMTY0MzkyMzU4LC04MDA3NDg4MDUsMTY0NDEyNjcxNS
+wtMTM2NTI0MDkxMSw0MTg3NjI3MTgsLTE4MDI3NzA2MDYsMTQ0
+MDI0NDE3NiwxMDE2Njg1MzUsMTgwOTY0NjM2NSw0OTY3NjU2Mj
+ksLTE2NzAxNzExNDAsODc2NjQxNzYwLDE4NzcxMzUyMSwtMzMw
+Njk1NDY4XX0=
 -->
