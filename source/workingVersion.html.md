@@ -252,7 +252,7 @@ Aggregated and distributed Claims are represented by using special `_claim_names
 |Special Members| Feature |
 |--|--|
 |  _claim_names|  JSON object whose member names are the Claim Names for the Aggregated and Distributed Claims. The member values are references to the member names in the _claim_sources member from which the actual Claim Values can be retrieved.|
-|_claim_sources|JSON object whose member names are referenced by the member values of the _claim_names member. The member values contain sets of Aggregated Claims or reference locations for Distributed Claims. The member values can have one of the following formats depending on whether it is providing Aggregated or Distributed Claims:
+|_claim_sources|JSON object whose member names are referenced by the member values of the _claim_names member. The member values contain sets of Aggregated Claims or reference locations for Distributed Claims. The member values can have one of the following formats depending on whether it is providing Aggregated or Distributed Claims.
 
  **Aggregated Claims**
 
@@ -873,11 +873,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NjM2NTM0NjIsNTgwNjg3NDU5LC01Nj
-Q5ODg5MzgsLTk0MDQ5NDAwNSwtODU1NjY1MDMzLDk3NDYzNTgx
-OCwtMTE3MTcwMzA3NiwtMTAyMjkyMDU5NCwtMTQ5Nzk2Njg0OC
-w3NjE1NjM0ODIsLTE3Nzk0MjY4NTAsLTEwMTk5OTAzMjMsLTE2
-NDM5MjM1OCwtODAwNzQ4ODA1LDE2NDQxMjY3MTUsLTEzNjUyND
-A5MTEsNDE4NzYyNzE4LC0xODAyNzcwNjA2LDE0NDAyNDQxNzYs
-MTAxNjY4NTM1XX0=
+eyJoaXN0b3J5IjpbMTE4MzMzNDk2NiwtMTg2MzY1MzQ2Miw1OD
+A2ODc0NTksLTU2NDk4ODkzOCwtOTQwNDk0MDA1LC04NTU2NjUw
+MzMsOTc0NjM1ODE4LC0xMTcxNzAzMDc2LC0xMDIyOTIwNTk0LC
+0xNDk3OTY2ODQ4LDc2MTU2MzQ4MiwtMTc3OTQyNjg1MCwtMTAx
+OTk5MDMyMywtMTY0MzkyMzU4LC04MDA3NDg4MDUsMTY0NDEyNj
+cxNSwtMTM2NTI0MDkxMSw0MTg3NjI3MTgsLTE4MDI3NzA2MDYs
+MTQ0MDI0NDE3Nl19
 -->
