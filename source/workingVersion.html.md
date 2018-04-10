@@ -501,13 +501,13 @@ Scope  | Data| Claim
 
  <aside class="notice">
 
-**NOTE: Any claim requested by using the scope value can only be obtained from the UserI nfo endpoint.</aside>**
+**NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>**
  
  #### 5.2.1.2. <a name="Claims-Request"></a>Requesting Claims using the "claims" Request Parameter
  
  Individually, with the optional  [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter.
   
- NOTE: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.</aside>
+ NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>
  
  ## 5.3. <a name="Claims-Request"></a>Requesting Claims using the "claims" Request Parameter
  We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the **claims** parameter of the Authentication Request. Here are these claims:
@@ -597,7 +597,7 @@ Scope  | Data| Claim
  **iss** | Required | Specifies the issuing authority. Issuer of the id_tokenIssuer. Must be the `client_id`
  **aud** | Required | Audience. Possible token end-point URLs:<br>https://merchant.itsme.be/oidc/token<br>https://e2emerchant.itsme.be/oidc/token<br>https://uatmerchant.sixdots.be/oidc/token
  
- > Example of claim request before base64url encoding, signing and encryption. In this example, the partners is using the login service. The end user email and nationality will be returned by the UserInfo endpoint.
+ > Example of claim request before base64url encoding, signing and encryption. In this example, the partners is using the login service. The end user email and nationality will be returned by the User Info endpoint.
  
  ```json--inline
  {
@@ -643,7 +643,7 @@ Scope  | Data| Claim
  -- Encryption Algorithm (alg): RSA-OAEP
  -- Signing Algorithm (alg): RS256
  
- Offline access is not supported. TODO
+ Offline access is not supported. 
  
  Dynamic client registration is not allowed.
  
@@ -839,11 +839,11 @@ Scope  | Data| Claim
  \- Decrypt request with your 'encryption' private key  
  \-  Validate our signature with our ‘signing’ public key found in our JWKSet
  
- >### Should there be 2 calls to itsme for this schedule?(One for Token request & one for Userinfo request)
+ >### Should there be 2 calls to itsme for this schedule?(One for Token request & one for User Info request)
  You need to perform two Back-End to Back-End calls indeed:
  
  \- The Token Request  
- \- The UserInfo Request  
+ \- The User Info Request  
  
  On top of this, the Authorization Request (AuthN Request in the schedule) consists of an HTTP redirection to the OpenID webpage of BMID. The content of this HTTP request is to be crafted by your system, it is actually a third call from your side to BMID, this one being Front-End to Back-End.
  
@@ -952,7 +952,7 @@ Scope  | Data| Claim
  >## Should I notify BMID if the IP changes?
  No, this is not required.
  
- >## What is the lay-out of the Identity Data that we get back in the Userinfo Response
+ >## What is the lay-out of the Identity Data that we get back in the User Info Response
  They are the same as on the eID card
  
  >## Do we need to call the UserInfo endpoint to get the National Register number or can it be part of the ID Token?
@@ -1043,11 +1043,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyNzkwODczNiwxODc3MTM1MjEsLTMzMD
-Y5NTQ2OCwtMTM2MTcxMjMyMSwtMTgyNzEyMTQ4MCwyMTM2NjAy
-OTA0LC0yMTExODU1NTIyLC0xNjkwNzg4Nzc2LC0xODMzMDA2Mz
-A2LC0xNjkwNzg4Nzc2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2
-LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC
-0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0x
-NjkwNzg4Nzc2LC0xODMzMDA2MzA2XX0=
+eyJoaXN0b3J5IjpbODc2NjQxNzYwLDE4NzcxMzUyMSwtMzMwNj
+k1NDY4LC0xMzYxNzEyMzIxLC0xODI3MTIxNDgwLDIxMzY2MDI5
+MDQsLTIxMTE4NTU1MjIsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMD
+YsLTE2OTA3ODg3NzYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYs
+LTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLT
+E4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2
+OTA3ODg3NzYsLTE4MzMwMDYzMDZdfQ==
 -->
