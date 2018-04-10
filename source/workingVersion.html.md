@@ -135,7 +135,7 @@ An Authentication Response is an [OAuth 2.0 Authorization Response](https://tool
  -- | -- | --
  **code** | Always | Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.
  **state** |  | The exact value received from the client, if the parameter was present in the Authentication Request.
-3.1.4. Authentication Response Example
+### 3.1.4. Authentication Response Example
  
  ```http--inline
  HTTP/1.1 302 Found
@@ -143,6 +143,10 @@ An Authentication Response is an [OAuth 2.0 Authorization Response](https://tool
    code=SplxlOBeZQQYbYS6WxSbIA
    &state=af0ifjsldkj
  ```
+### 3.1.5. Authentication Errors
+As per [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://openid.net/specs/openid-connect-core-1_0.html#AuthError)
+
+If the authentication is NOT successful, the following errors can be triggered by itsme®
  # 4. Authenticating the User
  
  **itsme(r) Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
@@ -901,7 +905,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUyNjM2MTgxMSwtMjExMTg1NTUyMiwtMT
+eyJoaXN0b3J5IjpbLTk3MzM3NDc1OCwtMjExMTg1NTUyMiwtMT
 Y5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5
 MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMz
 AwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4
