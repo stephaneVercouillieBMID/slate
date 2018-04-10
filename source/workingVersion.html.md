@@ -411,7 +411,7 @@ The Access Token will define the list of Data that will be provided back to the 
  
  Parameter | Provided | Comment
  -- | -- | --
- **access_token** | Always | A token that can be sent to the UserInfo endpoint to retrieve additional information about the user.
+ **access_token** | Always | A token that can be sent to the User Info endpoint to retrieve additional information about the user.
  **token_type** | Always | Will be `Bearer`
  **id_token** | Always | The JWT `id_token` corresponding to the Authentication Request (signed and  encrypted). 
  **at_hash** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
@@ -422,17 +422,17 @@ The Access Token will define the list of Data that will be provided back to the 
  As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse](http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse)
  
  # 5. Requesting User Data
- ## 5.1. UserInfo Request
+ ## 5.1. User Info Request
  
  As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
  
- The UserInfo endpoint can only be accessed with a valid **access_token** received from the Token endpoint during User Authentication, and for a very limited duration after end user authentication; there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the UserInfo endpoint.
+ The User Info endpoint can only be accessed with a valid **access_token** received from the Token endpoint during User Authentication, and for a very limited duration after end user authentication; there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info endpoint.
  
- Your server sends the UserInfo Request using either HTTP `GET` or HTTP `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP `GET` method and the Access Token be sent the using the `Authorization` header field. The HTTP request is sent to the UserInfo endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **userinfo_endpoint**.
+ Your server sends the User Info Request using either HTTP `GET` or HTTP `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP `GET` method and the Access Token be sent the using the `Authorization` header field. The HTTP request is sent to the User Info endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **userinfo_endpoint**.
  
  The Access Token will define the list of Data that will be provided back to the client (TODO). In order to request specific claims, you can [use scopes](#stClaims) in the Authentication Request and/or [use the claims parameter](#Claims-Request) of the **request** Object.
  
- > Example UserInfo Request
+ > Example User Info Request
  
  ```http--inline
  GET /userinfo HTTP/1.1
@@ -440,11 +440,11 @@ The Access Token will define the list of Data that will be provided back to the 
  Authorization: Bearer SlAV32hkKG
  ```
   
- ### 5.1.1. Successful UserInfo Response
+ ### 5.1.1. Successful User Info Response
  
  The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed.
  
- > Example Successful UserInfo Response (Not encrypted nor signed)
+ > Example Successful User Info Response (Not encrypted nor signed)
  
  ```http--inline
  HTTP/1.1 200 OK
@@ -463,7 +463,7 @@ The Access Token will define the list of Data that will be provided back to the 
  
  OpenID Connect specifies a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) or user attributes. They are intended to supply the client app with consented user details such as email, name upon request.
  
-As per OpenID Connect specification, scopes can be used to request that specific sets of information be made available as Claim Values in UserInfo Token.
+As per OpenID Connect specification, scopes can be used to request that specific sets of information be made available as Claim Values in User Info Token.
 
 
 You can request claims in two ways:
@@ -485,7 +485,7 @@ Scope  | Data| Claim
 ||Birthdate|`birthdate`
 ||Language |`locale`
  | **`email`** | Email Adress | <br> `email` and `email_verified`<br>| `gender`
- | **`phone`** | Phone number |`phone_number` or `phone_number_verified`As per OpenID Connect specification, scopes can be used to request that specific sets of information be made available as Claim Values in UserInfo Token.
+ | **`phone`** | Phone number |`phone_number` or `phone_number_verified`As per OpenID Connect specification, scopes can be used to request that specific sets of information be made available as Claim Values in User Info Token.
  
  In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims requested via scope as **Essential** (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)). It means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, as in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims, you should already request claims with appropriate level regarding your business case. 
  
@@ -501,7 +501,7 @@ Scope  | Data| Claim
 
  <aside class="notice">
 
-**NOTE: Any claim requested by using the scope value can only be obtained from the UserInfo endpoint.</aside>**
+**NOTE: Any claim requested by using the scope value can only be obtained from the UserI nfo endpoint.</aside>**
  
  #### 5.2.1.2. <a name="Claims-Request"></a>Requesting Claims using the "claims" Request Parameter
  
@@ -1043,7 +1043,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTczODY4NDQ5NiwxODc3MTM1MjEsLTMzMD
+eyJoaXN0b3J5IjpbLTQyNzkwODczNiwxODc3MTM1MjEsLTMzMD
 Y5NTQ2OCwtMTM2MTcxMjMyMSwtMTgyNzEyMTQ4MCwyMTM2NjAy
 OTA0LC0yMTExODU1NTIyLC0xNjkwNzg4Nzc2LC0xODMzMDA2Mz
 A2LC0xNjkwNzg4Nzc2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2
