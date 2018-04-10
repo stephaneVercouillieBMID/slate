@@ -135,7 +135,14 @@ An Authentication Response is an [OAuth 2.0 Authorization Response](https://tool
  -- | -- | --
  **code** | Always | Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.
  **state** |  | The exact value received from the client, if the parameter was present in the Authentication Request.
-
+3.1.4. Authentication Response Example
+ 
+ ```http--inline
+ HTTP/1.1 302 Found
+ Location: https://client.example.org/cb?
+   code=SplxlOBeZQQYbYS6WxSbIA
+   &state=af0ifjsldkj
+ ```
  # 4. Authenticating the User
  
  **itsme(r) Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
@@ -894,7 +901,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3ODA4NTI3OSwtMjExMTg1NTUyMiwtMT
+eyJoaXN0b3J5IjpbMTUyNjM2MTgxMSwtMjExMTg1NTUyMiwtMT
 Y5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5
 MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMz
 AwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4
