@@ -49,8 +49,12 @@ OAuth 2.0 means one protocol for authentication and authorization (obtaining acc
  BMID provides,
  
  - Partner Code, used as **client_id**
- - Service Code for each Service (see [Service Code concept](glossary.md#glossaryServiceCode))
+ - Service Code for each Service (see [Service Code concept](#ServiceCode))
+ ### <a name="glossaryServiceCodes"></a>Service Code Concept 
  
+To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
+
+For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
  ## 2.3. Setting a Redirect URI and Certificates
 After a user successfully is authorized, the authorization server will redirect the user back to the application with either an **authorization code** or **access token** in the URL.
 
@@ -872,7 +876,7 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM3OTQzMzY5MSwtOTQwNDk0MDA1LC04NT
+eyJoaXN0b3J5IjpbMTg3MjUzNzQ1MCwtOTQwNDk0MDA1LC04NT
 U2NjUwMzMsOTc0NjM1ODE4LC0xMTcxNzAzMDc2LC0xMDIyOTIw
 NTk0LC0xNDk3OTY2ODQ4LDc2MTU2MzQ4MiwtMTc3OTQyNjg1MC
 wtMTAxOTk5MDMyMywtMTY0MzkyMzU4LC04MDA3NDg4MDUsMTY0
