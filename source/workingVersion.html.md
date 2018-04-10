@@ -331,7 +331,11 @@ Your server sends the User Info Request using either HTTP  `GET`  or HTTP  `POST
 The Access Token will define the list of Data that will be provided back to the client. In order to request specific claims, you can  [use scopes](https://stackedit.io/app#stClaims)  in the Authentication Request and/or  [use the claims parameter](https://stackedit.io/app#Claims-Request)  of the  request Object.
 
 ### 4.3.1. User Info Endpoint
-As per the OpenID Connect specification  [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
+As per the OpenID Connect specification  [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest), 
+
+> Blockquote
+
+
 
 The User Info endpoint can only be accessed with a valid  **access_token**  received from the Token endpoint during User Authentication, and for a very limited duration after end user authentication; there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info endpoint.
 
@@ -822,11 +826,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNjUyNDA5MTEsNDE4NzYyNzE4LC0xOD
-AyNzcwNjA2LDE0NDAyNDQxNzYsMTAxNjY4NTM1LDE4MDk2NDYz
-NjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0MTc2MCwxOD
-c3MTM1MjEsLTMzMDY5NTQ2OCwtMTM2MTcxMjMyMSwtMTgyNzEy
-MTQ4MCwyMTM2NjAyOTA0LC0yMTExODU1NTIyLC0xNjkwNzg4Nz
-c2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xNjkwNzg4Nzc2
-LC0xODMzMDA2MzA2XX0=
+eyJoaXN0b3J5IjpbLTE4MzA1Mzg3NTQsLTEzNjUyNDA5MTEsND
+E4NzYyNzE4LC0xODAyNzcwNjA2LDE0NDAyNDQxNzYsMTAxNjY4
+NTM1LDE4MDk2NDYzNjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQwLD
+g3NjY0MTc2MCwxODc3MTM1MjEsLTMzMDY5NTQ2OCwtMTM2MTcx
+MjMyMSwtMTgyNzEyMTQ4MCwyMTM2NjAyOTA0LC0yMTExODU1NT
+IyLC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2
+LC0xNjkwNzg4Nzc2XX0=
 -->
