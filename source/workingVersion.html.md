@@ -51,7 +51,7 @@ OAuth 2.0 means one protocol for authentication and authorisation (obtaining acc
  - Partner Code, used as **client_id**
  - Service Code for each Service (see [Service Code concept](glossary.md#glossaryServiceCode))
  
- ## 2.3. Setting a redirect URI and Certificates
+ ## 2.3. Setting a Redirect URI and Certificates
 After a user successfully is authorized, the authorization server will redirect the user back to the application with either an **authorization code** or **access token** in the URL.
 
  - the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.
@@ -835,11 +835,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcwODYzNTY3OCwtMTc3OTQyNjg1MCwtMT
-AxOTk5MDMyMywtMTY0MzkyMzU4LC04MDA3NDg4MDUsMTY0NDEy
-NjcxNSwtMTM2NTI0MDkxMSw0MTg3NjI3MTgsLTE4MDI3NzA2MD
-YsMTQ0MDI0NDE3NiwxMDE2Njg1MzUsMTgwOTY0NjM2NSw0OTY3
-NjU2MjksLTE2NzAxNzExNDAsODc2NjQxNzYwLDE4NzcxMzUyMS
-wtMzMwNjk1NDY4LC0xMzYxNzEyMzIxLC0xODI3MTIxNDgwLDIx
-MzY2MDI5MDRdfQ==
+eyJoaXN0b3J5IjpbLTE3MTEzMTQzNzAsLTE3Nzk0MjY4NTAsLT
+EwMTk5OTAzMjMsLTE2NDM5MjM1OCwtODAwNzQ4ODA1LDE2NDQx
+MjY3MTUsLTEzNjUyNDA5MTEsNDE4NzYyNzE4LC0xODAyNzcwNj
+A2LDE0NDAyNDQxNzYsMTAxNjY4NTM1LDE4MDk2NDYzNjUsNDk2
+NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0MTc2MCwxODc3MTM1Mj
+EsLTMzMDY5NTQ2OCwtMTM2MTcxMjMyMSwtMTgyNzEyMTQ4MCwy
+MTM2NjAyOTA0XX0=
 -->
