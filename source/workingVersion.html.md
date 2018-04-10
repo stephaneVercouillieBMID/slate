@@ -281,7 +281,7 @@ Here are these claims:
 #### 4.2.2.1. User Info Endpoint
 Any claim requested by using the scope value can only be obtained from the User Info endpoint.
 #### 4.2.2.2. Token Endpoint
-
+As defined in this link. (http://openid.net/specs/openid-connect-core-1_0.html#TokenEndpoint
 #### 4.2.2.3. Set of Request Parameted Adapted to itsme(r)
 ```json--inline
  {
@@ -837,11 +837,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDM5MjM1OCwtODAwNzQ4ODA1LDE2ND
-QxMjY3MTUsLTEzNjUyNDA5MTEsNDE4NzYyNzE4LC0xODAyNzcw
-NjA2LDE0NDAyNDQxNzYsMTAxNjY4NTM1LDE4MDk2NDYzNjUsND
-k2NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0MTc2MCwxODc3MTM1
-MjEsLTMzMDY5NTQ2OCwtMTM2MTcxMjMyMSwtMTgyNzEyMTQ4MC
-wyMTM2NjAyOTA0LC0yMTExODU1NTIyLC0xNjkwNzg4Nzc2LC0x
-ODMzMDA2MzA2XX0=
+eyJoaXN0b3J5IjpbLTE2MTczNTAwNzUsLTE2NDM5MjM1OCwtOD
+AwNzQ4ODA1LDE2NDQxMjY3MTUsLTEzNjUyNDA5MTEsNDE4NzYy
+NzE4LC0xODAyNzcwNjA2LDE0NDAyNDQxNzYsMTAxNjY4NTM1LD
+E4MDk2NDYzNjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0
+MTc2MCwxODc3MTM1MjEsLTMzMDY5NTQ2OCwtMTM2MTcxMjMyMS
+wtMTgyNzEyMTQ4MCwyMTM2NjAyOTA0LC0yMTExODU1NTIyLC0x
+NjkwNzg4Nzc2XX0=
 -->
