@@ -284,7 +284,7 @@ The Access Token will define the list of Data that will be provided back to the 
 #### 4.3.2.1. See 3.2 Token Endpoint
 
 #### 4.3.2.2 Example of Id Token Containing “claims”
- # 4. Authenticating the User
+$ # 4. Authenticating the User
  
  **itsme(r) Login** is based on the [Authorisation Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0.
   
@@ -1043,11 +1043,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzNTYxODQwNSw4NzY2NDE3NjAsMTg3Nz
-EzNTIxLC0zMzA2OTU0NjgsLTEzNjE3MTIzMjEsLTE4MjcxMjE0
-ODAsMjEzNjYwMjkwNCwtMjExMTg1NTUyMiwtMTY5MDc4ODc3Ni
-wtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5MDc4ODc3Niwt
-MTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMT
-Y5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgz
-MzAwNjMwNiwtMTY5MDc4ODc3Nl19
+eyJoaXN0b3J5IjpbODM2ODI4NDE5LDg3NjY0MTc2MCwxODc3MT
+M1MjEsLTMzMDY5NTQ2OCwtMTM2MTcxMjMyMSwtMTgyNzEyMTQ4
+MCwyMTM2NjAyOTA0LC0yMTExODU1NTIyLC0xNjkwNzg4Nzc2LC
+0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xNjkwNzg4Nzc2LC0x
+ODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNj
+kwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMz
+MDA2MzA2LC0xNjkwNzg4Nzc2XX0=
 -->
