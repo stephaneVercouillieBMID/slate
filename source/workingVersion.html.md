@@ -55,7 +55,8 @@ OAuth 2.0 means one protocol for authentication and authorisation (obtaining acc
 After a user successfully is authorized, the authorization server will redirect the user back to the application with either an **authorization code** or **access token** in the URL.
 
  - the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.
- - the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP.
+ - the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP. 
+ - _Whenever TLS is used, a TLS server certificate check MUST be performed, per [RFC 6125](https://openid.net/specs/openid-connect-core-1_0.html#RFC6125) [RFC6125]._
  
  Service Providers provides,
 - the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
@@ -835,11 +836,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MTEzMTQzNzAsLTE3Nzk0MjY4NTAsLT
-EwMTk5OTAzMjMsLTE2NDM5MjM1OCwtODAwNzQ4ODA1LDE2NDQx
-MjY3MTUsLTEzNjUyNDA5MTEsNDE4NzYyNzE4LC0xODAyNzcwNj
-A2LDE0NDAyNDQxNzYsMTAxNjY4NTM1LDE4MDk2NDYzNjUsNDk2
-NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0MTc2MCwxODc3MTM1Mj
-EsLTMzMDY5NTQ2OCwtMTM2MTcxMjMyMSwtMTgyNzEyMTQ4MCwy
-MTM2NjAyOTA0XX0=
+eyJoaXN0b3J5IjpbNzYxNTYzNDgyLC0xNzc5NDI2ODUwLC0xMD
+E5OTkwMzIzLC0xNjQzOTIzNTgsLTgwMDc0ODgwNSwxNjQ0MTI2
+NzE1LC0xMzY1MjQwOTExLDQxODc2MjcxOCwtMTgwMjc3MDYwNi
+wxNDQwMjQ0MTc2LDEwMTY2ODUzNSwxODA5NjQ2MzY1LDQ5Njc2
+NTYyOSwtMTY3MDE3MTE0MCw4NzY2NDE3NjAsMTg3NzEzNTIxLC
+0zMzA2OTU0NjgsLTEzNjE3MTIzMjEsLTE4MjcxMjE0ODAsMjEz
+NjYwMjkwNF19
 -->
