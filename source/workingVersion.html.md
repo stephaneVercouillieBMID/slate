@@ -861,13 +861,6 @@ It is expected that you will also expose their signing and encryption keys in su
 
 For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
 
-  ###  2.4.1. Service Code Concept
- 
-To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it.
-
-The service code is the identifier of this instance. 
-
-The same Service Provider may utilise several service instances. For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
   >
  
  >### I would like to receive a new service code to do my local development...
@@ -881,11 +874,11 @@ The same Service Provider may utilise several service instances. For example, as
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY4NDIxMDQzNiwtNTY0OTg4OTM4LC05ND
-A0OTQwMDUsLTg1NTY2NTAzMyw5NzQ2MzU4MTgsLTExNzE3MDMw
-NzYsLTEwMjI5MjA1OTQsLTE0OTc5NjY4NDgsNzYxNTYzNDgyLC
-0xNzc5NDI2ODUwLC0xMDE5OTkwMzIzLC0xNjQzOTIzNTgsLTgw
-MDc0ODgwNSwxNjQ0MTI2NzE1LC0xMzY1MjQwOTExLDQxODc2Mj
-cxOCwtMTgwMjc3MDYwNiwxNDQwMjQ0MTc2LDEwMTY2ODUzNSwx
-ODA5NjQ2MzY1XX0=
+eyJoaXN0b3J5IjpbNTgwNjg3NDU5LC01NjQ5ODg5MzgsLTk0MD
+Q5NDAwNSwtODU1NjY1MDMzLDk3NDYzNTgxOCwtMTE3MTcwMzA3
+NiwtMTAyMjkyMDU5NCwtMTQ5Nzk2Njg0OCw3NjE1NjM0ODIsLT
+E3Nzk0MjY4NTAsLTEwMTk5OTAzMjMsLTE2NDM5MjM1OCwtODAw
+NzQ4ODA1LDE2NDQxMjY3MTUsLTEzNjUyNDA5MTEsNDE4NzYyNz
+E4LC0xODAyNzcwNjA2LDE0NDAyNDQxNzYsMTAxNjY4NTM1LDE4
+MDk2NDYzNjVdfQ==
 -->
