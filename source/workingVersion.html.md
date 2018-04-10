@@ -858,7 +858,8 @@ It is expected that you will also expose their signing and encryption keys in su
  
  For the rest, if each developer has the private key of the SP on his post, she/he can impersonate the SP during calls to "/ token" and "/ userinfo". There is no check on the source IP, only the signature JWT account.
  
-   
+  >### What is service code?
+  >
  
  >### I would like to receive a new service code to do my local development.  
    
@@ -871,11 +872,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk0MDQ5NDAwNSwtODU1NjY1MDMzLDk3ND
-YzNTgxOCwtMTE3MTcwMzA3NiwtMTAyMjkyMDU5NCwtMTQ5Nzk2
-Njg0OCw3NjE1NjM0ODIsLTE3Nzk0MjY4NTAsLTEwMTk5OTAzMj
-MsLTE2NDM5MjM1OCwtODAwNzQ4ODA1LDE2NDQxMjY3MTUsLTEz
-NjUyNDA5MTEsNDE4NzYyNzE4LC0xODAyNzcwNjA2LDE0NDAyND
-QxNzYsMTAxNjY4NTM1LDE4MDk2NDYzNjUsNDk2NzY1NjI5LC0x
-NjcwMTcxMTQwXX0=
+eyJoaXN0b3J5IjpbLTM3OTQzMzY5MSwtOTQwNDk0MDA1LC04NT
+U2NjUwMzMsOTc0NjM1ODE4LC0xMTcxNzAzMDc2LC0xMDIyOTIw
+NTk0LC0xNDk3OTY2ODQ4LDc2MTU2MzQ4MiwtMTc3OTQyNjg1MC
+wtMTAxOTk5MDMyMywtMTY0MzkyMzU4LC04MDA3NDg4MDUsMTY0
+NDEyNjcxNSwtMTM2NTI0MDkxMSw0MTg3NjI3MTgsLTE4MDI3Nz
+A2MDYsMTQ0MDI0NDE3NiwxMDE2Njg1MzUsMTgwOTY0NjM2NSw0
+OTY3NjU2MjldfQ==
 -->
