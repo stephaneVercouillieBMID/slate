@@ -246,7 +246,13 @@ The Access Token will define the list of Data that will be provided back to the 
 #### 4.3.1.1. User info Request Specification
 
 #### 4.3.1.2. User info Request Example
-
+ 
+ ```http--inline
+ GET /userinfo HTTP/1.1
+ Host: server.example.com
+ Authorization: Bearer SlAV32hkKG
+ ```
+  
 #### 4.3.1.3. User info Response Specification
 
  The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed.
@@ -1031,11 +1037,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzMDY5NTQ2OCwtMTM2MTcxMjMyMSwtMT
-gyNzEyMTQ4MCwyMTM2NjAyOTA0LC0yMTExODU1NTIyLC0xNjkw
-Nzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xNjkwNz
-g4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2
-MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nz
-c2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2
-LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2XX0=
+eyJoaXN0b3J5IjpbLTE4ODE4MDcyMiwtMzMwNjk1NDY4LC0xMz
+YxNzEyMzIxLC0xODI3MTIxNDgwLDIxMzY2MDI5MDQsLTIxMTE4
+NTU1MjIsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3OD
+g3NzYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3
+NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMD
+YsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYs
+LTE4MzMwMDYzMDYsLTE2OTA3ODg3NzZdfQ==
 -->
