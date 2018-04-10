@@ -244,7 +244,7 @@ The Access Token will define the list of Data that will be provided back to the 
 ### 4.3.1. User Info Endpoint
 
 #### 4.3.1.1. User info Request Specification
-
+The Access Token will define the list of Data that will be provided back to the client (TODO). In order to request specific claims, you can [use scopes](https://stackedit.io/app#stClaims) in the Authentication Request and/or [use the claims parameter](https://stackedit.io/app#Claims-Request) of the request Object.
 #### 4.3.1.2. User info Request Example
  
  ```http--inline
@@ -1037,7 +1037,7 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4ODE4MDcyMiwtMzMwNjk1NDY4LC0xMz
+eyJoaXN0b3J5IjpbLTg5OTk2NTQ4OSwtMzMwNjk1NDY4LC0xMz
 YxNzEyMzIxLC0xODI3MTIxNDgwLDIxMzY2MDI5MDQsLTIxMTE4
 NTU1MjIsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3OD
 g3NzYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3
