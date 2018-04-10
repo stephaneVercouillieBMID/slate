@@ -333,9 +333,7 @@ The Access Token will define the list of Data that will be provided back to the 
 ### 4.3.1. User Info Endpoint
 As per the OpenID Connect specification  [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest), 
 
-> Blockquote
-
-
+> The UserInfo Endpoint is an OAuth 2.0 Protected Resource that returns Claims about the authenticated End-User.
 
 The User Info endpoint can only be accessed with a valid  **access_token**  received from the Token endpoint during User Authentication, and for a very limited duration after end user authentication; there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info endpoint.
 
@@ -826,11 +824,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MzA1Mzg3NTQsLTEzNjUyNDA5MTEsND
-E4NzYyNzE4LC0xODAyNzcwNjA2LDE0NDAyNDQxNzYsMTAxNjY4
-NTM1LDE4MDk2NDYzNjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQwLD
-g3NjY0MTc2MCwxODc3MTM1MjEsLTMzMDY5NTQ2OCwtMTM2MTcx
-MjMyMSwtMTgyNzEyMTQ4MCwyMTM2NjAyOTA0LC0yMTExODU1NT
-IyLC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2
-LC0xNjkwNzg4Nzc2XX0=
+eyJoaXN0b3J5IjpbMTY0NDEyNjcxNSwtMTM2NTI0MDkxMSw0MT
+g3NjI3MTgsLTE4MDI3NzA2MDYsMTQ0MDI0NDE3NiwxMDE2Njg1
+MzUsMTgwOTY0NjM2NSw0OTY3NjU2MjksLTE2NzAxNzExNDAsOD
+c2NjQxNzYwLDE4NzcxMzUyMSwtMzMwNjk1NDY4LC0xMzYxNzEy
+MzIxLC0xODI3MTIxNDgwLDIxMzY2MDI5MDQsLTIxMTE4NTU1Mj
+IsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYs
+LTE2OTA3ODg3NzZdfQ==
 -->
