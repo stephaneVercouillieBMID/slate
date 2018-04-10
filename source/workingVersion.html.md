@@ -223,7 +223,8 @@ Here is a typical set of claims,
  {
     "sub": "248289761001",
     "name": "Jane Doe",
-    "email": "janedoe@example.com"
+    "email": "janedoe@example.com" 
+ "updated_at":  
  }
  ```
 ## 4.2. Declaring Claims
@@ -985,11 +986,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQwNDk0MjE4LDEwMTY2ODUzNSwxODA5Nj
-Q2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3MTE0MCw4NzY2NDE3NjAs
-MTg3NzEzNTIxLC0zMzA2OTU0NjgsLTEzNjE3MTIzMjEsLTE4Mj
-cxMjE0ODAsMjEzNjYwMjkwNCwtMjExMTg1NTUyMiwtMTY5MDc4
-ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5MDc4OD
-c3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMw
-NiwtMTY5MDc4ODc3Nl19
+eyJoaXN0b3J5IjpbLTIwODk4Mjc2MzMsMTAxNjY4NTM1LDE4MD
+k2NDYzNjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0MTc2
+MCwxODc3MTM1MjEsLTMzMDY5NTQ2OCwtMTM2MTcxMjMyMSwtMT
+gyNzEyMTQ4MCwyMTM2NjAyOTA0LC0yMTExODU1NTIyLC0xNjkw
+Nzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xNjkwNz
+g4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2
+MzA2LC0xNjkwNzg4Nzc2XX0=
 -->
