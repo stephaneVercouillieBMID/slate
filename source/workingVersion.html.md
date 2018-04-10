@@ -157,12 +157,13 @@ As per [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://o
  `registration_not_supported` | does not support use of the registration parameter.
 ## 3.2. Token Endpoint
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
-
+### 3.2.1. About Tokens
 There are three types of tokens in OIDC: `id_token`, `access_token` and `refresh_token`.
+
 
 The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **token_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret` authentication methods are not supported since they are considered less secure.
 
-### 3.2.1. Token Request Specification
+### 3.2.2. Token Request Specification
 The Token Request must include the following parameters in the POST body:
 
 Parameter | Required | Comment
@@ -183,7 +184,7 @@ According to the `private_key_jwt` client authentication method, the **client as
  **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
  **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 
-### 3.2.2. Token Request Example
+### 3.2.3. Token Request Example
  ```http--inline
  POST /token HTTP/1.1
  Host: server.example.com
@@ -196,7 +197,7 @@ According to the `private_key_jwt` client authentication method, the **client as
  client_assertion=PHNhbWxwOl ... ZT
  ```
 
-### 3.2.3. Token Response Specification
+### 3.2.4. Token Response Specification
 Client must validate following parameters,
 
  Parameter | Provided | Comment
@@ -208,11 +209,11 @@ Client must validate following parameters,
  **refresh_token** | Never | Won't be provided as **itsme(r)** only maintains short-lived session to enforce re-authentication.
 
 
-### 3.2.4. Token Response Example
+### 3.2.5. Token Response Example
 
 Example will be provided.
 
-### 3.2.5. Token Errors
+### 3.2.6. Token Errors
 
 Please see the following link for token errors, 
 [http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse](http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse).
@@ -836,11 +837,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3OTc2OTg5MjMsLTgwMDc0ODgwNSwxNj
-Q0MTI2NzE1LC0xMzY1MjQwOTExLDQxODc2MjcxOCwtMTgwMjc3
-MDYwNiwxNDQwMjQ0MTc2LDEwMTY2ODUzNSwxODA5NjQ2MzY1LD
-Q5Njc2NTYyOSwtMTY3MDE3MTE0MCw4NzY2NDE3NjAsMTg3NzEz
-NTIxLC0zMzA2OTU0NjgsLTEzNjE3MTIzMjEsLTE4MjcxMjE0OD
-AsMjEzNjYwMjkwNCwtMjExMTg1NTUyMiwtMTY5MDc4ODc3Niwt
-MTgzMzAwNjMwNl19
+eyJoaXN0b3J5IjpbLTE2NDM5MjM1OCwtODAwNzQ4ODA1LDE2ND
+QxMjY3MTUsLTEzNjUyNDA5MTEsNDE4NzYyNzE4LC0xODAyNzcw
+NjA2LDE0NDAyNDQxNzYsMTAxNjY4NTM1LDE4MDk2NDYzNjUsND
+k2NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0MTc2MCwxODc3MTM1
+MjEsLTMzMDY5NTQ2OCwtMTM2MTcxMjMyMSwtMTgyNzEyMTQ4MC
+wyMTM2NjAyOTA0LC0yMTExODU1NTIyLC0xNjkwNzg4Nzc2LC0x
+ODMzMDA2MzA2XX0=
 -->
