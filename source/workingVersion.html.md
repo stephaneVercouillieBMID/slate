@@ -373,9 +373,9 @@ The Access Token will define the list of Data that will be provided back to the 
 #### 4.3.2.2 Example of Id Token Containing “claims”
  
 
- # 6. Advanced topics
+ # 5. Advanced topics
  
- ## 6.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs
+ ## 5.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs
  
  OpenID Connect defines the following Authentication Request parameters to enable Authentication Requests to be signed and optionally encrypted:
  
@@ -418,7 +418,7 @@ The Access Token will define the list of Data that will be provided back to the 
  }
  ```
  
- ## 6.2. Requests Signing and Encryption 
+ ## 5.2. Requests Signing and Encryption 
  
  Encryption algorithm used: RSA SHA-256
  
@@ -450,20 +450,8 @@ The Access Token will define the list of Data that will be provided back to the 
 
 ----------the RP will also expose their signing and encryption keys in such a way. The location of the RP JWKSet must be configured by an  administrator of BMID during onboarding of RP. The exposed endpoint must be HTTPS.
  
- 
- 
- <!--stackedit_data:
- eyJoaXN0b3J5IjpbOTY3NDI5NTk4LC0xMDk5MjI2MTEzLC04OD
- gyMDAxNywtMTMxNzkwMzQzLC04ODgyMDAxNywtMTMxNzkwMzQz
- LC04ODgyMDAxNywtMTMxNzkwMzQzLC04ODgyMDAxNywtMTMxNz
- kwMzQzLDE2NzgxNTEwNzIsLTE0MTEwNzczMDIsMTY3ODE1MTA3
- MiwtMTQxMTA3NzMwMiwxNjc4MTUxMDcyLC0xNDExMDc3MzAyLD
- E2NzgxNTEwNzIsLTE0MTEwNzczMDIsLTkzMzA3MzY3MCwxNjkw
- NzYyMjc2LC05MzMwNzM2NzAsMTY5MDc2MjI3NiwtMTgzMzk2Mz
- kwMCwyMDQ3NTUzODgyLC0xODMzOTYzOTAwLDIwNDc1NTM4ODIs
- LTE4MzM5NjM5MDAsMjA0NzU1Mzg4Ml19+-->
 
- ># 7. **FAQ**
+ ># 6. **FAQ**
  >## [JWKSet](#jwks) 
  >
  >### What is a JWKSet?
@@ -837,7 +825,7 @@ The Access Token will define the list of Data that will be provided back to the 
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAyMDQ3OTgwMiwtMTgwMjc3MDYwNiwxND
+eyJoaXN0b3J5IjpbLTM1OTU2ODE1OCwtMTgwMjc3MDYwNiwxND
 QwMjQ0MTc2LDEwMTY2ODUzNSwxODA5NjQ2MzY1LDQ5Njc2NTYy
 OSwtMTY3MDE3MTE0MCw4NzY2NDE3NjAsMTg3NzEzNTIxLC0zMz
 A2OTU0NjgsLTEzNjE3MTIzMjEsLTE4MjcxMjE0ODAsMjEzNjYw
