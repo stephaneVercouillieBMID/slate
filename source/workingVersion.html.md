@@ -279,7 +279,27 @@ Any claim requested by using the scope value can only be obtained from the User 
 #### 4.2.2.3. Set of Requested
 
 #### 4.2.2.4. Example of a Valid “claims” Object
-
+Example of JSON device object requested with **tag:sixdots.be,2017-05:claim_device**
+ 
+ ```json--inline
+ {  
+ 	"os": "ANDROID",  
+ 	"appName": "itsme app", "appRelease": "1.17.13",
+ 	"deviceLabel": "myDevice",
+ 	"debugEnabled": false, 
+ 	"deviceId": "deviceId",
+ 	"osRelease": "Android 4.4.2", 
+ 	"manufacturer": "samsung", 
+ 	"hasSimEnabled": true,
+ 	"deviceLockLevel": "touchID", 
+ 	"smsEnabled": true,
+ 	"rooted": false,
+ 	"imei": "12345678901234567",
+ 	"deviceModel": "S8",  
+ 	"msisdn": "0412123123", 
+ 	"sdkRelease": "1.17.12"  
+ }
+ ```
 ## 4.3. Getting Data
 
 As per the OpenID Connect specification  [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
@@ -1015,11 +1035,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA4NjgxODgwNCwxNDQwMjQ0MTc2LDEwMT
-Y2ODUzNSwxODA5NjQ2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3MTE0
-MCw4NzY2NDE3NjAsMTg3NzEzNTIxLC0zMzA2OTU0NjgsLTEzNj
-E3MTIzMjEsLTE4MjcxMjE0ODAsMjEzNjYwMjkwNCwtMjExMTg1
-NTUyMiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4OD
-c3NiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3
-NiwtMTgzMzAwNjMwNl19
+eyJoaXN0b3J5IjpbLTEzNzY0NDU4MTYsMTQ0MDI0NDE3NiwxMD
+E2Njg1MzUsMTgwOTY0NjM2NSw0OTY3NjU2MjksLTE2NzAxNzEx
+NDAsODc2NjQxNzYwLDE4NzcxMzUyMSwtMzMwNjk1NDY4LC0xMz
+YxNzEyMzIxLC0xODI3MTIxNDgwLDIxMzY2MDI5MDQsLTIxMTE4
+NTU1MjIsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3OD
+g3NzYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3
+NzYsLTE4MzMwMDYzMDZdfQ==
 -->
