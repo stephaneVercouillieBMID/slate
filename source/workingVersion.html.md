@@ -377,7 +377,7 @@ The following is a non-normative example of a UserInfo Error Response:
   WWW-Authenticate: error="invalid_token",
     error_description="The Access Token expired"
  ```
-    
+
 ### 4.3.2. Token Endpoint
 
 #### 4.3.2.1. See 3.2 Token Endpoint
@@ -832,11 +832,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMjg4NjU5NTQsMTY0NDEyNjcxNSwtMT
-M2NTI0MDkxMSw0MTg3NjI3MTgsLTE4MDI3NzA2MDYsMTQ0MDI0
-NDE3NiwxMDE2Njg1MzUsMTgwOTY0NjM2NSw0OTY3NjU2MjksLT
-E2NzAxNzExNDAsODc2NjQxNzYwLDE4NzcxMzUyMSwtMzMwNjk1
-NDY4LC0xMzYxNzEyMzIxLC0xODI3MTIxNDgwLDIxMzY2MDI5MD
-QsLTIxMTE4NTU1MjIsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYs
-LTE2OTA3ODg3NzZdfQ==
+eyJoaXN0b3J5IjpbOTE5NjAyNzgyLDE2NDQxMjY3MTUsLTEzNj
+UyNDA5MTEsNDE4NzYyNzE4LC0xODAyNzcwNjA2LDE0NDAyNDQx
+NzYsMTAxNjY4NTM1LDE4MDk2NDYzNjUsNDk2NzY1NjI5LC0xNj
+cwMTcxMTQwLDg3NjY0MTc2MCwxODc3MTM1MjEsLTMzMDY5NTQ2
+OCwtMTM2MTcxMjMyMSwtMTgyNzEyMTQ4MCwyMTM2NjAyOTA0LC
+0yMTExODU1NTIyLC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0x
+NjkwNzg4Nzc2XX0=
 -->
