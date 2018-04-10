@@ -129,7 +129,6 @@ Parameter | Required | Comment| Parameter Explained
  Host: server.itsme.be
  ```
 
-
 ### 3.1.3. Authentication Response Specification
 An Authentication Response is an [OAuth 2.0 Authorization Response](https://tools.ietf.org/html/rfc6749#section-4.1.2) message. As such, the Authentication Response will return the following parameters:
 
@@ -892,11 +891,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTg0NTU2MjgsLTIxMTE4NTU1MjIsLT
-E2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE2
-OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4Mz
-MwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3
-ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMD
-YzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3
-NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzZdfQ==
+eyJoaXN0b3J5IjpbMTM0MDQ1NTAxMCwtMjExMTg1NTUyMiwtMT
+Y5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTY5
+MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMz
+AwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4
+ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNj
+MwNiwtMTY5MDc4ODc3NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3
+NiwtMTgzMzAwNjMwNiwtMTY5MDc4ODc3Nl19
 -->
