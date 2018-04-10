@@ -254,9 +254,10 @@ Aggregated and distributed Claims are represented by using special `_claim_names
 |Special Members| Feature |
 |--|--|
 |  _claim_names|  JSON object whose member names are the Claim Names for the Aggregated and Distributed Claims. The member values are references to the member names in the _claim_sources member from which the actual Claim Values can be retrieved.|
-|--|--|
-|--|--|
-|--|--|
+|_claim_sources|JSON object whose member names are referenced by the member values of the _claim_names member. The member values contain sets of Aggregated Claims or reference locations for Distributed Claims. The member values can have one of the following formats depending on whether it is providing Aggregated or Distributed Claims:
+
+ Aggregated Claims|
+JSON object that MUST contain the JWT member whose value is a [JWT](http://openid.net/specs/openid-connect-core-1_0.html#JWT) [JWT] that MUST contain all the Claims in the _claim_names object that references the corresponding _claim_sources member. Other members MAY be present. Any members used that are not understood MUST be ignored.
 Normal Claims MUST be supported. Support for Aggregated Claims and Distributed Claims is OPTIONAL.
 Claims are typically packaged in a JSON object.
 
@@ -873,11 +874,11 @@ It is expected that you will also expose their signing and encryption keys in su
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY3NTIxNDg5MiwtMTE3MTcwMzA3NiwtMT
-AyMjkyMDU5NCwtMTQ5Nzk2Njg0OCw3NjE1NjM0ODIsLTE3Nzk0
-MjY4NTAsLTEwMTk5OTAzMjMsLTE2NDM5MjM1OCwtODAwNzQ4OD
-A1LDE2NDQxMjY3MTUsLTEzNjUyNDA5MTEsNDE4NzYyNzE4LC0x
-ODAyNzcwNjA2LDE0NDAyNDQxNzYsMTAxNjY4NTM1LDE4MDk2ND
-YzNjUsNDk2NzY1NjI5LC0xNjcwMTcxMTQwLDg3NjY0MTc2MCwx
-ODc3MTM1MjFdfQ==
+eyJoaXN0b3J5IjpbLTE5NDEwMjAyMTUsLTExNzE3MDMwNzYsLT
+EwMjI5MjA1OTQsLTE0OTc5NjY4NDgsNzYxNTYzNDgyLC0xNzc5
+NDI2ODUwLC0xMDE5OTkwMzIzLC0xNjQzOTIzNTgsLTgwMDc0OD
+gwNSwxNjQ0MTI2NzE1LC0xMzY1MjQwOTExLDQxODc2MjcxOCwt
+MTgwMjc3MDYwNiwxNDQwMjQ0MTc2LDEwMTY2ODUzNSwxODA5Nj
+Q2MzY1LDQ5Njc2NTYyOSwtMTY3MDE3MTE0MCw4NzY2NDE3NjAs
+MTg3NzEzNTIxXX0=
 -->
