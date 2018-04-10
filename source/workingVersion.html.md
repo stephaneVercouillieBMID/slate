@@ -95,7 +95,7 @@ You should retrieve the base URI from the [Discovery document](https://merchant.
 
 **itsme®** supports the use of both HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters must be serialized using [Form Serialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization).
 
-Please check the following request parameters,
+Please check the following table for request parameters,
 Parameter | Required | Comment| Parameter Explained
  --------- | ------- | -----|-----
  **client_id** | Required | MUST be the Partner Code you obtained from BMID during on-boarding process and this value will be unique to each partner per environment. This information is in the on-boarding file provided by BMID.|This is your client identifier at the OpenID Provider.
@@ -969,11 +969,11 @@ Scope  | Data| Claim
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzgzNDU3MjQ5LC0xODI3MTIxNDgwLDIxMz
-Y2MDI5MDQsLTIxMTE4NTU1MjIsLTE2OTA3ODg3NzYsLTE4MzMw
-MDYzMDYsLTE2OTA3ODg3NzYsLTE2OTA3ODg3NzYsLTE4MzMwMD
-YzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3
-NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMD
-YsLTE2OTA3ODg3NzYsLTE4MzMwMDYzMDYsLTE2OTA3ODg3NzYs
-LTE4MzMwMDYzMDYsLTE2OTA3ODg3NzZdfQ==
+eyJoaXN0b3J5IjpbMTUyMDU4ODkyMCwtMTgyNzEyMTQ4MCwyMT
+M2NjAyOTA0LC0yMTExODU1NTIyLC0xNjkwNzg4Nzc2LC0xODMz
+MDA2MzA2LC0xNjkwNzg4Nzc2LC0xNjkwNzg4Nzc2LC0xODMzMD
+A2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4
+Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2LC0xODMzMDA2Mz
+A2LC0xNjkwNzg4Nzc2LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2
+LC0xODMzMDA2MzA2LC0xNjkwNzg4Nzc2XX0=
 -->
