@@ -243,8 +243,8 @@ Claims are typically packaged in a JSON object.
 ### 4.1.1. Claim Types
 Three representations of Claim Values are defined officially: 
 - Normal Claims
-- Aggregated Claims (
-- Distributed Claims
+- Aggregated Claims (not supported)
+- Distributed Claims (not supported)
  #### 4.1.1.1. Normal Claims
 Claims that are directly asserted by the OpenID Provider.
 
@@ -261,27 +261,6 @@ The following is a non-normative response containing Normal Claims:
   } 
   ```
 
- #### 4.1.1.2. Aggregated Claims and Distributed Claims
-
-Aggregated and distributed Claims are represented by using special `_claim_names` and `_claim_sources`members of the JSON object containing the Claims.
-
-|Special Members| Feature |
-|--|--|
-|  _claim_names|  JSON object whose member names are the Claim Names for the Aggregated and Distributed Claims. The member values are references to the member names in the _claim_sources member from which the actual Claim Values can be retrieved.|
-|_claim_sources|JSON object whose member names are referenced by the member values of the _claim_names member. The member values contain sets of Aggregated Claims or reference locations for Distributed Claims. The member values can have one of the following formats depending on whether it is providing Aggregated or Distributed Claims.
-
- **Aggregated Claims**
-
-Aggregated Claims that are asserted by a Claims Provider other than the Open ID Provider but are returned by Open ID Provider. 
-
-See the [link](http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims) for further details.
-See the [link](http://openid.net/specs/openid-connect-core-1_0.html#AggregatedExample) for an example of aggregated claims.
-
-**Distributed Claims**
-Distributed Claims are claims that are asserted by a Claims Provider other than the Open ID Provider but are returned as references by the Open ID Provider. 
-
-See the [link](http://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims) for further details.
-See the [link](http://openid.net/specs/openid-connect-core-1_0.html#DistributedExample) for an example of distributed claims.
 
 ## 4.2. Declaring Claims
 
@@ -889,9 +868,9 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcwMzY5NDc5MCwxNDIyNzIwODUwLDE1Nz
-E5ODk2ODIsMTUzNDA4MDE0MCwtMTc2NDM5OTAyNywtMjA2NzQ4
-MjYyMiwzMDAzNjE0MDEsLTkxNTg0MzIyNiwxNDE5MjgyNTEwLC
-04OTExMDYxODgsMTgyNDU4MzA3OSwxODAxOTE2Mzc2LDU1MDc2
-NzMwLDIxMTgwMjQ1OTVdfQ==
+eyJoaXN0b3J5IjpbMTI3MjQyNzgwLDE0MjI3MjA4NTAsMTU3MT
+k4OTY4MiwxNTM0MDgwMTQwLC0xNzY0Mzk5MDI3LC0yMDY3NDgy
+NjIyLDMwMDM2MTQwMSwtOTE1ODQzMjI2LDE0MTkyODI1MTAsLT
+g5MTEwNjE4OCwxODI0NTgzMDc5LDE4MDE5MTYzNzYsNTUwNzY3
+MzAsMjExODAyNDU5NV19
 -->
