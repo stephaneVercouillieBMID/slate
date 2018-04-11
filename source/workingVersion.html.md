@@ -89,7 +89,9 @@ The Authorization Code Flow goes through the following steps as defined in [Open
 
 Here following diagram depicts the Authorization flow,
 
-![enter image description here](https://lh3.googleusercontent.com/ejKrqmWqa9N-eaNA2CbCGq8_2OzkFZX5OfS5GRierzPGzktBUPcnJx35jEahwcu-qJ936Bz3g30 "auth flow")
+![enter image description here](https://lh3.googleusercontent.com/ZgMwOVcOjNoMoFmYxXiE1_VT9dWqVJAwE3Z88qQPbKFYzPesCu75EObsJ8dUv1yQ_zCBEkTyGB8 "authflow")
+
+
 ## 3.1. **Authorization Endpoint** 
 ### 3.1.1. Authentication Request Specifications
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
@@ -873,11 +875,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4MzMzNDk2NiwtMTg2MzY1MzQ2Miw1OD
-A2ODc0NTksLTU2NDk4ODkzOCwtOTQwNDk0MDA1LC04NTU2NjUw
-MzMsOTc0NjM1ODE4LC0xMTcxNzAzMDc2LC0xMDIyOTIwNTk0LC
-0xNDk3OTY2ODQ4LDc2MTU2MzQ4MiwtMTc3OTQyNjg1MCwtMTAx
-OTk5MDMyMywtMTY0MzkyMzU4LC04MDA3NDg4MDUsMTY0NDEyNj
-cxNSwtMTM2NTI0MDkxMSw0MTg3NjI3MTgsLTE4MDI3NzA2MDYs
-MTQ0MDI0NDE3Nl19
+eyJoaXN0b3J5IjpbMjExODAyNDU5NSwxMTgzMzM0OTY2LC0xOD
+YzNjUzNDYyLDU4MDY4NzQ1OSwtNTY0OTg4OTM4LC05NDA0OTQw
+MDUsLTg1NTY2NTAzMyw5NzQ2MzU4MTgsLTExNzE3MDMwNzYsLT
+EwMjI5MjA1OTQsLTE0OTc5NjY4NDgsNzYxNTYzNDgyLC0xNzc5
+NDI2ODUwLC0xMDE5OTkwMzIzLC0xNjQzOTIzNTgsLTgwMDc0OD
+gwNSwxNjQ0MTI2NzE1LC0xMzY1MjQwOTExLDQxODc2MjcxOCwt
+MTgwMjc3MDYwNl19
 -->
