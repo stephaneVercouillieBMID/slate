@@ -304,7 +304,7 @@ Scope  | Data| Claim
 ### 4.2.2 “claims” Parameter
 
 We have favoured the request of Data in the **scope** values. However, some specific Data have to be requested in the [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter of the Authentication Request. 
-
+*<!--> OIDC standard claims built in add*
 Here are these claims:
  
  Data | Claim | Comment
@@ -876,11 +876,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc5MTM1NjQzNiwtMjAzMDEwOTAwOSwtMj
-AwNjgwMzA1OCwxNzgwNzc0NzY2LDExMDkwNDIxNTgsMTYzNzEw
-MTQ1MywxOTgxNTQzNjU3LDEyNzI0Mjc4MCwxNDIyNzIwODUwLD
-E1NzE5ODk2ODIsMTUzNDA4MDE0MCwtMTc2NDM5OTAyNywtMjA2
-NzQ4MjYyMiwzMDAzNjE0MDEsLTkxNTg0MzIyNiwxNDE5MjgyNT
-EwLC04OTExMDYxODgsMTgyNDU4MzA3OSwxODAxOTE2Mzc2LDU1
-MDc2NzMwXX0=
+eyJoaXN0b3J5IjpbLTE5NjE5MjM0NzYsMTc5MTM1NjQzNiwtMj
+AzMDEwOTAwOSwtMjAwNjgwMzA1OCwxNzgwNzc0NzY2LDExMDkw
+NDIxNTgsMTYzNzEwMTQ1MywxOTgxNTQzNjU3LDEyNzI0Mjc4MC
+wxNDIyNzIwODUwLDE1NzE5ODk2ODIsMTUzNDA4MDE0MCwtMTc2
+NDM5OTAyNywtMjA2NzQ4MjYyMiwzMDAzNjE0MDEsLTkxNTg0Mz
+IyNiwxNDE5MjgyNTEwLC04OTExMDYxODgsMTgyNDU4MzA3OSwx
+ODAxOTE2Mzc2XX0=
 -->
