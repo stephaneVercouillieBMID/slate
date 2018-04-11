@@ -177,9 +177,11 @@ Bearer token concept must be mentioned before access token is explained. Bearer 
 
 #### 3.2.1.3 Refresh Tokens (not supported)
 
-As access tokens have short lifespan, there is a need for refresh tokens in order to take forward long-lived sessions. Basically, refresh tokens are used to obtain new access tokens.
+As access tokens have short lifespan, there is a need for refresh tokens in order to take forward long-lived sessions. We do not support refresh tokens due to sessions are not maintained.
 
-For a long-lived session this scenario is typical: When user logs in and gets back an access token and a refresh token, the application detects that the access token is expired. Now the application uses the refresh token to obtain a new access token. When refresh token expires too, the user must authenticate again.
+
+
+
 
 ### 3.2.2. Token Request Specification
 
@@ -868,11 +870,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MDkzNjg3NzAsLTIwMDY4MDMwNTgsMT
-c4MDc3NDc2NiwxMTA5MDQyMTU4LDE2MzcxMDE0NTMsMTk4MTU0
-MzY1NywxMjcyNDI3ODAsMTQyMjcyMDg1MCwxNTcxOTg5NjgyLD
-E1MzQwODAxNDAsLTE3NjQzOTkwMjcsLTIwNjc0ODI2MjIsMzAw
-MzYxNDAxLC05MTU4NDMyMjYsMTQxOTI4MjUxMCwtODkxMTA2MT
-g4LDE4MjQ1ODMwNzksMTgwMTkxNjM3Niw1NTA3NjczMCwyMTE4
-MDI0NTk1XX0=
+eyJoaXN0b3J5IjpbMTI4MDUxNjE3OSwtMjAwNjgwMzA1OCwxNz
+gwNzc0NzY2LDExMDkwNDIxNTgsMTYzNzEwMTQ1MywxOTgxNTQz
+NjU3LDEyNzI0Mjc4MCwxNDIyNzIwODUwLDE1NzE5ODk2ODIsMT
+UzNDA4MDE0MCwtMTc2NDM5OTAyNywtMjA2NzQ4MjYyMiwzMDAz
+NjE0MDEsLTkxNTg0MzIyNiwxNDE5MjgyNTEwLC04OTExMDYxOD
+gsMTgyNDU4MzA3OSwxODAxOTE2Mzc2LDU1MDc2NzMwLDIxMTgw
+MjQ1OTVdfQ==
 -->
