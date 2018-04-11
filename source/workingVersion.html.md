@@ -199,8 +199,8 @@ According to the `private_key_jwt` client authentication method, the **client as
 
  Property | Comment
  -- | --
- **iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID). The iss value is a case sensitive URL using the https scheme that contains scheme, host, and optionally, port number and path components and no query or fragment components.
- **sub** | Identity of the user. The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the on boarding file provided by BMID). 
+ **iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID).
+ **sub** | The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the on boarding file provided by BMID). 
  **aud** | Audience for the id_token.
  **sub** | The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file onboarding file provided by BMID). 
  **aud** | Must be the token endpoint URL
@@ -889,11 +889,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2NzM4NjcyNiwtMjEyMDcyNDM5LC02MD
-M2NDgzMTksLTE5NjE5MjM0NzYsMTc5MTM1NjQzNiwtMjAzMDEw
-OTAwOSwtMjAwNjgwMzA1OCwxNzgwNzc0NzY2LDExMDkwNDIxNT
-gsMTYzNzEwMTQ1MywxOTgxNTQzNjU3LDEyNzI0Mjc4MCwxNDIy
-NzIwODUwLDE1NzE5ODk2ODIsMTUzNDA4MDE0MCwtMTc2NDM5OT
-AyNywtMjA2NzQ4MjYyMiwzMDAzNjE0MDEsLTkxNTg0MzIyNiwx
-NDE5MjgyNTEwXX0=
+eyJoaXN0b3J5IjpbODkyMTE3NzQ1LDEyNjczODY3MjYsLTIxMj
+A3MjQzOSwtNjAzNjQ4MzE5LC0xOTYxOTIzNDc2LDE3OTEzNTY0
+MzYsLTIwMzAxMDkwMDksLTIwMDY4MDMwNTgsMTc4MDc3NDc2Ni
+wxMTA5MDQyMTU4LDE2MzcxMDE0NTMsMTk4MTU0MzY1NywxMjcy
+NDI3ODAsMTQyMjcyMDg1MCwxNTcxOTg5NjgyLDE1MzQwODAxND
+AsLTE3NjQzOTkwMjcsLTIwNjc0ODI2MjIsMzAwMzYxNDAxLC05
+MTU4NDMyMjZdfQ==
 -->
