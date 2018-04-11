@@ -233,8 +233,7 @@ Example will be provided.
 
 ### 3.2.6. Token Errors
 
-As per Please see the following link for token errors, 
-[http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse](http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse).
+As per [OIDC specification Token Error Response](http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse).
 # 4. User Data
 ## 4.1. What is a claim?
 Claims are name/value pairs that contain information about a user, as well meta-information about the OIDC service. The official definition from the spec is a [“piece of information asserted about an Entity.”](http://openid.net/specs/openid-connect-core-1_0.html#Terminology)
@@ -890,9 +889,9 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MDA4MjI5NDksMTU3MTk4OTY4MiwxNT
-M0MDgwMTQwLC0xNzY0Mzk5MDI3LC0yMDY3NDgyNjIyLDMwMDM2
-MTQwMSwtOTE1ODQzMjI2LDE0MTkyODI1MTAsLTg5MTEwNjE4OC
-wxODI0NTgzMDc5LDE4MDE5MTYzNzYsNTUwNzY3MzAsMjExODAy
-NDU5NV19
+eyJoaXN0b3J5IjpbMTQyMjcyMDg1MCwxNTcxOTg5NjgyLDE1Mz
+QwODAxNDAsLTE3NjQzOTkwMjcsLTIwNjc0ODI2MjIsMzAwMzYx
+NDAxLC05MTU4NDMyMjYsMTQxOTI4MjUxMCwtODkxMTA2MTg4LD
+E4MjQ1ODMwNzksMTgwMTkxNjM3Niw1NTA3NjczMCwyMTE4MDI0
+NTk1XX0=
 -->
