@@ -242,7 +242,7 @@ Example will be provided.
 As per [OIDC specification aggregated Response](http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse).
 # 4. User Data
 ## 4.1. What is a claim?
-The concept of clai
+The concept of claim is about declaring the end user data you will need for your business before the authentication 
 
 Claims are name/value pairs that contain information about a user, as well meta-information about the OIDC service. The official definition from the spec is a [“piece of information asserted about an Entity.”](http://openid.net/specs/openid-connect-core-1_0.html#Terminology)
 
@@ -878,11 +878,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQxNzcyMjA5MywtNjAzNjQ4MzE5LC0xOT
-YxOTIzNDc2LDE3OTEzNTY0MzYsLTIwMzAxMDkwMDksLTIwMDY4
-MDMwNTgsMTc4MDc3NDc2NiwxMTA5MDQyMTU4LDE2MzcxMDE0NT
-MsMTk4MTU0MzY1NywxMjcyNDI3ODAsMTQyMjcyMDg1MCwxNTcx
-OTg5NjgyLDE1MzQwODAxNDAsLTE3NjQzOTkwMjcsLTIwNjc0OD
-I2MjIsMzAwMzYxNDAxLC05MTU4NDMyMjYsMTQxOTI4MjUxMCwt
-ODkxMTA2MTg4XX0=
+eyJoaXN0b3J5IjpbNjc4NDUxMjg4LC02MDM2NDgzMTksLTE5Nj
+E5MjM0NzYsMTc5MTM1NjQzNiwtMjAzMDEwOTAwOSwtMjAwNjgw
+MzA1OCwxNzgwNzc0NzY2LDExMDkwNDIxNTgsMTYzNzEwMTQ1My
+wxOTgxNTQzNjU3LDEyNzI0Mjc4MCwxNDIyNzIwODUwLDE1NzE5
+ODk2ODIsMTUzNDA4MDE0MCwtMTc2NDM5OTAyNywtMjA2NzQ4Mj
+YyMiwzMDAzNjE0MDEsLTkxNTg0MzIyNiwxNDE5MjgyNTEwLC04
+OTExMDYxODhdfQ==
 -->
