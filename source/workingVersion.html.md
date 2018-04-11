@@ -398,6 +398,7 @@ As per specified [OIDC UserInfo Request](http://openid.net/specs/openid-connect-
 The Client sends the UserInfo Request using either HTTP  GET  or HTTP  POST. The Access Token obtained from an OpenID Connect Authentication Request MUST be sent as a Bearer Token, per Section 2 of  [OAuth 2.0 Bearer Token Usage](http://openid.net/specs/openid-connect-core-1_0.html#RFC6750)  [RFC6750].
 
 It is RECOMMENDED that the request use the HTTP  GET  method and the Access Token be sent using the  Authorization  header field.
+
 #### 4.3.1.2. User info Request Example
  
  ```http--inline
@@ -891,7 +892,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU2NDU5OTI1NCwtMjExNDE5NzQzNywtMT
+eyJoaXN0b3J5IjpbLTU5NzA2OTc1NiwtMjExNDE5NzQzNywtMT
 IyODQyNzM5MiwtODA0MDE1OTAyLC0xMjI2MzM0MTY4LDg5MjEx
 Nzc0NSwxMjY3Mzg2NzI2LC0yMTIwNzI0MzksLTYwMzY0ODMxOS
 wtMTk2MTkyMzQ3NiwxNzkxMzU2NDM2LC0yMDMwMTA5MDA5LC0y
