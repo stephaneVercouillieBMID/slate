@@ -171,7 +171,7 @@ There’s a set of [rules](http://openid.net/specs/openid-connect-core-1_0.html#
 Bearer token concept must be mentioned before access token is explained. Bearer token is a protected token which can access to authorized resources without further identification.
 
 - Access tokens are used as bearer tokens. 
-- They have short lifespan, expire for improving security. The user must -authenticate again to get a new access token limiting the exposure of the fact that it’s a bearer token.
+- They have short lifespan, expire for improving security. The user must authenticate again to get a new access token limiting the exposure of the fact that it’s a bearer token.
 
 
 
@@ -886,7 +886,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2OTY1NTA5MzIsLTkxNTg0MzIyNiwxND
-E5MjgyNTEwLC04OTExMDYxODgsMTgyNDU4MzA3OSwxODAxOTE2
-Mzc2LDU1MDc2NzMwLDIxMTgwMjQ1OTVdfQ==
+eyJoaXN0b3J5IjpbMzAwMzYxNDAxLC05MTU4NDMyMjYsMTQxOT
+I4MjUxMCwtODkxMTA2MTg4LDE4MjQ1ODMwNzksMTgwMTkxNjM3
+Niw1NTA3NjczMCwyMTE4MDI0NTk1XX0=
 -->
