@@ -201,8 +201,6 @@ According to the `private_key_jwt` client authentication method, the **client as
  -- | --
  **iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID).
  **sub** | The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the on boarding file provided by BMID). 
- **aud** | Audience for the id_token.
- **sub** | The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file onboarding file provided by BMID). 
  **aud** | Must be the token endpoint URL
  **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
  **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
@@ -889,11 +887,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODkyMTE3NzQ1LDEyNjczODY3MjYsLTIxMj
-A3MjQzOSwtNjAzNjQ4MzE5LC0xOTYxOTIzNDc2LDE3OTEzNTY0
-MzYsLTIwMzAxMDkwMDksLTIwMDY4MDMwNTgsMTc4MDc3NDc2Ni
-wxMTA5MDQyMTU4LDE2MzcxMDE0NTMsMTk4MTU0MzY1NywxMjcy
-NDI3ODAsMTQyMjcyMDg1MCwxNTcxOTg5NjgyLDE1MzQwODAxND
-AsLTE3NjQzOTkwMjcsLTIwNjc0ODI2MjIsMzAwMzYxNDAxLC05
-MTU4NDMyMjZdfQ==
+eyJoaXN0b3J5IjpbLTEyMjYzMzQxNjgsODkyMTE3NzQ1LDEyNj
+czODY3MjYsLTIxMjA3MjQzOSwtNjAzNjQ4MzE5LC0xOTYxOTIz
+NDc2LDE3OTEzNTY0MzYsLTIwMzAxMDkwMDksLTIwMDY4MDMwNT
+gsMTc4MDc3NDc2NiwxMTA5MDQyMTU4LDE2MzcxMDE0NTMsMTk4
+MTU0MzY1NywxMjcyNDI3ODAsMTQyMjcyMDg1MCwxNTcxOTg5Nj
+gyLDE1MzQwODAxNDAsLTE3NjQzOTkwMjcsLTIwNjc0ODI2MjIs
+MzAwMzYxNDAxXX0=
 -->
