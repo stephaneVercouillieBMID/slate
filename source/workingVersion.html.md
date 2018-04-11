@@ -258,7 +258,7 @@ The following is a non-normative response containing Normal Claims:
    "given_name": "Jane",
    "family_name": "Doe",
    "email": "janedoe@example.com",
-   "picture": "http://example.com/janedoe/me.jpg"
+   "picture": "https://www.itsme.be/uploads/media/57da4dee8c5d2/logo-itsme-badge.svg?production-f26c079"
   } 
   ```
 
@@ -890,8 +890,8 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUzNDA4MDE0MCwtMTc2NDM5OTAyNywtMj
-A2NzQ4MjYyMiwzMDAzNjE0MDEsLTkxNTg0MzIyNiwxNDE5Mjgy
-NTEwLC04OTExMDYxODgsMTgyNDU4MzA3OSwxODAxOTE2Mzc2LD
-U1MDc2NzMwLDIxMTgwMjQ1OTVdfQ==
+eyJoaXN0b3J5IjpbMTU3MTk4OTY4MiwxNTM0MDgwMTQwLC0xNz
+Y0Mzk5MDI3LC0yMDY3NDgyNjIyLDMwMDM2MTQwMSwtOTE1ODQz
+MjI2LDE0MTkyODI1MTAsLTg5MTEwNjE4OCwxODI0NTgzMDc5LD
+E4MDE5MTYzNzYsNTUwNzY3MzAsMjExODAyNDU5NV19
 -->
