@@ -278,7 +278,10 @@ In current version and in contradiction to the OpenID Connect specification, **i
 
 You can declare Claims in two ways:
 
- - With 
+ - With 'scope' values
+ - With 'claims' parameter
+
+In each case, the claims need to be declared in the Authorization Request.
 
 ### 4.2.1. Scope
 
@@ -291,8 +294,6 @@ Scopes can be used to request that specific sets of information available as Cla
 
 #### 4.2.1.1 Set of Supported Scope Values
 
-
- 
 The following values for **scope** allow access to predefined sets of Identity Data:
 
 Scope  | Data| Claim
@@ -881,7 +882,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI5MTYzNjcwNiwtNjAzNjQ4MzE5LC0xOT
+eyJoaXN0b3J5IjpbLTUwMDczODMyOSwtNjAzNjQ4MzE5LC0xOT
 YxOTIzNDc2LDE3OTEzNTY0MzYsLTIwMzAxMDkwMDksLTIwMDY4
 MDMwNTgsMTc4MDc3NDc2NiwxMTA5MDQyMTU4LDE2MzcxMDE0NT
 MsMTk4MTU0MzY1NywxMjcyNDI3ODAsMTQyMjcyMDg1MCwxNTcx
