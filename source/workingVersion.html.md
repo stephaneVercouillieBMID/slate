@@ -80,15 +80,10 @@ After a user successfully is authorized, the authorization server will redirect 
  
  Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
  
-
-
  # 3. Authenticating User
  **itsme® Login** is based on the [Authorization Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in [OpenID Connect Core Authorization Code Flow Steps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps), depicted in the following diagram,
-![enter image description here](https://lh3.googleusercontent.com/J-_-tdG9FnHm5wCknxUd2Khjtp8CHb1pfIwxdGLm74RvThkZinxXfN1sXCg68wLwo5UjmFK92WA)
-
  
-![enter image description here](https://lh3.googleusercontent.com/ZgMwOVcOjNoMoFmYxXiE1_VT9dWqVJAwE3Z88qQPbKFYzPesCu75EObsJ8dUv1yQ_zCBEkTyGB8 "authflow")
-
+![enter image description here](https://lh3.googleusercontent.com/J-_-tdG9FnHm5wCknxUd2Khjtp8CHb1pfIwxdGLm74RvThkZinxXfN1sXCg68wLwo5UjmFK92WA)
 
 ## 3.1. **Authorization Endpoint** 
 ### 3.1.1. Authentication Request Specifications
@@ -890,11 +885,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQxNjMxMzQ0MywtMTIyODQyNzM5MiwtOD
-A0MDE1OTAyLC0xMjI2MzM0MTY4LDg5MjExNzc0NSwxMjY3Mzg2
-NzI2LC0yMTIwNzI0MzksLTYwMzY0ODMxOSwtMTk2MTkyMzQ3Ni
-wxNzkxMzU2NDM2LC0yMDMwMTA5MDA5LC0yMDA2ODAzMDU4LDE3
-ODA3NzQ3NjYsMTEwOTA0MjE1OCwxNjM3MTAxNDUzLDE5ODE1ND
-M2NTcsMTI3MjQyNzgwLDE0MjI3MjA4NTAsMTU3MTk4OTY4Miwx
-NTM0MDgwMTQwXX0=
+eyJoaXN0b3J5IjpbNzk2NTk2MTE4LC0xMjI4NDI3MzkyLC04MD
+QwMTU5MDIsLTEyMjYzMzQxNjgsODkyMTE3NzQ1LDEyNjczODY3
+MjYsLTIxMjA3MjQzOSwtNjAzNjQ4MzE5LC0xOTYxOTIzNDc2LD
+E3OTEzNTY0MzYsLTIwMzAxMDkwMDksLTIwMDY4MDMwNTgsMTc4
+MDc3NDc2NiwxMTA5MDQyMTU4LDE2MzcxMDE0NTMsMTk4MTU0Mz
+Y1NywxMjcyNDI3ODAsMTQyMjcyMDg1MCwxNTcxOTg5NjgyLDE1
+MzQwODAxNDBdfQ==
 -->
