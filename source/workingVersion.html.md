@@ -267,6 +267,11 @@ The following is a non-normative response containing Normal Claims:
   } 
   ```
 
+### 4.1.2 Essential Claims vs Voluntary Claims
+
+In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims requested via scope as **Essential** (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)).
+
+ It means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, as in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims, you should already request claims with appropriate level regarding your business case. 
 
 ## 4.2. Declaring Claims
 
@@ -871,7 +876,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY4ODIwNDk2OCwtMjAzMDEwOTAwOSwtMj
+eyJoaXN0b3J5IjpbMTc5MTM1NjQzNiwtMjAzMDEwOTAwOSwtMj
 AwNjgwMzA1OCwxNzgwNzc0NzY2LDExMDkwNDIxNTgsMTYzNzEw
 MTQ1MywxOTgxNTQzNjU3LDEyNzI0Mjc4MCwxNDIyNzIwODUwLD
 E1NzE5ODk2ODIsMTUzNDA4MDE0MCwtMTc2NDM5OTAyNywtMjA2
