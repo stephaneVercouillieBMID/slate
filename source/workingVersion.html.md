@@ -250,6 +250,7 @@ Three representations of Claim Values are defined officially:
 - Normal Claims
 - Aggregated Claims (not supported)
 - Distributed Claims (not supported)
+* We do not
  #### 4.1.1.1. Normal Claims
 Claims that are directly asserted by the OpenID Provider.
 
@@ -887,11 +888,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwNDAxNTkwMiwtMTIyNjMzNDE2OCw4OT
-IxMTc3NDUsMTI2NzM4NjcyNiwtMjEyMDcyNDM5LC02MDM2NDgz
-MTksLTE5NjE5MjM0NzYsMTc5MTM1NjQzNiwtMjAzMDEwOTAwOS
-wtMjAwNjgwMzA1OCwxNzgwNzc0NzY2LDExMDkwNDIxNTgsMTYz
-NzEwMTQ1MywxOTgxNTQzNjU3LDEyNzI0Mjc4MCwxNDIyNzIwOD
-UwLDE1NzE5ODk2ODIsMTUzNDA4MDE0MCwtMTc2NDM5OTAyNywt
-MjA2NzQ4MjYyMl19
+eyJoaXN0b3J5IjpbNTkyNTExNzQwLC04MDQwMTU5MDIsLTEyMj
+YzMzQxNjgsODkyMTE3NzQ1LDEyNjczODY3MjYsLTIxMjA3MjQz
+OSwtNjAzNjQ4MzE5LC0xOTYxOTIzNDc2LDE3OTEzNTY0MzYsLT
+IwMzAxMDkwMDksLTIwMDY4MDMwNTgsMTc4MDc3NDc2NiwxMTA5
+MDQyMTU4LDE2MzcxMDE0NTMsMTk4MTU0MzY1NywxMjcyNDI3OD
+AsMTQyMjcyMDg1MCwxNTcxOTg5NjgyLDE1MzQwODAxNDAsLTE3
+NjQzOTkwMjddfQ==
 -->
