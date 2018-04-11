@@ -243,7 +243,7 @@ As per [OIDC specification aggregated Response](http://openid.net/specs/openid-c
 # 4. User Data
 ## 4.1. What is a claim?
 The concept of claim is about declaring the end user data you will need for your business before the authentication. This is a privacy-oriented way of getting data.
-Technically, you have to declare the claims in the Authorization Request in the way described in the section Getting.
+Technically, you have to declare the claims in the Authorization Request in the way described in the section Declaring Claims (TODO link to this section).
 Claims will come as name/value pairs packaged in a JSON object that contain information about a user, as well as meta-information about the OIDC service. The official definition from the spec is a [“piece of information asserted about an Entity.”](http://openid.net/specs/openid-connect-core-1_0.html#Terminology)
 
 
@@ -275,6 +275,10 @@ In current version and in contradiction to the OpenID Connect specification, **i
  It means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, as in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims, you should already request claims with appropriate level regarding your business case. 
 
 ## 4.2. Declaring Claims
+
+You can declare Claims in two ways:
+
+ - With 
 
 ### 4.2.1. Scope
 
@@ -877,11 +881,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMjE4OTc1NTMsLTYwMzY0ODMxOSwtMT
-k2MTkyMzQ3NiwxNzkxMzU2NDM2LC0yMDMwMTA5MDA5LC0yMDA2
-ODAzMDU4LDE3ODA3NzQ3NjYsMTEwOTA0MjE1OCwxNjM3MTAxND
-UzLDE5ODE1NDM2NTcsMTI3MjQyNzgwLDE0MjI3MjA4NTAsMTU3
-MTk4OTY4MiwxNTM0MDgwMTQwLC0xNzY0Mzk5MDI3LC0yMDY3ND
-gyNjIyLDMwMDM2MTQwMSwtOTE1ODQzMjI2LDE0MTkyODI1MTAs
-LTg5MTEwNjE4OF19
+eyJoaXN0b3J5IjpbMTI5MTYzNjcwNiwtNjAzNjQ4MzE5LC0xOT
+YxOTIzNDc2LDE3OTEzNTY0MzYsLTIwMzAxMDkwMDksLTIwMDY4
+MDMwNTgsMTc4MDc3NDc2NiwxMTA5MDQyMTU4LDE2MzcxMDE0NT
+MsMTk4MTU0MzY1NywxMjcyNDI3ODAsMTQyMjcyMDg1MCwxNTcx
+OTg5NjgyLDE1MzQwODAxNDAsLTE3NjQzOTkwMjcsLTIwNjc0OD
+I2MjIsMzAwMzYxNDAxLC05MTU4NDMyMjYsMTQxOTI4MjUxMCwt
+ODkxMTA2MTg4XX0=
 -->
