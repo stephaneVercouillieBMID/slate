@@ -309,7 +309,7 @@ Here are these claims:
  E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
  NRN | not supported| 
 
-#### 4.2.2.&. Set of Request Parameted Adapted to itsme(r)
+#### 4.2.2.1. Set of Request Parameted Adapted to itsme(r)
 ```json--inline
  {
     "userinfo":
@@ -328,7 +328,7 @@ Here are these claims:
      }
  }
  ```
-#### 4.2.2.4. Example of a Valid “claims” Object
+#### 4.2.2.2. Example of a Valid “claims” Object
 Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_device`
  
  ```json--inline
@@ -865,7 +865,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM0NTMxMjM2NiwxMjcyNDI3ODAsMTQyMj
+eyJoaXN0b3J5IjpbMTk4MTU0MzY1NywxMjcyNDI3ODAsMTQyMj
 cyMDg1MCwxNTcxOTg5NjgyLDE1MzQwODAxNDAsLTE3NjQzOTkw
 MjcsLTIwNjc0ODI2MjIsMzAwMzYxNDAxLC05MTU4NDMyMjYsMT
 QxOTI4MjUxMCwtODkxMTA2MTg4LDE4MjQ1ODMwNzksMTgwMTkx
