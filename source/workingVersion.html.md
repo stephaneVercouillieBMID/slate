@@ -173,8 +173,9 @@ Bearer token concept must be mentioned before access token is explained. Bearer 
 - Access tokens are used as bearer tokens. 
 - They have short lifespan, expire for improving security. The user must authenticate again to get a new access token limiting the exposure of the fact that it’s a bearer token.
 
+#### 3.2.1.3 Refresh Tokens
 
-
+As access tokens have short lifespan, 
 
 
 The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the **token_endpoint** key. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret` authentication methods are not supported since they are considered less secure.
@@ -888,7 +889,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg0NjI4ODI1OSwtMTc2NDM5OTAyNywtMj
+eyJoaXN0b3J5IjpbMTQ1NDk3MTYwMSwtMTc2NDM5OTAyNywtMj
 A2NzQ4MjYyMiwzMDAzNjE0MDEsLTkxNTg0MzIyNiwxNDE5Mjgy
 NTEwLC04OTExMDYxODgsMTgyNDU4MzA3OSwxODAxOTE2Mzc2LD
 U1MDc2NzMwLDIxMTgwMjQ1OTVdfQ==
