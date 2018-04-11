@@ -168,7 +168,7 @@ As per the [OIDC Specification](http://openid.net/specs/openid-connect-core-1_0.
 There’s a set of [rules](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation) in the specification for validating an `id_token`.
 #### 3.2.1.2 Access Tokens
 
-
+Before explaining access tokens, 
 The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the **token_endpoint** key. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret` authentication methods are not supported since they are considered less secure.
 
 ### 3.2.2. Token Request Specification
@@ -880,7 +880,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxNTg0MzIyNiwxNDE5MjgyNTEwLC04OT
-ExMDYxODgsMTgyNDU4MzA3OSwxODAxOTE2Mzc2LDU1MDc2NzMw
-LDIxMTgwMjQ1OTVdfQ==
+eyJoaXN0b3J5IjpbMTY1OTc1MTgyLC05MTU4NDMyMjYsMTQxOT
+I4MjUxMCwtODkxMTA2MTg4LDE4MjQ1ODMwNzksMTgwMTkxNjM3
+Niw1NTA3NjczMCwyMTE4MDI0NTk1XX0=
 -->
