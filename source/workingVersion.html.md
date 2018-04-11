@@ -90,7 +90,7 @@ After a user successfully is authorized, the authorization server will redirect 
 
 ## 3.1. **Authorization Endpoint** 
 ### 3.1.1. Authentication Request Specifications
-As per the OpenID Connect specification [Authorization Request](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [AuthorizationEndpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint).
+As per the OpenID Connect specification [Authentication Request](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [Authorization Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint).
 
 The first step is forming an HTTPS request with the appropriate URI parameters. Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused.
 
@@ -880,7 +880,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTQzNDkxNTkzLDE0MTkyODI1MTAsLTg5MT
-EwNjE4OCwxODI0NTgzMDc5LDE4MDE5MTYzNzYsNTUwNzY3MzAs
-MjExODAyNDU5NV19
+eyJoaXN0b3J5IjpbLTkxNTg0MzIyNiwxNDE5MjgyNTEwLC04OT
+ExMDYxODgsMTgyNDU4MzA3OSwxODAxOTE2Mzc2LDU1MDc2NzMw
+LDIxMTgwMjQ1OTVdfQ==
 -->
