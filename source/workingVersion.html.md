@@ -306,6 +306,8 @@ Scope  | Data| Claim
  | **phone** | Phone number |`phone_number` or `phone_number_verified`
  
 **NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>**
+
+TODO: example
  
 ### 4.2.2 “claims” Parameter
 
@@ -882,7 +884,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUwMDczODMyOSwtNjAzNjQ4MzE5LC0xOT
+eyJoaXN0b3J5IjpbMTMwNjU0NzAyMSwtNjAzNjQ4MzE5LC0xOT
 YxOTIzNDc2LDE3OTEzNTY0MzYsLTIwMzAxMDkwMDksLTIwMDY4
 MDMwNTgsMTc4MDc3NDc2NiwxMTA5MDQyMTU4LDE2MzcxMDE0NT
 MsMTk4MTU0MzY1NywxMjcyNDI3ODAsMTQyMjcyMDg1MCwxNTcx
