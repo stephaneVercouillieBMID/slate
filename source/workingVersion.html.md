@@ -177,7 +177,7 @@ Bearer token concept must be mentioned before access token is explained. Bearer 
 
 As access tokens have short lifespan, there is a need for refresh tokens in order to take forward long-lived sessions. Basically, refresh tokens are used to obtain new access tokens.
 
-When user logs in and gets back 
+For a long-lived session this scenario is typical: When user logs in and gets back an access token and a refresh token, application detects that the access token is expired. 
 
 1.  User logs in and gets back an access token and a refresh token
 2.  The application detects that the access token is expired
@@ -897,8 +897,8 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODAwOTc2OTUsLTE3NjQzOTkwMjcsLT
-IwNjc0ODI2MjIsMzAwMzYxNDAxLC05MTU4NDMyMjYsMTQxOTI4
-MjUxMCwtODkxMTA2MTg4LDE4MjQ1ODMwNzksMTgwMTkxNjM3Ni
-w1NTA3NjczMCwyMTE4MDI0NTk1XX0=
+eyJoaXN0b3J5IjpbMTYyODMzODQzMiwtMTc2NDM5OTAyNywtMj
+A2NzQ4MjYyMiwzMDAzNjE0MDEsLTkxNTg0MzIyNiwxNDE5Mjgy
+NTEwLC04OTExMDYxODgsMTgyNDU4MzA3OSwxODAxOTE2Mzc2LD
+U1MDc2NzMwLDIxMTgwMjQ1OTVdfQ==
 -->
