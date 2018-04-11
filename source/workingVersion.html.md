@@ -289,6 +289,8 @@ Scopes are space-separated lists of identifiers used to specify what access priv
 
 Scopes can be used to request that specific sets of information available as Claim Values in User Info Token. 
 
+Using this method, you will always receive Claims from the UserInfo Endpoint.
+
 
 <!-- (always User Info Endpoint)-->
 
@@ -887,11 +889,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDAzNDAwNzIsLTIxMjA3MjQzOSwtNj
-AzNjQ4MzE5LC0xOTYxOTIzNDc2LDE3OTEzNTY0MzYsLTIwMzAx
-MDkwMDksLTIwMDY4MDMwNTgsMTc4MDc3NDc2NiwxMTA5MDQyMT
-U4LDE2MzcxMDE0NTMsMTk4MTU0MzY1NywxMjcyNDI3ODAsMTQy
-MjcyMDg1MCwxNTcxOTg5NjgyLDE1MzQwODAxNDAsLTE3NjQzOT
-kwMjcsLTIwNjc0ODI2MjIsMzAwMzYxNDAxLC05MTU4NDMyMjYs
-MTQxOTI4MjUxMF19
+eyJoaXN0b3J5IjpbMTI2NzM4NjcyNiwtMjEyMDcyNDM5LC02MD
+M2NDgzMTksLTE5NjE5MjM0NzYsMTc5MTM1NjQzNiwtMjAzMDEw
+OTAwOSwtMjAwNjgwMzA1OCwxNzgwNzc0NzY2LDExMDkwNDIxNT
+gsMTYzNzEwMTQ1MywxOTgxNTQzNjU3LDEyNzI0Mjc4MCwxNDIy
+NzIwODUwLDE1NzE5ODk2ODIsMTUzNDA4MDE0MCwtMTc2NDM5OT
+AyNywtMjA2NzQ4MjYyMiwzMDAzNjE0MDEsLTkxNTg0MzIyNiwx
+NDE5MjgyNTEwXX0=
 -->
