@@ -280,9 +280,8 @@ Scopes can be used to request that specific sets of information available as Cla
 <!-- (always User Info Endpoint)-->
 
 #### 4.2.1.1 Set of Supported Scope Values
-In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims requested via scope as **Essential** (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)).
 
- It means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, as in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims, you should already request claims with appropriate level regarding your business case. 
+
  
 The following values for **scope** allow access to predefined sets of Identity Data:
 
@@ -872,11 +871,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMzAxMDkwMDksLTIwMDY4MDMwNTgsMT
-c4MDc3NDc2NiwxMTA5MDQyMTU4LDE2MzcxMDE0NTMsMTk4MTU0
-MzY1NywxMjcyNDI3ODAsMTQyMjcyMDg1MCwxNTcxOTg5NjgyLD
-E1MzQwODAxNDAsLTE3NjQzOTkwMjcsLTIwNjc0ODI2MjIsMzAw
-MzYxNDAxLC05MTU4NDMyMjYsMTQxOTI4MjUxMCwtODkxMTA2MT
-g4LDE4MjQ1ODMwNzksMTgwMTkxNjM3Niw1NTA3NjczMCwyMTE4
-MDI0NTk1XX0=
+eyJoaXN0b3J5IjpbLTY4ODIwNDk2OCwtMjAzMDEwOTAwOSwtMj
+AwNjgwMzA1OCwxNzgwNzc0NzY2LDExMDkwNDIxNTgsMTYzNzEw
+MTQ1MywxOTgxNTQzNjU3LDEyNzI0Mjc4MCwxNDIyNzIwODUwLD
+E1NzE5ODk2ODIsMTUzNDA4MDE0MCwtMTc2NDM5OTAyNywtMjA2
+NzQ4MjYyMiwzMDAzNjE0MDEsLTkxNTg0MzIyNiwxNDE5MjgyNT
+EwLC04OTExMDYxODgsMTgyNDU4MzA3OSwxODAxOTE2Mzc2LDU1
+MDc2NzMwXX0=
 -->
