@@ -248,7 +248,7 @@ Three representations of Claim Values are defined officially:
 - Aggregated Claims (not supported)
 - Distributed Claims (not supported)
  
- We do not support Aggregated and Distributed Claims due to all the data we expose come from our database.
+We do not support Aggregated and Distributed Claims due to all the data we expose come from our database.
  
  #### 4.1.1.1. Normal Claims
 Claims that are directly asserted by the OpenID Provider.
@@ -887,11 +887,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzc0Mzk4MzQ5LC0xMjI4NDI3MzkyLC04MD
-QwMTU5MDIsLTEyMjYzMzQxNjgsODkyMTE3NzQ1LDEyNjczODY3
-MjYsLTIxMjA3MjQzOSwtNjAzNjQ4MzE5LC0xOTYxOTIzNDc2LD
-E3OTEzNTY0MzYsLTIwMzAxMDkwMDksLTIwMDY4MDMwNTgsMTc4
-MDc3NDc2NiwxMTA5MDQyMTU4LDE2MzcxMDE0NTMsMTk4MTU0Mz
-Y1NywxMjcyNDI3ODAsMTQyMjcyMDg1MCwxNTcxOTg5NjgyLDE1
-MzQwODAxNDBdfQ==
+eyJoaXN0b3J5IjpbLTIxMTQxOTc0MzcsLTEyMjg0MjczOTIsLT
+gwNDAxNTkwMiwtMTIyNjMzNDE2OCw4OTIxMTc3NDUsMTI2NzM4
+NjcyNiwtMjEyMDcyNDM5LC02MDM2NDgzMTksLTE5NjE5MjM0Nz
+YsMTc5MTM1NjQzNiwtMjAzMDEwOTAwOSwtMjAwNjgwMzA1OCwx
+NzgwNzc0NzY2LDExMDkwNDIxNTgsMTYzNzEwMTQ1MywxOTgxNT
+QzNjU3LDEyNzI0Mjc4MCwxNDIyNzIwODUwLDE1NzE5ODk2ODIs
+MTUzNDA4MDE0MF19
 -->
