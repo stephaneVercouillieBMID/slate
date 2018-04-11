@@ -175,6 +175,8 @@ Bearer token concept must be mentioned before access token is explained. Bearer 
 
 
 
+
+
 The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the **token_endpoint** key. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret` authentication methods are not supported since they are considered less secure.
 
 ### 3.2.2. Token Request Specification
@@ -886,8 +888,8 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NjQzOTkwMjcsLTIwNjc0ODI2MjIsMz
-AwMzYxNDAxLC05MTU4NDMyMjYsMTQxOTI4MjUxMCwtODkxMTA2
-MTg4LDE4MjQ1ODMwNzksMTgwMTkxNjM3Niw1NTA3NjczMCwyMT
-E4MDI0NTk1XX0=
+eyJoaXN0b3J5IjpbNjcyNzQ5MDk3LC0xNzY0Mzk5MDI3LC0yMD
+Y3NDgyNjIyLDMwMDM2MTQwMSwtOTE1ODQzMjI2LDE0MTkyODI1
+MTAsLTg5MTEwNjE4OCwxODI0NTgzMDc5LDE4MDE5MTYzNzYsNT
+UwNzY3MzAsMjExODAyNDU5NV19
 -->
