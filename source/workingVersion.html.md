@@ -308,11 +308,8 @@ Here are these claims:
  Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |Information available in the context of the current transaction.<br> A JSON object with the following keys:<br> (only keys with cardinality \\\[1..1\\\] will be always available)<br> **“securityLevel” \\\[1..1\\\]**: (supported values: <br>{SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) Security level used during transaction. <br>**“bindLevel” \\\[1..1\\\]**: (supported values: {SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. <br>**“mcc” \\\[0..1\\\]**: the Mobile Country Code. An Integer (three digits) representing the mobile network country. <br>For example: { "securityLevel": "SIM\\\_AND\\\_SOFT", "bindLevel": "SIM\\\_AND\\\_SOFT", "mcc": 206 }
  E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
  NRN | not supported| 
-#### 4.2.2.1. User Info Endpoint
-Any claim requested by using the scope value can only be obtained from the User Info endpoint.
-#### 4.2.2.2. Token Endpoint
-As defined in this link. http://openid.net/specs/openid-connect-core-1_0.html#TokenEndpoint
-#### 4.2.2.3. Set of Request Parameted Adapted to itsme(r)
+
+#### 4.2.2.&. Set of Request Parameted Adapted to itsme(r)
 ```json--inline
  {
     "userinfo":
@@ -868,9 +865,9 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3MjQyNzgwLDE0MjI3MjA4NTAsMTU3MT
-k4OTY4MiwxNTM0MDgwMTQwLC0xNzY0Mzk5MDI3LC0yMDY3NDgy
-NjIyLDMwMDM2MTQwMSwtOTE1ODQzMjI2LDE0MTkyODI1MTAsLT
-g5MTEwNjE4OCwxODI0NTgzMDc5LDE4MDE5MTYzNzYsNTUwNzY3
-MzAsMjExODAyNDU5NV19
+eyJoaXN0b3J5IjpbLTM0NTMxMjM2NiwxMjcyNDI3ODAsMTQyMj
+cyMDg1MCwxNTcxOTg5NjgyLDE1MzQwODAxNDAsLTE3NjQzOTkw
+MjcsLTIwNjc0ODI2MjIsMzAwMzYxNDAxLC05MTU4NDMyMjYsMT
+QxOTI4MjUxMCwtODkxMTA2MTg4LDE4MjQ1ODMwNzksMTgwMTkx
+NjM3Niw1NTA3NjczMCwyMTE4MDI0NTk1XX0=
 -->
