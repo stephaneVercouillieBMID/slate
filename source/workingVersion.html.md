@@ -266,7 +266,9 @@ The following is a non-normative response containing Normal Claims:
 
 ### 4.2.1. Scope
 
-Scopes are space-separated lists of identifiers used to specify what access privileges are being requested. Scopes can be used to request that specific sets of information available as Claim Values in User Info Token. 
+Scopes are space-separated lists of identifiers used to specify what access privileges are being requested. 
+
+Scopes can be used to request that specific sets of information available as Claim Values in User Info Token. 
 
 Valid scope identifiers are specified in [RFC 6749](https://tools.ietf.org/html/rfc6749).
 
@@ -865,9 +867,10 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk4MTU0MzY1NywxMjcyNDI3ODAsMTQyMj
-cyMDg1MCwxNTcxOTg5NjgyLDE1MzQwODAxNDAsLTE3NjQzOTkw
-MjcsLTIwNjc0ODI2MjIsMzAwMzYxNDAxLC05MTU4NDMyMjYsMT
-QxOTI4MjUxMCwtODkxMTA2MTg4LDE4MjQ1ODMwNzksMTgwMTkx
-NjM3Niw1NTA3NjczMCwyMTE4MDI0NTk1XX0=
+eyJoaXN0b3J5IjpbMTYzNzEwMTQ1MywxOTgxNTQzNjU3LDEyNz
+I0Mjc4MCwxNDIyNzIwODUwLDE1NzE5ODk2ODIsMTUzNDA4MDE0
+MCwtMTc2NDM5OTAyNywtMjA2NzQ4MjYyMiwzMDAzNjE0MDEsLT
+kxNTg0MzIyNiwxNDE5MjgyNTEwLC04OTExMDYxODgsMTgyNDU4
+MzA3OSwxODAxOTE2Mzc2LDU1MDc2NzMwLDIxMTgwMjQ1OTVdfQ
+==
 -->
