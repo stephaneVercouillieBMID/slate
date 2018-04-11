@@ -159,6 +159,8 @@ As per the OpenID Connect specification [http://openid.net/specs/openid-connect-
 ### 3.2.1. About Tokens
 There are three types of tokens in OIDC: `id_token`, `access_token` and `refresh_token`.
 
+#### 3.2.1.1. ID Tokens
+
 
 The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the **token_endpoint** key. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret` authentication methods are not supported since they are considered less secure.
 
@@ -871,6 +873,6 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgwMTkxNjM3Niw1NTA3NjczMCwyMTE4MD
-I0NTk1XX0=
+eyJoaXN0b3J5IjpbMTI4NDczMjM4MiwxODAxOTE2Mzc2LDU1MD
+c2NzMwLDIxMTgwMjQ1OTVdfQ==
 -->
