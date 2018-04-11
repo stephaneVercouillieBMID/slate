@@ -194,7 +194,9 @@ Parameter | Required | Comment
  **redirect_uri** | Required | The **redirect_uri** used in the Authentication Request. This is the URL to which you want the user to be redirected after the authorization is complete.
  **client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` ***Note***: this specifies that the authentication method type is `private_key_jwt`, according to [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification.
  **client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` client authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
+ 
 According to the `private_key_jwt` client authentication method, the **client assertion** JWT must contain the following properties:
+
  Property | Comment
  -- | --
  **iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID). The iss value is a case sensitive URL using the https scheme that contains scheme, host, and optionally, port number and path components and no query or fragment components.
@@ -870,7 +872,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI4MDUxNjE3OSwtMjAwNjgwMzA1OCwxNz
+eyJoaXN0b3J5IjpbLTI0NzIzMTEwMywtMjAwNjgwMzA1OCwxNz
 gwNzc0NzY2LDExMDkwNDIxNTgsMTYzNzEwMTQ1MywxOTgxNTQz
 NjU3LDEyNzI0Mjc4MCwxNDIyNzIwODUwLDE1NzE5ODk2ODIsMT
 UzNDA4MDE0MCwtMTc2NDM5OTAyNywtMjA2NzQ4MjYyMiwzMDAz
