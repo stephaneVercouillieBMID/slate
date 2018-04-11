@@ -399,7 +399,7 @@ It is RECOMMENDED that the request use the HTTP  GET  method and the Access Toke
  acr Possible values: • tag:sixdots.be,2016-06:acr_basic • tag:sixdots.be,2016-06:acr_advanced amr Won’t be provided azp Won’t be provided auth_time Will always be provided
 | Parameter  | Comment  |
 |--|--|
-| acr |  |
+| acr | Possible values: <br>tag:sixdots.be,2016-06:acr_basic • tag:sixdots.be,2016-06:acr_advanced |
 | amr |  |
 | azp|  |
 #### 4.3.1.2. User info Request Example
@@ -895,11 +895,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyNDE2NTE2LC01OTcwNjk3NTYsLTIxMT
-QxOTc0MzcsLTEyMjg0MjczOTIsLTgwNDAxNTkwMiwtMTIyNjMz
-NDE2OCw4OTIxMTc3NDUsMTI2NzM4NjcyNiwtMjEyMDcyNDM5LC
-02MDM2NDgzMTksLTE5NjE5MjM0NzYsMTc5MTM1NjQzNiwtMjAz
-MDEwOTAwOSwtMjAwNjgwMzA1OCwxNzgwNzc0NzY2LDExMDkwND
-IxNTgsMTYzNzEwMTQ1MywxOTgxNTQzNjU3LDEyNzI0Mjc4MCwx
-NDIyNzIwODUwXX0=
+eyJoaXN0b3J5IjpbMTEwOTk5Mjg5OSwtNTk3MDY5NzU2LC0yMT
+E0MTk3NDM3LC0xMjI4NDI3MzkyLC04MDQwMTU5MDIsLTEyMjYz
+MzQxNjgsODkyMTE3NzQ1LDEyNjczODY3MjYsLTIxMjA3MjQzOS
+wtNjAzNjQ4MzE5LC0xOTYxOTIzNDc2LDE3OTEzNTY0MzYsLTIw
+MzAxMDkwMDksLTIwMDY4MDMwNTgsMTc4MDc3NDc2NiwxMTA5MD
+QyMTU4LDE2MzcxMDE0NTMsMTk4MTU0MzY1NywxMjcyNDI3ODAs
+MTQyMjcyMDg1MF19
 -->
