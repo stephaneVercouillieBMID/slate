@@ -396,13 +396,12 @@ As per specified [OIDC UserInfo Request](http://openid.net/specs/openid-connect-
 The Client sends the UserInfo Request using either HTTP  GET  or HTTP  POST. The Access Token obtained from an OpenID Connect Authentication Request MUST be sent as a Bearer Token, per Section 2 of  [OAuth 2.0 Bearer Token Usage](http://openid.net/specs/openid-connect-core-1_0.html#RFC6750)  [RFC6750].
 
 It is RECOMMENDED that the request use the HTTP  GET  method and the Access Token be sent using the  Authorization  header field.
- Possible values: • tag:sixdots.be,2016-06:acr_basic • tag:sixdots.be,2016-06:acr_advanced amr Won’t be provided azp Won’t be provided auth_time Will always be provided
- 
-| Parameter  |Comment  |
-|acr |--|
-|  |  |
-
-
+ acr Possible values: • tag:sixdots.be,2016-06:acr_basic • tag:sixdots.be,2016-06:acr_advanced amr Won’t be provided azp Won’t be provided auth_time Will always be provided
+| Parameter  | Comment  |
+|--|--|
+| acr |  |
+| amr |  |
+| azp|  |
 #### 4.3.1.2. User info Request Example
  
  ```http--inline
@@ -896,11 +895,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE2NDk5MDAxNywtNTk3MDY5NzU2LC0yMT
-E0MTk3NDM3LC0xMjI4NDI3MzkyLC04MDQwMTU5MDIsLTEyMjYz
-MzQxNjgsODkyMTE3NzQ1LDEyNjczODY3MjYsLTIxMjA3MjQzOS
-wtNjAzNjQ4MzE5LC0xOTYxOTIzNDc2LDE3OTEzNTY0MzYsLTIw
-MzAxMDkwMDksLTIwMDY4MDMwNTgsMTc4MDc3NDc2NiwxMTA5MD
-QyMTU4LDE2MzcxMDE0NTMsMTk4MTU0MzY1NywxMjcyNDI3ODAs
-MTQyMjcyMDg1MF19
+eyJoaXN0b3J5IjpbMTQyNDE2NTE2LC01OTcwNjk3NTYsLTIxMT
+QxOTc0MzcsLTEyMjg0MjczOTIsLTgwNDAxNTkwMiwtMTIyNjMz
+NDE2OCw4OTIxMTc3NDUsMTI2NzM4NjcyNiwtMjEyMDcyNDM5LC
+02MDM2NDgzMTksLTE5NjE5MjM0NzYsMTc5MTM1NjQzNiwtMjAz
+MDEwOTAwOSwtMjAwNjgwMzA1OCwxNzgwNzc0NzY2LDExMDkwND
+IxNTgsMTYzNzEwMTQ1MywxOTgxNTQzNjU3LDEyNzI0Mjc4MCwx
+NDIyNzIwODUwXX0=
 -->
