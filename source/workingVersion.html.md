@@ -175,7 +175,9 @@ Bearer token concept must be mentioned before access token is explained. Bearer 
 
 #### 3.2.1.3 Refresh Tokens
 
-As access tokens have short lifespan, refresh tokens are in order to take forward long-lived sessions
+As access tokens have short lifespan, there is a need for refresh tokens in order to take forward long-lived sessions. Basically, refresh tokens are used to obtain new access tokens.
+
+
 
 
 The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the **token_endpoint** key. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret` authentication methods are not supported since they are considered less secure.
@@ -889,8 +891,8 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTc1OTEwMDU4LC0xNzY0Mzk5MDI3LC0yMD
-Y3NDgyNjIyLDMwMDM2MTQwMSwtOTE1ODQzMjI2LDE0MTkyODI1
-MTAsLTg5MTEwNjE4OCwxODI0NTgzMDc5LDE4MDE5MTYzNzYsNT
-UwNzY3MzAsMjExODAyNDU5NV19
+eyJoaXN0b3J5IjpbLTIwMDIyNzY1NTYsLTE3NjQzOTkwMjcsLT
+IwNjc0ODI2MjIsMzAwMzYxNDAxLC05MTU4NDMyMjYsMTQxOTI4
+MjUxMCwtODkxMTA2MTg4LDE4MjQ1ODMwNzksMTgwMTkxNjM3Ni
+w1NTA3NjczMCwyMTE4MDI0NTk1XX0=
 -->
