@@ -164,7 +164,7 @@ There are three types of tokens in OIDC: `id_token`, `access_token` and `refresh
 #### 3.2.1.1. ID Tokens
 As per the [OIDC Specification](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse), an `id_token` is a JWT.
 
-- ID tokens carry user’s authentication information encoded in the token itself,(must be a JWT) and authorization server will return them.
+- ID tokens carry user’s authentication information encoded in the token itself, it must be a JWT and authorization server will return them.
 -  the token can be certainly verified to prove that it hasn’t been tampered with.
 
 There’s a set of [rules](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation) in the specification for validating an `id_token`.
@@ -868,10 +868,10 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzNzIxNTAyNCwxNzgwNzc0NzY2LDExMD
-kwNDIxNTgsMTYzNzEwMTQ1MywxOTgxNTQzNjU3LDEyNzI0Mjc4
-MCwxNDIyNzIwODUwLDE1NzE5ODk2ODIsMTUzNDA4MDE0MCwtMT
-c2NDM5OTAyNywtMjA2NzQ4MjYyMiwzMDAzNjE0MDEsLTkxNTg0
-MzIyNiwxNDE5MjgyNTEwLC04OTExMDYxODgsMTgyNDU4MzA3OS
-wxODAxOTE2Mzc2LDU1MDc2NzMwLDIxMTgwMjQ1OTVdfQ==
+eyJoaXN0b3J5IjpbLTIwMDY4MDMwNTgsMTc4MDc3NDc2NiwxMT
+A5MDQyMTU4LDE2MzcxMDE0NTMsMTk4MTU0MzY1NywxMjcyNDI3
+ODAsMTQyMjcyMDg1MCwxNTcxOTg5NjgyLDE1MzQwODAxNDAsLT
+E3NjQzOTkwMjcsLTIwNjc0ODI2MjIsMzAwMzYxNDAxLC05MTU4
+NDMyMjYsMTQxOTI4MjUxMCwtODkxMTA2MTg4LDE4MjQ1ODMwNz
+ksMTgwMTkxNjM3Niw1NTA3NjczMCwyMTE4MDI0NTk1XX0=
 -->
