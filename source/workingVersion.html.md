@@ -179,9 +179,8 @@ As access tokens have short lifespan, there is a need for refresh tokens in orde
 
 For a long-lived session this scenario is typical: When user logs in and gets back an access token and a refresh token, the application detects that the access token is expired. Now the application uses the refresh token to obtain a new access token. When refresh token expires too, the user must authenticate again.
 
-The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the **token_endpoint** key. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret` authentication methods are not supported since they are considered less secure.
-
 ### 3.2.2. Token Request Specification
+
 The Token Request must include the following parameters in the POST body:
 
 Parameter | Required | Comment
@@ -216,6 +215,7 @@ According to the `private_key_jwt` client authentication method, the **client as
  ```
 
 ### 3.2.4. Token Response Specification
+The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the **token_endpoint** key. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret` authentication methods are not supported since they are considered less secure.
 Client must validate following parameters,
 
  Parameter | Provided | Comment
@@ -890,7 +890,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk2Njg4MTk5NCwtMTc2NDM5OTAyNywtMj
+eyJoaXN0b3J5IjpbMTUzNDA4MDE0MCwtMTc2NDM5OTAyNywtMj
 A2NzQ4MjYyMiwzMDAzNjE0MDEsLTkxNTg0MzIyNiwxNDE5Mjgy
 NTEwLC04OTExMDYxODgsMTgyNDU4MzA3OSwxODAxOTE2Mzc2LD
 U1MDc2NzMwLDIxMTgwMjQ1OTVdfQ==
