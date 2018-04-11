@@ -154,7 +154,7 @@ As per [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://o
  `invalid_request_object` | The request parameter contains an invalid Request Object.
  `request_uri_not_supported` | does not support use of the request_uri parameter.
  `registration_not_supported` | does not support use of the registration parameter.
-## <a name="#TokenEndpoint"></a> 3.2. Token Endpoint
+## <a name="TokenEndpoint"></a> 3.2. Token Endpoint
 As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
 ### 3.2.1. About Tokens
 There are three types of tokens in OIDC: `id_token`, `access_token` and `refresh_token`.
@@ -886,7 +886,8 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNjc0ODI2MjIsMzAwMzYxNDAxLC05MT
-U4NDMyMjYsMTQxOTI4MjUxMCwtODkxMTA2MTg4LDE4MjQ1ODMw
-NzksMTgwMTkxNjM3Niw1NTA3NjczMCwyMTE4MDI0NTk1XX0=
+eyJoaXN0b3J5IjpbLTE3NjQzOTkwMjcsLTIwNjc0ODI2MjIsMz
+AwMzYxNDAxLC05MTU4NDMyMjYsMTQxOTI4MjUxMCwtODkxMTA2
+MTg4LDE4MjQ1ODMwNzksMTgwMTkxNjM3Niw1NTA3NjczMCwyMT
+E4MDI0NTk1XX0=
 -->
