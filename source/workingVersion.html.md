@@ -270,7 +270,6 @@ Scopes are space-separated lists of identifiers used to specify what access priv
 
 Scopes can be used to request that specific sets of information available as Claim Values in User Info Token. 
 
-Valid scope identifiers are specified in [RFC 6749](https://tools.ietf.org/html/rfc6749).
 
 <!-- (always User Info Endpoint)-->
 
@@ -867,10 +866,10 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYzNzEwMTQ1MywxOTgxNTQzNjU3LDEyNz
-I0Mjc4MCwxNDIyNzIwODUwLDE1NzE5ODk2ODIsMTUzNDA4MDE0
-MCwtMTc2NDM5OTAyNywtMjA2NzQ4MjYyMiwzMDAzNjE0MDEsLT
-kxNTg0MzIyNiwxNDE5MjgyNTEwLC04OTExMDYxODgsMTgyNDU4
-MzA3OSwxODAxOTE2Mzc2LDU1MDc2NzMwLDIxMTgwMjQ1OTVdfQ
-==
+eyJoaXN0b3J5IjpbMTEwOTA0MjE1OCwxNjM3MTAxNDUzLDE5OD
+E1NDM2NTcsMTI3MjQyNzgwLDE0MjI3MjA4NTAsMTU3MTk4OTY4
+MiwxNTM0MDgwMTQwLC0xNzY0Mzk5MDI3LC0yMDY3NDgyNjIyLD
+MwMDM2MTQwMSwtOTE1ODQzMjI2LDE0MTkyODI1MTAsLTg5MTEw
+NjE4OCwxODI0NTgzMDc5LDE4MDE5MTYzNzYsNTUwNzY3MzAsMj
+ExODAyNDU5NV19
 -->
