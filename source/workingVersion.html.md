@@ -387,9 +387,7 @@ As per the OpenID Connect specification  [http://openid.net/specs/openid-connect
 
 > The User Info Endpoint is an OAuth 2.0 Protected Resource that returns Claims about the authenticated End-User.
 > 
-The content type of the response will be application/jwt. The response will be signed and encrypted. The UserInfo endpoint can be accessed only with a valid access_token, and for a very limited duration after end user authentication: there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the UserInfo endpoint (this reflects a constraint set on the SOAP version of the interface).
-
-The User Info endpoint can only be accessed with a valid  **access_token**  received from the Token endpoint during User Authentication, and for a very limited duration after end user authentication; there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info endpoint.
+The content type of the response will be application/JWT. The response will be signed and encrypted. The UserInfo endpoint can be accessed only with a valid **access_token** and for a very limited duration after end user authentication: there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info Endpoint (this reflects a constraint set on the SOAP version of the interface).
 
 Your server sends the User Info Request using either HTTP  `GET`  or HTTP  `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP  `GET`method and the Access Token be sent the using the  `Authorization`  header field. The HTTP request is sent to the User Info endpoint, which you should retrieve from the  [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration)  using the key  **userinfo_endpoint**.
 #### 4.3.1.1. User info Request Specification
@@ -892,11 +890,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0OTY4ODgwMSwtNTk3MDY5NzU2LC0yMT
-E0MTk3NDM3LC0xMjI4NDI3MzkyLC04MDQwMTU5MDIsLTEyMjYz
-MzQxNjgsODkyMTE3NzQ1LDEyNjczODY3MjYsLTIxMjA3MjQzOS
-wtNjAzNjQ4MzE5LC0xOTYxOTIzNDc2LDE3OTEzNTY0MzYsLTIw
-MzAxMDkwMDksLTIwMDY4MDMwNTgsMTc4MDc3NDc2NiwxMTA5MD
-QyMTU4LDE2MzcxMDE0NTMsMTk4MTU0MzY1NywxMjcyNDI3ODAs
-MTQyMjcyMDg1MF19
+eyJoaXN0b3J5IjpbNjI1ODMyNzIsLTU5NzA2OTc1NiwtMjExND
+E5NzQzNywtMTIyODQyNzM5MiwtODA0MDE1OTAyLC0xMjI2MzM0
+MTY4LDg5MjExNzc0NSwxMjY3Mzg2NzI2LC0yMTIwNzI0MzksLT
+YwMzY0ODMxOSwtMTk2MTkyMzQ3NiwxNzkxMzU2NDM2LC0yMDMw
+MTA5MDA5LC0yMDA2ODAzMDU4LDE3ODA3NzQ3NjYsMTEwOTA0Mj
+E1OCwxNjM3MTAxNDUzLDE5ODE1NDM2NTcsMTI3MjQyNzgwLDE0
+MjI3MjA4NTBdfQ==
 -->
