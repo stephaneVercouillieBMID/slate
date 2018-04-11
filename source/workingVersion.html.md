@@ -231,9 +231,9 @@ Client must validate following parameters,
 
 Example will be provided.
 
-### 3.2.6. Token Errors
+### 3.2.6. aggregateds
 
-As per [OIDC specification Token Error Response](http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse).
+As per [OIDC specification aggregated Response](http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse).
 # 4. User Data
 ## 4.1. What is a claim?
 Claims are name/value pairs that contain information about a user, as well meta-information about the OIDC service. The official definition from the spec is a [“piece of information asserted about an Entity.”](http://openid.net/specs/openid-connect-core-1_0.html#Terminology)
@@ -243,7 +243,7 @@ Claims are typically packaged in a JSON object.
 ### 4.1.1. Claim Types
 Three representations of Claim Values are defined officially: 
 - Normal Claims
-- Aggregated Claims
+- Aggregated Claims (
 - Distributed Claims
  #### 4.1.1.1. Normal Claims
 Claims that are directly asserted by the OpenID Provider.
@@ -889,9 +889,9 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyMjcyMDg1MCwxNTcxOTg5NjgyLDE1Mz
-QwODAxNDAsLTE3NjQzOTkwMjcsLTIwNjc0ODI2MjIsMzAwMzYx
-NDAxLC05MTU4NDMyMjYsMTQxOTI4MjUxMCwtODkxMTA2MTg4LD
-E4MjQ1ODMwNzksMTgwMTkxNjM3Niw1NTA3NjczMCwyMTE4MDI0
-NTk1XX0=
+eyJoaXN0b3J5IjpbLTcwMzY5NDc5MCwxNDIyNzIwODUwLDE1Nz
+E5ODk2ODIsMTUzNDA4MDE0MCwtMTc2NDM5OTAyNywtMjA2NzQ4
+MjYyMiwzMDAzNjE0MDEsLTkxNTg0MzIyNiwxNDE5MjgyNTEwLC
+04OTExMDYxODgsMTgyNDU4MzA3OSwxODAxOTE2Mzc2LDU1MDc2
+NzMwLDIxMTgwMjQ1OTVdfQ==
 -->
