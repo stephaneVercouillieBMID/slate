@@ -168,7 +168,7 @@ As per the [OIDC Specification](http://openid.net/specs/openid-connect-core-1_0.
 There’s a set of [rules](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation) in the specification for validating an `id_token`.
 #### 3.2.1.2 Access Tokens
 
-Bearer token concept must be mentioned before access token is explained. Bearer token is a protected token which can access to authorized resources without further identification.
+Bearer token concept must be mentioned before access token is explained. Bearer token is a protected token which can access to authorized resources without further identification. The format for OAuth 2.0 Bearer tokens is actually described in a separate spec, [RFC 6750](https://tools.ietf.org/html/rfc6750).
 
 - Access tokens are used as bearer tokens. 
 - They have short lifespan, expire for improving security. The user must authenticate again to get a new access token limiting the exposure of the fact that it’s a bearer token.
@@ -886,7 +886,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzAwMzYxNDAxLC05MTU4NDMyMjYsMTQxOT
-I4MjUxMCwtODkxMTA2MTg4LDE4MjQ1ODMwNzksMTgwMTkxNjM3
-Niw1NTA3NjczMCwyMTE4MDI0NTk1XX0=
+eyJoaXN0b3J5IjpbLTIwNjc0ODI2MjIsMzAwMzYxNDAxLC05MT
+U4NDMyMjYsMTQxOTI4MjUxMCwtODkxMTA2MTg4LDE4MjQ1ODMw
+NzksMTgwMTkxNjM3Niw1NTA3NjczMCwyMTE4MDI0NTk1XX0=
 -->
