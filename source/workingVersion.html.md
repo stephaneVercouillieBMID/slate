@@ -393,7 +393,9 @@ Your server sends the User Info Request using either HTTP  `GET`  or HTTP  `POST
 
 Info endpoint, which you should retrieve from the  [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration)  using the key  **userinfo_endpoint**.
 #### 4.3.1.1. User info Request Specification
-The Access Token will define the list of Data that will be provided back to the client (TODO). In order to request specific claims, you can [use scopes](https://stackedit.io/app#stClaims) in the Authentication Request and/or [use the claims parameter](https://stackedit.io/app#Claims-Request) of the request Object.
+As per [OIDC UserInfo Request](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
+The Access Token will define the list of Data that will be provided back to the client.
+ In order to request specific claims, you can [use scopes](https://stackedit.io/app#stClaims) in the Authentication Request and/or [use the claims parameter](https://stackedit.io/app#Claims-Request) of the request Object.
 #### 4.3.1.2. User info Request Example
  
  ```http--inline
@@ -887,11 +889,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMTQxOTc0MzcsLTEyMjg0MjczOTIsLT
-gwNDAxNTkwMiwtMTIyNjMzNDE2OCw4OTIxMTc3NDUsMTI2NzM4
-NjcyNiwtMjEyMDcyNDM5LC02MDM2NDgzMTksLTE5NjE5MjM0Nz
-YsMTc5MTM1NjQzNiwtMjAzMDEwOTAwOSwtMjAwNjgwMzA1OCwx
-NzgwNzc0NzY2LDExMDkwNDIxNTgsMTYzNzEwMTQ1MywxOTgxNT
-QzNjU3LDEyNzI0Mjc4MCwxNDIyNzIwODUwLDE1NzE5ODk2ODIs
-MTUzNDA4MDE0MF19
+eyJoaXN0b3J5IjpbNzc1NDc1NDcyLC0yMTE0MTk3NDM3LC0xMj
+I4NDI3MzkyLC04MDQwMTU5MDIsLTEyMjYzMzQxNjgsODkyMTE3
+NzQ1LDEyNjczODY3MjYsLTIxMjA3MjQzOSwtNjAzNjQ4MzE5LC
+0xOTYxOTIzNDc2LDE3OTEzNTY0MzYsLTIwMzAxMDkwMDksLTIw
+MDY4MDMwNTgsMTc4MDc3NDc2NiwxMTA5MDQyMTU4LDE2MzcxMD
+E0NTMsMTk4MTU0MzY1NywxMjcyNDI3ODAsMTQyMjcyMDg1MCwx
+NTcxOTg5NjgyXX0=
 -->
