@@ -149,6 +149,7 @@ An Authentication Response is an [OAuth 2.0 Authorization Response](https://tool
  ```
 ### 3.1.5. Authentication Errors
 As per [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://openid.net/specs/openid-connect-core-1_0.html#AuthError), if the authentication is NOT successful, the following errors can be triggered by itsme®:
+
  Error | Description
  -- | --
  `interaction_required`  | The Authorization Server requires End-User interaction of some form to proceed.
@@ -867,10 +868,10 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNzMwMDQyNjAsMTEwOTA0MjE1OCwxNj
-M3MTAxNDUzLDE5ODE1NDM2NTcsMTI3MjQyNzgwLDE0MjI3MjA4
-NTAsMTU3MTk4OTY4MiwxNTM0MDgwMTQwLC0xNzY0Mzk5MDI3LC
-0yMDY3NDgyNjIyLDMwMDM2MTQwMSwtOTE1ODQzMjI2LDE0MTky
-ODI1MTAsLTg5MTEwNjE4OCwxODI0NTgzMDc5LDE4MDE5MTYzNz
-YsNTUwNzY3MzAsMjExODAyNDU5NV19
+eyJoaXN0b3J5IjpbMTc4MDc3NDc2NiwxMTA5MDQyMTU4LDE2Mz
+cxMDE0NTMsMTk4MTU0MzY1NywxMjcyNDI3ODAsMTQyMjcyMDg1
+MCwxNTcxOTg5NjgyLDE1MzQwODAxNDAsLTE3NjQzOTkwMjcsLT
+IwNjc0ODI2MjIsMzAwMzYxNDAxLC05MTU4NDMyMjYsMTQxOTI4
+MjUxMCwtODkxMTA2MTg4LDE4MjQ1ODMwNzksMTgwMTkxNjM3Ni
+w1NTA3NjczMCwyMTE4MDI0NTk1XX0=
 -->
