@@ -233,7 +233,7 @@ Example will be provided.
 
 ### 3.2.6. Token Errors
 
-Please see the following link for token errors, 
+As per Please see the following link for token errors, 
 [http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse](http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse).
 # 4. User Data
 ## 4.1. What is a claim?
@@ -890,8 +890,9 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU3MTk4OTY4MiwxNTM0MDgwMTQwLC0xNz
-Y0Mzk5MDI3LC0yMDY3NDgyNjIyLDMwMDM2MTQwMSwtOTE1ODQz
-MjI2LDE0MTkyODI1MTAsLTg5MTEwNjE4OCwxODI0NTgzMDc5LD
-E4MDE5MTYzNzYsNTUwNzY3MzAsMjExODAyNDU5NV19
+eyJoaXN0b3J5IjpbLTE5MDA4MjI5NDksMTU3MTk4OTY4MiwxNT
+M0MDgwMTQwLC0xNzY0Mzk5MDI3LC0yMDY3NDgyNjIyLDMwMDM2
+MTQwMSwtOTE1ODQzMjI2LDE0MTkyODI1MTAsLTg5MTEwNjE4OC
+wxODI0NTgzMDc5LDE4MDE5MTYzNzYsNTUwNzY3MzAsMjExODAy
+NDU5NV19
 -->
