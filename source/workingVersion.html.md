@@ -237,7 +237,7 @@ Client must validate following parameters,
 
 Example will be provided.
 
-### 3.2.6. aggregateds
+### 3.2.6. Token Errror Response 
 
 As per [OIDC specification aggregated Response](http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse).
 # 4. User Data
@@ -872,11 +872,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI0NzIzMTEwMywtMjAwNjgwMzA1OCwxNz
-gwNzc0NzY2LDExMDkwNDIxNTgsMTYzNzEwMTQ1MywxOTgxNTQz
-NjU3LDEyNzI0Mjc4MCwxNDIyNzIwODUwLDE1NzE5ODk2ODIsMT
-UzNDA4MDE0MCwtMTc2NDM5OTAyNywtMjA2NzQ4MjYyMiwzMDAz
-NjE0MDEsLTkxNTg0MzIyNiwxNDE5MjgyNTEwLC04OTExMDYxOD
-gsMTgyNDU4MzA3OSwxODAxOTE2Mzc2LDU1MDc2NzMwLDIxMTgw
-MjQ1OTVdfQ==
+eyJoaXN0b3J5IjpbNzk4NTIxMzY3LC0yMDA2ODAzMDU4LDE3OD
+A3NzQ3NjYsMTEwOTA0MjE1OCwxNjM3MTAxNDUzLDE5ODE1NDM2
+NTcsMTI3MjQyNzgwLDE0MjI3MjA4NTAsMTU3MTk4OTY4MiwxNT
+M0MDgwMTQwLC0xNzY0Mzk5MDI3LC0yMDY3NDgyNjIyLDMwMDM2
+MTQwMSwtOTE1ODQzMjI2LDE0MTkyODI1MTAsLTg5MTEwNjE4OC
+wxODI0NTgzMDc5LDE4MDE5MTYzNzYsNTUwNzY3MzAsMjExODAy
+NDU5NV19
 -->
