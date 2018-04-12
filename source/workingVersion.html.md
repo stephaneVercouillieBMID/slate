@@ -338,6 +338,12 @@ max_age=1
 
 Some specific data cannot be requested by using scope values. They have to be requested in the claims as request parameter of the Authentication Request. Using this [method](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter) of requesting claims, you need to specify the endpoint you want the claims to come from. ( see the example for endpoints  [4.2.2.1. Set of Request Parameter Adapted to itsme®](#RPE)
 
+
+<h4 id="example-endpoint">
+Example
+</h4>
+
+
 **List of Supported Custom "claim" Values:**
 
 Here are these claims:
@@ -380,7 +386,7 @@ NRN | not supported|
 
 As per specified by OpenID Connect, there is a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), or user attributes. They are intended to supply the client app with consented user details such as email, name and picture, upon request.  They can be requested to be returned either in the UserInfo Response, per [Section 5.3.2](https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse), or in the ID Token, per [Section 2](https://openid.net/specs/openid-connect-core-1_0.html#IDToken).
 
-#### 4.2.2.2. Example of a Valid “claims” Object (RPE) 
+#### 4.2.2.2. Example of a Valid “claims” Object 
 Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_device`:
  
  ```json--inline
@@ -928,8 +934,9 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg5NjU2NTkyOCwtMTc5MDc3NDYxNiwtMz
-Y3NjI4MjEyLC0xNDMwMjQwMDYwLDE2MjE0NzYzOTUsMTM4Njcy
-MTQ2NiwxMjAyOTA2MjU0LDkyMjQ0NDc3LDM2MTcwODA4NywtMT
-Y2NDUxOTIxNSwtMTg4MTc4OTk4Nyw4NDQ3NDI0MDVdfQ==
+eyJoaXN0b3J5IjpbLTM3NTQ5MDAwNSwxODk2NTY1OTI4LC0xNz
+kwNzc0NjE2LC0zNjc2MjgyMTIsLTE0MzAyNDAwNjAsMTYyMTQ3
+NjM5NSwxMzg2NzIxNDY2LDEyMDI5MDYyNTQsOTIyNDQ0NzcsMz
+YxNzA4MDg3LC0xNjY0NTE5MjE1LC0xODgxNzg5OTg3LDg0NDc0
+MjQwNV19
 -->
