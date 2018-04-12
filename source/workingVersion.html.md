@@ -289,7 +289,6 @@ Scopes can be used to request that specific sets of information available as Cla
 
 Using this method, you will always receive Claims from the UserInfo Endpoint.
 
-
 <!-- (always User Info Endpoint)-->
 
 #### 4.2.1.1 Set of Supported Scope Values
@@ -309,11 +308,6 @@ The following scope values are supported and allow access to predefined sets of 
 | phone| phone_number
 || phone_number_verified|
 |address|address, with sub-fields,<br> street_address (newline separator \n) <br>locality <br>postal_code <br>country
-
-
-
- 
-
 
 **NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>**
 
@@ -906,7 +900,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE2ODk5MDQ4NywyMDgwMjY2NDA1LC01OT
+eyJoaXN0b3J5IjpbMTMwNjE5NjU0OSwyMDgwMjY2NDA1LC01OT
 cwNjk3NTYsLTIxMTQxOTc0MzcsLTEyMjg0MjczOTIsLTgwNDAx
 NTkwMiwtMTIyNjMzNDE2OCw4OTIxMTc3NDUsMTI2NzM4NjcyNi
 wtMjEyMDcyNDM5LC02MDM2NDgzMTksLTE5NjE5MjM0NzYsMTc5
