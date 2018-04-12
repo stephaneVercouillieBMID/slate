@@ -310,6 +310,11 @@ The following scope values are supported and allow access to predefined sets of 
 || phone_number_verified|
 |address|address, with sub-fields,
 
+ - street_address (newline separator \n)
+ - locality
+
+  postal_code country
+
 
 **NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>**
 
@@ -902,11 +907,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMzIzMzc3MTUsMjA4MDI2NjQwNSwtNT
-k3MDY5NzU2LC0yMTE0MTk3NDM3LC0xMjI4NDI3MzkyLC04MDQw
-MTU5MDIsLTEyMjYzMzQxNjgsODkyMTE3NzQ1LDEyNjczODY3Mj
-YsLTIxMjA3MjQzOSwtNjAzNjQ4MzE5LC0xOTYxOTIzNDc2LDE3
-OTEzNTY0MzYsLTIwMzAxMDkwMDksLTIwMDY4MDMwNTgsMTc4MD
-c3NDc2NiwxMTA5MDQyMTU4LDE2MzcxMDE0NTMsMTk4MTU0MzY1
-NywxMjcyNDI3ODBdfQ==
+eyJoaXN0b3J5IjpbMTk0NTQ3MTk1OSwyMDgwMjY2NDA1LC01OT
+cwNjk3NTYsLTIxMTQxOTc0MzcsLTEyMjg0MjczOTIsLTgwNDAx
+NTkwMiwtMTIyNjMzNDE2OCw4OTIxMTc3NDUsMTI2NzM4NjcyNi
+wtMjEyMDcyNDM5LC02MDM2NDgzMTksLTE5NjE5MjM0NzYsMTc5
+MTM1NjQzNiwtMjAzMDEwOTAwOSwtMjAwNjgwMzA1OCwxNzgwNz
+c0NzY2LDExMDkwNDIxNTgsMTYzNzEwMTQ1MywxOTgxNTQzNjU3
+LDEyNzI0Mjc4MF19
 -->
