@@ -131,7 +131,11 @@ Parameter | Required | Comment| Parameter Explained
  ```
 
 ### 3.1.3. Authentication Response Specification
-An Authentication Response is an [OAuth 2.0 Authorization Response](https://tools.ietf.org/html/rfc6749#section-4.1.2) message. As such, the Authentication Response will return the following parameters:
+An Authentication Response is an [OAuth 2.0 Authorization Response](https://tools.ietf.org/html/rfc6749#section-4.1.2) message. 
+
+The itsme Back-End provides an Authorization Code to the Service Provider Back-End. In the Response, the Service Provider Back-End knows that the User was successfully authenticated.
+
+As such, the Authentication Response will return the following parameters:
  Parameter | Provided | Description
  -- | -- | --
  **code** | Always | Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.
@@ -924,7 +928,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM4NjcyMTQ2NiwxMjAyOTA2MjU0LDkyMj
-Q0NDc3LDM2MTcwODA4NywtMTY2NDUxOTIxNSwtMTg4MTc4OTk4
-Nyw4NDQ3NDI0MDVdfQ==
+eyJoaXN0b3J5IjpbMTYyMTQ3NjM5NSwxMzg2NzIxNDY2LDEyMD
+I5MDYyNTQsOTIyNDQ0NzcsMzYxNzA4MDg3LC0xNjY0NTE5MjE1
+LC0xODgxNzg5OTg3LDg0NDc0MjQwNV19
 -->
