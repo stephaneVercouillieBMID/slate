@@ -296,6 +296,7 @@ Using this method, you will always receive Claims from the UserInfo Endpoint.
 <!-- (always User Info Endpoint)-->
 
 #### 4.2.1.1 List of Supported Scope Values
+**Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>**
 
 The following scope values are supported and allow access to predefined sets of Identity Data:
 
@@ -305,8 +306,6 @@ The following scope values are supported and allow access to predefined sets of 
 email|email, email_verified|
 phone| phone_number, phone_number_verified| 
  address|address, with subfields,<br>street_address (newline separator \n)<br> locality <br> postal_code <br> country
-
-
 
 #### 4.2.1.2 Example of an Authorization Request using "scope" values
 URL:
@@ -921,10 +920,10 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4ODU4NzMzOSwtMTkxMDM2ODk1MiwxMz
-M1NjQ2MDUzLC0xNjczMzk1NDA0LC01NDkxMzI0MTQsLTc0Mjcx
-ODc4MCwxODk2NTY1OTI4LC0xNzkwNzc0NjE2LC0zNjc2MjgyMT
-IsLTE0MzAyNDAwNjAsMTYyMTQ3NjM5NSwxMzg2NzIxNDY2LDEy
-MDI5MDYyNTQsOTIyNDQ0NzcsMzYxNzA4MDg3LC0xNjY0NTE5Mj
-E1LC0xODgxNzg5OTg3LDg0NDc0MjQwNV19
+eyJoaXN0b3J5IjpbOTI3OTc1MTgzLC0xOTEwMzY4OTUyLDEzMz
+U2NDYwNTMsLTE2NzMzOTU0MDQsLTU0OTEzMjQxNCwtNzQyNzE4
+NzgwLDE4OTY1NjU5MjgsLTE3OTA3NzQ2MTYsLTM2NzYyODIxMi
+wtMTQzMDI0MDA2MCwxNjIxNDc2Mzk1LDEzODY3MjE0NjYsMTIw
+MjkwNjI1NCw5MjI0NDQ3NywzNjE3MDgwODcsLTE2NjQ1MTkyMT
+UsLTE4ODE3ODk5ODcsODQ0NzQyNDA1XX0=
 -->
