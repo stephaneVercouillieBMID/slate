@@ -162,14 +162,14 @@ As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#
 ### 3.2.1. About Tokens
 There are three types of tokens in OIDC: [id_token](#idtoken), [access_token](#actoken) and [refresh_token](#rfshtoken).
 
-#### [3.2.1.1. ID Tokens](#idtoken) <b id="idtoken"></b>
+#### [3.2.1.1. ID Tokens](#idtoken)<b id="idtoken"></b>
 As per the [OIDC Specification](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse), an `id_token` is a JWT.
 
 - ID tokens carry user’s authentication information encoded in the token itself, it must be a JWT and authorization server will return them.
 -  the token can be certainly verified to prove that it hasn’t been tampered with.
 
 There’s a set of [rules](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation) in the specification for validating an `id_token`.
-#### 3.2.1.2 Access Tokens
+####[3.2.1.2 Access Tokens](#actoken)<b id="actoken"></b>
 
 Bearer token concept must be mentioned before access token is explained. Bearer token is a protected token which can access to authorized resources without further identification. The format for OAuth 2.0 Bearer tokens is actually described in a separate spec, [RFC 6750](https://tools.ietf.org/html/rfc6750).
 
@@ -920,11 +920,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM0ODkzNzg3NSwtNjU2MzQ1MTY0LDM2Mj
-AyNjQ5MSwtMzkyNTE1MDA1LDEzNzk5OTQ2NzcsOTI3OTc1MTgz
-LC0xOTEwMzY4OTUyLDEzMzU2NDYwNTMsLTE2NzMzOTU0MDQsLT
-U0OTEzMjQxNCwtNzQyNzE4NzgwLDE4OTY1NjU5MjgsLTE3OTA3
-NzQ2MTYsLTM2NzYyODIxMiwtMTQzMDI0MDA2MCwxNjIxNDc2Mz
-k1LDEzODY3MjE0NjYsMTIwMjkwNjI1NCw5MjI0NDQ3NywzNjE3
-MDgwODddfQ==
+eyJoaXN0b3J5IjpbMzQxODQ5ODM0LC02NTYzNDUxNjQsMzYyMD
+I2NDkxLC0zOTI1MTUwMDUsMTM3OTk5NDY3Nyw5Mjc5NzUxODMs
+LTE5MTAzNjg5NTIsMTMzNTY0NjA1MywtMTY3MzM5NTQwNCwtNT
+Q5MTMyNDE0LC03NDI3MTg3ODAsMTg5NjU2NTkyOCwtMTc5MDc3
+NDYxNiwtMzY3NjI4MjEyLC0xNDMwMjQwMDYwLDE2MjE0NzYzOT
+UsMTM4NjcyMTQ2NiwxMjAyOTA2MjU0LDkyMjQ0NDc3LDM2MTcw
+ODA4N119
 -->
