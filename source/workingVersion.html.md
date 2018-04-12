@@ -299,27 +299,8 @@ The following scope values are supported and allow access to predefined sets of 
 |--|--|
 | profile | given_name, family_name, gender, birthdate,  locale|
 email|email, email_verified|
-phone| phone_number|| 
- phone|phone_number_verified||address|address, with sub-fields,<
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-br> street_address (newline separator \n) <br>locality <br>postal_code <br>country
+phone| phone_number, phone_number_verified| 
+ address|address, with subfields<br>o street_address (newline separator \n) o locality o postal_code o country
 
 **NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>**
 
@@ -916,6 +897,6 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjY2Mjg2MDIsMzYxNzA4MDg3LC0xNj
+eyJoaXN0b3J5IjpbLTE4OTg0MDAzMjEsMzYxNzA4MDg3LC0xNj
 Y0NTE5MjE1LC0xODgxNzg5OTg3LDg0NDc0MjQwNV19
 -->
