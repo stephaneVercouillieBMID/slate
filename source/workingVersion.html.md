@@ -296,7 +296,10 @@ Using this method, you will always receive Claims from the UserInfo Endpoint.
 The following scope values are supported and allow access to predefined sets of Identity Data:
 
 | Scope Value | Associated Claims|
-|--|--|| profile | given_name||family_name|||name|||gender|||birthdate||locale|email| email||email_verified| phone| phone_number|| phone_number_verified||address|address, with sub-fields,<
+|--|--|
+| profile | given_name ||family_name|||name|||gender|||birthdate||locale |email|
+email||email_verified| phone_number|| 
+ phone|phone_number_verified||address|address, with sub-fields,<
 
 
 
@@ -912,6 +915,6 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkwNTQ0NjQyMywzNjE3MDgwODcsLTE2Nj
+eyJoaXN0b3J5IjpbMTAxMzA3MDEzNSwzNjE3MDgwODcsLTE2Nj
 Q1MTkyMTUsLTE4ODE3ODk5ODcsODQ0NzQyNDA1XX0=
 -->
