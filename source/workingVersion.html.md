@@ -317,6 +317,7 @@ Cookie: JSESSIONID=871EA8BD595FE9F89BB9F4346ABD16B094ABB62AEFC2ABED925F8361E1B30
 Connection: keep-alive
 Upgrade-Insecure-Requests: 1
 ```
+URL Parz
 response_type=code
 client_id=OIDC_TEST1
 redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fuat_OIDC_TEST1%2Fauthz_cb
@@ -919,6 +920,6 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDk5OTI5NDUsMzYxNzA4MDg3LC0xNj
-Y0NTE5MjE1LC0xODgxNzg5OTg3LDg0NDc0MjQwNV19
+eyJoaXN0b3J5IjpbMTg1MDQ4NTYxMSwzNjE3MDgwODcsLTE2Nj
+Q1MTkyMTUsLTE4ODE3ODk5ODcsODQ0NzQyNDA1XX0=
 -->
