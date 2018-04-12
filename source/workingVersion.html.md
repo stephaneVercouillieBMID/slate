@@ -318,7 +318,8 @@ TODO: example
 ### 4.2.2 “claims” Parameter
 
 Some specific data cannot be requested by using scope values. They have to be requested in the [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter of the Authentication Request. 
-*<!--> OIDC standard claims built in add*
+
+*<!--> OIDC standard claims built in add* TODO
 
 Using this method of requesting claims, you need to specify the endpoint you want the claims to come from (see examples below).
 
@@ -902,5 +903,5 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NzkwMjc1NTldfQ==
+eyJoaXN0b3J5IjpbODQ0NzQyNDA1XX0=
 -->
