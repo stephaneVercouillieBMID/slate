@@ -149,7 +149,7 @@ As such, the Authentication Response will return the following parameters:
  state=af0ifjsldkj
  ```
 ### 3.1.5. Authentication Errors
-As per [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://openid.net/specs/openid-connect-core-1_0.html#AuthError), if the authentication is NOT successful, the following errors can be triggered by itsme®:
+As per explained by OIDC [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://openid.net/specs/openid-connect-core-1_0.html#AuthError), if the authentication is NOT successful, the following errors can be triggered by itsme®:
 
  Error | Description
  -- | --
@@ -920,11 +920,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzODQ5MjMwNywtMzkyNTE1MDA1LDEzNz
-k5OTQ2NzcsOTI3OTc1MTgzLC0xOTEwMzY4OTUyLDEzMzU2NDYw
-NTMsLTE2NzMzOTU0MDQsLTU0OTEzMjQxNCwtNzQyNzE4NzgwLD
-E4OTY1NjU5MjgsLTE3OTA3NzQ2MTYsLTM2NzYyODIxMiwtMTQz
-MDI0MDA2MCwxNjIxNDc2Mzk1LDEzODY3MjE0NjYsMTIwMjkwNj
-I1NCw5MjI0NDQ3NywzNjE3MDgwODcsLTE2NjQ1MTkyMTUsLTE4
-ODE3ODk5ODddfQ==
+eyJoaXN0b3J5IjpbMzYyMDI2NDkxLC0zOTI1MTUwMDUsMTM3OT
+k5NDY3Nyw5Mjc5NzUxODMsLTE5MTAzNjg5NTIsMTMzNTY0NjA1
+MywtMTY3MzM5NTQwNCwtNTQ5MTMyNDE0LC03NDI3MTg3ODAsMT
+g5NjU2NTkyOCwtMTc5MDc3NDYxNiwtMzY3NjI4MjEyLC0xNDMw
+MjQwMDYwLDE2MjE0NzYzOTUsMTM4NjcyMTQ2NiwxMjAyOTA2Mj
+U0LDkyMjQ0NDc3LDM2MTcwODA4NywtMTY2NDUxOTIxNSwtMTg4
+MTc4OTk4N119
 -->
