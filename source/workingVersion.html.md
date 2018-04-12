@@ -336,7 +336,7 @@ max_age=1
  
 ### 4.2.2 “claims” Parameter
 
-Some specific data cannot be requested by using scope values. They have to be requested in the claims as request parameter of the Authentication Request. Using this [method](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter) of requesting claims, you need to specify the endpoint you want the claims to come from. (  [4.2.2.1. Set of Request Parameter Adapted to itsme(r)](#example-endpoint))
+Some specific data cannot be requested by using scope values. They have to be requested in the claims as request parameter of the Authentication Request. Using this [method](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter) of requesting claims, you need to specify the endpoint you want the claims to come from. ( see example for different specfying endpoints [4.2.2.1. Set of Request Parameter Adapted to itsme(r)](#example-endpoint))
 
 **List of Supported Custom "claim" Values:**
 
@@ -356,7 +356,7 @@ E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
 NRN | not supported|
 
 
-#### [4.2.2.1. Set of Request Parameter Adapted to itsme(r)](#example-endpoint) <b id="example-endpoint">see example</b>
+#### [4.2.2.1. Set of Request Parameter Adapted to itsme(r)](#example-endpoint) <b id="example-endpoint"></b>
 
 ```json--inline
  {
@@ -929,7 +929,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg4Mjc3NTU2OCwtNzQyNzE4NzgwLDE4OT
+eyJoaXN0b3J5IjpbLTU0OTEzMjQxNCwtNzQyNzE4NzgwLDE4OT
 Y1NjU5MjgsLTE3OTA3NzQ2MTYsLTM2NzYyODIxMiwtMTQzMDI0
 MDA2MCwxNjIxNDc2Mzk1LDEzODY3MjE0NjYsMTIwMjkwNjI1NC
 w5MjI0NDQ3NywzNjE3MDgwODcsLTE2NjQ1MTkyMTUsLTE4ODE3
