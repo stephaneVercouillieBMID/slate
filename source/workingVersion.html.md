@@ -489,7 +489,7 @@ The following is a non-normative example of a UserInfo Error Response:
  
  ## 5.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs
  
- As per specified by OpenID Connect https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted explained.
+ As per specified by OpenID Connect https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests, Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.
  
  The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains at least the following properties:
  
@@ -932,10 +932,10 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMyNTQ5NzMzMywxMzM1NjQ2MDUzLC0xNj
-czMzk1NDA0LC01NDkxMzI0MTQsLTc0MjcxODc4MCwxODk2NTY1
-OTI4LC0xNzkwNzc0NjE2LC0zNjc2MjgyMTIsLTE0MzAyNDAwNj
-AsMTYyMTQ3NjM5NSwxMzg2NzIxNDY2LDEyMDI5MDYyNTQsOTIy
-NDQ0NzcsMzYxNzA4MDg3LC0xNjY0NTE5MjE1LC0xODgxNzg5OT
-g3LDg0NDc0MjQwNV19
+eyJoaXN0b3J5IjpbLTIxMzI1ODA4MDcsMTMzNTY0NjA1MywtMT
+Y3MzM5NTQwNCwtNTQ5MTMyNDE0LC03NDI3MTg3ODAsMTg5NjU2
+NTkyOCwtMTc5MDc3NDYxNiwtMzY3NjI4MjEyLC0xNDMwMjQwMD
+YwLDE2MjE0NzYzOTUsMTM4NjcyMTQ2NiwxMjAyOTA2MjU0LDky
+MjQ0NDc3LDM2MTcwODA4NywtMTY2NDUxOTIxNSwtMTg4MTc4OT
+k4Nyw4NDQ3NDI0MDVdfQ==
 -->
