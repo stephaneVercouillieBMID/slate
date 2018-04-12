@@ -408,8 +408,6 @@ Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_devic
 
 As per the OpenID Connect specification  [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
 
-The User Info endpoint can only be accessed with a valid  **access_token**  received from the Token endpoint during User Authentication, and for a very limited duration after end user authentication; there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info endpoint.
-
 Your server sends the User Info Request using either HTTP  `GET`  or HTTP  `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP  `GET`method and the Access Token be sent the using the  `Authorization`  header field. The HTTP request is sent to the User Info endpoint, which you should retrieve from the  [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration)  using the key  **userinfo_endpoint**.
 
 The Access Token will define the list of Data that will be provided back to the client. In order to request specific claims, you can  [use scopes](https://stackedit.io/app#stClaims)  in the Authentication Request and/or  [use the claims parameter](https://stackedit.io/app#Claims-Request)  of the  request Object.
@@ -425,7 +423,6 @@ The UserInfo endpoint can be accessed only with a valid **access_token** and for
 
 #### 4.3.1.1. User info Request Specification
 As per specified [OIDC UserInfo Request](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest).
-
 
 The Client sends the UserInfo Request using either HTTP  GET  or HTTP  POST. The Access Token obtained from an OpenID Connect Authentication Request MUST be sent as a Bearer Token, per Section 2 of  [OAuth 2.0 Bearer Token Usage](http://openid.net/specs/openid-connect-core-1_0.html#RFC6750)  [RFC6750].
 
@@ -940,10 +937,10 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NTg4NDYzNDgsLTE2NzMzOTU0MDQsLT
-U0OTEzMjQxNCwtNzQyNzE4NzgwLDE4OTY1NjU5MjgsLTE3OTA3
-NzQ2MTYsLTM2NzYyODIxMiwtMTQzMDI0MDA2MCwxNjIxNDc2Mz
-k1LDEzODY3MjE0NjYsMTIwMjkwNjI1NCw5MjI0NDQ3NywzNjE3
-MDgwODcsLTE2NjQ1MTkyMTUsLTE4ODE3ODk5ODcsODQ0NzQyND
-A1XX0=
+eyJoaXN0b3J5IjpbMTMzNTY0NjA1MywtMTY3MzM5NTQwNCwtNT
+Q5MTMyNDE0LC03NDI3MTg3ODAsMTg5NjU2NTkyOCwtMTc5MDc3
+NDYxNiwtMzY3NjI4MjEyLC0xNDMwMjQwMDYwLDE2MjE0NzYzOT
+UsMTM4NjcyMTQ2NiwxMjAyOTA2MjU0LDkyMjQ0NDc3LDM2MTcw
+ODA4NywtMTY2NDUxOTIxNSwtMTg4MTc4OTk4Nyw4NDQ3NDI0MD
+VdfQ==
 -->
