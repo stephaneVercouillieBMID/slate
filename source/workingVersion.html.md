@@ -160,7 +160,7 @@ As per explained by OIDC [http://openid.net/specs/openid-connect-core-1_0.html#A
 ## <a name="TokenEndpoint"></a> 3.2. Token Endpoint
 As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
 ### 3.2.1. About Tokens
-There are three types of tokens in OIDC: [id_token](#idtoken), [access_token](#actoken) and [refresh_token](#rfshtoken).
+In this section, we will go through token types and their There are three types of tokens in OIDC: [id_token](#idtoken), [access_token](#actoken) and [refresh_token](#rfshtoken).
 #### [3.2.1.1. ID Tokens](#idtoken)<a name id="idtoken"></a>
 As per the [OIDC Specification](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse), an `id_token` is a JWT.
 
@@ -916,11 +916,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTk4MTA0MDQsLTU0NTQwNzYwOCwtNjU2Mz
-Q1MTY0LDM2MjAyNjQ5MSwtMzkyNTE1MDA1LDEzNzk5OTQ2Nzcs
-OTI3OTc1MTgzLC0xOTEwMzY4OTUyLDEzMzU2NDYwNTMsLTE2Nz
-MzOTU0MDQsLTU0OTEzMjQxNCwtNzQyNzE4NzgwLDE4OTY1NjU5
-MjgsLTE3OTA3NzQ2MTYsLTM2NzYyODIxMiwtMTQzMDI0MDA2MC
-wxNjIxNDc2Mzk1LDEzODY3MjE0NjYsMTIwMjkwNjI1NCw5MjI0
-NDQ3N119
+eyJoaXN0b3J5IjpbMTg2Njc4MDIyLDU5ODEwNDA0LC01NDU0MD
+c2MDgsLTY1NjM0NTE2NCwzNjIwMjY0OTEsLTM5MjUxNTAwNSwx
+Mzc5OTk0Njc3LDkyNzk3NTE4MywtMTkxMDM2ODk1MiwxMzM1Nj
+Q2MDUzLC0xNjczMzk1NDA0LC01NDkxMzI0MTQsLTc0MjcxODc4
+MCwxODk2NTY1OTI4LC0xNzkwNzc0NjE2LC0zNjc2MjgyMTIsLT
+E0MzAyNDAwNjAsMTYyMTQ3NjM5NSwxMzg2NzIxNDY2LDEyMDI5
+MDYyNTRdfQ==
 -->
