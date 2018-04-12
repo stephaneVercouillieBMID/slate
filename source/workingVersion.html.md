@@ -306,7 +306,9 @@ The following scope values are supported and allow access to predefined sets of 
 ||locale
 |email| email
 ||email_verified
-||email_verified
+| phone| phone_number
+|| phone_number_verified|
+|address|
 **NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>**
 
 TODO: example
@@ -898,11 +900,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgxNjc2Mjg1LDIwODAyNjY0MDUsLTU5Nz
-A2OTc1NiwtMjExNDE5NzQzNywtMTIyODQyNzM5MiwtODA0MDE1
-OTAyLC0xMjI2MzM0MTY4LDg5MjExNzc0NSwxMjY3Mzg2NzI2LC
-0yMTIwNzI0MzksLTYwMzY0ODMxOSwtMTk2MTkyMzQ3NiwxNzkx
-MzU2NDM2LC0yMDMwMTA5MDA5LC0yMDA2ODAzMDU4LDE3ODA3Nz
-Q3NjYsMTEwOTA0MjE1OCwxNjM3MTAxNDUzLDE5ODE1NDM2NTcs
-MTI3MjQyNzgwXX0=
+eyJoaXN0b3J5IjpbMTY1NjQxMTU1OSwyMDgwMjY2NDA1LC01OT
+cwNjk3NTYsLTIxMTQxOTc0MzcsLTEyMjg0MjczOTIsLTgwNDAx
+NTkwMiwtMTIyNjMzNDE2OCw4OTIxMTc3NDUsMTI2NzM4NjcyNi
+wtMjEyMDcyNDM5LC02MDM2NDgzMTksLTE5NjE5MjM0NzYsMTc5
+MTM1NjQzNiwtMjAzMDEwOTAwOSwtMjAwNjgwMzA1OCwxNzgwNz
+c0NzY2LDExMDkwNDIxNTgsMTYzNzEwMTQ1MywxOTgxNTQzNjU3
+LDEyNzI0Mjc4MF19
 -->
