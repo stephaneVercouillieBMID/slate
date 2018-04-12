@@ -305,7 +305,7 @@ phone| phone_number, phone_number_verified|
 **NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>**
 
 #### 4.2.1.2 Example of an Authorization Request using "scope" values
-
+URL:
 ```http--inline
 GET /oidc/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fuat_OIDC_TEST1%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_LOGIN+profile+eid+phone=phone_number+phone_number_verified+email=email_verified+address=postal_code+country+&state=anystate&nonce=anonce&prompt=login&max_age=1 HTTP/1.1
 Host: uatmerchant.sixdots.be
@@ -923,6 +923,6 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNDcxMTg5NzUsMzYxNzA4MDg3LC0xNj
+eyJoaXN0b3J5IjpbLTExNTYxNTQ0ODQsMzYxNzA4MDg3LC0xNj
 Y0NTE5MjE1LC0xODgxNzg5OTg3LDg0NDc0MjQwNV19
 -->
