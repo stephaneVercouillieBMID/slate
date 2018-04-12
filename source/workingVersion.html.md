@@ -340,7 +340,9 @@ Some specific data cannot be requested by using scope values. They have to be re
 
 List of Supported Standard "claim" Values
 
-OpenID Connect specifies a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), or user attributes. They are intended to supply the client app with consented user details such as email, name and picture, upon request.
+As per specified by OpenID Connect, there is a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), or user attributes. They are intended to supply the client app with consented user details such as email, name and picture, upon request.
+
+
 Using this method of requesting claims, you need to specify the endpoint you want the claims to come from (see examples below).
 
 Here are these claims:claims:
@@ -928,7 +930,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1ODA0NTk0NiwxNjIxNDc2Mzk1LDEzOD
+eyJoaXN0b3J5IjpbLTQ3MTU5NDMwMywxNjIxNDc2Mzk1LDEzOD
 Y3MjE0NjYsMTIwMjkwNjI1NCw5MjI0NDQ3NywzNjE3MDgwODcs
 LTE2NjQ1MTkyMTUsLTE4ODE3ODk5ODcsODQ0NzQyNDA1XX0=
 -->
