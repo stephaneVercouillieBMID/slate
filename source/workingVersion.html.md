@@ -340,7 +340,7 @@ Some specific data cannot be requested by using scope values. They have to be re
 
 **List of Supported Standard "claim" Values:**
 
-As per specified by OpenID Connect, there is a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), or user attributes. They are intended to supply the client app with consented user details such as email, name and picture, upon request.
+As per specified by OpenID Connect, there is a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), or user attributes. They are intended to supply the client app with consented user details such as email, name and picture, upon request.  They can be requested to be returned either in the UserInfo Response, per [Section 5.3.2](https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse), or in the ID Token, per [Section 2](https://openid.net/specs/openid-connect-core-1_0.html#IDToken).
 
 **List of Supported Custom "claim" Values:**
 
@@ -929,8 +929,8 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjI1MDEzNzU0LC0xNDMwMjQwMDYwLDE2Mj
-E0NzYzOTUsMTM4NjcyMTQ2NiwxMjAyOTA2MjU0LDkyMjQ0NDc3
-LDM2MTcwODA4NywtMTY2NDUxOTIxNSwtMTg4MTc4OTk4Nyw4ND
-Q3NDI0MDVdfQ==
+eyJoaXN0b3J5IjpbLTM2NzYyODIxMiwtMTQzMDI0MDA2MCwxNj
+IxNDc2Mzk1LDEzODY3MjE0NjYsMTIwMjkwNjI1NCw5MjI0NDQ3
+NywzNjE3MDgwODcsLTE2NjQ1MTkyMTUsLTE4ODE3ODk5ODcsOD
+Q0NzQyNDA1XX0=
 -->
