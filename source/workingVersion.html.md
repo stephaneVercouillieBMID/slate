@@ -49,7 +49,7 @@ OAuth 2.0 means one protocol for authentication and authorization (obtaining acc
  BMID provides,
  
  - Partner Code, used as **client_id**
- - Service Code for each Service (find out (<a href="#ServiceCode">Service Code concept</a>)
+ - Service Code for each Service (find out <a href="#ServiceCode">Service Code concept</a>
 
 To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
 
@@ -900,11 +900,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzg1NDgxMDEyLC05MjYzNTk1MDAsMTAwNz
-gzMTc0NiwtMTE0NDQ2MDU4NCwtMTEyMzI5NTg3OCwxMzA2MTk2
-NTQ5LDIwODAyNjY0MDUsLTU5NzA2OTc1NiwtMjExNDE5NzQzNy
-wtMTIyODQyNzM5MiwtODA0MDE1OTAyLC0xMjI2MzM0MTY4LDg5
-MjExNzc0NSwxMjY3Mzg2NzI2LC0yMTIwNzI0MzksLTYwMzY0OD
-MxOSwtMTk2MTkyMzQ3NiwxNzkxMzU2NDM2LC0yMDMwMTA5MDA5
-LC0yMDA2ODAzMDU4XX0=
+eyJoaXN0b3J5IjpbMTcyNjU1NjYwMywtOTI2MzU5NTAwLDEwMD
+c4MzE3NDYsLTExNDQ0NjA1ODQsLTExMjMyOTU4NzgsMTMwNjE5
+NjU0OSwyMDgwMjY2NDA1LC01OTcwNjk3NTYsLTIxMTQxOTc0Mz
+csLTEyMjg0MjczOTIsLTgwNDAxNTkwMiwtMTIyNjMzNDE2OCw4
+OTIxMTc3NDUsMTI2NzM4NjcyNiwtMjEyMDcyNDM5LC02MDM2ND
+gzMTksLTE5NjE5MjM0NzYsMTc5MTM1NjQzNiwtMjAzMDEwOTAw
+OSwtMjAwNjgwMzA1OF19
 -->
