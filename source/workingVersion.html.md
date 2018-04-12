@@ -419,8 +419,9 @@ As per the OpenID Connect specification  [http://openid.net/specs/openid-connect
 
 The UserInfo endpoint returns previously consented user profile information to the client app. For that a valid access token is required.
 
-> 
-The content type of the response will be application/JWT. The response will be signed and encrypted. The UserInfo endpoint can be accessed only with a valid **access_token** and for a very limited duration after end user authentication. There must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info Endpoint (this reflects a constraint set on the SOAP version of the interface).
+The content type of the response will be application/JWT. The response will be signed and encrypted. 
+
+The UserInfo endpoint can be accessed only with a valid **access_token** and for a very limited duration after end user authentication. There must be _less than 3 minutes_ between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info Endpoint (this reflects a constraint set on the SOAP version of the interface).
 
 Your server sends the User Info Request using either HTTP  `GET`  or HTTP  `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP  `GET`method and the Access Token be sent the using the  `Authorization`  header field. The HTTP request is sent to the User Info endpoint, which you should retrieve from the  [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration)  using the key  **userinfo_endpoint**.
 #### 4.3.1.1. User info Request Specification
@@ -929,9 +930,9 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU0OTEzMjQxNCwtNzQyNzE4NzgwLDE4OT
-Y1NjU5MjgsLTE3OTA3NzQ2MTYsLTM2NzYyODIxMiwtMTQzMDI0
-MDA2MCwxNjIxNDc2Mzk1LDEzODY3MjE0NjYsMTIwMjkwNjI1NC
-w5MjI0NDQ3NywzNjE3MDgwODcsLTE2NjQ1MTkyMTUsLTE4ODE3
-ODk5ODcsODQ0NzQyNDA1XX0=
+eyJoaXN0b3J5IjpbLTE2NzMzOTU0MDQsLTU0OTEzMjQxNCwtNz
+QyNzE4NzgwLDE4OTY1NjU5MjgsLTE3OTA3NzQ2MTYsLTM2NzYy
+ODIxMiwtMTQzMDI0MDA2MCwxNjIxNDc2Mzk1LDEzODY3MjE0Nj
+YsMTIwMjkwNjI1NCw5MjI0NDQ3NywzNjE3MDgwODcsLTE2NjQ1
+MTkyMTUsLTE4ODE3ODk5ODcsODQ0NzQyNDA1XX0=
 -->
