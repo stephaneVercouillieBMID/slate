@@ -311,7 +311,9 @@ The following scope values are supported and allow access to predefined sets of 
 
 **NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>**
 
-#### 4TODO: example
+#### 4.2.1.2 Example of an Authorization Request using "scope" values
+
+TODO: example
  
 ### 4.2.2 “claims” Parameter
 
@@ -900,11 +902,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjQwODA0NTQsLTEyNDMyMjAzOTAsLTE3MT
-UxMjIxMDIsLTkyNjM1OTUwMCwxMDA3ODMxNzQ2LC0xMTQ0NDYw
-NTg0LC0xMTIzMjk1ODc4LDEzMDYxOTY1NDksMjA4MDI2NjQwNS
-wtNTk3MDY5NzU2LC0yMTE0MTk3NDM3LC0xMjI4NDI3MzkyLC04
-MDQwMTU5MDIsLTEyMjYzMzQxNjgsODkyMTE3NzQ1LDEyNjczOD
-Y3MjYsLTIxMjA3MjQzOSwtNjAzNjQ4MzE5LC0xOTYxOTIzNDc2
-LDE3OTEzNTY0MzZdfQ==
+eyJoaXN0b3J5IjpbLTE4NzkwMjc1NTksLTEyNDMyMjAzOTAsLT
+E3MTUxMjIxMDIsLTkyNjM1OTUwMCwxMDA3ODMxNzQ2LC0xMTQ0
+NDYwNTg0LC0xMTIzMjk1ODc4LDEzMDYxOTY1NDksMjA4MDI2Nj
+QwNSwtNTk3MDY5NzU2LC0yMTE0MTk3NDM3LC0xMjI4NDI3Mzky
+LC04MDQwMTU5MDIsLTEyMjYzMzQxNjgsODkyMTE3NzQ1LDEyNj
+czODY3MjYsLTIxMjA3MjQzOSwtNjAzNjQ4MzE5LC0xOTYxOTIz
+NDc2LDE3OTEzNTY0MzZdfQ==
 -->
