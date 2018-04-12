@@ -308,11 +308,10 @@ The following scope values are supported and allow access to predefined sets of 
 ||email_verified
 | phone| phone_number
 || phone_number_verified|
-|address|address, with sub-fields,
-||  street_address (newline separator \n)
- - locality
- - postal_code 
+|address|address, with sub-fields,<br> street_address (newline separator \n) <br>- locality <br>- postal_code <br>
 -  country
+||  
+
 
  
 
@@ -908,7 +907,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNDQwODMxMjgsMjA4MDI2NjQwNSwtNT
+eyJoaXN0b3J5IjpbLTIwMDYyODI3NzIsMjA4MDI2NjQwNSwtNT
 k3MDY5NzU2LC0yMTE0MTk3NDM3LC0xMjI4NDI3MzkyLC04MDQw
 MTU5MDIsLTEyMjYzMzQxNjgsODkyMTE3NzQ1LDEyNjczODY3Mj
 YsLTIxMjA3MjQzOSwtNjAzNjQ4MzE5LC0xOTYxOTIzNDc2LDE3
