@@ -336,6 +336,8 @@ Some specific data cannot be requested by using scope values. They have to be re
 
 *<!--> OIDC standard claims built in add*claims built in add TODO
 
+
+
 Using this method of requesting claims, you need to specify the endpoint you want the claims to come from (see examples below).claims, you need to specify the endpoint you want the claims to come from (see examples below).
 
 Here are these claims:claims:
@@ -923,6 +925,6 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTYxNTQ0ODQsMzYxNzA4MDg3LC0xNj
-Y0NTE5MjE1LC0xODgxNzg5OTg3LDg0NDc0MjQwNV19
+eyJoaXN0b3J5IjpbMTMzMTkxNzE2MCwzNjE3MDgwODcsLTE2Nj
+Q1MTkyMTUsLTE4ODE3ODk5ODcsODQ0NzQyNDA1XX0=
 -->
