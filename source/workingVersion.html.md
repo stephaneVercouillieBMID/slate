@@ -356,7 +356,7 @@ E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
 NRN | not supported|
 
 
-#### 4.2.2.1. Set of Request Parameter Adapted to itsme(r) (#login-optional-fields)
+#### [4.2.2.1. Set of Request Parameter Adapted to itsme(r)](#example-endpoint) 
 
 ```json--inline
  {
@@ -929,7 +929,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA2NTAxMDM2NiwxODk2NTY1OTI4LC0xNz
+eyJoaXN0b3J5IjpbMjA1MTE0MzcyMCwxODk2NTY1OTI4LC0xNz
 kwNzc0NjE2LC0zNjc2MjgyMTIsLTE0MzAyNDAwNjAsMTYyMTQ3
 NjM5NSwxMzg2NzIxNDY2LDEyMDI5MDYyNTQsOTIyNDQ0NzcsMz
 YxNzA4MDg3LC0xNjY0NTE5MjE1LC0xODgxNzg5OTg3LDg0NDc0
