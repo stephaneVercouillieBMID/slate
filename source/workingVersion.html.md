@@ -299,8 +299,12 @@ The following scope values are supported and allow access to predefined sets of 
 | Profile names | Claims  |
 |--|--|
 | profile | given_name
-||family_name||
-
+||family_name|
+||name|
+||gender|
+||birthdate
+||locale
+|
 **NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>**
 
 TODO: example
@@ -892,7 +896,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAyMzY0ODgxNiwyMDgwMjY2NDA1LC01OT
+eyJoaXN0b3J5IjpbLTQwODkyOTI0MSwyMDgwMjY2NDA1LC01OT
 cwNjk3NTYsLTIxMTQxOTc0MzcsLTEyMjg0MjczOTIsLTgwNDAx
 NTkwMiwtMTIyNjMzNDE2OCw4OTIxMTc3NDUsMTI2NzM4NjcyNi
 wtMjEyMDcyNDM5LC02MDM2NDgzMTksLTE5NjE5MjM0NzYsMTc5
