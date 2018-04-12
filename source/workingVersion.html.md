@@ -281,6 +281,9 @@ You can declare Claims in two ways:
 
 In each case, the claims need to be declared in the Authorization Request.
 
+#### 4.2.1. OIDC Standard Claims
+OpenID Connect specifies a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), or user attributes. They are intended to supply the client app with consented user details such as email, name and picture, upon request.
+
 ### 4.2.1. Scope
 
 Scopes are space-separated lists of identifiers used to specify what access privileges are being requested. 
@@ -921,7 +924,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjk3Nzk4MTY5LDkyMjQ0NDc3LDM2MTcwOD
+eyJoaXN0b3J5IjpbODA2MjgwMjc1LDkyMjQ0NDc3LDM2MTcwOD
 A4NywtMTY2NDUxOTIxNSwtMTg4MTc4OTk4Nyw4NDQ3NDI0MDVd
 fQ==
 -->
