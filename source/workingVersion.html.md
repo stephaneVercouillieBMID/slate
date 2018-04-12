@@ -338,7 +338,9 @@ Here are these claims:claims:
 
  Data | Claim | Comment 
  -- | -- | -- 
- Subject | **`sub`** | The subject of the `private_key_jwt` (the client ID). Supports value in request. Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | An error will be raised if request as a value element for the claim Place of Birth - city | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** |
+ Subject | **`sub`** | The subject of the `private_key_jwt` (the client ID). Supports value in request. 
+ Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | An error will be raised if request as a value element for the claim 
+ Place of Birth - city | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** |
 
 
 
@@ -919,6 +921,6 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDgzNzQzMTksMzYxNzA4MDg3LC0xNj
-Y0NTE5MjE1LC0xODgxNzg5OTg3LDg0NDc0MjQwNV19
+eyJoaXN0b3J5IjpbMTE2OTA4MzIzMywzNjE3MDgwODcsLTE2Nj
+Q1MTkyMTUsLTE4ODE3ODk5ODcsODQ0NzQyNDA1XX0=
 -->
