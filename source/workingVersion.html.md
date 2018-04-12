@@ -355,7 +355,6 @@ Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |Informati
 E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
 NRN | not supported|
 
- 
 
 #### 4.2.2.1. Set of Request Parameter Adapted to itsme(r)
 ```json--inline
@@ -929,8 +928,8 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3OTA3NzQ2MTYsLTM2NzYyODIxMiwtMT
-QzMDI0MDA2MCwxNjIxNDc2Mzk1LDEzODY3MjE0NjYsMTIwMjkw
-NjI1NCw5MjI0NDQ3NywzNjE3MDgwODcsLTE2NjQ1MTkyMTUsLT
-E4ODE3ODk5ODcsODQ0NzQyNDA1XX0=
+eyJoaXN0b3J5IjpbLTE4NTQ3MTI4NjQsLTE3OTA3NzQ2MTYsLT
+M2NzYyODIxMiwtMTQzMDI0MDA2MCwxNjIxNDc2Mzk1LDEzODY3
+MjE0NjYsMTIwMjkwNjI1NCw5MjI0NDQ3NywzNjE3MDgwODcsLT
+E2NjQ1MTkyMTUsLTE4ODE3ODk5ODcsODQ0NzQyNDA1XX0=
 -->
