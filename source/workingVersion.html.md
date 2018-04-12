@@ -539,7 +539,7 @@ The following is a non-normative example of a UserInfo Error Response:
  -- Encryption Method (enc): A128CBC-HS256
  -- Encryption Algorithm (alg): RSA-OAEP
  -- Signing Algorithm (alg):  RS256
- - Request Object”
+ - Request Object
  -- Encryption Method (enc): A128CBC-HS256
  -- Encryption Algorithm (alg): RSA-OAEP
  -- Signing Algorithm (alg): RS256
@@ -932,7 +932,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzI1ODA4MDcsMTMzNTY0NjA1MywtMT
+eyJoaXN0b3J5IjpbLTE5MTAzNjg5NTIsMTMzNTY0NjA1MywtMT
 Y3MzM5NTQwNCwtNTQ5MTMyNDE0LC03NDI3MTg3ODAsMTg5NjU2
 NTkyOCwtMTc5MDc3NDYxNiwtMzY3NjI4MjEyLC0xNDMwMjQwMD
 YwLDE2MjE0NzYzOTUsMTM4NjcyMTQ2NiwxMjAyOTA2MjU0LDky
