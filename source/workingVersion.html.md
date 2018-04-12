@@ -297,8 +297,9 @@ The following scope values are supported and allow access to predefined sets of 
 
 | Scope Value | Associated Claims|
 |--|--|
-| profile | given_name, family_name, gender, birthdate,  locale|||||name|||gender|||birthdate||locale |email|
-email||email_verified| phone_number|| 
+| profile | given_name, family_name, gender, birthdate,  locale|
+email|email, email_verified|
+phone| phone_number|| 
  phone|phone_number_verified||address|address, with sub-fields,<
 
 
@@ -915,6 +916,6 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2ODUzMDQyODMsMzYxNzA4MDg3LC0xNj
+eyJoaXN0b3J5IjpbLTE0NjY2Mjg2MDIsMzYxNzA4MDg3LC0xNj
 Y0NTE5MjE1LC0xODgxNzg5OTg3LDg0NDc0MjQwNV19
 -->
