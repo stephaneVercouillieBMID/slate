@@ -298,9 +298,9 @@ The following scope values are supported and allow access to predefined sets of 
 
 Scope  | Claim
  -- | -- | --
- **profile** | `name`, `given_name`,`family_name`
+ **profile** | `name`, `given_name`, `family_name`
  <br>  | `gender`<br>
-||`birthdate`||`locale`||`locale`
+||`locale`|
 
 
  | **email** | Email Adress | <br> `email` and `email_verified`<br>| `gender`
@@ -897,7 +897,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzYxNjk5NzEsMjA4MDI2NjQwNSwtNT
+eyJoaXN0b3J5IjpbLTEyOTQ2MDc5NTAsMjA4MDI2NjQwNSwtNT
 k3MDY5NzU2LC0yMTE0MTk3NDM3LC0xMjI4NDI3MzkyLC04MDQw
 MTU5MDIsLTEyMjYzMzQxNjgsODkyMTE3NzQ1LDEyNjczODY3Mj
 YsLTIxMjA3MjQzOSwtNjAzNjQ4MzE5LC0xOTYxOTIzNDc2LDE3
