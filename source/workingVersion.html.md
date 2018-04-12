@@ -326,9 +326,9 @@ nonce=anonce
 prompt=login
 max_age=1
  
-### 4.2.2 “claims” Parameterclaims” Parameter
+### 4.2.2 “claims” Parameter
 
-Some specific data cannot be requested by using scope values. They have to be requested in the [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)ClaimsParameter)  request parameter of the Authentication Request. 
+Some specific data cannot be requested by using scope values. They have to be requested in the [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter) ClaimsParameter)  request parameter of the Authentication Request. 
 
 *<!--> OIDC standard claims built in add*claims built in add TODO
 
@@ -368,10 +368,11 @@ tag:sixdots.be,2017-05:claim_passport_sn`** | Simple string containing the user�
       "auth_time": {"essential": true},
       "acr": {"values": ["urn:mace:incommon:iap:silver"] }
      }
- }```
+ }
+ ```
  
 #### 4.2.2.2. Example of a Valid “claims” Object
-Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_device`
+Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_device`:
  
  ```json--inline
  {  
@@ -390,7 +391,8 @@ Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_devic
  	"deviceModel": "S8",  
  	"msisdn": "0412123123", 
  	"sdkRelease": "1.17.12"  
- }```
+ }
+ ```
  
 ## 4.3. Getting Data
 
@@ -917,6 +919,6 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2MTk2MDMyMiwzNjE3MDgwODcsLTE2Nj
+eyJoaXN0b3J5IjpbLTUwNjkwOTk4MSwzNjE3MDgwODcsLTE2Nj
 Q1MTkyMTUsLTE4ODE3ODk5ODcsODQ0NzQyNDA1XX0=
 -->
