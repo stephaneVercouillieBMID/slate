@@ -313,7 +313,7 @@ The following scope values are supported and allow access to predefined sets of 
 
 #### 4.2.1.2 Example of an Authorization Request using "scope" values
 
-
+{"user_info":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","tag:sixdots.be,2016-06:claim_eid":{"issuance_locality":"BRUXELLES","certificate_validity":"2026-06-26T22:00:00+0000","eid":"461025455","validity_to":"2026-06-26T22:00:00+0000","validity_from":"2016-06-26T22:00:00+0000","national_number":"46102545525","read_date":"2016-06-30T07:10:11+0000"},"birthdate":"1974-04-12","gender":"male","name":"Ada Gardner","iss":"https://uatmerchant.sixdots.be/oidc","locale":"fr","given_name":"Ada","family_name":"Gardner"},"id_token":{"access_token":"nwnbNc7pDE4e4i-jR-JQdOPAc9PRLrTvmFNSMOvR-8A","id_token":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","acr":"tag:sixdots.be,2016-06:acr_basic","auth_time":1523536406,"iss":"https://uatmerchant.sixdots.be/oidc","exp":1523536707,"iat":1523536407,"nonce":"anonce"},"token_type":"Bearer","expire_in":133}}
  
 ### 4.2.2 “claims” Parameter
 
@@ -904,6 +904,6 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzYxNzA4MDg3LC0xNjY0NTE5MjE1LC0xOD
-gxNzg5OTg3LDg0NDc0MjQwNV19
+eyJoaXN0b3J5IjpbMTA0MDQ1MzQ5MywtMTY2NDUxOTIxNSwtMT
+g4MTc4OTk4Nyw4NDQ3NDI0MDVdfQ==
 -->
