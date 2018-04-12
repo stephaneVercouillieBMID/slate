@@ -295,19 +295,27 @@ Using this method, you will always receive Claims from the UserInfo Endpoint.
 
 The following scope values are supported and allow access to predefined sets of Identity Data:
 
-| Scope Value | Associated Claims  |
-|--|--|
-| profile | given_name
-||family_name|
-||name|
-||gender|
-||birthdate
-||locale
-|email| email
-||email_verified
-| phone| phone_number
-|| phone_number_verified|
-|address|address, with sub-fields,<br> street_address (newline separator \n) <br>locality <br>postal_code <br>country
+| Scope Value | Associated Claims|
+|--|--|| profile | given_name||family_name|||name|||gender|||birthdate||locale|email| email||email_verified| phone| phone_number|| phone_number_verified||address|address, with sub-fields,<
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+br> street_address (newline separator \n) <br>locality <br>postal_code <br>country
 
 **NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>**
 
@@ -315,15 +323,15 @@ The following scope values are supported and allow access to predefined sets of 
 
 
  
-### 4.2.2 “claims” Parameter
+### 4.2.2 “claims” Parameterclaims” Parameter
 
-Some specific data cannot be requested by using scope values. They have to be requested in the [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter of the Authentication Request. 
+Some specific data cannot be requested by using scope values. They have to be requested in the [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)ClaimsParameter)  request parameter of the Authentication Request. 
 
-*<!--> OIDC standard claims built in add* TODO
+*<!--> OIDC standard claims built in add*claims built in add TODO
 
-Using this method of requesting claims, you need to specify the endpoint you want the claims to come from (see examples below).
+Using this method of requesting claims, you need to specify the endpoint you want the claims to come from (see examples below).claims, you need to specify the endpoint you want the claims to come from (see examples below).
 
-Here are these claims:
+Here are these claims:claims:
  
  Data | Claim | Comment -- | -- | -- Subject | **`sub`** | The subject of the `private_key_jwt` (the client ID). Supports value in request. Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | An error will be raised if request as a value element for the claim Place of Birth - city | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** |
 
@@ -904,6 +912,6 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTI1MDY4MTMzLDM2MTcwODA4NywtMTY2ND
-UxOTIxNSwtMTg4MTc4OTk4Nyw4NDQ3NDI0MDVdfQ==
+eyJoaXN0b3J5IjpbLTkwNTQ0NjQyMywzNjE3MDgwODcsLTE2Nj
+Q1MTkyMTUsLTE4ODE3ODk5ODcsODQ0NzQyNDA1XX0=
 -->
