@@ -294,7 +294,7 @@ Using this method, you will always receive Claims from the UserInfo Endpoint.
 
 <!-- (always User Info Endpoint)-->
 
-#### 4.2.1.1 Set of Supported Scope Values
+#### 4.2.1.1 List of Supported Scope Values
 
 The following scope values are supported and allow access to predefined sets of Identity Data:
 
@@ -335,7 +335,7 @@ max_age=1
  
 ### 4.2.2 “claims” Parameter
 
-Some specific data cannot be requested by using scope values. They have to be requested in the [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter) ClaimsParameter)  request parameter of the Authentication Request. 
+Some specific data cannot be requested by using scope values. They have to be requested in the [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter) as request parameter of the Authentication Request. 
 
 Using this method of requesting claims, you need to specify the endpoint you want the claims to come from (see examples below).claims, you need to specify the endpoint you want the claims to come from (see examples below).
 
@@ -924,7 +924,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNzY0OTM3MDMsOTIyNDQ0NzcsMzYxNz
-A4MDg3LC0xNjY0NTE5MjE1LC0xODgxNzg5OTg3LDg0NDc0MjQw
-NV19
+eyJoaXN0b3J5IjpbMTIwMjkwNjI1NCw5MjI0NDQ3NywzNjE3MD
+gwODcsLTE2NjQ1MTkyMTUsLTE4ODE3ODk5ODcsODQ0NzQyNDA1
+XX0=
 -->
