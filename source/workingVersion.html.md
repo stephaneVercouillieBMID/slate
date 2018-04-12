@@ -882,7 +882,7 @@ It is expected that you will also expose their signing and encryption keys in su
  
  For the rest, if each developer has the private key of the SP on his post, she/he can impersonate the SP during calls to "/ token" and "/ userinfo". There is no check on the source IP, only the signature JWT account.
  
-  >### <a name="#ServiceCode"></a>Service Code Concept, 	What is it?
+  >### <a name="ServiceCode"></a>Service Code Concept, 	What is it?
   To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
 
 For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
@@ -900,11 +900,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMwNjE5NjU0OSwyMDgwMjY2NDA1LC01OT
-cwNjk3NTYsLTIxMTQxOTc0MzcsLTEyMjg0MjczOTIsLTgwNDAx
-NTkwMiwtMTIyNjMzNDE2OCw4OTIxMTc3NDUsMTI2NzM4NjcyNi
-wtMjEyMDcyNDM5LC02MDM2NDgzMTksLTE5NjE5MjM0NzYsMTc5
-MTM1NjQzNiwtMjAzMDEwOTAwOSwtMjAwNjgwMzA1OCwxNzgwNz
-c0NzY2LDExMDkwNDIxNTgsMTYzNzEwMTQ1MywxOTgxNTQzNjU3
-LDEyNzI0Mjc4MF19
+eyJoaXN0b3J5IjpbLTExMjMyOTU4NzgsMTMwNjE5NjU0OSwyMD
+gwMjY2NDA1LC01OTcwNjk3NTYsLTIxMTQxOTc0MzcsLTEyMjg0
+MjczOTIsLTgwNDAxNTkwMiwtMTIyNjMzNDE2OCw4OTIxMTc3ND
+UsMTI2NzM4NjcyNiwtMjEyMDcyNDM5LC02MDM2NDgzMTksLTE5
+NjE5MjM0NzYsMTc5MTM1NjQzNiwtMjAzMDEwOTAwOSwtMjAwNj
+gwMzA1OCwxNzgwNzc0NzY2LDExMDkwNDIxNTgsMTYzNzEwMTQ1
+MywxOTgxNTQzNjU3XX0=
 -->
