@@ -313,7 +313,7 @@ The following scope values are supported and allow access to predefined sets of 
 
 #### 4.2.1.2 Example of an Authorization Request using "scope" values
 
-TODO: example
+
  
 ### 4.2.2 “claims” Parameter
 
@@ -904,6 +904,6 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NjQ1MTkyMTUsLTE4ODE3ODk5ODcsOD
-Q0NzQyNDA1XX0=
+eyJoaXN0b3J5IjpbMzYxNzA4MDg3LC0xNjY0NTE5MjE1LC0xOD
+gxNzg5OTg3LDg0NDc0MjQwNV19
 -->
