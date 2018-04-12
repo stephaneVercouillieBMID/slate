@@ -427,6 +427,7 @@ Your server sends the User Info Request using either HTTP  `GET`  or HTTP  `POST
 #### 4.3.1.1. User info Request Specification
 As per specified [OIDC UserInfo Request](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest).
 
+The Service Provider Back-End sends a request to the UserInfo endpoint, providing the ID Token and the Access Token
 The Client sends the UserInfo Request using either HTTP  GET  or HTTP  POST. The Access Token obtained from an OpenID Connect Authentication Request MUST be sent as a Bearer Token, per Section 2 of  [OAuth 2.0 Bearer Token Usage](http://openid.net/specs/openid-connect-core-1_0.html#RFC6750)  [RFC6750].
 
 It is RECOMMENDED that the request use the HTTP  GET  method and the Access Token be sent using the  Authorization  header field.
@@ -940,10 +941,10 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzE3NjMxNDQwLC0xNjczMzk1NDA0LC01ND
-kxMzI0MTQsLTc0MjcxODc4MCwxODk2NTY1OTI4LC0xNzkwNzc0
-NjE2LC0zNjc2MjgyMTIsLTE0MzAyNDAwNjAsMTYyMTQ3NjM5NS
-wxMzg2NzIxNDY2LDEyMDI5MDYyNTQsOTIyNDQ0NzcsMzYxNzA4
-MDg3LC0xNjY0NTE5MjE1LC0xODgxNzg5OTg3LDg0NDc0MjQwNV
-19
+eyJoaXN0b3J5IjpbMTkxMjMyODE3NywtMTY3MzM5NTQwNCwtNT
+Q5MTMyNDE0LC03NDI3MTg3ODAsMTg5NjU2NTkyOCwtMTc5MDc3
+NDYxNiwtMzY3NjI4MjEyLC0xNDMwMjQwMDYwLDE2MjE0NzYzOT
+UsMTM4NjcyMTQ2NiwxMjAyOTA2MjU0LDkyMjQ0NDc3LDM2MTcw
+ODA4NywtMTY2NDUxOTIxNSwtMTg4MTc4OTk4Nyw4NDQ3NDI0MD
+VdfQ==
 -->
