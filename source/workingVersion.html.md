@@ -335,7 +335,7 @@ Some specific data cannot be requested by using scope values. They have to be re
 Using this method of requesting claims, you need to specify the endpoint you want the claims to come from (see examples below).claims, you need to specify the endpoint you want the claims to come from (see examples below).
 
 Here are these claims:claims:
- 
+
  Data | Claim | Comment 
  -- | -- | -- 
  Subject | **`sub`** | The subject of the `private_key_jwt` (the client ID). Supports value in request. Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | An error will be raised if request as a value element for the claim Place of Birth - city | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** |
@@ -919,6 +919,6 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUwNjkwOTk4MSwzNjE3MDgwODcsLTE2Nj
-Q1MTkyMTUsLTE4ODE3ODk5ODcsODQ0NzQyNDA1XX0=
+eyJoaXN0b3J5IjpbLTE2NDgzNzQzMTksMzYxNzA4MDg3LC0xNj
+Y0NTE5MjE1LC0xODgxNzg5OTg3LDg0NDc0MjQwNV19
 -->
