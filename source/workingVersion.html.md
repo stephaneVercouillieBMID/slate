@@ -157,7 +157,7 @@ As per explained by OIDC [http://openid.net/specs/openid-connect-core-1_0.html#A
  `invalid_request_object` | The request parameter contains an invalid Request Object.
  `request_uri_not_supported` | does not support use of the request_uri parameter.
  `registration_not_supported` | does not support use of the registration parameter.
-## <a name="TokenEndpoint"></a> 3.2. Token Endpoint
+## [3.2. Token Endpoint](#tokEndpoint) <a name="TokenEndpoint"></a>
 As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
 ### 3.2.1. About Tokens
 In this section, we will go through token types and their specifics.
@@ -918,11 +918,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY0Mjk2MDM2NSw1OTgxMDQwNCwtNTQ1ND
-A3NjA4LC02NTYzNDUxNjQsMzYyMDI2NDkxLC0zOTI1MTUwMDUs
-MTM3OTk5NDY3Nyw5Mjc5NzUxODMsLTE5MTAzNjg5NTIsMTMzNT
-Y0NjA1MywtMTY3MzM5NTQwNCwtNTQ5MTMyNDE0LC03NDI3MTg3
-ODAsMTg5NjU2NTkyOCwtMTc5MDc3NDYxNiwtMzY3NjI4MjEyLC
-0xNDMwMjQwMDYwLDE2MjE0NzYzOTUsMTM4NjcyMTQ2NiwxMjAy
-OTA2MjU0XX0=
+eyJoaXN0b3J5IjpbLTE4NjcyMzQzNzIsLTY0Mjk2MDM2NSw1OT
+gxMDQwNCwtNTQ1NDA3NjA4LC02NTYzNDUxNjQsMzYyMDI2NDkx
+LC0zOTI1MTUwMDUsMTM3OTk5NDY3Nyw5Mjc5NzUxODMsLTE5MT
+AzNjg5NTIsMTMzNTY0NjA1MywtMTY3MzM5NTQwNCwtNTQ5MTMy
+NDE0LC03NDI3MTg3ODAsMTg5NjU2NTkyOCwtMTc5MDc3NDYxNi
+wtMzY3NjI4MjEyLC0xNDMwMjQwMDYwLDE2MjE0NzYzOTUsMTM4
+NjcyMTQ2Nl19
 -->
