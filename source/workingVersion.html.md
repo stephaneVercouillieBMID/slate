@@ -317,6 +317,14 @@ Cookie: JSESSIONID=871EA8BD595FE9F89BB9F4346ABD16B094ABB62AEFC2ABED925F8361E1B30
 Connection: keep-alive
 Upgrade-Insecure-Requests: 1
 ```
+response_type=code
+client_id=OIDC_TEST1
+redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fuat_OIDC_TEST1%2Fauthz_cb
+scope=openid+service%3AOIDC_TEST1_LOGIN+profile+eid+phone=phone_number+phone_number_verified+email=email_verified+address=postal_code+country+
+state=anystate
+nonce=anonce
+prompt=login
+max_age=1
  
 ### 4.2.2 “claims” Parameterclaims” Parameter
 
@@ -907,6 +915,6 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYzNjcwNTQ3NywzNjE3MDgwODcsLTE2Nj
+eyJoaXN0b3J5IjpbLTk5MTMyOTYyNiwzNjE3MDgwODcsLTE2Nj
 Q1MTkyMTUsLTE4ODE3ODk5ODcsODQ0NzQyNDA1XX0=
 -->
