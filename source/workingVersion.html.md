@@ -336,17 +336,13 @@ max_age=1
  
 ### 4.2.2 “claims” Parameter
 
-Some specific data cannot be requested by using scope values. They have to be requested in the [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter) as request parameter of the Authentication Request. 
+Some specific data cannot be requested by using scope values. They have to be requested in the [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter) as request parameter of the Authentication Request. Using this method of requesting claims, you need to specify the endpoint you want the claims to come from (see examples below).
 
-List of Supported Standard "claim" Values:
+**List of Supported Standard "claim" Values:**
 
 As per specified by OpenID Connect, there is a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), or user attributes. They are intended to supply the client app with consented user details such as email, name and picture, upon request.
 
-List of Supported Custom "claim" Values:
-
-
-
-Using this method of requesting claims, you need to specify the endpoint you want the claims to come from (see examples below).
+**List of Supported Custom "claim" Values:**
 
 Here are these claims:
 
@@ -933,7 +929,8 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzAyNDAwNjAsMTYyMTQ3NjM5NSwxMz
-g2NzIxNDY2LDEyMDI5MDYyNTQsOTIyNDQ0NzcsMzYxNzA4MDg3
-LC0xNjY0NTE5MjE1LC0xODgxNzg5OTg3LDg0NDc0MjQwNV19
+eyJoaXN0b3J5IjpbMjI1MDEzNzU0LC0xNDMwMjQwMDYwLDE2Mj
+E0NzYzOTUsMTM4NjcyMTQ2NiwxMjAyOTA2MjU0LDkyMjQ0NDc3
+LDM2MTcwODA4NywtMTY2NDUxOTIxNSwtMTg4MTc4OTk4Nyw4ND
+Q3NDI0MDVdfQ==
 -->
