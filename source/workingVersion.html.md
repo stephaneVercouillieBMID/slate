@@ -334,7 +334,10 @@ max_age=1
 
 Some specific data cannot be requested by using scope values. They have to be requested in the [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter) ClaimsParameter)  request parameter of the Authentication Request. 
 
-*<!--> OIDC standard claims built in add*claims built in add TODO
+#### 4.2.2.1. OIDC Standard Claims
+
+
+https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims
 
 
 
@@ -925,6 +928,6 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzMTkxNzE2MCwzNjE3MDgwODcsLTE2Nj
-Q1MTkyMTUsLTE4ODE3ODk5ODcsODQ0NzQyNDA1XX0=
+eyJoaXN0b3J5IjpbOTIyNDQ0NzcsMzYxNzA4MDg3LC0xNjY0NT
+E5MjE1LC0xODgxNzg5OTg3LDg0NDc0MjQwNV19
 -->
