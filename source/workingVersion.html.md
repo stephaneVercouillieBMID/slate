@@ -471,7 +471,7 @@ Authorization: Bearer SlAV32hkKG
  }
  ```
 #### 4.3.1.5. User info Errors
-When an error condition occurs, the UserInfo Endpoint returns an Error Response as defined in Section 3 of  [OAuth 2.0 Bearer Token Usage](http://openid.net/specs/openid-connect-core-1_0.html#RFC6750)  [RFC6750]. (HTTP errors unrelated to RFC 6750 are returned to the User Agent using the appropriate HTTP status code.)
+When an error condition occurs, the UserInfo Endpoint returns an Error Response as defined in Section 3 of  [OAuth 2.0 Bearer Token Usage RFC6750](https://tools.ietf.org/html/rfc6750)   (HTTP errors unrelated to RFC 6750 are returned to the User Agent using the appropriate HTTP status code.)
 
 The following is a non-normative example of a UserInfo Error Response:
 ```http--inline
@@ -932,10 +932,10 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTAzNjg5NTIsMTMzNTY0NjA1MywtMT
-Y3MzM5NTQwNCwtNTQ5MTMyNDE0LC03NDI3MTg3ODAsMTg5NjU2
-NTkyOCwtMTc5MDc3NDYxNiwtMzY3NjI4MjEyLC0xNDMwMjQwMD
-YwLDE2MjE0NzYzOTUsMTM4NjcyMTQ2NiwxMjAyOTA2MjU0LDky
-MjQ0NDc3LDM2MTcwODA4NywtMTY2NDUxOTIxNSwtMTg4MTc4OT
-k4Nyw4NDQ3NDI0MDVdfQ==
+eyJoaXN0b3J5IjpbLTg0MTExMTIwLC0xOTEwMzY4OTUyLDEzMz
+U2NDYwNTMsLTE2NzMzOTU0MDQsLTU0OTEzMjQxNCwtNzQyNzE4
+NzgwLDE4OTY1NjU5MjgsLTE3OTA3NzQ2MTYsLTM2NzYyODIxMi
+wtMTQzMDI0MDA2MCwxNjIxNDc2Mzk1LDEzODY3MjE0NjYsMTIw
+MjkwNjI1NCw5MjI0NDQ3NywzNjE3MDgwODcsLTE2NjQ1MTkyMT
+UsLTE4ODE3ODk5ODcsODQ0NzQyNDA1XX0=
 -->
