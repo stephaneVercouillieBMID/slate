@@ -343,6 +343,8 @@ Some specific data cannot be requested by using scope values. They have to be re
 Example
 </h4>
 
+[see above](#example-endpoint)
+
 
 **List of Supported Custom "claim" Values:**
 
@@ -934,7 +936,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM3NTQ5MDAwNSwxODk2NTY1OTI4LC0xNz
+eyJoaXN0b3J5IjpbMTQ5NDg2MjU1NywxODk2NTY1OTI4LC0xNz
 kwNzc0NjE2LC0zNjc2MjgyMTIsLTE0MzAyNDAwNjAsMTYyMTQ3
 NjM5NSwxMzg2NzIxNDY2LDEyMDI5MDYyNTQsOTIyNDQ0NzcsMz
 YxNzA4MDg3LC0xNjY0NTE5MjE1LC0xODgxNzg5OTg3LDg0NDc0
