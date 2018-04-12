@@ -178,7 +178,7 @@ Bearer token concept must be mentioned before access token is explained. Bearer 
 - Access tokens are used as bearer tokens. 
 - They have short lifespan, expire for improving security. The user must authenticate again to get a new access token limiting the exposure of the fact that it’s a bearer token.
 
-#### [3.2.1.3 Refresh Tokens](#rfshtoken)<a name id="rfshtoken"></a> (not supported) 
+#### [3.2.1.3 Refresh Tokens](#rfshtoken)<a name id="rfshtoken"></a> (_not supported_) 
 
 As access tokens have short lifespan, there is a need for refresh tokens in order to take forward long-lived sessions. We do not support refresh tokens due to sessions are not maintained.
 
@@ -918,11 +918,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzMxMTkwNTgzLDU5ODEwNDA0LC01NDU0MD
-c2MDgsLTY1NjM0NTE2NCwzNjIwMjY0OTEsLTM5MjUxNTAwNSwx
-Mzc5OTk0Njc3LDkyNzk3NTE4MywtMTkxMDM2ODk1MiwxMzM1Nj
-Q2MDUzLC0xNjczMzk1NDA0LC01NDkxMzI0MTQsLTc0MjcxODc4
-MCwxODk2NTY1OTI4LC0xNzkwNzc0NjE2LC0zNjc2MjgyMTIsLT
-E0MzAyNDAwNjAsMTYyMTQ3NjM5NSwxMzg2NzIxNDY2LDEyMDI5
-MDYyNTRdfQ==
+eyJoaXN0b3J5IjpbLTY0Mjk2MDM2NSw1OTgxMDQwNCwtNTQ1ND
+A3NjA4LC02NTYzNDUxNjQsMzYyMDI2NDkxLC0zOTI1MTUwMDUs
+MTM3OTk5NDY3Nyw5Mjc5NzUxODMsLTE5MTAzNjg5NTIsMTMzNT
+Y0NjA1MywtMTY3MzM5NTQwNCwtNTQ5MTMyNDE0LC03NDI3MTg3
+ODAsMTg5NjU2NTkyOCwtMTc5MDc3NDYxNiwtMzY3NjI4MjEyLC
+0xNDMwMjQwMDYwLDE2MjE0NzYzOTUsMTM4NjcyMTQ2NiwxMjAy
+OTA2MjU0XX0=
 -->
