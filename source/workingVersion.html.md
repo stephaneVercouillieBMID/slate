@@ -158,7 +158,7 @@ As per explained by OIDC [http://openid.net/specs/openid-connect-core-1_0.html#A
  `request_uri_not_supported` | does not support use of the request_uri parameter.
  `registration_not_supported` | does not support use of the registration parameter.
 ## <a name="TokenEndpoint"></a> 3.2. Token Endpoint
-As per the OpenID Connect specification [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
+As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
 ### 3.2.1. About Tokens
 There are three types of tokens in OIDC: `id_token`, `access_token` and `refresh_token`.
 
@@ -920,11 +920,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzYyMDI2NDkxLC0zOTI1MTUwMDUsMTM3OT
-k5NDY3Nyw5Mjc5NzUxODMsLTE5MTAzNjg5NTIsMTMzNTY0NjA1
-MywtMTY3MzM5NTQwNCwtNTQ5MTMyNDE0LC03NDI3MTg3ODAsMT
-g5NjU2NTkyOCwtMTc5MDc3NDYxNiwtMzY3NjI4MjEyLC0xNDMw
-MjQwMDYwLDE2MjE0NzYzOTUsMTM4NjcyMTQ2NiwxMjAyOTA2Mj
-U0LDkyMjQ0NDc3LDM2MTcwODA4NywtMTY2NDUxOTIxNSwtMTg4
-MTc4OTk4N119
+eyJoaXN0b3J5IjpbLTY1NjM0NTE2NCwzNjIwMjY0OTEsLTM5Mj
+UxNTAwNSwxMzc5OTk0Njc3LDkyNzk3NTE4MywtMTkxMDM2ODk1
+MiwxMzM1NjQ2MDUzLC0xNjczMzk1NDA0LC01NDkxMzI0MTQsLT
+c0MjcxODc4MCwxODk2NTY1OTI4LC0xNzkwNzc0NjE2LC0zNjc2
+MjgyMTIsLTE0MzAyNDAwNjAsMTYyMTQ3NjM5NSwxMzg2NzIxND
+Y2LDEyMDI5MDYyNTQsOTIyNDQ0NzcsMzYxNzA4MDg3LC0xNjY0
+NTE5MjE1XX0=
 -->
