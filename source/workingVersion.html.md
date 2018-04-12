@@ -296,12 +296,12 @@ Using this method, you will always receive Claims from the UserInfo Endpoint.
 
 The following scope values are supported and allow access to predefined sets of Identity Data:
 
-Scope  | Data| Claim
+Scope  | Claim
  -- | -- | --
- **profile** |Full name| `name` and `given_name` and `family_name`
- <br>  |Gender| `gender`<br>
-||Birthdate|`birthdate`
-||Language |`locale`
+ **profile** | `name` and `given_name` and `family_name`
+ <br>  | `gender`<br>
+||`birthdate`
+||`locale`
  | **email** | Email Adress | <br> `email` and `email_verified`<br>| `gender`
  | **phone** | Phone number |`phone_number` or `phone_number_verified`
  
@@ -896,11 +896,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1ODk0OTI1LDIwODAyNjY0MDUsLTU5Nz
-A2OTc1NiwtMjExNDE5NzQzNywtMTIyODQyNzM5MiwtODA0MDE1
-OTAyLC0xMjI2MzM0MTY4LDg5MjExNzc0NSwxMjY3Mzg2NzI2LC
-0yMTIwNzI0MzksLTYwMzY0ODMxOSwtMTk2MTkyMzQ3NiwxNzkx
-MzU2NDM2LC0yMDMwMTA5MDA5LC0yMDA2ODAzMDU4LDE3ODA3Nz
-Q3NjYsMTEwOTA0MjE1OCwxNjM3MTAxNDUzLDE5ODE1NDM2NTcs
-MTI3MjQyNzgwXX0=
+eyJoaXN0b3J5IjpbMTYyODI0MjU0NSwyMDgwMjY2NDA1LC01OT
+cwNjk3NTYsLTIxMTQxOTc0MzcsLTEyMjg0MjczOTIsLTgwNDAx
+NTkwMiwtMTIyNjMzNDE2OCw4OTIxMTc3NDUsMTI2NzM4NjcyNi
+wtMjEyMDcyNDM5LC02MDM2NDgzMTksLTE5NjE5MjM0NzYsMTc5
+MTM1NjQzNiwtMjAzMDEwOTAwOSwtMjAwNjgwMzA1OCwxNzgwNz
+c0NzY2LDExMDkwNDIxNTgsMTYzNzEwMTQ1MywxOTgxNTQzNjU3
+LDEyNzI0Mjc4MF19
 -->
