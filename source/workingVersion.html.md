@@ -467,7 +467,7 @@ The following is a non-normative example of a UserInfo Error Response:
  ```
 
 ### 4.3.2. Token Endpoint
-#### 4.3.2.1. See [3.2 Token Endpoint](#tokEndpoint))
+#### 4.3.2.1. See [3.2 Token Endpoint](#tokEndpoint)
 
 #### 4.3.2.2 Example of Id Token Containing “claims”
 *Will be provided soon*
@@ -918,7 +918,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzM3Nzg1NDIsLTY0Mjk2MDM2NSw1OT
+eyJoaXN0b3J5IjpbLTExOTI0NzYwNTksLTY0Mjk2MDM2NSw1OT
 gxMDQwNCwtNTQ1NDA3NjA4LC02NTYzNDUxNjQsMzYyMDI2NDkx
 LC0zOTI1MTUwMDUsMTM3OTk5NDY3Nyw5Mjc5NzUxODMsLTE5MT
 AzNjg5NTIsMTMzNTY0NjA1MywtMTY3MzM5NTQwNCwtNTQ5MTMy
