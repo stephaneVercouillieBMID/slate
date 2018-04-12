@@ -305,7 +305,8 @@ The following scope values are supported and allow access to predefined sets of 
 ||birthdate
 ||locale
 |email| email
-||family_name|
+||email_verified
+||email_verified
 **NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>**
 
 TODO: example
@@ -897,11 +898,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMzg2NzI2OTMsMjA4MDI2NjQwNSwtNT
-k3MDY5NzU2LC0yMTE0MTk3NDM3LC0xMjI4NDI3MzkyLC04MDQw
-MTU5MDIsLTEyMjYzMzQxNjgsODkyMTE3NzQ1LDEyNjczODY3Mj
-YsLTIxMjA3MjQzOSwtNjAzNjQ4MzE5LC0xOTYxOTIzNDc2LDE3
-OTEzNTY0MzYsLTIwMzAxMDkwMDksLTIwMDY4MDMwNTgsMTc4MD
-c3NDc2NiwxMTA5MDQyMTU4LDE2MzcxMDE0NTMsMTk4MTU0MzY1
-NywxMjcyNDI3ODBdfQ==
+eyJoaXN0b3J5IjpbMTgxNjc2Mjg1LDIwODAyNjY0MDUsLTU5Nz
+A2OTc1NiwtMjExNDE5NzQzNywtMTIyODQyNzM5MiwtODA0MDE1
+OTAyLC0xMjI2MzM0MTY4LDg5MjExNzc0NSwxMjY3Mzg2NzI2LC
+0yMTIwNzI0MzksLTYwMzY0ODMxOSwtMTk2MTkyMzQ3NiwxNzkx
+MzU2NDM2LC0yMDMwMTA5MDA5LC0yMDA2ODAzMDU4LDE3ODA3Nz
+Q3NjYsMTEwOTA0MjE1OCwxNjM3MTAxNDUzLDE5ODE1NDM2NTcs
+MTI3MjQyNzgwXX0=
 -->
