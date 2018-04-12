@@ -312,140 +312,140 @@ The following scope values are supported and allow access to predefined sets of 
 **NOTE: Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>**
 
 #### 4.2.1.2 Example of an Authorization Request using "scope" values
+ ```http--inlineGET /oidc/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fuat_OIDC_TEST1%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_LOGIN+profile+eid+phone=phone_number+phone_number_verified+email=email_verified+address=postal_code+country+&state=anystate&nonce=anonce&prompt=login&max_age=1 HTTP/1.1Host: uatmerchant.sixdots.beUser-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:52.0) Gecko/20100101 Firefox/52.0Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8Accept-Language: en-US,en;q=0.5Accept-Encoding: gzip, deflate, br``
 
-GET /oidc/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fuat_OIDC_TEST1%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_LOGIN+profile+eid+phone=phone_number+phone_number_verified+email=email_verified+address=postal_code+country+&state=anystate&nonce=anonce&prompt=login&max_age=1 HTTP/1.1
-Host: uatmerchant.sixdots.be
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:52.0) Gecko/20100101 Firefox/52.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-Accept-Language: en-US,en;q=0.5
-Accept-Encoding: gzip, deflate, br
-Cookie: JSESSIONID=871EA8BD595FE9F89BB9F4346ABD16B094ABB62AEFC2ABED925F8361E1B3031178073D9C12A0DBDF4FB02C28AB72E917763275E9E853CB6A0D178744291D15DB92DECDA43BE66D0E5673A7E48DD23564B6E40BAC61F9012F4137B5A02112CEF5788DD47500AC51B1024AE061E0A93593CF954051E913B7BC1D772B947C8C7FB8; TS01afcf7e=0163058fe5252ff79320ae0af6fe6d839a75ea2aec42d57c6c4f7781ddc75d5c4aeec90a783e72b1e9ea8053bb334a3bc6a2ca0c09cd3409043e8ac82f7001989a812dee31; cookieconsent_status=dismiss; mobileid-phonenumber=null; BIGipServer~DMZ~pool_uat_5000=rd1o00000000000000000000ffff0ac21e03o5000; TS01da5469=0163058fe527f1fa81765220131ba80249a2f3e34342d57c6c4f7781ddc75d5c4aeec90a7804b2672a8fd3a85c4d2f9c7eb480d78ce9f71f0e45414210e79c2179584c20a4
-Connection: keep-alive
-Upgrade-Insecure-Requests: 1
+
+
+
+
+
+Cookie: JSESSIONID=871EA8BD595FE9F89BB9F4346ABD16B094ABB62AEFC2ABED925F8361E1B3031178073D9C12A0DBDF4FB02C28AB72E917763275E9E853CB6A0D178744291D15DB92DECDA43BE66D0E5673A7E48DD23564B6E40BAC61F9012F4137B5A02112CEF5788DD47500AC51B1024AE061E0A93593CF954051E913B7BC1D772B947C8C7FB8; TS01afcf7e=0163058fe5252ff79320ae0af6fe6d839a75ea2aec42d57c6c4f7781ddc75d5c4aeec90a783e72b1e9ea8053bb334a3bc6a2ca0c09cd3409043e8ac82f7001989a812dee31; cookieconsent_status=dismiss; mobileid-phonenumber=null; BIGipServer~DMZ~pool_uat_5000=rd1o00000000000000000000ffff0ac21e03o5000; TS01da5469=0163058fe527f1fa81765220131ba80249a2f3e34342d57c6c4f7781ddc75d5c4aeec90a7804b2672a8fd3a85c4d2f9c7eb480d78ce9f71f0e45414210e79c2179584c20a4Connection: keep-aliveUpgrade-Insecure-Requests: 1###
+
+
 
  
-### 4.2.2 “claims” Parameter
+ 4.2.2 “claims” ParameterSome specific data cannot be requested by using scope values. They have to be requested in the [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter of the Authentication Request. *<!--> OIDC standard claims built in add* TODOUsing this method of requesting claims, you need to specify the endpoint you want the claims to come from (see examples below).Here are these claims: Data | Claim | Comment -- | -- | -- Subject | **`sub`** | The subject of the `private_key_jwt` (the client ID). Supports value in request. Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`
 
-Some specific data cannot be requested by using scope values. They have to be requested in the [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  request parameter of the Authentication Request. 
 
-*<!--> OIDC standard claims built in add* TODO
 
-Using this method of requesting claims, you need to specify the endpoint you want the claims to come from (see examples below).
 
-Here are these claims:
+
+
+
+
  
- Data | Claim | Comment
- -- | -- | --
- Subject | **`sub`** | The subject of the `private_key_jwt` (the client ID). Supports value in request.
- Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | An error will be raised if request as a value element for the claim
- Place of Birth - city | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** |  An error will be raised if request as a value element for the claim
- Place of Birth - country | **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** | An error will be raised if request as a value element for the claim
- E-ID Info  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** | Belgian Electronic ID card information encoded in JSON, with the following keys<br>`eid`: the electronic ID card serial number. <br>`issuance_locality`: the issuance locality. <br>`validity_from`: eID card validity “from” date. <br>`validity_to`: eID card validity “to” date. <br>`certificate_validity`: the certificate validity. <br>`read_date`: the data extraction date. <br>Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: 2017-04-01T19:43:37+0000
- Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | Simple string containing the user’s Passport Serial Number.
- Device | **`tag:sixdots.be,2017-05:claim_device`** | see [Device information](#device-information)
- Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |Information available in the context of the current transaction.<br> A JSON object with the following keys:<br> (only keys with cardinality \\\[1..1\\\] will be always available)<br> **“securityLevel” \\\[1..1\\\]**: (supported values: <br>{SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) Security level used during transaction. <br>**“bindLevel” \\\[1..1\\\]**: (supported values: {SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. <br>**“mcc” \\\[0..1\\\]**: the Mobile Country Code. An Integer (three digits) representing the mobile network country. <br>For example: { "securityLevel": "SIM\\\_AND\\\_SOFT", "bindLevel": "SIM\\\_AND\\\_SOFT", "mcc": 206 }
- E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
- NRN | not supported| 
 
-#### 4.2.2.1. Set of Request Parameted Adapted to itsme(r)
-```json--inline
- {
-    "userinfo":
-     {
-      "given_name": {"essential": true},
-      "nickname": null,
-      "email": {"essential": true},
-      "email_verified": {"essential": true},
-      "picture": null,
-      "http://example.info/claims/groups": null
-     },
-    "id_token":
-     {
-      "auth_time": {"essential": true},
-      "acr": {"values": ["urn:mace:incommon:iap:silver"] }
-     }
- }
- ```
-#### 4.2.2.2. Example of a Valid “claims” Object
-Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_device`
+
+** | An error will be raised if request as a value element for the claim Place of Birth - city | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** |  An error will be raised if request as a value element for the claim Place of Birth - country | **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** | An error will be raised if request as a value element for the claim E-ID Info  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** | Belgian Electronic ID card information encoded in JSON, with the following keys<br>`eid`: the electronic ID card serial number. <br>`issuance_locality`
+
+
+
+: the issuance locality. <br>`validity_from`: eID card validity “from” date. <br>`validity_to`: eID card validity “to” date. <br>`certificate_validity`: the certificate validity. <br>`read_date`: the data extraction date. <br>Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: 2017-04-01T19:43:37+0000 Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | Simple string containing the user’s Passport Serial Number. Device | **`tag:sixdots.be,2017-05:claim_device`** | see [Device information](#device-information) Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`
+
+
+** |Information available in the context of the current transaction.<br> A JSON object with the following keys:<br> (only keys with cardinality \\\[1..1\\\] will be always available)<br> **“securityLevel” \\\[1..1\\\]**: (supported values: <br>{SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) Security level used during transaction. <br>**“bindLevel” \\\[1..1\\\]**: (supported values: {SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. <br>**“mcc” \\\[0..1\\\]**: the Mobile Country Code. An Integer (three digits) representing the mobile network country. <br>For example: { "securityLevel": "SIM\\\_AND\\\_SOFT", "bindLevel": "SIM\\\_AND\\\_SOFT", "mcc":206 } E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**| NRN | not supported| #### 4.2.2.1.Set of Request Parameted Adapted to itsme(r)```json--inline {    "userinfo":     {      "given_name": {"essential": true},      "nickname": null,      "email": {"essential": true},      "email_verified": {"essential": true},      "picture": null,      "http://example.info/claims/groups": null     },    "id_token":     {      "auth_time": {"essential": true},      "acr": {"values": ["urn:mace:incommon:iap:silver"] }     } }```#### 4.2.2.2.Example of a Valid “claims” ObjectExample of JSON device object requested with `tag:sixdots.be,2017-05:claim_device````
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
- ```json--inline
- {  
- 	"os": "ANDROID",  
- 	"appName": "itsme app", "appRelease": "1.17.13",
- 	"deviceLabel": "myDevice",
- 	"debugEnabled": false, 
- 	"deviceId": "deviceId",
- 	"osRelease": "Android 4.4.2", 
- 	"manufacturer": "samsung", 
- 	"hasSimEnabled": true,
- 	"deviceLockLevel": "touchID", 
- 	"smsEnabled": true,
- 	"rooted": false,
- 	"imei": "12345678901234567",
- 	"deviceModel": "S8",  
- 	"msisdn": "0412123123", 
- 	"sdkRelease": "1.17.12"  
- }
- ```
-## 4.3. Getting Data
+json--inline {   	"os": "ANDROID",   	"appName": "itsme app", "appRelease": "1.17.13", 	"deviceLabel": "myDevice", 	"debugEnabled": false,  	"deviceId": "deviceId", 	"osRelease": "Android 4.4.2",  	"manufacturer": "samsung",  	"hasSimEnabled": true, 	"deviceLockLevel": "touchID",  	"smsEnabled": true, 	"rooted": false, 	"imei": "12345678901234567", 	"deviceModel": "S8",   	"msisdn": "0412123123",  	"sdkRelease": "1.17.12"   }```## 4.3.Getting DataAs per the OpenID Connect specification  [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)The User Info endpoint can only be accessed with a valid  **
 
-As per the OpenID Connect specification  [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
-
-The User Info endpoint can only be accessed with a valid  **access_token**  received from the Token endpoint during User Authentication, and for a very limited duration after end user authentication; there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info endpoint.
-
-Your server sends the User Info Request using either HTTP  `GET`  or HTTP  `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP  `GET`method and the Access Token be sent the using the  `Authorization`  header field. The HTTP request is sent to the User Info endpoint, which you should retrieve from the  [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration)  using the key  **userinfo_endpoint**.
-
-The Access Token will define the list of Data that will be provided back to the client. In order to request specific claims, you can  [use scopes](https://stackedit.io/app#stClaims)  in the Authentication Request and/or  [use the claims parameter](https://stackedit.io/app#Claims-Request)  of the  request Object.
-
-### 4.3.1. User Info Endpoint
-As per the OpenID Connect specification  [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest), 
-
-The UserInfo endpoint returns previously consented user profile information to the client app. For that a valid access token is required.
-
-> 
-The content type of the response will be application/JWT. The response will be signed and encrypted. The UserInfo endpoint can be accessed only with a valid **access_token** and for a very limited duration after end user authentication. There must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info Endpoint (this reflects a constraint set on the SOAP version of the interface).
-
-Your server sends the User Info Request using either HTTP  `GET`  or HTTP  `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP  `GET`method and the Access Token be sent the using the  `Authorization`  header field. The HTTP request is sent to the User Info endpoint, which you should retrieve from the  [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration)  using the key  **userinfo_endpoint**.
-#### 4.3.1.1. User info Request Specification
-As per specified [OIDC UserInfo Request](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest).
-
-The Client sends the UserInfo Request using either HTTP  GET  or HTTP  POST. The Access Token obtained from an OpenID Connect Authentication Request MUST be sent as a Bearer Token, per Section 2 of  [OAuth 2.0 Bearer Token Usage](http://openid.net/specs/openid-connect-core-1_0.html#RFC6750)  [RFC6750].
-
-It is RECOMMENDED that the request use the HTTP  GET  method and the Access Token be sent using the  Authorization  header field.
-
-| Parameter  | Comment  |
-|--|--|
-| acr | Possible values: <br>`tag:sixdots.be,2016-06:acr_basic` <br>`tag:sixdots.be,2016-06:acr_advanced` |
-| amr |Won’t be provided  |
-| azp| Won’t be provided |
-|auth_time | Will always be provided
-#### 4.3.1.2. User info Request Example
  
- ```http--inline
- GET /userinfo HTTP/1.1
- Host: server.example.com
- Authorization: Bearer SlAV32hkKG
- ```
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+access_token**  received from the Token endpoint during User Authentication, and for a very limited duration after end user authentication; there must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info endpoint.Your server sends the User Info Request using either HTTP  `GET`  or HTTP  `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP  `GET`method and the Access Token be sent the using the  `Authorization`
+
+  header field. The HTTP request is sent to the User Info endpoint, which you should retrieve from the  [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration)  using the key  **userinfo_endpoint**.The Access Token will define the list of Data that will be provided back to the client. In order to request specific claims, you can  [use scopes](https://stackedit.io/app#stClaims)  in the Authentication Request and/or  [use the claims parameter](https://stackedit.io/app#Claims-Request)  of the  request Object.### 4.3.1. User Info EndpointAs per the OpenID Connect specification  [
+
+http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest), The UserInfo endpoint returns previously consented user profile information to the client app. For that a valid access token is required.> The content type of the response will be application/JWT. The response will be signed and encrypted. The UserInfo endpoint can be accessed only with a valid **access_token**
+
+
+
+
+
+
+
+ and for a very limited duration after end user authentication. There must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info Endpoint (this reflects a constraint set on the SOAP version of the interface).Your server sends the User Info Request using either HTTP  `GET`  or HTTP  `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP  `GET`method and the Access Token be sent the using the  `Authorization`
+
+  header field. The HTTP request is sent to the User Info endpoint, which you should retrieve from the  [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration)  using the key  **userinfo_endpoint**.#### 4.3.1.1. User info Request SpecificationAs per specified [OIDC UserInfo Request](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest).The Client sends the UserInfo Request using either HTTP  GET  or HTTP  POST. The Access Token obtained from an OpenID Connect Authentication Request MUST be sent as a Bearer Token, per Section 2 of  [OAuth 2.0 Bearer Token Usage](
+
+
+
+http://openid.net/specs/openid-connect-core-1_0.html#RFC6750)  [RFC6750].It is RECOMMENDED that the request use the HTTP  GET  method and the Access Token be sent using the  Authorization  header field.| Parameter  | Comment  ||--|--|| acr | Possible values: <br>`tag:sixdots.be,2016-06:acr_basic`<br>`tag:sixdots.be,2016-06:acr_advanced` || amr |Won’t be provided  || azp| Won’t be provided ||auth_time | Will always be provided#### 4.3.1.2. User info Request Example```
+
+
+
+
+
+ 
+
+
+
+
+ 
+ http--inlineGET /userinfo HTTP/1.1 Host: server.example.com Authorization: Bearer SlAV32hkKG```#### 4.3.1.3. User info Response Specification The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed.#### 4.3.1.4. User info Response Example (Not encrypted nor signed)```http--inline HTTP/1.1 200 OK Content-Type: application/json {    "sub": "248289761001",    "name": "Jane Doe",    "email": "janedoe@example.com"
+ 
+
+
+ 
   
-#### 4.3.1.3. User info Response Specification
 
- The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed.
- 
-#### 4.3.1.4. User info Response Example
 
- (Not encrypted nor signed)
+
  
- ```http--inline
- HTTP/1.1 200 OK
- Content-Type: application/json
+
+
+
  
- {
-    "sub": "248289761001",
-    "name": "Jane Doe",
-    "email": "janedoe@example.com"
- }
- ```
+ 
+
+
+ 
+
+
+
+
+ }```
+ 
 #### 4.3.1.5. User info Errors
 When an error condition occurs, the UserInfo Endpoint returns an Error Response as defined in Section 3 of  [OAuth 2.0 Bearer Token Usage](http://openid.net/specs/openid-connect-core-1_0.html#RFC6750)  [RFC6750]. (HTTP errors unrelated to RFC 6750 are returned to the User Agent using the appropriate HTTP status code.)
 
@@ -453,44 +453,44 @@ The following is a non-normative example of a UserInfo Error Response:
 ```http--inline
   HTTP/1.1 401 Unauthorized
   WWW-Authenticate: error="invalid_token",
-    error_description="The Access Token expired"
- ```
+    error_description="The Access Token expired"```### 4.3.2. Token Endpoint#### 4.3.2.1. See [3.2 Token Endpoint](#TokenEndpoint)#### 4.3.2.2 Example of Id Token Containing “claims”*Will be provided soon* # 5. Advanced topics ## 5.1. <aname="JWTRequest"></a>Passing Request Parameters as JWTs
+ 
 
-### 4.3.2. Token Endpoint
-#### 4.3.2.1. See [3.2 Token Endpoint](#TokenEndpoint)
 
-#### 4.3.2.2 Example of Id Token Containing “claims”
-*Will be provided soon*
- # 5. Advanced topics
+
+
+
+
+
  
- ## 5.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs
  
- OpenID Connect defines the following Authentication Request parameters to enable Authentication Requests to be signed and optionally encrypted:
  
- Parameter | Required | Comment
- -- | -- | --
- **request** | Optional | This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. The parameter value is a Request Object value, as specified in [Section 6.1](http://openid.net/specs/openid-connect-core-1_0.html#RequestObject). It represents the request as a JWT whose Claims are the request parameters.
- **request_uri** | Unsupported | Refer to [JWTRequest](http://openid.net/specs/openid-connect-core-1_0.html#JWTRequests)
+ OpenID Connect defines the following Authentication Request parameters to enable Authentication Requests to be signed and optionally encrypted: Parameter | Required | Comment -- | -- | --**request**| Optional | This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. The parameter value is a Request Object value, as specified in [Section 6.1](http://openid.net/specs/openid-connect-core-1_0.html#RequestObject). It represents the request as a JWT whose Claims are the request parameters.**request_uri**| Unsupported | Refer to [JWTRequest  ](
  
- The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains at least the following properties:
+
+
+  
+http://openid.net/specs/openid-connect-core-1_0.html#JWTRequests) The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains at least the following properties: Property | Required | Comment -- | -- | --**iss** | Required | Specifies the issuing authority. Issuer of the id_tokenIssuer. Must be the `client_id`**aud** | Required | Audience. Possible token end-point URLs:<br>https://merchant.itsme.be/oidc/token<br>https://e2emerchant.itsme.be/oidc/token
  
- Property | Required | Comment
- -- | -- | --
- **iss** | Required | Specifies the issuing authority. Issuer of the id_tokenIssuer. Must be the `client_id`
- **aud** | Required | Audience. Possible token end-point URLs:<br>https://merchant.itsme.be/oidc/token<br>https://e2emerchant.itsme.be/oidc/token<br>https://uatmerchant.sixdots.be/oidc/token
+
  
- > Example of claim request before base64url encoding, signing and encryption. In this example, the partners is using the login service. The end user email and nationality will be returned by the User Info endpoint.
+
+
  
- ```json--inline
- {
- 	// JWT Registered claims (https://tools.ietf.org/html/rfc7519#section-4.1)
- 	iss: "s6BhdRkqt3",
- 	aud: "https://server.itsme.be",
- 	// OIDC parameters, must reflect the values of the HTTP parameters
- 	client_id: "s6BhdRkqt3",
- 	response_type: "code",
- 	redirect_uri: "https://client.example.org/cb",
- 	scope: "openid email service:PARTNER_LOGIN",
+ <br>https://uatmerchant.sixdots.be/oidc/token > Example of claim request before base64url encoding, signing and encryption. In this example, the partners is using the login service. The end user email and nationality will be returned by the User Info endpoint.```json--inline { 	// JWT Registered claims (https://tools.ietf.org/html/rfc7519#section-4.1) 	iss: "s6BhdRkqt3", 	aud: "https://server.itsme.be", 	// OIDC parameters, must reflect the values of the HTTP parameters 	client_id: "s6BhdRkqt3", 	response_type: "code", 	redirect_uri: "https://client.example.org/cb", 	scope: "openid email service:PARTNER_LOGIN",
+ 
+
+ 
+ 
+
+
+
+
+
+
+
+
+
  	state: "af0ifjsldkj",
  	nonce: "n-0S6_WzA2Mj",
  	claims:
@@ -503,8 +503,8 @@ The following is a non-normative example of a UserInfo Error Response:
  			acr: {"value": \["tag:itsmetag:sixdots.be,2016-06:acr_advanced"\] 		
  		}
  	}
- }
- ```
+ }```
+ 
  
  ## 5.2. Requests Signing and Encryption 
  
@@ -512,32 +512,32 @@ The following is a non-normative example of a UserInfo Error Response:
  
  Supported algorithms and encryption methods for:
  
- - ID Token
- -- Encryption Method (enc): A128CBC-HS256
- -- Encryption Algorithm (alg): RSA-OAEP
- -- Signing Algorithm (alg): RS256
- - User Info
- -- Encryption Method (enc): A128CBC-HS256
- -- Encryption Algorithm (alg): RSA-OAEP
- -- Signing Algorithm (alg):  RS256
- - Request Object”
- -- Encryption Method (enc): A128CBC-HS256
- -- Encryption Algorithm (alg): RSA-OAEP
- -- Signing Algorithm (alg): RS256
+ - ID Token -- Encryption Method (enc): A128CBC-HS256 -- Encryption Algorithm (alg): RSA-OAEP -- Signing Algorithm (alg): RS256 - User Info -- Encryption Method (enc): A128CBC-HS256 -- Encryption Algorithm (alg): RSA-OAEP -- Signing Algorithm (alg):  RS256 - Request Object” -- Encryption Method (enc): A128CBC-HS256 -- Encryption Algorithm (alg): RSA-OAEP -- Signing Algorithm (alg): RS256
+
+
+
+
+
+
+
+
+
+
+
  
  Offline access is not supported. 
  
  Dynamic client registration is not allowed.
  
- itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet) 
+ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)      https://merchant.itsme.be/oidc/jwkSet
  
-     https://merchant.itsme.be/oidc/jwkSet
+
  
 It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
- ># 6. **FAQ**
- >## [JWKSet](#jwks) 
- >
- >### What is a JWKSet?
+ ># 6. **FAQ** >## [JWKSet](#jwks) > >### What is a JWKSet?
+ 
+
+
  We require you to expose a set of public key (a signature key & one encryption key) to setup the connectivity.
  
  For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there).
@@ -913,6 +913,6 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzkzMzk1NDIsMzYxNzA4MDg3LC0xNj
-Y0NTE5MjE1LC0xODgxNzg5OTg3LDg0NDc0MjQwNV19
+eyJoaXN0b3J5IjpbMjAxNjg3NjQ2NSwzNjE3MDgwODcsLTE2Nj
+Q1MTkyMTUsLTE4ODE3ODk5ODcsODQ0NzQyNDA1XX0=
 -->
