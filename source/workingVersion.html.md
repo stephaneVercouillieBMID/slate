@@ -392,7 +392,8 @@ The Access Token will define the list of Data that will be provided back to the 
 ### 4.3.1. User Info Endpoint
 As per the OpenID Connect specification  [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest), 
 
-> The User Info Endpoint is an OAuth 2.0 Protected Resource that returns Claims about the authenticated End-User.
+The UserInfo endpoint returns previously consented user profile information to the client app. For that a valid access token is required.
+
 > 
 The content type of the response will be application/JWT. The response will be signed and encrypted. The UserInfo endpoint can be accessed only with a valid **access_token** and for a very limited duration after end user authentication. There must be less than 3 minutes between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info Endpoint (this reflects a constraint set on the SOAP version of the interface).
 
@@ -903,5 +904,6 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4ODE3ODk5ODcsODQ0NzQyNDA1XX0=
+eyJoaXN0b3J5IjpbLTE2NjQ1MTkyMTUsLTE4ODE3ODk5ODcsOD
+Q0NzQyNDA1XX0=
 -->
