@@ -162,6 +162,7 @@ As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#
 ### 3.2.1. About Tokens
 There are three types of tokens in OIDC: [id_token](#idtoken), [access_token](#actoken) and [refresh_token](#rfshtoken).
 
+
 #### [3.2.1.1. ID Tokens](#idtoken)<a name id="idtoken"></a>
 As per the [OIDC Specification](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse), an `id_token` is a JWT.
 
@@ -917,11 +918,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjM3NzY2MTk4LC02NTYzNDUxNjQsMzYyMD
-I2NDkxLC0zOTI1MTUwMDUsMTM3OTk5NDY3Nyw5Mjc5NzUxODMs
-LTE5MTAzNjg5NTIsMTMzNTY0NjA1MywtMTY3MzM5NTQwNCwtNT
-Q5MTMyNDE0LC03NDI3MTg3ODAsMTg5NjU2NTkyOCwtMTc5MDc3
-NDYxNiwtMzY3NjI4MjEyLC0xNDMwMjQwMDYwLDE2MjE0NzYzOT
-UsMTM4NjcyMTQ2NiwxMjAyOTA2MjU0LDkyMjQ0NDc3LDM2MTcw
-ODA4N119
+eyJoaXN0b3J5IjpbLTU0NTQwNzYwOCwtNjU2MzQ1MTY0LDM2Mj
+AyNjQ5MSwtMzkyNTE1MDA1LDEzNzk5OTQ2NzcsOTI3OTc1MTgz
+LC0xOTEwMzY4OTUyLDEzMzU2NDYwNTMsLTE2NzMzOTU0MDQsLT
+U0OTEzMjQxNCwtNzQyNzE4NzgwLDE4OTY1NjU5MjgsLTE3OTA3
+NzQ2MTYsLTM2NzYyODIxMiwtMTQzMDI0MDA2MCwxNjIxNDc2Mz
+k1LDEzODY3MjE0NjYsMTIwMjkwNjI1NCw5MjI0NDQ3NywzNjE3
+MDgwODddfQ==
 -->
