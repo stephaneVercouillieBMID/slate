@@ -443,9 +443,7 @@ Authorization: Bearer SlAV32hkKG
 ``` 
 #### 4.3.1.3. User info Response Specification
 
-The itsme Back-End replies with the Identity Data that were requested in the Authorization Request.
-
- The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed.
+The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed. The itsme Back-End replies with the Identity Data that were requested in the Authorization Request.
  
 #### 4.3.1.4. User info Response Example
 
@@ -923,10 +921,10 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MzQ3NTc1NjcsLTE5MTAzNjg5NTIsMT
-MzNTY0NjA1MywtMTY3MzM5NTQwNCwtNTQ5MTMyNDE0LC03NDI3
-MTg3ODAsMTg5NjU2NTkyOCwtMTc5MDc3NDYxNiwtMzY3NjI4Mj
-EyLC0xNDMwMjQwMDYwLDE2MjE0NzYzOTUsMTM4NjcyMTQ2Niwx
-MjAyOTA2MjU0LDkyMjQ0NDc3LDM2MTcwODA4NywtMTY2NDUxOT
-IxNSwtMTg4MTc4OTk4Nyw4NDQ3NDI0MDVdfQ==
+eyJoaXN0b3J5IjpbMTczMzkzNjM3LC0xOTEwMzY4OTUyLDEzMz
+U2NDYwNTMsLTE2NzMzOTU0MDQsLTU0OTEzMjQxNCwtNzQyNzE4
+NzgwLDE4OTY1NjU5MjgsLTE3OTA3NzQ2MTYsLTM2NzYyODIxMi
+wtMTQzMDI0MDA2MCwxNjIxNDc2Mzk1LDEzODY3MjE0NjYsMTIw
+MjkwNjI1NCw5MjI0NDQ3NywzNjE3MDgwODcsLTE2NjQ1MTkyMT
+UsLTE4ODE3ODk5ODcsODQ0NzQyNDA1XX0=
 -->
