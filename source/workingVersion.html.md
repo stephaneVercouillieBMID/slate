@@ -433,7 +433,17 @@ It is RECOMMENDED that the request use the HTTP  GET  method and the Access Toke
 
 | Parameter  | Comment  |
 |--|--|
-| acr | Possible values: <br>`tag:sixdots.be,2016-06:acr_basic`<br>`tag:sixdots.be,2016-06:acr_advanced` || amr |Won’t be provided  || azp| Won’t be provided ||auth_time | Will always be provided#### 4.3.1.2. User info Request Example```http--inlineGET /userinfo HTTP/1.1 Host: server.example.com Authorization: Bearer SlAV32hkKG``` 
+| acr | Possible values: <br>`tag:sixdots.be,2016-06:acr_basic`<br>`tag:sixdots.be,2016-06:acr_advanced` |
+| amr |Won’t be provided  |
+| azp| Won’t be provided |
+|auth_time | Will always be provided
+#### 4.3.1.2. User info Request Example
+
+```http--inline
+GET /userinfo HTTP/1.1 
+Host: server.example.com 
+Authorization: Bearer SlAV32hkKG
+``` 
 
 
 
@@ -930,9 +940,10 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NzMzOTU0MDQsLTU0OTEzMjQxNCwtNz
-QyNzE4NzgwLDE4OTY1NjU5MjgsLTE3OTA3NzQ2MTYsLTM2NzYy
-ODIxMiwtMTQzMDI0MDA2MCwxNjIxNDc2Mzk1LDEzODY3MjE0Nj
-YsMTIwMjkwNjI1NCw5MjI0NDQ3NywzNjE3MDgwODcsLTE2NjQ1
-MTkyMTUsLTE4ODE3ODk5ODcsODQ0NzQyNDA1XX0=
+eyJoaXN0b3J5IjpbMzE3NjMxNDQwLC0xNjczMzk1NDA0LC01ND
+kxMzI0MTQsLTc0MjcxODc4MCwxODk2NTY1OTI4LC0xNzkwNzc0
+NjE2LC0zNjc2MjgyMTIsLTE0MzAyNDAwNjAsMTYyMTQ3NjM5NS
+wxMzg2NzIxNDY2LDEyMDI5MDYyNTQsOTIyNDQ0NzcsMzYxNzA4
+MDg3LC0xNjY0NTE5MjE1LC0xODgxNzg5OTg3LDg0NDc0MjQwNV
+19
 -->
