@@ -145,8 +145,8 @@ As such, the Authentication Response will return the following parameters:
  ```http--inline
  HTTP/1.1 302 Found
  Location: https://client.example.org/cb?
-   code=SplxlOBeZQQYbYS6WxSbIA
-   &state=af0ifjsldkj
+ code=SplxlOBeZQQYbYS6WxSbIA&
+ state=af0ifjsldkj
  ```
 ### 3.1.5. Authentication Errors
 As per [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://openid.net/specs/openid-connect-core-1_0.html#AuthError), if the authentication is NOT successful, the following errors can be triggered by itsme®:
@@ -920,11 +920,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5MjUxNTAwNSwxMzc5OTk0Njc3LDkyNz
-k3NTE4MywtMTkxMDM2ODk1MiwxMzM1NjQ2MDUzLC0xNjczMzk1
-NDA0LC01NDkxMzI0MTQsLTc0MjcxODc4MCwxODk2NTY1OTI4LC
-0xNzkwNzc0NjE2LC0zNjc2MjgyMTIsLTE0MzAyNDAwNjAsMTYy
-MTQ3NjM5NSwxMzg2NzIxNDY2LDEyMDI5MDYyNTQsOTIyNDQ0Nz
-csMzYxNzA4MDg3LC0xNjY0NTE5MjE1LC0xODgxNzg5OTg3LDg0
-NDc0MjQwNV19
+eyJoaXN0b3J5IjpbMTkzODQ5MjMwNywtMzkyNTE1MDA1LDEzNz
+k5OTQ2NzcsOTI3OTc1MTgzLC0xOTEwMzY4OTUyLDEzMzU2NDYw
+NTMsLTE2NzMzOTU0MDQsLTU0OTEzMjQxNCwtNzQyNzE4NzgwLD
+E4OTY1NjU5MjgsLTE3OTA3NzQ2MTYsLTM2NzYyODIxMiwtMTQz
+MDI0MDA2MCwxNjIxNDc2Mzk1LDEzODY3MjE0NjYsMTIwMjkwNj
+I1NCw5MjI0NDQ3NywzNjE3MDgwODcsLTE2NjQ1MTkyMTUsLTE4
+ODE3ODk5ODddfQ==
 -->
