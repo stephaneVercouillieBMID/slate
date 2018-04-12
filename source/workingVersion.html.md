@@ -162,7 +162,7 @@ As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#
 ### 3.2.1. About Tokens
 There are three types of tokens in OIDC: [id_token](#idtoken), [access_token](#actoken) and [refresh_token](#rfshtoken).
 
-#### [3.2.1.1. ID Tokens](#idtoken)<b id="idtoken"></b>
+#### [3.2.1.1. ID Tokens](#idtoken)<a name id="idtoken"></a>
 As per the [OIDC Specification](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse), an `id_token` is a JWT.
 
 - ID tokens carry user’s authentication information encoded in the token itself, it must be a JWT and authorization server will return them.
@@ -170,20 +170,16 @@ As per the [OIDC Specification](http://openid.net/specs/openid-connect-core-1_0.
 
 There’s a set of [rules](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation) in the specification for validating an `id_token`.
 
-#### [3.2.1.2 Access Tokens](#actoken)<b id="actoken"></b>
+#### [3.2.1.2 Access Tokens](#actoken)<a name id="actoken"></a>
 
 Bearer token concept must be mentioned before access token is explained. Bearer token is a protected token which can access to authorized resources without further identification. The format for OAuth 2.0 Bearer tokens is actually described in a separate spec, [RFC 6750](https://tools.ietf.org/html/rfc6750).
 
 - Access tokens are used as bearer tokens. 
 - They have short lifespan, expire for improving security. The user must authenticate again to get a new access token limiting the exposure of the fact that it’s a bearer token.
 
-#### [3.2.1.3 Refresh Tokens](#rfshtoken)<b id="rfshtoken"></b> (not supported) 
+#### [3.2.1.3 Refresh Tokens](#rfshtoken)<a name id="rfshtoken"></a> (not supported) 
 
 As access tokens have short lifespan, there is a need for refresh tokens in order to take forward long-lived sessions. We do not support refresh tokens due to sessions are not maintained.
-
-
-
-
 
 ### 3.2.2. Token Request Specification
 
@@ -921,11 +917,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5NjM5OTgxNywtNjU2MzQ1MTY0LDM2Mj
-AyNjQ5MSwtMzkyNTE1MDA1LDEzNzk5OTQ2NzcsOTI3OTc1MTgz
-LC0xOTEwMzY4OTUyLDEzMzU2NDYwNTMsLTE2NzMzOTU0MDQsLT
-U0OTEzMjQxNCwtNzQyNzE4NzgwLDE4OTY1NjU5MjgsLTE3OTA3
-NzQ2MTYsLTM2NzYyODIxMiwtMTQzMDI0MDA2MCwxNjIxNDc2Mz
-k1LDEzODY3MjE0NjYsMTIwMjkwNjI1NCw5MjI0NDQ3NywzNjE3
-MDgwODddfQ==
+eyJoaXN0b3J5IjpbMjM3NzY2MTk4LC02NTYzNDUxNjQsMzYyMD
+I2NDkxLC0zOTI1MTUwMDUsMTM3OTk5NDY3Nyw5Mjc5NzUxODMs
+LTE5MTAzNjg5NTIsMTMzNTY0NjA1MywtMTY3MzM5NTQwNCwtNT
+Q5MTMyNDE0LC03NDI3MTg3ODAsMTg5NjU2NTkyOCwtMTc5MDc3
+NDYxNiwtMzY3NjI4MjEyLC0xNDMwMjQwMDYwLDE2MjE0NzYzOT
+UsMTM4NjcyMTQ2NiwxMjAyOTA2MjU0LDkyMjQ0NDc3LDM2MTcw
+ODA4N119
 -->
