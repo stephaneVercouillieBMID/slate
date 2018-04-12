@@ -294,7 +294,7 @@ Using this method, you will always receive Claims from the UserInfo Endpoint.
 
 #### 4.2.1.1 Set of Supported Scope Values
 
-The following values for **scope** allow access to predefined sets of Identity Data:
+The following scope values are supported and allow access to predefined sets of Identity Data:
 
 Scope  | Data| Claim
  -- | -- | --
@@ -896,11 +896,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA4MDI2NjQwNSwtNTk3MDY5NzU2LC0yMT
-E0MTk3NDM3LC0xMjI4NDI3MzkyLC04MDQwMTU5MDIsLTEyMjYz
-MzQxNjgsODkyMTE3NzQ1LDEyNjczODY3MjYsLTIxMjA3MjQzOS
-wtNjAzNjQ4MzE5LC0xOTYxOTIzNDc2LDE3OTEzNTY0MzYsLTIw
-MzAxMDkwMDksLTIwMDY4MDMwNTgsMTc4MDc3NDc2NiwxMTA5MD
-QyMTU4LDE2MzcxMDE0NTMsMTk4MTU0MzY1NywxMjcyNDI3ODAs
-MTQyMjcyMDg1MF19
+eyJoaXN0b3J5IjpbMTM1ODk0OTI1LDIwODAyNjY0MDUsLTU5Nz
+A2OTc1NiwtMjExNDE5NzQzNywtMTIyODQyNzM5MiwtODA0MDE1
+OTAyLC0xMjI2MzM0MTY4LDg5MjExNzc0NSwxMjY3Mzg2NzI2LC
+0yMTIwNzI0MzksLTYwMzY0ODMxOSwtMTk2MTkyMzQ3NiwxNzkx
+MzU2NDM2LC0yMDMwMTA5MDA5LC0yMDA2ODAzMDU4LDE3ODA3Nz
+Q3NjYsMTEwOTA0MjE1OCwxNjM3MTAxNDUzLDE5ODE1NDM2NTcs
+MTI3MjQyNzgwXX0=
 -->
