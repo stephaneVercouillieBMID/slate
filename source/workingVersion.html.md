@@ -465,7 +465,7 @@ The following is a non-normative example of a UserInfo Error Response:
  ```
 
 ### 4.3.2. Token Endpoint
-As per specified by OIDC, when using the authorization code flow to obtain an Access Token, an ID Tokenyou will send a token request to token endpoint to have a token response. Finally, you will have an Access Token and an ID Token.
+As per specified by OIDC, when using the authorization code flow to obtain an Access Token, an ID Token, you will send a token request to token endpoint to have a token response.
 
 In order to communicate with Token Endpoint, TLS MUST be implemented. See  [Section 16.17](http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements)  for more information on using TLS.
 
@@ -921,11 +921,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTg3MTUxLC00Nzc4Njk3NzUsLTEyND
-k4NTgwNjUsLTM3MzUzOTc0OSwyODg1ODkwMzUsMTYwMzUwNDQ4
-OCw5MzQ0NDM2NjcsLTExOTI0NzYwNTksLTY0Mjk2MDM2NSw1OT
-gxMDQwNCwtNTQ1NDA3NjA4LC02NTYzNDUxNjQsMzYyMDI2NDkx
-LC0zOTI1MTUwMDUsMTM3OTk5NDY3Nyw5Mjc5NzUxODMsLTE5MT
-AzNjg5NTIsMTMzNTY0NjA1MywtMTY3MzM5NTQwNCwtNTQ5MTMy
-NDE0XX0=
+eyJoaXN0b3J5IjpbMjAwMDk1ODY2MywtNDc3ODY5Nzc1LC0xMj
+Q5ODU4MDY1LC0zNzM1Mzk3NDksMjg4NTg5MDM1LDE2MDM1MDQ0
+ODgsOTM0NDQzNjY3LC0xMTkyNDc2MDU5LC02NDI5NjAzNjUsNT
+k4MTA0MDQsLTU0NTQwNzYwOCwtNjU2MzQ1MTY0LDM2MjAyNjQ5
+MSwtMzkyNTE1MDA1LDEzNzk5OTQ2NzcsOTI3OTc1MTgzLC0xOT
+EwMzY4OTUyLDEzMzU2NDYwNTMsLTE2NzMzOTU0MDQsLTU0OTEz
+MjQxNF19
 -->
