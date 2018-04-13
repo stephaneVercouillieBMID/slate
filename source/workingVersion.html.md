@@ -480,7 +480,7 @@ To get further information about token types, token request/response specificati
  
  ## 5.1. <a name="JWTRequest"></a>[Passing Request Parameters as JWTs](#JWTRequest)
  
- As per specified by OpenID Connect https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests, Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.
+ As per specified by OIDC [here](https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests), Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.
  
  The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains at least the following properties:
  
@@ -923,7 +923,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ1MTI2MDQ4NywtMTM4MTY2ODg1OSwxMD
+eyJoaXN0b3J5IjpbMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwxMD
 E3NTU1NDQzLC0xMTYwMjU0NjY0LC0xNjEwNTcyMTExLDIzNjQ4
 NTUwNCw0MDkzMjk1NDQsLTcxNTk3NTk3MiwtNDc3ODY5Nzc1LC
 0xMjQ5ODU4MDY1LC0zNzM1Mzk3NDksMjg4NTg5MDM1LDE2MDM1
