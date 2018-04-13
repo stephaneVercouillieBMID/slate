@@ -238,7 +238,7 @@ As per [OIDC specification aggregated Response](http://openid.net/specs/openid-c
 # 4. User Data
 ## 4.1. What is a claim?
 The concept of claim is about declaring the end user data you will need for your business before the authentication. This is a privacy-oriented way of getting data.
-Technically, you have to declare the claims in the Authorization Request in the way described in the section [Declaring Claims](#dec_c).
+Technically, you have to declare the claims in the Authorization Request in the way described in the section [Declaring Claims](#decClaim).
 Claims will come as name/value pairs packaged in a JSON object that contain information about a user, as well as meta-information about the OIDC service. The official definition from the spec is a [“piece of information asserted about an Entity.”](http://openid.net/specs/openid-connect-core-1_0.html#Terminology)
 
 
@@ -272,7 +272,7 @@ In current version and in contradiction to the OpenID Connect specification, **i
 
  It means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, as in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims, you should already request claims with appropriate level regarding your business case. 
 
-## 4.2. Declaring Claims
+## [4.2. Declaring Claims](#decClaim)<a name id="ServiceCode"></a>
 
 You can declare Claims in two ways:
 
@@ -916,11 +916,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjUzODY1NjE5LDE2MDM1MDQ0ODgsOTM0ND
-QzNjY3LC0xMTkyNDc2MDU5LC02NDI5NjAzNjUsNTk4MTA0MDQs
-LTU0NTQwNzYwOCwtNjU2MzQ1MTY0LDM2MjAyNjQ5MSwtMzkyNT
-E1MDA1LDEzNzk5OTQ2NzcsOTI3OTc1MTgzLC0xOTEwMzY4OTUy
-LDEzMzU2NDYwNTMsLTE2NzMzOTU0MDQsLTU0OTEzMjQxNCwtNz
-QyNzE4NzgwLDE4OTY1NjU5MjgsLTE3OTA3NzQ2MTYsLTM2NzYy
-ODIxMl19
+eyJoaXN0b3J5IjpbMjExNDgxNDQ1MSwxNjAzNTA0NDg4LDkzND
+Q0MzY2NywtMTE5MjQ3NjA1OSwtNjQyOTYwMzY1LDU5ODEwNDA0
+LC01NDU0MDc2MDgsLTY1NjM0NTE2NCwzNjIwMjY0OTEsLTM5Mj
+UxNTAwNSwxMzc5OTk0Njc3LDkyNzk3NTE4MywtMTkxMDM2ODk1
+MiwxMzM1NjQ2MDUzLC0xNjczMzk1NDA0LC01NDkxMzI0MTQsLT
+c0MjcxODc4MCwxODk2NTY1OTI4LC0xNzkwNzc0NjE2LC0zNjc2
+MjgyMTJdfQ==
 -->
