@@ -478,7 +478,7 @@ To get further information about token types, token request/response specificati
 *Will be provided soon*
  # 5. Advanced topics
  
- ## 5.1. <a name="JWTRequest"></a>[Passing Request Parameters as JWTs]
+ ## 5.1. <a name="JWTRequest"></a>[Passing Request Parameters as JWTs](#jwkset)
  
  As per specified by OpenID Connect https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests, Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.
  
@@ -923,11 +923,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzODE2Njg4NTksMTAxNzU1NTQ0MywtMT
-E2MDI1NDY2NCwtMTYxMDU3MjExMSwyMzY0ODU1MDQsNDA5MzI5
-NTQ0LC03MTU5NzU5NzIsLTQ3Nzg2OTc3NSwtMTI0OTg1ODA2NS
-wtMzczNTM5NzQ5LDI4ODU4OTAzNSwxNjAzNTA0NDg4LDkzNDQ0
-MzY2NywtMTE5MjQ3NjA1OSwtNjQyOTYwMzY1LDU5ODEwNDA0LC
-01NDU0MDc2MDgsLTY1NjM0NTE2NCwzNjIwMjY0OTEsLTM5MjUx
-NTAwNV19
+eyJoaXN0b3J5IjpbMTI4MDI1NDc4MSwtMTM4MTY2ODg1OSwxMD
+E3NTU1NDQzLC0xMTYwMjU0NjY0LC0xNjEwNTcyMTExLDIzNjQ4
+NTUwNCw0MDkzMjk1NDQsLTcxNTk3NTk3MiwtNDc3ODY5Nzc1LC
+0xMjQ5ODU4MDY1LC0zNzM1Mzk3NDksMjg4NTg5MDM1LDE2MDM1
+MDQ0ODgsOTM0NDQzNjY3LC0xMTkyNDc2MDU5LC02NDI5NjAzNj
+UsNTk4MTA0MDQsLTU0NTQwNzYwOCwtNjU2MzQ1MTY0LDM2MjAy
+NjQ5MV19
 -->
