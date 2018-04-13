@@ -465,7 +465,7 @@ The following is a non-normative example of a UserInfo Error Response:
  ```
 
 ### 4.3.2. Token Endpoint
-
+As per specified by OIDC, when using the authorization code 
 #### 4.3.2.1. See [3.2 Token Endpoint](#tokEndpoint)
 
 #### 4.3.2.2 Example of Id Token Containing “claims”
@@ -917,11 +917,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDk4NTgwNjUsLTM3MzUzOTc0OSwyOD
-g1ODkwMzUsMTYwMzUwNDQ4OCw5MzQ0NDM2NjcsLTExOTI0NzYw
-NTksLTY0Mjk2MDM2NSw1OTgxMDQwNCwtNTQ1NDA3NjA4LC02NT
-YzNDUxNjQsMzYyMDI2NDkxLC0zOTI1MTUwMDUsMTM3OTk5NDY3
-Nyw5Mjc5NzUxODMsLTE5MTAzNjg5NTIsMTMzNTY0NjA1MywtMT
-Y3MzM5NTQwNCwtNTQ5MTMyNDE0LC03NDI3MTg3ODAsMTg5NjU2
-NTkyOF19
+eyJoaXN0b3J5IjpbMjE2NTcyODYzLC0xMjQ5ODU4MDY1LC0zNz
+M1Mzk3NDksMjg4NTg5MDM1LDE2MDM1MDQ0ODgsOTM0NDQzNjY3
+LC0xMTkyNDc2MDU5LC02NDI5NjAzNjUsNTk4MTA0MDQsLTU0NT
+QwNzYwOCwtNjU2MzQ1MTY0LDM2MjAyNjQ5MSwtMzkyNTE1MDA1
+LDEzNzk5OTQ2NzcsOTI3OTc1MTgzLC0xOTEwMzY4OTUyLDEzMz
+U2NDYwNTMsLTE2NzMzOTU0MDQsLTU0OTEzMjQxNCwtNzQyNzE4
+NzgwXX0=
 -->
