@@ -224,9 +224,9 @@ Client must validate following parameters,
  Parameter | Provided | Comment
  -- | -- | --
  **[`access_token`](#actoken)** | Always | Will be provided. 
- **token_type** | Always | Will be `Bearer`
+ **`token_type`** | Always | Will be `Bearer`
  **[`id_token`](#idtoken)** | Always | The id_token corresponding to the Authentication Request (signed and  encrypted). 
- **at_hash** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
+ **`at_hash`** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
  **[`refresh_token`](#rfshtoken)** | Never | Won't be provided as **itsme(r)** only maintains short-lived session to enforce re-authentication.
 
 
@@ -923,11 +923,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQzODQxNjAyOCwtMTE2MDI1NDY2NCwtMT
-YxMDU3MjExMSwyMzY0ODU1MDQsNDA5MzI5NTQ0LC03MTU5NzU5
-NzIsLTQ3Nzg2OTc3NSwtMTI0OTg1ODA2NSwtMzczNTM5NzQ5LD
-I4ODU4OTAzNSwxNjAzNTA0NDg4LDkzNDQ0MzY2NywtMTE5MjQ3
-NjA1OSwtNjQyOTYwMzY1LDU5ODEwNDA0LC01NDU0MDc2MDgsLT
-Y1NjM0NTE2NCwzNjIwMjY0OTEsLTM5MjUxNTAwNSwxMzc5OTk0
-Njc3XX0=
+eyJoaXN0b3J5IjpbLTEzMzA2NTM4NjQsLTExNjAyNTQ2NjQsLT
+E2MTA1NzIxMTEsMjM2NDg1NTA0LDQwOTMyOTU0NCwtNzE1OTc1
+OTcyLC00Nzc4Njk3NzUsLTEyNDk4NTgwNjUsLTM3MzUzOTc0OS
+wyODg1ODkwMzUsMTYwMzUwNDQ4OCw5MzQ0NDM2NjcsLTExOTI0
+NzYwNTksLTY0Mjk2MDM2NSw1OTgxMDQwNCwtNTQ1NDA3NjA4LC
+02NTYzNDUxNjQsMzYyMDI2NDkxLC0zOTI1MTUwMDUsMTM3OTk5
+NDY3N119
 -->
