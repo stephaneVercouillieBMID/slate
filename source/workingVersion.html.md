@@ -212,7 +212,8 @@ According to the `private_key_jwt` client authentication method, the **client as
  **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 
 ### 3.2.3. Token Request Example
-
+{"userinfo":
+{"](https://uatmerchant.sixdots.be/oidc/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fuat_OIDC_TEST1%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_LOGIN+profile+&claims={%22userinfo%22:{%22 "https://uatmerchant.sixdots.be/oidc/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fuat_OIDC_TEST1%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_LOGIN+profile+&claims={"userinfo":{"") tag:sixdots.be,2016-06:claim_nationality": null},"id_token":{"auth_time": {"essential": true},"acr_values":{"value":["tag:sixdots.be,2016-06:acr_advanced"]}}}&state=anystate&nonce=anonce&prompt=login&max_age=1
 ### 3.2.4. Token Response Specification
 The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the **token_endpoint** key. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret` authentication methods are not supported since they are considered less secure.
 Client must validate following parameters,
@@ -919,11 +920,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NjMzMjc0NzksLTE5Njg2NDkwNDAsLT
-E5NzI0Nzc3MDUsLTIwOTM5NDYzMTQsLTkwNTQwNzk2Niw5ODgz
-MDI0NDQsNTQ5MjIxNDI2LC01NTAxNjk1OCwtMTEwODMyNjQ2OS
-wyNTk4ODgzMTAsMTY3MTE0MzU2OCwxNDY3Mzk5MzkwLC0yMDQz
-NjAzMDU5LDEwMTUzMDU3NTIsLTEzODE2Njg4NTksMTAxNzU1NT
-Q0MywtMTE2MDI1NDY2NCwtMTYxMDU3MjExMSwyMzY0ODU1MDQs
-NDA5MzI5NTQ0XX0=
+eyJoaXN0b3J5IjpbMTQ0MjgxODMwNiwtMTY2MzMyNzQ3OSwtMT
+k2ODY0OTA0MCwtMTk3MjQ3NzcwNSwtMjA5Mzk0NjMxNCwtOTA1
+NDA3OTY2LDk4ODMwMjQ0NCw1NDkyMjE0MjYsLTU1MDE2OTU4LC
+0xMTA4MzI2NDY5LDI1OTg4ODMxMCwxNjcxMTQzNTY4LDE0Njcz
+OTkzOTAsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2OD
+g1OSwxMDE3NTU1NDQzLC0xMTYwMjU0NjY0LC0xNjEwNTcyMTEx
+LDIzNjQ4NTUwNF19
 -->
