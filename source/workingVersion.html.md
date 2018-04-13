@@ -494,7 +494,7 @@ To get further information about token types, token request/response specificati
  Property | Required | Comment
  -- | -- | --
  **iss** | Required | Specifies the issuing authority. Issuer of the id_tokenIssuer. Must be the `client_id`
- **aud** | Required | Audience. Possible token end-point URLs:<br>https://merchant.itsme.be/oidc/token<br>https://e2emerchant.itsme.be/oidc/token<br>https://uatmerchant.sixdots.be/oidc/token
+ **aud** | Required | Audience. Possible token end-point URLs:<br>https://merchant.itsme.be/oidc/token<br>https://e2emerchant.itsme.be/oidc/token
  
  > Example of claim request before base64url encoding, signing and encryption. In this example, the partners is using the login service. The end user email and nationality will be returned by the User Info endpoint.
  
@@ -930,11 +930,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU1MDE2OTU4LC0xMTA4MzI2NDY5LDI1OT
-g4ODMxMCwxNjcxMTQzNTY4LDE0NjczOTkzOTAsLTIwNDM2MDMw
-NTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwxMDE3NTU1NDQzLC
-0xMTYwMjU0NjY0LC0xNjEwNTcyMTExLDIzNjQ4NTUwNCw0MDkz
-Mjk1NDQsLTcxNTk3NTk3MiwtNDc3ODY5Nzc1LC0xMjQ5ODU4MD
-Y1LC0zNzM1Mzk3NDksMjg4NTg5MDM1LDE2MDM1MDQ0ODgsOTM0
-NDQzNjY3XX0=
+eyJoaXN0b3J5IjpbNTQ5MjIxNDI2LC01NTAxNjk1OCwtMTEwOD
+MyNjQ2OSwyNTk4ODgzMTAsMTY3MTE0MzU2OCwxNDY3Mzk5Mzkw
+LC0yMDQzNjAzMDU5LDEwMTUzMDU3NTIsLTEzODE2Njg4NTksMT
+AxNzU1NTQ0MywtMTE2MDI1NDY2NCwtMTYxMDU3MjExMSwyMzY0
+ODU1MDQsNDA5MzI5NTQ0LC03MTU5NzU5NzIsLTQ3Nzg2OTc3NS
+wtMTI0OTg1ODA2NSwtMzczNTM5NzQ5LDI4ODU4OTAzNSwxNjAz
+NTA0NDg4XX0=
 -->
