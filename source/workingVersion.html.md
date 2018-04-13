@@ -417,7 +417,7 @@ Your server sends the User Info Request using either HTTP  `GET`  or HTTP  `POST
 The Access Token will define the list of Data that will be provided back to the client. In order to request specific claims, you can  [use scopes](https://stackedit.io/app#stClaims)  in the Authentication Request and/or  [use the claims parameter](https://stackedit.io/app#Claims-Request)  of the  request Object.
 
 ### 4.3.1. User Info Endpoint
-As per the [OpenID Connect specification] http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest(http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest), 
+As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest), 
 
 The UserInfo endpoint returns previously consented user profile information to the client app. For that a valid access token is required.
 
@@ -485,7 +485,7 @@ To get further information about token types, token request/response specificati
 *Will be provided soon*
  # 5. Advanced topics
  
- ## 5.1. <a name="JWTRequest"></a>[Passing Request Parameters as JWTs](#JWTRequest)
+ ## 5.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs
  
  As per specified by OIDC [here](https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests), Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.
  
@@ -930,7 +930,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNTU4NzA5MjAsLTkwNTQwNzk2Niw5OD
+eyJoaXN0b3J5IjpbLTExNjEzMzc1NDEsLTkwNTQwNzk2Niw5OD
 gzMDI0NDQsNTQ5MjIxNDI2LC01NTAxNjk1OCwtMTEwODMyNjQ2
 OSwyNTk4ODgzMTAsMTY3MTE0MzU2OCwxNDY3Mzk5MzkwLC0yMD
 QzNjAzMDU5LDEwMTUzMDU3NTIsLTEzODE2Njg4NTksMTAxNzU1
