@@ -190,8 +190,8 @@ Parameter | Required | Comment
  **grant_type** | Required | Must be `authorization_code`. 
  **code** | Required | The code value provided in the Authentication Response
  **redirect_uri** | Required | The **redirect_uri** used in the Authentication Request. This is the URL to which you want the user to be redirected after the authorization is complete.
- **client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` ***Note***: this specifies that the authentication method type is `private_key_jwt`, according to [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification.
- **client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` client authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
+ **client\_assertion\_type** | Required | Must be ***Note***: this specifies that the authentication method type is `private_key_jwt`, according to [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification.
+ **client_assertion** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`  client authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
  
 According to the `private_key_jwt` client authentication method, the **client assertion** JWT must contain the following properties:
 
@@ -922,11 +922,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODEyMzAyNDA4LDQwOTMyOTU0NCwtNzE1OT
-c1OTcyLC00Nzc4Njk3NzUsLTEyNDk4NTgwNjUsLTM3MzUzOTc0
-OSwyODg1ODkwMzUsMTYwMzUwNDQ4OCw5MzQ0NDM2NjcsLTExOT
-I0NzYwNTksLTY0Mjk2MDM2NSw1OTgxMDQwNCwtNTQ1NDA3NjA4
-LC02NTYzNDUxNjQsMzYyMDI2NDkxLC0zOTI1MTUwMDUsMTM3OT
-k5NDY3Nyw5Mjc5NzUxODMsLTE5MTAzNjg5NTIsMTMzNTY0NjA1
-M119
+eyJoaXN0b3J5IjpbLTIwOTg3MTY1NjYsNDA5MzI5NTQ0LC03MT
+U5NzU5NzIsLTQ3Nzg2OTc3NSwtMTI0OTg1ODA2NSwtMzczNTM5
+NzQ5LDI4ODU4OTAzNSwxNjAzNTA0NDg4LDkzNDQ0MzY2NywtMT
+E5MjQ3NjA1OSwtNjQyOTYwMzY1LDU5ODEwNDA0LC01NDU0MDc2
+MDgsLTY1NjM0NTE2NCwzNjIwMjY0OTEsLTM5MjUxNTAwNSwxMz
+c5OTk0Njc3LDkyNzk3NTE4MywtMTkxMDM2ODk1MiwxMzM1NjQ2
+MDUzXX0=
 -->
