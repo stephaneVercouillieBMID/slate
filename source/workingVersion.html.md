@@ -281,7 +281,7 @@ In current version and in contradiction to the OpenID Connect specification, **i
 
  It means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, as in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims, you should already request claims with appropriate level regarding your business case. 
 
-## <a name id="decClaim"></a> 4.2. Declaring Claims]
+## <a name id="decClaim"></a> 4.2. Declaring Claims
 
 You can declare Claims in two ways:
 
@@ -360,7 +360,7 @@ E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
 NRN | not supported|
 
 
-#### [4.2.2.1. Set of Request Parameter Adapted to itsme(r)](#example-endpoint) <b id="example-endpoint"></b>
+#### <b id="example-endpoint"></b> 4.2.2.1. Set of Request Parameter Adapted to itsme(r)
 
 ```json--inline
  {
@@ -930,7 +930,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEzNTU1NDkwNSw5ODgzMDI0NDQsNTQ5Mj
+eyJoaXN0b3J5IjpbMTcxNTA4MTY2OCw5ODgzMDI0NDQsNTQ5Mj
 IxNDI2LC01NTAxNjk1OCwtMTEwODMyNjQ2OSwyNTk4ODgzMTAs
 MTY3MTE0MzU2OCwxNDY3Mzk5MzkwLC0yMDQzNjAzMDU5LDEwMT
 UzMDU3NTIsLTEzODE2Njg4NTksMTAxNzU1NTQ0MywtMTE2MDI1
