@@ -410,7 +410,7 @@ Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_devic
  
 ## 4.3. Getting Data
 
-As per the OpenID Connect specification  [http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
+As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest(http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
 
 Your server sends the User Info Request using either HTTP  `GET`  or HTTP  `POST`. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP  `GET`method and the Access Token be sent the using the  `Authorization`  header field. The HTTP request is sent to the User Info endpoint, which you should retrieve from the  [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration)  using the key  **userinfo_endpoint**.
 
@@ -930,7 +930,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcxNTA4MTY2OCw5ODgzMDI0NDQsNTQ5Mj
+eyJoaXN0b3J5IjpbLTkwNTQwNzk2Niw5ODgzMDI0NDQsNTQ5Mj
 IxNDI2LC01NTAxNjk1OCwtMTEwODMyNjQ2OSwyNTk4ODgzMTAs
 MTY3MTE0MzU2OCwxNDY3Mzk5MzkwLC0yMDQzNjAzMDU5LDEwMT
 UzMDU3NTIsLTEzODE2Njg4NTksMTAxNzU1NTQ0MywtMTE2MDI1
