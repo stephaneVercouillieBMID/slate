@@ -225,7 +225,7 @@ Client must validate following parameters,
  -- | -- | --
  **access_token** | Always | A token that can be sent to the UserInfo endpoint to retrieve additional information about the user.
  **token_type** | Always | Will be `Bearer`
- **id_token** | Always | The JWT `id_token` corresponding to the Authentication Request (signed and  encrypted). 
+ **id_token** | Always | The id_token corresponding to the Authentication Request (signed and  encrypted). 
  **at_hash** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
  **refresh_token** | Never | Won't be provided as **itsme(r)** only maintains short-lived session to enforce re-authentication.
 
@@ -923,11 +923,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjM2NDg1NTA0LDQwOTMyOTU0NCwtNzE1OT
-c1OTcyLC00Nzc4Njk3NzUsLTEyNDk4NTgwNjUsLTM3MzUzOTc0
-OSwyODg1ODkwMzUsMTYwMzUwNDQ4OCw5MzQ0NDM2NjcsLTExOT
-I0NzYwNTksLTY0Mjk2MDM2NSw1OTgxMDQwNCwtNTQ1NDA3NjA4
-LC02NTYzNDUxNjQsMzYyMDI2NDkxLC0zOTI1MTUwMDUsMTM3OT
-k5NDY3Nyw5Mjc5NzUxODMsLTE5MTAzNjg5NTIsMTMzNTY0NjA1
-M119
+eyJoaXN0b3J5IjpbLTE2MTA1NzIxMTEsMjM2NDg1NTA0LDQwOT
+MyOTU0NCwtNzE1OTc1OTcyLC00Nzc4Njk3NzUsLTEyNDk4NTgw
+NjUsLTM3MzUzOTc0OSwyODg1ODkwMzUsMTYwMzUwNDQ4OCw5Mz
+Q0NDM2NjcsLTExOTI0NzYwNTksLTY0Mjk2MDM2NSw1OTgxMDQw
+NCwtNTQ1NDA3NjA4LC02NTYzNDUxNjQsMzYyMDI2NDkxLC0zOT
+I1MTUwMDUsMTM3OTk5NDY3Nyw5Mjc5NzUxODMsLTE5MTAzNjg5
+NTJdfQ==
 -->
