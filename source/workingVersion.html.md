@@ -538,7 +538,7 @@ The following is a non-normative example of a UserInfo Error Response:
  
 It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
  ># 6. **FAQ**
- >## <a name="JWKSet"></a>[JWKSet](#jwks) 
+ >## <a name="jwks"></a>[JWKSet](#jwks) 
  >
  >### What is a JWKSet?
  We require you to expose a set of public key (a signature key & one encryption key) to setup the connectivity.
@@ -916,11 +916,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjU4MzkyMjgsLTExOTI0NzYwNTksLT
-Y0Mjk2MDM2NSw1OTgxMDQwNCwtNTQ1NDA3NjA4LC02NTYzNDUx
-NjQsMzYyMDI2NDkxLC0zOTI1MTUwMDUsMTM3OTk5NDY3Nyw5Mj
-c5NzUxODMsLTE5MTAzNjg5NTIsMTMzNTY0NjA1MywtMTY3MzM5
-NTQwNCwtNTQ5MTMyNDE0LC03NDI3MTg3ODAsMTg5NjU2NTkyOC
-wtMTc5MDc3NDYxNiwtMzY3NjI4MjEyLC0xNDMwMjQwMDYwLDE2
-MjE0NzYzOTVdfQ==
+eyJoaXN0b3J5IjpbOTM0NDQzNjY3LC0xMTkyNDc2MDU5LC02ND
+I5NjAzNjUsNTk4MTA0MDQsLTU0NTQwNzYwOCwtNjU2MzQ1MTY0
+LDM2MjAyNjQ5MSwtMzkyNTE1MDA1LDEzNzk5OTQ2NzcsOTI3OT
+c1MTgzLC0xOTEwMzY4OTUyLDEzMzU2NDYwNTMsLTE2NzMzOTU0
+MDQsLTU0OTEzMjQxNCwtNzQyNzE4NzgwLDE4OTY1NjU5MjgsLT
+E3OTA3NzQ2MTYsLTM2NzYyODIxMiwtMTQzMDI0MDA2MCwxNjIx
+NDc2Mzk1XX0=
 -->
