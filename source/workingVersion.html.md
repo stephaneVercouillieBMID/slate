@@ -897,8 +897,8 @@ It is expected that you will also expose their signing and encryption keys in su
  We need you to provide us a machine name (URL with host-name) so that once the redirect received, it points to your machine. On your local machine, this URL with host-name must point to your local machine (/ ETC / HOSTS) In other words: This will be the only URI we will accept in OpenID queries. So, if it is to be able to use the solution from different dev machines, the best thing is to create a unique redirect_uri like `https: // my-dev-sp / mycallbackuri` and that each developer maps `my-dev-sp` on the 127.0.0.1 via its hosts file.
  
  For the rest, if each developer has the private key of the SP on his post, she/he can impersonate the SP during calls to "/ token" and "/ userinfo". There is no check on the source IP, only the signature JWT account.
- <a name id="idtoken"></a>
-  >### <a name id="ServiceCode">Service Code Concept</a>, 	What is it?
+
+  >### <a name id="ServiceCode"></a>(#ServiceCode), 	What is it?
   To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
 
 For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
@@ -916,11 +916,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTk5OTMxMDksLTExOTI0NzYwNTksLT
-Y0Mjk2MDM2NSw1OTgxMDQwNCwtNTQ1NDA3NjA4LC02NTYzNDUx
-NjQsMzYyMDI2NDkxLC0zOTI1MTUwMDUsMTM3OTk5NDY3Nyw5Mj
-c5NzUxODMsLTE5MTAzNjg5NTIsMTMzNTY0NjA1MywtMTY3MzM5
-NTQwNCwtNTQ5MTMyNDE0LC03NDI3MTg3ODAsMTg5NjU2NTkyOC
-wtMTc5MDc3NDYxNiwtMzY3NjI4MjEyLC0xNDMwMjQwMDYwLDE2
-MjE0NzYzOTVdfQ==
+eyJoaXN0b3J5IjpbLTE2OTgzODg3OSwtMTE5MjQ3NjA1OSwtNj
+QyOTYwMzY1LDU5ODEwNDA0LC01NDU0MDc2MDgsLTY1NjM0NTE2
+NCwzNjIwMjY0OTEsLTM5MjUxNTAwNSwxMzc5OTk0Njc3LDkyNz
+k3NTE4MywtMTkxMDM2ODk1MiwxMzM1NjQ2MDUzLC0xNjczMzk1
+NDA0LC01NDkxMzI0MTQsLTc0MjcxODc4MCwxODk2NTY1OTI4LC
+0xNzkwNzc0NjE2LC0zNjc2MjgyMTIsLTE0MzAyNDAwNjAsMTYy
+MTQ3NjM5NV19
 -->
