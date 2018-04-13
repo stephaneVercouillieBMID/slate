@@ -478,7 +478,7 @@ As per specified by OIDC, when using the authorization code flow to obtain an Ac
 In order to communicate with Token Endpoint, TLS MUST be implemented. See  [Section 16.17](http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements)  for more information on using TLS.
 
 #### 4.3.2.1. Token Endpoint Specs [3.2 Token Endpoint](#tokEndpoint)
-To get further information about token types, token request/response specifications see [3.2 Token Endpoint](#tokEndpoint).
+To get further information about token types, token request/response specifications please proceed with [3.2 Token Endpoint](#tokEndpoint).
 
 #### 4.3.2.2 Example of Id Token Containing “claims”
 *Will be provided soon*
@@ -929,11 +929,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1MTEwOTc0MSwtMjA0MzYwMzA1OSwxMD
-E1MzA1NzUyLC0xMzgxNjY4ODU5LDEwMTc1NTU0NDMsLTExNjAy
-NTQ2NjQsLTE2MTA1NzIxMTEsMjM2NDg1NTA0LDQwOTMyOTU0NC
-wtNzE1OTc1OTcyLC00Nzc4Njk3NzUsLTEyNDk4NTgwNjUsLTM3
-MzUzOTc0OSwyODg1ODkwMzUsMTYwMzUwNDQ4OCw5MzQ0NDM2Nj
-csLTExOTI0NzYwNTksLTY0Mjk2MDM2NSw1OTgxMDQwNCwtNTQ1
-NDA3NjA4XX0=
+eyJoaXN0b3J5IjpbODA5MTA0MzI4LC0yMDQzNjAzMDU5LDEwMT
+UzMDU3NTIsLTEzODE2Njg4NTksMTAxNzU1NTQ0MywtMTE2MDI1
+NDY2NCwtMTYxMDU3MjExMSwyMzY0ODU1MDQsNDA5MzI5NTQ0LC
+03MTU5NzU5NzIsLTQ3Nzg2OTc3NSwtMTI0OTg1ODA2NSwtMzcz
+NTM5NzQ5LDI4ODU4OTAzNSwxNjAzNTA0NDg4LDkzNDQ0MzY2Ny
+wtMTE5MjQ3NjA1OSwtNjQyOTYwMzY1LDU5ODEwNDA0LC01NDU0
+MDc2MDhdfQ==
 -->
