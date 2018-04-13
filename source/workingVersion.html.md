@@ -472,6 +472,8 @@ In order to communicate with Token Endpoint, TLS MUST be implemented. See  [Sect
 #### 4.3.2.1. See [3.2 Token Endpoint](#tokEndpoint)
 
 
+
+
 #### 4.3.2.2 Example of Id Token Containing “claims”
 *Will be provided soon*
  # 5. Advanced topics
@@ -921,7 +923,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAwMDk1ODY2MywtNDc3ODY5Nzc1LC0xMj
+eyJoaXN0b3J5IjpbLTg5NzkxMzA1MywtNDc3ODY5Nzc1LC0xMj
 Q5ODU4MDY1LC0zNzM1Mzk3NDksMjg4NTg5MDM1LDE2MDM1MDQ0
 ODgsOTM0NDQzNjY3LC0xMTkyNDc2MDU5LC02NDI5NjAzNjUsNT
 k4MTA0MDQsLTU0NTQwNzYwOCwtNjU2MzQ1MTY0LDM2MjAyNjQ5
