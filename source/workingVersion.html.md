@@ -238,7 +238,7 @@ As per [OIDC specification aggregated Response](http://openid.net/specs/openid-c
 # 4. User Data
 ## 4.1. What is a claim?
 The concept of claim is about declaring the end user data you will need for your business before the authentication. This is a privacy-oriented way of getting data.
-Technically, you have to declare the claims in the Authorization Request in the way described in the section Declaring Claims (TODO link to this section).
+Technically, you have to declare the claims in the Authorization Request in the way described in the section [Declaring Claims](#dec_c).
 Claims will come as name/value pairs packaged in a JSON object that contain information about a user, as well as meta-information about the OIDC service. The official definition from the spec is a [“piece of information asserted about an Entity.”](http://openid.net/specs/openid-connect-core-1_0.html#Terminology)
 
 
@@ -916,11 +916,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYwMzUwNDQ4OCw5MzQ0NDM2NjcsLTExOT
-I0NzYwNTksLTY0Mjk2MDM2NSw1OTgxMDQwNCwtNTQ1NDA3NjA4
-LC02NTYzNDUxNjQsMzYyMDI2NDkxLC0zOTI1MTUwMDUsMTM3OT
-k5NDY3Nyw5Mjc5NzUxODMsLTE5MTAzNjg5NTIsMTMzNTY0NjA1
-MywtMTY3MzM5NTQwNCwtNTQ5MTMyNDE0LC03NDI3MTg3ODAsMT
-g5NjU2NTkyOCwtMTc5MDc3NDYxNiwtMzY3NjI4MjEyLC0xNDMw
-MjQwMDYwXX0=
+eyJoaXN0b3J5IjpbMjUzODY1NjE5LDE2MDM1MDQ0ODgsOTM0ND
+QzNjY3LC0xMTkyNDc2MDU5LC02NDI5NjAzNjUsNTk4MTA0MDQs
+LTU0NTQwNzYwOCwtNjU2MzQ1MTY0LDM2MjAyNjQ5MSwtMzkyNT
+E1MDA1LDEzNzk5OTQ2NzcsOTI3OTc1MTgzLC0xOTEwMzY4OTUy
+LDEzMzU2NDYwNTMsLTE2NzMzOTU0MDQsLTU0OTEzMjQxNCwtNz
+QyNzE4NzgwLDE4OTY1NjU5MjgsLTE3OTA3NzQ2MTYsLTM2NzYy
+ODIxMl19
 -->
