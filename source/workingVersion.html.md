@@ -552,7 +552,7 @@ To get further information about token types, token request/response specificati
  
 It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
  ># 6. **FAQ**
- >## <a name="jwks"></a>[JWKSet](#jwks) 
+ >## <a name="jwks"></a> JWKSet
  >
  >### What is a JWKSet?
  We require you to expose a set of public key (a signature key & one encryption key) to setup the connectivity.
@@ -930,7 +930,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNjEzMzc1NDEsLTkwNTQwNzk2Niw5OD
+eyJoaXN0b3J5IjpbLTIwOTM5NDYzMTQsLTkwNTQwNzk2Niw5OD
 gzMDI0NDQsNTQ5MjIxNDI2LC01NTAxNjk1OCwtMTEwODMyNjQ2
 OSwyNTk4ODgzMTAsMTY3MTE0MzU2OCwxNDY3Mzk5MzkwLC0yMD
 QzNjAzMDU5LDEwMTUzMDU3NTIsLTEzODE2Njg4NTksMTAxNzU1
