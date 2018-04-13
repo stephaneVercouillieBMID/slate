@@ -157,6 +157,12 @@ As per explained by OIDC [http://openid.net/specs/openid-connect-core-1_0.html#A
  `registration_not_supported` | does not support use of the registration parameter.
 ## [3.2. Token Endpoint](#tokEndpoint) <a name="TokenEndpoint"></a>
 As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
+
+Possible token end-point URLs:  
+[https://merchant.itsme.be/oidc/token](https://merchant.itsme.be/oidc/token)  
+[https://e2emerchant.itsme.be/oidc/token](https://e2emerchant.itsme.be/oidc/token)  
+[https://uatmerchant.sixdots.be/oidc/token](https://uatmerchant.sixdots.be/oidc/token)
+
 ### 3.2.1. About Tokens
 In this section, we will go through token types and their specifics.
 
@@ -923,11 +929,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwxMD
-E3NTU1NDQzLC0xMTYwMjU0NjY0LC0xNjEwNTcyMTExLDIzNjQ4
-NTUwNCw0MDkzMjk1NDQsLTcxNTk3NTk3MiwtNDc3ODY5Nzc1LC
-0xMjQ5ODU4MDY1LC0zNzM1Mzk3NDksMjg4NTg5MDM1LDE2MDM1
-MDQ0ODgsOTM0NDQzNjY3LC0xMTkyNDc2MDU5LC02NDI5NjAzNj
-UsNTk4MTA0MDQsLTU0NTQwNzYwOCwtNjU2MzQ1MTY0LDM2MjAy
-NjQ5MV19
+eyJoaXN0b3J5IjpbLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMT
+M4MTY2ODg1OSwxMDE3NTU1NDQzLC0xMTYwMjU0NjY0LC0xNjEw
+NTcyMTExLDIzNjQ4NTUwNCw0MDkzMjk1NDQsLTcxNTk3NTk3Mi
+wtNDc3ODY5Nzc1LC0xMjQ5ODU4MDY1LC0zNzM1Mzk3NDksMjg4
+NTg5MDM1LDE2MDM1MDQ0ODgsOTM0NDQzNjY3LC0xMTkyNDc2MD
+U5LC02NDI5NjAzNjUsNTk4MTA0MDQsLTU0NTQwNzYwOCwtNjU2
+MzQ1MTY0XX0=
 -->
