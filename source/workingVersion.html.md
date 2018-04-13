@@ -175,7 +175,7 @@ As per the [OIDC Specification](http://openid.net/specs/openid-connect-core-1_0.
 
 There’s a set of [rules](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation) in the specification for validating an `id_token`.
 
-#### [3.2.1.2 Access Tokens](#actoken)<a name id="actoken"></a>
+#### <a name id="actoken"></a> 3.2.1.2 Access Tokens
 
 Bearer token concept must be mentioned before access token is explained. Bearer token is a protected token which can access to authorized resources without further identification. The format for OAuth 2.0 Bearer tokens is actually described in a separate spec, [RFC 6750](https://tools.ietf.org/html/rfc6750).
 
@@ -929,11 +929,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDI4NDUyNDMwLDI1OTg4ODMxMCwxNjcxMT
-QzNTY4LDE0NjczOTkzOTAsLTIwNDM2MDMwNTksMTAxNTMwNTc1
-MiwtMTM4MTY2ODg1OSwxMDE3NTU1NDQzLC0xMTYwMjU0NjY0LC
-0xNjEwNTcyMTExLDIzNjQ4NTUwNCw0MDkzMjk1NDQsLTcxNTk3
-NTk3MiwtNDc3ODY5Nzc1LC0xMjQ5ODU4MDY1LC0zNzM1Mzk3ND
-ksMjg4NTg5MDM1LDE2MDM1MDQ0ODgsOTM0NDQzNjY3LC0xMTky
-NDc2MDU5XX0=
+eyJoaXN0b3J5IjpbLTExMDgzMjY0NjksMjU5ODg4MzEwLDE2Nz
+ExNDM1NjgsMTQ2NzM5OTM5MCwtMjA0MzYwMzA1OSwxMDE1MzA1
+NzUyLC0xMzgxNjY4ODU5LDEwMTc1NTU0NDMsLTExNjAyNTQ2Nj
+QsLTE2MTA1NzIxMTEsMjM2NDg1NTA0LDQwOTMyOTU0NCwtNzE1
+OTc1OTcyLC00Nzc4Njk3NzUsLTEyNDk4NTgwNjUsLTM3MzUzOT
+c0OSwyODg1ODkwMzUsMTYwMzUwNDQ4OCw5MzQ0NDM2NjcsLTEx
+OTI0NzYwNTldfQ==
 -->
