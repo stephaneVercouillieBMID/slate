@@ -213,7 +213,7 @@ According to the `private_key_jwt` client authentication method, the **client as
 
 ### 3.2.3. Token Request Example
 
-https://uatmerchant.sixdots.be/oidc/authorization?response_type=code&client_id=yourpartnercode&yourredirecturl&scope=openid+service%3AOIDC_TEST1_LOGIN+profile+&claims={"userinfo":{" tag:sixdots.be,2016-06:claim_nationality": null},"id_token":{"auth_time": {"essential": true},"acr_values":{"value":["tag:sixdots.be,2016-06:acr_advanced"]}}}&state=anystate&nonce=anonce&prompt=login&max_age=1
+https://uatmerchant.sixdots.be/oidc/authorization?response_type=code&client_id=yourpartnercode&yourredirecturl&scope=openid+service%3Ayourservicecode+profile+&claims={"userinfo":{" tag:sixdots.be,2016-06:claim_nationality": null},"id_token":{"auth_time": {"essential": true},"acr_values":{"value":["tag:sixdots.be,2016-06:acr_advanced"]}}}&state=anystate&nonce=anonce&prompt=login&max_age=1
 
 ### 3.2.4. Token Response Specification
 The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the **token_endpoint** key. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret` authentication methods are not supported since they are considered less secure.
@@ -920,11 +920,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgyOTY5NjA3NCwxNDQyODE4MzA2LC0xNj
-YzMzI3NDc5LC0xOTY4NjQ5MDQwLC0xOTcyNDc3NzA1LC0yMDkz
-OTQ2MzE0LC05MDU0MDc5NjYsOTg4MzAyNDQ0LDU0OTIyMTQyNi
-wtNTUwMTY5NTgsLTExMDgzMjY0NjksMjU5ODg4MzEwLDE2NzEx
-NDM1NjgsMTQ2NzM5OTM5MCwtMjA0MzYwMzA1OSwxMDE1MzA1Nz
-UyLC0xMzgxNjY4ODU5LDEwMTc1NTU0NDMsLTExNjAyNTQ2NjQs
-LTE2MTA1NzIxMTFdfQ==
+eyJoaXN0b3J5IjpbNzQwMTU1MzYsLTgyOTY5NjA3NCwxNDQyOD
+E4MzA2LC0xNjYzMzI3NDc5LC0xOTY4NjQ5MDQwLC0xOTcyNDc3
+NzA1LC0yMDkzOTQ2MzE0LC05MDU0MDc5NjYsOTg4MzAyNDQ0LD
+U0OTIyMTQyNiwtNTUwMTY5NTgsLTExMDgzMjY0NjksMjU5ODg4
+MzEwLDE2NzExNDM1NjgsMTQ2NzM5OTM5MCwtMjA0MzYwMzA1OS
+wxMDE1MzA1NzUyLC0xMzgxNjY4ODU5LDEwMTc1NTU0NDMsLTEx
+NjAyNTQ2NjRdfQ==
 -->
