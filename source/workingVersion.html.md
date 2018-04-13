@@ -181,7 +181,7 @@ Bearer token concept must be mentioned before access token is explained. Bearer 
 As access tokens have short lifespan, there is a need for refresh tokens in order to take forward long-lived sessions. We do not support refresh tokens due to sessions are not maintained.
 
 ### 3.2.2. Token Request Specification
-As per the [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest), with a private_key_jwt for client authentication.
+As per the [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest), with a private_key_jwt for client authentication.
 
 The Token Request must include the following parameters in the POST body:
 
@@ -922,11 +922,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE3ODQ5ODM4NCwtNzE1OTc1OTcyLC00Nz
-c4Njk3NzUsLTEyNDk4NTgwNjUsLTM3MzUzOTc0OSwyODg1ODkw
-MzUsMTYwMzUwNDQ4OCw5MzQ0NDM2NjcsLTExOTI0NzYwNTksLT
-Y0Mjk2MDM2NSw1OTgxMDQwNCwtNTQ1NDA3NjA4LC02NTYzNDUx
-NjQsMzYyMDI2NDkxLC0zOTI1MTUwMDUsMTM3OTk5NDY3Nyw5Mj
-c5NzUxODMsLTE5MTAzNjg5NTIsMTMzNTY0NjA1MywtMTY3MzM5
-NTQwNF19
+eyJoaXN0b3J5IjpbNDA5MzI5NTQ0LC03MTU5NzU5NzIsLTQ3Nz
+g2OTc3NSwtMTI0OTg1ODA2NSwtMzczNTM5NzQ5LDI4ODU4OTAz
+NSwxNjAzNTA0NDg4LDkzNDQ0MzY2NywtMTE5MjQ3NjA1OSwtNj
+QyOTYwMzY1LDU5ODEwNDA0LC01NDU0MDc2MDgsLTY1NjM0NTE2
+NCwzNjIwMjY0OTEsLTM5MjUxNTAwNSwxMzc5OTk0Njc3LDkyNz
+k3NTE4MywtMTkxMDM2ODk1MiwxMzM1NjQ2MDUzLC0xNjczMzk1
+NDA0XX0=
 -->
