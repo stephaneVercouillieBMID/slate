@@ -330,7 +330,7 @@ URL Parameters: TODO exp
 response_type=code
 client_id=OIDC_TEST1
 redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fuat_OIDC_TEST1%2Fauthz_cb
-scope=openid+service%3AOIDC_TEST1_LOGIN+profile+eid+phone=phone_number+phone_number_verified+email=email_verified+address=postal_code+country+
+scope=openid+service%3Aitsme_openid+profile+eid+phone=phone_number+phone_number_verified+email=email_verified+address=postal_code+country+
 state=anystate
 nonce=anonce
 prompt=login
@@ -929,11 +929,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0Njc0OTE2MTMsMTY3MTE0MzU2OCwxND
-Y3Mzk5MzkwLC0yMDQzNjAzMDU5LDEwMTUzMDU3NTIsLTEzODE2
-Njg4NTksMTAxNzU1NTQ0MywtMTE2MDI1NDY2NCwtMTYxMDU3Mj
-ExMSwyMzY0ODU1MDQsNDA5MzI5NTQ0LC03MTU5NzU5NzIsLTQ3
-Nzg2OTc3NSwtMTI0OTg1ODA2NSwtMzczNTM5NzQ5LDI4ODU4OT
-AzNSwxNjAzNTA0NDg4LDkzNDQ0MzY2NywtMTE5MjQ3NjA1OSwt
-NjQyOTYwMzY1XX0=
+eyJoaXN0b3J5IjpbMTI5Mjk2MTAyNiwxNjcxMTQzNTY4LDE0Nj
+czOTkzOTAsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2
+ODg1OSwxMDE3NTU1NDQzLC0xMTYwMjU0NjY0LC0xNjEwNTcyMT
+ExLDIzNjQ4NTUwNCw0MDkzMjk1NDQsLTcxNTk3NTk3MiwtNDc3
+ODY5Nzc1LC0xMjQ5ODU4MDY1LC0zNzM1Mzk3NDksMjg4NTg5MD
+M1LDE2MDM1MDQ0ODgsOTM0NDQzNjY3LC0xMTkyNDc2MDU5LC02
+NDI5NjAzNjVdfQ==
 -->
