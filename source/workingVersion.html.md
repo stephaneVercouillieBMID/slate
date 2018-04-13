@@ -212,17 +212,7 @@ According to the `private_key_jwt` client authentication method, the **client as
  **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 
 ### 3.2.3. Token Request Example
- ```http--inline
- POST /token HTTP/1.1
- Host: server.example.com
- Content-Type: application/x-www-form-urlencoded
- 
- grant_type=authorization_code&
- code=SplxlOBeZQQYbYS6WxSbIA&
- redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
- client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
- client_assertion=PHNhbWxwOl ... ZT
- ```
+
 
 ### 3.2.4. Token Response Specification
 The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the **token_endpoint** key. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret` authentication methods are not supported since they are considered less secure.
@@ -930,11 +920,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwOTM5NDYzMTQsLTkwNTQwNzk2Niw5OD
-gzMDI0NDQsNTQ5MjIxNDI2LC01NTAxNjk1OCwtMTEwODMyNjQ2
-OSwyNTk4ODgzMTAsMTY3MTE0MzU2OCwxNDY3Mzk5MzkwLC0yMD
-QzNjAzMDU5LDEwMTUzMDU3NTIsLTEzODE2Njg4NTksMTAxNzU1
-NTQ0MywtMTE2MDI1NDY2NCwtMTYxMDU3MjExMSwyMzY0ODU1MD
-QsNDA5MzI5NTQ0LC03MTU5NzU5NzIsLTQ3Nzg2OTc3NSwtMTI0
-OTg1ODA2NV19
+eyJoaXN0b3J5IjpbLTE5NzI0Nzc3MDUsLTIwOTM5NDYzMTQsLT
+kwNTQwNzk2Niw5ODgzMDI0NDQsNTQ5MjIxNDI2LC01NTAxNjk1
+OCwtMTEwODMyNjQ2OSwyNTk4ODgzMTAsMTY3MTE0MzU2OCwxND
+Y3Mzk5MzkwLC0yMDQzNjAzMDU5LDEwMTUzMDU3NTIsLTEzODE2
+Njg4NTksMTAxNzU1NTQ0MywtMTE2MDI1NDY2NCwtMTYxMDU3Mj
+ExMSwyMzY0ODU1MDQsNDA5MzI5NTQ0LC03MTU5NzU5NzIsLTQ3
+Nzg2OTc3NV19
 -->
