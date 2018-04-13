@@ -329,7 +329,7 @@ URL Parameters: TODO exp
 ```http inline--   
 response_type=code
 client_id=yourpartnercode
-redirect_uri=https%3A%2F%2Fyourredirecturoi.be
+redirect_uri=https%3A%2F%2Fyourredirecturl
 scope=openid+service%3Ayourservicecode+profile+eid+phone=phone_number+phone_number_verified+email=email_verified+address=postal_code+country+
 state=anystate
 nonce=anonce
@@ -929,11 +929,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1ODk5NDE2NTMsMTY3MTE0MzU2OCwxND
-Y3Mzk5MzkwLC0yMDQzNjAzMDU5LDEwMTUzMDU3NTIsLTEzODE2
-Njg4NTksMTAxNzU1NTQ0MywtMTE2MDI1NDY2NCwtMTYxMDU3Mj
-ExMSwyMzY0ODU1MDQsNDA5MzI5NTQ0LC03MTU5NzU5NzIsLTQ3
-Nzg2OTc3NSwtMTI0OTg1ODA2NSwtMzczNTM5NzQ5LDI4ODU4OT
-AzNSwxNjAzNTA0NDg4LDkzNDQ0MzY2NywtMTE5MjQ3NjA1OSwt
-NjQyOTYwMzY1XX0=
+eyJoaXN0b3J5IjpbMjU5ODg4MzEwLDE2NzExNDM1NjgsMTQ2Nz
+M5OTM5MCwtMjA0MzYwMzA1OSwxMDE1MzA1NzUyLC0xMzgxNjY4
+ODU5LDEwMTc1NTU0NDMsLTExNjAyNTQ2NjQsLTE2MTA1NzIxMT
+EsMjM2NDg1NTA0LDQwOTMyOTU0NCwtNzE1OTc1OTcyLC00Nzc4
+Njk3NzUsLTEyNDk4NTgwNjUsLTM3MzUzOTc0OSwyODg1ODkwMz
+UsMTYwMzUwNDQ4OCw5MzQ0NDM2NjcsLTExOTI0NzYwNTksLTY0
+Mjk2MDM2NV19
 -->
