@@ -181,7 +181,7 @@ Bearer token concept must be mentioned before access token is explained. Bearer 
 As access tokens have short lifespan, there is a need for refresh tokens in order to take forward long-lived sessions. We do not support refresh tokens due to sessions are not maintained.
 
 ### 3.2.2. Token Request Specification
-
+As per the specification, with a private_key_jwt for client authentication.
 The Token Request must include the following parameters in the POST body:
 
 Parameter | Required | Comment
@@ -921,11 +921,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcxNTk3NTk3MiwtNDc3ODY5Nzc1LC0xMj
-Q5ODU4MDY1LC0zNzM1Mzk3NDksMjg4NTg5MDM1LDE2MDM1MDQ0
-ODgsOTM0NDQzNjY3LC0xMTkyNDc2MDU5LC02NDI5NjAzNjUsNT
-k4MTA0MDQsLTU0NTQwNzYwOCwtNjU2MzQ1MTY0LDM2MjAyNjQ5
-MSwtMzkyNTE1MDA1LDEzNzk5OTQ2NzcsOTI3OTc1MTgzLC0xOT
-EwMzY4OTUyLDEzMzU2NDYwNTMsLTE2NzMzOTU0MDQsLTU0OTEz
-MjQxNF19
+eyJoaXN0b3J5IjpbLTE1NjE3MTIxNSwtNzE1OTc1OTcyLC00Nz
+c4Njk3NzUsLTEyNDk4NTgwNjUsLTM3MzUzOTc0OSwyODg1ODkw
+MzUsMTYwMzUwNDQ4OCw5MzQ0NDM2NjcsLTExOTI0NzYwNTksLT
+Y0Mjk2MDM2NSw1OTgxMDQwNCwtNTQ1NDA3NjA4LC02NTYzNDUx
+NjQsMzYyMDI2NDkxLC0zOTI1MTUwMDUsMTM3OTk5NDY3Nyw5Mj
+c5NzUxODMsLTE5MTAzNjg5NTIsMTMzNTY0NjA1MywtMTY3MzM5
+NTQwNF19
 -->
