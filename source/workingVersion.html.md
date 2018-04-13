@@ -224,7 +224,7 @@ Client must validate following parameters,
  Parameter | Provided | Comment
  -- | -- | --
  **[`access_token`](#actoken)** | Always | Will be provided. 
- **`token_type`(** | Always | Will be `Bearer`
+ **[`token_type`](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)** | Always | Will be `Bearer`
  **[`id_token`](#idtoken)** | Always | The id_token corresponding to the Authentication Request (signed and  encrypted). 
  **[`at_hash`](http://openid.net/specs/openid-connect-core-1_0.html#CodeIDToken)** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
  **[`refresh_token`](#rfshtoken)** | Never | Won't be provided as **itsme(r)** only maintains short-lived session to enforce re-authentication.
@@ -923,11 +923,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYwMjY1MzM5NSwxMDE3NTU1NDQzLC0xMT
-YwMjU0NjY0LC0xNjEwNTcyMTExLDIzNjQ4NTUwNCw0MDkzMjk1
-NDQsLTcxNTk3NTk3MiwtNDc3ODY5Nzc1LC0xMjQ5ODU4MDY1LC
-0zNzM1Mzk3NDksMjg4NTg5MDM1LDE2MDM1MDQ0ODgsOTM0NDQz
-NjY3LC0xMTkyNDc2MDU5LC02NDI5NjAzNjUsNTk4MTA0MDQsLT
-U0NTQwNzYwOCwtNjU2MzQ1MTY0LDM2MjAyNjQ5MSwtMzkyNTE1
-MDA1XX0=
+eyJoaXN0b3J5IjpbLTEzODE2Njg4NTksMTAxNzU1NTQ0MywtMT
+E2MDI1NDY2NCwtMTYxMDU3MjExMSwyMzY0ODU1MDQsNDA5MzI5
+NTQ0LC03MTU5NzU5NzIsLTQ3Nzg2OTc3NSwtMTI0OTg1ODA2NS
+wtMzczNTM5NzQ5LDI4ODU4OTAzNSwxNjAzNTA0NDg4LDkzNDQ0
+MzY2NywtMTE5MjQ3NjA1OSwtNjQyOTYwMzY1LDU5ODEwNDA0LC
+01NDU0MDc2MDgsLTY1NjM0NTE2NCwzNjIwMjY0OTEsLTM5MjUx
+NTAwNV19
 -->
