@@ -465,7 +465,7 @@ The following is a non-normative example of a UserInfo Error Response:
  ```
 
 ### 4.3.2. Token Endpoint
-As per specified by OIDC, when using the authorization code flow 
+As per specified by OIDC, when using the authorization code flow, you will send a token request to token endpoint 
 #### 4.3.2.1. See [3.2 Token Endpoint](#tokEndpoint)
 
 #### 4.3.2.2 Example of Id Token Containing “claims”
@@ -917,11 +917,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ3Nzg2OTc3NSwtMTI0OTg1ODA2NSwtMz
-czNTM5NzQ5LDI4ODU4OTAzNSwxNjAzNTA0NDg4LDkzNDQ0MzY2
-NywtMTE5MjQ3NjA1OSwtNjQyOTYwMzY1LDU5ODEwNDA0LC01ND
-U0MDc2MDgsLTY1NjM0NTE2NCwzNjIwMjY0OTEsLTM5MjUxNTAw
-NSwxMzc5OTk0Njc3LDkyNzk3NTE4MywtMTkxMDM2ODk1MiwxMz
-M1NjQ2MDUzLC0xNjczMzk1NDA0LC01NDkxMzI0MTQsLTc0Mjcx
-ODc4MF19
+eyJoaXN0b3J5IjpbMjkyNTI3OTAwLC00Nzc4Njk3NzUsLTEyND
+k4NTgwNjUsLTM3MzUzOTc0OSwyODg1ODkwMzUsMTYwMzUwNDQ4
+OCw5MzQ0NDM2NjcsLTExOTI0NzYwNTksLTY0Mjk2MDM2NSw1OT
+gxMDQwNCwtNTQ1NDA3NjA4LC02NTYzNDUxNjQsMzYyMDI2NDkx
+LC0zOTI1MTUwMDUsMTM3OTk5NDY3Nyw5Mjc5NzUxODMsLTE5MT
+AzNjg5NTIsMTMzNTY0NjA1MywtMTY3MzM5NTQwNCwtNTQ5MTMy
+NDE0XX0=
 -->
