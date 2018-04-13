@@ -223,7 +223,7 @@ Client must validate following parameters,
 
  Parameter | Provided | Comment
  -- | -- | --
- **access_token** | Always | A token that can be sent to the UserInfo endpoint to retrieve additional information about the user.
+ **access_token** | Always | Will be provided. This token that can be sent to the UserInfo endpoint to retrieve additional information about the user.
  **token_type** | Always | Will be `Bearer`
  **id_token** | Always | The id_token corresponding to the Authentication Request (signed and  encrypted). 
  **at_hash** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
@@ -923,11 +923,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTA1NzIxMTEsMjM2NDg1NTA0LDQwOT
-MyOTU0NCwtNzE1OTc1OTcyLC00Nzc4Njk3NzUsLTEyNDk4NTgw
-NjUsLTM3MzUzOTc0OSwyODg1ODkwMzUsMTYwMzUwNDQ4OCw5Mz
-Q0NDM2NjcsLTExOTI0NzYwNTksLTY0Mjk2MDM2NSw1OTgxMDQw
-NCwtNTQ1NDA3NjA4LC02NTYzNDUxNjQsMzYyMDI2NDkxLC0zOT
-I1MTUwMDUsMTM3OTk5NDY3Nyw5Mjc5NzUxODMsLTE5MTAzNjg5
-NTJdfQ==
+eyJoaXN0b3J5IjpbLTc2MTUxODk0MiwtMTYxMDU3MjExMSwyMz
+Y0ODU1MDQsNDA5MzI5NTQ0LC03MTU5NzU5NzIsLTQ3Nzg2OTc3
+NSwtMTI0OTg1ODA2NSwtMzczNTM5NzQ5LDI4ODU4OTAzNSwxNj
+AzNTA0NDg4LDkzNDQ0MzY2NywtMTE5MjQ3NjA1OSwtNjQyOTYw
+MzY1LDU5ODEwNDA0LC01NDU0MDc2MDgsLTY1NjM0NTE2NCwzNj
+IwMjY0OTEsLTM5MjUxNTAwNSwxMzc5OTk0Njc3LDkyNzk3NTE4
+M119
 -->
