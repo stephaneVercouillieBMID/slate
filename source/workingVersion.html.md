@@ -57,7 +57,7 @@ After a user successfully is authorized, the authorization server will redirect 
 
  - the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.
  - the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP. 
- - Whenever TLS is used, a TLS server certificate check MUST be performed, per [RFC 6125](https://openid.net/specs/openid-connect-core-1_0.html#RFC6125) [RFC6125].
+ - Whenever TLS is used, a TLS server certificate check MUST be performed, per [RFC 6125](https://openid.net/specs/openid-connect-core-1_0.html#RFC6125).
  
  Service Providers provides,
 - the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
@@ -916,11 +916,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTM0NDQzNjY3LC0xMTkyNDc2MDU5LC02ND
-I5NjAzNjUsNTk4MTA0MDQsLTU0NTQwNzYwOCwtNjU2MzQ1MTY0
-LDM2MjAyNjQ5MSwtMzkyNTE1MDA1LDEzNzk5OTQ2NzcsOTI3OT
-c1MTgzLC0xOTEwMzY4OTUyLDEzMzU2NDYwNTMsLTE2NzMzOTU0
-MDQsLTU0OTEzMjQxNCwtNzQyNzE4NzgwLDE4OTY1NjU5MjgsLT
-E3OTA3NzQ2MTYsLTM2NzYyODIxMiwtMTQzMDI0MDA2MCwxNjIx
-NDc2Mzk1XX0=
+eyJoaXN0b3J5IjpbMTYwMzUwNDQ4OCw5MzQ0NDM2NjcsLTExOT
+I0NzYwNTksLTY0Mjk2MDM2NSw1OTgxMDQwNCwtNTQ1NDA3NjA4
+LC02NTYzNDUxNjQsMzYyMDI2NDkxLC0zOTI1MTUwMDUsMTM3OT
+k5NDY3Nyw5Mjc5NzUxODMsLTE5MTAzNjg5NTIsMTMzNTY0NjA1
+MywtMTY3MzM5NTQwNCwtNTQ5MTMyNDE0LC03NDI3MTg3ODAsMT
+g5NjU2NTkyOCwtMTc5MDc3NDYxNiwtMzY3NjI4MjEyLC0xNDMw
+MjQwMDYwXX0=
 -->
