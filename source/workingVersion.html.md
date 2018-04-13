@@ -272,7 +272,7 @@ In current version and in contradiction to the OpenID Connect specification, **i
 
  It means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, as in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims, you should already request claims with appropriate level regarding your business case. 
 
-## [4.2. Declaring Claims](#decClaim)<a name id="ServiceCode"></a>
+## [4.2. Declaring Claims](#decClaim)<a name id="decClaim"></a>
 
 You can declare Claims in two ways:
 
@@ -916,11 +916,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjExNDgxNDQ1MSwxNjAzNTA0NDg4LDkzND
-Q0MzY2NywtMTE5MjQ3NjA1OSwtNjQyOTYwMzY1LDU5ODEwNDA0
-LC01NDU0MDc2MDgsLTY1NjM0NTE2NCwzNjIwMjY0OTEsLTM5Mj
-UxNTAwNSwxMzc5OTk0Njc3LDkyNzk3NTE4MywtMTkxMDM2ODk1
-MiwxMzM1NjQ2MDUzLC0xNjczMzk1NDA0LC01NDkxMzI0MTQsLT
-c0MjcxODc4MCwxODk2NTY1OTI4LC0xNzkwNzc0NjE2LC0zNjc2
-MjgyMTJdfQ==
+eyJoaXN0b3J5IjpbOTg1OTY2MTUzLDE2MDM1MDQ0ODgsOTM0ND
+QzNjY3LC0xMTkyNDc2MDU5LC02NDI5NjAzNjUsNTk4MTA0MDQs
+LTU0NTQwNzYwOCwtNjU2MzQ1MTY0LDM2MjAyNjQ5MSwtMzkyNT
+E1MDA1LDEzNzk5OTQ2NzcsOTI3OTc1MTgzLC0xOTEwMzY4OTUy
+LDEzMzU2NDYwNTMsLTE2NzMzOTU0MDQsLTU0OTEzMjQxNCwtNz
+QyNzE4NzgwLDE4OTY1NjU5MjgsLTE3OTA3NzQ2MTYsLTM2NzYy
+ODIxMl19
 -->
