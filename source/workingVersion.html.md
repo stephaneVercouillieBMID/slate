@@ -471,7 +471,7 @@ The following is a non-normative example of a UserInfo Error Response:
 *Will be provided soon*
  # 5. Advanced topics
  
- ## 5.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs
+ ## 5.1. <a name="JWTRequest"></a>[Passing Request Parameters as JWTs]
  
  As per specified by OpenID Connect https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests, Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.
  
@@ -916,7 +916,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg0NzA1NDYxMCwtMTE5MjQ3NjA1OSwtNj
+eyJoaXN0b3J5IjpbLTYyMDgyNzU3NiwtMTE5MjQ3NjA1OSwtNj
 QyOTYwMzY1LDU5ODEwNDA0LC01NDU0MDc2MDgsLTY1NjM0NTE2
 NCwzNjIwMjY0OTEsLTM5MjUxNTAwNSwxMzc5OTk0Njc3LDkyNz
 k3NTE4MywtMTkxMDM2ODk1MiwxMzM1NjQ2MDUzLC0xNjczMzk1
