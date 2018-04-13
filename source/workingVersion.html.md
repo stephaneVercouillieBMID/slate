@@ -167,7 +167,7 @@ Possible token end-point URLs:
 In this section, we will go through token types and their specifics.
 
 There are three types of tokens in OIDC: [id_token](#idtoken), [access_token](#actoken) and [refresh_token](#rfshtoken).
-#### [3.2.1.1. ID Tokens](#idtoken)<a name id="idtoken"></a>
+#### <a name id="idtoken"></a> 3.2.1.1. ID Tokens 
 As per the [OIDC Specification](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse), an `id_token` is a JWT.
 
 - ID tokens carry user’s authentication information encoded in the token itself, it must be a JWT and authorization server will return them.
@@ -929,11 +929,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjU5ODg4MzEwLDE2NzExNDM1NjgsMTQ2Nz
-M5OTM5MCwtMjA0MzYwMzA1OSwxMDE1MzA1NzUyLC0xMzgxNjY4
-ODU5LDEwMTc1NTU0NDMsLTExNjAyNTQ2NjQsLTE2MTA1NzIxMT
-EsMjM2NDg1NTA0LDQwOTMyOTU0NCwtNzE1OTc1OTcyLC00Nzc4
-Njk3NzUsLTEyNDk4NTgwNjUsLTM3MzUzOTc0OSwyODg1ODkwMz
-UsMTYwMzUwNDQ4OCw5MzQ0NDM2NjcsLTExOTI0NzYwNTksLTY0
-Mjk2MDM2NV19
+eyJoaXN0b3J5IjpbNDI4NDUyNDMwLDI1OTg4ODMxMCwxNjcxMT
+QzNTY4LDE0NjczOTkzOTAsLTIwNDM2MDMwNTksMTAxNTMwNTc1
+MiwtMTM4MTY2ODg1OSwxMDE3NTU1NDQzLC0xMTYwMjU0NjY0LC
+0xNjEwNTcyMTExLDIzNjQ4NTUwNCw0MDkzMjk1NDQsLTcxNTk3
+NTk3MiwtNDc3ODY5Nzc1LC0xMjQ5ODU4MDY1LC0zNzM1Mzk3ND
+ksMjg4NTg5MDM1LDE2MDM1MDQ0ODgsOTM0NDQzNjY3LC0xMTky
+NDc2MDU5XX0=
 -->
