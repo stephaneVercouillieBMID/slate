@@ -156,7 +156,7 @@ As per explained by OIDC [http://openid.net/specs/openid-connect-core-1_0.html#A
  `invalid_request_object` | The request parameter contains an invalid Request Object.
  `request_uri_not_supported` | does not support use of the request_uri parameter.
  `registration_not_supported` | does not support use of the registration parameter.
-## <a name="tokenEndpoint"></a>[3.2. Token Endpoint](#tokenEndpoint) 
+## <a name="tokenEndpoint"></a> 3.2. Token Endpoint
 As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
 
 Possible token end-point URLs:  
@@ -183,7 +183,7 @@ Bearer token concept must be mentioned before access token is explained. Bearer 
 - Access tokens are used as bearer tokens. 
 - They have short lifespan, expire for improving security. The user must authenticate again to get a new access token limiting the exposure of the fact that it’s a bearer token.
 
-#### [3.2.1.3 Refresh Tokens](#rfshtoken)<a name id="rfshtoken"></a> (_not supported_) 
+#### <a name id="rfshtoken"></a> 3.2.1.3 Refresh Tokens (_not supported_) 
 
 As access tokens have short lifespan, there is a need for refresh tokens in order to take forward long-lived sessions. We do not support refresh tokens due to sessions are not maintained.
 
@@ -930,11 +930,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTQ5MjIxNDI2LC01NTAxNjk1OCwtMTEwOD
-MyNjQ2OSwyNTk4ODgzMTAsMTY3MTE0MzU2OCwxNDY3Mzk5Mzkw
-LC0yMDQzNjAzMDU5LDEwMTUzMDU3NTIsLTEzODE2Njg4NTksMT
-AxNzU1NTQ0MywtMTE2MDI1NDY2NCwtMTYxMDU3MjExMSwyMzY0
-ODU1MDQsNDA5MzI5NTQ0LC03MTU5NzU5NzIsLTQ3Nzg2OTc3NS
-wtMTI0OTg1ODA2NSwtMzczNTM5NzQ5LDI4ODU4OTAzNSwxNjAz
-NTA0NDg4XX0=
+eyJoaXN0b3J5IjpbOTg4MzAyNDQ0LDU0OTIyMTQyNiwtNTUwMT
+Y5NTgsLTExMDgzMjY0NjksMjU5ODg4MzEwLDE2NzExNDM1Njgs
+MTQ2NzM5OTM5MCwtMjA0MzYwMzA1OSwxMDE1MzA1NzUyLC0xMz
+gxNjY4ODU5LDEwMTc1NTU0NDMsLTExNjAyNTQ2NjQsLTE2MTA1
+NzIxMTEsMjM2NDg1NTA0LDQwOTMyOTU0NCwtNzE1OTc1OTcyLC
+00Nzc4Njk3NzUsLTEyNDk4NTgwNjUsLTM3MzUzOTc0OSwyODg1
+ODkwMzVdfQ==
 -->
