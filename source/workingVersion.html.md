@@ -229,7 +229,7 @@ Client must validate following parameters,
 
 
 ### 3.2.5. Token Response Example
-{"user_info":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","birthdate":"1974-04-12","gender":"male","name":"Ada Gardner","iss":"https://uatmerchant.sixdots.be/oidc","given_name":"Ada","locale":"fr","family_name":"Gardner"},"id_token":{"access_token":"UVfXK3QzTRKyFiw3f1v85Yr4ko4o7uI1oJ8XNZeRcJE","id_token":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","acr":"tag:sixdots.be,2016-06:acr_basic","auth_time":1523626355,"iss":"https://uatmerchant.sixdots.be/oidc","exp":1523626660,"iat":1523626360,"nonce":"anonce"},"token_type":"Bearer","expire_in":163}}
+{"user_info":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","birthdate":"1974-04-12","gender":"male","name":"Ada Gardner","iss":"tokenEndpointURL","given_name":"Ada","locale":"fr","family_name":"Gardner"},"id_token":{"access_token":"UVfXK3QzTRKyFiw3f1v85Yr4ko4o7uI1oJ8XNZeRcJE","id_token":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","acr":"tag:sixdots.be,2016-06:acr_basic","auth_time":1523626355,"iss":"tokenEndpointURL","exp":1523626660,"iat":1523626360,"nonce":"anonce"},"token_type":"Bearer","expire_in":163}}
 
 ### 3.2.6. Token Error Response 
 
@@ -920,11 +920,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMDE4NDEzNjgsMTQ0MjgxODMwNiwtMT
-Y2MzMyNzQ3OSwtMTk2ODY0OTA0MCwtMTk3MjQ3NzcwNSwtMjA5
-Mzk0NjMxNCwtOTA1NDA3OTY2LDk4ODMwMjQ0NCw1NDkyMjE0Mj
-YsLTU1MDE2OTU4LC0xMTA4MzI2NDY5LDI1OTg4ODMxMCwxNjcx
-MTQzNTY4LDE0NjczOTkzOTAsLTIwNDM2MDMwNTksMTAxNTMwNT
-c1MiwtMTM4MTY2ODg1OSwxMDE3NTU1NDQzLC0xMTYwMjU0NjY0
-LC0xNjEwNTcyMTExXX0=
+eyJoaXN0b3J5IjpbLTgyOTY5NjA3NCwxNDQyODE4MzA2LC0xNj
+YzMzI3NDc5LC0xOTY4NjQ5MDQwLC0xOTcyNDc3NzA1LC0yMDkz
+OTQ2MzE0LC05MDU0MDc5NjYsOTg4MzAyNDQ0LDU0OTIyMTQyNi
+wtNTUwMTY5NTgsLTExMDgzMjY0NjksMjU5ODg4MzEwLDE2NzEx
+NDM1NjgsMTQ2NzM5OTM5MCwtMjA0MzYwMzA1OSwxMDE1MzA1Nz
+UyLC0xMzgxNjY4ODU5LDEwMTc1NTU0NDMsLTExNjAyNTQ2NjQs
+LTE2MTA1NzIxMTFdfQ==
 -->
