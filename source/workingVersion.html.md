@@ -159,9 +159,9 @@ As per explained by OIDC [http://openid.net/specs/openid-connect-core-1_0.html#A
 As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
 
 Possible token end-point URLs:  
-[https://merchant.itsme.be/oidc/token](https://merchant.itsme.be/oidc/token)  
-[https://e2emerchant.itsme.be/oidc/token](https://e2emerchant.itsme.be/oidc/token)  
-[https://uatmerchant.sixdots.be/oidc/token](https://uatmerchant.sixdots.be/oidc/token)
+>[https://merchant.itsme.be/oidc/token](https://merchant.itsme.be/oidc/token)  
+>[https://e2emerchant.itsme.be/oidc/token](https://e2emerchant.itsme.be/oidc/token)  
+>[https://uatmerchant.sixdots.be/oidc/token](https://uatmerchant.sixdots.be/oidc/token)
 
 ### 3.2.1. About Tokens
 In this section, we will go through token types and their specifics.
@@ -929,11 +929,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMT
-M4MTY2ODg1OSwxMDE3NTU1NDQzLC0xMTYwMjU0NjY0LC0xNjEw
-NTcyMTExLDIzNjQ4NTUwNCw0MDkzMjk1NDQsLTcxNTk3NTk3Mi
-wtNDc3ODY5Nzc1LC0xMjQ5ODU4MDY1LC0zNzM1Mzk3NDksMjg4
-NTg5MDM1LDE2MDM1MDQ0ODgsOTM0NDQzNjY3LC0xMTkyNDc2MD
-U5LC02NDI5NjAzNjUsNTk4MTA0MDQsLTU0NTQwNzYwOCwtNjU2
-MzQ1MTY0XX0=
+eyJoaXN0b3J5IjpbMTM1MTEwOTc0MSwtMjA0MzYwMzA1OSwxMD
+E1MzA1NzUyLC0xMzgxNjY4ODU5LDEwMTc1NTU0NDMsLTExNjAy
+NTQ2NjQsLTE2MTA1NzIxMTEsMjM2NDg1NTA0LDQwOTMyOTU0NC
+wtNzE1OTc1OTcyLC00Nzc4Njk3NzUsLTEyNDk4NTgwNjUsLTM3
+MzUzOTc0OSwyODg1ODkwMzUsMTYwMzUwNDQ4OCw5MzQ0NDM2Nj
+csLTExOTI0NzYwNTksLTY0Mjk2MDM2NSw1OTgxMDQwNCwtNTQ1
+NDA3NjA4XX0=
 -->
