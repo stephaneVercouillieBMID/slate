@@ -346,7 +346,7 @@ Here are these claims:
 E-ID Info  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** | Belgian Electronic ID card information encoded in JSON, with the following keys<br>`eid`: the electronic ID card serial number. <br>`issuance_locality`: the issuance locality. <br>`validity_from`: eID card validity “from” date. <br>`validity_to`: eID card validity “to” date. <br>`certificate_validity`: the certificate validity. <br>`read_date`: the data extraction date. <br>Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: 2017-04-01T19:43:37+0000 
 Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | Simple string containing the user’s Passport Serial Number. 
 Device | **`tag:sixdots.be,2017-05:claim_device`** |Information about the end user device. A JSON object with the following keys: (only keys with cardinality [1..1] will be always available)<br>• “os” [1..1]: the device operating system (supported values: {ANDROID, IOS})<br>• “appName” [0..1]: the application name.<br>• “appRelease” [0..1]: the application current release.<br> • “deviceLabel” [0..1]: the name of the device. <br>• “debugEnabled” [0..1]: if debug mode is activated. <br>• “deviceId” [1..1]: (regexp = "[a-f0-9]{33}") the device identifier.<br> • “osRelease” [0..1]: Version of the OS running on your Device. <br>• “manufacturer” [0..1]: Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android).<br> • “hasSimEnabled” [0..1]: Whether there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing itsme on a tablet.<br> • “deviceLockLevel” [0..1]: The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.<br> • “smsEnabled” [0..1]: Can send SMS. On iOS, means it’s an iPhone.<br> • “rooted” [0..1]: Coming from Gemalto. ‘true’ the device is jailbreaked/rooted.<br> • “imei” [0..1]: (regexp = "[0-9]{15,17}") the device IMEI value. <br>• “deviceModel” [0..1]: Model of the Device. <br> e.g. SAMSUNG GALAXY A5 <br>• “msisdn” [0..1]: the user’s phone number. <br>• “sdkRelease” [0..1]: Sdk release <br>For example:<br>`{ "os": "ANDROID", "appName": "itsme app", "appRelease": "1.17.13", "deviceLabel": "myDevice", "debugEnabled": false, "deviceId": "deviceId", "osRelease": "Android 4.4.2", "manufacturer": "samsung", "hasSimEnabled": true, "deviceLockLevel": "touchID", "smsEnabled": true, "rooted": false,"imei": "12345678901234567", "deviceModel": "S8", "msisdn": "0412123123", "sdkRelease": "1.17.12" }`<br>
-Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |Information available in the context of the current transaction.<br> A JSON object with the following keys:<br> (only keys with cardinality \\\[1..1\\\] will be always available)<br> **“securityLevel” \\\[1..1\\\]**: (supported values: <br>{SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) Security level used during transaction. <br>**“bindLevel” \\\[1..1\\\]**: (supported values: {SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. <br>**“mcc” \\\[0..1\\\]**: the Mobile Country Code. An Integer (three digits) representing the mobile network country. <br>For example:`{ "securityLevel": "SIM\\\_AND\\\_SOFT", "bindLevel": "SIM\\\_AND\\\_SOFT", "mcc": 206 }`
+Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |Information available in the context of the current transaction.<br> A JSON object with the following keys:<br> (only keys with cardinality \\\[1..1\\\] will be always available)<br> **“securityLevel” \\\[1..1\\\]**: (supported values: <br>{SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) Security level used during transaction. <br>**“bindLevel” \\\[1..1\\\]**: (supported values: {SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. <br>**“mcc” \\\[0..1\\\]**: the Mobile Country Code. An Integer (three digits) representing the mobile network country. <br>For example:<br>`{ "securityLevel": "SIM\\\_AND\\\_SOFT", "bindLevel": "SIM\\\_AND\\\_SOFT", "mcc": 206 }`
 E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
 NRN | not supported|
 
@@ -465,6 +465,7 @@ The following is a non-normative example of a UserInfo Error Response:
  ```
 
 ### 4.3.2. Token Endpoint
+
 #### 4.3.2.1. See [3.2 Token Endpoint](#tokEndpoint)
 
 #### 4.3.2.2 Example of Id Token Containing “claims”
@@ -916,7 +917,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMjM3Njg3ODEsLTM3MzUzOTc0OSwyOD
+eyJoaXN0b3J5IjpbLTEyNDk4NTgwNjUsLTM3MzUzOTc0OSwyOD
 g1ODkwMzUsMTYwMzUwNDQ4OCw5MzQ0NDM2NjcsLTExOTI0NzYw
 NTksLTY0Mjk2MDM2NSw1OTgxMDQwNCwtNTQ1NDA3NjA4LC02NT
 YzNDUxNjQsMzYyMDI2NDkxLC0zOTI1MTUwMDUsMTM3OTk5NDY3
