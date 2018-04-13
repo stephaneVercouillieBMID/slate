@@ -155,7 +155,7 @@ As per explained by OIDC [http://openid.net/specs/openid-connect-core-1_0.html#A
  `invalid_request_object` | The request parameter contains an invalid Request Object.
  `request_uri_not_supported` | does not support use of the request_uri parameter.
  `registration_not_supported` | does not support use of the registration parameter.
-## [3.2. Token Endpoint](#tokeEndpoint) <a name="TokenEndpoint"></a>
+## [3.2. Token Endpoint](#tokenEndpoint) <a name="TokenEndpoint"></a>
 As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
 
 Possible token end-point URLs:  
@@ -477,7 +477,7 @@ As per specified by OIDC, when using the authorization code flow to obtain an Ac
 
 In order to communicate with Token Endpoint, TLS MUST be implemented. See  [Section 16.17](http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements)  for more information on using TLS.
 
-####  [4.3.2.1. Token Endpoint Specs](#tokenEndpoint)
+####  [4.3.2.1. Token Endpoint Specs](#tokenEndpoint) 
 To get further information about token types, token request/response specifications please proceed with [3.2 Token Endpoint](#tokenEndpoint).
 
 #### 4.3.2.2 Example of Id Token Containing “claims”
@@ -929,7 +929,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY5MzcwMjkyOCwtMjA0MzYwMzA1OSwxMD
+eyJoaXN0b3J5IjpbMTQ2NzM5OTM5MCwtMjA0MzYwMzA1OSwxMD
 E1MzA1NzUyLC0xMzgxNjY4ODU5LDEwMTc1NTU0NDMsLTExNjAy
 NTQ2NjQsLTE2MTA1NzIxMTEsMjM2NDg1NTA0LDQwOTMyOTU0NC
 wtNzE1OTc1OTcyLC00Nzc4Njk3NzUsLTEyNDk4NTgwNjUsLTM3
