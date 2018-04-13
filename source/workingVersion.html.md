@@ -32,8 +32,6 @@ itsme® offers 4 strong enablers for every process digitalization project. Furth
  ## 2.1. Customize the user consent screen
 Consent is used to allow an end user to grant a client access to resources and consent screen describes the information that the user is releasing and the terms that apply.
 
-You request access to the information user release using the `scope` parameter.
-
 In order to customize your consent screen, feel free to follow the steps via this [link](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/let-s-get-started#/step-by-step-guide/4-customize-your-sandbox).
 
 Service Provider (you) will provide,
@@ -918,11 +916,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExOTI0NzYwNTksLTY0Mjk2MDM2NSw1OT
-gxMDQwNCwtNTQ1NDA3NjA4LC02NTYzNDUxNjQsMzYyMDI2NDkx
-LC0zOTI1MTUwMDUsMTM3OTk5NDY3Nyw5Mjc5NzUxODMsLTE5MT
-AzNjg5NTIsMTMzNTY0NjA1MywtMTY3MzM5NTQwNCwtNTQ5MTMy
-NDE0LC03NDI3MTg3ODAsMTg5NjU2NTkyOCwtMTc5MDc3NDYxNi
-wtMzY3NjI4MjEyLC0xNDMwMjQwMDYwLDE2MjE0NzYzOTUsMTM4
-NjcyMTQ2Nl19
+eyJoaXN0b3J5IjpbLTYwNTI1MTAxLC0xMTkyNDc2MDU5LC02ND
+I5NjAzNjUsNTk4MTA0MDQsLTU0NTQwNzYwOCwtNjU2MzQ1MTY0
+LDM2MjAyNjQ5MSwtMzkyNTE1MDA1LDEzNzk5OTQ2NzcsOTI3OT
+c1MTgzLC0xOTEwMzY4OTUyLDEzMzU2NDYwNTMsLTE2NzMzOTU0
+MDQsLTU0OTEzMjQxNCwtNzQyNzE4NzgwLDE4OTY1NjU5MjgsLT
+E3OTA3NzQ2MTYsLTM2NzYyODIxMiwtMTQzMDI0MDA2MCwxNjIx
+NDc2Mzk1XX0=
 -->
