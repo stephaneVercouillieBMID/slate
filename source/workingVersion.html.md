@@ -213,7 +213,7 @@ According to the `private_key_jwt` client authentication method, the **client as
 
 ### 3.2.3. Token Request Example
 
-https://uatmerchant.sixdots.be/oidc/authorization?response_type=code&client_id=yourpartnercode&redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fuat_OIDC_TEST1%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_LOGIN+profile+&claims={"userinfo":{" tag:sixdots.be,2016-06:claim_nationality": null},"id_token":{"auth_time": {"essential": true},"acr_values":{"value":["tag:sixdots.be,2016-06:acr_advanced"]}}}&state=anystate&nonce=anonce&prompt=login&max_age=1
+https://uatmerchant.sixdots.be/oidc/authorization?response_type=code&client_id=yourpartnercode&yourredirecturl&scope=openid+service%3AOIDC_TEST1_LOGIN+profile+&claims={"userinfo":{" tag:sixdots.be,2016-06:claim_nationality": null},"id_token":{"auth_time": {"essential": true},"acr_values":{"value":["tag:sixdots.be,2016-06:acr_advanced"]}}}&state=anystate&nonce=anonce&prompt=login&max_age=1
 
 
 ### 3.2.4. Token Response Specification
@@ -922,11 +922,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  -->
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNDkwMzU1ODMsMTQ0MjgxODMwNiwtMT
-Y2MzMyNzQ3OSwtMTk2ODY0OTA0MCwtMTk3MjQ3NzcwNSwtMjA5
-Mzk0NjMxNCwtOTA1NDA3OTY2LDk4ODMwMjQ0NCw1NDkyMjE0Mj
-YsLTU1MDE2OTU4LC0xMTA4MzI2NDY5LDI1OTg4ODMxMCwxNjcx
-MTQzNTY4LDE0NjczOTkzOTAsLTIwNDM2MDMwNTksMTAxNTMwNT
-c1MiwtMTM4MTY2ODg1OSwxMDE3NTU1NDQzLC0xMTYwMjU0NjY0
-LC0xNjEwNTcyMTExXX0=
+eyJoaXN0b3J5IjpbMTk5OTc4MTIyOSwxNDQyODE4MzA2LC0xNj
+YzMzI3NDc5LC0xOTY4NjQ5MDQwLC0xOTcyNDc3NzA1LC0yMDkz
+OTQ2MzE0LC05MDU0MDc5NjYsOTg4MzAyNDQ0LDU0OTIyMTQyNi
+wtNTUwMTY5NTgsLTExMDgzMjY0NjksMjU5ODg4MzEwLDE2NzEx
+NDM1NjgsMTQ2NzM5OTM5MCwtMjA0MzYwMzA1OSwxMDE1MzA1Nz
+UyLC0xMzgxNjY4ODU5LDEwMTc1NTU0NDMsLTExNjAyNTQ2NjQs
+LTE2MTA1NzIxMTFdfQ==
 -->
