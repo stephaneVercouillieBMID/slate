@@ -25,45 +25,29 @@ itsme® offers 3 services, which act as strong enablers for every process digita
 - [**itsme®Confirm**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/confirm-with-itsme)
  - [**itsme®Shared Data**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/shared-data)
 
- # 2. Integration Preparation: On boarding Process
+ # 2. On boarding Process
  
- Before your application can use **itsme®** for user login, you must set up a project to obtain OIDC credentials, set redirect URIs for your services, and customise the branding information that your users see on the **itsme®** user consent screen.
+ Our on boarding process consists of two main steps:
+ - The configuration of your Sandbox
+ - The integration of itsme(r) services
  
- ## 2.1. Customize the user consent screen
-Consent is used to allow an end user to grant a client access to resources and consent screen describes the information that the user is releasing and the terms that apply.
-
-In order to customize your consent screen, feel free to follow the steps via this [link](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/let-s-get-started#/step-by-step-guide/4-customize-your-sandbox).
-
-Service Provider (you) will provide,
+ ## 2.1. Configuration of your Sandbox
+ Before you can start working on the integration of itsme(r) services, we need to create your Sandbox in which the integration takes place. Your company will provide us both functional and technical information we will use to create your Sandbox. These information include (not exhaustively):
+ - Information to customize the user consent screen
+ - Redirect uris associated to your instances of itsme(r) services (to which the user will be redirected after the autentication)
+ - JWKset URL, and associated SSL/TLS certificate
+ You can consult [our B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) for more information about this step.
  
- - Partner name, description and localized labels
- - Services' name, description and localized labels
- - Data access with justification (to comply with GDPR)
+ <aside class="success">
+ Once your Sandbox is created, you will receive:
+ - Your Partner Code, which corresponds to the OpenID **client_id**
+ - Your Service Codes, which are the identifiers of your instances of itsme(r) services. Please consult [Service Code](#ServiceCode) for more information about the notion of Service Code.
+ </aside>
+
  
- ## 2.2. Obtain OAuth 2.0 credentials
- 
-OAuth 2.0 means one protocol for authentication and authorization (obtaining access tokens).
-
- BMID provides,
- 
- - Partner Code, used as **client_id**
- - [Service Code](#ServiceCode) for each
-
-To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
-
-For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
- ## 2.3. Setting a Redirect URI and Certificates
-After a user successfully is authorized, the authorization server will redirect the user back to the application with either an **authorization code** or **access token** in the URL.
-
- - the JWKSet HTTPS endpoint exposing the signing and encryption public certificates of the SP.
- - the SSL/TLS certificate used on the JWKSet HTTPS endpoint of the SP. 
- - Whenever TLS is used, a TLS server certificate check MUST be performed, per [RFC 6125](https://openid.net/specs/openid-connect-core-1_0.html#RFC6125).
- 
- Service Providers provides,
-- the redirect URIs for each Service to use within the OpenID Connect protocol to send back the response of the Authentication Request. 
-
-
- ## 2.4. itsme® OpenID Configuration
+ ## 2.2. Integration of itsme(r) services
+ Once your Sandbox has been created, you can start working on the integration itself.
+ ### 2.2.1. itsme® OpenID Configuration
  The OpenID Connect protocol requires the use of multiple endpoints for authenticating users, and for requesting resources including tokens, user information and public keys.
  
  To simplify implementations and increase flexibility, OpenID Connect allows the use of a "Discovery document", a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider's configuration including, 
