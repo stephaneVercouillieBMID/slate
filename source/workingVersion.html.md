@@ -40,8 +40,10 @@ itsme® offers 3 services, which act as strong enablers for every process digita
  
  <aside class="success">
  Once your Sandbox is created, you will receive:
- - Your Partner Code, which corresponds to the OpenID **client_id**
- - Your Service Codes, which are the identifiers of your instances of itsme(r) services. Please consult [Service Code](#ServiceCode) for more information about the notion of Service Code.
+  <ul> 
+    <li>Your Partner Code, which corresponds to the OpenID <b>client_id</b> </li>
+    <li>Your Service Codes, which are the identifiers of your instances of itsme(r) services. Please consult [Service Code](#ServiceCode) for more information about the notion of Service Code. </li>
+  </ul>
  </aside>
 
  
