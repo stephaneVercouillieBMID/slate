@@ -488,9 +488,9 @@ To get further information about token types, token request/response specificati
  Property | Required | Comment
  -- | -- | --
  **iss** | Required | Specifies the issuing authority. Issuer of the id_tokenIssuer. Must be the `client_id`
- **aud** | Required | Audience. Possible token end-point URLs:<br>https://merchant.itsme.be/oidc/token<br>https://e2emerchant.itsme.be/oidc/token
+ **aud** | Required | Audience. MUST be the Token Endpoint URL
  
- > Example of claim request before base64url encoding, signing and encryption. In this example, the partners is using the login service. The end user email and nationality will be returned by the User Info endpoint.
+ > Example of claim request before base64url encoding, signing and encryption. In this example, the partner is using the login service.
  
  ```json--inline
  {
