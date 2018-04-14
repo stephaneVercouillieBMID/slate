@@ -179,6 +179,7 @@ As per the [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.
 
 The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the **token_endpoint** key. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret` authentication methods are not supported since they are considered less secure.
 
+In order to communicate with Token Endpoint, TLS MUST be implemented. See  [Section 16.17](http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements)  for more information on using TLS.
 
 The Token Request must include the following parameters in the POST body:
 
@@ -400,14 +401,13 @@ As per the [OpenID Connect specification](http://openid.net/specs/openid-connect
 
 Depending on how you declared claims in the Authentication Request, you will receive the user data from
 - The UserInfo Endpoint
--- If you declared claims with `scope` values or
--- If you declared claims in the `userinfo` part of the `claims` parameter in the `request` object
 - The Token Endpoint, in the ID Token
--- If you declared  claims in the `id_Token` part of the `claims` parameter in the `request` object
 
 
-### 4.3.1. User Info Endpoint
+### 4.3.1. UserInfo Endpoint
 As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest), 
+
+If you declared claims with `scope` values or if you declared claims in the `userinfo` part of the `claims` parameter in the `request` object, you will receive the end user data from the UserInfo Endpoint.
 
 The UserInfo endpoint returns previously consented user profile information to the client app. For that a valid access token is required.
 
@@ -467,9 +467,10 @@ The following is a non-normative example of a UserInfo Error Response:
  ```
 
 ### 4.3.2. Token Endpoint
-As per specified by OIDC, when using the authorization code flow to obtain an Access Token, an ID Token, you will send a token request to token endpoint to have a token response.
+As per specified by OIDC, when using the authorization code flow to obtain an Access Token and an ID Token, you will send a token request to token endpoint to have a token response.
 
-In order to communicate with Token Endpoint, TLS MUST be implemented. See  [Section 16.17](http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements)  for more information on using TLS.
+If you declared  claims in the `id_Token` part of the `claims` parameter in the `request` object,  you will receive the end user data from the Token Endpoint.
+
 
 #### 4.3.2.1. Token Endpoint Specs
 To get further information about token types, token request/response specifications please proceed with [3.2 Token Endpoint](#tokenEndpoint).
