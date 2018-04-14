@@ -19,7 +19,7 @@
  This documentation describes our OAuth 2.0 implementation of **itsme® Login** and **itsme(r) Confirm**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications.
   ## 1.2. The itsme® services in a few words
  
-itsme® offers 4 strong enablers for every process digitalization project. Further information about itsme(r) services is provided on our B2B portal:
+itsme® offers 3 services, which act as strong enablers for every process digitalization project. Further information about itsme(r) services is provided on our B2B portal:
 
 - [**itsme®Login**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/login-with-itsme)
 - [**itsme®Confirm**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/confirm-with-itsme)
