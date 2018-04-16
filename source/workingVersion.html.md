@@ -94,7 +94,7 @@ Please check the following table for request parameters,
  ```
 
 Parameter | Required | Specification | Parameter Explained
- :--------- | :-------: | :-----:|:-----:
+ :--------- | :-------| :-----|:--------------|
  **client_id** | Required | MUST be the Partner Code you obtained from BMID during [on-boarding process](#Onboarding) and this value will be unique to each partner per environment. |This is your client identifier at the OpenID Provider.
  **response_type** | Required | MUST be <code>code</code>.|Used to indicate an authorization code flow.
  **scope** | Required | MUST contain at least `openid` or an HTTP ERROR `not_implemented` will be returned. `offline_access` value will yield an error. MUST also includes the target service in the form `service:<SERVICE_CODE>` as provided by BMID during the on-boarding process (see <a name="ServiceCode"></a>[Service Code Concept](#ServiceCode) for further information).| Used to specify the scope of the requested authorization in OAuth, as well as pre-defined sets of claims (see [Scope](#scope)). The scope value `openid` signals a request for OpenID authentication and ID token. . ***Note**: Requested data will only be provided based on your current accesses. These accesses are specified in the on-boarding file provided by BMID.* The value `service` is a BMID extension of the OpenID standard specification.
@@ -736,9 +736,10 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5NjU1MzE0MiwtMTk3OTA3MTgzNCwtMT
-k3OTA3MTgzNCwtMTgxMTE1NjE4NiwxNjMyODU1MTksLTYyNzQz
-MTMyOCwtMTQzNzk3NjY4MCwyNTIxMDM1ODYsMTg3MDExMDQ2LD
-UwNjQ2OTc4LDIxMjM2OTEwMDksLTExNTYwNzMyNzEsNTMyMTI2
-OTgsOTA2OTk1OTQ5LDIxNDIzMzkyNzddfQ==
+eyJoaXN0b3J5IjpbLTExNDI1MzQ3MDksLTM5NjU1MzE0MiwtMT
+k3OTA3MTgzNCwtMTk3OTA3MTgzNCwtMTgxMTE1NjE4NiwxNjMy
+ODU1MTksLTYyNzQzMTMyOCwtMTQzNzk3NjY4MCwyNTIxMDM1OD
+YsMTg3MDExMDQ2LDUwNjQ2OTc4LDIxMjM2OTEwMDksLTExNTYw
+NzMyNzEsNTMyMTI2OTgsOTA2OTk1OTQ5LDIxNDIzMzkyNzddfQ
+==
 -->
