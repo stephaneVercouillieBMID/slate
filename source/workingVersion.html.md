@@ -38,7 +38,7 @@ itsme® offers 3 services, which act as strong enablers for every process digita
  ## 2.1. Configuration of your Sandbox
  Before you can start working on the integration of itsme(r) services, we need to create your Sandbox in which the integration takes place. Your company will provide us both functional and technical information we will use to create your Sandbox. These information include (not exhaustively):
  - Information to customize the user consent screen
- - Redirect uris associated to your instances of itsme(r) services (to which the user will be redirected after the autentication)
+ - Redirect Us associated to your instances of itsme(r) services (to which the user will be redirected after the autentication)
  - JWKset URL, and associated SSL/TLS certificate
  You can consult [our B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) for more information about this step.
  
@@ -933,5 +933,5 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0MjMzOTI3N119
+eyJoaXN0b3J5IjpbLTE0NjA0MTg4MTIsMjE0MjMzOTI3N119
 -->
