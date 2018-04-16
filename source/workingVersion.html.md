@@ -411,6 +411,8 @@ Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_devic
  #### 4.2.2.2. Device claim
 This claim is the information about the end user device. 
 
+Claim value: **`tag:sixdots.be,2017-05:claim_device`**
+
 A JSON object with the following keys: (only keys with cardinality [1…1] will be always available)  
 • “os” [1…1]: the device operating system (supported values: {ANDROID, IOS})  
 • “appName” [0…1]: the application name.  
@@ -971,7 +973,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTA2ODA3OTIsMjEyMzY5MTAwOSwtMT
-E1NjA3MzI3MSw1MzIxMjY5OCw5MDY5OTU5NDksMjE0MjMzOTI3
-N119
+eyJoaXN0b3J5IjpbLTg3MzM0NDE1NywyMTIzNjkxMDA5LC0xMT
+U2MDczMjcxLDUzMjEyNjk4LDkwNjk5NTk0OSwyMTQyMzM5Mjc3
+XX0=
 -->
