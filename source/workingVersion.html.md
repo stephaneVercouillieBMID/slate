@@ -342,7 +342,7 @@ Here are these claims:
 E-ID Metadata  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** |  [Specifications](#eidMetadata)
 Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | Simple string containing the user’s Passport Serial Number. 
 Device | **`tag:sixdots.be,2017-05:claim_device`** | [Specifications](#deviceClaim) and [an example of device claim value usage](#exampleDeviceClaimValue)<br>
-Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |Information available in the context of the current transaction.<br> A JSON object with the following keys:<br> (only keys with cardinality \\\[1..1\\\] will be always available)<br> **“securityLevel” \\\[1..1\\\]**: (supported values: <br>{SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) Security level used during transaction. <br>**“bindLevel” \\\[1..1\\\]**: (supported values: {SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. <br>**“mcc” \\\[0..1\\\]**: the Mobile Country Code. An Integer (three digits) representing the mobile network country. <br>For example:<br>`{ "securityLevel": "SIM\\\_AND\\\_SOFT", "bindLevel": "SIM\\\_AND\\\_SOFT", "mcc": 206 }`
+Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |[Specifications(
 E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
 NRN | not supported|
 
@@ -448,8 +448,8 @@ This claim is Belgian Electronic ID card information encoded in JSON, with the f
 
 `eid`: the electronic ID card serial number. <br>`issuance_locality`: the issuance locality. <br>`validity_from`: eID card validity “from” date. <br>`validity_to`: eID card validity “to” date. <br>`certificate_validity`: the certificate validity. <br>`read_date`: the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: 2017-04-01T19:43:37+0000
 
+#### <a name id="transactionInfo"></a>4.2.2.4. Transaction Info
 
-## 4.3. Getting Data
 
 As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest(http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
 
@@ -987,7 +987,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTE0MjkyNDc3LDIxMjM2OTEwMDksLTExNT
-YwNzMyNzEsNTMyMTI2OTgsOTA2OTk1OTQ5LDIxNDIzMzkyNzdd
-fQ==
+eyJoaXN0b3J5IjpbLTEyNDgwMjMxMzAsMjEyMzY5MTAwOSwtMT
+E1NjA3MzI3MSw1MzIxMjY5OCw5MDY5OTU5NDksMjE0MjMzOTI3
+N119
 -->
