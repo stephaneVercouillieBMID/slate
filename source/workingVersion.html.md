@@ -63,8 +63,7 @@ itsme® offers 3 services, which act as strong enablers for every process digita
 - supported claims 
 -  [JWKSet](#jwks) to interact with it. 
  
- <aside class="success">The Discovery document for itsme® service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside>
- 
+ <aside class="success">The Discovery document for itsme® service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside><br>
  
  Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html).
  
@@ -737,7 +736,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNzU5NTYxMDUsMTAzNDMyNDg2MywxND
+eyJoaXN0b3J5IjpbLTEyMjI1OTk3NzcsMTAzNDMyNDg2MywxND
 c1NTQ2MzQxLC0zOTY1NTMxNDIsLTE5NzkwNzE4MzQsLTE5Nzkw
 NzE4MzQsLTE4MTExNTYxODYsMTYzMjg1NTE5LC02Mjc0MzEzMj
 gsLTE0Mzc5NzY2ODAsMjUyMTAzNTg2LDE4NzAxMTA0Niw1MDY0
