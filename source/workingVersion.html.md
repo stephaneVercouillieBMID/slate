@@ -138,7 +138,7 @@ As such, the Authentication Response will return the following parameters:
 As explained by OIDC [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://openid.net/specs/openid-connect-core-1_0.html#AuthError), if the authentication is NOT successful, the following errors can be triggered by itsme®:
 
  Error | Description
- :-- |:--
+ :--: |:--
  `interaction_required`  | The Authorization Server requires End-User interaction of some form to proceed.
  `invalid_request_object` | The request parameter contains an invalid Request Object.
  `request_uri_not_supported` | does not support use of the request_uri parameter.
@@ -736,9 +736,10 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ3NTU0NjM0MSwtMzk2NTUzMTQyLC0xOT
-c5MDcxODM0LC0xOTc5MDcxODM0LC0xODExMTU2MTg2LDE2MzI4
-NTUxOSwtNjI3NDMxMzI4LC0xNDM3OTc2NjgwLDI1MjEwMzU4Ni
-wxODcwMTEwNDYsNTA2NDY5NzgsMjEyMzY5MTAwOSwtMTE1NjA3
-MzI3MSw1MzIxMjY5OCw5MDY5OTU5NDksMjE0MjMzOTI3N119
+eyJoaXN0b3J5IjpbMTAzNDMyNDg2MywxNDc1NTQ2MzQxLC0zOT
+Y1NTMxNDIsLTE5NzkwNzE4MzQsLTE5NzkwNzE4MzQsLTE4MTEx
+NTYxODYsMTYzMjg1NTE5LC02Mjc0MzEzMjgsLTE0Mzc5NzY2OD
+AsMjUyMTAzNTg2LDE4NzAxMTA0Niw1MDY0Njk3OCwyMTIzNjkx
+MDA5LC0xMTU2MDczMjcxLDUzMjEyNjk4LDkwNjk5NTk0OSwyMT
+QyMzM5Mjc3XX0=
 -->
