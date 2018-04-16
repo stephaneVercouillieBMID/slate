@@ -373,7 +373,7 @@ As per specified by OpenID Connect, there is a set of [standard claims](https://
 
 Here following table lists the supported standard "claim" values,
 |Member  |Type  |Description |
-|--|--|--
+|--|--|--|
 name |string|Subject - Identifier for the End-User at the Issuer.
 given_name|string|  Given name(s) or first name(s) of the End-User. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.
 family_name|string|Surname(s) or last name(s) of the End-User. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.
@@ -993,7 +993,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTA2NDY5NzgsMjEyMzY5MTAwOSwtMTE1Nj
-A3MzI3MSw1MzIxMjY5OCw5MDY5OTU5NDksMjE0MjMzOTI3N119
-
+eyJoaXN0b3J5IjpbLTYyMTk4OTg3OCw1MDY0Njk3OCwyMTIzNj
+kxMDA5LC0xMTU2MDczMjcxLDUzMjEyNjk4LDkwNjk5NTk0OSwy
+MTQyMzM5Mjc3XX0=
 -->
