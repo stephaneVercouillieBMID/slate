@@ -16,7 +16,7 @@
  ## 1.1. Who should read this document
  This document is intended to be read by Service Provider developers who are in charge of developing and integrating the itsme(r) services. In this document, we speak directly to the developers, using 'you' to designate them.
  
- This documentation describes our OAuth 2.0 implementation of **itsme® Login**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications.
+ This documentation describes our OAuth 2.0 implementation of **itsme® Login**, which conforms to the [OpenID Connect 1.0](http://openid.net/specs/openid-connect-core-1_0.html) specifications. <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="_blank">OpenID Connect Core Authorization Code Flow StepsOpenID Connect 1.0</a>
  
  ## 1.2. Objective
  The objective of this document is to provide all the information needed to integrate the itsme(r) services using OpenID Connect protocol.
@@ -737,10 +737,10 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDc5ODkyMjEyLDEwMzQzMjQ4NjMsMTQ3NT
-U0NjM0MSwtMzk2NTUzMTQyLC0xOTc5MDcxODM0LC0xOTc5MDcx
-ODM0LC0xODExMTU2MTg2LDE2MzI4NTUxOSwtNjI3NDMxMzI4LC
-0xNDM3OTc2NjgwLDI1MjEwMzU4NiwxODcwMTEwNDYsNTA2NDY5
-NzgsMjEyMzY5MTAwOSwtMTE1NjA3MzI3MSw1MzIxMjY5OCw5MD
-Y5OTU5NDksMjE0MjMzOTI3N119
+eyJoaXN0b3J5IjpbLTEyMjk4NjM4NjksMTAzNDMyNDg2MywxND
+c1NTQ2MzQxLC0zOTY1NTMxNDIsLTE5NzkwNzE4MzQsLTE5Nzkw
+NzE4MzQsLTE4MTExNTYxODYsMTYzMjg1NTE5LC02Mjc0MzEzMj
+gsLTE0Mzc5NzY2ODAsMjUyMTAzNTg2LDE4NzAxMTA0Niw1MDY0
+Njk3OCwyMTIzNjkxMDA5LC0xMTU2MDczMjcxLDUzMjEyNjk4LD
+kwNjk5NTk0OSwyMTQyMzM5Mjc3XX0=
 -->
