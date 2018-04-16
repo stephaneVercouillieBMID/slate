@@ -376,10 +376,10 @@ Here following table lists the supported standard "claim" values,
 |Member  |Type  |Description |
 |--|--|--
 name |string|Subject - Identifier for the End-User at the Issuer.
-given_name|string|
-family_name|string|
-profile|string|
-email|string|
+given_name|string|  Given name(s) or first name(s) of the End-User. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.
+family_name|string|Surname(s) or last name(s) of the End-User. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.
+profile|string|URL of the End-User's profile page. The contents of this Web page SHOULD be about the End-User.
+email|string|End-User's preferred e-mail address. Its value MUST conform to the [RFC 5322](https://openid.net/specs/openid-connect-core-1_0.html#RFC5322) [RFC5322] addr-spec syntax. The RP MUST NOT rely upon this value being unique, as discussed in [Section 5.7](https://openid.net/specs/openid-connect-core-1_0.html#ClaimStability).
 email_verified|boolean|
 gender|string|
 birthdate|string|
@@ -948,6 +948,6 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg2NTU1Mjg3OSwtMTE1NjA3MzI3MSw1Mz
+eyJoaXN0b3J5IjpbMTc3MDc2NDA0NiwtMTE1NjA3MzI3MSw1Mz
 IxMjY5OCw5MDY5OTU5NDksMjE0MjMzOTI3N119
 -->
