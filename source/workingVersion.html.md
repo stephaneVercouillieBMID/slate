@@ -441,9 +441,11 @@ A JSON object with the following keys: (only keys with cardinality [1…1] will 
 ##### <a name id="exampleDeviceClaimValue"></a>4.2.2.2.1. Example of device claim value
 `{ "os": "ANDROID", "appName": "itsme app", "appRelease": "1.17.13", "deviceLabel": "myDevice", "debugEnabled": false, "deviceId": "deviceId", "osRelease": "Android 4.4.2", "manufacturer": "samsung", "hasSimEnabled": true, "deviceLockLevel": "touchID", "smsEnabled": true, "rooted": false,"imei": "12345678901234567", "deviceModel": "S8", "msisdn": "0412123123", "sdkRelease": "1.17.12" }`
 
-#### 4.2.2.3. Eid Metadata
+#### <a name id="eidMetadata"></a>4.2.2.3. Eid Metadata
 This claim is Belgian Electronic ID card information encoded in JSON, with the following keys,
-`eid`: the electronic ID card serial number. <br>`issuance_locality`: the issuance locality. <br>`validity_from`: eID card validity “from” date. <br>`validity_to`: eID card validity “to” date. <br>`certificate_validity`: the certificate validity. <br>`read_date`: the data extraction date. <br>Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: 2017-04-01T19:43:37+0000
+
+`eid`: the electronic ID card serial number. <br>`issuance_locality`: the issuance locality. <br>`validity_from`: eID card validity “from” date. <br>`validity_to`: eID card validity “to” date. <br>`certificate_validity`: the certificate validity. <br>`read_date`: the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: 2017-04-01T19:43:37+0000
+
 ## 4.3. Getting Data
 
 As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest(http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
@@ -982,7 +984,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUyMjI0NTY4NiwyMTIzNjkxMDA5LC0xMT
-U2MDczMjcxLDUzMjEyNjk4LDkwNjk5NTk0OSwyMTQyMzM5Mjc3
-XX0=
+eyJoaXN0b3J5IjpbLTE4NzUxNTI5OTcsMjEyMzY5MTAwOSwtMT
+E1NjA3MzI3MSw1MzIxMjY5OCw5MDY5OTU5NDksMjE0MjMzOTI3
+N119
 -->
