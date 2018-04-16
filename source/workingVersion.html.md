@@ -342,7 +342,7 @@ Here are these claims:
 E-ID Metadata  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** |  [Specifications](#eidMetadata)
 Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | Simple string containing the user’s Passport Serial Number. 
 Device | **`tag:sixdots.be,2017-05:claim_device`** | [Specifications](#deviceClaim) and [an example of device claim value usage](#exampleDeviceClaimValue)<br>
-Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |Specifications and an
+Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |[Specifications](#transactionInfo) and [an example of usage](#transactionInfoExample) 
 E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
 NRN | not supported|
 
@@ -993,7 +993,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA0MjI0OTc2OCwyMTIzNjkxMDA5LC0xMT
-U2MDczMjcxLDUzMjEyNjk4LDkwNjk5NTk0OSwyMTQyMzM5Mjc3
-XX0=
+eyJoaXN0b3J5IjpbNTA2NDY5NzgsMjEyMzY5MTAwOSwtMTE1Nj
+A3MzI3MSw1MzIxMjY5OCw5MDY5OTU5NDksMjE0MjMzOTI3N119
+
 -->
