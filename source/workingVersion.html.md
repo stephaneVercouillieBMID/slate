@@ -413,24 +413,29 @@ This claim is the information about the end user device.
 
 Claim value: **`tag:sixdots.be,2017-05:claim_device`**
 
-A JSON object with the following keys: (only keys with cardinality [1…1] will be always available)  
-• “os” [1…1]: the device operating system (supported values: {ANDROID, IOS})  
-• “appName” [0…1]: the application name.  
-• “appRelease” [0…1]: the application current release.  
-• “deviceLabel” [0…1]: the name of the device.  
-• “debugEnabled” [0…1]: if debug mode is activated.  
-• “deviceId” [1…1]: (regexp = “[a-f0-9]{33}”) the device identifier.  
-• “osRelease” [0…1]: Version of the OS running on your Device.  
-• “manufacturer” [0…1]: Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android).  
-• “hasSimEnabled” [0…1]: Whether there is a SIM in the Device. Should be always true, as long as BMID keeps forbidding installing itsme on a tablet.  
-• “deviceLockLevel” [0…1]: The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.  
-• “smsEnabled” [0…1]: Can send SMS. On iOS, means it’s an iPhone.  
-• “rooted” [0…1]: Coming from Gemalto. ‘true’ the device is jailbreaked/rooted.  
-• “imei” [0…1]: (regexp = “[0-9]{15,17}”) the device IMEI value.  
-• “deviceModel” [0…1]: Model of the Device.  
-e.g. SAMSUNG GALAXY A5  
-• “msisdn” [0…1]: the user’s phone number.  
-• “sdkRelease” [0…1]: Sdk release  
+A JSON object with the following keys: (only keys with cardinality [1…1] will be always available)
+
+ - “os” [1…1]: the device operating system (supported values:
+   {ANDROID, IOS})   
+  -  “appName” [0…1]: the application name.   
+   “appRelease” [0…1]: the application current release.   •
+   “deviceLabel” [0…1]: the name of the device.   • “debugEnabled”
+   [0…1]: if debug mode is activated.   • “deviceId” [1…1]: (regexp =
+   “[a-f0-9]{33}”) the device identifier.   • “osRelease” [0…1]: Version
+   of the OS running on your Device.   • “manufacturer” [0…1]: Brand of
+   the device manufacturer (‘Apple’ on iOS, device specific on Android).
+   • “hasSimEnabled” [0…1]: Whether there is a SIM in the Device. Should
+   be always true, as long as BMID keeps forbidding installing itsme on
+   a tablet.   • “deviceLockLevel” [0…1]: The type of action to be
+   performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE
+   if User protected his Device with TouchID, PIN or nothing.   •
+   “smsEnabled” [0…1]: Can send SMS. On iOS, means it’s an iPhone.   •
+   “rooted” [0…1]: Coming from Gemalto. ‘true’ the device is
+   jailbreaked/rooted.   • “imei” [0…1]: (regexp = “[0-9]{15,17}”) the
+   device IMEI value.   • “deviceModel” [0…1]: Model of the Device.  
+   e.g. SAMSUNG GALAXY A5   • “msisdn” [0…1]: the user’s phone number.  
+   • “sdkRelease” [0…1]: Sdk release
+
 For example:  
 `{ "os": "ANDROID", "appName": "itsme app", "appRelease": "1.17.13", "deviceLabel": "myDevice", "debugEnabled": false, "deviceId": "deviceId", "osRelease": "Android 4.4.2", "manufacturer": "samsung", "hasSimEnabled": true, "deviceLockLevel": "touchID", "smsEnabled": true, "rooted": false,"imei": "12345678901234567", "deviceModel": "S8", "msisdn": "0412123123", "sdkRelease": "1.17.12" }`
 
@@ -973,7 +978,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3MzM0NDE1NywyMTIzNjkxMDA5LC0xMT
+eyJoaXN0b3J5IjpbLTQyNTgxODU0OSwyMTIzNjkxMDA5LC0xMT
 U2MDczMjcxLDUzMjEyNjk4LDkwNjk5NTk0OSwyMTQyMzM5Mjc3
 XX0=
 -->
