@@ -73,6 +73,7 @@ itsme® offers 3 services, which act as strong enablers for every process digita
  
 ![enter image description here](https://lh3.googleusercontent.com/vi1iEAv0LtjFbvT30UE62rHDLu-fPFysH5oj1dpa_hVzaTbmKSV2Js_NjTCI7-5tXGVKgd8p4CQ "auth diag")
 
+
 ## 3.1. **Authorization Endpoint** 
 The first step is forming an HTTPS request to the Authorization Endpoint with the appropriate URI parameters. Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused.
 ### 3.1.1. Authentication Request Specifications
@@ -994,7 +995,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk2NTkxNjk3NSwxODcwMTEwNDYsNTA2ND
+eyJoaXN0b3J5IjpbMTU4NDg5MzI0NywxODcwMTEwNDYsNTA2ND
 Y5NzgsMjEyMzY5MTAwOSwtMTE1NjA3MzI3MSw1MzIxMjY5OCw5
 MDY5OTU5NDksMjE0MjMzOTI3N119
 -->
