@@ -438,7 +438,7 @@ A JSON object with the following keys: (only keys with cardinality [1…1] will 
    e.g. SAMSUNG GALAXY A5   
    - “msisdn” [0…1]: the user’s phone number.  
     - “sdkRelease” [0…1]: Sdk release
-##### <a name id="exampleDeviceClaimValue"></a>4.2.2.2.1. Example of device claim value
+##### <a name id="exampleDeviceClaimValue"></a>4.2.2.2.1. Example of Device Claim Value
 `{ "os": "ANDROID", "appName": "itsme app", "appRelease": "1.17.13", "deviceLabel": "myDevice", "debugEnabled": false, "deviceId": "deviceId", "osRelease": "Android 4.4.2", "manufacturer": "samsung", "hasSimEnabled": true, "deviceLockLevel": "touchID", "smsEnabled": true, "rooted": false,"imei": "12345678901234567", "deviceModel": "S8", "msisdn": "0412123123", "sdkRelease": "1.17.12" }`
 
 #### <a name id="eidMetadata"></a>4.2.2.3. Eid Metadata Claim Value
@@ -454,7 +454,7 @@ Claim value: **`tag:sixdots.be,2017-05:claim_transaction_info`**
 Information available in the context of the current transaction.
 
 A JSON object with the following keys: (only keys with cardinality \\\[1..1\\\] will be always available)<br> **“securityLevel” \\\[1..1\\\]**: (supported values: <br>{SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) Security level used during transaction. <br>**“bindLevel” \\\[1..1\\\]**: (supported values: {SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. <br>**“mcc” \\\[0..1\\\]**: the Mobile Country Code. An Integer (three digits) representing the mobile network country. 
-##### <a name id="transactionInfoExample"></a>4.2.2.4.1. Example of the usage of transaction info claim value
+##### <a name id="transactionInfoExample"></a>4.2.2.4.1. Example of The Usage of Transaction Info Claim Value
 `{ "securityLevel": "SIM\\\_AND\\\_SOFT", "bindLevel": "SIM\\\_AND\\\_SOFT", "mcc": 206 }`
 ## 4.3. Getting Data
 
@@ -994,7 +994,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTk2NDE1MzUyLDI1MjEwMzU4NiwxODcwMT
-EwNDYsNTA2NDY5NzgsMjEyMzY5MTAwOSwtMTE1NjA3MzI3MSw1
-MzIxMjY5OCw5MDY5OTU5NDksMjE0MjMzOTI3N119
+eyJoaXN0b3J5IjpbLTE0Mzc5NzY2ODAsMjUyMTAzNTg2LDE4Nz
+AxMTA0Niw1MDY0Njk3OCwyMTIzNjkxMDA5LC0xMTU2MDczMjcx
+LDUzMjEyNjk4LDkwNjk5NTk0OSwyMTQyMzM5Mjc3XX0=
 -->
