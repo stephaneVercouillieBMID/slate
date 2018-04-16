@@ -373,6 +373,9 @@ NRN | not supported|
 As per specified by OpenID Connect, there is a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), or user attributes. They are intended to supply the client app with consented user details such as email, name and picture, upon request.  They can be requested to be returned either in the UserInfo Response, per [Section 5.3.2](https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse), or in the ID Token, per [Section 2](https://openid.net/specs/openid-connect-core-1_0.html#IDToken).
 
 Here following table lists the supported standard "claim" values,
+|member  |type  |D  |
+|--|--|--
+|  |  |
 
 #### 4.2.2.2. Example of a Valid “claims” Object 
 Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_device`:
@@ -935,6 +938,6 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2NjEyODM2OCw1MzIxMjY5OCw5MDY5OT
+eyJoaXN0b3J5IjpbMTQzMDMyOTgxMiw1MzIxMjY5OCw5MDY5OT
 U5NDksMjE0MjMzOTI3N119
 -->
