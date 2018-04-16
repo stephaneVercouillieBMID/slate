@@ -226,6 +226,7 @@ The Token Response follow these specifications:
 
 
 ### 3.2.5. Token Response Example
+```http--inline
 {"user_info":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","birthdate":"1974-04-12","gender":"male","name":"Ada Gardner","iss":"tokenEndpointURL","given_name":"Ada","locale":"fr","family_name":"Gardner"},"id_token":{"access_token":"UVfXK3QzTRKyFiw3f1v85Yr4ko4o7uI1oJ8XNZeRcJE","id_token":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","acr":"tag:sixdots.be,2016-06:acr_basic","auth_time":1523626355,"iss":"tokenEndpointURL","exp":1523626660,"iat":1523626360,"nonce":"anonce"},"token_type":"Bearer","expire_in":163}}
 
 ### 3.2.6. Token Error Response 
@@ -933,6 +934,6 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2ODY2MzMwMjAsOTA2OTk1OTQ5LDIxND
-IzMzkyNzddfQ==
+eyJoaXN0b3J5IjpbOTI4MDM5MDUsOTA2OTk1OTQ5LDIxNDIzMz
+kyNzddfQ==
 -->
