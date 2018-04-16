@@ -438,11 +438,11 @@ A JSON object with the following keys: (only keys with cardinality [1…1] will 
    e.g. SAMSUNG GALAXY A5   
    - “msisdn” [0…1]: the user’s phone number.  
     - “sdkRelease” [0…1]: Sdk release
-4.1
-For example:  
+##### 4.2.2.2.1. Example of device claim value
 `{ "os": "ANDROID", "appName": "itsme app", "appRelease": "1.17.13", "deviceLabel": "myDevice", "debugEnabled": false, "deviceId": "deviceId", "osRelease": "Android 4.4.2", "manufacturer": "samsung", "hasSimEnabled": true, "deviceLockLevel": "touchID", "smsEnabled": true, "rooted": false,"imei": "12345678901234567", "deviceModel": "S8", "msisdn": "0412123123", "sdkRelease": "1.17.12" }`
 
 #### 4.2.2.3. Eid Metadata
+
 ## 4.3. Getting Data
 
 As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest(http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
@@ -981,7 +981,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0NDQ2NTE1NiwyMTIzNjkxMDA5LC0xMT
+eyJoaXN0b3J5IjpbMjEwNzg2NDk4MiwyMTIzNjkxMDA5LC0xMT
 U2MDczMjcxLDUzMjEyNjk4LDkwNjk5NTk0OSwyMTQyMzM5Mjc3
 XX0=
 -->
