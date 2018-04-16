@@ -408,7 +408,7 @@ Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_devic
  	"sdkRelease": "1.17.12"  
  }
  ```
-	 #### <a name id="deviceClaim"></a> 4.2.2.2. Device Claim Value
+ #### <a name id="deviceClaim"></a> 4.2.2.2. Device Claim Value
 This claim is the information about the end user device. 
 
 Claim value: **`tag:sixdots.be,2017-05:claim_device`**
@@ -994,7 +994,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzNTA1MTY2NCwyNTIxMDM1ODYsMTg3MD
-ExMDQ2LDUwNjQ2OTc4LDIxMjM2OTEwMDksLTExNTYwNzMyNzEs
-NTMyMTI2OTgsOTA2OTk1OTQ5LDIxNDIzMzkyNzddfQ==
+eyJoaXN0b3J5IjpbNTk2NDE1MzUyLDI1MjEwMzU4NiwxODcwMT
+EwNDYsNTA2NDY5NzgsMjEyMzY5MTAwOSwtMTE1NjA3MzI3MSw1
+MzIxMjY5OCw5MDY5OTU5NDksMjE0MjMzOTI3N119
 -->
