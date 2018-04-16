@@ -346,7 +346,6 @@ Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |Informati
 E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
 NRN | not supported|
 
-
 #### <b id="example-endpoint"></b> 4.2.2.1. Set of Request Parameter Adapted to itsme(r)
 
 ```json--inline
@@ -409,7 +408,7 @@ Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_devic
  	"sdkRelease": "1.17.12"  
  }
  ```
- 
+ #### 4.2.2.2. Device 
 ## 4.3. Getting Data
 
 As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest(http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
@@ -948,6 +947,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEyMzY5MTAwOSwtMTE1NjA3MzI3MSw1Mz
-IxMjY5OCw5MDY5OTU5NDksMjE0MjMzOTI3N119
+eyJoaXN0b3J5IjpbLTE3MjA4OTg1NzUsMjEyMzY5MTAwOSwtMT
+E1NjA3MzI3MSw1MzIxMjY5OCw5MDY5OTU5NDksMjE0MjMzOTI3
+N119
 -->
