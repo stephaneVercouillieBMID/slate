@@ -426,10 +426,10 @@ A JSON object with the following keys: (only keys with cardinality [1…1] will 
   -   “manufacturer” [0…1]: Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android).
     - “hasSimEnabled” [0…1]: Whether there is a SIM in the Device. Should
    be always true, as long as BMID keeps forbidding installing itsme on
-   a tablet.   • “deviceLockLevel” [0…1]: The type of action to be
-   performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE
-   if User protected his Device with TouchID, PIN or nothing.   •
-   “smsEnabled” [0…1]: Can send SMS. On iOS, means it’s an iPhone.   •
+   a tablet.   
+    -  “deviceLockLevel” [0…1]: The type of action to be
+   performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.   
+    - “smsEnabled” [0…1]: Can send SMS. On iOS, means it’s an iPhone.   •
    “rooted” [0…1]: Coming from Gemalto. ‘true’ the device is
    jailbreaked/rooted.   • “imei” [0…1]: (regexp = “[0-9]{15,17}”) the
    device IMEI value.   • “deviceModel” [0…1]: Model of the Device.  
@@ -978,7 +978,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODM2MTE0Nzg0LDIxMjM2OTEwMDksLTExNT
-YwNzMyNzEsNTMyMTI2OTgsOTA2OTk1OTQ5LDIxNDIzMzkyNzdd
-fQ==
+eyJoaXN0b3J5IjpbMTE1MTA1NjIzNCwyMTIzNjkxMDA5LC0xMT
+U2MDczMjcxLDUzMjEyNjk4LDkwNjk5NTk0OSwyMTQyMzM5Mjc3
+XX0=
 -->
