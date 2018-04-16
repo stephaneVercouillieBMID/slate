@@ -429,13 +429,16 @@ A JSON object with the following keys: (only keys with cardinality [1…1] will 
    a tablet.   
     -  “deviceLockLevel” [0…1]: The type of action to be
    performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.   
-    - “smsEnabled” [0…1]: Can send SMS. On iOS, means it’s an iPhone.   •
-   “rooted” [0…1]: Coming from Gemalto. ‘true’ the device is
-   jailbreaked/rooted.   • “imei” [0…1]: (regexp = “[0-9]{15,17}”) the
-   device IMEI value.   • “deviceModel” [0…1]: Model of the Device.  
-   e.g. SAMSUNG GALAXY A5   • “msisdn” [0…1]: the user’s phone number.  
-   • “sdkRelease” [0…1]: Sdk release
-
+    - “smsEnabled” [0…1]: Can send SMS. On iOS, means it’s an iPhone.    
+    -  “rooted” [0…1]: Coming from Gemalto. ‘true’ the device is
+   jailbreaked/rooted.   
+   - “imei” [0…1]: (regexp = “[0-9]{15,17}”) the
+   device IMEI value.   
+    -  “deviceModel” [0…1]: Model of the Device.  
+   e.g. SAMSUNG GALAXY A5   
+   - “msisdn” [0…1]: the user’s phone number.  
+    - “sdkRelease” [0…1]: Sdk release
+4.1
 For example:  
 `{ "os": "ANDROID", "appName": "itsme app", "appRelease": "1.17.13", "deviceLabel": "myDevice", "debugEnabled": false, "deviceId": "deviceId", "osRelease": "Android 4.4.2", "manufacturer": "samsung", "hasSimEnabled": true, "deviceLockLevel": "touchID", "smsEnabled": true, "rooted": false,"imei": "12345678901234567", "deviceModel": "S8", "msisdn": "0412123123", "sdkRelease": "1.17.12" }`
 
@@ -978,7 +981,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE1MTA1NjIzNCwyMTIzNjkxMDA5LC0xMT
+eyJoaXN0b3J5IjpbMTg0NDQ2NTE1NiwyMTIzNjkxMDA5LC0xMT
 U2MDczMjcxLDUzMjEyNjk4LDkwNjk5NTk0OSwyMTQyMzM5Mjc3
 XX0=
 -->
