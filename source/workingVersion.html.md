@@ -448,7 +448,7 @@ This claim is Belgian Electronic ID card information encoded in JSON, with the f
 
 `eid`: the electronic ID card serial number. <br>`issuance_locality`: the issuance locality. <br>`validity_from`: eID card validity “from” date. <br>`validity_to`: eID card validity “to” date. <br>`certificate_validity`: the certificate validity. <br>`read_date`: the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: 2017-04-01T19:43:37+0000
 
-#### <a name id="transactionInfo"></a>4.2.2.4.Transaction Info Claim Value
+#### <a name id="transactionInfo"></a>4.2.2.4.Transaction Info Claim
 Claim value: **`tag:sixdots.be,2017-05:claim_transaction_info`**
 
 Information available in the context of the current transaction.
@@ -994,8 +994,8 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzOTI5NDE5MzUsLTE0Mzc5NzY2ODAsMj
-UyMTAzNTg2LDE4NzAxMTA0Niw1MDY0Njk3OCwyMTIzNjkxMDA5
-LC0xMTU2MDczMjcxLDUzMjEyNjk4LDkwNjk5NTk0OSwyMTQyMz
-M5Mjc3XX0=
+eyJoaXN0b3J5IjpbLTYyNzQzMTMyOCwtMTQzNzk3NjY4MCwyNT
+IxMDM1ODYsMTg3MDExMDQ2LDUwNjQ2OTc4LDIxMjM2OTEwMDks
+LTExNTYwNzMyNzEsNTMyMTI2OTgsOTA2OTk1OTQ5LDIxNDIzMz
+kyNzddfQ==
 -->
