@@ -71,7 +71,7 @@ itsme® offers 3 services, which act as strong enablers for every process digita
  # 3. Authenticating the User
  **itsme® Login** is based on the [Authorization Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in [OpenID Connect Core Authorization Code Flow Steps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps), depicted in the following diagram,
  
- TODO fix dashed lines
+ <!-->TODO fix dashed lines
 ![enter image description here](https://lh3.googleusercontent.com/J-_-tdG9FnHm5wCknxUd2Khjtp8CHb1pfIwxdGLm74RvThkZinxXfN1sXCg68wLwo5UjmFK92WA)
 
 ## 3.1. **Authorization Endpoint** 
@@ -933,5 +933,6 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTA2OTk1OTQ5LDIxNDIzMzkyNzddfQ==
+eyJoaXN0b3J5IjpbLTE2ODY2MzMwMjAsOTA2OTk1OTQ5LDIxND
+IzMzkyNzddfQ==
 -->
