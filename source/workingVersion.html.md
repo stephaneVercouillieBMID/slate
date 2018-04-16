@@ -418,13 +418,13 @@ A JSON object with the following keys: (only keys with cardinality [1…1] will 
  - “os” [1…1]: the device operating system (supported values:
    {ANDROID, IOS})   
   -  “appName” [0…1]: the application name.   
-   “appRelease” [0…1]: the application current release.   •
-   “deviceLabel” [0…1]: the name of the device.   • “debugEnabled”
-   [0…1]: if debug mode is activated.   • “deviceId” [1…1]: (regexp =
-   “[a-f0-9]{33}”) the device identifier.   • “osRelease” [0…1]: Version
-   of the OS running on your Device.   • “manufacturer” [0…1]: Brand of
-   the device manufacturer (‘Apple’ on iOS, device specific on Android).
-   • “hasSimEnabled” [0…1]: Whether there is a SIM in the Device. Should
+  -   “appRelease” [0…1]: the application current release.   
+  -   “deviceLabel” [0…1]: the name of the device.   
+  - “debugEnabled” [0…1]: if debug mode is activated.   
+  -  “deviceId” [1…1]: (regexp =“[a-f0-9]{33}”) the device identifier.   
+  -  “osRelease” [0…1]: Version of the OS running on your Device.  
+  -   “manufacturer” [0…1]: Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android).
+    - “hasSimEnabled” [0…1]: Whether there is a SIM in the Device. Should
    be always true, as long as BMID keeps forbidding installing itsme on
    a tablet.   • “deviceLockLevel” [0…1]: The type of action to be
    performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE
@@ -978,7 +978,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyNTgxODU0OSwyMTIzNjkxMDA5LC0xMT
-U2MDczMjcxLDUzMjEyNjk4LDkwNjk5NTk0OSwyMTQyMzM5Mjc3
-XX0=
+eyJoaXN0b3J5IjpbODM2MTE0Nzg0LDIxMjM2OTEwMDksLTExNT
+YwNzMyNzEsNTMyMTI2OTgsOTA2OTk1OTQ5LDIxNDIzMzkyNzdd
+fQ==
 -->
