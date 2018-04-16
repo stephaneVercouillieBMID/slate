@@ -230,6 +230,10 @@ The Token Response follow these specifications:
 ### 3.2.6. Token Error Response 
 
 As per [OIDC Specification Aggregated Response](http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse).
+
+```
+<a href="test.html" onclick="return ! window.open(this.href);">Open in a new window</a>
+```
 # 4. User Data
 ## 4.1. What is a claim?
 The concept of claim is about declaring something you expect as return from the OP. When it comes to end user data, you have to use claims in order to declare the end user data you will need for your business before the authentication. This is a privacy-oriented way of getting data.
@@ -736,5 +740,5 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2Nzc4NjUxNV19
+eyJoaXN0b3J5IjpbMzU1MDUxOTc3LDIwNjc3ODY1MTVdfQ==
 -->
