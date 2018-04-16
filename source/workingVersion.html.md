@@ -408,7 +408,7 @@ Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_devic
  	"sdkRelease": "1.17.12"  
  }
  ```
-	 #### <a name id="deviceClaim"></a> 4.2.2.2. Device Claim Val
+	 #### <a name id="deviceClaim"></a> 4.2.2.2. Device Claim Value
 This claim is the information about the end user device. 
 
 Claim value: **`tag:sixdots.be,2017-05:claim_device`**
@@ -441,14 +441,14 @@ A JSON object with the following keys: (only keys with cardinality [1…1] will 
 ##### <a name id="exampleDeviceClaimValue"></a>4.2.2.2.1. Example of device claim value
 `{ "os": "ANDROID", "appName": "itsme app", "appRelease": "1.17.13", "deviceLabel": "myDevice", "debugEnabled": false, "deviceId": "deviceId", "osRelease": "Android 4.4.2", "manufacturer": "samsung", "hasSimEnabled": true, "deviceLockLevel": "touchID", "smsEnabled": true, "rooted": false,"imei": "12345678901234567", "deviceModel": "S8", "msisdn": "0412123123", "sdkRelease": "1.17.12" }`
 
-#### <a name id="eidMetadata"></a>4.2.2.3. Eid Metadata
+#### <a name id="eidMetadata"></a>4.2.2.3. Eid Metadata Claim Value
 Claim value: **`tag:itsmetag:sixdots.be,2016-06:claim_eid`**
 
 This claim is Belgian Electronic ID card information encoded in JSON, with the following keys,
 
 `eid`: the electronic ID card serial number. <br>`issuance_locality`: the issuance locality. <br>`validity_from`: eID card validity “from” date. <br>`validity_to`: eID card validity “to” date. <br>`certificate_validity`: the certificate validity. <br>`read_date`: the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: 2017-04-01T19:43:37+0000
 
-#### <a name id="transactionInfo"></a>4.2.2.4. Eid Metadata
+#### <a name id="transactionInfo"></a>4.2.2.4.Transaction Info Claim Value
 Claim value: **`tag:sixdots.be,2017-05:claim_transaction_info`**
 
 Information available in the context of the current transaction.
@@ -994,7 +994,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyOTQwMTQ2MSwyNTIxMDM1ODYsMTg3MD
+eyJoaXN0b3J5IjpbMTMzNTA1MTY2NCwyNTIxMDM1ODYsMTg3MD
 ExMDQ2LDUwNjQ2OTc4LDIxMjM2OTEwMDksLTExNTYwNzMyNzEs
 NTMyMTI2OTgsOTA2OTk1OTQ5LDIxNDIzMzkyNzddfQ==
 -->
