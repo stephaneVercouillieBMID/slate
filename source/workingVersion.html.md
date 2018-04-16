@@ -94,7 +94,7 @@ Please check the following table for request parameters,
  ```
 
 Parameter | Required | Specification | Parameter Explained
- --------- | ------- | -----|-----
+ :---------: | :-------: | :-----:|:-----:
  **client_id** | Required | MUST be the Partner Code you obtained from BMID during [on-boarding process](#Onboarding) and this value will be unique to each partner per environment. |This is your client identifier at the OpenID Provider.
  **response_type** | Required | MUST be <code>code</code>.|Used to indicate an authorization code flow.
  **scope** | Required | MUST contain at least `openid` or an HTTP ERROR `not_implemented` will be returned. `offline_access` value will yield an error. MUST also includes the target service in the form `service:<SERVICE_CODE>` as provided by BMID during the on-boarding process (see <a name="ServiceCode"></a>[Service Code Concept](#ServiceCode) for further information).| Used to specify the scope of the requested authorization in OAuth, as well as pre-defined sets of claims (see [Scope](#scope)). The scope value `openid` signals a request for OpenID authentication and ID token. . ***Note**: Requested data will only be provided based on your current accesses. These accesses are specified in the on-boarding file provided by BMID.* The value `service` is a BMID extension of the OpenID standard specification.
@@ -123,7 +123,7 @@ The itsme Back-End provides an Authorization Code to the Service Provider Back-E
 As such, the Authentication Response will return the following parameters:
 
  Parameter | Provided | Description
- -- | -- | --
+ :--:| :--:|:--
  **code** | Always | Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.
  **state** |  | The exact value received from the client, if the parameter was present in the Authentication Request.
 ### 3.1.3. Authentication Response Example
@@ -736,9 +736,9 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NzkwNzE4MzQsLTE5NzkwNzE4MzQsLT
-E4MTExNTYxODYsMTYzMjg1NTE5LC02Mjc0MzEzMjgsLTE0Mzc5
-NzY2ODAsMjUyMTAzNTg2LDE4NzAxMTA0Niw1MDY0Njk3OCwyMT
-IzNjkxMDA5LC0xMTU2MDczMjcxLDUzMjEyNjk4LDkwNjk5NTk0
-OSwyMTQyMzM5Mjc3XX0=
+eyJoaXN0b3J5IjpbNDYwODA3OTE2LC0xOTc5MDcxODM0LC0xOT
+c5MDcxODM0LC0xODExMTU2MTg2LDE2MzI4NTUxOSwtNjI3NDMx
+MzI4LC0xNDM3OTc2NjgwLDI1MjEwMzU4NiwxODcwMTEwNDYsNT
+A2NDY5NzgsMjEyMzY5MTAwOSwtMTE1NjA3MzI3MSw1MzIxMjY5
+OCw5MDY5OTU5NDksMjE0MjMzOTI3N119
 -->
