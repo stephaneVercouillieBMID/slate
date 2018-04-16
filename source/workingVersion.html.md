@@ -375,18 +375,18 @@ As per specified by OpenID Connect, there is a set of [standard claims](https://
 Here following table lists the supported standard "claim" values,
 |Member  |Type  |Description |
 |--|--|--
-name |
-given_name|
-family_name@
-profile
-email
-email_verified
-gender
-birthdate
-locale
-phone_number
-phone_number_verified (always true)
-address
+name |string|
+given_name|string
+family_name|string
+profile|string
+email|string
+email_verified|boolean
+gender|string
+birthdate|string
+locale|
+phone_number|
+phone_number_verified (always true)|
+address|
 #### 4.2.2.2. Example of a Valid “claims” Object 
 Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_device`:
  
@@ -948,6 +948,6 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NzE2MjI3OTMsNTMyMTI2OTgsOTA2OT
-k1OTQ5LDIxNDIzMzkyNzddfQ==
+eyJoaXN0b3J5IjpbLTkwMjM3MjEyOCw1MzIxMjY5OCw5MDY5OT
+U5NDksMjE0MjMzOTI3N119
 -->
