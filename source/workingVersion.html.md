@@ -94,7 +94,7 @@ Please check the following table for request parameters,
  ```
 
 Parameter | Required | Specification | Parameter Explained
- :---------: | :-------: | :-----:|:-----:
+ :--------- | :-------: | :-----:|:-----:
  **client_id** | Required | MUST be the Partner Code you obtained from BMID during [on-boarding process](#Onboarding) and this value will be unique to each partner per environment. |This is your client identifier at the OpenID Provider.
  **response_type** | Required | MUST be <code>code</code>.|Used to indicate an authorization code flow.
  **scope** | Required | MUST contain at least `openid` or an HTTP ERROR `not_implemented` will be returned. `offline_access` value will yield an error. MUST also includes the target service in the form `service:<SERVICE_CODE>` as provided by BMID during the on-boarding process (see <a name="ServiceCode"></a>[Service Code Concept](#ServiceCode) for further information).| Used to specify the scope of the requested authorization in OAuth, as well as pre-defined sets of claims (see [Scope](#scope)). The scope value `openid` signals a request for OpenID authentication and ID token. . ***Note**: Requested data will only be provided based on your current accesses. These accesses are specified in the on-boarding file provided by BMID.* The value `service` is a BMID extension of the OpenID standard specification.
@@ -138,7 +138,7 @@ As such, the Authentication Response will return the following parameters:
 As explained by OIDC [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://openid.net/specs/openid-connect-core-1_0.html#AuthError), if the authentication is NOT successful, the following errors can be triggered by itsme®:
 
  Error | Description
- -- | --
+ :-- | :--:
  `interaction_required`  | The Authorization Server requires End-User interaction of some form to proceed.
  `invalid_request_object` | The request parameter contains an invalid Request Object.
  `request_uri_not_supported` | does not support use of the request_uri parameter.
@@ -183,7 +183,7 @@ In order to communicate with Token Endpoint, TLS MUST be implemented. See  [Sect
 The Token Request must include the following parameters in the POST body:
 
 Parameter | Required | Comment
- -- | -- | --
+ :-- | -- | --
  **grant_type** | Required | Must be `authorization_code`. 
  **code** | Required | The code value provided in the Authentication Response
  **redirect_uri** | Required | The **redirect_uri** used in the Authentication Request. This is the URL to which you want the user to be redirected after the authorization is complete.
@@ -736,9 +736,9 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDYwODA3OTE2LC0xOTc5MDcxODM0LC0xOT
-c5MDcxODM0LC0xODExMTU2MTg2LDE2MzI4NTUxOSwtNjI3NDMx
-MzI4LC0xNDM3OTc2NjgwLDI1MjEwMzU4NiwxODcwMTEwNDYsNT
-A2NDY5NzgsMjEyMzY5MTAwOSwtMTE1NjA3MzI3MSw1MzIxMjY5
-OCw5MDY5OTU5NDksMjE0MjMzOTI3N119
+eyJoaXN0b3J5IjpbMTMwNjYzMTg1NCwtMTk3OTA3MTgzNCwtMT
+k3OTA3MTgzNCwtMTgxMTE1NjE4NiwxNjMyODU1MTksLTYyNzQz
+MTMyOCwtMTQzNzk3NjY4MCwyNTIxMDM1ODYsMTg3MDExMDQ2LD
+UwNjQ2OTc4LDIxMjM2OTEwMDksLTExNTYwNzMyNzEsNTMyMTI2
+OTgsOTA2OTk1OTQ5LDIxNDIzMzkyNzddfQ==
 -->
