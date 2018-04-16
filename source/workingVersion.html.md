@@ -408,7 +408,7 @@ Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_devic
  	"sdkRelease": "1.17.12"  
  }
  ```
- #### <a name id="deviceClaim"></a> 4.2.2.2. Device Claim Value
+ #### <a name id="deviceClaim"></a> 4.2.2.2. Device Claim 
 This claim is the information about the end user device. 
 
 Claim value: **`tag:sixdots.be,2017-05:claim_device`**
@@ -438,10 +438,10 @@ A JSON object with the following keys: (only keys with cardinality [1…1] will 
    e.g. SAMSUNG GALAXY A5   
    - “msisdn” [0…1]: the user’s phone number.  
     - “sdkRelease” [0…1]: Sdk release
-##### <a name id="exampleDeviceClaimValue"></a>4.2.2.2.1. Example of Device Claim Value
+##### <a name id="exampleDeviceClaimValue"></a>4.2.2.2.1. Example of Device Claim Value Usage
 `{ "os": "ANDROID", "appName": "itsme app", "appRelease": "1.17.13", "deviceLabel": "myDevice", "debugEnabled": false, "deviceId": "deviceId", "osRelease": "Android 4.4.2", "manufacturer": "samsung", "hasSimEnabled": true, "deviceLockLevel": "touchID", "smsEnabled": true, "rooted": false,"imei": "12345678901234567", "deviceModel": "S8", "msisdn": "0412123123", "sdkRelease": "1.17.12" }`
 
-#### <a name id="eidMetadata"></a>4.2.2.3. Eid Metadata Claim Value
+#### <a name id="eidMetadata"></a>4.2.2.3. Eid Metadata Claim 
 Claim value: **`tag:itsmetag:sixdots.be,2016-06:claim_eid`**
 
 This claim is Belgian Electronic ID card information encoded in JSON, with the following keys,
@@ -994,7 +994,8 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0Mzc5NzY2ODAsMjUyMTAzNTg2LDE4Nz
-AxMTA0Niw1MDY0Njk3OCwyMTIzNjkxMDA5LC0xMTU2MDczMjcx
-LDUzMjEyNjk4LDkwNjk5NTk0OSwyMTQyMzM5Mjc3XX0=
+eyJoaXN0b3J5IjpbLTEzOTI5NDE5MzUsLTE0Mzc5NzY2ODAsMj
+UyMTAzNTg2LDE4NzAxMTA0Niw1MDY0Njk3OCwyMTIzNjkxMDA5
+LC0xMTU2MDczMjcxLDUzMjEyNjk4LDkwNjk5NTk0OSwyMTQyMz
+M5Mjc3XX0=
 -->
