@@ -194,7 +194,7 @@ Parameter | Required | Comment
 According to the `private_key_jwt` client authentication method, the **client assertion** JWT must contain the following properties:
 
  Property | Comment
- -- | --
+ :-- | :--
  **iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID).
  **sub** | The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the on boarding file provided by BMID). 
  **aud** | Must be the token endpoint URL
@@ -216,7 +216,7 @@ GET /oidc/authorization?response_type=code
 The Token Response follow these specifications:
 
  Parameter | Provided | Comment
- -- | -- | --
+ -- | -- | :--
  **[`access_token`](#actoken)** | Always | Will be provided. 
  **[`token_type`](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)** | Always | Will be `Bearer`
  **[`id_token`](#idtoken)** | Always | The id_token corresponding to the Authentication Request (signed and  encrypted). 
@@ -292,7 +292,7 @@ Using this method, you will always receive Claims from the UserInfo Endpoint.
 The following scope values are supported and allow access to predefined sets of Identity Data:
 
 | Scope Value | Associated Claims|
-|--|--|
+|--|:--|
 | profile | given_name, family_name, gender, birthdate,  locale|
 email|email, email_verified|
 phone| phone_number, phone_number_verified| 
@@ -333,7 +333,7 @@ Some specific data cannot be requested by using scope values. They have to be re
 Here are these claims:
 
  Data | Claim | Comment 
- -- | -- | -- 
+ :-- | :--: | :--= 
  Subject | **`sub`** | The subject of the `private_key_jwt` (the client ID). Supports value in request. 
  Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | An error will be raised if request as a value element for the claim 
  Place of Birth - city | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** |An error will be raised if request as a value element for the claim 
@@ -736,9 +736,9 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMwNjYzMTg1NCwtMTk3OTA3MTgzNCwtMT
-k3OTA3MTgzNCwtMTgxMTE1NjE4NiwxNjMyODU1MTksLTYyNzQz
-MTMyOCwtMTQzNzk3NjY4MCwyNTIxMDM1ODYsMTg3MDExMDQ2LD
-UwNjQ2OTc4LDIxMjM2OTEwMDksLTExNTYwNzMyNzEsNTMyMTI2
-OTgsOTA2OTk1OTQ5LDIxNDIzMzkyNzddfQ==
+eyJoaXN0b3J5IjpbNTQ1ODU3ODM5LC0xOTc5MDcxODM0LC0xOT
+c5MDcxODM0LC0xODExMTU2MTg2LDE2MzI4NTUxOSwtNjI3NDMx
+MzI4LC0xNDM3OTc2NjgwLDI1MjEwMzU4NiwxODcwMTEwNDYsNT
+A2NDY5NzgsMjEyMzY5MTAwOSwtMTE1NjA3MzI3MSw1MzIxMjY5
+OCw5MDY5OTU5NDksMjE0MjMzOTI3N119
 -->
