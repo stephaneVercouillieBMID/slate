@@ -375,7 +375,7 @@ As per specified by OpenID Connect, there is a set of [standard claims](https://
 Here following table lists the supported standard "claim" values,
 |Member  |Type  |Description |
 |--|--|--
-name |string|
+name |string|Subject - Identifier for the End-User at the Issuer.
 given_name|string|
 family_name|string|
 profile|string|
@@ -948,6 +948,6 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTYwNzMyNzEsNTMyMTI2OTgsOTA2OT
-k1OTQ5LDIxNDIzMzkyNzddfQ==
+eyJoaXN0b3J5IjpbMTg2NTU1Mjg3OSwtMTE1NjA3MzI3MSw1Mz
+IxMjY5OCw5MDY5OTU5NDksMjE0MjMzOTI3N119
 -->
