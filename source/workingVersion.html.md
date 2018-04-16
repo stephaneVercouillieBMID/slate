@@ -76,9 +76,7 @@ itsme® offers 3 services, which act as strong enablers for every process digita
 ## 3.1. **Authorization Endpoint** 
 The first step is forming an HTTPS request to the Authorization Endpoint with the appropriate URI parameters. Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused.
 ### 3.1.1. Authentication Request Specifications
-As per the OpenID Connect specification <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest" target="_blank">Authentication Request</a> and [Authorization Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint).
-
-
+As per the OpenID Connect specification <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest" target="_blank">Authentication Request</a> and <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint" target="_blank">Authorization Endpoint</a>.
 
 You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
 
@@ -738,7 +736,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3MTkxNzg5NCwxMDM0MzI0ODYzLDE0Nz
+eyJoaXN0b3J5IjpbMjA2Nzc4NjUxNSwxMDM0MzI0ODYzLDE0Nz
 U1NDYzNDEsLTM5NjU1MzE0MiwtMTk3OTA3MTgzNCwtMTk3OTA3
 MTgzNCwtMTgxMTE1NjE4NiwxNjMyODU1MTksLTYyNzQzMTMyOC
 wtMTQzNzk3NjY4MCwyNTIxMDM1ODYsMTg3MDExMDQ2LDUwNjQ2
