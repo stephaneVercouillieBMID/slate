@@ -49,7 +49,7 @@ itsme® offers 3 services, which act as strong enablers for every process digita
     <li>Your Service Codes, which are the identifiers of your instances of itsme(r) services. </li>
   </ul>
  </aside>
-Please consult [Service Code](#ServiceCode) for more information about the notion of Service Code.
+Please consult [Service Code](#ServiceCode) for more information about the notion of Service Code. 
  
  ## 2.2. Integration of itsme® services
  Once your Sandbox has been created, you can start working on the integration itself. All the information needed to do so is the object of this document.
@@ -736,8 +736,8 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY3NzY3MzAyNSwxNjMyODU1MTksLTYyNz
-QzMTMyOCwtMTQzNzk3NjY4MCwyNTIxMDM1ODYsMTg3MDExMDQ2
-LDUwNjQ2OTc4LDIxMjM2OTEwMDksLTExNTYwNzMyNzEsNTMyMT
-I2OTgsOTA2OTk1OTQ5LDIxNDIzMzkyNzddfQ==
+eyJoaXN0b3J5IjpbMzI1NzQyMzg5LDE2MzI4NTUxOSwtNjI3ND
+MxMzI4LC0xNDM3OTc2NjgwLDI1MjEwMzU4NiwxODcwMTEwNDYs
+NTA2NDY5NzgsMjEyMzY5MTAwOSwtMTE1NjA3MzI3MSw1MzIxMj
+Y5OCw5MDY5OTU5NDksMjE0MjMzOTI3N119
 -->
