@@ -46,7 +46,8 @@ itsme® offers 3 services, which act as strong enablers for every process digita
  Once your Sandbox is created, you will receive:
   <ul> 
     <li>Your Partner Code, which corresponds to the OpenID <b>client_id</b> </li>
-    <li>Your Service Codes, which are the identifiers of your instances of itsme(r) services. Please consult [Service Code](#ServiceCode) for more information about the notion of Service Code. </li>
+    <li>Your Service Codes, which are the identifiers of your instances of itsme(r) services. 
+    Please consult [Service Code](#ServiceCode) for more information about the notion of Service Code. </li>
   </ul>
  </aside>
 
@@ -736,8 +737,8 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYzMjg1NTE5LC02Mjc0MzEzMjgsLTE0Mz
-c5NzY2ODAsMjUyMTAzNTg2LDE4NzAxMTA0Niw1MDY0Njk3OCwy
-MTIzNjkxMDA5LC0xMTU2MDczMjcxLDUzMjEyNjk4LDkwNjk5NT
-k0OSwyMTQyMzM5Mjc3XX0=
+eyJoaXN0b3J5IjpbMTM3OTk0NTc2MSwxNjMyODU1MTksLTYyNz
+QzMTMyOCwtMTQzNzk3NjY4MCwyNTIxMDM1ODYsMTg3MDExMDQ2
+LDUwNjQ2OTc4LDIxMjM2OTEwMDksLTExNTYwNzMyNzEsNTMyMT
+I2OTgsOTA2OTk1OTQ5LDIxNDIzMzkyNzddfQ==
 -->
