@@ -658,7 +658,7 @@ It is expected that you will also expose their signing and encryption keys in su
   ```
   >
  >### What are the JWKSet requirements?
- In Opend ID Connect 1.0 the important is the jwKset which is exposed on a public URL and the linked chain of certificates which is included in our trust store.
+ In Opend ID Connect 1.0 the important is the JWKSet which is exposed on a public URL and the linked chain of certificates which is included in our trust store.
  >
  This is 1 per partner. So in UAT 1, in Prod, for your 4 clients, it would be 1 JWKSet if it's under Norbloc name or 4 JWKSet if it's under each client name.
  >
@@ -737,6 +737,6 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDA3MDI3ODcwLC05NDY3NTAxNDcsMjA2Nz
-c4NjUxNV19
+eyJoaXN0b3J5IjpbNzA5NjY3MDA2LDQwNzAyNzg3MCwtOTQ2Nz
+UwMTQ3LDIwNjc3ODY1MTVdfQ==
 -->
