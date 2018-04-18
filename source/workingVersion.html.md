@@ -483,25 +483,23 @@ As per specified [OIDC UserInfo Request](http://openid.net/specs/openid-connect-
 The Client sends the UserInfo Request using either HTTP  GET  or HTTP  POST. The Access Token obtained from an OpenID Connect Authentication Request MUST be sent as a Bearer Token, per Section 2 of  [OAuth 2.0 Bearer Token Usage](http://openid.net/specs/openid-connect-core-1_0.html#RFC6750)  [RFC6750].
 
 It is RECOMMENDED that the request use the HTTP  GET  method and the Access Token be sent using the  Authorization  header field.
-
+```http--inline
+GET /userinfo HTTP/1.1 
+Host: server.example.com 
+Authorization: Bearer SlAV32hkKG
+``` 
 | Parameter  | Comment  |
 |--|:--|
 | acr | Possible values: <br>`tag:sixdots.be,2016-06:acr_basic`<br>`tag:sixdots.be,2016-06:acr_advanced` |
 | amr |Won’t be provided  |
 | azp| Won’t be provided |
 |auth_time | Will always be provided
-#### 4.3.1.2. User info Request Example
 
-```http--inline
-GET /userinfo HTTP/1.1 
-Host: server.example.com 
-Authorization: Bearer SlAV32hkKG
-``` 
-#### 4.3.1.3. User info Response Specification
+#### 4.3.1.2. User info Response Specification
 
 The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed. The itsme Back-End replies with the Identity Data that were requested in the Authorization Request.
  
-#### 4.3.1.4. User info Response Example
+#### 4.3.1.3. User info Response Example
 
  (Not encrypted nor signed)
  
@@ -515,7 +513,7 @@ The content type of the response will be `application/jwt`. The response will be
     "email": "janedoe@example.com"
  }
  ```
-#### 4.3.1.5. User info Errors
+#### 4.3.1.4. User info Errors
 When an error condition occurs, the UserInfo Endpoint returns an Error Response as defined in Section 3 of  [OAuth 2.0 Bearer Token Usage RFC6750](https://tools.ietf.org/html/rfc6750)   (HTTP errors unrelated to RFC 6750 are returned to the User Agent using the appropriate HTTP status code.)
 
 The following is a non-normative example of a UserInfo Error Response:
@@ -734,6 +732,6 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzQ3NzUzNDgsOTI5MTY2NTU4LDQwNz
-AyNzg3MCwtOTQ2NzUwMTQ3LDIwNjc3ODY1MTVdfQ==
+eyJoaXN0b3J5IjpbMTM0Mjk3OTY5Nyw5MjkxNjY1NTgsNDA3MD
+I3ODcwLC05NDY3NTAxNDcsMjA2Nzc4NjUxNV19
 -->
