@@ -179,6 +179,15 @@ The Authentication Response includes a `code` parameter, a one-time authorizatio
 
 In order to communicate with Token Endpoint, TLS MUST be implemented. See  [Section 16.17](http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements)  for more information on using TLS.
 
+```http--inline
+GET /oidc/authorization?response_type=code
+&client_id=yourpartnercode
+&yourredirecturl
+&scope=openid+service%3Ayourservicecode+profile+
+&claims={"userinfo":{" tag:sixdots.be,2016-06:claim_nationality": null},
+"id_token":{"auth_time": {"essential": true},"acr_values":{"value":["tag:sixdots.be,2016-06:acr_advanced"]
+}}}&state=anystate&nonce=anonce&prompt=login&max_age=1
+```
 The Token Request must include the following parameters in the POST body:
 
 Parameter | Required | Comment
@@ -202,15 +211,6 @@ According to the `private_key_jwt` client authentication method, the **client as
 
 ### 3.2.3. Token Request Example
 
-```http--inline
-GET /oidc/authorization?response_type=code
-&client_id=yourpartnercode
-&yourredirecturl
-&scope=openid+service%3Ayourservicecode+profile+
-&claims={"userinfo":{" tag:sixdots.be,2016-06:claim_nationality": null},
-"id_token":{"auth_time": {"essential": true},"acr_values":{"value":["tag:sixdots.be,2016-06:acr_advanced"]
-}}}&state=anystate&nonce=anonce&prompt=login&max_age=1
-```
 ### 3.2.4. Token Response Specification
 The Token Response follow these specifications:
 
@@ -736,6 +736,6 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTM0ODc5MTM2LDkyOTE2NjU1OCw0MDcwMj
-c4NzAsLTk0Njc1MDE0NywyMDY3Nzg2NTE1XX0=
+eyJoaXN0b3J5IjpbMTY1OTY4NzI3OCw5MjkxNjY1NTgsNDA3MD
+I3ODcwLC05NDY3NTAxNDcsMjA2Nzc4NjUxNV19
 -->
