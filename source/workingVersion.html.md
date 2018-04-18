@@ -119,7 +119,12 @@ Parameter | Required | Specification | Parameter Explained
 An Authentication Response is an [OAuth 2.0 Authorization Response](https://tools.ietf.org/html/rfc6749#section-4.1.2) message. 
 
 The itsme Back-End provides an Authorization Code to the Service Provider Back-End. In the Response, the Service Provider Back-End knows that the User was successfully authenticated.
-
+ ```http--inline
+ HTTP/1.1 302 Found
+ Location: https://client.example.org/cb?
+ code=SplxlOBeZQQYbYS6WxSbIA&
+ state=af0ifjsldkj
+ ```
 As such, the Authentication Response will return the following parameters:
 
  Parameter | Provided | Description
@@ -128,12 +133,7 @@ As such, the Authentication Response will return the following parameters:
  **state** |  | The exact value received from the client, if the parameter was present in the Authentication Request.
 ### 3.1.3. Authentication Response Example
  
- ```http--inline
- HTTP/1.1 302 Found
- Location: https://client.example.org/cb?
- code=SplxlOBeZQQYbYS6WxSbIA&
- state=af0ifjsldkj
- ```
+
 ### 3.1.4. Authentication Errors
 As explained by OIDC [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://openid.net/specs/openid-connect-core-1_0.html#AuthError), if the authentication is NOT successful, the following errors can be triggered by itsme®:
 
@@ -737,6 +737,6 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2Nz
-UwMTQ3LDIwNjc3ODY1MTVdfQ==
+eyJoaXN0b3J5IjpbLTE2NDA3NjM1NTIsOTI5MTY2NTU4LDQwNz
+AyNzg3MCwtOTQ2NzUwMTQ3LDIwNjc3ODY1MTVdfQ==
 -->
