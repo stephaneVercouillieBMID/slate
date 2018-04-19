@@ -616,6 +616,8 @@ To get further information about token types, token request/response specificati
  
 It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
  ># 6. **FAQ**
+ >How After installing Itsme-UAT through Hockey-app on iPhone7, i get this message:  
+"Non-trusted company app developer"
 >**How can I set the level of security at the level of the App (5 digit code only without fingerprint or facial recognition  eg.)**?
 You can configure this option through the parameter “**acr_values**”, documented in   [this](#acrvalues) section. 
 
@@ -668,8 +670,8 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzgxMzQ4MTcsOTU5ODMwNzc1LC02MTA0ND
-I3OTMsMTc1ODA2NDMwLC00Mjc0MDM5NzgsMTM0Mjk3OTY5Nyw5
-MjkxNjY1NTgsNDA3MDI3ODcwLC05NDY3NTAxNDcsMjA2Nzc4Nj
-UxNV19
+eyJoaXN0b3J5IjpbLTYyNzAwNzcyOSw5NTk4MzA3NzUsLTYxMD
+Q0Mjc5MywxNzU4MDY0MzAsLTQyNzQwMzk3OCwxMzQyOTc5Njk3
+LDkyOTE2NjU1OCw0MDcwMjc4NzAsLTk0Njc1MDE0NywyMDY3Nz
+g2NTE1XX0=
 -->
