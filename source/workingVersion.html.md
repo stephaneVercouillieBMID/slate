@@ -616,9 +616,16 @@ To get further information about token types, token request/response specificati
  
 It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
  ># 6. **FAQ**
- >**How to use itsme-UAT through Hockey-app on IOS properly?( without 
-"Non-trusted company app developer" message)
+ >**How to use itsme-UAT through Hockey-app on IOS ( TODO only IOS?) properly? (without having"Non-trusted company app developer" message)**
 
+To be able to use itsme on Hockey App, you need to :  
+  
+Select : “Annuleer”  
+Go to your settings  
+Select : General  
+Select : Profiles & Device Management  
+Select : Belgian Mobile ID NV  
+Select : Trust
 
 >**How can I set the level of security at the level of the App (5 digit code only without fingerprint or facial recognition  eg.)**?
 You can configure this option through the parameter “**acr_values**”, documented in   [this](#acrvalues) section. 
@@ -672,8 +679,8 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxNDM3NjExODUsOTU5ODMwNzc1LC02MT
-A0NDI3OTMsMTc1ODA2NDMwLC00Mjc0MDM5NzgsMTM0Mjk3OTY5
-Nyw5MjkxNjY1NTgsNDA3MDI3ODcwLC05NDY3NTAxNDcsMjA2Nz
-c4NjUxNV19
+eyJoaXN0b3J5IjpbNjAyMjA5MTg2LDk1OTgzMDc3NSwtNjEwND
+QyNzkzLDE3NTgwNjQzMCwtNDI3NDAzOTc4LDEzNDI5Nzk2OTcs
+OTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2NzUwMTQ3LDIwNjc3OD
+Y1MTVdfQ==
 -->
