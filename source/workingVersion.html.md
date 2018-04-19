@@ -610,8 +610,25 @@ It is expected that you will also expose their signing and encryption keys in su
 
 Two Factor Authentication, also known as 2FA, two step verification or TFA (as an acronym), is an extra layer of security that is known as "multi factor authentication" that requires not only a password and username but also something that only that user has on them, i.e. a piece of information only they should know or have immediately to hand - such as a physical token.
 
-The purpose is to use username and password together with a piece of information that only the user knows makes it harder for potential intruders to gain access and steal that person's personal data or identity.
+The purpose is to use username and password together with a piece of information that only the user knows make it harder for potential intruders to gain access and steal that person's personal data or identity.
 
+2FA in the course of itsme(r):
+You must provide at least two from this list :
+	- knowledge (something you know), Eg. password
+	- possession (something you have), Eg. mobile phone
+	- inherence (something you are). Eg. biometrics
+ 
+With standard login/password on web app : you only have to provide something you know (i.e. the password).
+ 
+With itsme, web2app, you obviously have two factors : the itsme PIN and the mobile device.
+With app2app, it is still the same, as the two apps needs to be running on the same smartphone. Therefore, the attacker needs the device to initiate any malicious transaction. So there are still two factors : you must possess the mobile AND know the PIN.
+ 
+When you say (or your customer says) “Since you no longer need a second device to do the confirmation.” It is a miscomprehension of two factors. You don’t need to possess two things.
+ 
+Aside of that there's:
+With Rogue Apps, an attacker can attempt to intercept Codes, PIN, transaction details and (try to …) replay them: No need to “Possess” the Compromised Device, and attacker will in time obtain “Knowledge” of the PIN, compromising the 2 factors required. In theory this remains possible.
+ 
+So far for theory: We acknowledge this risk, treat it accordingly, and test if it works. itsme’s apps (iOS and Android) are  safeguarded to detect device compromises (and block). On top, even when compromised, make it (extremely) difficult to intercept the PIN, or replay transactions. As the official test by French ANSSI Authorities state it, for Gemalto’s SDK on Android:  “Even if root rights obtained, PIN cannot be obtained to generate OTP / Authentication Response” 
 
  
   >### <a name id="ServiceCode"></a>[Service Code Concept](#ServiceCode), 	What is it?
@@ -640,7 +657,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk4NjA0MTI2MSwtNDI3NDAzOTc4LDEzND
-I5Nzk2OTcsOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2NzUwMTQ3
-LDIwNjc3ODY1MTVdfQ==
+eyJoaXN0b3J5IjpbLTE2NjQ1MDI2MzYsLTQyNzQwMzk3OCwxMz
+QyOTc5Njk3LDkyOTE2NjU1OCw0MDcwMjc4NzAsLTk0Njc1MDE0
+NywyMDY3Nzg2NTE1XX0=
 -->
