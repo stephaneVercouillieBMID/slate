@@ -628,7 +628,7 @@ Select : Belgian Mobile ID NV
 Select : Trust
 
 >**Can I have my own itsme app (production) together with the itsme UAT app?**
-
+Currently, you can only have 1 itsme app on your device at one moment in time independently of Production, UAT or E2E.
 >**How can I set the level of security at the level of the App (5 digit code only without fingerprint or facial recognition  eg.)**?
 You can configure this option through the parameter “**acr_values**”, documented in   [this](#acrvalues) section. 
 
@@ -681,8 +681,8 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTk0MjEwNDA3LDk1OTgzMDc3NSwtNjEwND
-QyNzkzLDE3NTgwNjQzMCwtNDI3NDAzOTc4LDEzNDI5Nzk2OTcs
-OTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2NzUwMTQ3LDIwNjc3OD
-Y1MTVdfQ==
+eyJoaXN0b3J5IjpbMTgwMzg4NDYzMSw5NTk4MzA3NzUsLTYxMD
+Q0Mjc5MywxNzU4MDY0MzAsLTQyNzQwMzk3OCwxMzQyOTc5Njk3
+LDkyOTE2NjU1OCw0MDcwMjc4NzAsLTk0Njc1MDE0NywyMDY3Nz
+g2NTE1XX0=
 -->
