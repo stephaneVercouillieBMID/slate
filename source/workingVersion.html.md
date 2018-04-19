@@ -177,6 +177,8 @@ As per the [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.
 
 The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the **token_endpoint** key. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret` authentication methods are not supported since they are considered less secure.
 
+Do we need a App Client Secret on the OpenID client?
+
 In order to communicate with Token Endpoint, TLS MUST be implemented. See  [Section 16.17](http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements)  for more information on using TLS.
 
 ```http--inline
@@ -732,6 +734,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM0Mjk3OTY5Nyw5MjkxNjY1NTgsNDA3MD
-I3ODcwLC05NDY3NTAxNDcsMjA2Nzc4NjUxNV19
+eyJoaXN0b3J5IjpbLTE5MDg3NzEzMzYsMTM0Mjk3OTY5Nyw5Mj
+kxNjY1NTgsNDA3MDI3ODcwLC05NDY3NTAxNDcsMjA2Nzc4NjUx
+NV19
 -->
