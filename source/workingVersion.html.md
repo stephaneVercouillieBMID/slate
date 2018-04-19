@@ -617,18 +617,17 @@ You must provide at least two from this list :
 	- knowledge (something you know), Eg. password
 	- possession (something you have), Eg. mobile phone
 	- inherence (something you are). Eg. biometrics
- 
-With standard login/password on web app : you only have to provide something you know (i.e. the password).
- 
-With itsme, web2app, you obviously have two factors : the itsme PIN and the mobile device.
-With app2app, it is still the same, as the two apps needs to be running on the same smartphone. Therefore, the attacker needs the device to initiate any malicious transaction. So there are still two factors : you must possess the mobile AND know the PIN.
- 
+ 
+- With standard login/password on web app .ou only have to provide something you know (i.e. the password).
+- With itsme, web2app, you obviously have two factors : the itsme PIN and the mobile device.
+- With app2app, it is still the same, as the two apps needs to be running on the same smartphone. Therefore, the attacker needs the device to initiate any malicious transaction. So there are still two factors : you must possess the mobile AND know the PIN.
+ 
 When you say (or your customer says) “Since you no longer need a second device to do the confirmation.” It is a miscomprehension of two factors. You don’t need to possess two things.
- 
+ 
 Aside of that there's:
 With Rogue Apps, an attacker can attempt to intercept Codes, PIN, transaction details and (try to …) replay them: No need to “Possess” the Compromised Device, and attacker will in time obtain “Knowledge” of the PIN, compromising the 2 factors required. In theory this remains possible.
- 
-So far for theory: We acknowledge this risk, treat it accordingly, and test if it works. itsme’s apps (iOS and Android) are  safeguarded to detect device compromises (and block). On top, even when compromised, make it (extremely) difficult to intercept the PIN, or replay transactions. As the official test by French ANSSI Authorities state it, for Gemalto’s SDK on Android:  “Even if root rights obtained, PIN cannot be obtained to generate OTP / Authentication Response” 
+ 
+So far for theory: We acknowledge this risk, treat it accordingly, and test if it works. itsme’s apps (iOS and Android) are  safeguarded to detect device compromises (and block). On top, even when compromised, make it (extremely) difficult to intercept the PIN, or replay transactions. As the official test by French ANSSI Authorities state it, for Gemalto’s SDK on Android:  “Even if root rights obtained, PIN cannot be obtained to generate OTP / Authentication Response” 
 
  
   >### <a name id="ServiceCode"></a>[Service Code Concept](#ServiceCode), 	What is it?
@@ -657,7 +656,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NjQ1MDI2MzYsLTQyNzQwMzk3OCwxMz
-QyOTc5Njk3LDkyOTE2NjU1OCw0MDcwMjc4NzAsLTk0Njc1MDE0
-NywyMDY3Nzg2NTE1XX0=
+eyJoaXN0b3J5IjpbMTMxMzgyNzI2MiwtNDI3NDAzOTc4LDEzND
+I5Nzk2OTcsOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2NzUwMTQ3
+LDIwNjc3ODY1MTVdfQ==
 -->
