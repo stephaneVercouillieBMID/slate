@@ -303,8 +303,8 @@ email|email, email_verified|
 phone| phone_number, phone_number_verified| 
  address|address, with subfields,<br>street_address (newline separator \n)<br> locality <br> postal_code <br> country
   
-Is it normal that the scope "eid" is not mentioned in the supported scopes?
-The “eid” scope was introduced exclusively for FAS (BOSSA). 
+ <aside class="success">Is it normal that the scope "eid" is not mentioned in the supported scopes?
+The “eid” scope was introduced exclusively for FAS (BOSSA). </aside>
 
 #### 4.2.1.2 Example of an Authorization Request using "scope" values
 URL:
@@ -668,8 +668,8 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzMzY5MjI4LDk1OTgzMDc3NSwtNjEwND
-QyNzkzLDE3NTgwNjQzMCwtNDI3NDAzOTc4LDEzNDI5Nzk2OTcs
-OTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2NzUwMTQ3LDIwNjc3OD
-Y1MTVdfQ==
+eyJoaXN0b3J5IjpbMzgxMzQ4MTcsOTU5ODMwNzc1LC02MTA0ND
+I3OTMsMTc1ODA2NDMwLC00Mjc0MDM5NzgsMTM0Mjk3OTY5Nyw5
+MjkxNjY1NTgsNDA3MDI3ODcwLC05NDY3NTAxNDcsMjA2Nzc4Nj
+UxNV19
 -->
