@@ -627,6 +627,8 @@ Select : Profiles & Device Management
 Select : Belgian Mobile ID NV  
 Select : Trust
 
+>**Can I have my own itsme app (production) together with the itsme UAT app?**
+
 >**How can I set the level of security at the level of the App (5 digit code only without fingerprint or facial recognition  eg.)**?
 You can configure this option through the parameter “**acr_values**”, documented in   [this](#acrvalues) section. 
 
@@ -679,7 +681,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjAyMjA5MTg2LDk1OTgzMDc3NSwtNjEwND
+eyJoaXN0b3J5IjpbOTk0MjEwNDA3LDk1OTgzMDc3NSwtNjEwND
 QyNzkzLDE3NTgwNjQzMCwtNDI3NDAzOTc4LDEzNDI5Nzk2OTcs
 OTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2NzUwMTQ3LDIwNjc3OD
 Y1MTVdfQ==
