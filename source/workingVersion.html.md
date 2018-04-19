@@ -607,7 +607,10 @@ To get further information about token types, token request/response specificati
 It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
  ># 6. **FAQ**
 > **What is Two Factor Authentication?**
-> 
+
+Two Factor Authentication, also known as 2FA, two step verification or TFA (as an acronym), is an extra layer of security that is known as "multi factor authentication" that requires not only a password and username but also something that only that user has on them, i.e. a piece of information only they should know or have immediately to hand - such as a physical token.
+
+The purpose is to use username and password together with a piece of information that only the user knows makes it harder for potential intruders to gain access and steal that person's personal data or identity.
 
 
  
@@ -637,7 +640,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI1NjE1NTMzLC00Mjc0MDM5NzgsMTM0Mj
-k3OTY5Nyw5MjkxNjY1NTgsNDA3MDI3ODcwLC05NDY3NTAxNDcs
-MjA2Nzc4NjUxNV19
+eyJoaXN0b3J5IjpbMTk4NjA0MTI2MSwtNDI3NDAzOTc4LDEzND
+I5Nzk2OTcsOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2NzUwMTQ3
+LDIwNjc3ODY1MTVdfQ==
 -->
