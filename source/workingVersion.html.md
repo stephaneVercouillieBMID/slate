@@ -502,6 +502,10 @@ Authorization: Bearer SlAV32hkKG
 
 The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed. The itsme Back-End replies with the Identity Data that were requested in the Authorization Request.
  
+   
+What format does the certificate need to be?
+
+a ZIP file, X509 format (cer or crt). Not a pem file
 #### 4.3.1.3. User info Response Example
 
  (Not encrypted nor signed)
@@ -658,7 +662,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYxMDQ0Mjc5MywxNzU4MDY0MzAsLTQyNz
-QwMzk3OCwxMzQyOTc5Njk3LDkyOTE2NjU1OCw0MDcwMjc4NzAs
-LTk0Njc1MDE0NywyMDY3Nzg2NTE1XX0=
+eyJoaXN0b3J5IjpbLTI3MzA1ODY5MiwtNjEwNDQyNzkzLDE3NT
+gwNjQzMCwtNDI3NDAzOTc4LDEzNDI5Nzk2OTcsOTI5MTY2NTU4
+LDQwNzAyNzg3MCwtOTQ2NzUwMTQ3LDIwNjc3ODY1MTVdfQ==
 -->
