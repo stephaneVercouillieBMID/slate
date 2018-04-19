@@ -183,7 +183,8 @@ The Authentication Response includes a `code` parameter, a one-time authorizatio
 
 <aside class="success">Which information must be present to contact Token Endpoint?
 - Request MUST be a POST, not a GET
--  In header the Content-Type : application/x-www-form-urlencoded  MUST be added<aside
+-  In header the Content-Type : application/x-www-form-urlencoded  MUST be added</aside>
+
 <aside class="success">Do you need an App Client Secret on the OpenID client?
 OpenID allows multiple ways for authentication as a Service Provider. BMID only supports `private_key_jwt` as client authentication method with all the SSL requirements exposed via JWKSet, use the corresponding private key to encrypt/sign and decrypt/validate exchanged information. So other authentication methods such as `client_secret`(Open ID Connect default method but the less secured one are not supported since they are considered less secure. </aside>
 
@@ -685,8 +686,8 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyOTEyMTM3MzIsLTE4NzUxODY1MSw5NT
-k4MzA3NzUsLTYxMDQ0Mjc5MywxNzU4MDY0MzAsLTQyNzQwMzk3
-OCwxMzQyOTc5Njk3LDkyOTE2NjU1OCw0MDcwMjc4NzAsLTk0Nj
-c1MDE0NywyMDY3Nzg2NTE1XX0=
+eyJoaXN0b3J5IjpbOTEzMTE1ODgzLC0xODc1MTg2NTEsOTU5OD
+MwNzc1LC02MTA0NDI3OTMsMTc1ODA2NDMwLC00Mjc0MDM5Nzgs
+MTM0Mjk3OTY5Nyw5MjkxNjY1NTgsNDA3MDI3ODcwLC05NDY3NT
+AxNDcsMjA2Nzc4NjUxNV19
 -->
