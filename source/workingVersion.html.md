@@ -106,7 +106,7 @@ Parameter | Required | Specification | Parameter Explained
  **prompt** | Optional | MUST be `consent` if provided.|By giving 'consent' as value, the authorization server prompts the user for consent before returning information to the client. Offline access to data is not supported by BMID on purpose.
  **ui_locales** | Optional | Supported values are: {“fr”, “nl”, “en”, “de”}. Any other value will be ignored. |Can be used to specify the language to be used by the Open ID login page.
  **max_age** | Optional | Supported but not used |Specifies the allowable elapsed time in seconds since the last time the End-User was actively authenticated by the OP. If the elapsed time is greater than this value, the OP MUST attempt to actively re-authenticate the End-User. BMID does not maintain a session mechanism on purpose, an active authentication is thus always required.
- (#acrvalues)**acr_values**  | Optional | OPTIONAL and supported, though NOT RECOMMENDED. Two values are supported `tag:itsmetag:sixdots.be,2016-06:acr_basic`: Basic level will let the User to choose either fingerprint usage(if Device is compatible) or PIN, `tag:itsmetag:sixdots.be,2016-06:acr_advanced`: Advanced level will force the User to use PIN. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. |As there is no such idea of an existing session on itsme(r) Core, even if the `acr_values` is requested as a voluntarily claim, the `acr` value returned will always be the more constraining method in the `acr_values` list, or the authentication will fail. Usage of `acr` parameter in the `request` object is recommended over this parameter as it will be signed in the JWT token.| These values are used to specify the level of authentication the RP requires from the OP. BMID imposes more strict security rules on advanced level as for basic.
+[**acr_values**](#acrvalues)  | Optional | OPTIONAL and supported, though NOT RECOMMENDED. Two values are supported `tag:itsmetag:sixdots.be,2016-06:acr_basic`: Basic level will let the User to choose either fingerprint usage(if Device is compatible) or PIN, `tag:itsmetag:sixdots.be,2016-06:acr_advanced`: Advanced level will force the User to use PIN. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. |As there is no such idea of an existing session on itsme(r) Core, even if the `acr_values` is requested as a voluntarily claim, the `acr` value returned will always be the more constraining method in the `acr_values` list, or the authentication will fail. Usage of `acr` parameter in the `request` object is recommended over this parameter as it will be signed in the JWT token.| These values are used to specify the level of authentication the RP requires from the OP. BMID imposes more strict security rules on advanced level as for basic.
 **claims** | Optional | NOT RECOMMENDED. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted | MAY include claims for end user data.
  **request** | Optional | See [Passing Request Parameters as JWTs](#JWTRequest)
  **response_mode** | Unsupported | MUST not be used. Any supplied value will be ignored.|
@@ -607,7 +607,7 @@ To get further information about token types, token request/response specificati
 It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
  ># 6. **FAQ**
 >**How can I set the level of security at the level of the App (5 digit code only without fingerprint or facial recognition  eg.)**?
-You can configure this option through the parameter “**acr_values**”, documented in  <a name id="acrvalues">this</a> section.
+You can configure this option through the parameter “**acr_values**”, documented in   section. [this](#acrvalues)
 
 > **What is Two Factor Authentication?**
 
@@ -658,7 +658,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2MjczNTI1MywxNzU4MDY0MzAsLTQyNz
-QwMzk3OCwxMzQyOTc5Njk3LDkyOTE2NjU1OCw0MDcwMjc4NzAs
-LTk0Njc1MDE0NywyMDY3Nzg2NTE1XX0=
+eyJoaXN0b3J5IjpbLTEzMDg3MTUyNDEsMTc1ODA2NDMwLC00Mj
+c0MDM5NzgsMTM0Mjk3OTY5Nyw5MjkxNjY1NTgsNDA3MDI3ODcw
+LC05NDY3NTAxNDcsMjA2Nzc4NjUxNV19
 -->
