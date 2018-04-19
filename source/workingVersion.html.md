@@ -302,7 +302,10 @@ The following scope values are supported and allow access to predefined sets of 
 email|email, email_verified|
 phone| phone_number, phone_number_verified| 
  address|address, with subfields,<br>street_address (newline separator \n)<br> locality <br> postal_code <br> country
+  
 
+Is it normal that the scope "eid" is not mentioned in the supported scopes?
+The “eid” scope was introduced exclusively for FAS (BOSSA). Because they didn’t want to use a JWT request object and the corresponding “eid” requested claim…  But, at the end, it could be useful for any partner that needs the eid related claims.
 #### 4.2.1.2 Example of an Authorization Request using "scope" values
 URL:
 ```http--inline
@@ -665,7 +668,8 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTU5ODMwNzc1LC02MTA0NDI3OTMsMTc1OD
-A2NDMwLC00Mjc0MDM5NzgsMTM0Mjk3OTY5Nyw5MjkxNjY1NTgs
-NDA3MDI3ODcwLC05NDY3NTAxNDcsMjA2Nzc4NjUxNV19
+eyJoaXN0b3J5IjpbMTM1OTc5NDQ5LDk1OTgzMDc3NSwtNjEwND
+QyNzkzLDE3NTgwNjQzMCwtNDI3NDAzOTc4LDEzNDI5Nzk2OTcs
+OTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2NzUwMTQ3LDIwNjc3OD
+Y1MTVdfQ==
 -->
