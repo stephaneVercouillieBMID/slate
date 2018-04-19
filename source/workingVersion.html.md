@@ -606,108 +606,7 @@ To get further information about token types, token request/response specificati
  
 It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
  ># 6. **FAQ**
- >## <a name="jwks"></a> JWKSet
- >
- >### What is a JWKSet?
- We require you to expose a set of public key (a signature key & one encryption key) to setup the connectivity.
- 
- For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there).
-  
- The signature key is used to verify the Service provider when they come fetch data on a client.
- 
- The encryption key is used to encrypt data so that nobody can read the data which we are transfering apart from the service provider component who has the right to access these data (so that you can encode/reencode the https in intern in a less secured component; it stays encrypted).
-  
- If the question is ONLY related to OpenID Connect (OIDC) aspects,
- >
- > _“For signature and encryption, does BMID accept either RP self-signed certificates or certificates signed by an internal PKI (in which case we need to provide also our internal CA certificate)?”_
- > 
-  >_The RP (the partner) provides his public key used for encryption and the other one used for signature of OIDC JWT (= JSON Web Tokens), using a JSON file called “JWKSet”. (sample JWKSet for Itsme OpenID Provider)_
- >
- - This JWKSet is accessible, using a secured HTTPS URL.
- (sample HTTPS URL for OpenID Provider https://merchant.itsme.be/oidc/jwkSet)
-  
- - This HTTPS URL must be communicated to us, during the partner on-boarding.<br>
- - This HTTPS URL must be protected using a valid certificates chain starting from a Root CA trusted by our backend.
-  >
- During on-boarding, we can check that we have all the required certificates to establish the trust.<br>
- So, on the HTTPS protocol level, the connections must be secured using trusted Root CA (not self-signed).
- In contrary, the key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.
- 
- >### How to create JWKSet?
- 
- The following JSON Web Key Generator can be used to create JWKSet
-  ```
- https://mkjwk.org/ 
-  ```
- Another resource you could use to generate your JWKSet is: 
-  ```
- https://connect2id.com/products/nimbus-jose-jwt/examples/jwk-generation
-  ```
- Another option (using python) is available at:
-  ```
- https://stackoverflow.com/questions/42504079/how-do-you-extract-n-and-e-from-a-rsa-public-key-in-python
-  ``` 
- 
- 
- >### How to Transfer JWKSets?
- The following link can be used to convert encoded public and private keys to JWKSet format:
-  ```
- https://www.npmjs.com/package/rsa-pem-to-jwk
-  ```
-  >
- >### What are the JWKSet requirements?
- In Opend ID Connect 1.0 the important is the JWKSet which is exposed on a public URL and the linked chain of certificates which is included in our trust store.
- >
- This is 1 per partner. So in UAT 1, in Prod, for your 4 clients, it would be 1 JWKSet if it's under Norbloc name or 4 JWKSet if it's under each client name.
- >
- When you send request to us,
- 
-   - You sign the request with your 'sign' private key and to encrypt it you use our 'encryption' public key.
-   - Once we answer your request, we send an encrypted JWT token (based on your 'encryption' public key) which needs to be decrypted with your 'encryption' private key. 
-   - Once decrypted, you need to validate our signature with our 'public' sign key found in our JWKSet.
- 
- We are here working in HTTPS Client Authentication.For more details the best is to refer to the Open ID Connect documentation(http://openid.net/connect/) - and more specifically follow links relating JWT encryption & signing.
- 
- For the call back URI (not URL) you will need in UAT 4 URI, one per service. So in Prod, for 4 clients using each the 4 services, you would have at least 16 Service codes.
- 
- >### What are the JWKSet encryption requirements?
- In the JWKSet, encryption should be done with **RSA256**,  the signature in **SHA256** (in short the encryption algorithm is RS256) and the key size is 2048 bits.
- 
- As a comparison here's the public keys for itsme UAT JWKSet.<br/>
- >**JWKSET itsme(r) UAT**
-  
- 
- ```json--inline
- {
- "keys": [
- {
- "kty": "RSA",
- "e": "AQAB",
- "use": "sig",
- "kid": "s1",
- "n": "46FaPodZLqflpnRlFpxwDWT7WNweWAtJ_QYJML2XjB71AlgW20D97VekezlxIudYXbp3aNSkIBcaBQGhzTNHQWuBPwTfemeH9KC2iOTEm3Bu2CsAtaeLzAJT2BjSC2Q4ZUAP2pUq1UQh1XoqjzViXzZIRV35eesKZD301bPsJ6E4z4VKkuzcCeG4jIicNWmbWjkdbdhDe39Ja-BhZrhRmfeoVUe_h2SuplVip4MycLggaO89LomHWF7GktNsmHkt1xOtBgWeCNYj7exXSegoR-29HMS4lzFielxOlr3K0oS8ImMHx-6aRbe3635vfn6Jy6Q9_uAlbWTUsdtFhnpofw"
- },
- {
- "kty": "RSA",
- "e": "AQAB",
- "use": "enc",
- "kid": "e1",
- "n": "rvwzdu-sVCABIgd4plRfoLifTZw6K7JKHuA8HeSgJvUYDUk5MPA7xNKQ5xIXyxisKUzMqIeGaWuaHoFTg4uy-mBFOpm-vG5yGr5GdMCtsA1Ub80x_MmdbkUG3MFsGqz7hE4VpQw0docrrsoS2D9plAMpGA3-_a2u6T1fxomBY5_sxFvyW3erkvjFPG3waU3b34txVIEvdZ6KAjAWR57Y6C749T6ky0eL_uBvPwcq9xmQ6O327MKU8sakEBXb57KDqe4Vm8CbezwIUAC23ia5sO1grqlJGDZW_dbosTcggCxgHW7m6j9RdkGR_mnmECukitwlNvXeCLQPFSunlUh52Q"
- }
- ]
- }
- ```  
- You can find the configuration parameters in in document « 33020 Technical Specification Service Provider OpenID Documentation » or via the following back-end URL:
- 
-  https://uatmerchant.sixdots.be/oidc/.well-known/openid-configuration<br> 
-  >### What should I do once I changed my JWKSet?
-  Please notify Support and create a new certificate.
- 
- >### What should I do once I changed my JWKSet but not the URL, does it mean no new certificates?<br>
-  You should contact support and mention the change to allow a refresh of the cache on back-end side, this should be solved in March where the refresh time will be 30 min.
-  
- A workaround to force a refresh, let the SP send a request with an unknown **"KID"** (key id).<br>
- Because not found in the current cache, this one will be refreshed. But the client has to correct his JWKSet first, if not yet done. 
+> What is Two-factor-authentication
  
   >### <a name id="ServiceCode"></a>[Service Code Concept](#ServiceCode), 	What is it?
   To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
@@ -735,7 +634,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyNzQwMzk3OCwxMzQyOTc5Njk3LDkyOT
-E2NjU1OCw0MDcwMjc4NzAsLTk0Njc1MDE0NywyMDY3Nzg2NTE1
-XX0=
+eyJoaXN0b3J5IjpbLTYxMDcxMDM5MiwtNDI3NDAzOTc4LDEzND
+I5Nzk2OTcsOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2NzUwMTQ3
+LDIwNjc3ODY1MTVdfQ==
 -->
