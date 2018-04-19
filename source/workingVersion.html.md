@@ -618,9 +618,10 @@ You must provide at least two from this list :
 	- possession (something you have), Eg. mobile phone
 	- inherence (something you are). Eg. biometrics
  
-- With standard login/password on web app .ou only have to provide something you know (i.e. the password).
-- With itsme, web2app, you obviously have two factors : the itsme PIN and the mobile device.
-- With app2app, it is still the same, as the two apps needs to be running on the same smartphone. Therefore, the attacker needs the device to initiate any malicious transaction. So there are still two factors : you must possess the mobile AND know the PIN.
+- With standard login/password on web app: You only have to provide something you know (i.e. the password).
+- With itsme, web2app, you obviously have two factors: The itsme PIN and the mobile device.
+- With app2app: It is still the same, as the two apps need to be running on the same smartphone. Therefore, the attacker needs the device to initiate any malicious transaction. So there are still two factors : you must possess the mobile AND you must know the PIN.
+ 
  
 When you say (or your customer says) “Since you no longer need a second device to do the confirmation.” It is a miscomprehension of two factors. You don’t need to possess two things.
  
@@ -656,7 +657,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMxMzgyNzI2MiwtNDI3NDAzOTc4LDEzND
+eyJoaXN0b3J5IjpbMjA1MTU3MjI0NCwtNDI3NDAzOTc4LDEzND
 I5Nzk2OTcsOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2NzUwMTQ3
 LDIwNjc3ODY1MTVdfQ==
 -->
