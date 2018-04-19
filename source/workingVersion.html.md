@@ -40,10 +40,11 @@ itsme® offers 3 services, which act as strong enablers for every process digita
  - Information to customize the user consent screen
  - Redirect URIs associated to your instances of itsme(r) services (to which the user will be redirected after the autentication)
  - JWKset URL, and associated SSL/TLS certificate
+  You can consult [our B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) for more information about this step.
  
- Can a same service point to separate SSL Certificates?
- Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSET. 
- You can consult [our B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) for more information about this step.
+<aside class="success"> Can a same service point to separate SSL Certificates?
+
+Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.</aside>
  
  <aside class="success">
  Once your Sandbox is created, you will receive:
@@ -664,7 +665,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY3MDQ0MzkwNiwtNjEwNDQyNzkzLDE3NT
-gwNjQzMCwtNDI3NDAzOTc4LDEzNDI5Nzk2OTcsOTI5MTY2NTU4
-LDQwNzAyNzg3MCwtOTQ2NzUwMTQ3LDIwNjc3ODY1MTVdfQ==
+eyJoaXN0b3J5IjpbOTU5ODMwNzc1LC02MTA0NDI3OTMsMTc1OD
+A2NDMwLC00Mjc0MDM5NzgsMTM0Mjk3OTY5Nyw5MjkxNjY1NTgs
+NDA3MDI3ODcwLC05NDY3NTAxNDcsMjA2Nzc4NjUxNV19
 -->
