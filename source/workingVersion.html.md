@@ -606,7 +606,10 @@ To get further information about token types, token request/response specificati
  
 It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
  ># 6. **FAQ**
-> What is Two-factor-authentication
+> **What is Two Factor Authentication?**
+> 
+
+
  
   >### <a name id="ServiceCode"></a>[Service Code Concept](#ServiceCode), 	What is it?
   To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
@@ -634,7 +637,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYxMDcxMDM5MiwtNDI3NDAzOTc4LDEzND
-I5Nzk2OTcsOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2NzUwMTQ3
-LDIwNjc3ODY1MTVdfQ==
+eyJoaXN0b3J5IjpbMTI1NjE1NTMzLC00Mjc0MDM5NzgsMTM0Mj
+k3OTY5Nyw5MjkxNjY1NTgsNDA3MDI3ODcwLC05NDY3NTAxNDcs
+MjA2Nzc4NjUxNV19
 -->
