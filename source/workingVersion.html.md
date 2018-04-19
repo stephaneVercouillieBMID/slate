@@ -178,7 +178,8 @@ As per the [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.
 The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the **token_endpoint** key. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret` authentication methods are not supported since they are considered less secure.
 
 Do we need a App Client Secret on the OpenID client?
-OpenID allows multiple ways for authentication as a Service Provider. BMID only supports `private_key_jwt` as client authentication method with all the SSL requirements exposed via JWKSet, use the corresponding private key to encrypt/sign and decrypt/validate exchanged information. So The `client_secret` authentication methods are not supported since they are considered less secure. So other authentication ways such as client_secret (Open ID Connect default method but the less secured one)
+OpenID allows multiple ways for authentication as a Service Provider. BMID only supports `private_key_jwt` as client authentication method with all the SSL requirements exposed via JWKSet, use the corresponding private key to encrypt/sign and decrypt/validate exchanged information. So other authentication methods such as `client_secret`(Open ID Connect default method but the less secured one are not supported since they are considered less secure. 
+
 In order to communicate with Token Endpoint, TLS MUST be implemented. See  [Section 16.17](http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements)  for more information on using TLS.
 
 ```http--inline
@@ -734,7 +735,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQxMjY5MTUxMiwxMzQyOTc5Njk3LDkyOT
+eyJoaXN0b3J5IjpbLTg4MDk0NTk5MiwxMzQyOTc5Njk3LDkyOT
 E2NjU1OCw0MDcwMjc4NzAsLTk0Njc1MDE0NywyMDY3Nzg2NTE1
 XX0=
 -->
