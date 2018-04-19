@@ -622,9 +622,6 @@ You must provide at least two from this list :
 - With itsme, web2app, you obviously have two factors: The itsme PIN and the mobile device.
 - With app2app: It is still the same, as the two apps need to be running on the same smartphone. Therefore, the attacker needs the device to initiate any malicious transaction. So there are still two factors : you must possess the mobile AND you must be acknowledged of the PIN.
  
- 
-When you say (or your customer says) “Since you no longer need a second device to do the confirmation.” It is a miscomprehension of two factors. You don’t need to possess two things.
- 
 Aside of that there's:
 With Rogue Apps, an attacker can attempt to intercept Codes, PIN, transaction details and (try to …) replay them: No need to “Possess” the Compromised Device, and attacker will in time obtain “Knowledge” of the PIN, compromising the 2 factors required. In theory this remains possible.
  
@@ -657,7 +654,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEwOTA5NzA2OSwtNDI3NDAzOTc4LDEzND
+eyJoaXN0b3J5IjpbMTY1ODczMzQzOCwtNDI3NDAzOTc4LDEzND
 I5Nzk2OTcsOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2NzUwMTQ3
 LDIwNjc3ODY1MTVdfQ==
 -->
