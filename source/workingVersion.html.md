@@ -607,7 +607,7 @@ To get further information about token types, token request/response specificati
 It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
  ># 6. **FAQ**
 >**How can I set the level of security at the level of the App (5 digit code only without fingerprint or facial recognition  eg.)**?
-You can configure this option through the parameter “**acr_values**”, documented in  section <a name id="acrvalues">this</a>.
+You can configure this option through the parameter “**acr_values**”, documented in  <a name id="acrvalues">this</a> section.
 
 > **What is Two Factor Authentication?**
 
@@ -658,7 +658,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAwNjM5MTA4MywxNzU4MDY0MzAsLTQyNz
+eyJoaXN0b3J5IjpbLTQ2MjczNTI1MywxNzU4MDY0MzAsLTQyNz
 QwMzk3OCwxMzQyOTc5Njk3LDkyOTE2NjU1OCw0MDcwMjc4NzAs
 LTk0Njc1MDE0NywyMDY3Nzg2NTE1XX0=
 -->
