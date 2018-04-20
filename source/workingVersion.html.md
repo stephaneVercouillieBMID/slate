@@ -638,13 +638,14 @@ Currently, you can only have 1 itsme app on your device at one moment in time in
 On iOS:  
 - for enrollment, it's always "be.bmid.itsme://" "  
 - for app to app actions, it's based on universal links and these are different for each environment:  
-|Environment|  |
-|--|--|
-|  |  |
 
-UAT  
-https://uatmobileapp.sixdots.be/mobile/processAction  
-https://uatmobileapp.sixdots.be/mobile/authorize  
+|Environment| URL |
+|--|--|
+| UAT |https://uatmobileapp.sixdots.be/mobile/processAction<br>https://uatmobileapp.sixdots.be/mobile/authorize  
+| |
+|  
+  
+
 E2E  
 https://e2emobileapp.sixdots.be/mobile/processAction  
 https://e2emobileapp.sixdots.be/mobile/authorize  
@@ -703,8 +704,8 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMjA4Njg2OTgsOTEzMTE1ODgzLC0xOD
-c1MTg2NTEsOTU5ODMwNzc1LC02MTA0NDI3OTMsMTc1ODA2NDMw
-LC00Mjc0MDM5NzgsMTM0Mjk3OTY5Nyw5MjkxNjY1NTgsNDA3MD
-I3ODcwLC05NDY3NTAxNDcsMjA2Nzc4NjUxNV19
+eyJoaXN0b3J5IjpbMTgzMjUyMDE1NSw5MTMxMTU4ODMsLTE4Nz
+UxODY1MSw5NTk4MzA3NzUsLTYxMDQ0Mjc5MywxNzU4MDY0MzAs
+LTQyNzQwMzk3OCwxMzQyOTc5Njk3LDkyOTE2NjU1OCw0MDcwMj
+c4NzAsLTk0Njc1MDE0NywyMDY3Nzg2NTE1XX0=
 -->
