@@ -71,7 +71,9 @@ Currently, the certificate is used to protect the JWKSet and it is not directly 
  
  Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
-<aside class="success"> **Can we re-use the same service for another environment?**</aside>
+<aside class="success"> Can we re-use the same service for another environment?
+No, We will create new services for the OIDC.
+</aside>
 
  # 3. Authenticating the User
 
@@ -707,9 +709,9 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg5Njc0MjU3NCwxNTY4NzUzNTA4LC0xNz
-Y0NDA0OTQ0LDkxMzExNTg4MywtMTg3NTE4NjUxLDk1OTgzMDc3
-NSwtNjEwNDQyNzkzLDE3NTgwNjQzMCwtNDI3NDAzOTc4LDEzND
-I5Nzk2OTcsOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2NzUwMTQ3
-LDIwNjc3ODY1MTVdfQ==
+eyJoaXN0b3J5IjpbLTEzNjE3MDM1NjIsMTU2ODc1MzUwOCwtMT
+c2NDQwNDk0NCw5MTMxMTU4ODMsLTE4NzUxODY1MSw5NTk4MzA3
+NzUsLTYxMDQ0Mjc5MywxNzU4MDY0MzAsLTQyNzQwMzk3OCwxMz
+QyOTc5Njk3LDkyOTE2NjU1OCw0MDcwMjc4NzAsLTk0Njc1MDE0
+NywyMDY3Nzg2NTE1XX0=
 -->
