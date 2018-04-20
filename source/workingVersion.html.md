@@ -716,6 +716,14 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  So we would need a service code for the register operation with the following callback URL: http://localhost:23874/web2app/Identify/IdentificationCallBack  
  
  First, you need to  validate that you are able (and **authorized**) to keep the "xxx UAT JWKSet signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens.
+>**Why App-to-Back-end communication does not exist but a App2B2B connection does?
+
+We are sending the user information not through an app but to a highly authentified server (which implies to put in place necessary measure to protect the data confidentiality)  
+  
+This condition implies the need to put in place a backend layer on your side.  
+  
+We require you to expose a set of public key (a signature key & one encruption key) otherwise we cannot setup the connectivity with them.  
+For example our E2E jwkSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there).
  <!--stackedit_data:
 -eyJoaXN0b3J5IjpbMTExNjg1ODVdfQ==
 +eyJoaXN0b3J5IjpbLTE4Nzg1Nzg0NTZdfQ==
@@ -731,11 +739,11 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIzNDU1NTI4NCw1MTYyNzAzMCwtNDIxOT
-c3MiwtODAxMjczMDUyLDE0MzAwNTEwNSwyMTEzMzg3NzQyLC0x
-NjY0OTU2MTA1LC0xMzYxNzAzNTYyLDE1Njg3NTM1MDgsLTE3Nj
-Q0MDQ5NDQsOTEzMTE1ODgzLC0xODc1MTg2NTEsOTU5ODMwNzc1
-LC02MTA0NDI3OTMsMTc1ODA2NDMwLC00Mjc0MDM5NzgsMTM0Mj
-k3OTY5Nyw5MjkxNjY1NTgsNDA3MDI3ODcwLC05NDY3NTAxNDdd
-fQ==
+eyJoaXN0b3J5IjpbOTQ0NDIwMzAyLC0yMzQ1NTUyODQsNTE2Mj
+cwMzAsLTQyMTk3NzIsLTgwMTI3MzA1MiwxNDMwMDUxMDUsMjEx
+MzM4Nzc0MiwtMTY2NDk1NjEwNSwtMTM2MTcwMzU2MiwxNTY4Nz
+UzNTA4LC0xNzY0NDA0OTQ0LDkxMzExNTg4MywtMTg3NTE4NjUx
+LDk1OTgzMDc3NSwtNjEwNDQyNzkzLDE3NTgwNjQzMCwtNDI3ND
+AzOTc4LDEzNDI5Nzk2OTcsOTI5MTY2NTU4LDQwNzAyNzg3MF19
+
 -->
