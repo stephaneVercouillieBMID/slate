@@ -46,7 +46,7 @@ itsme® offers 3 services, which act as strong enablers for every process digita
 
 Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.</aside>
  
-<aside class="success"> Can a same service point to separate SSL Certificates?
+<aside class="success"> What should I do once I changed my JWKSet URL? You must notify Support and create a new certificate accordingly.</aside>
 
  <aside class="success">
  Once your Sandbox is created, you will receive:
@@ -731,7 +731,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc4MTgxODMyOSw1MTYyNzAzMCwtNDIxOT
+eyJoaXN0b3J5IjpbLTIzNDU1NTI4NCw1MTYyNzAzMCwtNDIxOT
 c3MiwtODAxMjczMDUyLDE0MzAwNTEwNSwyMTEzMzg3NzQyLC0x
 NjY0OTU2MTA1LC0xMzYxNzAzNTYyLDE1Njg3NTM1MDgsLTE3Nj
 Q0MDQ5NDQsOTEzMTE1ODgzLC0xODc1MTg2NTEsOTU5ODMwNzc1
