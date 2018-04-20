@@ -55,7 +55,7 @@ Currently, the certificate is used to protect the JWKSet and it is not directly 
  </aside>
 
  Please consult <a name="ServiceCode"></a>[Service Code Concept](#ServiceCode) for more information about the notion of Service Code. 
-<aside class="success">What are the consequences of a changing label in sandbox environment?</aside>
+<aside class="success">What are the consequences of a changing label in sandbox environment?</aside>All pending approval/login will result in a "Wrong PIN".
 
  ## 2.2. Integration of itsme® services
  Once your Sandbox has been created, you can start working on the integration itself. All the information needed to do so is the object of this document.
@@ -711,7 +711,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNDEyMTA1MTUsLTEzNjE3MDM1NjIsMT
+eyJoaXN0b3J5IjpbLTE2NjQ5NTYxMDUsLTEzNjE3MDM1NjIsMT
 U2ODc1MzUwOCwtMTc2NDQwNDk0NCw5MTMxMTU4ODMsLTE4NzUx
 ODY1MSw5NTk4MzA3NzUsLTYxMDQ0Mjc5MywxNzU4MDY0MzAsLT
 QyNzQwMzk3OCwxMzQyOTc5Njk3LDkyOTE2NjU1OCw0MDcwMjc4
