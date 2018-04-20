@@ -637,12 +637,12 @@ Currently, you can only have 1 itsme app on your device at one moment in time in
 >**Has itsme app in Prod & UAT different URL-scheme's?**
 On iOS:  
 - for enrollment, it's always "be.bmid.itsme://" "  
-- for app to app actions, it's based on universal links and these are different for each environment:  
+- for app to app actions, it's based on universal links and these are different for each environment de 
 
 |Environment| URL |
 |--|--|
 | UAT|https://uatmobileapp.sixdots.be/mobile/processAction<br>https://uatmobileapp.sixdots.be/mobile/authorize  
-| E2E  |https://e2emobileapp.sixdots.be/mobile/processAction https://e2emobileapp.sixdots.be/mobile/authorize 
+| E2E  |https://e2emobileapp.sixdots.be/mobile/processAction<br> https://e2emobileapp.sixdots.be/mobile/authorize 
 | PRD |https://mobileapp.sixdots.be/mobile/processAction  https://mobileapp.sixdots.be/mobile/authorize
 
   
@@ -703,8 +703,8 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMwNjk1ODQ0NSw5MTMxMTU4ODMsLTE4Nz
-UxODY1MSw5NTk4MzA3NzUsLTYxMDQ0Mjc5MywxNzU4MDY0MzAs
-LTQyNzQwMzk3OCwxMzQyOTc5Njk3LDkyOTE2NjU1OCw0MDcwMj
-c4NzAsLTk0Njc1MDE0NywyMDY3Nzg2NTE1XX0=
+eyJoaXN0b3J5IjpbLTEyMjYzNjU1MzgsOTEzMTE1ODgzLC0xOD
+c1MTg2NTEsOTU5ODMwNzc1LC02MTA0NDI3OTMsMTc1ODA2NDMw
+LC00Mjc0MDM5NzgsMTM0Mjk3OTY5Nyw5MjkxNjY1NTgsNDA3MD
+I3ODcwLC05NDY3NTAxNDcsMjA2Nzc4NjUxNV19
 -->
