@@ -634,6 +634,23 @@ Select : Trust
 >**Can I have my own itsme app (production) together with the itsme UAT app?**
 Currently, you can only have 1 itsme app on your device at one moment in time independently of Production, UAT or E2E.
 
+>**Has itsme app in Prod & UAT different URL-scheme's?**
+On iOS:  
+- for enrollment, it's always "be.bmid.itsme://" "  
+- for app to app actions, it's based on universal links and these are different for each environment:  
+|Environment|  |
+|--|--|
+|  |  |
+
+UAT  
+https://uatmobileapp.sixdots.be/mobile/processAction  
+https://uatmobileapp.sixdots.be/mobile/authorize  
+E2E  
+https://e2emobileapp.sixdots.be/mobile/processAction  
+https://e2emobileapp.sixdots.be/mobile/authorize  
+PRD  
+https://mobileapp.sixdots.be/mobile/processAction  
+https://mobileapp.sixdots.be/mobile/authorize
 >**How can I set the level of security at the level of the App (5 digit code only without fingerprint or facial recognition  eg.)**?
 You can configure this option through the parameter “**acr_values**”, documented in   [this](#acrvalues) section. 
 
@@ -686,8 +703,8 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTEzMTE1ODgzLC0xODc1MTg2NTEsOTU5OD
-MwNzc1LC02MTA0NDI3OTMsMTc1ODA2NDMwLC00Mjc0MDM5Nzgs
-MTM0Mjk3OTY5Nyw5MjkxNjY1NTgsNDA3MDI3ODcwLC05NDY3NT
-AxNDcsMjA2Nzc4NjUxNV19
+eyJoaXN0b3J5IjpbLTIxMjA4Njg2OTgsOTEzMTE1ODgzLC0xOD
+c1MTg2NTEsOTU5ODMwNzc1LC02MTA0NDI3OTMsMTc1ODA2NDMw
+LC00Mjc0MDM5NzgsMTM0Mjk3OTY5Nyw5MjkxNjY1NTgsNDA3MD
+I3ODcwLC05NDY3NTAxNDcsMjA2Nzc4NjUxNV19
 -->
