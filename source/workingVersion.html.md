@@ -503,6 +503,7 @@ The content type of the response will be `application/JWT`. The response will be
 The UserInfo endpoint can be accessed only with a valid **access_token** and for a very limited duration after end user authentication. There must be _less than 3 minutes_ between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info Endpoint.
 The Access Token will define the list of Data that will be provided back to the client. In order to request specific claims, you can  [use scopes](https://stackedit.io/app#stClaims)  in the Authentication Request and/or  [use the claims parameter](https://stackedit.io/app#Claims-Request)  of the  request Object.
 
+
 #### 4.3.1.1. User info Request Specification
 As per specified [OIDC UserInfo Request](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest).
 
@@ -728,10 +729,11 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyMTk3NzIsLTgwMTI3MzA1MiwxNDMwMD
-UxMDUsMjExMzM4Nzc0MiwtMTY2NDk1NjEwNSwtMTM2MTcwMzU2
-MiwxNTY4NzUzNTA4LC0xNzY0NDA0OTQ0LDkxMzExNTg4MywtMT
-g3NTE4NjUxLDk1OTgzMDc3NSwtNjEwNDQyNzkzLDE3NTgwNjQz
-MCwtNDI3NDAzOTc4LDEzNDI5Nzk2OTcsOTI5MTY2NTU4LDQwNz
-AyNzg3MCwtOTQ2NzUwMTQ3LDIwNjc3ODY1MTVdfQ==
+eyJoaXN0b3J5IjpbNTE2MjcwMzAsLTQyMTk3NzIsLTgwMTI3Mz
+A1MiwxNDMwMDUxMDUsMjExMzM4Nzc0MiwtMTY2NDk1NjEwNSwt
+MTM2MTcwMzU2MiwxNTY4NzUzNTA4LC0xNzY0NDA0OTQ0LDkxMz
+ExNTg4MywtMTg3NTE4NjUxLDk1OTgzMDc3NSwtNjEwNDQyNzkz
+LDE3NTgwNjQzMCwtNDI3NDAzOTc4LDEzNDI5Nzk2OTcsOTI5MT
+Y2NTU4LDQwNzAyNzg3MCwtOTQ2NzUwMTQ3LDIwNjc3ODY1MTVd
+fQ==
 -->
