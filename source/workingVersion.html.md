@@ -46,6 +46,8 @@ itsme® offers 3 services, which act as strong enablers for every process digita
 
 Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.</aside>
  
+<aside class="success"> Can a same service point to separate SSL Certificates?
+
  <aside class="success">
  Once your Sandbox is created, you will receive:
   <ul> 
@@ -729,11 +731,11 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTE2MjcwMzAsLTQyMTk3NzIsLTgwMTI3Mz
-A1MiwxNDMwMDUxMDUsMjExMzM4Nzc0MiwtMTY2NDk1NjEwNSwt
-MTM2MTcwMzU2MiwxNTY4NzUzNTA4LC0xNzY0NDA0OTQ0LDkxMz
-ExNTg4MywtMTg3NTE4NjUxLDk1OTgzMDc3NSwtNjEwNDQyNzkz
-LDE3NTgwNjQzMCwtNDI3NDAzOTc4LDEzNDI5Nzk2OTcsOTI5MT
-Y2NTU4LDQwNzAyNzg3MCwtOTQ2NzUwMTQ3LDIwNjc3ODY1MTVd
+eyJoaXN0b3J5IjpbLTc4MTgxODMyOSw1MTYyNzAzMCwtNDIxOT
+c3MiwtODAxMjczMDUyLDE0MzAwNTEwNSwyMTEzMzg3NzQyLC0x
+NjY0OTU2MTA1LC0xMzYxNzAzNTYyLDE1Njg3NTM1MDgsLTE3Nj
+Q0MDQ5NDQsOTEzMTE1ODgzLC0xODc1MTg2NTEsOTU5ODMwNzc1
+LC02MTA0NDI3OTMsMTc1ODA2NDMwLC00Mjc0MDM5NzgsMTM0Mj
+k3OTY5Nyw5MjkxNjY1NTgsNDA3MDI3ODcwLC05NDY3NTAxNDdd
 fQ==
 -->
