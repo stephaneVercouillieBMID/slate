@@ -483,7 +483,7 @@ Depending on how you declared claims in the Authentication Request, you will rec
 - The UserInfo Endpoint
 - The Token Endpoint, in the ID Token
 
-<aside class="success">Should there be 2 calls to itsme for this schedule, one for Token request & one for Userinfo request?    </aside>
+<aside class="success">Should there be 2 calls to itsme(r) for this schedule, one for Token Request & one for UserInfo Request?    </aside>
 
 ### 4.3.1. UserInfo Endpoint
 As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest), 
@@ -715,10 +715,10 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQxMzk4NjIwMywxNDMwMDUxMDUsMjExMz
-M4Nzc0MiwtMTY2NDk1NjEwNSwtMTM2MTcwMzU2MiwxNTY4NzUz
-NTA4LC0xNzY0NDA0OTQ0LDkxMzExNTg4MywtMTg3NTE4NjUxLD
-k1OTgzMDc3NSwtNjEwNDQyNzkzLDE3NTgwNjQzMCwtNDI3NDAz
-OTc4LDEzNDI5Nzk2OTcsOTI5MTY2NTU4LDQwNzAyNzg3MCwtOT
-Q2NzUwMTQ3LDIwNjc3ODY1MTVdfQ==
+eyJoaXN0b3J5IjpbLTE3MDU3MTY2MjQsMTQzMDA1MTA1LDIxMT
+MzODc3NDIsLTE2NjQ5NTYxMDUsLTEzNjE3MDM1NjIsMTU2ODc1
+MzUwOCwtMTc2NDQwNDk0NCw5MTMxMTU4ODMsLTE4NzUxODY1MS
+w5NTk4MzA3NzUsLTYxMDQ0Mjc5MywxNzU4MDY0MzAsLTQyNzQw
+Mzk3OCwxMzQyOTc5Njk3LDkyOTE2NjU1OCw0MDcwMjc4NzAsLT
+k0Njc1MDE0NywyMDY3Nzg2NTE1XX0=
 -->
