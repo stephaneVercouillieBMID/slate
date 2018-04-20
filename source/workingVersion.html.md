@@ -692,6 +692,8 @@ With Rogue Apps, an attacker can attempt to intercept Codes, PIN, transaction de
  
 So far for theory: We acknowledge this risk, treat it accordingly, and test if it works. itsme’s apps (iOS and Android) are  safeguarded to detect device compromises (and block). On top, even when compromised, make it (extremely) difficult to intercept the PIN, or replay transactions. As the official test by French ANSSI Authorities state it, for Gemalto’s SDK on Android:  “Even if root rights obtained, PIN cannot be obtained to generate OTP / Authentication Response” 
 //TODO
+
+>$$What is the purpose of the https://uatmerchant.sixdots.be/oidc/register? Seems to be a link to be registered as a SP, but do we make use of it?
  
   >### <a name id="ServiceCode"></a>[Service Code Concept](#ServiceCode), 	What is it?
   To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
@@ -719,10 +721,10 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwMTI3MzA1MiwxNDMwMDUxMDUsMjExMz
-M4Nzc0MiwtMTY2NDk1NjEwNSwtMTM2MTcwMzU2MiwxNTY4NzUz
-NTA4LC0xNzY0NDA0OTQ0LDkxMzExNTg4MywtMTg3NTE4NjUxLD
-k1OTgzMDc3NSwtNjEwNDQyNzkzLDE3NTgwNjQzMCwtNDI3NDAz
-OTc4LDEzNDI5Nzk2OTcsOTI5MTY2NTU4LDQwNzAyNzg3MCwtOT
-Q2NzUwMTQ3LDIwNjc3ODY1MTVdfQ==
+eyJoaXN0b3J5IjpbMjA2NDE4NTQyLC04MDEyNzMwNTIsMTQzMD
+A1MTA1LDIxMTMzODc3NDIsLTE2NjQ5NTYxMDUsLTEzNjE3MDM1
+NjIsMTU2ODc1MzUwOCwtMTc2NDQwNDk0NCw5MTMxMTU4ODMsLT
+E4NzUxODY1MSw5NTk4MzA3NzUsLTYxMDQ0Mjc5MywxNzU4MDY0
+MzAsLTQyNzQwMzk3OCwxMzQyOTc5Njk3LDkyOTE2NjU1OCw0MD
+cwMjc4NzAsLTk0Njc1MDE0NywyMDY3Nzg2NTE1XX0=
 -->
