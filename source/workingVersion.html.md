@@ -363,7 +363,8 @@ Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |[Specific
 E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
 NRN | not supported|
 
- <aside class="success"> Taking into account you allowed to receive the NRN from us, we can't and get access to NRN and block the access to the eID group else it would prevent you to receive the NRN <:
+ <aside class="success"> Taking into account you allowed to receive the NRN from us, we can't and get access to NRN and block the access to the eID group else it would prevent you to receive the NRN </aside> TODO 
+ 
 #### <b id="example-endpoint"></b> 4.2.2.1. Set of Request Parameter Adapted to itsme(r)
 
 ```json--inline
@@ -712,7 +713,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY0MDUwOTAwMiwtMTY2NDk1NjEwNSwtMT
+eyJoaXN0b3J5IjpbMTEwMDk4NDc1MywtMTY2NDk1NjEwNSwtMT
 M2MTcwMzU2MiwxNTY4NzUzNTA4LC0xNzY0NDA0OTQ0LDkxMzEx
 NTg4MywtMTg3NTE4NjUxLDk1OTgzMDc3NSwtNjEwNDQyNzkzLD
 E3NTgwNjQzMCwtNDI3NDAzOTc4LDEzNDI5Nzk2OTcsOTI5MTY2
