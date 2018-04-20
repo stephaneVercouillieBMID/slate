@@ -477,7 +477,7 @@ A JSON object with the following keys: (only keys with cardinality \\\[1..1\\\] 
 `{ "securityLevel": "SIM\\\_AND\\\_SOFT", "bindLevel": "SIM\\\_AND\\\_SOFT", "mcc": 206 }`
 ## 4.3. Getting Data
 
-As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest(http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
+As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest),
 
 Depending on how you declared claims in the Authentication Request, you will receive the user data from
 - The UserInfo Endpoint
@@ -715,7 +715,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MDU3MTY2MjQsMTQzMDA1MTA1LDIxMT
+eyJoaXN0b3J5IjpbLTExMzI2NjAwOTUsMTQzMDA1MTA1LDIxMT
 MzODc3NDIsLTE2NjQ5NTYxMDUsLTEzNjE3MDM1NjIsMTU2ODc1
 MzUwOCwtMTc2NDQwNDk0NCw5MTMxMTU4ODMsLTE4NzUxODY1MS
 w5NTk4MzA3NzUsLTYxMDQ0Mjc5MywxNzU4MDY0MzAsLTQyNzQw
