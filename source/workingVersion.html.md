@@ -71,7 +71,7 @@ Currently, the certificate is used to protect the JWKSet and it is not directly 
  
  Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
-<aside class="success"> <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside>
+<aside class="success"> **Can we re-use the same service for another environment?**</aside>
 
  # 3. Authenticating the User
 
@@ -707,9 +707,9 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU2ODc1MzUwOCwtMTc2NDQwNDk0NCw5MT
-MxMTU4ODMsLTE4NzUxODY1MSw5NTk4MzA3NzUsLTYxMDQ0Mjc5
-MywxNzU4MDY0MzAsLTQyNzQwMzk3OCwxMzQyOTc5Njk3LDkyOT
-E2NjU1OCw0MDcwMjc4NzAsLTk0Njc1MDE0NywyMDY3Nzg2NTE1
-XX0=
+eyJoaXN0b3J5IjpbMTg5Njc0MjU3NCwxNTY4NzUzNTA4LC0xNz
+Y0NDA0OTQ0LDkxMzExNTg4MywtMTg3NTE4NjUxLDk1OTgzMDc3
+NSwtNjEwNDQyNzkzLDE3NTgwNjQzMCwtNDI3NDAzOTc4LDEzND
+I5Nzk2OTcsOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2NzUwMTQ3
+LDIwNjc3ODY1MTVdfQ==
 -->
