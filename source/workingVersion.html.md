@@ -718,12 +718,11 @@ For example, assuming that one SP would like to use login as an itsme(r) service
  First, you need to  validate that you are able (and **authorized**) to keep the "xxx UAT JWKSet signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens.
 >**Why App2Back-end communication does not exist but a App2B2B connection does instead?**
 
-We are sending the user information not through an app but to a highly authentified server (which implies to put in place necessary measure to protect the data confidentiality)  
+We are sending the user information not through an app but to a highly authenticated server (which implies to put in place necessary measure to protect the data confidentiality)  
+This condition implies the need to put in place a back end layer on your side.  
   
-This condition implies the need to put in place a backend layer on your side.  
   
-We require you to expose a set of public key (a signature key & one encryption key) otherwise we cannot setup the connectivity with them.  
-For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there).
+
  <!--stackedit_data:
 -eyJoaXN0b3J5IjpbMTExNjg1ODVdfQ==
 +eyJoaXN0b3J5IjpbLTE4Nzg1Nzg0NTZdfQ==
@@ -739,11 +738,11 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzMDMyNTY2MSwtMjM0NTU1Mjg0LDUxNj
-I3MDMwLC00MjE5NzcyLC04MDEyNzMwNTIsMTQzMDA1MTA1LDIx
-MTMzODc3NDIsLTE2NjQ5NTYxMDUsLTEzNjE3MDM1NjIsMTU2OD
-c1MzUwOCwtMTc2NDQwNDk0NCw5MTMxMTU4ODMsLTE4NzUxODY1
-MSw5NTk4MzA3NzUsLTYxMDQ0Mjc5MywxNzU4MDY0MzAsLTQyNz
-QwMzk3OCwxMzQyOTc5Njk3LDkyOTE2NjU1OCw0MDcwMjc4NzBd
-fQ==
+eyJoaXN0b3J5IjpbLTEyMjY0Mzk0MzksLTIzNDU1NTI4NCw1MT
+YyNzAzMCwtNDIxOTc3MiwtODAxMjczMDUyLDE0MzAwNTEwNSwy
+MTEzMzg3NzQyLC0xNjY0OTU2MTA1LC0xMzYxNzAzNTYyLDE1Nj
+g3NTM1MDgsLTE3NjQ0MDQ5NDQsOTEzMTE1ODgzLC0xODc1MTg2
+NTEsOTU5ODMwNzc1LC02MTA0NDI3OTMsMTc1ODA2NDMwLC00Mj
+c0MDM5NzgsMTM0Mjk3OTY5Nyw5MjkxNjY1NTgsNDA3MDI3ODcw
+XX0=
 -->
