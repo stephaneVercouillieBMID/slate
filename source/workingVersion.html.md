@@ -641,17 +641,16 @@ On iOS:
 
 |Environment| URL |
 |--|--|
-| UAT |https://uatmobileapp.sixdots.be/mobile/processAction<br>https://uatmobileapp.sixdots.be/mobile/authorize  
-| |
-|  
+| UAT|https://uatmobileapp.sixdots.be/mobile/processAction<br>https://uatmobileapp.sixdots.be/mobile/authorize  
+| E2E  |https://e2emobileapp.sixdots.be/mobile/processAction https://e2emobileapp.sixdots.be/mobile/authorize 
+| PRD |https://mobileapp.sixdots.be/mobile/processAction  https://mobileapp.sixdots.be/mobile/authorize
+
   
 
-E2E  
-https://e2emobileapp.sixdots.be/mobile/processAction  
-https://e2emobileapp.sixdots.be/mobile/authorize  
-PRD  
-https://mobileapp.sixdots.be/mobile/processAction  
-https://mobileapp.sixdots.be/mobile/authorize
+
+
+
+
 >**How can I set the level of security at the level of the App (5 digit code only without fingerprint or facial recognition  eg.)**?
 You can configure this option through the parameter “**acr_values**”, documented in   [this](#acrvalues) section. 
 
@@ -704,7 +703,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgzMjUyMDE1NSw5MTMxMTU4ODMsLTE4Nz
+eyJoaXN0b3J5IjpbMTMwNjk1ODQ0NSw5MTMxMTU4ODMsLTE4Nz
 UxODY1MSw5NTk4MzA3NzUsLTYxMDQ0Mjc5MywxNzU4MDY0MzAs
 LTQyNzQwMzk3OCwxMzQyOTc5Njk3LDkyOTE2NjU1OCw0MDcwMj
 c4NzAsLTk0Njc1MDE0NywyMDY3Nzg2NTE1XX0=
