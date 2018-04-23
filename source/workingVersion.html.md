@@ -48,6 +48,7 @@ Currently, the certificate is used to protect the JWKSet and it is not directly 
  
  <aside class="success"> Can I use a self signed certificate for my integration? In Sandbox, yes but not for production where we need the certificate & its intermediate chain.</aside>
 <aside class="success"> What should I do once I changed my JWKSet URL? You must notify Support and create a new certificate accordingly.</aside>
+ <aside class="success">Should I warn BMID if the certificate is changed?Yes, we need to be aware on time</aside>
 
  <aside class="success">
  Once your Sandbox is created, you will receive:
@@ -740,11 +741,11 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjExMTEzMzE4MCwtMTIyNjQzOTQzOSwtMj
-M0NTU1Mjg0LDUxNjI3MDMwLC00MjE5NzcyLC04MDEyNzMwNTIs
-MTQzMDA1MTA1LDIxMTMzODc3NDIsLTE2NjQ5NTYxMDUsLTEzNj
-E3MDM1NjIsMTU2ODc1MzUwOCwtMTc2NDQwNDk0NCw5MTMxMTU4
-ODMsLTE4NzUxODY1MSw5NTk4MzA3NzUsLTYxMDQ0Mjc5MywxNz
-U4MDY0MzAsLTQyNzQwMzk3OCwxMzQyOTc5Njk3LDkyOTE2NjU1
-OF19
+eyJoaXN0b3J5IjpbLTQyNzgyNDE1NiwyMTExMTMzMTgwLC0xMj
+I2NDM5NDM5LC0yMzQ1NTUyODQsNTE2MjcwMzAsLTQyMTk3NzIs
+LTgwMTI3MzA1MiwxNDMwMDUxMDUsMjExMzM4Nzc0MiwtMTY2ND
+k1NjEwNSwtMTM2MTcwMzU2MiwxNTY4NzUzNTA4LC0xNzY0NDA0
+OTQ0LDkxMzExNTg4MywtMTg3NTE4NjUxLDk1OTgzMDc3NSwtNj
+EwNDQyNzkzLDE3NTgwNjQzMCwtNDI3NDAzOTc4LDEzNDI5Nzk2
+OTddfQ==
 -->
