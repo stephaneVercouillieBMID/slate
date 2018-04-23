@@ -721,7 +721,8 @@ For example, assuming that one SP would like to use login as an itsme(r) service
 We are sending the user information not through an app but to a highly authenticated server (which implies to put in place necessary measure to protect the data confidentiality)  
 This condition implies the need to put in place a back end layer on your side.  
   
-  
+  > Can I use a self signed certificate for my integration?
+In Sandbox yes but not for production where we need the certificate & its intermediate chain.
 
  <!--stackedit_data:
 -eyJoaXN0b3J5IjpbMTExNjg1ODVdfQ==
@@ -738,11 +739,11 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjY0Mzk0MzksLTIzNDU1NTI4NCw1MT
-YyNzAzMCwtNDIxOTc3MiwtODAxMjczMDUyLDE0MzAwNTEwNSwy
-MTEzMzg3NzQyLC0xNjY0OTU2MTA1LC0xMzYxNzAzNTYyLDE1Nj
-g3NTM1MDgsLTE3NjQ0MDQ5NDQsOTEzMTE1ODgzLC0xODc1MTg2
-NTEsOTU5ODMwNzc1LC02MTA0NDI3OTMsMTc1ODA2NDMwLC00Mj
-c0MDM5NzgsMTM0Mjk3OTY5Nyw5MjkxNjY1NTgsNDA3MDI3ODcw
-XX0=
+eyJoaXN0b3J5IjpbMTU1NTU1NTg4NywtMTIyNjQzOTQzOSwtMj
+M0NTU1Mjg0LDUxNjI3MDMwLC00MjE5NzcyLC04MDEyNzMwNTIs
+MTQzMDA1MTA1LDIxMTMzODc3NDIsLTE2NjQ5NTYxMDUsLTEzNj
+E3MDM1NjIsMTU2ODc1MzUwOCwtMTc2NDQwNDk0NCw5MTMxMTU4
+ODMsLTE4NzUxODY1MSw5NTk4MzA3NzUsLTYxMDQ0Mjc5MywxNz
+U4MDY0MzAsLTQyNzQwMzk3OCwxMzQyOTc5Njk3LDkyOTE2NjU1
+OF19
 -->
