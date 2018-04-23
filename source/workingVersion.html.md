@@ -42,7 +42,10 @@ itsme® offers 3 services, which act as strong enablers for every process digita
  - JWKset URL, and associated SSL/TLS certificate
   You can consult [our B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) for more information about this step.
  
-<aside class="success"> What is the use of our Certificate
+<aside class="success"> What is the use of our Certificate? Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
+For testing, you could use a self signed certificate like that you could define validity period.</aside>
+
+ <aside class="success">Should I warn BMID if the certificate is changed?Yes, we need to be aware on time</aside>
 
 <aside class="success"> Can a same service point to separate SSL Certificates?
 
@@ -50,7 +53,6 @@ Currently, the certificate is used to protect the JWKSet and it is not directly 
  
  <aside class="success"> Can I use a self signed certificate for my integration? In Sandbox, yes but not for production where we need the certificate & its intermediate chain.</aside>
 <aside class="success"> What should I do once I changed my JWKSet URL? You must notify Support and create a new certificate accordingly.</aside>
- <aside class="success">Should I warn BMID if the certificate is changed?Yes, we need to be aware on time</aside>
 
  <aside class="success">
  Once your Sandbox is created, you will receive:
@@ -743,11 +745,11 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMjUyOTU5MzYsMjExMTEzMzE4MCwtMT
-IyNjQzOTQzOSwtMjM0NTU1Mjg0LDUxNjI3MDMwLC00MjE5Nzcy
-LC04MDEyNzMwNTIsMTQzMDA1MTA1LDIxMTMzODc3NDIsLTE2Nj
-Q5NTYxMDUsLTEzNjE3MDM1NjIsMTU2ODc1MzUwOCwtMTc2NDQw
-NDk0NCw5MTMxMTU4ODMsLTE4NzUxODY1MSw5NTk4MzA3NzUsLT
-YxMDQ0Mjc5MywxNzU4MDY0MzAsLTQyNzQwMzk3OCwxMzQyOTc5
-Njk3XX0=
+eyJoaXN0b3J5IjpbLTUzNzU1MTYxNCwyMTExMTMzMTgwLC0xMj
+I2NDM5NDM5LC0yMzQ1NTUyODQsNTE2MjcwMzAsLTQyMTk3NzIs
+LTgwMTI3MzA1MiwxNDMwMDUxMDUsMjExMzM4Nzc0MiwtMTY2ND
+k1NjEwNSwtMTM2MTcwMzU2MiwxNTY4NzUzNTA4LC0xNzY0NDA0
+OTQ0LDkxMzExNTg4MywtMTg3NTE4NjUxLDk1OTgzMDc3NSwtNj
+EwNDQyNzkzLDE3NTgwNjQzMCwtNDI3NDAzOTc4LDEzNDI5Nzk2
+OTddfQ==
 -->
