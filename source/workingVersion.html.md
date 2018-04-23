@@ -42,6 +42,8 @@ itsme® offers 3 services, which act as strong enablers for every process digita
  - JWKset URL, and associated SSL/TLS certificate
   You can consult [our B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) for more information about this step.
  
+<aside class="success"> What is the use of our Certificate
+
 <aside class="success"> Can a same service point to separate SSL Certificates?
 
 Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.</aside>
@@ -741,11 +743,11 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyNzgyNDE1NiwyMTExMTMzMTgwLC0xMj
-I2NDM5NDM5LC0yMzQ1NTUyODQsNTE2MjcwMzAsLTQyMTk3NzIs
-LTgwMTI3MzA1MiwxNDMwMDUxMDUsMjExMzM4Nzc0MiwtMTY2ND
-k1NjEwNSwtMTM2MTcwMzU2MiwxNTY4NzUzNTA4LC0xNzY0NDA0
-OTQ0LDkxMzExNTg4MywtMTg3NTE4NjUxLDk1OTgzMDc3NSwtNj
-EwNDQyNzkzLDE3NTgwNjQzMCwtNDI3NDAzOTc4LDEzNDI5Nzk2
-OTddfQ==
+eyJoaXN0b3J5IjpbLTIxMjUyOTU5MzYsMjExMTEzMzE4MCwtMT
+IyNjQzOTQzOSwtMjM0NTU1Mjg0LDUxNjI3MDMwLC00MjE5Nzcy
+LC04MDEyNzMwNTIsMTQzMDA1MTA1LDIxMTMzODc3NDIsLTE2Nj
+Q5NTYxMDUsLTEzNjE3MDM1NjIsMTU2ODc1MzUwOCwtMTc2NDQw
+NDk0NCw5MTMxMTU4ODMsLTE4NzUxODY1MSw5NTk4MzA3NzUsLT
+YxMDQ0Mjc5MywxNzU4MDY0MzAsLTQyNzQwMzk3OCwxMzQyOTc5
+Njk3XX0=
 -->
