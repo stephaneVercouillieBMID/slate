@@ -44,11 +44,9 @@ itsme® offers 3 services, which act as strong enablers for every process digita
  
 <aside class="success"> Can a same service point to separate SSL Certificates?
 
-<aside class="success"> Can I use a self signed certificate for my integration?**
-
-In Sandbox yes but not for production where we need the certificate & its intermediate chain.
 Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.</aside>
  
+ <aside class="success"> Can I use a self signed certificate for my integration? In Sandbox, yes but not for production where we need the certificate & its intermediate chain.</aside>
 <aside class="success"> What should I do once I changed my JWKSet URL? You must notify Support and create a new certificate accordingly.</aside>
 
  <aside class="success">
@@ -742,11 +740,11 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTI0NzM4MjksLTEyMjY0Mzk0MzksLT
-IzNDU1NTI4NCw1MTYyNzAzMCwtNDIxOTc3MiwtODAxMjczMDUy
-LDE0MzAwNTEwNSwyMTEzMzg3NzQyLC0xNjY0OTU2MTA1LC0xMz
-YxNzAzNTYyLDE1Njg3NTM1MDgsLTE3NjQ0MDQ5NDQsOTEzMTE1
-ODgzLC0xODc1MTg2NTEsOTU5ODMwNzc1LC02MTA0NDI3OTMsMT
-c1ODA2NDMwLC00Mjc0MDM5NzgsMTM0Mjk3OTY5Nyw5MjkxNjY1
-NThdfQ==
+eyJoaXN0b3J5IjpbMjExMTEzMzE4MCwtMTIyNjQzOTQzOSwtMj
+M0NTU1Mjg0LDUxNjI3MDMwLC00MjE5NzcyLC04MDEyNzMwNTIs
+MTQzMDA1MTA1LDIxMTMzODc3NDIsLTE2NjQ5NTYxMDUsLTEzNj
+E3MDM1NjIsMTU2ODc1MzUwOCwtMTc2NDQwNDk0NCw5MTMxMTU4
+ODMsLTE4NzUxODY1MSw5NTk4MzA3NzUsLTYxMDQ0Mjc5MywxNz
+U4MDY0MzAsLTQyNzQwMzk3OCwxMzQyOTc5Njk3LDkyOTE2NjU1
+OF19
 -->
