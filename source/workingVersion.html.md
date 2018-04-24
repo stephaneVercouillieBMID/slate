@@ -429,16 +429,16 @@ be always true, as long as BMID keeps forbidding installing itsme on
 a tablet.   
 -  “deviceLockLevel” [0…1]: The type of action to be
 performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.   
-    - “smsEnabled” [0…1]: Can send SMS. On iOS, means it’s an iPhone.    
-    -  “rooted” [0…1]: Coming from Gemalto. ‘true’ the device is
-  jailbreaked/rooted.   
-   - “imei” [0…1]: (regexp = “[0-9]{15,17}”) the
-   device IMEI value.   
-    -  “deviceModel” [0…1]: Model of the Device.  
-   e.g. SAMSUNG GALAXY A5   
-   - “msisdn” [0…1]: the user’s phone number.  
-    - “sdkRelease” [0…1]: Sdk release
-##### <a name id="exampleDeviceClaimValue"></a>4.2.2.2.1. Example of Device Claim Value Usage
+- “smsEnabled” [0…1]: Can send SMS. On iOS, means it’s an iPhone.    
+-  “rooted” [0…1]: Coming from Gemalto. ‘true’ the device is
+jailbreaked/rooted.   
+- “imei” [0…1]: (regexp = “[0-9]{15,17}”) the
+device IMEI value.   
+-  “deviceModel” [0…1]: Model of the Device.  
+e.g. SAMSUNG GALAXY A5   
+- “msisdn” [0…1]: the user’s phone number.  
+- “sdkRelease” [0…1]: Sdk release
+- ##### <a name id="exampleDeviceClaimValue"></a>4.2.2.2.1. Example of Device Claim Value Usage
 `{ "os": "ANDROID", "appName": "itsme app", "appRelease": "1.17.13", "deviceLabel": "myDevice", "debugEnabled": false, "deviceId": "deviceId", "osRelease": "Android 4.4.2", "manufacturer": "samsung", "hasSimEnabled": true, "deviceLockLevel": "touchID", "smsEnabled": true, "rooted": false,"imei": "12345678901234567", "deviceModel": "S8", "msisdn": "0412123123", "sdkRelease": "1.17.12" }`
 #### <a name id="eidMetadata"></a>4.2.2.3. Eid Metadata Claim 
 Claim value: **`tag:itsmetag:sixdots.be,2016-06:claim_eid`**
@@ -448,7 +448,6 @@ This claim is Belgian Electronic ID card information encoded in JSON, with the f
 `eid`: the electronic ID card serial number. <br>`issuance_locality`: the issuance locality. <br>`validity_from`: eID card validity “from” date. <br>`validity_to`: eID card validity “to” date. <br>`certificate_validity`: the certificate validity. <br>`read_date`: the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: 2017-04-01T19:43:37+0000
 #### <a name id="transactionInfo"></a>4.2.2.4.Transaction Info Claim
 Claim value: **`tag:sixdots.be,2017-05:claim_transaction_info`**
-
 Information available in the context of the current transaction.
 
 A JSON object with the following keys: (only keys with cardinality \\\[1..1\\\] will be always available)<br> **“securityLevel” \\\[1..1\\\]**: (supported values: <br>{SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) Security level used during transaction. <br>**“bindLevel” \\\[1..1\\\]**: (supported values: {SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. <br>**“mcc” \\\[0..1\\\]**: the Mobile Country Code. An Integer (three digits) representing the mobile network country. 
@@ -457,11 +456,9 @@ A JSON object with the following keys: (only keys with cardinality \\\[1..1\\\] 
 ## 4.3. Getting Data
 
 As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest),
-
 Depending on how you declared claims in the Authentication Request, you will receive the user data from
 - The UserInfo Endpoint
 - The Token Endpoint, in the ID Token
-
 <aside class="success">Should there be 2 calls to itsme(r) for this schedule, one for Token Request & one for UserInfo Request?   
 Indeed, You need to perform two Back-End to Back-End calls:  
 - The Token Request  
@@ -682,11 +679,11 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNjg4NzQ1NTQsLTE4MjUzODUyNDIsMT
-Y1MTg3MDEwNiwyMTExMTMzMTgwLC0xMjI2NDM5NDM5LC0yMzQ1
-NTUyODQsNTE2MjcwMzAsLTQyMTk3NzIsLTgwMTI3MzA1MiwxND
-MwMDUxMDUsMjExMzM4Nzc0MiwtMTY2NDk1NjEwNSwtMTM2MTcw
-MzU2MiwxNTY4NzUzNTA4LC0xNzY0NDA0OTQ0LDkxMzExNTg4My
-wtMTg3NTE4NjUxLDk1OTgzMDc3NSwtNjEwNDQyNzkzLDE3NTgw
-NjQzMF19
+eyJoaXN0b3J5IjpbMTUzMjg1NTU4MSwtMTgyNTM4NTI0MiwxNj
+UxODcwMTA2LDIxMTExMzMxODAsLTEyMjY0Mzk0MzksLTIzNDU1
+NTI4NCw1MTYyNzAzMCwtNDIxOTc3MiwtODAxMjczMDUyLDE0Mz
+AwNTEwNSwyMTEzMzg3NzQyLC0xNjY0OTU2MTA1LC0xMzYxNzAz
+NTYyLDE1Njg3NTM1MDgsLTE3NjQ0MDQ5NDQsOTEzMTE1ODgzLC
+0xODc1MTg2NTEsOTU5ODMwNzc1LC02MTA0NDI3OTMsMTc1ODA2
+NDMwXX0=
 -->
