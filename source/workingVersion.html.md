@@ -137,7 +137,7 @@ An Authentication Response is an [OAuth 2.0 Authorization Response](https://tool
 
 The itsme Back-End provides an Authorization Code to the Service Provider Back-End. In the Response, the Service Provider Back-End knows that the User was successfully authenticated.
  
- ```http--inline
+```http--inline
  HTTP/1.1 302 Found
  Location: https://client.example.org/cb?
  code=SplxlOBeZQQYbYS6WxSbIA&
@@ -302,8 +302,10 @@ phone| phone_number, phone_number_verified|
  address|address, with subfields,<br>street_address (newline separator \n)<br> locality <br> postal_code <br> country
 <aside class="success">Is it normal that the scope "eid" is not mentioned in the supported scopes?
 The “eid” scope was introduced exclusively for FAS (BOSSA). </aside>
+
 #### 4.2.1.2 Example of an Authorization Request using "scope" values
 URL:
+
 ```http--inline
 GET /oidc/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fuat_OIDC_TEST1%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_LOGIN+profile+eid+phone=phone_number+phone_number_verified+email=email_verified+address=postal_code+country+&state=anystate&nonce=anonce&prompt=login&max_age=1 HTTP/1.1
 Host: uatmerchant.sixdots.be
@@ -679,11 +681,11 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzE0NjQ1ODY5LC0xODI1Mzg1MjQyLDE2NT
-E4NzAxMDYsMjExMTEzMzE4MCwtMTIyNjQzOTQzOSwtMjM0NTU1
-Mjg0LDUxNjI3MDMwLC00MjE5NzcyLC04MDEyNzMwNTIsMTQzMD
-A1MTA1LDIxMTMzODc3NDIsLTE2NjQ5NTYxMDUsLTEzNjE3MDM1
-NjIsMTU2ODc1MzUwOCwtMTc2NDQwNDk0NCw5MTMxMTU4ODMsLT
-E4NzUxODY1MSw5NTk4MzA3NzUsLTYxMDQ0Mjc5MywxNzU4MDY0
-MzBdfQ==
+eyJoaXN0b3J5IjpbLTU2ODA4OTU2OSwzMTQ2NDU4NjksLTE4Mj
+UzODUyNDIsMTY1MTg3MDEwNiwyMTExMTMzMTgwLC0xMjI2NDM5
+NDM5LC0yMzQ1NTUyODQsNTE2MjcwMzAsLTQyMTk3NzIsLTgwMT
+I3MzA1MiwxNDMwMDUxMDUsMjExMzM4Nzc0MiwtMTY2NDk1NjEw
+NSwtMTM2MTcwMzU2MiwxNTY4NzUzNTA4LC0xNzY0NDA0OTQ0LD
+kxMzExNTg4MywtMTg3NTE4NjUxLDk1OTgzMDc3NSwtNjEwNDQy
+NzkzXX0=
 -->
