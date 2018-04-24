@@ -51,8 +51,10 @@ Currently, the certificate is used to protect the JWKSet and it is not directly 
  
  <aside class="success"> Can I use a self signed certificate for my integration? In Sandbox, yes but not for production where we need the certificate & its intermediate chain.</aside>
 <aside class="success"> What should I do once I changed my JWKSet URL? You must notify Support and create a new certificate accordingly.</aside>
- <aside class="success"> Is it possible to register multiple valid callback URIs/jwkset URIs for one environment, or will they have to change this every time they switch URIs? While it is possible to register several redirect urls, it is not possible to register several JWKSet urls. 
-The redirect url is specified in each Authorization request, the User will be redirected to that url after the (failed or successful) authentication in the itsme App. You need to specify it in the onboarding file because it needs to be whitelisted by our F5. We can whitelist several urls. The jwkset urls, however, is used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know what URL to contact, and thus we can register only one jwkset url.</aside>
+
+<aside class="success"> Is it possible to register multiple valid callback URIs/jwkset URIs for one environment, or will they have to change this every time they switch URIs? While it is possible to register several redirect urls, it is not possible to register several JWKSet URLs. 
+The redirect URL is specified in each Authorization request, the User will be redirected to that URL after the (failed or successful) authentication in the itsme App. You need to specify it in the onboarding file because it needs to be whitelisted by our F5. We can whitelist several urls. The jwkset urls, however, is used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know what URL to contact, and thus we can register only one jwkset url.</aside>
+
  <aside class="success">
  Once your Sandbox is created, you will receive:
   <ul> 
@@ -686,11 +688,11 @@ MDE3NTU1NDQzXX0=
 The entire redirect_uri must match therefore no additional parameter is allowed.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzIzMTExNDg4LDMxNDY0NTg2OSwtMTgyNT
-M4NTI0MiwxNjUxODcwMTA2LDIxMTExMzMxODAsLTEyMjY0Mzk0
-MzksLTIzNDU1NTI4NCw1MTYyNzAzMCwtNDIxOTc3MiwtODAxMj
-czMDUyLDE0MzAwNTEwNSwyMTEzMzg3NzQyLC0xNjY0OTU2MTA1
-LC0xMzYxNzAzNTYyLDE1Njg3NTM1MDgsLTE3NjQ0MDQ5NDQsOT
-EzMTE1ODgzLC0xODc1MTg2NTEsOTU5ODMwNzc1LC02MTA0NDI3
-OTNdfQ==
+eyJoaXN0b3J5IjpbNjg1MTY4MDIsMzE0NjQ1ODY5LC0xODI1Mz
+g1MjQyLDE2NTE4NzAxMDYsMjExMTEzMzE4MCwtMTIyNjQzOTQz
+OSwtMjM0NTU1Mjg0LDUxNjI3MDMwLC00MjE5NzcyLC04MDEyNz
+MwNTIsMTQzMDA1MTA1LDIxMTMzODc3NDIsLTE2NjQ5NTYxMDUs
+LTEzNjE3MDM1NjIsMTU2ODc1MzUwOCwtMTc2NDQwNDk0NCw5MT
+MxMTU4ODMsLTE4NzUxODY1MSw5NTk4MzA3NzUsLTYxMDQ0Mjc5
+M119
 -->
