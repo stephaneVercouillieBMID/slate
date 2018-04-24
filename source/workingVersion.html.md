@@ -409,7 +409,8 @@ birthdate|string|End-User's birthday, represented as an [ISO 8601:2004](https://
 locale|string|End-User's locale, represented as a [BCP47](https://openid.net/specs/openid-connect-core-1_0.html#RFC5646) [RFC5646] language tag. This is typically an [ISO 639-1 Alpha-2](https://openid.net/specs/openid-connect-core-1_0.html#ISO639-1) [ISO639‑1] language code in lowercase and an [ISO 3166-1 Alpha-2](https://openid.net/specs/openid-connect-core-1_0.html#ISO3166-1)[ISO3166‑1] country code in uppercase, separated by a dash. For example, en-US or fr-CA. As a compatibility note, some implementations have used an underscore as the separator rather than a dash, for example, en_US; Relying Parties MAY choose to accept this locale syntax as well.
 phone_number|string|  End-User's preferred telephone number.  [E.164](https://openid.net/specs/openid-connect-core-1_0.html#E.164)  [E.164] is RECOMMENDED as the format of this Claim.If the phone number contains an extension, it is RECOMMENDED that the extension be represented using the  [RFC 3966](https://openid.net/specs/openid-connect-core-1_0.html#RFC3966)  [RFC3966] extension syntax.
 phone_number_verified |boolean (**always true**)|True if the End-User's phone number has been verified; otherwise false. When this Claim Value is true, this means that the OP took affirmative steps to ensure that this phone number was controlled by the End-User at the time the verification was performed. The means by which a phone number is verified is context-specific, and dependent upon the trust framework or contractual agreements within which the parties are operating. When true, the phone_number Claim MUST be in E.164 format and any extensions MUST be represented in RFC 3966 format.
-address|JSON object|End-User's preferred postal address. The value of the address member is a JSON [[RFC4627]](https://openid.net/specs/openid-connect-core-1_0.html#RFC4627) structure containing some or all of the members defined in [Section 5.1.1](https://openid.net/specs/openid-connect-core-1_0.html#AddressClaim).#### 4.2.2.2. Example of a Valid “claims” Object 
+address|JSON object|End-User's preferred postal address. The value of the address member is a JSON [[RFC4627]](https://openid.net/specs/openid-connect-core-1_0.html#RFC4627) structure containing some or all of the members defined in [Section 5.1.1](https://openid.net/specs/openid-connect-core-1_0.html#AddressClaim).
+#### 4.2.2.2. Example of a Valid “claims” Object 
 Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_device`:
  
  ```json--inline
@@ -463,14 +464,12 @@ A JSON object with the following keys: (only keys with cardinality [1…1] will 
     - “sdkRelease” [0…1]: Sdk release
 ##### <a name id="exampleDeviceClaimValue"></a>4.2.2.2.1. Example of Device Claim Value Usage
 `{ "os": "ANDROID", "appName": "itsme app", "appRelease": "1.17.13", "deviceLabel": "myDevice", "debugEnabled": false, "deviceId": "deviceId", "osRelease": "Android 4.4.2", "manufacturer": "samsung", "hasSimEnabled": true, "deviceLockLevel": "touchID", "smsEnabled": true, "rooted": false,"imei": "12345678901234567", "deviceModel": "S8", "msisdn": "0412123123", "sdkRelease": "1.17.12" }`
-
 #### <a name id="eidMetadata"></a>4.2.2.3. Eid Metadata Claim 
 Claim value: **`tag:itsmetag:sixdots.be,2016-06:claim_eid`**
 
 This claim is Belgian Electronic ID card information encoded in JSON, with the following keys,
 
 `eid`: the electronic ID card serial number. <br>`issuance_locality`: the issuance locality. <br>`validity_from`: eID card validity “from” date. <br>`validity_to`: eID card validity “to” date. <br>`certificate_validity`: the certificate validity. <br>`read_date`: the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: 2017-04-01T19:43:37+0000
-
 #### <a name id="transactionInfo"></a>4.2.2.4.Transaction Info Claim
 Claim value: **`tag:sixdots.be,2017-05:claim_transaction_info`**
 
@@ -492,7 +491,6 @@ Indeed, You need to perform two Back-End to Back-End calls:
 - The Token Request  
 - The UserInfo Request  
 On top of this, the Authorization Request (AuthN Request in the schedule) consists of an HTTP redirection to the OpenID webpage of BMID. The content of this HTTP request is to be crafted by your system, it is actually a third call from your side to BMID, this one being Front-End to Back-End.</aside>
-
 ### 4.3.1. UserInfo Endpoint
 As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest), 
 
@@ -506,8 +504,6 @@ The content type of the response will be `application/JWT`. The response will be
 
 The UserInfo endpoint can be accessed only with a valid **access_token** and for a very limited duration after end user authentication. There must be _less than 3 minutes_ between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info Endpoint.
 The Access Token will define the list of Data that will be provided back to the client. In order to request specific claims, you can  [use scopes](https://stackedit.io/app#stClaims)  in the Authentication Request and/or  [use the claims parameter](https://stackedit.io/app#Claims-Request)  of the  request Object.
-
-
 #### 4.3.1.1. User info Request Specification
 As per specified [OIDC UserInfo Request](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest).
 
@@ -525,19 +521,15 @@ Authorization: Bearer SlAV32hkKG
 | amr |Won’t be provided  |
 | azp| Won’t be provided |
 |auth_time | Will always be provided
-
 #### 4.3.1.2. User info Response Specification
-
 The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed. The itsme Back-End replies with the Identity Data that were requested in the Authorization Request.
-
-  <aside class="success">What is the lay-out of the Identity Data that we get back in the Userinfo Response? They are the same as on the eID card </aside>
- 
- <aside class="success">What format does the certificate need to be?
+<aside class="success">What is the lay-out of the Identity Data that we get back in the Userinfo Response? They are the same as on the eID card </aside>
+<aside class="success">What format does the certificate need to be?
 It needs to be in ZIP file, X509 format (cer or crt). Pem file is not supported.  </aside>
 
 #### 4.3.1.3. User info Response Example
 
- (Not encrypted nor signed)
+(Not encrypted nor signed)
  
  ```http--inline
  HTTP/1.1 200 OK
@@ -564,7 +556,6 @@ As per specified by OIDC, when using the authorization code flow to obtain an Ac
 
 If you declared  claims in the `id_Token` part of the `claims` parameter in the `request` object,  you will receive the end user data from the Token Endpoint.
 
-
 #### 4.3.2.1. Token Endpoint Specs
 To get further information about token types, token request/response specifications please proceed with [3.2 Token Endpoint](#tokenEndpoint).
 
@@ -572,11 +563,11 @@ To get further information about token types, token request/response specificati
 *Will be provided soon*
  # 5. Advanced topics
  
- ## 5.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs
+## 5.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs
  
- As per specified by OIDC [here](https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests), Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.
+As per specified by OIDC [here](https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests), Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.
  
- The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains at least the following properties:
+The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains at least the following properties:
  
  Property | Required | Comment
  -- | -- | :--:
@@ -741,11 +732,11 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTg5MzM5NzE4LDE2NTE4NzAxMDYsMjExMT
-EzMzE4MCwtMTIyNjQzOTQzOSwtMjM0NTU1Mjg0LDUxNjI3MDMw
-LC00MjE5NzcyLC04MDEyNzMwNTIsMTQzMDA1MTA1LDIxMTMzOD
-c3NDIsLTE2NjQ5NTYxMDUsLTEzNjE3MDM1NjIsMTU2ODc1MzUw
-OCwtMTc2NDQwNDk0NCw5MTMxMTU4ODMsLTE4NzUxODY1MSw5NT
-k4MzA3NzUsLTYxMDQ0Mjc5MywxNzU4MDY0MzAsLTQyNzQwMzk3
-OF19
+eyJoaXN0b3J5IjpbMTc0NTA2NzkzNiwxNjUxODcwMTA2LDIxMT
+ExMzMxODAsLTEyMjY0Mzk0MzksLTIzNDU1NTI4NCw1MTYyNzAz
+MCwtNDIxOTc3MiwtODAxMjczMDUyLDE0MzAwNTEwNSwyMTEzMz
+g3NzQyLC0xNjY0OTU2MTA1LC0xMzYxNzAzNTYyLDE1Njg3NTM1
+MDgsLTE3NjQ0MDQ5NDQsOTEzMTE1ODgzLC0xODc1MTg2NTEsOT
+U5ODMwNzc1LC02MTA0NDI3OTMsMTc1ODA2NDMwLC00Mjc0MDM5
+NzhdfQ==
 -->
