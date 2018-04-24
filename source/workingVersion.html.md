@@ -413,7 +413,7 @@ Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_devic
  	"sdkRelease": "1.17.12"  
  }
  ```
-#### <a name id="deviceClaim"></a> 4.2.2.2. Device Claim 
+ #### <a name id="deviceClaim"></a> 4.2.2.2. Device Claim 
 This claim is the information about the end user device. 
 
 Claim value: **`tag:sixdots.be,2017-05:claim_device`**
@@ -493,7 +493,7 @@ GET /userinfo HTTP/1.1
 Host: server.example.com 
 Authorization: Bearer SlAV32hkKG
 ``` 
-| Parameter  | Comment  |
+|Parameter  | Comment  |
 |--|:--|
 | acr | Possible values: <br>`tag:sixdots.be,2016-06:acr_basic`<br>`tag:sixdots.be,2016-06:acr_advanced` |
 | amr |Won’t be provided  |
@@ -507,7 +507,7 @@ It needs to be in ZIP file, X509 format (cer or crt). Pem file is not supported.
 #### 4.3.1.3. User info Response Example
 (Not encrypted nor signed)
  
- ```http--inline
+```http--inline
  HTTP/1.1 200 OK
  Content-Type: application/json
  
@@ -536,15 +536,15 @@ To get further information about token types, token request/response specificati
 *Will be provided soon*
 # 5. Advanced topics
 ## 5.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs
- As per specified by OIDC [here](https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests), Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.
+As per specified by OIDC [here](https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests), Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.
  
- The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains at least the following properties:
+The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains at least the following properties:
 Property | Required | Comment
 -- | -- | :--:
 **iss** | Required | Specifies the issuing authority. Issuer of the id_tokenIssuer. Must be the `client_id`
 **aud** | Required | Audience. MUST be the Token Endpoint URL
  
- > Example of claim request before base64url encoding, signing and encryption. In this example, the partner is using the login service.
+> Example of claim request before base64url encoding, signing and encryption. In this example, the partner is using the login service.
  
 ```json--inline
  {
@@ -688,11 +688,11 @@ MDE3NTU1NDQzXX0=
 The entire redirect_uri must match therefore no additional parameter is allowed.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNDQ4MzAwMDMsNjg1MTY4MDIsMzE0Nj
-Q1ODY5LC0xODI1Mzg1MjQyLDE2NTE4NzAxMDYsMjExMTEzMzE4
-MCwtMTIyNjQzOTQzOSwtMjM0NTU1Mjg0LDUxNjI3MDMwLC00Mj
-E5NzcyLC04MDEyNzMwNTIsMTQzMDA1MTA1LDIxMTMzODc3NDIs
-LTE2NjQ5NTYxMDUsLTEzNjE3MDM1NjIsMTU2ODc1MzUwOCwtMT
-c2NDQwNDk0NCw5MTMxMTU4ODMsLTE4NzUxODY1MSw5NTk4MzA3
-NzVdfQ==
+eyJoaXN0b3J5IjpbMTczNzY4MzI3NSw2ODUxNjgwMiwzMTQ2ND
+U4NjksLTE4MjUzODUyNDIsMTY1MTg3MDEwNiwyMTExMTMzMTgw
+LC0xMjI2NDM5NDM5LC0yMzQ1NTUyODQsNTE2MjcwMzAsLTQyMT
+k3NzIsLTgwMTI3MzA1MiwxNDMwMDUxMDUsMjExMzM4Nzc0Miwt
+MTY2NDk1NjEwNSwtMTM2MTcwMzU2MiwxNTY4NzUzNTA4LC0xNz
+Y0NDA0OTQ0LDkxMzExNTg4MywtMTg3NTE4NjUxLDk1OTgzMDc3
+NV19
 -->
