@@ -682,8 +682,10 @@ MDE3NTU1NDQzXX0=
 -->
 >**When the end-user is redirected to itsme in the browser, we specify a redirect_uri afterwards. We have to provide BMID the Redirect URIs. Can we give additional parameters? Or does the entire redirect_uri need to match?”**
 
+The entire redirect_uri must match therefore no additional parameter is allowed.
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY2ODY5OTk1NywzMTQ2NDU4NjksLTE4Mj
+eyJoaXN0b3J5IjpbMTk4MDkzODU5MywzMTQ2NDU4NjksLTE4Mj
 UzODUyNDIsMTY1MTg3MDEwNiwyMTExMTMzMTgwLC0xMjI2NDM5
 NDM5LC0yMzQ1NTUyODQsNTE2MjcwMzAsLTQyMTk3NzIsLTgwMT
 I3MzA1MiwxNDMwMDUxMDUsMjExMzM4Nzc0MiwtMTY2NDk1NjEw
