@@ -150,7 +150,7 @@ As such, the Authentication Response will return the following parameters:
  **code** | Always | Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.
  **state** |  | The exact value received from the client, if the parameter was present in the Authentication Request.
  
-### 3.1.3. Authentication Errors
+ ### 3.1.3. Authentication Errors
 As explained by OIDC [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://openid.net/specs/openid-connect-core-1_0.html#AuthError), if the authentication is NOT successful, the following errors can be triggered by itsme®:
 
  Error | Description
@@ -744,7 +744,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTE1NzQ0NDAsMTY1MTg3MDEwNiwyMT
+eyJoaXN0b3J5IjpbLTE1MTgxNDg4ODAsMTY1MTg3MDEwNiwyMT
 ExMTMzMTgwLC0xMjI2NDM5NDM5LC0yMzQ1NTUyODQsNTE2Mjcw
 MzAsLTQyMTk3NzIsLTgwMTI3MzA1MiwxNDMwMDUxMDUsMjExMz
 M4Nzc0MiwtMTY2NDk1NjEwNSwtMTM2MTcwMzU2MiwxNTY4NzUz
