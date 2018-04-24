@@ -395,7 +395,6 @@ NRN | not supported|
 As per specified by OpenID Connect, there is a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), or user attributes. They are intended to supply the client app with consented user details such as email, name and picture, upon request.  They can be requested to be returned either in the UserInfo Response, per [Section 5.3.2](https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse), or in the ID Token, per [Section 2](https://openid.net/specs/openid-connect-core-1_0.html#IDToken).
 
 Here following table lists the supported standard "claim" values, 
-
 |Member  |Type  |Description |
 |:--|--|--|
 name |string|Subject - Identifier for the End-User at the Issuer.
@@ -526,9 +525,7 @@ The content type of the response will be `application/jwt`. The response will be
 <aside class="success">What is the lay-out of the Identity Data that we get back in the Userinfo Response? They are the same as on the eID card </aside>
 <aside class="success">What format does the certificate need to be?
 It needs to be in ZIP file, X509 format (cer or crt). Pem file is not supported.  </aside>
-
 #### 4.3.1.3. User info Response Example
-
 (Not encrypted nor signed)
  
  ```http--inline
@@ -553,12 +550,9 @@ The following is a non-normative example of a UserInfo Error Response:
 
 ### 4.3.2. Token Endpoint
 As per specified by OIDC, when using the authorization code flow to obtain an Access Token and an ID Token, you will send a token request to token endpoint to have a token response.
-
 If you declared  claims in the `id_Token` part of the `claims` parameter in the `request` object,  you will receive the end user data from the Token Endpoint.
-
 #### 4.3.2.1. Token Endpoint Specs
 To get further information about token types, token request/response specifications please proceed with [3.2 Token Endpoint](#tokenEndpoint).
-
 #### 4.3.2.2 Example of Id Token Containing “claims”
 *Will be provided soon*
  # 5. Advanced topics
@@ -569,9 +563,9 @@ As per specified by OIDC [here](https://openid.net/specs/openid-connect-core-1_0
  
 The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains at least the following properties:
  
- Property | Required | Comment
- -- | -- | :--:
- **iss** | Required | Specifies the issuing authority. Issuer of the id_tokenIssuer. Must be the `client_id`
+Property | Required | Comment
+-- | -- | :--:
+**iss** | Required | Specifies the issuing authority. Issuer of the id_tokenIssuer. Must be the `client_id`
  **aud** | Required | Audience. MUST be the Token Endpoint URL
  
  > Example of claim request before base64url encoding, signing and encryption. In this example, the partner is using the login service.
@@ -732,7 +726,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0NTA2NzkzNiwxNjUxODcwMTA2LDIxMT
+eyJoaXN0b3J5IjpbLTcxODg5MzE4NiwxNjUxODcwMTA2LDIxMT
 ExMzMxODAsLTEyMjY0Mzk0MzksLTIzNDU1NTI4NCw1MTYyNzAz
 MCwtNDIxOTc3MiwtODAxMjczMDUyLDE0MzAwNTEwNSwyMTEzMz
 g3NzQyLC0xNjY0OTU2MTA1LC0xMzYxNzAzNTYyLDE1Njg3NTM1
