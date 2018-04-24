@@ -537,11 +537,11 @@ To get further information about token types, token request/response specificati
 Property | Required | Comment
 -- | -- | :--:
 **iss** | Required | Specifies the issuing authority. Issuer of the id_tokenIssuer. Must be the `client_id`
- **aud** | Required | Audience. MUST be the Token Endpoint URL
+**aud** | Required | Audience. MUST be the Token Endpoint URL
  
  > Example of claim request before base64url encoding, signing and encryption. In this example, the partner is using the login service.
  
- ```json--inline
+```json--inline
  {
  	// JWT Registered claims (https://tools.ietf.org/html/rfc7519#section-4.1)
  	iss: "s6BhdRkqt3",
@@ -570,7 +570,7 @@ Property | Required | Comment
  Encryption algorithm used: RSA SHA-256
  
 Supported algorithms and encryption methods for:
- - ID Token
+- ID Token
 -- Encryption Method (enc): A128CBC-HS256
 -- Encryption Algorithm (alg): RSA-OAEP
 -- Signing Algorithm (alg): RS256
@@ -679,7 +679,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUzMjg1NTU4MSwtMTgyNTM4NTI0MiwxNj
+eyJoaXN0b3J5IjpbMjAyMzk2NTU3NywtMTgyNTM4NTI0MiwxNj
 UxODcwMTA2LDIxMTExMzMxODAsLTEyMjY0Mzk0MzksLTIzNDU1
 NTI4NCw1MTYyNzAzMCwtNDIxOTc3MiwtODAxMjczMDUyLDE0Mz
 AwNTEwNSwyMTEzMzg3NzQyLC0xNjY0OTU2MTA1LC0xMzYxNzAz
