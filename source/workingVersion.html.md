@@ -200,7 +200,7 @@ The Authentication Response includes a `code` parameter, a one-time authorizatio
 
 <aside class="success">Which information must be present to contact Token Endpoint?
 - Request MUST be a POST, not a GET
--  In header the Content-Type : application/x-www-form-urlencoded  MUST be added</aside>
+- In header the Content-Type : application/x-www-form-urlencoded  MUST be added</aside>
 
 <aside class="success">Do you need an App Client Secret on the OpenID client?
 OpenID allows multiple ways for authentication as a Service Provider. BMID only supports `private_key_jwt` as client authentication method with all the SSL requirements exposed via JWKSet, use the corresponding private key to encrypt/sign and decrypt/validate exchanged information. So other authentication methods such as `client_secret`(Open ID Connect default method but the less secured one are not supported since they are considered less secure. </aside>
@@ -219,22 +219,22 @@ GET /oidc/authorization?response_type=code
 The Token Request must include the following parameters in the POST body:
 
 Parameter | Required | Comment
- :-- | -- | --
- **grant_type** | Required | Must be `authorization_code`. 
- **code** | Required | The code value provided in the Authentication Response
- **redirect_uri** | Required | The **redirect_uri** used in the Authentication Request. This is the URL to which you want the user to be redirected after the authorization is complete.
-  **client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` client authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
- **client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` 
+:-- | -- | --
+**grant_type** | Required | Must be `authorization_code`. 
+**code** | Required | The code value provided in the Authentication Response
+**redirect_uri** | Required | The **redirect_uri** used in the Authentication Request. This is the URL to which you want the user to be redirected after the authorization is complete.
+**client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` client authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
+**client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` 
 
 #### 3.2.2.1. `client_assertion` 
 According to the `private_key_jwt` client authentication method, the **client assertion** JWT must contain the following properties:
 Property | Comment
 :-- | :--
- **iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID).
- **sub** | The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the on boarding file provided by BMID). 
- **aud** | Must be the token endpoint URL
- **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
- **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
+**iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID).
+**sub** | The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the on boarding file provided by BMID). 
+**aud** | Must be the token endpoint URL
+**jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
+**exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 
 ### 3.2.3. Token Response Specification
 The Token Response follow these specifications:
@@ -243,9 +243,9 @@ Parameter | Provided | Comment
 -- | -- | :--
 **[`access_token`](#actoken)** | Always | Will be provided. 
 **[`token_type`](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)** | Always | Will be `Bearer`
- **[`id_token`](#idtoken)** | Always | The id_token corresponding to the Authentication Request (signed and  encrypted). 
- **[`at_hash`](http://openid.net/specs/openid-connect-core-1_0.html#CodeIDToken)** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
- **[`refresh_token`](#rfshtoken)** | Never | Won't be provided as **itsme(r)** only maintains short-lived session to enforce re-authentication.
+**[`id_token`](#idtoken)** | Always | The id_token corresponding to the Authentication Request (signed and  encrypted). 
+**[`at_hash`](http://openid.net/specs/openid-connect-core-1_0.html#CodeIDToken)** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
+**[`refresh_token`](#rfshtoken)** | Never | Won't be provided as **itsme(r)** only maintains short-lived session to enforce re-authentication.
 ### 3.2.5. Token Response Example
 `{"user_info":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","birthdate":"1974-04-12","gender":"male","name":"Ada Gardner","iss":"tokenEndpointURL","given_name":"Ada","locale":"fr","family_name":"Gardner"},"id_token":{"access_token":"UVfXK3QzTRKyFiw3f1v85Yr4ko4o7uI1oJ8XNZeRcJE","id_token":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","acr":"tag:sixdots.be,2016-06:acr_basic","auth_time":1523626355,"iss":"tokenEndpointURL","exp":1523626660,"iat":1523626360,"nonce":"anonce"},"token_type":"Bearer","expire_in":163}}`
 ### 3.2.4. Token Error Response 
@@ -689,7 +689,7 @@ MDE3NTU1NDQzXX0=
 The entire redirect_uri must match therefore no additional parameter is allowed.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NjU2ODAwNTMsNjg1MTY4MDIsMzE0Nj
+eyJoaXN0b3J5IjpbLTEzODY4MjcyNDksNjg1MTY4MDIsMzE0Nj
 Q1ODY5LC0xODI1Mzg1MjQyLDE2NTE4NzAxMDYsMjExMTEzMzE4
 MCwtMTIyNjQzOTQzOSwtMjM0NTU1Mjg0LDUxNjI3MDMwLC00Mj
 E5NzcyLC04MDEyNzMwNTIsMTQzMDA1MTA1LDIxMTMzODc3NDIs
