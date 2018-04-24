@@ -150,16 +150,16 @@ Parameter | Provided | Description
 **code** | Always | Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.
 **state** |  | The exact value received from the client, if the parameter was present in the Authentication Request.
  
- ### 3.1.3. Authentication Errors
+### 3.1.3. Authentication Errors
 As explained by OIDC [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://openid.net/specs/openid-connect-core-1_0.html#AuthError), if the authentication is NOT successful, the following errors can be triggered by itsme®:
 
  Error | Description
- :--: |:--
- `interaction_required`  | The Authorization Server requires End-User interaction of some form to proceed.
- `invalid_request_object` | The request parameter contains an invalid Request Object.
- `request_uri_not_supported` | does not support use of the request_uri parameter.
- `registration_not_supported` | does not support use of the registration parameter.
- ## <a name="tokenEndpoint"></a> 3.2. Token Endpoint
+ :-- |:--
+`interaction_required`  | The Authorization Server requires End-User interaction of some form to proceed.
+`invalid_request_object` | The request parameter contains an invalid Request Object.
+`request_uri_not_supported` | does not support use of the request_uri parameter.
+`registration_not_supported` | does not support use of the registration parameter.
+## <a name="tokenEndpoint"></a> 3.2. Token Endpoint
 As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
 
 Possible token end-point URLs:  
@@ -680,8 +680,9 @@ MzI2NDY5LDI1OTg4ODMxMCwxNjcxMTQzNTY4LDE0NjczOTkzOT
 AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
+>**When the end-user is redirected to itsme in the browser, then we specify a redirect_uri. We have to provide BMID the redirect uri’s. Can we give additional parameters? Or does the entire redirect_uri needs to match?”
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0OTQxMDI3MzksMzE0NjQ1ODY5LC0xOD
+eyJoaXN0b3J5IjpbLTE4NTQ1MzUwMDUsMzE0NjQ1ODY5LC0xOD
 I1Mzg1MjQyLDE2NTE4NzAxMDYsMjExMTEzMzE4MCwtMTIyNjQz
 OTQzOSwtMjM0NTU1Mjg0LDUxNjI3MDMwLC00MjE5NzcyLC04MD
 EyNzMwNTIsMTQzMDA1MTA1LDIxMTMzODc3NDIsLTE2NjQ5NTYx
