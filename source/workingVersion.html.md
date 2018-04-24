@@ -690,15 +690,11 @@ So we would need a service code for the register operation with the following ca
 
 We are sending the user information not through an app but to a highly authenticated server (which implies to put in place necessary measure to protect the data confidentiality)  
 This condition implies the need to put in place a back end layer on your side.  
-  
-
-
-
+ 
  <!--stackedit_data:
 -eyJoaXN0b3J5IjpbMTExNjg1ODVdfQ==
 +eyJoaXN0b3J5IjpbLTE4Nzg1Nzg0NTZdfQ==
- -->
-  
+ --> 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTM2ODEyNjQ2OSwtOTA2NTQ0NDkxLC04Mj
 k2OTYwNzQsMTQ0MjgxODMwNiwtMTY2MzMyNzQ3OSwtMTk2ODY0
@@ -709,11 +705,11 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU5MjIyMzA4LDE2NTE4NzAxMDYsMjExMT
-EzMzE4MCwtMTIyNjQzOTQzOSwtMjM0NTU1Mjg0LDUxNjI3MDMw
-LC00MjE5NzcyLC04MDEyNzMwNTIsMTQzMDA1MTA1LDIxMTMzOD
-c3NDIsLTE2NjQ5NTYxMDUsLTEzNjE3MDM1NjIsMTU2ODc1MzUw
-OCwtMTc2NDQwNDk0NCw5MTMxMTU4ODMsLTE4NzUxODY1MSw5NT
-k4MzA3NzUsLTYxMDQ0Mjc5MywxNzU4MDY0MzAsLTQyNzQwMzk3
-OF19
+eyJoaXN0b3J5IjpbLTE4MjUzODUyNDIsMTY1MTg3MDEwNiwyMT
+ExMTMzMTgwLC0xMjI2NDM5NDM5LC0yMzQ1NTUyODQsNTE2Mjcw
+MzAsLTQyMTk3NzIsLTgwMTI3MzA1MiwxNDMwMDUxMDUsMjExMz
+M4Nzc0MiwtMTY2NDk1NjEwNSwtMTM2MTcwMzU2MiwxNTY4NzUz
+NTA4LC0xNzY0NDA0OTQ0LDkxMzExNTg4MywtMTg3NTE4NjUxLD
+k1OTgzMDc3NSwtNjEwNDQyNzkzLDE3NTgwNjQzMCwtNDI3NDAz
+OTc4XX0=
 -->
