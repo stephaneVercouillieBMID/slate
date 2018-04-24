@@ -333,22 +333,21 @@ Some specific data cannot be requested by using scope values. They have to be re
 
 Here are these claims:
 
- Data | Claim | Comment 
- :-- | :--: | :--: 
- Subject | **`sub`** | The subject of the `private_key_jwt` (the client ID). Supports value in request. 
- Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | An error will be raised if request as a value element for the claim 
- Place of Birth - city | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** |An error will be raised if request as a value element for the claim 
- Place of Birth - country | **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** | An error will be raised if request as a value element for the claim 
+Data | Claim | Comment 
+:-- | :--: | :--: 
+Subject | **`sub`** | The subject of the `private_key_jwt` (the client ID). Supports value in request. 
+Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | An error will be raised if request as a value element for the claim 
+Place of Birth - city | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** |An error will be raised if request as a value element for the claim 
+Place of Birth - country | **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** | An error will be raised if request as a value element for the claim 
 E-ID Metadata  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** |  [Specifications](#eidMetadata)
 Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | Simple string containing the user’s Passport Serial Number. 
 Device | **`tag:sixdots.be,2017-05:claim_device`** | [Specifications](#deviceClaim) and [an example of device claim value usage](#exampleDeviceClaimValue)<br>
 Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |[Specifications](#transactionInfo) and [an example of usage](#transactionInfoExample) 
 E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
 NRN | not supported|
- <aside class="success"> Taking into account you allowed to receive the NRN from us, we can't and get access to NRN and block the access to the eID group</aside> TODO 
+<aside class="success"> Taking into account you allowed to receive the NRN from us, we can't and get access to NRN and block the access to the eID group</aside> TODO 
  
-#### <b id="example-endpoint"></b> 4.2.2.1. Set of Request Parameter Adapted to itsme(r)
-
+ #### <b id="example-endpoint"></b> 4.2.2.1. Set of Request Parameter Adapted to itsme(r)
 ```json--inline
  {
     "userinfo":
@@ -368,7 +367,7 @@ NRN | not supported|
  }
  ```
  
-**List of Supported Standard "claim" Values:**
+ **List of Supported Standard "claim" Values:**
 
 As per specified by OpenID Connect, there is a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), or user attributes. They are intended to supply the client app with consented user details such as email, name and picture, upon request.  They can be requested to be returned either in the UserInfo Response, per [Section 5.3.2](https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse), or in the ID Token, per [Section 2](https://openid.net/specs/openid-connect-core-1_0.html#IDToken).
 
@@ -409,19 +408,19 @@ Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_devic
  	"sdkRelease": "1.17.12"  
  }
  ```
- #### <a name id="deviceClaim"></a> 4.2.2.2. Device Claim 
+#### <a name id="deviceClaim"></a> 4.2.2.2. Device Claim 
 This claim is the information about the end user device. 
 
 Claim value: **`tag:sixdots.be,2017-05:claim_device`**
 
 A JSON object with the following keys: (only keys with cardinality [1…1] will be always available)
 
- - “os” [1…1]: the device operating system (supported values:
-   {ANDROID, IOS})   
-  -  “appName” [0…1]: the application name.   
-  -   “appRelease” [0…1]: the application current release.   
-  -   “deviceLabel” [0…1]: the name of the device.   
-  - “debugEnabled” [0…1]: if debug mode is activated.   
+- “os” [1…1]: the device operating system (supported values:
+{ANDROID, IOS})   
+-  “appName” [0…1]: the application name.   
+-   “appRelease” [0…1]: the application current release.   
+-   “deviceLabel” [0…1]: the name of the device.   
+- “debugEnabled” [0…1]: if debug mode is activated.   
   -  “deviceId” [1…1]: (regexp =“[a-f0-9]{33}”) the device identifier.   
   -  “osRelease” [0…1]: Version of the OS running on your Device.  
   -   “manufacturer” [0…1]: Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android).
@@ -683,11 +682,11 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MDk0MDI2NDQsLTE4MjUzODUyNDIsMT
-Y1MTg3MDEwNiwyMTExMTMzMTgwLC0xMjI2NDM5NDM5LC0yMzQ1
-NTUyODQsNTE2MjcwMzAsLTQyMTk3NzIsLTgwMTI3MzA1MiwxND
-MwMDUxMDUsMjExMzM4Nzc0MiwtMTY2NDk1NjEwNSwtMTM2MTcw
-MzU2MiwxNTY4NzUzNTA4LC0xNzY0NDA0OTQ0LDkxMzExNTg4My
-wtMTg3NTE4NjUxLDk1OTgzMDc3NSwtNjEwNDQyNzkzLDE3NTgw
-NjQzMF19
+eyJoaXN0b3J5IjpbLTI3MDcyNDc3MiwtMTgyNTM4NTI0MiwxNj
+UxODcwMTA2LDIxMTExMzMxODAsLTEyMjY0Mzk0MzksLTIzNDU1
+NTI4NCw1MTYyNzAzMCwtNDIxOTc3MiwtODAxMjczMDUyLDE0Mz
+AwNTEwNSwyMTEzMzg3NzQyLC0xNjY0OTU2MTA1LC0xMzYxNzAz
+NTYyLDE1Njg3NTM1MDgsLTE3NjQ0MDQ5NDQsOTEzMTE1ODgzLC
+0xODc1MTg2NTEsOTU5ODMwNzc1LC02MTA0NDI3OTMsMTc1ODA2
+NDMwXX0=
 -->
