@@ -416,22 +416,22 @@ Claim value: **`tag:sixdots.be,2017-05:claim_device`**
 A JSON object with the following keys: (only keys with cardinality [1…1] will be always available)
 
 - “os” [1…1]: the device operating system (supported values:
-{ANDROID, IOS})   
--  “appName” [0…1]: the application name.   
--   “appRelease” [0…1]: the application current release.   
--   “deviceLabel” [0…1]: the name of the device.   
+- {ANDROID, IOS})   
+- “appName” [0…1]: the application name.   
+- - “appRelease” [0…1]: the application current release.   
+- “deviceLabel” [0…1]: the name of the device.   
 - “debugEnabled” [0…1]: if debug mode is activated.   
-  -  “deviceId” [1…1]: (regexp =“[a-f0-9]{33}”) the device identifier.   
-  -  “osRelease” [0…1]: Version of the OS running on your Device.  
-  -   “manufacturer” [0…1]: Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android).
-    - “hasSimEnabled” [0…1]: Whether there is a SIM in the Device. Should
-   be always true, as long as BMID keeps forbidding installing itsme on
-   a tablet.   
-    -  “deviceLockLevel” [0…1]: The type of action to be
-   performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.   
+- “deviceId” [1…1]: (regexp =“[a-f0-9]{33}”) the device identifier.   
+- “osRelease” [0…1]: Version of the OS running on your Device.  
+- “manufacturer” [0…1]: Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android).
+- “hasSimEnabled” [0…1]: Whether there is a SIM in the Device. Should
+be always true, as long as BMID keeps forbidding installing itsme on
+a tablet.   
+-  “deviceLockLevel” [0…1]: The type of action to be
+performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.   
     - “smsEnabled” [0…1]: Can send SMS. On iOS, means it’s an iPhone.    
     -  “rooted” [0…1]: Coming from Gemalto. ‘true’ the device is
-   jailbreaked/rooted.   
+  jailbreaked/rooted.   
    - “imei” [0…1]: (regexp = “[0-9]{15,17}”) the
    device IMEI value.   
     -  “deviceModel” [0…1]: Model of the Device.  
@@ -682,11 +682,11 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI3MDcyNDc3MiwtMTgyNTM4NTI0MiwxNj
-UxODcwMTA2LDIxMTExMzMxODAsLTEyMjY0Mzk0MzksLTIzNDU1
-NTI4NCw1MTYyNzAzMCwtNDIxOTc3MiwtODAxMjczMDUyLDE0Mz
-AwNTEwNSwyMTEzMzg3NzQyLC0xNjY0OTU2MTA1LC0xMzYxNzAz
-NTYyLDE1Njg3NTM1MDgsLTE3NjQ0MDQ5NDQsOTEzMTE1ODgzLC
-0xODc1MTg2NTEsOTU5ODMwNzc1LC02MTA0NDI3OTMsMTc1ODA2
-NDMwXX0=
+eyJoaXN0b3J5IjpbLTEzNjg4NzQ1NTQsLTE4MjUzODUyNDIsMT
+Y1MTg3MDEwNiwyMTExMTMzMTgwLC0xMjI2NDM5NDM5LC0yMzQ1
+NTUyODQsNTE2MjcwMzAsLTQyMTk3NzIsLTgwMTI3MzA1MiwxND
+MwMDUxMDUsMjExMzM4Nzc0MiwtMTY2NDk1NjEwNSwtMTM2MTcw
+MzU2MiwxNTY4NzUzNTA4LC0xNzY0NDA0OTQ0LDkxMzExNTg4My
+wtMTg3NTE4NjUxLDk1OTgzMDc3NSwtNjEwNDQyNzkzLDE3NTgw
+NjQzMF19
 -->
