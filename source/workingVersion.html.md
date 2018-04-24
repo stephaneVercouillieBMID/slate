@@ -224,9 +224,8 @@ Parameter | Required | Comment
 
 #### 3.2.2.1. `client_assertion` 
 According to the `private_key_jwt` client authentication method, the **client assertion** JWT must contain the following properties:
-
- Property | Comment
- :-- | :--
+Property | Comment
+:-- | :--
  **iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID).
  **sub** | The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the on boarding file provided by BMID). 
  **aud** | Must be the token endpoint URL
@@ -236,20 +235,16 @@ According to the `private_key_jwt` client authentication method, the **client as
 ### 3.2.3. Token Response Specification
 The Token Response follow these specifications:
 
- Parameter | Provided | Comment
- -- | -- | :--
- **[`access_token`](#actoken)** | Always | Will be provided. 
- **[`token_type`](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)** | Always | Will be `Bearer`
+Parameter | Provided | Comment
+-- | -- | :--
+**[`access_token`](#actoken)** | Always | Will be provided. 
+**[`token_type`](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)** | Always | Will be `Bearer`
  **[`id_token`](#idtoken)** | Always | The id_token corresponding to the Authentication Request (signed and  encrypted). 
  **[`at_hash`](http://openid.net/specs/openid-connect-core-1_0.html#CodeIDToken)** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
  **[`refresh_token`](#rfshtoken)** | Never | Won't be provided as **itsme(r)** only maintains short-lived session to enforce re-authentication.
-
-
 ### 3.2.5. Token Response Example
 `{"user_info":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","birthdate":"1974-04-12","gender":"male","name":"Ada Gardner","iss":"tokenEndpointURL","given_name":"Ada","locale":"fr","family_name":"Gardner"},"id_token":{"access_token":"UVfXK3QzTRKyFiw3f1v85Yr4ko4o7uI1oJ8XNZeRcJE","id_token":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","acr":"tag:sixdots.be,2016-06:acr_basic","auth_time":1523626355,"iss":"tokenEndpointURL","exp":1523626660,"iat":1523626360,"nonce":"anonce"},"token_type":"Bearer","expire_in":163}}`
-
 ### 3.2.4. Token Error Response 
-
 As per <a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse" onclick="return ! window.open(this.href);">OIDC Specification Aggregated Response</a>
 # 4. User Data
 ## 4.1. What is a claim?
@@ -704,11 +699,11 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjg4NzI3ODI4LC0xODI1Mzg1MjQyLDE2NT
-E4NzAxMDYsMjExMTEzMzE4MCwtMTIyNjQzOTQzOSwtMjM0NTU1
-Mjg0LDUxNjI3MDMwLC00MjE5NzcyLC04MDEyNzMwNTIsMTQzMD
-A1MTA1LDIxMTMzODc3NDIsLTE2NjQ5NTYxMDUsLTEzNjE3MDM1
-NjIsMTU2ODc1MzUwOCwtMTc2NDQwNDk0NCw5MTMxMTU4ODMsLT
-E4NzUxODY1MSw5NTk4MzA3NzUsLTYxMDQ0Mjc5MywxNzU4MDY0
-MzBdfQ==
+eyJoaXN0b3J5IjpbLTE0MzA4NTgwMjgsLTE4MjUzODUyNDIsMT
+Y1MTg3MDEwNiwyMTExMTMzMTgwLC0xMjI2NDM5NDM5LC0yMzQ1
+NTUyODQsNTE2MjcwMzAsLTQyMTk3NzIsLTgwMTI3MzA1MiwxND
+MwMDUxMDUsMjExMzM4Nzc0MiwtMTY2NDk1NjEwNSwtMTM2MTcw
+MzU2MiwxNTY4NzUzNTA4LC0xNzY0NDA0OTQ0LDkxMzExNTg4My
+wtMTg3NTE4NjUxLDk1OTgzMDc3NSwtNjEwNDQyNzkzLDE3NTgw
+NjQzMF19
 -->
