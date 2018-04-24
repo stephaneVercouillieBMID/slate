@@ -159,7 +159,7 @@ As explained by OIDC [http://openid.net/specs/openid-connect-core-1_0.html#AuthE
  `invalid_request_object` | The request parameter contains an invalid Request Object.
  `request_uri_not_supported` | does not support use of the request_uri parameter.
  `registration_not_supported` | does not support use of the registration parameter.
-## <a name="tokenEndpoint"></a> 3.2. Token Endpoint
+ ## <a name="tokenEndpoint"></a> 3.2. Token Endpoint
 As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
 
 Possible token end-point URLs:  
@@ -348,9 +348,7 @@ nonce=anonce
 prompt=login
 max_age=1
 ```
- 
 ### 4.2.2 “claims” Parameter
-
 Some specific data cannot be requested by using scope values. They have to be requested in the claims as request parameter of the Authentication Request. Using this [method](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter) of requesting claims, you need to specify the endpoint you want the claims to come from. ( see example for different specifying endpoints [4.2.2.1. Set of Request Parameter Adapted to itsme(r)](#example-endpoint))
 
 **List of Supported Custom "claim" Values:**
@@ -411,8 +409,7 @@ birthdate|string|End-User's birthday, represented as an [ISO 8601:2004](https://
 locale|string|End-User's locale, represented as a [BCP47](https://openid.net/specs/openid-connect-core-1_0.html#RFC5646) [RFC5646] language tag. This is typically an [ISO 639-1 Alpha-2](https://openid.net/specs/openid-connect-core-1_0.html#ISO639-1) [ISO639‑1] language code in lowercase and an [ISO 3166-1 Alpha-2](https://openid.net/specs/openid-connect-core-1_0.html#ISO3166-1)[ISO3166‑1] country code in uppercase, separated by a dash. For example, en-US or fr-CA. As a compatibility note, some implementations have used an underscore as the separator rather than a dash, for example, en_US; Relying Parties MAY choose to accept this locale syntax as well.
 phone_number|string|  End-User's preferred telephone number.  [E.164](https://openid.net/specs/openid-connect-core-1_0.html#E.164)  [E.164] is RECOMMENDED as the format of this Claim.If the phone number contains an extension, it is RECOMMENDED that the extension be represented using the  [RFC 3966](https://openid.net/specs/openid-connect-core-1_0.html#RFC3966)  [RFC3966] extension syntax.
 phone_number_verified |boolean (**always true**)|True if the End-User's phone number has been verified; otherwise false. When this Claim Value is true, this means that the OP took affirmative steps to ensure that this phone number was controlled by the End-User at the time the verification was performed. The means by which a phone number is verified is context-specific, and dependent upon the trust framework or contractual agreements within which the parties are operating. When true, the phone_number Claim MUST be in E.164 format and any extensions MUST be represented in RFC 3966 format.
-address|JSON object|End-User's preferred postal address. The value of the address member is a JSON [[RFC4627]](https://openid.net/specs/openid-connect-core-1_0.html#RFC4627) structure containing some or all of the members defined in [Section 5.1.1](https://openid.net/specs/openid-connect-core-1_0.html#AddressClaim).
-#### 4.2.2.2. Example of a Valid “claims” Object 
+address|JSON object|End-User's preferred postal address. The value of the address member is a JSON [[RFC4627]](https://openid.net/specs/openid-connect-core-1_0.html#RFC4627) structure containing some or all of the members defined in [Section 5.1.1](https://openid.net/specs/openid-connect-core-1_0.html#AddressClaim).#### 4.2.2.2. Example of a Valid “claims” Object 
 Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_device`:
  
  ```json--inline
@@ -744,11 +741,11 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTgxNDg4ODAsMTY1MTg3MDEwNiwyMT
-ExMTMzMTgwLC0xMjI2NDM5NDM5LC0yMzQ1NTUyODQsNTE2Mjcw
-MzAsLTQyMTk3NzIsLTgwMTI3MzA1MiwxNDMwMDUxMDUsMjExMz
-M4Nzc0MiwtMTY2NDk1NjEwNSwtMTM2MTcwMzU2MiwxNTY4NzUz
-NTA4LC0xNzY0NDA0OTQ0LDkxMzExNTg4MywtMTg3NTE4NjUxLD
-k1OTgzMDc3NSwtNjEwNDQyNzkzLDE3NTgwNjQzMCwtNDI3NDAz
-OTc4XX0=
+eyJoaXN0b3J5IjpbNTg5MzM5NzE4LDE2NTE4NzAxMDYsMjExMT
+EzMzE4MCwtMTIyNjQzOTQzOSwtMjM0NTU1Mjg0LDUxNjI3MDMw
+LC00MjE5NzcyLC04MDEyNzMwNTIsMTQzMDA1MTA1LDIxMTMzOD
+c3NDIsLTE2NjQ5NTYxMDUsLTEzNjE3MDM1NjIsMTU2ODc1MzUw
+OCwtMTc2NDQwNDk0NCw5MTMxMTU4ODMsLTE4NzUxODY1MSw5NT
+k4MzA3NzUsLTYxMDQ0Mjc5MywxNzU4MDY0MzAsLTQyNzQwMzk3
+OF19
 -->
