@@ -628,9 +628,9 @@ The purpose is to use username and password together with a piece of information
 
 2FA in the course of itsme(r):
 You must provide at least two from this list :
-	- knowledge (something you know), Eg. password
-	- possession (something you have), Eg. mobile phone
-	- inherence (something you are). Eg. biometrics
+- knowledge (something you know), Eg. password
+- possession (something you have), Eg. mobile phone
+- inherence (something you are). Eg. biometrics
  
 - With standard login/password on web app: You only have to provide something you know (i.e. the password).
 - With itsme, web2app, you obviously have two factors: The itsme PIN and the mobile device.
@@ -659,7 +659,7 @@ For example, assuming that one SP would like to use login as an itsme(r) service
 >### I would like to receive a new service code to do my local development...
 So we would need a service code for the register operation with the following callback URL: http://localhost:23874/web2app/Identify/IdentificationCallBack  
  
- First, you need to  validate that you are able (and **authorized**) to keep the "xxx UAT JWKSet signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens.
+First, you need to  validate that you are able (and **authorized**) to keep the "xxx UAT JWKSet signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens.
 >**Why App2Back-end communication does not exist but a App2B2B connection does instead?**
 
 We are sending the user information not through an app but to a highly authenticated server (which implies to put in place necessary measure to protect the data confidentiality)  
@@ -679,11 +679,11 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAyMzk2NTU3NywtMTgyNTM4NTI0MiwxNj
-UxODcwMTA2LDIxMTExMzMxODAsLTEyMjY0Mzk0MzksLTIzNDU1
-NTI4NCw1MTYyNzAzMCwtNDIxOTc3MiwtODAxMjczMDUyLDE0Mz
-AwNTEwNSwyMTEzMzg3NzQyLC0xNjY0OTU2MTA1LC0xMzYxNzAz
-NTYyLDE1Njg3NTM1MDgsLTE3NjQ0MDQ5NDQsOTEzMTE1ODgzLC
-0xODc1MTg2NTEsOTU5ODMwNzc1LC02MTA0NDI3OTMsMTc1ODA2
-NDMwXX0=
+eyJoaXN0b3J5IjpbMzE0NjQ1ODY5LC0xODI1Mzg1MjQyLDE2NT
+E4NzAxMDYsMjExMTEzMzE4MCwtMTIyNjQzOTQzOSwtMjM0NTU1
+Mjg0LDUxNjI3MDMwLC00MjE5NzcyLC04MDEyNzMwNTIsMTQzMD
+A1MTA1LDIxMTMzODc3NDIsLTE2NjQ5NTYxMDUsLTEzNjE3MDM1
+NjIsMTU2ODc1MzUwOCwtMTc2NDQwNDk0NCw5MTMxMTU4ODMsLT
+E4NzUxODY1MSw5NTk4MzA3NzUsLTYxMDQ0Mjc5MywxNzU4MDY0
+MzBdfQ==
 -->
