@@ -680,13 +680,14 @@ MzI2NDY5LDI1OTg4ODMxMCwxNjcxMTQzNTY4LDE0NjczOTkzOT
 AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
->**When the end-user is redirected to itsme in the browser, then we specify a redirect_uri. We have to provide BMID the redirect uri’s. Can we give additional parameters? Or does the entire redirect_uri needs to match?”
+>**When the end-user is redirected to itsme in the browser, we specify a redirect_uri afterwards. We have to provide BMID the Redirect URIs. Can we give additional parameters? Or does the entire redirect_uri need to match?”**
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTQ1MzUwMDUsMzE0NjQ1ODY5LC0xOD
-I1Mzg1MjQyLDE2NTE4NzAxMDYsMjExMTEzMzE4MCwtMTIyNjQz
-OTQzOSwtMjM0NTU1Mjg0LDUxNjI3MDMwLC00MjE5NzcyLC04MD
-EyNzMwNTIsMTQzMDA1MTA1LDIxMTMzODc3NDIsLTE2NjQ5NTYx
-MDUsLTEzNjE3MDM1NjIsMTU2ODc1MzUwOCwtMTc2NDQwNDk0NC
-w5MTMxMTU4ODMsLTE4NzUxODY1MSw5NTk4MzA3NzUsLTYxMDQ0
-Mjc5M119
+eyJoaXN0b3J5IjpbMTY2ODY5OTk1NywzMTQ2NDU4NjksLTE4Mj
+UzODUyNDIsMTY1MTg3MDEwNiwyMTExMTMzMTgwLC0xMjI2NDM5
+NDM5LC0yMzQ1NTUyODQsNTE2MjcwMzAsLTQyMTk3NzIsLTgwMT
+I3MzA1MiwxNDMwMDUxMDUsMjExMzM4Nzc0MiwtMTY2NDk1NjEw
+NSwtMTM2MTcwMzU2MiwxNTY4NzUzNTA4LC0xNzY0NDA0OTQ0LD
+kxMzExNTg4MywtMTg3NTE4NjUxLDk1OTgzMDc3NSwtNjEwNDQy
+NzkzXX0=
 -->
