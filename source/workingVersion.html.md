@@ -555,14 +555,11 @@ If you declared  claims in the `id_Token` part of the `claims` parameter in the 
 To get further information about token types, token request/response specifications please proceed with [3.2 Token Endpoint](#tokenEndpoint).
 #### 4.3.2.2 Example of Id Token Containing “claims”
 *Will be provided soon*
- # 5. Advanced topics
- 
+# 5. Advanced topics
 ## 5.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs
+ As per specified by OIDC [here](https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests), Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.
  
-As per specified by OIDC [here](https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests), Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.
- 
-The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains at least the following properties:
- 
+ The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains at least the following properties:
 Property | Required | Comment
 -- | -- | :--:
 **iss** | Required | Specifies the issuing authority. Issuer of the id_tokenIssuer. Must be the `client_id`
@@ -595,35 +592,34 @@ Property | Required | Comment
  }
  ```
  
- ## 5.2. Requests Signing and Encryption 
- 
+## 5.2. Requests Signing and Encryption 
  Encryption algorithm used: RSA SHA-256
  
- Supported algorithms and encryption methods for:
- 
+Supported algorithms and encryption methods for:
  - ID Token
- -- Encryption Method (enc): A128CBC-HS256
- -- Encryption Algorithm (alg): RSA-OAEP
- -- Signing Algorithm (alg): RS256
- - User Info
- -- Encryption Method (enc): A128CBC-HS256
- -- Encryption Algorithm (alg): RSA-OAEP
- -- Signing Algorithm (alg):  RS256
- - Request Object
- -- Encryption Method (enc): A128CBC-HS256
- -- Encryption Algorithm (alg): RSA-OAEP
- -- Signing Algorithm (alg): RS256
+-- Encryption Method (enc): A128CBC-HS256
+-- Encryption Algorithm (alg): RSA-OAEP
+-- Signing Algorithm (alg): RS256
+- User Info
+-- Encryption Method (enc): A128CBC-HS256
+-- Encryption Algorithm (alg): RSA-OAEP
+-- Signing Algorithm (alg):  RS256
+- Request Object
+-- Encryption Method (enc): A128CBC-HS256
+-- Encryption Algorithm (alg): RSA-OAEP
+-- Signing Algorithm (alg): RS256
  
- Offline access is not supported. 
+Offline access is not supported. 
  
- Dynamic client registration is not allowed.
+Dynamic client registration is not allowed.
  
- itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet) 
- 
-     https://merchant.itsme.be/oidc/jwkSet
+itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet) 
+https://merchant.itsme.be/oidc/jwkSet
  
 It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
- ># 6. **FAQ**
+ 
+ > #
+ > 6. **FAQ**
  >**How to use itsme-UAT through Hockey-app on IOS ( TODO only IOS?) properly? (without having"Non-trusted company app developer" message)**
 
 To be able to use itsme on Hockey App, you need to :  
@@ -726,7 +722,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcxODg5MzE4NiwxNjUxODcwMTA2LDIxMT
+eyJoaXN0b3J5IjpbMTM2NTkwMjcwNiwxNjUxODcwMTA2LDIxMT
 ExMzMxODAsLTEyMjY0Mzk0MzksLTIzNDU1NTI4NCw1MTYyNzAz
 MCwtNDIxOTc3MiwtODAxMjczMDUyLDE0MzAwNTEwNSwyMTEzMz
 g3NzQyLC0xNjY0OTU2MTA1LC0xMzYxNzAzNTYyLDE1Njg3NTM1
