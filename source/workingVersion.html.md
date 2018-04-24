@@ -260,7 +260,7 @@ Three representations of Claim Values are defined officially:
 - Normal Claims
 - Aggregated Claims (not supported)
 - Distributed Claims (not supported)
- We do not support Aggregated and Distributed Claims due to all the data we expose come from our own database.
+We do not support Aggregated and Distributed Claims due to all the data we expose come from our own database.
 #### 4.1.1.1. Normal Claims
 Claims that are directly asserted by the OpenID Provider.
 Normal Claims are represented as members in a JSON object. The Claim Name is the member name and the Claim Value is the member value.
@@ -281,8 +281,8 @@ In current version and in contradiction to the OpenID Connect specification, **i
 In practice, it means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims. You should thus already request claims according to your business case. 
 ## <a name id="decClaim"></a> 4.2. Declaring Claims
 You can declare Claims in two ways:
- - With 'scope' values
- - With 'claims' parameter
+- With 'scope' values
+- With 'claims' parameter
 
 In each case, the claims need to be declared in the Authorization Request.
 ### <a name id="scope"></a>4.2.2. Scope
@@ -298,12 +298,12 @@ Using this method, you will always receive Claims from the UserInfo Endpoint.
 <aside class="success">Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>
 
 The following scope values are supported and allow access to predefined sets of Identity Data:
-| Scope Value | Associated Claims|
+|Scope Value | Associated Claims|
 |--|:--|
-| profile | given_name, family_name, gender, birthdate,  locale|
+|profile | given_name, family_name, gender, birthdate,  locale|
 email|email, email_verified|
 phone| phone_number, phone_number_verified| 
- address|address, with subfields,<br>street_address (newline separator \n)<br> locality <br> postal_code <br> country
+address|address, with subfields,<br>street_address (newline separator \n)<br> locality <br> postal_code <br> country
 <aside class="success">Is it normal that the scope "eid" is not mentioned in the supported scopes?
 The “eid” scope was introduced exclusively for FAS (BOSSA). </aside>
 
@@ -353,7 +353,7 @@ E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
 NRN | not supported|
 <aside class="success"> Taking into account you allowed to receive the NRN from us, we can't and get access to NRN and block the access to the eID group</aside> TODO 
  
- #### <b id="example-endpoint"></b> 4.2.2.1. Set of Request Parameter Adapted to itsme(r)
+#### <b id="example-endpoint"></b> 4.2.2.1. Set of Request Parameter Adapted to itsme(r)
 ```json--inline
  {
     "userinfo":
@@ -394,8 +394,7 @@ phone_number_verified |boolean (**always true**)|True if the End-User's phone nu
 address|JSON object|End-User's preferred postal address. The value of the address member is a JSON [[RFC4627]](https://openid.net/specs/openid-connect-core-1_0.html#RFC4627) structure containing some or all of the members defined in [Section 5.1.1](https://openid.net/specs/openid-connect-core-1_0.html#AddressClaim).
 #### 4.2.2.2. Example of a Valid “claims” Object 
 Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_device`:
- 
- ```json--inline
+```json--inline
  {  
  	"os": "ANDROID",  
  	"appName": "itsme app", "appRelease": "1.17.13",
@@ -689,7 +688,7 @@ MDE3NTU1NDQzXX0=
 The entire redirect_uri must match therefore no additional parameter is allowed.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzODY4MjcyNDksNjg1MTY4MDIsMzE0Nj
+eyJoaXN0b3J5IjpbLTEzNDQ4MzAwMDMsNjg1MTY4MDIsMzE0Nj
 Q1ODY5LC0xODI1Mzg1MjQyLDE2NTE4NzAxMDYsMjExMTEzMzE4
 MCwtMTIyNjQzOTQzOSwtMjM0NTU1Mjg0LDUxNjI3MDMwLC00Mj
 E5NzcyLC04MDEyNzMwNTIsMTQzMDA1MTA1LDIxMTMzODc3NDIs
