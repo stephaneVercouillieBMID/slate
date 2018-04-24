@@ -201,7 +201,7 @@
       <script src="javascripts/all_nosearch.js"></script>
   </head>
 
-  <body class="index" data-languages="[]">
+  <body class="workingVersion" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -229,7 +229,10 @@
             <a href="#6-faq" class="toc-h1 toc-link" data-title="6-strong-faq-strong">6. <strong>FAQ</strong></a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#jwkset" class="toc-h2 toc-link" data-title="a-name-jwks-a-jwkset"><a name="jwks"></a> JWKSet</a>
+                    <a href="#service-code-concept-what-is-it" class="toc-h2 toc-link" data-title="a-name-id-servicecode-a-a-href-servicecode-service-code-concept-a-what-is-it"><a name id="ServiceCode"></a><a href="#ServiceCode">Service Code Concept</a>,   What is it?</a>
+                  </li>
+                  <li>
+                    <a href="#i-would-like-to-receive-a-new-service-code-to-do-my-local-development" class="toc-h2 toc-link" data-title="i-would-like-to-receive-a-new-service-code-to-do-my-local-development">I would like to receive a new service code to do my local development...</a>
                   </li>
               </ul>
           </li>
@@ -287,32 +290,52 @@
  - Information to customize the user consent screen
  - Redirect URIs associated to your instances of itsme(r) services (to which the user will be redirected after the autentication)
  - JWKset URL, and associated SSL/TLS certificate
- You can consult <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">our B2B portal</a> for more information about this step.</p>
+  You can consult <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">our B2B portal</a> for more information about this step.</p>
 
-<p><aside class="success">
+<aside class="success"> What is the use of our Certificate? Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
+For testing, you could use a self signed certificate like that you could define validity period.</aside>
+
+ <aside class="success">Should I warn BMID if the certificate is changed?Yes, we need to be aware on time</aside>
+
+<aside class="success"> Can a same service point to separate SSL Certificates?
+
+Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.</aside>
+ 
+ <aside class="success"> Can I use a self signed certificate for my integration? In Sandbox, yes but not for production where we need the certificate & its intermediate chain.</aside>
+<aside class="success"> What should I do once I changed my JWKSet URL? You must notify Support and create a new certificate accordingly.</aside>
+
+ <aside class="success">
  Once your Sandbox is created, you will receive:
   <ul> 
     <li>Your Partner Code, which corresponds to the OpenID <b>client_id</b> </li>
     <li>Your Service Codes, which are the identifiers of your instances of itsme(r) services. </li>
   </ul>
- </aside></p>
+ </aside>
 
-<p>Please consult <a name="ServiceCode"></a><a href="#ServiceCode">Service Code Concept</a> for more information about the notion of Service Code. 
+ Please consult <a name="ServiceCode"></a>[Service Code Concept](#ServiceCode) for more information about the notion of Service Code. 
+<aside class="success">What are the consequences of a changing label in sandbox environment?</aside>All pending approval/login will result in a "Wrong PIN".
+
  ## 2.2. Integration of itsme® services
  Once your Sandbox has been created, you can start working on the integration itself. All the information needed to do so is the object of this document.
  ### 2.2.1. itsme® OpenID Configuration
- The OpenID Connect protocol requires the use of multiple endpoints for authenticating users, and for requesting resources including tokens, user information and public keys.</p>
-
-<p>To simplify implementations and increase flexibility, OpenID Connect allows the use of a &quot;Discovery document&quot;, a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider&#39;s configuration including, 
+ The OpenID Connect protocol requires the use of multiple endpoints for authenticating users, and for requesting resources including tokens, user information and public keys.
+ 
+ To simplify implementations and increase flexibility, OpenID Connect allows the use of a "Discovery document", a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider's configuration including, 
 - URIs of the authorization, 
 - token, 
 - userinfo, 
 - supported claims 
--  <a href="#jwks">JWKSet</a> to interact with it. </p>
+-  [JWKSet](#jwks) to interact with it. 
+ 
+ <aside class="success">The Discovery document for itsme® service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside>
+ 
+ Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
-<p><aside class="success">The Discovery document for itsme® service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside></p>
+<aside class="success"> Can we re-use the same service for another environment?
+No, We will create new services for the OIDC.
+</aside>
 
-<p>Field  names and meanings in this document are defined in <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery 1.0</a>.</p>
+<aside class="success">We want to integrate itsme(r) but we only have 1 development machine & so no unique IP for the back-end in test due to it isn't unique & runs in local on each machine. </aside>
 
 <p># 3. Authenticating the User</p>
 
@@ -411,16 +434,16 @@
 <td style="text-align: left">Specifies the allowable elapsed time in seconds since the last time the End-User was actively authenticated by the OP. If the elapsed time is greater than this value, the OP MUST attempt to actively re-authenticate the End-User. BMID does not maintain a session mechanism on purpose, an active authentication is thus always required.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>acr_values</strong></td>
+<td style="text-align: left"><a name id="acrvalues"><strong>acr_values</strong></a></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">OPTIONAL and supported, though NOT RECOMMENDED. Possible values are <code>tag:itsmetag:sixdots.be,2016-06:acr_basic</code>, <code>tag:itsmetag:sixdots.be,2016-06:acr_advanced</code>. When multiple values are provided only the most constraining will be used (advanced &gt; basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the <code>acr_values</code> is requested as a voluntarily claim, the <code>acr</code> value returned will always be the more constraining method in the <code>acr_values</code> list, or the authentication will fail. Usage of <code>acr</code> parameter in the <code>request</code> object is recommended over this parameter as it will be signed in the JWT token.</td>
-<td style="text-align: left">These values are used to specify the level of authentication the RP requires from the OP. BMID imposes more strict security rules on advanced level as for basic.</td>
+<td style="text-align: left">OPTIONAL and supported, though NOT RECOMMENDED. Two values are supported <code>tag:itsmetag:sixdots.be,2016-06:acr_basic</code>: Basic level will let the User to choose either fingerprint usage(if Device is compatible) or PIN, <code>tag:itsmetag:sixdots.be,2016-06:acr_advanced</code>: Advanced level will force the User to use PIN. <em>When multiple values are provided only the most constraining will be used (advanced &gt; basic). If not provided basic level will be used.</em></td>
+<td style="text-align: left">As there is no such idea of an existing session on itsme(r) Core, even if the <code>acr_values</code> is requested as a voluntarily claim, the <code>acr</code> value returned will always be the more constraining method in the <code>acr_values</code> list, or the authentication will fail. Usage of <code>acr</code> parameter in the <code>request</code> object is recommended over this parameter as it will be signed in the JWT token.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>claims</strong></td>
 <td style="text-align: left">Optional</td>
 <td style="text-align: left">NOT RECOMMENDED. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted</td>
-<td style="text-align: left">MAY include claims for end user data</td>
+<td style="text-align: left">MAY include claims for end user data.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>request</strong></td>
@@ -463,7 +486,11 @@
 <p>An Authentication Response is an <a href="https://tools.ietf.org/html/rfc6749#section-4.1.2">OAuth 2.0 Authorization Response</a> message. </p>
 
 <p>The itsme Back-End provides an Authorization Code to the Service Provider Back-End. In the Response, the Service Provider Back-End knows that the User was successfully authenticated.</p>
-
+<pre class="highlight http tab-http--inline"><code><span class="err"> </span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
+<span class="s"> Location: https://client.example.org/cb?</span>
+<span class="s"> code=SplxlOBeZQQYbYS6WxSbIA&amp;</span>
+<span class="s"> state=af0ifjsldkj</span>
+</code></pre>
 <p>As such, the Authentication Response will return the following parameters:</p>
 
 <table><thead>
@@ -484,11 +511,7 @@
 <td style="text-align: left">The exact value received from the client, if the parameter was present in the Authentication Request.</td>
 </tr>
 </tbody></table>
-<h3 id='3-1-3-authentication-response-example'>3.1.3. Authentication Response Example</h3><pre class="highlight http tab-http--inline"><code><span class="err"> </span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
-<span class="s"> Location: https://client.example.org/cb?</span>
-<span class="s"> code=SplxlOBeZQQYbYS6WxSbIA&amp;</span>
-<span class="s"> state=af0ifjsldkj</span>
-</code></pre><h3 id='3-1-4-authentication-errors'>3.1.4. Authentication Errors</h3>
+<h3 id='3-1-3-authentication-errors'>3.1.3. Authentication Errors</h3>
 <p>As explained by OIDC <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthError">http://openid.net/specs/openid-connect-core-1_0.html#AuthError</a>, if the authentication is NOT successful, the following errors can be triggered by itsme®:</p>
 
 <table><thead>
@@ -548,10 +571,24 @@
 <h3 id='3-2-2-token-request-specification'>3.2.2. Token Request Specification</h3>
 <p>As per the <a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest">OIDC specification</a>, with a private_key_jwt for client authentication.</p>
 
-<p>The Authentication Response includes a <code>code</code> parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS <code>POST</code>request. The <code>POST</code> request is sent to the token endpoint, which you should retrieve from the <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">Discovery document</a> using the <strong>token_endpoint</strong> key. The following discussion assumes the endpoint is <code>https://merchant.itsme.be/oidc/token</code>. Please note that BMID only supports <code>private_key_jwt</code> as client authentication method. The <code>client_secret</code> authentication methods are not supported since they are considered less secure.</p>
+<p>The Authentication Response includes a <code>code</code> parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS <code>POST</code>request. The <code>POST</code> request is sent to the token endpoint, which you should retrieve from the <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">Discovery document</a> using the <strong>token_endpoint</strong> key. The following discussion assumes the endpoint is <code>https://merchant.itsme.be/oidc/token</code>. </p>
+
+<aside class="success">Which information must be present to contact Token Endpoint?
+- Request MUST be a POST, not a GET
+-  In header the Content-Type : application/x-www-form-urlencoded  MUST be added</aside>
+
+<aside class="success">Do you need an App Client Secret on the OpenID client?
+OpenID allows multiple ways for authentication as a Service Provider. BMID only supports `private_key_jwt` as client authentication method with all the SSL requirements exposed via JWKSet, use the corresponding private key to encrypt/sign and decrypt/validate exchanged information. So other authentication methods such as `client_secret`(Open ID Connect default method but the less secured one are not supported since they are considered less secure. </aside>
 
 <p>In order to communicate with Token Endpoint, TLS MUST be implemented. See  <a href="http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements">Section 16.17</a>  for more information on using TLS.</p>
-
+<pre class="highlight http tab-http--inline"><code><span class="err">GET /oidc/authorization?response_type=code
+&amp;client_id=yourpartnercode
+&amp;yourredirecturl
+&amp;scope=openid+service%3Ayourservicecode+profile+
+&amp;claims={"userinfo":{" tag:sixdots.be,2016-06:claim_nationality": null},
+"id_token":{"auth_time": {"essential": true},"acr_values":{"value":["tag:sixdots.be,2016-06:acr_advanced"]
+}}}&amp;state=anystate&amp;nonce=anonce&amp;prompt=login&amp;max_age=1
+</span></code></pre>
 <p>The Token Request must include the following parameters in the POST body:</p>
 
 <table><thead>
@@ -617,14 +654,7 @@
 <td style="text-align: left">Expiration time on or after which the ID Token MUST NOT be accepted for processing.</td>
 </tr>
 </tbody></table>
-<h3 id='3-2-3-token-request-example'>3.2.3. Token Request Example</h3><pre class="highlight http tab-http--inline"><code><span class="err">GET /oidc/authorization?response_type=code
-&amp;client_id=yourpartnercode
-&amp;yourredirecturl
-&amp;scope=openid+service%3Ayourservicecode+profile+
-&amp;claims={"userinfo":{" tag:sixdots.be,2016-06:claim_nationality": null},
-"id_token":{"auth_time": {"essential": true},"acr_values":{"value":["tag:sixdots.be,2016-06:acr_advanced"]
-}}}&amp;state=anystate&amp;nonce=anonce&amp;prompt=login&amp;max_age=1
-</span></code></pre><h3 id='3-2-4-token-response-specification'>3.2.4. Token Response Specification</h3>
+<h3 id='3-2-3-token-response-specification'>3.2.3. Token Response Specification</h3>
 <p>The Token Response follow these specifications:</p>
 
 <table><thead>
@@ -662,7 +692,7 @@
 </tbody></table>
 <h3 id='3-2-5-token-response-example'>3.2.5. Token Response Example</h3>
 <p><code>{&quot;user_info&quot;:{&quot;sub&quot;:&quot;qn2b631umr23bpou8rfzbtu79b5q5phxcml8&quot;,&quot;aud&quot;:&quot;OIDC_TEST1&quot;,&quot;birthdate&quot;:&quot;1974-04-12&quot;,&quot;gender&quot;:&quot;male&quot;,&quot;name&quot;:&quot;Ada Gardner&quot;,&quot;iss&quot;:&quot;tokenEndpointURL&quot;,&quot;given_name&quot;:&quot;Ada&quot;,&quot;locale&quot;:&quot;fr&quot;,&quot;family_name&quot;:&quot;Gardner&quot;},&quot;id_token&quot;:{&quot;access_token&quot;:&quot;UVfXK3QzTRKyFiw3f1v85Yr4ko4o7uI1oJ8XNZeRcJE&quot;,&quot;id_token&quot;:{&quot;sub&quot;:&quot;qn2b631umr23bpou8rfzbtu79b5q5phxcml8&quot;,&quot;aud&quot;:&quot;OIDC_TEST1&quot;,&quot;acr&quot;:&quot;tag:sixdots.be,2016-06:acr_basic&quot;,&quot;auth_time&quot;:1523626355,&quot;iss&quot;:&quot;tokenEndpointURL&quot;,&quot;exp&quot;:1523626660,&quot;iat&quot;:1523626360,&quot;nonce&quot;:&quot;anonce&quot;},&quot;token_type&quot;:&quot;Bearer&quot;,&quot;expire_in&quot;:163}}</code></p>
-<h3 id='3-2-6-token-error-response'>3.2.6. Token Error Response</h3>
+<h3 id='3-2-4-token-error-response'>3.2.4. Token Error Response</h3>
 <p>As per <a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse" onclick="return ! window.open(this.href);">OIDC Specification Aggregated Response</a></p>
 <h1 id='4-user-data'>4. User Data</h1><h2 id='4-1-what-is-a-claim'>4.1. What is a claim?</h2>
 <p>The concept of claim is about declaring something you expect as return from the OP. When it comes to end user data, you have to use claims in order to declare the end user data you will need for your business before the authentication. This is a privacy-oriented way of getting data.
@@ -713,7 +743,7 @@ Claims that are directly asserted by the OpenID Provider.</p>
 
 <!-- (always User Info Endpoint)-->
 <h4 id='4-2-1-1-list-of-supported-scope-values'>4.2.1.1 List of Supported Scope Values</h4>
-<p><strong>Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside></strong></p>
+<p><aside class="success">Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside></p>
 
 <p>The following scope values are supported and allow access to predefined sets of Identity Data:</p>
 
@@ -740,6 +770,9 @@ Claims that are directly asserted by the OpenID Provider.</p>
 <td style="text-align: left">address, with subfields,<br>street_address (newline separator \n)<br> locality <br> postal_code <br> country</td>
 </tr>
 </tbody></table>
+
+<p><aside class="success">Is it normal that the scope &quot;eid&quot; is not mentioned in the supported scopes?
+The “eid” scope was introduced exclusively for FAS (BOSSA). </aside></p>
 <h4 id='4-2-1-2-example-of-an-authorization-request-using-quot-scope-quot-values'>4.2.1.2 Example of an Authorization Request using &quot;scope&quot; values</h4>
 <p>URL:
 <code>http--inline
@@ -830,6 +863,8 @@ max_age=1
 <td style="text-align: center"></td>
 </tr>
 </tbody></table>
+
+<p><aside class="success"> Taking into account you allowed to receive the NRN from us, we can&#39;t and get access to NRN and block the access to the eID group</aside> TODO </p>
 <h4 id='4-2-2-1-set-of-request-parameter-adapted-to-itsme-r'><b id="example-endpoint"></b> 4.2.2.1. Set of Request Parameter Adapted to itsme(r)</h4><pre class="highlight json tab-json--inline"><code><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"userinfo"</span><span class="p">:</span><span class="w">
      </span><span class="p">{</span><span class="w">
@@ -993,11 +1028,17 @@ e.g. SAMSUNG GALAXY A5<br></li>
 <h5 id='4-2-2-4-1-example-of-the-usage-of-transaction-info-claim-value'><a name id="transactionInfoExample"></a>4.2.2.4.1. Example of The Usage of Transaction Info Claim Value</h5>
 <p><code>{ &quot;securityLevel&quot;: &quot;SIM\\\_AND\\\_SOFT&quot;, &quot;bindLevel&quot;: &quot;SIM\\\_AND\\\_SOFT&quot;, &quot;mcc&quot;: 206 }</code></p>
 <h2 id='4-3-getting-data'>4.3. Getting Data</h2>
-<p>As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest(http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)</p>
+<p>As per the <a href="http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest">OpenID Connect specification</a>,</p>
 
 <p>Depending on how you declared claims in the Authentication Request, you will receive the user data from
 - The UserInfo Endpoint
 - The Token Endpoint, in the ID Token</p>
+
+<aside class="success">Should there be 2 calls to itsme(r) for this schedule, one for Token Request & one for UserInfo Request?   
+Indeed, You need to perform two Back-End to Back-End calls:  
+- The Token Request  
+- The UserInfo Request  
+On top of this, the Authorization Request (AuthN Request in the schedule) consists of an HTTP redirection to the OpenID webpage of BMID. The content of this HTTP request is to be crafted by your system, it is actually a third call from your side to BMID, this one being Front-End to Back-End.</aside>
 <h3 id='4-3-1-userinfo-endpoint'>4.3.1. UserInfo Endpoint</h3>
 <p>As per the <a href="http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest">OpenID Connect specification</a>, </p>
 
@@ -1016,37 +1057,26 @@ The Access Token will define the list of Data that will be provided back to the 
 
 <p>The Client sends the UserInfo Request using either HTTP  GET  or HTTP  POST. The Access Token obtained from an OpenID Connect Authentication Request MUST be sent as a Bearer Token, per Section 2 of  <a href="http://openid.net/specs/openid-connect-core-1_0.html#RFC6750">OAuth 2.0 Bearer Token Usage</a>  [RFC6750].</p>
 
-<p>It is RECOMMENDED that the request use the HTTP  GET  method and the Access Token be sent using the  Authorization  header field.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th style="text-align: left">Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>acr</td>
-<td style="text-align: left">Possible values: <br><code>tag:sixdots.be,2016-06:acr_basic</code><br><code>tag:sixdots.be,2016-06:acr_advanced</code></td>
-</tr>
-<tr>
-<td>amr</td>
-<td style="text-align: left">Won’t be provided</td>
-</tr>
-<tr>
-<td>azp</td>
-<td style="text-align: left">Won’t be provided</td>
-</tr>
-<tr>
-<td>auth_time</td>
-<td style="text-align: left">Will always be provided</td>
-</tr>
-</tbody></table>
-<h4 id='4-3-1-2-user-info-request-example'>4.3.1.2. User info Request Example</h4><pre class="highlight http tab-http--inline"><code><span class="err">GET /userinfo HTTP/1.1 
+<p>It is RECOMMENDED that the request use the HTTP  GET  method and the Access Token be sent using the  Authorization  header field.
+<code>http--inline
+GET /userinfo HTTP/1.1 
 Host: server.example.com 
 Authorization: Bearer SlAV32hkKG
-</span></code></pre><h4 id='4-3-1-3-user-info-response-specification'>4.3.1.3. User info Response Specification</h4>
+</code> 
+| Parameter  | Comment  |
+|--|:--|
+| acr | Possible values: <br><code>tag:sixdots.be,2016-06:acr_basic</code><br><code>tag:sixdots.be,2016-06:acr_advanced</code> |
+| amr |Won’t be provided  |
+| azp| Won’t be provided |
+|auth_time | Will always be provided</p>
+<h4 id='4-3-1-2-user-info-response-specification'>4.3.1.2. User info Response Specification</h4>
 <p>The content type of the response will be <code>application/jwt</code>. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed. The itsme Back-End replies with the Identity Data that were requested in the Authorization Request.</p>
-<h4 id='4-3-1-4-user-info-response-example'>4.3.1.4. User info Response Example</h4>
+
+<p><aside class="success">What is the lay-out of the Identity Data that we get back in the Userinfo Response? They are the same as on the eID card </aside></p>
+
+<p><aside class="success">What format does the certificate need to be?
+It needs to be in ZIP file, X509 format (cer or crt). Pem file is not supported.  </aside></p>
+<h4 id='4-3-1-3-user-info-response-example'>4.3.1.3. User info Response Example</h4>
 <p>(Not encrypted nor signed)</p>
 <pre class="highlight http tab-http--inline"><code><span class="err"> </span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="s"> Content-Type: application/json</span>
@@ -1056,7 +1086,7 @@ Authorization: Bearer SlAV32hkKG
     "name": "Jane Doe",
     "email": "janedoe@example.com"
  }
-</code></pre><h4 id='4-3-1-5-user-info-errors'>4.3.1.5. User info Errors</h4>
+</code></pre><h4 id='4-3-1-4-user-info-errors'>4.3.1.4. User info Errors</h4>
 <p>When an error condition occurs, the UserInfo Endpoint returns an Error Response as defined in Section 3 of  <a href="https://tools.ietf.org/html/rfc6750">OAuth 2.0 Bearer Token Usage RFC6750</a>   (HTTP errors unrelated to RFC 6750 are returned to the User Agent using the appropriate HTTP status code.)</p>
 
 <p>The following is a non-normative example of a UserInfo Error Response:
@@ -1158,122 +1188,89 @@ Authorization: Bearer SlAV32hkKG
 <p>It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.</p>
 
 <blockquote>
-<h1 id='6-faq'>6. <strong>FAQ</strong></h1><h2 id='jwkset'><a name="jwks"></a> JWKSet</h2><h3 id='what-is-a-jwkset'>What is a JWKSet?</h3>
-<p>We require you to expose a set of public key (a signature key &amp; one encryption key) to setup the connectivity.</p>
+<h1 id='6-faq'>6. <strong>FAQ</strong></h1>
+<p><strong>How to use itsme-UAT through Hockey-app on IOS ( TODO only IOS?) properly? (without having&quot;Non-trusted company app developer&quot; message)</strong></p>
 </blockquote>
 
-<p>For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there).</p>
+<p>To be able to use itsme on Hockey App, you need to :  </p>
 
-<p>The signature key is used to verify the Service provider when they come fetch data on a client.</p>
-
-<p>The encryption key is used to encrypt data so that nobody can read the data which we are transfering apart from the service provider component who has the right to access these data (so that you can encode/reencode the https in intern in a less secured component; it stays encrypted).</p>
-
-<p>If the question is ONLY related to OpenID Connect (OIDC) aspects,</p>
+<p>Select : “Annuleer”<br>
+Go to your settings<br>
+Select : General<br>
+Select : Profiles &amp; Device Management<br>
+Select : Belgian Mobile ID NV<br>
+Select : Trust</p>
 
 <blockquote>
-<p><em>“For signature and encryption, does BMID accept either RP self-signed certificates or certificates signed by an internal PKI (in which case we need to provide also our internal CA certificate)?”</em></p>
+<p><strong>Can I have my own itsme app (production) together with the itsme UAT app?</strong>
+Currently, you can only have 1 itsme app on your device at one moment in time independently of Production, UAT or E2E.</p>
 
-<p><em>The RP (the partner) provides his public key used for encryption and the other one used for signature of OIDC JWT (= JSON Web Tokens), using a JSON file called “JWKSet”. (sample JWKSet for Itsme OpenID Provider)</em></p>
+<p><strong>Has itsme app in Prod &amp; UAT different URL-scheme&#39;s?</strong></p>
+</blockquote>
+
+<p>On iOS:<br>
+- for enrollment, it&#39;s always &quot;be.bmid.itsme://&quot; &quot;<br>
+- for app to app actions, it&#39;s based on universal links and these are different for each environment depicted in the following table: </p>
+
+<table><thead>
+<tr>
+<th>Environment</th>
+<th>URL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>UAT</td>
+<td>https://uatmobileapp.sixdots.be/mobile/processAction<br>https://uatmobileapp.sixdots.be/mobile/authorize</td>
+</tr>
+<tr>
+<td>E2E</td>
+<td>https://e2emobileapp.sixdots.be/mobile/processAction<br> https://e2emobileapp.sixdots.be/mobile/authorize</td>
+</tr>
+<tr>
+<td>PRD</td>
+<td>https://mobileapp.sixdots.be/mobile/processAction  https://mobileapp.sixdots.be/mobile/authorize</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>How can I set the level of security at the level of the App (5 digit code only without fingerprint or facial recognition  eg.)</strong>?
+You can configure this option through the parameter “<strong>acr_values</strong>”, documented in   <a href="#acrvalues">this</a> section. </p>
+
+<p><strong>What is Two Factor Authentication?</strong></p>
+</blockquote>
+
+<p>Two Factor Authentication, also known as 2FA, two step verification or TFA (as an acronym), is an extra layer of security that is known as &quot;multi factor authentication&quot; that requires not only a password and username but also something that only that user has on them, i.e. a piece of information only they should know or have immediately to hand - such as a physical token.</p>
+
+<p>The purpose is to use username and password together with a piece of information that only the user knows make it harder for potential intruders to gain access and steal that person&#39;s personal data or identity.</p>
+
+<p>2FA in the course of itsme(r):
+You must provide at least two from this list :
+    - knowledge (something you know), Eg. password
+    - possession (something you have), Eg. mobile phone
+    - inherence (something you are). Eg. biometrics</p>
 
 <ul>
-<li>This JWKSet is accessible, using a secured HTTPS URL.
-(sample HTTPS URL for OpenID Provider https://merchant.itsme.be/oidc/jwkSet)</li>
-</ul>
-</blockquote>
-
-<ul>
-<li>This HTTPS URL must be communicated to us, during the partner on-boarding.<br></li>
-<li>This HTTPS URL must be protected using a valid certificates chain starting from a Root CA trusted by our backend.
-&gt;
-During on-boarding, we can check that we have all the required certificates to establish the trust.<br>
-So, on the HTTPS protocol level, the connections must be secured using trusted Root CA (not self-signed).
-In contrary, the key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.</li>
+<li>With standard login/password on web app: You only have to provide something you know (i.e. the password).</li>
+<li>With itsme, web2app, you obviously have two factors: The itsme PIN and the mobile device.</li>
+<li>With app2app: It is still the same, as the two apps need to be running on the same smartphone. Therefore, the attacker needs the device to initiate any malicious transaction. So there are still two factors : you must possess the mobile AND you must be acknowledged of the PIN.</li>
 </ul>
 
-<blockquote>
-<h3 id='how-to-create-jwkset'>How to create JWKSet?</h3></blockquote>
+<p>//TODO
+Aside of that there&#39;s:
+With Rogue Apps, an attacker can attempt to intercept Codes, PIN, transaction details and (try to …) replay them: No need to “Possess” the Compromised Device, and attacker will in time obtain “Knowledge” of the PIN, compromising the 2 factors required. In theory this remains possible.</p>
 
-<p>The following JSON Web Key Generator can be used to create JWKSet
-  <code>
- https://mkjwk.org/ 
-</code>
- Another resource you could use to generate your JWKSet is: 
-  <code>
- https://connect2id.com/products/nimbus-jose-jwt/examples/jwk-generation
-</code>
- Another option (using python) is available at:
-  <code>
- https://stackoverflow.com/questions/42504079/how-do-you-extract-n-and-e-from-a-rsa-public-key-in-python
-</code> </p>
+<p>So far for theory: We acknowledge this risk, treat it accordingly, and test if it works. itsme’s apps (iOS and Android) are  safeguarded to detect device compromises (and block). On top, even when compromised, make it (extremely) difficult to intercept the PIN, or replay transactions. As the official test by French ANSSI Authorities state it, for Gemalto’s SDK on Android:  “Even if root rights obtained, PIN cannot be obtained to generate OTP / Authentication Response” 
+//TODO</p>
 
 <blockquote>
-<h3 id='how-to-transfer-jwksets'>How to Transfer JWKSets?</h3>
-<p>The following link can be used to convert encoded public and private keys to JWKSet format:
-  <code>
- https://www.npmjs.com/package/rsa-pem-to-jwk
-</code></p>
-<h3 id='what-are-the-jwkset-requirements'>What are the JWKSet requirements?</h3>
-<p>In Opend ID Connect 1.0 the important is the JWKSet which is exposed on a public URL and the linked chain of certificates which is included in our trust store.</p>
+<p><strong>What is the purpose of the https://uatmerchant.sixdots.be/oidc/register? Seems to be a link to be registered as a SP, but do we make use of it?</strong></p>
 
-<p>This is 1 per partner. So in UAT 1, in Prod, for your 4 clients, it would be 1 JWKSet if it&#39;s under Norbloc name or 4 JWKSet if it&#39;s under each client name.</p>
+<p>We do not use this as it is part of the OIDC standard. Normally used to register new OIDC partners but the registering process is done by an administrator (“the back end team” for the moment) during the “partner on boarding process”.</p>
 
-<p>When you send request to us,</p>
-</blockquote>
+<p><strong>Is this following auto generated?:</strong>
+https://uatmerchant.sixdots.be/oidc/.well-known/openid-configuration</p>
 
-<ul>
-<li>You sign the request with your &#39;sign&#39; private key and to encrypt it you use our &#39;encryption&#39; public key.</li>
-<li>Once we answer your request, we send an encrypted JWT token (based on your &#39;encryption&#39; public key) which needs to be decrypted with your &#39;encryption&#39; private key. </li>
-<li>Once decrypted, you need to validate our signature with our &#39;public&#39; sign key found in our JWKSet.</li>
-</ul>
-
-<p>We are here working in HTTPS Client Authentication.For more details the best is to refer to the Open ID Connect documentation(http://openid.net/connect/) - and more specifically follow links relating JWT encryption &amp; signing.</p>
-
-<p>For the call back URI (not URL) you will need in UAT 4 URI, one per service. So in Prod, for 4 clients using each the 4 services, you would have at least 16 Service codes.</p>
-
-<blockquote>
-<h3 id='what-are-the-jwkset-encryption-requirements'>What are the JWKSet encryption requirements?</h3>
-<p>In the JWKSet, encryption should be done with <strong>RSA256</strong>,  the signature in <strong>SHA256</strong> (in short the encryption algorithm is RS256) and the key size is 2048 bits.</p>
-</blockquote>
-
-<p>As a comparison here&#39;s the public keys for itsme UAT JWKSet.<br/></p>
-
-<blockquote>
-<p><strong>JWKSET itsme(r) UAT</strong></p>
-</blockquote>
-<pre class="highlight json tab-json--inline"><code><span class="w"> </span><span class="p">{</span><span class="w">
- </span><span class="s2">"keys"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
- </span><span class="p">{</span><span class="w">
- </span><span class="s2">"kty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSA"</span><span class="p">,</span><span class="w">
- </span><span class="s2">"e"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AQAB"</span><span class="p">,</span><span class="w">
- </span><span class="s2">"use"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sig"</span><span class="p">,</span><span class="w">
- </span><span class="s2">"kid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s1"</span><span class="p">,</span><span class="w">
- </span><span class="s2">"n"</span><span class="p">:</span><span class="w"> </span><span class="s2">"46FaPodZLqflpnRlFpxwDWT7WNweWAtJ_QYJML2XjB71AlgW20D97VekezlxIudYXbp3aNSkIBcaBQGhzTNHQWuBPwTfemeH9KC2iOTEm3Bu2CsAtaeLzAJT2BjSC2Q4ZUAP2pUq1UQh1XoqjzViXzZIRV35eesKZD301bPsJ6E4z4VKkuzcCeG4jIicNWmbWjkdbdhDe39Ja-BhZrhRmfeoVUe_h2SuplVip4MycLggaO89LomHWF7GktNsmHkt1xOtBgWeCNYj7exXSegoR-29HMS4lzFielxOlr3K0oS8ImMHx-6aRbe3635vfn6Jy6Q9_uAlbWTUsdtFhnpofw"</span><span class="w">
- </span><span class="p">},</span><span class="w">
- </span><span class="p">{</span><span class="w">
- </span><span class="s2">"kty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSA"</span><span class="p">,</span><span class="w">
- </span><span class="s2">"e"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AQAB"</span><span class="p">,</span><span class="w">
- </span><span class="s2">"use"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enc"</span><span class="p">,</span><span class="w">
- </span><span class="s2">"kid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e1"</span><span class="p">,</span><span class="w">
- </span><span class="s2">"n"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rvwzdu-sVCABIgd4plRfoLifTZw6K7JKHuA8HeSgJvUYDUk5MPA7xNKQ5xIXyxisKUzMqIeGaWuaHoFTg4uy-mBFOpm-vG5yGr5GdMCtsA1Ub80x_MmdbkUG3MFsGqz7hE4VpQw0docrrsoS2D9plAMpGA3-_a2u6T1fxomBY5_sxFvyW3erkvjFPG3waU3b34txVIEvdZ6KAjAWR57Y6C749T6ky0eL_uBvPwcq9xmQ6O327MKU8sakEBXb57KDqe4Vm8CbezwIUAC23ia5sO1grqlJGDZW_dbosTcggCxgHW7m6j9RdkGR_mnmECukitwlNvXeCLQPFSunlUh52Q"</span><span class="w">
- </span><span class="p">}</span><span class="w">
- </span><span class="p">]</span><span class="w">
- </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>You can find the configuration parameters in in document « 33020 Technical Specification Service Provider OpenID Documentation » or via the following back-end URL:</p>
-
-<p>https://uatmerchant.sixdots.be/oidc/.well-known/openid-configuration<br> </p>
-
-<blockquote>
-<h3 id='what-should-i-do-once-i-changed-my-jwkset'>What should I do once I changed my JWKSet?</h3>
-<p>Please notify Support and create a new certificate.</p>
-<h3 id='what-should-i-do-once-i-changed-my-jwkset-but-not-the-url-does-it-mean-no-new-certificates'>What should I do once I changed my JWKSet but not the URL, does it mean no new certificates?<br></h3>
-<p>You should contact support and mention the change to allow a refresh of the cache on back-end side, this should be solved in March where the refresh time will be 30 min.</p>
-</blockquote>
-
-<p>A workaround to force a refresh, let the SP send a request with an unknown <strong>&quot;KID&quot;</strong> (key id).<br>
- Because not found in the current cache, this one will be refreshed. But the client has to correct his JWKSet first, if not yet done. </p>
-
-<blockquote>
+<p>Yes, this page is auto-generated by the back end. But the content is mainly composed of hard coded values, only the environment specific values (like URLs) are loaded from configuration files. It is a summary of the parameters used for BMID implementation of OpenID Connect standard (supported encryption types, list of supported claims and scope values, endpoints, ...).</p>
 <h3 id='service-code-concept-what-is-it'><a name id="ServiceCode"></a><a href="#ServiceCode">Service Code Concept</a>,   What is it?</h3>
 <p>To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. </p>
 </blockquote>
@@ -1285,8 +1282,16 @@ In contrary, the key pairs used for signing and/or encrypting the OIDC JWT token
 
 <p>So we would need a service code for the register operation with the following callback URL: http://localhost:23874/web2app/Identify/IdentificationCallBack  </p>
 
-<p>First, you need to  validate that you are able (and <strong>authorized</strong>) to keep the &quot;xxx UAT JWKSet signing and encryption private keys&quot; on your local machine because you will need them to sign the requests and decrypt the JWT tokens.
- &lt;!--stackedit_data:
+<p>First, you need to  validate that you are able (and <strong>authorized</strong>) to keep the &quot;xxx UAT JWKSet signing and encryption private keys&quot; on your local machine because you will need them to sign the requests and decrypt the JWT tokens.</p>
+
+<blockquote>
+<p><strong>Why App2Back-end communication does not exist but a App2B2B connection does instead?</strong></p>
+</blockquote>
+
+<p>We are sending the user information not through an app but to a highly authenticated server (which implies to put in place necessary measure to protect the data confidentiality)<br>
+This condition implies the need to put in place a back end layer on your side.  </p>
+
+<p>&lt;!--stackedit_data:
 -eyJoaXN0b3J5IjpbMTExNjg1ODVdfQ==
 +eyJoaXN0b3J5IjpbLTE4Nzg1Nzg0NTZdfQ==
  --&gt;</p>
@@ -1302,8 +1307,13 @@ MDE3NTU1NDQzXX0=
 -->
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2Nz
-UwMTQ3LDIwNjc3ODY1MTVdfQ==
+eyJoaXN0b3J5IjpbMTY1MTg3MDEwNiwyMTExMTMzMTgwLC0xMj
+I2NDM5NDM5LC0yMzQ1NTUyODQsNTE2MjcwMzAsLTQyMTk3NzIs
+LTgwMTI3MzA1MiwxNDMwMDUxMDUsMjExMzM4Nzc0MiwtMTY2ND
+k1NjEwNSwtMTM2MTcwMzU2MiwxNTY4NzUzNTA4LC0xNzY0NDA0
+OTQ0LDkxMzExNTg4MywtMTg3NTE4NjUxLDk1OTgzMDc3NSwtNj
+EwNDQyNzkzLDE3NTgwNjQzMCwtNDI3NDAzOTc4LDEzNDI5Nzk2
+OTddfQ==
 -->
 
       </div>
