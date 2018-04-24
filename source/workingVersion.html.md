@@ -51,7 +51,8 @@ Currently, the certificate is used to protect the JWKSet and it is not directly 
  
  <aside class="success"> Can I use a self signed certificate for my integration? In Sandbox, yes but not for production where we need the certificate & its intermediate chain.</aside>
 <aside class="success"> What should I do once I changed my JWKSet URL? You must notify Support and create a new certificate accordingly.</aside>
-
+ <aside class="success"> Is it possible to register multiple valid callback URIs/jwkset URIs for one environment, or will they have to change this every time they switch URIs? While it is possible to register several redirect urls, it is not possible to register several JWKSet urls. 
+The redirect url is specified in each Authorization request, the User will be redirected to that url after the (failed or successful) authentication in the itsme App. You need to specify it in the onboarding file because it needs to be whitelisted by our F5. We can whitelist several urls. The jwkset urls, however, is used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know what URL to contact, and thus we can register only one jwkset url.</aside>
  <aside class="success">
  Once your Sandbox is created, you will receive:
   <ul> 
@@ -685,11 +686,11 @@ MDE3NTU1NDQzXX0=
 The entire redirect_uri must match therefore no additional parameter is allowed.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk4MDkzODU5MywzMTQ2NDU4NjksLTE4Mj
-UzODUyNDIsMTY1MTg3MDEwNiwyMTExMTMzMTgwLC0xMjI2NDM5
-NDM5LC0yMzQ1NTUyODQsNTE2MjcwMzAsLTQyMTk3NzIsLTgwMT
-I3MzA1MiwxNDMwMDUxMDUsMjExMzM4Nzc0MiwtMTY2NDk1NjEw
-NSwtMTM2MTcwMzU2MiwxNTY4NzUzNTA4LC0xNzY0NDA0OTQ0LD
-kxMzExNTg4MywtMTg3NTE4NjUxLDk1OTgzMDc3NSwtNjEwNDQy
-NzkzXX0=
+eyJoaXN0b3J5IjpbNzIzMTExNDg4LDMxNDY0NTg2OSwtMTgyNT
+M4NTI0MiwxNjUxODcwMTA2LDIxMTExMzMxODAsLTEyMjY0Mzk0
+MzksLTIzNDU1NTI4NCw1MTYyNzAzMCwtNDIxOTc3MiwtODAxMj
+czMDUyLDE0MzAwNTEwNSwyMTEzMzg3NzQyLC0xNjY0OTU2MTA1
+LC0xMzYxNzAzNTYyLDE1Njg3NTM1MDgsLTE3NjQ0MDQ5NDQsOT
+EzMTE1ODgzLC0xODc1MTg2NTEsOTU5ODMwNzc1LC02MTA0NDI3
+OTNdfQ==
 -->
