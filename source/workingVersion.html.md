@@ -29,16 +29,16 @@ itsme® offers 3 services, which act as strong enablers for every process digita
 
 # 2. <a name id="Onboarding"></a> On boarding Process
  
- Our on boarding process consists of two main steps:
- - The configuration of your Sandbox
- - The integration of itsme(r) services
+Our on boarding process consists of two main steps:
+- The configuration of your Sandbox
+- - The integration of itsme(r) services
  
 ## 2.1. Configuration of your Sandbox
- Before you can start working on the integration of itsme(r) services, we need to create your Sandbox in which the integration takes place. Your company will provide us both functional and technical information we will use to create your Sandbox. These information include (not exhaustively):
- - Information to customize the user consent screen
- - Redirect URIs associated to your instances of itsme(r) services (to which the user will be redirected after the autentication)
- - JWKset URL, and associated SSL/TLS certificate
-  You can consult [our B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) for more information about this step.
+Before you can start working on the integration of itsme(r) services, we need to create your Sandbox in which the integration takes place. Your company will provide us both functional and technical information we will use to create your Sandbox. These information include (not exhaustively):
+- Information to customize the user consent screen
+- Redirect URIs associated to your instances of itsme(r) services (to which the user will be redirected after the autentication)
+- JWKset URL, and associated SSL/TLS certificate
+You can consult [our B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) for more information about this step.
  
 <aside class="success"> What is the use of our Certificate? Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
 For testing, you could use a self signed certificate like that you could define validity period.</aside>
@@ -55,13 +55,12 @@ Currently, the certificate is used to protect the JWKSet and it is not directly 
 <aside class="success"> Is it possible to register multiple valid callback URIs/jwkset URIs for one environment, or will they have to change this every time they switch URIs? While it is possible to register several redirect urls, it is not possible to register several JWKSet URLs. 
 The redirect URL is specified in each Authorization request, the User will be redirected to that URL after the (failed or successful) authentication in the itsme App. You need to specify it in the onboarding file because it needs to be whitelisted by our F5. We can whitelist several urls. The jwkset urls, however, is used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know what URL to contact, and thus we can register only one jwkset url.</aside>
 
- <aside class="success">
- Once your Sandbox is created, you will receive:
-  <ul> 
-    <li>Your Partner Code, which corresponds to the OpenID <b>client_id</b> </li>
-    <li>Your Service Codes, which are the identifiers of your instances of itsme(r) services. </li>
-  </ul>
- </aside>
+<aside class="success">Once your Sandbox is created, you will receive:
+<ul> 
+<li>Your Partner Code, which corresponds to the OpenID <b>client_id</b> </li>
+<li>Your Service Codes, which are the identifiers of your instances of itsme(r) services. </li>
+</ul>
+</aside>
 
  Please consult <a name="ServiceCode"></a>[Service Code Concept](#ServiceCode) for more information about the notion of Service Code. 
 <aside class="success">What are the consequences of a changing label in sandbox environment?</aside>All pending approval/login will result in a "Wrong PIN".
@@ -688,11 +687,11 @@ MDE3NTU1NDQzXX0=
 The entire redirect_uri must match therefore no additional parameter is allowed.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjg1MTY4MDIsMzE0NjQ1ODY5LC0xODI1Mz
-g1MjQyLDE2NTE4NzAxMDYsMjExMTEzMzE4MCwtMTIyNjQzOTQz
-OSwtMjM0NTU1Mjg0LDUxNjI3MDMwLC00MjE5NzcyLC04MDEyNz
-MwNTIsMTQzMDA1MTA1LDIxMTMzODc3NDIsLTE2NjQ5NTYxMDUs
-LTEzNjE3MDM1NjIsMTU2ODc1MzUwOCwtMTc2NDQwNDk0NCw5MT
-MxMTU4ODMsLTE4NzUxODY1MSw5NTk4MzA3NzUsLTYxMDQ0Mjc5
-M119
+eyJoaXN0b3J5IjpbLTk4MjQ3MDk2NSw2ODUxNjgwMiwzMTQ2ND
+U4NjksLTE4MjUzODUyNDIsMTY1MTg3MDEwNiwyMTExMTMzMTgw
+LC0xMjI2NDM5NDM5LC0yMzQ1NTUyODQsNTE2MjcwMzAsLTQyMT
+k3NzIsLTgwMTI3MzA1MiwxNDMwMDUxMDUsMjExMzM4Nzc0Miwt
+MTY2NDk1NjEwNSwtMTM2MTcwMzU2MiwxNTY4NzUzNTA4LC0xNz
+Y0NDA0OTQ0LDkxMzExNTg4MywtMTg3NTE4NjUxLDk1OTgzMDc3
+NV19
 -->
