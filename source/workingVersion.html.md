@@ -251,19 +251,14 @@ As per <a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorR
 The concept of claim is about declaring something you expect as return from the OP. When it comes to end user data, you have to use claims in order to declare the end user data you will need for your business before the authentication. This is a privacy-oriented way of getting data.
 Technically, you have to declare the claims in the Authorization Request in the way described in the section [Declaring Claims](#decClaim).
 Claims will come as name/value pairs packaged in a JSON object that contain information about a user, as well as meta-information about the OIDC service. The official definition from the spec is a [“piece of information asserted about an Entity.”](http://openid.net/specs/openid-connect-core-1_0.html#Terminology)
-
-
 ### 4.1.1. Claim Types
 Three representations of Claim Values are defined officially: 
 - Normal Claims
 - Aggregated Claims (not supported)
 - Distributed Claims (not supported)
- 
-We do not support Aggregated and Distributed Claims due to all the data we expose come from our own database.
- 
- #### 4.1.1.1. Normal Claims
+ We do not support Aggregated and Distributed Claims due to all the data we expose come from our own database.
+#### 4.1.1.1. Normal Claims
 Claims that are directly asserted by the OpenID Provider.
-
 Normal Claims are represented as members in a JSON object. The Claim Name is the member name and the Claim Value is the member value.
 
 The following is a non-normative response containing Normal Claims:
@@ -276,22 +271,16 @@ The following is a non-normative response containing Normal Claims:
    "picture": "https://www.itsme.be/uploads/media/57da4dee8c5d2/logo-itsme-badge.svg?production-f26c079"
   } 
   ```
-
 ### 4.1.2 Essential Claims vs Voluntary Claims
-
 In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims requested via scope as **Essential** (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)). **Voluntary** claims are thus supported, but are used as **Essential**.
 
 In practice, it means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims. You should thus already request claims according to your business case. 
-
 ## <a name id="decClaim"></a> 4.2. Declaring Claims
-
 You can declare Claims in two ways:
-
  - With 'scope' values
  - With 'claims' parameter
 
 In each case, the claims need to be declared in the Authorization Request.
-
 ### <a name id="scope"></a>4.2.2. Scope
 
 Scopes are space-separated lists of identifiers used to specify what access privileges are being requested. 
@@ -301,22 +290,18 @@ Scopes can be used to request that specific sets of information available as Cla
 Using this method, you will always receive Claims from the UserInfo Endpoint.
 
 <!-- (always User Info Endpoint)-->
-
 #### 4.2.1.1 List of Supported Scope Values
- <aside class="success">Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>
+<aside class="success">Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>
 
 The following scope values are supported and allow access to predefined sets of Identity Data:
-
 | Scope Value | Associated Claims|
 |--|:--|
 | profile | given_name, family_name, gender, birthdate,  locale|
 email|email, email_verified|
 phone| phone_number, phone_number_verified| 
  address|address, with subfields,<br>street_address (newline separator \n)<br> locality <br> postal_code <br> country
-  
- <aside class="success">Is it normal that the scope "eid" is not mentioned in the supported scopes?
+<aside class="success">Is it normal that the scope "eid" is not mentioned in the supported scopes?
 The “eid” scope was introduced exclusively for FAS (BOSSA). </aside>
-
 #### 4.2.1.2 Example of an Authorization Request using "scope" values
 URL:
 ```http--inline
@@ -331,7 +316,6 @@ Connection: keep-alive
 Upgrade-Insecure-Requests: 1
 ```
 URL Parameters without encoding:
-
 ```http inline--   
 response_type=code
 client_id=yourpartnercode
@@ -699,7 +683,7 @@ AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
 MDE3NTU1NDQzXX0=
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzA4NTgwMjgsLTE4MjUzODUyNDIsMT
+eyJoaXN0b3J5IjpbLTE4MDk0MDI2NDQsLTE4MjUzODUyNDIsMT
 Y1MTg3MDEwNiwyMTExMTMzMTgwLC0xMjI2NDM5NDM5LC0yMzQ1
 NTUyODQsNTE2MjcwMzAsLTQyMTk3NzIsLTgwMTI3MzA1MiwxND
 MwMDUxMDUsMjExMzM4Nzc0MiwtMTY2NDk1NjEwNSwtMTM2MTcw
