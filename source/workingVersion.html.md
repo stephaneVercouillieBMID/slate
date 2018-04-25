@@ -256,6 +256,9 @@ Parameter | Provided | Comment
 `{"user_info":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","birthdate":"1974-04-12","gender":"male","name":"Ada Gardner","iss":"tokenEndpointURL","given_name":"Ada","locale":"fr","family_name":"Gardner"},"id_token":{"access_token":"UVfXK3QzTRKyFiw3f1v85Yr4ko4o7uI1oJ8XNZeRcJE","id_token":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","acr":"tag:sixdots.be,2016-06:acr_basic","auth_time":1523626355,"iss":"tokenEndpointURL","exp":1523626660,"iat":1523626360,"nonce":"anonce"},"token_type":"Bearer","expire_in":163}}`
 ### 3.2.4. Token Error Response 
 As per <a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse" onclick="return ! window.open(this.href);">OIDC Specification Aggregated Response</a>
+
+3.2.4.1.
+
 # 4. User Data
 ## 4.1. What is a claim?
 The concept of claim is about declaring something you expect as return from the OP. When it comes to end user data, you have to use claims in order to declare the end user data you will need for your business before the authentication. This is a privacy-oriented way of getting data.
@@ -712,11 +715,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTMzMzk0Mzc1LC00MTU5ODcxNzcsLTM5Mz
-k4MzU3NSw2OTQ3NTIzNTksLTk4MjQwMDM5NiwtMTE3Mzc3NTQz
-NSw5Njc1OTM2MTcsLTYxMDkwMzk5OSw2ODUxNjgwMiwzMTQ2ND
-U4NjksLTE4MjUzODUyNDIsMTY1MTg3MDEwNiwyMTExMTMzMTgw
-LC0xMjI2NDM5NDM5LC0yMzQ1NTUyODQsNTE2MjcwMzAsLTQyMT
-k3NzIsLTgwMTI3MzA1MiwxNDMwMDUxMDUsMjExMzM4Nzc0Ml19
+eyJoaXN0b3J5IjpbMTcwMjg5OTM2Myw5MzMzOTQzNzUsLTQxNT
+k4NzE3NywtMzkzOTgzNTc1LDY5NDc1MjM1OSwtOTgyNDAwMzk2
+LC0xMTczNzc1NDM1LDk2NzU5MzYxNywtNjEwOTAzOTk5LDY4NT
+E2ODAyLDMxNDY0NTg2OSwtMTgyNTM4NTI0MiwxNjUxODcwMTA2
+LDIxMTExMzMxODAsLTEyMjY0Mzk0MzksLTIzNDU1NTI4NCw1MT
+YyNzAzMCwtNDIxOTc3MiwtODAxMjczMDUyLDE0MzAwNTEwNV19
 
 -->
