@@ -416,7 +416,7 @@ Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_devic
  	"sdkRelease": "1.17.12"  
  }
  ```
- #### <a name id="deviceClaim"></a> 4.2.2.2. Device Claim 
+#### <a name id="deviceClaim"></a> 4.2.2.2. Device Claim 
 This claim is the information about the end user device. 
 
 Claim value: **`tag:sixdots.be,2017-05:claim_device`**
@@ -426,7 +426,7 @@ A JSON object with the following keys: (only keys with cardinality [1…1] will 
 - “os” [1…1]: the device operating system (supported values:
 - {ANDROID, IOS})   
 - “appName” [0…1]: the application name.   
-- - “appRelease” [0…1]: the application current release.   
+- “appRelease” [0…1]: the application current release.   
 - “deviceLabel” [0…1]: the name of the device.   
 - “debugEnabled” [0…1]: if debug mode is activated.   
 - “deviceId” [1…1]: (regexp =“[a-f0-9]{33}”) the device identifier.   
@@ -446,7 +446,7 @@ device IMEI value.
 e.g. SAMSUNG GALAXY A5   
 - “msisdn” [0…1]: the user’s phone number.  
 - “sdkRelease” [0…1]: Sdk release
-- ##### <a name id="exampleDeviceClaimValue"></a>4.2.2.2.1. Example of Device Claim Value Usage
+##### <a name id="exampleDeviceClaimValue"></a>4.2.2.2.1. Example of Device Claim Value Usage
 `{ "os": "ANDROID", "appName": "itsme app", "appRelease": "1.17.13", "deviceLabel": "myDevice", "debugEnabled": false, "deviceId": "deviceId", "osRelease": "Android 4.4.2", "manufacturer": "samsung", "hasSimEnabled": true, "deviceLockLevel": "touchID", "smsEnabled": true, "rooted": false,"imei": "12345678901234567", "deviceModel": "S8", "msisdn": "0412123123", "sdkRelease": "1.17.12" }`
 #### <a name id="eidMetadata"></a>4.2.2.3. Eid Metadata Claim 
 Claim value: **`tag:itsmetag:sixdots.be,2016-06:claim_eid`**
@@ -691,7 +691,7 @@ MDE3NTU1NDQzXX0=
 The entire redirect_uri must match therefore no additional parameter is allowed.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzc4MTg2NzIxLDk2NzU5MzYxNywtNjEwOT
+eyJoaXN0b3J5IjpbODA0NjQ2MDU1LDk2NzU5MzYxNywtNjEwOT
 AzOTk5LDY4NTE2ODAyLDMxNDY0NTg2OSwtMTgyNTM4NTI0Miwx
 NjUxODcwMTA2LDIxMTExMzMxODAsLTEyMjY0Mzk0MzksLTIzND
 U1NTI4NCw1MTYyNzAzMCwtNDIxOTc3MiwtODAxMjczMDUyLDE0
