@@ -169,8 +169,10 @@ Error | Description
 `registration_not_supported` | does not support use of the registration parameter.
 
 #### 3.1.3.1. Response When User Rejects the Action
-`{"error_description":null,"error":"access_denied"}`
-#### 3.1.3.2. Response Received Session Expired 
+`
+{"error_description":null,
+"error":"access_denied"}`
+#### 3.1.3.2. Response When Session Expired 
 
 
 ## <a name="tokenEndpoint"></a> 3.2. Token Endpoint
@@ -721,11 +723,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk4MTc1MjU1OCwtMTI2OTc2NjczNiw5Mz
-MzOTQzNzUsLTQxNTk4NzE3NywtMzkzOTgzNTc1LDY5NDc1MjM1
-OSwtOTgyNDAwMzk2LC0xMTczNzc1NDM1LDk2NzU5MzYxNywtNj
-EwOTAzOTk5LDY4NTE2ODAyLDMxNDY0NTg2OSwtMTgyNTM4NTI0
-MiwxNjUxODcwMTA2LDIxMTExMzMxODAsLTEyMjY0Mzk0MzksLT
-IzNDU1NTI4NCw1MTYyNzAzMCwtNDIxOTc3MiwtODAxMjczMDUy
-XX0=
+eyJoaXN0b3J5IjpbNjE3MzI2MDk3LDE5ODE3NTI1NTgsLTEyNj
+k3NjY3MzYsOTMzMzk0Mzc1LC00MTU5ODcxNzcsLTM5Mzk4MzU3
+NSw2OTQ3NTIzNTksLTk4MjQwMDM5NiwtMTE3Mzc3NTQzNSw5Nj
+c1OTM2MTcsLTYxMDkwMzk5OSw2ODUxNjgwMiwzMTQ2NDU4Njks
+LTE4MjUzODUyNDIsMTY1MTg3MDEwNiwyMTExMTMzMTgwLC0xMj
+I2NDM5NDM5LC0yMzQ1NTUyODQsNTE2MjcwMzAsLTQyMTk3NzJd
+fQ==
 -->
