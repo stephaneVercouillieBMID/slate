@@ -708,10 +708,10 @@ For example, assuming that one SP would like to use login as an itsme(r) service
 So we would need a service code for the register operation with the following callback URL: http://localhost:23874/web2app/Identify/IdentificationCallBack  
  
 First, you need to  validate that you are able (and **authorized**) to keep the "xxx UAT JWKSet signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens.
- <!--stackedit_data:
+<!--stackedit_data:
 -eyJoaXN0b3J5IjpbMTExNjg1ODVdfQ==
 +eyJoaXN0b3J5IjpbLTE4Nzg1Nzg0NTZdfQ==
- -->
+-->
   
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTM2ODEyNjQ2OSwtOTA2NTQ0NDkxLC04Mj
@@ -727,5 +727,6 @@ eyJoaXN0b3J5IjpbOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2Nz
 UwMTQ3LDIwNjc3ODY1MTVdfQ==
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTA4MTYwMThdfQ==
+eyJoaXN0b3J5IjpbLTExODM3MDcyNTYsLTEzMTA4MTYwMThdfQ
+==
 -->
