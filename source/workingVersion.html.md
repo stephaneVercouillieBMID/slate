@@ -505,11 +505,13 @@ Authorization: Bearer SlAV32hkKG
 | amr |Won’t be provided  |
 | azp| Won’t be provided |
 |auth_time | Will always be provided
+
 #### 4.3.1.2. User info Response Specification
 The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed. The itsme Back-End replies with the Identity Data that were requested in the Authorization Request.
 <aside class="success">What is the lay-out of the Identity Data that we get back in the Userinfo Response? They are the same as on the eID card </aside>
 <aside class="success">What format does the certificate need to be?
 It needs to be in ZIP file, X509 format (cer or crt). Pem file is not supported.  </aside>
+
 #### 4.3.1.3. User info Response Example
 (Not encrypted nor signed)
  
@@ -711,11 +713,11 @@ TODO
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5Mzk4MzU3NSw2OTQ3NTIzNTksLTk4Mj
-QwMDM5NiwtMTE3Mzc3NTQzNSw5Njc1OTM2MTcsLTYxMDkwMzk5
-OSw2ODUxNjgwMiwzMTQ2NDU4NjksLTE4MjUzODUyNDIsMTY1MT
-g3MDEwNiwyMTExMTMzMTgwLC0xMjI2NDM5NDM5LC0yMzQ1NTUy
-ODQsNTE2MjcwMzAsLTQyMTk3NzIsLTgwMTI3MzA1MiwxNDMwMD
-UxMDUsMjExMzM4Nzc0MiwtMTY2NDk1NjEwNSwtMTM2MTcwMzU2
-Ml19
+eyJoaXN0b3J5IjpbLTEyNDQxNDY3LC0zOTM5ODM1NzUsNjk0Nz
+UyMzU5LC05ODI0MDAzOTYsLTExNzM3NzU0MzUsOTY3NTkzNjE3
+LC02MTA5MDM5OTksNjg1MTY4MDIsMzE0NjQ1ODY5LC0xODI1Mz
+g1MjQyLDE2NTE4NzAxMDYsMjExMTEzMzE4MCwtMTIyNjQzOTQz
+OSwtMjM0NTU1Mjg0LDUxNjI3MDMwLC00MjE5NzcyLC04MDEyNz
+MwNTIsMTQzMDA1MTA1LDIxMTMzODc3NDIsLTE2NjQ5NTYxMDVd
+fQ==
 -->
