@@ -12,39 +12,37 @@
  
  search: true
  ---
- # 1. Introduction
- ## 1.1. Who should read this document
- This document is intended to be read by Service Provider developers who are in charge of developing and integrating the itsme(r) services. In this document, we speak directly to the developers, using 'you' to 
+# 1. Introduction
+## 1.1. Who should read this document
+This document is intended to be read by Service Provider developers who are in charge of developing and integrating the itsme(r) services. In this document, we speak directly to the developers, using 'you' to 
 designate them.
  
- This documentation describes our OAuth 2.0 implementation of **itsme® Login**, which conforms to  the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="_blank"> OpenID Connect 1.0 </a> specifications. 
+This documentation describes our OAuth 2.0 implementation of **itsme® Login**, which conforms to  the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="_blank"> OpenID Connect 1.0 </a> specifications. 
  
- ## 1.2. Objective
- The objective of this document is to provide all the information needed to integrate the itsme(r) services using OpenID Connect protocol.
- 
-  ## 1.3. The itsme® services in a few words
+## 1.2. Objective
+The objective of this document is to provide all the information needed to integrate the itsme(r) services using OpenID Connect protocol.
+## 1.3. The itsme® services in a few words
  
 itsme® offers 3 services, which act as strong enablers for every process digitalization project. Further information about itsme(r) services is provided on our B2B portal:
-
 - [**itsme®Login**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/login-with-itsme)
 - [**itsme®Confirm**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/confirm-with-itsme)
  - [**itsme®Shared Data**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/shared-data)
 
- # 2. <a name id="Onboarding"></a> On boarding Process
+# 2. <a name id="Onboarding"></a> On boarding Process
  
- Our on boarding process consists of two main steps:
- - The configuration of your Sandbox
- - The integration of itsme(r) services
+Our on boarding process consists of two main steps:
+- The configuration of your Sandbox
+- The integration of itsme(r) services
  
- ## 2.1. Configuration of your Sandbox
- Before you can start working on the integration of itsme(r) services, we need to create your Sandbox in which the integration takes place. Your company will provide us both functional and technical information we will use to create your Sandbox. These information include (not exhaustively):
- - Information to customize the user consent screen
- - Redirect URIs associated to your instances of itsme(r) services (to which the user will be redirected after the autentication)
- - JWKset URL, and associated SSL/TLS certificate
- You can consult [our B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) for more information about this step.
+## 2.1. Configuration of your Sandbox
+Before you can start working on the integration of itsme(r) services, we need to create your Sandbox in which the integration takes place. Your company will provide us both functional and technical information we will use to create your Sandbox. These information include (not exhaustively):
+- Information to customize the user consent screen
+- Redirect URIs associated to your instances of itsme(r) services (to which the user will be redirected after the autentication)
+- JWKset URL, and associated SSL/TLS certificate
+You can consult [our B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) for more information about this step.
  
- <aside class="success">
- Once your Sandbox is created, you will receive:
+<aside class="success">
+Once your Sandbox is created, you will receive:
   <ul> 
     <li>Your Partner Code, which corresponds to the OpenID <b>client_id</b> </li>
     <li>Your Service Codes, which are the identifiers of your instances of itsme(r) services. </li>
@@ -742,5 +740,5 @@ eyJoaXN0b3J5IjpbOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2Nz
 UwMTQ3LDIwNjc3ODY1MTVdfQ==
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTc4NDc3MzY3XX0=
+eyJoaXN0b3J5IjpbMTc1ODAyODQ3M119
 -->
