@@ -111,9 +111,9 @@ Parameter | Required | Specification | Parameter Explained
 **request** | Optional | See [Passing Request Parameters as JWTs](#JWTRequest)
 **response_mode** | Unsupported | MUST not be used. Any supplied value will be ignored.|
 **id\_token\_hint** | Unsupported | Ignored if provided.
- **claims_locales** | Unsupported | None are supported.|
- **request_uri** | Unsupported | Not supported (yet)|
- **registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the [on boarding process](#Onboarding).|
+**claims_locales** | Unsupported | None are supported.|
+**request_uri** | Unsupported | Not supported (yet)|
+**registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the [on boarding process](#Onboarding).|
 
 ### 3.1.2. Authentication Response Specification
 An Authentication Response is an [OAuth 2.0 Authorization Response](https://tools.ietf.org/html/rfc6749#section-4.1.2) message. 
@@ -122,27 +122,27 @@ The itsme Back-End provides an Authorization Code to the Service Provider Back-E
 
 As such, the Authentication Response will return the following parameters:
 
- Parameter | Provided | Description
- :--:| :--:|:--
- **code** | Always | Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.
- **state** |  | The exact value received from the client, if the parameter was present in the Authentication Request.
+Parameter | Provided | Description
+:--:| :--:|:--
+**code** | Always | Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.
+**state** |  | The exact value received from the client, if the parameter was present in the Authentication Request.
 ### 3.1.3. Authentication Response Example
  
- ```http--inline
+```http--inline
  HTTP/1.1 302 Found
  Location: https://client.example.org/cb?
- code=SplxlOBeZQQYbYS6WxSbIA&
+  code=SplxlOBeZQQYbYS6WxSbIA&
  state=af0ifjsldkj
  ```
 ### 3.1.4. Authentication Errors
 As explained by OIDC [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://openid.net/specs/openid-connect-core-1_0.html#AuthError), if the authentication is NOT successful, the following errors can be triggered by itsme®:
 
- Error | Description
- :--: |:--
- `interaction_required`  | The Authorization Server requires End-User interaction of some form to proceed.
- `invalid_request_object` | The request parameter contains an invalid Request Object.
- `request_uri_not_supported` | does not support use of the request_uri parameter.
- `registration_not_supported` | does not support use of the registration parameter.
+Error | Description
+:--: |:--
+`interaction_required`  | The Authorization Server requires End-User interaction of some form to proceed.
+`invalid_request_object` | The request parameter contains an invalid Request Object.
+`request_uri_not_supported` | does not support use of the request_uri parameter.
+`registration_not_supported` | does not support use of the registration parameter.
 ## <a name="tokenEndpoint"></a> 3.2. Token Endpoint
 As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
 
@@ -741,5 +741,5 @@ eyJoaXN0b3J5IjpbOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2Nz
 UwMTQ3LDIwNjc3ODY1MTVdfQ==
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNjE1ODMyMzNdfQ==
+eyJoaXN0b3J5IjpbLTEwMjA4ODg5NDNdfQ==
 -->
