@@ -660,16 +660,14 @@ When you send request to us,
  
 We are here working in HTTPS Client Authentication.For more details the best is to refer to the Open ID Connect documentation(http://openid.net/connect/) - and more specifically follow links relating JWT encryption & signing.
  
- For the call back URI (not URL) you will need in UAT 4 URI, one per service. So in Prod, for 4 clients using each the 4 services, you would have at least 16 Service codes.
+For the call back URI (not URL) you will need in UAT 4 URI, one per service. So in Prod, for 4 clients using each the 4 services, you would have at least 16 Service codes.
  
- >### What are the JWKSet encryption requirements?
- In the JWKSet, encryption should be done with **RSA256**,  the signature in **SHA256** (in short the encryption algorithm is RS256) and the key size is 2048 bits.
+### What are the JWKSet encryption requirements?
+In the JWKSet, encryption should be done with **RSA256**,  the signature in **SHA256** (in short the encryption algorithm is RS256) and the key size is 2048 bits.
  
- As a comparison here's the public keys for itsme UAT JWKSet.<br/>
- >**JWKSET itsme(r) UAT**
-  
- 
- ```json--inline
+As a comparison here's the public keys for itsme UAT JWKSet.<br/>
+**JWKSET itsme(r) UAT**
+```json--inline
  {
  "keys": [
  {
@@ -689,20 +687,19 @@ We are here working in HTTPS Client Authentication.For more details the best is 
  ]
  }
  ```  
- You can find the configuration parameters in in document « 33020 Technical Specification Service Provider OpenID Documentation » or via the following back-end URL:
+You can find the configuration parameters in in document « 33020 Technical Specification Service Provider OpenID Documentation » or via the following back-end URL:
  
-  https://uatmerchant.sixdots.be/oidc/.well-known/openid-configuration<br> 
-  >### What should I do once I changed my JWKSet?
-  Please notify Support and create a new certificate.
- 
- >### What should I do once I changed my JWKSet but not the URL, does it mean no new certificates?<br>
-  You should contact support and mention the change to allow a refresh of the cache on back-end side, this should be solved in March where the refresh time will be 30 min.
+https://uatmerchant.sixdots.be/oidc/.well-known/openid-configuration<br> 
+### What should I do once I changed my JWKSet?
+Please notify Support and create a new certificate.
+### What should I do once I changed my JWKSet but not the URL, does it mean no new certificates?<br>
+You should contact support and mention the change to allow a refresh of the cache on back-end side, this should be solved in March where the refresh time will be 30 min.
   
- A workaround to force a refresh, let the SP send a request with an unknown **"KID"** (key id).<br>
- Because not found in the current cache, this one will be refreshed. But the client has to correct his JWKSet first, if not yet done. 
+A workaround to force a refresh, let the SP send a request with an unknown **"KID"** (key id).<br>
+Because not found in the current cache, this one will be refreshed. But the client has to correct his JWKSet first, if not yet done. 
  
-  >### <a name id="ServiceCode"></a>[Service Code Concept](#ServiceCode), 	What is it?
-  To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
+### <a name id="ServiceCode"></a>[Service Code Concept](#ServiceCode), 	What is it?
+To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
 
 For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
 
@@ -731,5 +728,5 @@ eyJoaXN0b3J5IjpbOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2Nz
 UwMTQ3LDIwNjc3ODY1MTVdfQ==
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUzNzcyMDkzNF19
+eyJoaXN0b3J5IjpbMzIzOTMyMDk2XX0=
 -->
