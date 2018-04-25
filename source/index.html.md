@@ -548,9 +548,8 @@ Property | Required | Comment
 -- | -- | :--:
 **iss** | Required | Specifies the issuing authority. Issuer of the id_tokenIssuer. Must be the `client_id`
 **aud** | Required | Audience. MUST be the Token Endpoint URL
- > Example of claim request before base64url encoding, signing and encryption. In this example, the partner is using the login service.
- 
- ```json--inline
+> Example of claim request before base64url encoding, signing and encryption. In this example, the partner is using the login service.
+```json--inline
  {
  	// JWT Registered claims (https://tools.ietf.org/html/rfc7519#section-4.1)
  	iss: "s6BhdRkqt3",
@@ -575,36 +574,33 @@ Property | Required | Comment
  }
  ```
  
- ## 5.2. Requests Signing and Encryption 
+## 5.2. Requests Signing and Encryption 
  
- Encryption algorithm used: RSA SHA-256
+Encryption algorithm used: RSA SHA-256
+Supported algorithms and encryption methods for:
+- ID Token
+-- Encryption Method (enc): A128CBC-HS256
+-- Encryption Algorithm (alg): RSA-OAEP
+-- Signing Algorithm (alg): RS256
+- User Info
+-- Encryption Method (enc): A128CBC-HS256
+-- Encryption Algorithm (alg): RSA-OAEP
+-- Signing Algorithm (alg):  RS256
+- Request Object
+-- Encryption Method (enc): A128CBC-HS256
+-- Encryption Algorithm (alg): RSA-OAEP
+-- Signing Algorithm (alg): RS256
  
- Supported algorithms and encryption methods for:
+Offline access is not supported. 
  
- - ID Token
- -- Encryption Method (enc): A128CBC-HS256
- -- Encryption Algorithm (alg): RSA-OAEP
- -- Signing Algorithm (alg): RS256
- - User Info
- -- Encryption Method (enc): A128CBC-HS256
- -- Encryption Algorithm (alg): RSA-OAEP
- -- Signing Algorithm (alg):  RS256
- - Request Object
- -- Encryption Method (enc): A128CBC-HS256
- -- Encryption Algorithm (alg): RSA-OAEP
- -- Signing Algorithm (alg): RS256
+Dynamic client registration is not allowed.
  
- Offline access is not supported. 
- 
- Dynamic client registration is not allowed.
- 
- itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet) 
- 
-     https://merchant.itsme.be/oidc/jwkSet
+itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet) 
+https://merchant.itsme.be/oidc/jwkSet
  
 It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
- ># 6. **FAQ**
- >## <a name="jwks"></a> JWKSet
+# 6. **FAQ**
+0>## <a name="jwks"></a> JWKSet
  >
  >### What is a JWKSet?
  We require you to expose a set of public key (a signature key & one encryption key) to setup the connectivity.
@@ -737,5 +733,5 @@ eyJoaXN0b3J5IjpbOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2Nz
 UwMTQ3LDIwNjc3ODY1MTVdfQ==
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNzE2NzI5MzZdfQ==
+eyJoaXN0b3J5IjpbMTE0MTc3MDcyMl19
 -->
