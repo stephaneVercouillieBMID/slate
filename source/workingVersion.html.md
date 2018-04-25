@@ -693,12 +693,31 @@ MDE3NTU1NDQzXX0=
 
 The entire redirect_uri must match therefore no additional parameter is allowed.
 
+**Questions ONLY related to OpenID Connect (OIDC) aspects,**
+
+**For signature and encryption, does BMID accept either RP self-signed certificates or certificates signed by an internal PKI (in which case we need to provide also our internal CA certificate)?”**
+
+TODO
+This JWKSet is accessible, using a secured HTTPS URL. (sample HTTPS URL for OpenID Provider https://merchant.itsme.be/oidc/jwkSet)
+
+This HTTPS URL must be communicated to us, during the partner on-boarding.
+
+This HTTPS URL must be protected using a valid certificates chain starting from a Root CA trusted by our back end.
+
+During on-boarding, we can check that we have all the required certificates to establish the trust.
+
+So, on the HTTPS protocol level, the connections must be secured using trusted Root CA (not self-signed). In contrary, the key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.
+TODO
+
+**I receive Error 500 - JWKSet related**
+Please check that, “alg” field is not empty which could produce a parsing error on the backend.
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk4MjQwMDM5NiwtMTE3Mzc3NTQzNSw5Nj
-c1OTM2MTcsLTYxMDkwMzk5OSw2ODUxNjgwMiwzMTQ2NDU4Njks
-LTE4MjUzODUyNDIsMTY1MTg3MDEwNiwyMTExMTMzMTgwLC0xMj
-I2NDM5NDM5LC0yMzQ1NTUyODQsNTE2MjcwMzAsLTQyMTk3NzIs
-LTgwMTI3MzA1MiwxNDMwMDUxMDUsMjExMzM4Nzc0MiwtMTY2ND
-k1NjEwNSwtMTM2MTcwMzU2MiwxNTY4NzUzNTA4LC0xNzY0NDA0
-OTQ0XX0=
+eyJoaXN0b3J5IjpbNjk0NzUyMzU5LC05ODI0MDAzOTYsLTExNz
+M3NzU0MzUsOTY3NTkzNjE3LC02MTA5MDM5OTksNjg1MTY4MDIs
+MzE0NjQ1ODY5LC0xODI1Mzg1MjQyLDE2NTE4NzAxMDYsMjExMT
+EzMzE4MCwtMTIyNjQzOTQzOSwtMjM0NTU1Mjg0LDUxNjI3MDMw
+LC00MjE5NzcyLC04MDEyNzMwNTIsMTQzMDA1MTA1LDIxMTMzOD
+c3NDIsLTE2NjQ5NTYxMDUsLTEzNjE3MDM1NjIsMTU2ODc1MzUw
+OF19
 -->
