@@ -475,6 +475,7 @@ Indeed, You need to perform two Back-End to Back-End calls:
 - The Token Request  
 - The UserInfo Request  
 On top of this, the Authorization Request (AuthN Request in the schedule) consists of an HTTP redirection to the OpenID webpage of BMID. The content of this HTTP request is to be crafted by your system, it is actually a third call from your side to BMID, this one being Front-End to Back-End.</aside>
+
 ### 4.3.1. UserInfo Endpoint
 As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest), 
 
@@ -713,11 +714,11 @@ TODO
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDQxNDY3LC0zOTM5ODM1NzUsNjk0Nz
-UyMzU5LC05ODI0MDAzOTYsLTExNzM3NzU0MzUsOTY3NTkzNjE3
-LC02MTA5MDM5OTksNjg1MTY4MDIsMzE0NjQ1ODY5LC0xODI1Mz
-g1MjQyLDE2NTE4NzAxMDYsMjExMTEzMzE4MCwtMTIyNjQzOTQz
-OSwtMjM0NTU1Mjg0LDUxNjI3MDMwLC00MjE5NzcyLC04MDEyNz
-MwNTIsMTQzMDA1MTA1LDIxMTMzODc3NDIsLTE2NjQ5NTYxMDVd
-fQ==
+eyJoaXN0b3J5IjpbLTQxNTk4NzE3NywtMzkzOTgzNTc1LDY5ND
+c1MjM1OSwtOTgyNDAwMzk2LC0xMTczNzc1NDM1LDk2NzU5MzYx
+NywtNjEwOTAzOTk5LDY4NTE2ODAyLDMxNDY0NTg2OSwtMTgyNT
+M4NTI0MiwxNjUxODcwMTA2LDIxMTExMzMxODAsLTEyMjY0Mzk0
+MzksLTIzNDU1NTI4NCw1MTYyNzAzMCwtNDIxOTc3MiwtODAxMj
+czMDUyLDE0MzAwNTEwNSwyMTEzMzg3NzQyLC0xNjY0OTU2MTA1
+XX0=
 -->
