@@ -257,8 +257,10 @@ Parameter | Provided | Comment
 ### 3.2.4. Token Error Response 
 As per <a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse" onclick="return ! window.open(this.href);">OIDC Specification Aggregated Response</a>
 
-3.2.4.1.
+#### 3.2.4.1. Response When User Rejects the Action
+`{"error_description":null,"error":"access_denied"}`
 
+####
 # 4. User Data
 ## 4.1. What is a claim?
 The concept of claim is about declaring something you expect as return from the OP. When it comes to end user data, you have to use claims in order to declare the end user data you will need for your business before the authentication. This is a privacy-oriented way of getting data.
@@ -715,11 +717,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcwMjg5OTM2Myw5MzMzOTQzNzUsLTQxNT
-k4NzE3NywtMzkzOTgzNTc1LDY5NDc1MjM1OSwtOTgyNDAwMzk2
-LC0xMTczNzc1NDM1LDk2NzU5MzYxNywtNjEwOTAzOTk5LDY4NT
-E2ODAyLDMxNDY0NTg2OSwtMTgyNTM4NTI0MiwxNjUxODcwMTA2
-LDIxMTExMzMxODAsLTEyMjY0Mzk0MzksLTIzNDU1NTI4NCw1MT
-YyNzAzMCwtNDIxOTc3MiwtODAxMjczMDUyLDE0MzAwNTEwNV19
-
+eyJoaXN0b3J5IjpbLTE0NTkwMzUzMTgsOTMzMzk0Mzc1LC00MT
+U5ODcxNzcsLTM5Mzk4MzU3NSw2OTQ3NTIzNTksLTk4MjQwMDM5
+NiwtMTE3Mzc3NTQzNSw5Njc1OTM2MTcsLTYxMDkwMzk5OSw2OD
+UxNjgwMiwzMTQ2NDU4NjksLTE4MjUzODUyNDIsMTY1MTg3MDEw
+NiwyMTExMTMzMTgwLC0xMjI2NDM5NDM5LC0yMzQ1NTUyODQsNT
+E2MjcwMzAsLTQyMTk3NzIsLTgwMTI3MzA1MiwxNDMwMDUxMDVd
+fQ==
 -->
