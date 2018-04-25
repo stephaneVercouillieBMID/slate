@@ -32,7 +32,7 @@ itsme® offers 3 services, which act as strong enablers for every process digita
  
 Our on boarding process consists of two main steps:
 - The configuration of your Sandbox
-- - The integration of itsme(r) services
+- The integration of itsme(r) services
  
 ## 2.1. Configuration of your Sandbox
 Before you can start working on the integration of itsme(r) services, we need to create your Sandbox in which the integration takes place. Your company will provide us both functional and technical information we will use to create your Sandbox. These information include (not exhaustively):
@@ -41,16 +41,16 @@ Before you can start working on the integration of itsme(r) services, we need to
 - JWKset URL, and associated SSL/TLS certificate
 You can consult [our B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) for more information about this step.
  
-<aside class="success"> What is the use of our Certificate? Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
+ <aside class="success"> What is the use of our Certificate? Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
 For testing, you could use a self signed certificate like that you could define validity period.</aside>
 
- <aside class="success">Should I warn BMID if the certificate is changed?Yes, we need to be aware on time</aside>
+<aside class="success">Should I warn BMID if the certificate is changed?Yes, we need to be aware on time</aside>
 
 <aside class="success"> Can a same service point to separate SSL Certificates?
 
 Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.</aside>
  
- <aside class="success"> Can I use a self signed certificate for my integration? In Sandbox, yes but not for production where we need the certificate & its intermediate chain.</aside>
+<aside class="success"> Can I use a self signed certificate for my integration? In Sandbox, yes but not for production where we need the certificate & its intermediate chain.</aside>
 <aside class="success"> What should I do once I changed my JWKSet URL? You must notify Support and create a new certificate accordingly.</aside>
 
 <aside class="success"> Is it possible to register multiple valid callback URIs/jwkset URIs for one environment, or will they have to change this every time they switch URIs? While it is possible to register several redirect urls, it is not possible to register several JWKSet URLs. 
@@ -689,11 +689,11 @@ MDE3NTU1NDQzXX0=
 The entire redirect_uri must match therefore no additional parameter is allowed.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjkzMjgwMDQ3LC02MTA5MDM5OTksNjg1MT
-Y4MDIsMzE0NjQ1ODY5LC0xODI1Mzg1MjQyLDE2NTE4NzAxMDYs
-MjExMTEzMzE4MCwtMTIyNjQzOTQzOSwtMjM0NTU1Mjg0LDUxNj
-I3MDMwLC00MjE5NzcyLC04MDEyNzMwNTIsMTQzMDA1MTA1LDIx
-MTMzODc3NDIsLTE2NjQ5NTYxMDUsLTEzNjE3MDM1NjIsMTU2OD
-c1MzUwOCwtMTc2NDQwNDk0NCw5MTMxMTU4ODMsLTE4NzUxODY1
-MV19
+eyJoaXN0b3J5IjpbLTQwMDgxNzIyOCwtNjEwOTAzOTk5LDY4NT
+E2ODAyLDMxNDY0NTg2OSwtMTgyNTM4NTI0MiwxNjUxODcwMTA2
+LDIxMTExMzMxODAsLTEyMjY0Mzk0MzksLTIzNDU1NTI4NCw1MT
+YyNzAzMCwtNDIxOTc3MiwtODAxMjczMDUyLDE0MzAwNTEwNSwy
+MTEzMzg3NzQyLC0xNjY0OTU2MTA1LC0xMzYxNzAzNTYyLDE1Nj
+g3NTM1MDgsLTE3NjQ0MDQ5NDQsOTEzMTE1ODgzLC0xODc1MTg2
+NTFdfQ==
 -->
