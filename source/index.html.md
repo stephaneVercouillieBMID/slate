@@ -384,10 +384,11 @@ locale|string|End-User's locale, represented as a [BCP47](https://openid.net/spe
 phone_number|string|  End-User's preferred telephone number.  [E.164](https://openid.net/specs/openid-connect-core-1_0.html#E.164)  [E.164] is RECOMMENDED as the format of this Claim.If the phone number contains an extension, it is RECOMMENDED that the extension be represented using the  [RFC 3966](https://openid.net/specs/openid-connect-core-1_0.html#RFC3966)  [RFC3966] extension syntax.
 phone_number_verified |boolean (**always true**)|True if the End-User's phone number has been verified; otherwise false. When this Claim Value is true, this means that the OP took affirmative steps to ensure that this phone number was controlled by the End-User at the time the verification was performed. The means by which a phone number is verified is context-specific, and dependent upon the trust framework or contractual agreements within which the parties are operating. When true, the phone_number Claim MUST be in E.164 format and any extensions MUST be represented in RFC 3966 format.
 address|JSON object|End-User's preferred postal address. The value of the address member is a JSON [[RFC4627]](https://openid.net/specs/openid-connect-core-1_0.html#RFC4627) structure containing some or all of the members defined in [Section 5.1.1](https://openid.net/specs/openid-connect-core-1_0.html#AddressClaim).
+
 #### 4.2.2.2. Example of a Valid “claims” Object 
 Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_device`:
  
- ```json--inline
+```json--inline
  {  
  	"os": "ANDROID",  
  	"appName": "itsme app", "appRelease": "1.17.13",
@@ -406,24 +407,24 @@ Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_devic
  	"sdkRelease": "1.17.12"  
  }
  ```
- #### <a name id="deviceClaim"></a> 4.2.2.2. Device Claim 
+#### <a name id="deviceClaim"></a> 4.2.2.2. Device Claim 
 This claim is the information about the end user device. 
 
 Claim value: **`tag:sixdots.be,2017-05:claim_device`**
 
 A JSON object with the following keys: (only keys with cardinality [1…1] will be always available)
 
- - “os” [1…1]: the device operating system (supported values:
-   {ANDROID, IOS})   
-  -  “appName” [0…1]: the application name.   
-  -   “appRelease” [0…1]: the application current release.   
-  -   “deviceLabel” [0…1]: the name of the device.   
-  - “debugEnabled” [0…1]: if debug mode is activated.   
-  -  “deviceId” [1…1]: (regexp =“[a-f0-9]{33}”) the device identifier.   
-  -  “osRelease” [0…1]: Version of the OS running on your Device.  
-  -   “manufacturer” [0…1]: Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android).
-    - “hasSimEnabled” [0…1]: Whether there is a SIM in the Device. Should
-   be always true, as long as BMID keeps forbidding installing itsme on
+- “os” [1…1]: the device operating system (supported values:
+- {ANDROID, IOS})   
+-  “appName” [0…1]: the application name.   
+-   “appRelease” [0…1]: the application current release.   
+-   “deviceLabel” [0…1]: the name of the device.   
+- “debugEnabled” [0…1]: if debug mode is activated.   
+-  “deviceId” [1…1]: (regexp =“[a-f0-9]{33}”) the device identifier.   
+-  “osRelease” [0…1]: Version of the OS running on your Device.  
+-   “manufacturer” [0…1]: Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android).
+ - “hasSimEnabled” [0…1]: Whether there is a SIM in the Device. Should
+ be always true, as long as BMID keeps forbidding installing itsme on
    a tablet.   
     -  “deviceLockLevel” [0…1]: The type of action to be
    performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.   
@@ -738,5 +739,5 @@ eyJoaXN0b3J5IjpbOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2Nz
 UwMTQ3LDIwNjc3ODY1MTVdfQ==
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODg2NDQ1NjczXX0=
+eyJoaXN0b3J5IjpbLTE3NzQ5NTAzODBdfQ==
 -->
