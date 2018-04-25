@@ -632,34 +632,33 @@ The following JSON Web Key Generator can be used to create JWKSet
 ```
  https://mkjwk.org/ 
   ```
- Another resource you could use to generate your JWKSet is: 
-  ```
+Another resource you could use to generate your JWKSet is: 
+```
  https://connect2id.com/products/nimbus-jose-jwt/examples/jwk-generation
   ```
- Another option (using python) is available at:
-  ```
+Another option (using python) is available at:
+```
  https://stackoverflow.com/questions/42504079/how-do-you-extract-n-and-e-from-a-rsa-public-key-in-python
   ``` 
  
  
- >### How to Transfer JWKSets?
- The following link can be used to convert encoded public and private keys to JWKSet format:
-  ```
+### How to Transfer JWKSets?
+The following link can be used to convert encoded public and private keys to JWKSet format:
+```
  https://www.npmjs.com/package/rsa-pem-to-jwk
   ```
-  >
- >### What are the JWKSet requirements?
- In Opend ID Connect 1.0 the important is the JWKSet which is exposed on a public URL and the linked chain of certificates which is included in our trust store.
- >
- This is 1 per partner. So in UAT 1, in Prod, for your 4 clients, it would be 1 JWKSet if it's under Norbloc name or 4 JWKSet if it's under each client name.
- >
- When you send request to us,
+
+### What are the JWKSet requirements?
+In Opend ID Connect 1.0 the important is the JWKSet which is exposed on a public URL and the linked chain of certificates which is included in our trust store.
+
+This is 1 per partner. So in UAT 1, in Prod, for your 4 clients, it would be
+1 JWKSet if it's under Norbloc name or 4 JWKSet if it's under each client name.
+When you send request to us,
+- You sign the request with your 'sign' private key and to encrypt it you use our 'encryption' public key.
+- Once we answer your request, we send an encrypted JWT token (based on your 'encryption' public key) which needs to be decrypted with your 'encryption' private key. 
+- Once decrypted, you need to validate our signature with our 'public' sign key found in our JWKSet.
  
-   - You sign the request with your 'sign' private key and to encrypt it you use our 'encryption' public key.
-   - Once we answer your request, we send an encrypted JWT token (based on your 'encryption' public key) which needs to be decrypted with your 'encryption' private key. 
-   - Once decrypted, you need to validate our signature with our 'public' sign key found in our JWKSet.
- 
- We are here working in HTTPS Client Authentication.For more details the best is to refer to the Open ID Connect documentation(http://openid.net/connect/) - and more specifically follow links relating JWT encryption & signing.
+We are here working in HTTPS Client Authentication.For more details the best is to refer to the Open ID Connect documentation(http://openid.net/connect/) - and more specifically follow links relating JWT encryption & signing.
  
  For the call back URI (not URL) you will need in UAT 4 URI, one per service. So in Prod, for 4 clients using each the 4 services, you would have at least 16 Service codes.
  
@@ -732,5 +731,5 @@ eyJoaXN0b3J5IjpbOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2Nz
 UwMTQ3LDIwNjc3ODY1MTVdfQ==
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMjAyODE1ODBdfQ==
+eyJoaXN0b3J5IjpbMTUzNzcyMDkzNF19
 -->
