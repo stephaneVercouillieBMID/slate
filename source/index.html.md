@@ -183,23 +183,23 @@ In order to communicate with Token Endpoint, TLS MUST be implemented. See  [Sect
 The Token Request must include the following parameters in the POST body:
 
 Parameter | Required | Comment
- :-- | -- | --
- **grant_type** | Required | Must be `authorization_code`. 
- **code** | Required | The code value provided in the Authentication Response
- **redirect_uri** | Required | The **redirect_uri** used in the Authentication Request. This is the URL to which you want the user to be redirected after the authorization is complete.
-  **client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` client authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
- **client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` 
+:-- | -- | --
+**grant_type** | Required | Must be `authorization_code`. 
+**code** | Required | The code value provided in the Authentication Response
+**redirect_uri** | Required | The **redirect_uri** used in the Authentication Request. This is the URL to which you want the user to be redirected after the authorization is complete.
+**client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` client authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
+**client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` 
 
 #### 3.2.2.1. `client_assertion` 
 According to the `private_key_jwt` client authentication method, the **client assertion** JWT must contain the following properties:
 
- Property | Comment
- :-- | :--
- **iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID).
- **sub** | The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the on boarding file provided by BMID). 
- **aud** | Must be the token endpoint URL
- **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
- **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
+Property | Comment
+:-- | :--
+**iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID).
+**sub** | The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the on boarding file provided by BMID). 
+**aud** | Must be the token endpoint URL
+**jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
+**exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 
 ### 3.2.3. Token Request Example
 
@@ -215,7 +215,7 @@ GET /oidc/authorization?response_type=code
 ### 3.2.4. Token Response Specification
 The Token Response follow these specifications:
 
- Parameter | Provided | Comment
+Parameter | Provided | Comment
  -- | -- | :--
  **[`access_token`](#actoken)** | Always | Will be provided. 
  **[`token_type`](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)** | Always | Will be `Bearer`
@@ -741,5 +741,5 @@ eyJoaXN0b3J5IjpbOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2Nz
 UwMTQ3LDIwNjc3ODY1MTVdfQ==
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMjA4ODg5NDNdfQ==
+eyJoaXN0b3J5IjpbLTIxMDYxOTI3NjVdfQ==
 -->
