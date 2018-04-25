@@ -600,37 +600,36 @@ https://merchant.itsme.be/oidc/jwkSet
  
 It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
 # 6. **FAQ**
-0>## <a name="jwks"></a> JWKSet
- >
- >### What is a JWKSet?
- We require you to expose a set of public key (a signature key & one encryption key) to setup the connectivity.
+## <a name="jwks"></a> JWKSet
+### What is a JWKSet?
+We require you to expose a set of public key (a signature key & one encryption key) to setup the connectivity.
  
- For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there).
+For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there).
   
- The signature key is used to verify the Service provider when they come fetch data on a client.
+The signature key is used to verify the Service provider when they come fetch data on a client.
  
- The encryption key is used to encrypt data so that nobody can read the data which we are transfering apart from the service provider component who has the right to access these data (so that you can encode/reencode the https in intern in a less secured component; it stays encrypted).
+The encryption key is used to encrypt data so that nobody can read the data which we are transfering apart from the service provider component who has the right to access these data (so that you can encode/reencode the https in intern in a less secured component; it stays encrypted).
   
- If the question is ONLY related to OpenID Connect (OIDC) aspects,
- >
- > _“For signature and encryption, does BMID accept either RP self-signed certificates or certificates signed by an internal PKI (in which case we need to provide also our internal CA certificate)?”_
- > 
-  >_The RP (the partner) provides his public key used for encryption and the other one used for signature of OIDC JWT (= JSON Web Tokens), using a JSON file called “JWKSet”. (sample JWKSet for Itsme OpenID Provider)_
- >
- - This JWKSet is accessible, using a secured HTTPS URL.
- (sample HTTPS URL for OpenID Provider https://merchant.itsme.be/oidc/jwkSet)
+If the question is ONLY related to OpenID Connect (OIDC) aspects,
+>
+> _“For signature and encryption, does BMID accept either RP self-signed certificates or certificates signed by an internal PKI (in which case we need to provide also our internal CA certificate)?”_
+> 
+>_The RP (the partner) provides his public key used for encryption and the other one used for signature of OIDC JWT (= JSON Web Tokens), using a JSON file called “JWKSet”. (sample JWKSet for Itsme OpenID Provider)_
+>
+- This JWKSet is accessible, using a secured HTTPS URL.
+(sample HTTPS URL for OpenID Provider https://merchant.itsme.be/oidc/jwkSet)
   
- - This HTTPS URL must be communicated to us, during the partner on-boarding.<br>
- - This HTTPS URL must be protected using a valid certificates chain starting from a Root CA trusted by our backend.
-  >
- During on-boarding, we can check that we have all the required certificates to establish the trust.<br>
- So, on the HTTPS protocol level, the connections must be secured using trusted Root CA (not self-signed).
- In contrary, the key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.
+- This HTTPS URL must be communicated to us, during the partner on-boarding.<br>
+- This HTTPS URL must be protected using a valid certificates chain starting from a Root CA trusted by our backend.
+>
+During on-boarding, we can check that we have all the required certificates to establish the trust.<br>
+So, on the HTTPS protocol level, the connections must be secured using trusted Root CA (not self-signed).
+In contrary, the key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.
  
- >### How to create JWKSet?
+### How to create JWKSet?
  
- The following JSON Web Key Generator can be used to create JWKSet
-  ```
+The following JSON Web Key Generator can be used to create JWKSet
+```
  https://mkjwk.org/ 
   ```
  Another resource you could use to generate your JWKSet is: 
@@ -733,5 +732,5 @@ eyJoaXN0b3J5IjpbOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2Nz
 UwMTQ3LDIwNjc3ODY1MTVdfQ==
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE0MTc3MDcyMl19
+eyJoaXN0b3J5IjpbLTIwMjAyODE1ODBdfQ==
 -->
