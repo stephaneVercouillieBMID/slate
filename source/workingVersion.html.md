@@ -709,15 +709,13 @@ During on-boarding, we can check that we have all the required certificates to e
 So, on the HTTPS protocol level, the connections must be secured using trusted Root CA (not self-signed). In contrary, the key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.
 TODO
 
-**I receive Error 500 - JWKSet related**
-Please check that, “alg” field is not empty which could produce a parsing error on the backend.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjk0NzUyMzU5LC05ODI0MDAzOTYsLTExNz
-M3NzU0MzUsOTY3NTkzNjE3LC02MTA5MDM5OTksNjg1MTY4MDIs
-MzE0NjQ1ODY5LC0xODI1Mzg1MjQyLDE2NTE4NzAxMDYsMjExMT
-EzMzE4MCwtMTIyNjQzOTQzOSwtMjM0NTU1Mjg0LDUxNjI3MDMw
-LC00MjE5NzcyLC04MDEyNzMwNTIsMTQzMDA1MTA1LDIxMTMzOD
-c3NDIsLTE2NjQ5NTYxMDUsLTEzNjE3MDM1NjIsMTU2ODc1MzUw
-OF19
+eyJoaXN0b3J5IjpbLTM5Mzk4MzU3NSw2OTQ3NTIzNTksLTk4Mj
+QwMDM5NiwtMTE3Mzc3NTQzNSw5Njc1OTM2MTcsLTYxMDkwMzk5
+OSw2ODUxNjgwMiwzMTQ2NDU4NjksLTE4MjUzODUyNDIsMTY1MT
+g3MDEwNiwyMTExMTMzMTgwLC0xMjI2NDM5NDM5LC0yMzQ1NTUy
+ODQsNTE2MjcwMzAsLTQyMTk3NzIsLTgwMTI3MzA1MiwxNDMwMD
+UxMDUsMjExMzM4Nzc0MiwtMTY2NDk1NjEwNSwtMTM2MTcwMzU2
+Ml19
 -->
