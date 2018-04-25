@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Documentation</title>
+    <title>itsme(r) OpenID Connect documentation</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -198,10 +198,10 @@
     </style>
     <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all_nosearch.js"></script>
+      <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[]">
+  <body class="index" data-languages="[&quot;json&quot;,&quot;http&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -210,6 +210,14 @@
     </a>
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="json">JSON</a>
+              <a href="#" data-language-name="http">HTTP</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
             <a href="#1-introduction" class="toc-h1 toc-link" data-title="1-introduction">1. Introduction</a>
@@ -281,30 +289,19 @@
               </ul>
           </li>
       </div>
+        <ul class="toc-footer">
+            <li><a href='#'>Sign Up for a Developer Key</a> --></li>
+            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+        </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <hr>
-
-<p>title: itsme(r) OpenID Connect documentation</p>
-
-<p>language_tabs: # must be one of https://git.io/vQNgJ
-   - json: JSON
-   - http: HTTP</p>
-
-<p>toc_footers:
-  &lt;!-- - <a href='#'>Sign Up for a Developer Key</a> --&gt;
-   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></p>
-
-<p>search: true</p>
-
-<hr>
-<h1 id='1-introduction'>1. Introduction</h1><h2 id='1-1-who-should-read-this-document'>1.1. Who should read this document</h2>
-<p>This document is intended to be read by Service Provider developers who are in charge of developing and integrating the itsme(r) services. In this document, we speak directly to the developers, using &#39;you&#39; to 
+        <h1 id='1-introduction'>1. Introduction</h1><h2 id='1-1-who-should-read-this-document'>1.1. Who should read this document</h2>
+<p>This document is intended to be read by Service Provider developers who are in charge of developing and integrating the itsme(r) services. In this document, we speak directly to the developers, using &#39;you&#39; to
 designate them.</p>
 
-<p>This documentation describes our OAuth 2.0 implementation of <strong>itsme® Login</strong>, which conforms to  the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="_blank"> OpenID Connect 1.0 </a> specifications. </p>
+<p>This documentation describes our OAuth 2.0 implementation of <strong>itsme® Login</strong>, which conforms to  the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="_blank"> OpenID Connect 1.0 </a> specifications.</p>
 <h2 id='1-2-objective'>1.2. Objective</h2>
 <p>The objective of this document is to provide all the information needed to integrate the itsme(r) services using OpenID Connect protocol.</p>
 <h2 id='1-3-the-itsme-services-in-a-few-words'>1.3. The itsme® services in a few words</h2>
@@ -325,28 +322,27 @@ You can consult <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">our B2
 
 <aside class="success">
 Once your Sandbox is created, you will receive:
-<ul> 
+<ul>
 <li>Your Partner Code, which corresponds to the OpenID <b>client_id</b> </li>
 <li>Your Service Codes, which are the identifiers of your instances of itsme(r) services. </li>
 </ul>
 </aside>
 
-<p>Please consult <a name="ServiceCode"></a><a href="#ServiceCode">Service Code Concept</a> for more information about the notion of Service Code. </p>
+<p>Please consult <a name="ServiceCode"></a><a href="#ServiceCode">Service Code Concept</a> for more information about the notion of Service Code.</p>
 <h2 id='2-2-integration-of-itsme-services'>2.2. Integration of itsme® services</h2>
 <p>Once your Sandbox has been created, you can start working on the
 integration itself. All the information needed to do so is the object of this document.</p>
 <h3 id='2-2-1-itsme-openid-configuration'>2.2.1. itsme® OpenID Configuration</h3>
 <p>The OpenID Connect protocol requires the use of multiple endpoints for authenticating users, and for requesting resources including tokens, user information and public keys.</p>
 
-<p>To simplify implementations and increase flexibility, OpenID Connect allows the use of a &quot;Discovery document&quot;, a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider&#39;s configuration including, 
-- URIs of the authorization, 
-- token, 
-- userinfo, 
-- supported claims 
--  <a href="#jwks">JWKSet</a> to interact with it. </p>
+<p>To simplify implementations and increase flexibility, OpenID Connect allows the use of a &quot;Discovery document&quot;, a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider&#39;s configuration including,
+- URIs of the authorization,
+- token,
+- userinfo,
+- supported claims
+-  <a href="#jwks">JWKSet</a> to interact with it.</p>
 
 <aside class="success">The Discovery document for itsme® service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside>
- 
 
 <p>Field  names and meanings in this document are defined in <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery 1.0</a>.</p>
 <h1 id='3-authenticating-the-user'>3. Authenticating the User</h1>
@@ -495,7 +491,7 @@ integration itself. All the information needed to do so is the object of this do
 </tr>
 </tbody></table>
 <h3 id='3-1-2-authentication-response-specification'>3.1.2. Authentication Response Specification</h3>
-<p>An Authentication Response is an <a href="https://tools.ietf.org/html/rfc6749#section-4.1.2">OAuth 2.0 Authorization Response</a> message. </p>
+<p>An Authentication Response is an <a href="https://tools.ietf.org/html/rfc6749#section-4.1.2">OAuth 2.0 Authorization Response</a> message.</p>
 
 <p>The itsme Back-End provides an Authorization Code to the Service Provider Back-End. In the Response, the Service Provider Back-End knows that the User was successfully authenticated.</p>
 
@@ -704,7 +700,7 @@ integration itself. All the information needed to do so is the object of this do
 Technically, you have to declare the claims in the Authorization Request in the way described in the section <a href="#decClaim">Declaring Claims</a>.
 Claims will come as name/value pairs packaged in a JSON object that contain information about a user, as well as meta-information about the OIDC service. The official definition from the spec is a <a href="http://openid.net/specs/openid-connect-core-1_0.html#Terminology">“piece of information asserted about an Entity.”</a></p>
 <h3 id='4-1-1-claim-types'>4.1.1. Claim Types</h3>
-<p>Three representations of Claim Values are defined officially: 
+<p>Three representations of Claim Values are defined officially:
 - Normal Claims
 - Aggregated Claims (not supported)
 - Distributed Claims (not supported)</p>
@@ -723,12 +719,12 @@ Claims will come as name/value pairs packaged in a JSON object that contain info
    &quot;family_name&quot;: &quot;Doe&quot;,
    &quot;email&quot;: &quot;janedoe@example.com&quot;,
    &quot;picture&quot;: &quot;https://www.itsme.be/uploads/media/57da4dee8c5d2/logo-itsme-badge.svg?production-f26c079&quot;
-  } 
+  }
 </code></p>
 <h3 id='4-1-2-essential-claims-vs-voluntary-claims'>4.1.2 Essential Claims vs Voluntary Claims</h3>
 <p>In current version and in contradiction to the OpenID Connect specification, <strong>itsme(r)</strong> considers all claims requested via scope as <strong>Essential</strong> (see <a href="http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests">Individual Claim Request</a>). <strong>Voluntary</strong> claims are thus supported, but are used as <strong>Essential</strong>.</p>
 
-<p>In practice, it means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, in a future version <strong>itsme(r)</strong>  will make the difference between <strong>Essential</strong> and <strong>Voluntary</strong> claims. You should thus already request claims according to your business case. </p>
+<p>In practice, it means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, in a future version <strong>itsme(r)</strong>  will make the difference between <strong>Essential</strong> and <strong>Voluntary</strong> claims. You should thus already request claims according to your business case.</p>
 <h2 id='4-2-declaring-claims'><a name id="decClaim"></a> 4.2. Declaring Claims</h2>
 <p>You can declare Claims in two ways:
 - With &#39;scope&#39; values
@@ -736,9 +732,9 @@ Claims will come as name/value pairs packaged in a JSON object that contain info
 
 <p>In each case, the claims need to be declared in the Authorization Request.</p>
 <h3 id='4-2-2-scope'><a name id="scope"></a>4.2.2. Scope</h3>
-<p>Scopes are space-separated lists of identifiers used to specify what access privileges are being requested. </p>
+<p>Scopes are space-separated lists of identifiers used to specify what access privileges are being requested.</p>
 
-<p>Scopes can be used to request that specific sets of information available as Claim Values in User Info Token. </p>
+<p>Scopes can be used to request that specific sets of information available as Claim Values in User Info Token.</p>
 
 <p>Using this method, you will always receive Claims from the UserInfo Endpoint.</p>
 
@@ -802,16 +798,16 @@ max_age=1
 <p><strong>List of Supported Custom &quot;claim&quot; Values:</strong></p>
 
 <p>Here are these claims:
-Data | Claim | Comment 
-:-- | :--: | :--: 
-Subject | <strong><code>sub</code></strong> | The subject of the <code>private_key_jwt</code>(the client ID). Supports value in request. 
-Nationality | <strong><code>tag:itsmetag:sixdots.be,2016-06:claim_nationality</code></strong> | An error will be raised if request as a value element for the claim 
-Place of Birth - city | <strong><code>tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth</code></strong> |An error will be raised if request as a value element for the claim 
-Place of Birth - country | <strong><code>tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth</code></strong> | An error will be raised if request as a value element for the claim 
+Data | Claim | Comment
+:-- | :--: | :--:
+Subject | <strong><code>sub</code></strong> | The subject of the <code>private_key_jwt</code>(the client ID). Supports value in request.
+Nationality | <strong><code>tag:itsmetag:sixdots.be,2016-06:claim_nationality</code></strong> | An error will be raised if request as a value element for the claim
+Place of Birth - city | <strong><code>tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth</code></strong> |An error will be raised if request as a value element for the claim
+Place of Birth - country | <strong><code>tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth</code></strong> | An error will be raised if request as a value element for the claim
 E-ID Metadata  | <strong><code>tag:itsmetag:sixdots.be,2016-06:claim_eid</code></strong> |  <a href="#eidMetadata">Specifications</a>
-Passport Number | <strong><code>tag:sixdots.be,2017-05:claim_passport_sn</code></strong> | Simple string containing the user’s Passport Serial Number. 
+Passport Number | <strong><code>tag:sixdots.be,2017-05:claim_passport_sn</code></strong> | Simple string containing the user’s Passport Serial Number.
 Device | <strong><code>tag:sixdots.be,2017-05:claim_device</code></strong> | <a href="#deviceClaim">Specifications</a> and <a href="#exampleDeviceClaimValue">an example of device claim value usage</a><br>
-Transaction Info| <strong><code>tag:sixdots.be,2017-05:claim_transaction_info</code></strong> |<a href="#transactionInfo">Specifications</a> and <a href="#transactionInfoExample">an example of usage</a> 
+Transaction Info| <strong><code>tag:sixdots.be,2017-05:claim_transaction_info</code></strong> |<a href="#transactionInfo">Specifications</a> and <a href="#transactionInfoExample">an example of usage</a>
 E-ID Picture | <strong><code>tag:sixdots.be,2017-05:2017-05:claim_photo</code></strong>|
 NRN | not supported|</p>
 <h4 id='4-2-2-1-set-of-request-parameter-adapted-to-itsme-r'><b id="example-endpoint"></b> 4.2.2.1. Set of Request Parameter Adapted to itsme(r)</h4><pre class="highlight json tab-json--inline"><code><span class="w"> </span><span class="p">{</span><span class="w">
@@ -835,7 +831,7 @@ NRN | not supported|</p>
 
 <p>As per specified by OpenID Connect, there is a set of <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims">standard claims</a>, or user attributes. They are intended to supply the client app with consented user details such as email, name and picture, upon request.  They can be requested to be returned either in the UserInfo Response, per <a href="https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse">Section 5.3.2</a>, or in the ID Token, per <a href="https://openid.net/specs/openid-connect-core-1_0.html#IDToken">Section 2</a>.</p>
 
-<p>Here following table lists the supported standard &quot;claim&quot; values, </p>
+<p>Here following table lists the supported standard &quot;claim&quot; values,</p>
 
 <table><thead>
 <tr>
@@ -911,21 +907,21 @@ NRN | not supported|</p>
     </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ANDROID"</span><span class="p">,</span><span class="w">  
     </span><span class="s2">"appName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itsme app"</span><span class="p">,</span><span class="w"> </span><span class="s2">"appRelease"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.17.13"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"deviceLabel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myDevice"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"debugEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"debugEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"deviceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deviceId"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"osRelease"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Android 4.4.2"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"samsung"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"osRelease"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Android 4.4.2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"samsung"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"hasSimEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"deviceLockLevel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"touchID"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"deviceLockLevel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"touchID"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"smsEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rooted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"imei"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678901234567"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"deviceModel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S8"</span><span class="p">,</span><span class="w">  
-    </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0412123123"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0412123123"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sdkRelease"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.17.12"</span><span class="w">  
  </span><span class="p">}</span><span class="w">
 </span></code></pre><h4 id='4-2-2-2-device-claim'><a name id="deviceClaim"></a> 4.2.2.2. Device Claim</h4>
-<p>This claim is the information about the end user device. </p>
+<p>This claim is the information about the end user device.</p>
 
 <p>Claim value: <strong><code>tag:sixdots.be,2017-05:claim_device</code></strong></p>
 
@@ -969,7 +965,7 @@ e.g. SAMSUNG GALAXY A5<br></li>
 
 <p>Information available in the context of the current transaction.</p>
 
-<p>A JSON object with the following keys: (only keys with cardinality \[1..1\] will be always available)<br> <strong>“securityLevel” \[1..1\]</strong>: (supported values: <br>{SOFT\_ONLY, SIM\_ONLY, SIM\_AND\_SOFT}) Security level used during transaction. <br><strong>“bindLevel” \[1..1\]</strong>: (supported values: {SOFT\_ONLY, SIM\_ONLY, SIM\_AND\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. <br><strong>“mcc” \[0..1\]</strong>: the Mobile Country Code. An Integer (three digits) representing the mobile network country. </p>
+<p>A JSON object with the following keys: (only keys with cardinality \[1..1\] will be always available)<br> <strong>“securityLevel” \[1..1\]</strong>: (supported values: <br>{SOFT\_ONLY, SIM\_ONLY, SIM\_AND\_SOFT}) Security level used during transaction. <br><strong>“bindLevel” \[1..1\]</strong>: (supported values: {SOFT\_ONLY, SIM\_ONLY, SIM\_AND\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. <br><strong>“mcc” \[0..1\]</strong>: the Mobile Country Code. An Integer (three digits) representing the mobile network country.</p>
 <h5 id='4-2-2-4-1-example-of-the-usage-of-transaction-info-claim-value'><a name id="transactionInfoExample"></a>4.2.2.4.1. Example of The Usage of Transaction Info Claim Value</h5>
 <p><code>{ &quot;securityLevel&quot;: &quot;SIM\\\_AND\\\_SOFT&quot;, &quot;bindLevel&quot;: &quot;SIM\\\_AND\\\_SOFT&quot;, &quot;mcc&quot;: 206 }</code></p>
 <h2 id='4-3-getting-data'>4.3. Getting Data</h2>
@@ -979,7 +975,7 @@ e.g. SAMSUNG GALAXY A5<br></li>
 - The UserInfo Endpoint
 - The Token Endpoint, in the ID Token</p>
 <h3 id='4-3-1-userinfo-endpoint'>4.3.1. UserInfo Endpoint</h3>
-<p>As per the <a href="http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest">OpenID Connect specification</a>, </p>
+<p>As per the <a href="http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest">OpenID Connect specification</a>,</p>
 
 <p>If you declared claims with <code>scope</code> values or if you declared claims in the <code>userinfo</code> part of the <code>claims</code> parameter in the <code>request</code> object, you will receive the end user data from the UserInfo Endpoint.</p>
 
@@ -987,7 +983,7 @@ e.g. SAMSUNG GALAXY A5<br></li>
 
 <p>Your server sends the User Info Request using either HTTP  <code>GET</code>  or HTTP  <code>POST</code> method. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP  <code>GET</code>method and the Access Token be sent the using the  <code>Authorization</code>  header field. The HTTP request is sent to the User Info endpoint, which you should retrieve from the  <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">Discovery document</a>  using the key  <strong>userinfo_endpoint</strong>.</p>
 
-<p>The content type of the response will be <code>application/JWT</code>. The response will be signed and encrypted. </p>
+<p>The content type of the response will be <code>application/JWT</code>. The response will be signed and encrypted.</p>
 
 <p>The UserInfo endpoint can be accessed only with a valid <strong>access_token</strong> and for a very limited duration after end user authentication. There must be <em>less than 3 minutes</em> between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info Endpoint.
 The Access Token will define the list of Data that will be provided back to the client. In order to request specific claims, you can  <a href="https://stackedit.io/app#stClaims">use scopes</a>  in the Authentication Request and/or  <a href="https://stackedit.io/app#Claims-Request">use the claims parameter</a>  of the  request Object.</p>
@@ -1021,10 +1017,10 @@ The Access Token will define the list of Data that will be provided back to the 
 <td style="text-align: left">Will always be provided</td>
 </tr>
 </tbody></table>
-<h4 id='4-3-1-2-user-info-request-example'>4.3.1.2. User info Request Example</h4><pre class="highlight http tab-http--inline"><code><span class="err">GET /userinfo HTTP/1.1 
-Host: server.example.com 
-Authorization: Bearer SlAV32hkKG
-</span></code></pre><h4 id='4-3-1-3-user-info-response-specification'>4.3.1.3. User info Response Specification</h4>
+<h4 id='4-3-1-2-user-info-request-example'>4.3.1.2. User info Request Example</h4><pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/userinfo</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">server.example.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer SlAV32hkKG</span>
+</code></pre><h4 id='4-3-1-3-user-info-response-specification'>4.3.1.3. User info Response Specification</h4>
 <p>The content type of the response will be <code>application/jwt</code>. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed. The itsme Back-End replies with the Identity Data that were requested in the Authorization Request.</p>
 <h4 id='4-3-1-4-user-info-response-example'>4.3.1.4. User info Response Example</h4>
 <p>(Not encrypted nor signed)</p>
@@ -1120,11 +1116,11 @@ Supported algorithms and encryption methods for:
 -- Encryption Algorithm (alg): RSA-OAEP
 -- Signing Algorithm (alg): RS256</p>
 
-<p>Offline access is not supported. </p>
+<p>Offline access is not supported.</p>
 
 <p>Dynamic client registration is not allowed.</p>
 
-<p>itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet) 
+<p>itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 https://merchant.itsme.be/oidc/jwkSet</p>
 
 <p>It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.</p>
@@ -1161,16 +1157,16 @@ In contrary, the key pairs used for signing and/or encrypting the OIDC JWT token
 <h3 id='how-to-create-jwkset'>How to create JWKSet?</h3>
 <p>The following JSON Web Key Generator can be used to create JWKSet
 <code>
- https://mkjwk.org/ 
+ https://mkjwk.org/
 </code>
-Another resource you could use to generate your JWKSet is: 
+Another resource you could use to generate your JWKSet is:
 <code>
  https://connect2id.com/products/nimbus-jose-jwt/examples/jwk-generation
 </code>
 Another option (using python) is available at:
 <code>
  https://stackoverflow.com/questions/42504079/how-do-you-extract-n-and-e-from-a-rsa-public-key-in-python
-</code> </p>
+</code></p>
 <h3 id='how-to-transfer-jwksets'>How to Transfer JWKSets?</h3>
 <p>The following link can be used to convert encoded public and private keys to JWKSet format:
 <code>
@@ -1183,7 +1179,7 @@ Another option (using python) is available at:
 1 JWKSet if it&#39;s under Norbloc name or 4 JWKSet if it&#39;s under each client name.
 When you send request to us,
 - You sign the request with your &#39;sign&#39; private key and to encrypt it you use our &#39;encryption&#39; public key.
-- Once we answer your request, we send an encrypted JWT token (based on your &#39;encryption&#39; public key) which needs to be decrypted with your &#39;encryption&#39; private key. 
+- Once we answer your request, we send an encrypted JWT token (based on your &#39;encryption&#39; public key) which needs to be decrypted with your &#39;encryption&#39; private key.
 - Once decrypted, you need to validate our signature with our &#39;public&#39; sign key found in our JWKSet.</p>
 
 <p>We are here working in HTTPS Client Authentication.For more details the best is to refer to the Open ID Connect documentation(http://openid.net/connect/) - and more specifically follow links relating JWT encryption &amp; signing.</p>
@@ -1216,16 +1212,16 @@ When you send request to us,
 </code><br>
 You can find the configuration parameters in in document « 33020 Technical Specification Service Provider OpenID Documentation » or via the following back-end URL:</p>
 
-<p>https://uatmerchant.sixdots.be/oidc/.well-known/openid-configuration<br> </p>
+<p>https://uatmerchant.sixdots.be/oidc/.well-known/openid-configuration<br></p>
 <h3 id='what-should-i-do-once-i-changed-my-jwkset'>What should I do once I changed my JWKSet?</h3>
 <p>Please notify Support and create a new certificate.</p>
 <h3 id='what-should-i-do-once-i-changed-my-jwkset-but-not-the-url-does-it-mean-no-new-certificates'>What should I do once I changed my JWKSet but not the URL, does it mean no new certificates?<br></h3>
 <p>You should contact support and mention the change to allow a refresh of the cache on back-end side, this should be solved in March where the refresh time will be 30 min.</p>
 
 <p>A workaround to force a refresh, let the SP send a request with an unknown <strong>&quot;KID&quot;</strong> (key id).<br>
-Because not found in the current cache, this one will be refreshed. But the client has to correct his JWKSet first, if not yet done. </p>
+Because not found in the current cache, this one will be refreshed. But the client has to correct his JWKSet first, if not yet done.</p>
 <h3 id='service-code-concept-what-is-it'><a name id="ServiceCode"></a><a href="#ServiceCode">Service Code Concept</a>,  What is it?</h3>
-<p>To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. </p>
+<p>To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances.</p>
 
 <p>For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.</p>
 <h3 id='i-would-like-to-receive-a-new-service-code-to-do-my-local-development'>I would like to receive a new service code to do my local development...</h3>
@@ -1259,6 +1255,10 @@ eyJoaXN0b3J5IjpbLTExODM3MDcyNTYsLTEzMTA4MTYwMThdfQ
 
       </div>
       <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="json">JSON</a>
+                <a href="#" data-language-name="http">HTTP</a>
+          </div>
       </div>
     </div>
   </body>
