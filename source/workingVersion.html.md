@@ -260,7 +260,7 @@ As per <a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorR
 #### 3.2.4.1. Response When User Rejects the Action
 `{"error_description":null,"error":"access_denied"}`
 
-####
+#### 3.2.4.2. Response When 
 # 4. User Data
 ## 4.1. What is a claim?
 The concept of claim is about declaring something you expect as return from the OP. When it comes to end user data, you have to use claims in order to declare the end user data you will need for your business before the authentication. This is a privacy-oriented way of getting data.
@@ -717,7 +717,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NTkwMzUzMTgsOTMzMzk0Mzc1LC00MT
+eyJoaXN0b3J5IjpbLTEyNjk3NjY3MzYsOTMzMzk0Mzc1LC00MT
 U5ODcxNzcsLTM5Mzk4MzU3NSw2OTQ3NTIzNTksLTk4MjQwMDM5
 NiwtMTE3Mzc3NTQzNSw5Njc1OTM2MTcsLTYxMDkwMzk5OSw2OD
 UxNjgwMiwzMTQ2NDU4NjksLTE4MjUzODUyNDIsMTY1MTg3MDEw
