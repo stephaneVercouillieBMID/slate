@@ -168,13 +168,14 @@ Error | Description
 `request_uri_not_supported` | does not support use of the request_uri parameter.
 `registration_not_supported` | does not support use of the registration parameter.
 
-#### 3.1.3.1. Response when user rejects the action/ chooses the wrong poke-yoke icon,
+#### 3.1.3.1. Response when user rejects the action/ chooses the wrong poke-yoke icon
 `"error_description":null,"error":"access_denied"}`
 
-#### 3.1.3.2. Response when session expired 
+#### 3.1.3.2. Response when user doesn't take any action
 Error code : 500
 Error message : Authentication context is not valid anymore.
 
+![enter image description here](https://lh3.googleusercontent.com/WRsJPugEMcN26AWaQZ7GyoT7x6e5HhMuyGFVWZEXIXw5F7yJ17-zXiw-neKuUp0tk6ysF9zQ1Fs)
 ## <a name="tokenEndpoint"></a> 3.2. Token Endpoint
 As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
 
@@ -723,11 +724,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjc5OTk3ODI0LDE0NDc4NzY2OTgsLTkyNz
-A2NDQ5NiwxOTgxNzUyNTU4LC0xMjY5NzY2NzM2LDkzMzM5NDM3
-NSwtNDE1OTg3MTc3LC0zOTM5ODM1NzUsNjk0NzUyMzU5LC05OD
-I0MDAzOTYsLTExNzM3NzU0MzUsOTY3NTkzNjE3LC02MTA5MDM5
-OTksNjg1MTY4MDIsMzE0NjQ1ODY5LC0xODI1Mzg1MjQyLDE2NT
-E4NzAxMDYsMjExMTEzMzE4MCwtMTIyNjQzOTQzOSwtMjM0NTU1
-Mjg0XX0=
+eyJoaXN0b3J5IjpbMTM2MjM2NjI4Nyw2Nzk5OTc4MjQsMTQ0Nz
+g3NjY5OCwtOTI3MDY0NDk2LDE5ODE3NTI1NTgsLTEyNjk3NjY3
+MzYsOTMzMzk0Mzc1LC00MTU5ODcxNzcsLTM5Mzk4MzU3NSw2OT
+Q3NTIzNTksLTk4MjQwMDM5NiwtMTE3Mzc3NTQzNSw5Njc1OTM2
+MTcsLTYxMDkwMzk5OSw2ODUxNjgwMiwzMTQ2NDU4NjksLTE4Mj
+UzODUyNDIsMTY1MTg3MDEwNiwyMTExMTMzMTgwLC0xMjI2NDM5
+NDM5XX0=
 -->
