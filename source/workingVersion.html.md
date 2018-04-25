@@ -204,7 +204,8 @@ The Authentication Response includes a `code` parameter, a one-time authorizatio
 - In header the Content-Type : application/x-www-form-urlencoded  MUST be added</aside>
 
 <aside class="success">Do you need an App Client Secret on the OpenID client?
-OpenID allows multiple ways for authentication as a Service Provider. BMID only supports `private_key_jwt` as client authentication method with all the SSL requirements exposed via JWKSet, use the corresponding private key to encrypt/sign and decrypt/validate exchanged information. So other authentication methods such as `client_secret`(Open ID Connect default method but the less secured one are not supported since they are considered less secure. </aside>
+OpenID allows multiple ways for authentication as a Service Provider. BMID only supports `private_key_jwt` as client authentication method with all the SSL requirements exposed via JWKSet, use the corresponding private key to encrypt/sign and decrypt/validate exchanged information. So other authentication methods such as
+`client_secret`(Open ID Connect default method but the less secured one are not supported since they are considered less secure. </aside>
 
 In order to communicate with Token Endpoint, TLS MUST be implemented. See  [Section 16.17](http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements)  for more information on using TLS.
 
@@ -214,7 +215,8 @@ GET /oidc/authorization?response_type=code
 &yourredirecturl
 &scope=openid+service%3Ayourservicecode+profile+
 &claims={"userinfo":{" tag:sixdots.be,2016-06:claim_nationality": null},
-"id_token":{"auth_time": {"essential": true},"acr_values":{"value":["tag:sixdots.be,2016-06:acr_advanced"]
+"id_token":{"auth_time": {"essential": true},"acr_values
+{"value":["tag:sixdots.be,2016-06:acr_advanced"]
 }}}&state=anystate&nonce=anonce&prompt=login&max_age=1
 ```
 The Token Request must include the following parameters in the POST body:
@@ -689,11 +691,11 @@ MDE3NTU1NDQzXX0=
 The entire redirect_uri must match therefore no additional parameter is allowed.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTY3NTkzNjE3LC02MTA5MDM5OTksNjg1MT
-Y4MDIsMzE0NjQ1ODY5LC0xODI1Mzg1MjQyLDE2NTE4NzAxMDYs
-MjExMTEzMzE4MCwtMTIyNjQzOTQzOSwtMjM0NTU1Mjg0LDUxNj
-I3MDMwLC00MjE5NzcyLC04MDEyNzMwNTIsMTQzMDA1MTA1LDIx
-MTMzODc3NDIsLTE2NjQ5NTYxMDUsLTEzNjE3MDM1NjIsMTU2OD
-c1MzUwOCwtMTc2NDQwNDk0NCw5MTMxMTU4ODMsLTE4NzUxODY1
-MV19
+eyJoaXN0b3J5IjpbMzc4MTg2NzIxLDk2NzU5MzYxNywtNjEwOT
+AzOTk5LDY4NTE2ODAyLDMxNDY0NTg2OSwtMTgyNTM4NTI0Miwx
+NjUxODcwMTA2LDIxMTExMzMxODAsLTEyMjY0Mzk0MzksLTIzND
+U1NTI4NCw1MTYyNzAzMCwtNDIxOTc3MiwtODAxMjczMDUyLDE0
+MzAwNTEwNSwyMTEzMzg3NzQyLC0xNjY0OTU2MTA1LC0xMzYxNz
+AzNTYyLDE1Njg3NTM1MDgsLTE3NjQ0MDQ5NDQsOTEzMTE1ODgz
+XX0=
 -->
