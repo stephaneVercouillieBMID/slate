@@ -1,24 +1,25 @@
  
- ---
- title: itsme(r) OpenID Connect documentation
+---
+title: itsme(r) OpenID Connect documentation
  
- language_tabs: # must be one of https://git.io/vQNgJ
-   - json: JSON
-   - http: HTTP
+language_tabs: # must be one of https://git.io/vQNgJ
+- json: JSON
+- http: HTTP
  
- toc_footers:
-  <!-- - <a href='#'>Sign Up for a Developer Key</a> -->
-   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+toc_footers:
+<!-- - <a href='#'>Sign Up for a Developer Key</a> -->
+- <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
  
- search: true
- ---
+search: true
+---
 # 1. Introduction
 ## 1.1. Who should read this document
- This document is intended to be read by Service Provider developers who are in charge of developing and integrating the itsme(r) services. In this document, we speak directly to the developers, using 'you' to designate them.
+This document is intended to be read by Service Provider developers who are in charge of developing and integrating the itsme(r) services. In this document, we speak directly to the developers, using 'you' to designate them.
  
- This documentation describes our OAuth 2.0 implementation of **itsme® Login**, which conforms to  the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="_blank"> OpenID Connect 1.0 </a> specifications. 
+This documentation describes our OAuth 2.0 implementation of
+**itsme® Login**, which conforms to  the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="_blank"> OpenID Connect 1.0 </a> specifications. 
 ## 1.2. Objective
- The objective of this document is to provide all the information needed to integrate the itsme(r) services using OpenID Connect protocol.
+The objective of this document is to provide all the information needed to integrate the itsme(r) services using OpenID Connect protocol.
 ## 1.3. The itsme® services in a few words
  
 itsme® offers 3 services, which act as strong enablers for every process digitalization project. Further information about itsme(r) services is provided on our B2B portal:
@@ -688,11 +689,11 @@ MDE3NTU1NDQzXX0=
 The entire redirect_uri must match therefore no additional parameter is allowed.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYxMDkwMzk5OSw2ODUxNjgwMiwzMTQ2ND
-U4NjksLTE4MjUzODUyNDIsMTY1MTg3MDEwNiwyMTExMTMzMTgw
-LC0xMjI2NDM5NDM5LC0yMzQ1NTUyODQsNTE2MjcwMzAsLTQyMT
-k3NzIsLTgwMTI3MzA1MiwxNDMwMDUxMDUsMjExMzM4Nzc0Miwt
-MTY2NDk1NjEwNSwtMTM2MTcwMzU2MiwxNTY4NzUzNTA4LC0xNz
-Y0NDA0OTQ0LDkxMzExNTg4MywtMTg3NTE4NjUxLDk1OTgzMDc3
-NV19
+eyJoaXN0b3J5IjpbMjkzMjgwMDQ3LC02MTA5MDM5OTksNjg1MT
+Y4MDIsMzE0NjQ1ODY5LC0xODI1Mzg1MjQyLDE2NTE4NzAxMDYs
+MjExMTEzMzE4MCwtMTIyNjQzOTQzOSwtMjM0NTU1Mjg0LDUxNj
+I3MDMwLC00MjE5NzcyLC04MDEyNzMwNTIsMTQzMDA1MTA1LDIx
+MTMzODc3NDIsLTE2NjQ5NTYxMDUsLTEzNjE3MDM1NjIsMTU2OD
+c1MzUwOCwtMTc2NDQwNDk0NCw5MTMxMTU4ODMsLTE4NzUxODY1
+MV19
 -->
