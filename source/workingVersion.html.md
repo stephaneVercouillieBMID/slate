@@ -172,7 +172,8 @@ Error | Description
 `"error_description":null,"error":"access_denied"}`
 
 #### 3.1.3.2. Response when session expired 
-`{"error_description":null,"error":"access_denied"}`
+Error code : 500
+Error message : Authentication context is not valid anymore
 
 ## <a name="tokenEndpoint"></a> 3.2. Token Endpoint
 As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
@@ -722,11 +723,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ0Nzg3NjY5OCwtOTI3MDY0NDk2LDE5OD
-E3NTI1NTgsLTEyNjk3NjY3MzYsOTMzMzk0Mzc1LC00MTU5ODcx
-NzcsLTM5Mzk4MzU3NSw2OTQ3NTIzNTksLTk4MjQwMDM5NiwtMT
-E3Mzc3NTQzNSw5Njc1OTM2MTcsLTYxMDkwMzk5OSw2ODUxNjgw
-MiwzMTQ2NDU4NjksLTE4MjUzODUyNDIsMTY1MTg3MDEwNiwyMT
-ExMTMzMTgwLC0xMjI2NDM5NDM5LC0yMzQ1NTUyODQsNTE2Mjcw
-MzBdfQ==
+eyJoaXN0b3J5IjpbMzQ1NDAwODU0LDE0NDc4NzY2OTgsLTkyNz
+A2NDQ5NiwxOTgxNzUyNTU4LC0xMjY5NzY2NzM2LDkzMzM5NDM3
+NSwtNDE1OTg3MTc3LC0zOTM5ODM1NzUsNjk0NzUyMzU5LC05OD
+I0MDAzOTYsLTExNzM3NzU0MzUsOTY3NTkzNjE3LC02MTA5MDM5
+OTksNjg1MTY4MDIsMzE0NjQ1ODY5LC0xODI1Mzg1MjQyLDE2NT
+E4NzAxMDYsMjExMTEzMzE4MCwtMTIyNjQzOTQzOSwtMjM0NTU1
+Mjg0XX0=
 -->
