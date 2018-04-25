@@ -46,11 +46,14 @@ For testing, you could use a self signed certificate like that you could define 
 
 <aside class="success">Should I warn BMID if the certificate is changed?Yes, we need to be aware on time</aside>
 
+<aside class="success">What are the consequences of a change label in Sandbox environment? At the moment it's done, all pending approval/login will result in a "Wrong PIN".</aside>
+
 <aside class="success"> Can a same service point to separate SSL Certificates?
 
 Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.</aside>
  
 <aside class="success"> Can I use a self signed certificate for my integration? In Sandbox, yes but not for production where we need the certificate & its intermediate chain.</aside>
+
 <aside class="success"> What should I do once I changed my JWKSet URL? You must notify Support and create a new certificate accordingly.</aside>
 
 <aside class="success"> Is it possible to register multiple valid callback URIs/jwkset URIs for one environment, or will they have to change this every time they switch URIs? While it is possible to register several redirect urls, it is not possible to register several JWKSet URLs. 
@@ -691,11 +694,11 @@ MDE3NTU1NDQzXX0=
 The entire redirect_uri must match therefore no additional parameter is allowed.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNzM3NzU0MzUsOTY3NTkzNjE3LC02MT
-A5MDM5OTksNjg1MTY4MDIsMzE0NjQ1ODY5LC0xODI1Mzg1MjQy
-LDE2NTE4NzAxMDYsMjExMTEzMzE4MCwtMTIyNjQzOTQzOSwtMj
-M0NTU1Mjg0LDUxNjI3MDMwLC00MjE5NzcyLC04MDEyNzMwNTIs
-MTQzMDA1MTA1LDIxMTMzODc3NDIsLTE2NjQ5NTYxMDUsLTEzNj
-E3MDM1NjIsMTU2ODc1MzUwOCwtMTc2NDQwNDk0NCw5MTMxMTU4
-ODNdfQ==
+eyJoaXN0b3J5IjpbLTE3ODY1MzM4MTgsLTExNzM3NzU0MzUsOT
+Y3NTkzNjE3LC02MTA5MDM5OTksNjg1MTY4MDIsMzE0NjQ1ODY5
+LC0xODI1Mzg1MjQyLDE2NTE4NzAxMDYsMjExMTEzMzE4MCwtMT
+IyNjQzOTQzOSwtMjM0NTU1Mjg0LDUxNjI3MDMwLC00MjE5Nzcy
+LC04MDEyNzMwNTIsMTQzMDA1MTA1LDIxMTMzODc3NDIsLTE2Nj
+Q5NTYxMDUsLTEzNjE3MDM1NjIsMTU2ODc1MzUwOCwtMTc2NDQw
+NDk0NF19
 -->
