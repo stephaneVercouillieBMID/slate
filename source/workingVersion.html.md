@@ -575,7 +575,7 @@ Property | Required | Comment
  ```
  
 ## 5.2. Requests Signing and Encryption 
- Encryption algorithm used: RSA SHA-256
+Encryption algorithm used: RSA SHA-256
  
 Supported algorithms and encryption methods for:
 - ID Token
@@ -644,7 +644,7 @@ You must provide at least two from this list :
 - With itsme, web2app, you obviously have two factors: The itsme PIN and the mobile device.
 - With app2app: It is still the same, as the two apps need to be running on the same smartphone. Therefore, the attacker needs the device to initiate any malicious transaction. So there are still two factors : you must possess the mobile AND you must be acknowledged of the PIN.
  
- //TODO
+//TODO
 Aside of that there's:
 With Rogue Apps, an attacker can attempt to intercept Codes, PIN, transaction details and (try to …) replay them: No need to “Possess” the Compromised Device, and attacker will in time obtain “Knowledge” of the PIN, compromising the 2 factors required. In theory this remains possible.
  
@@ -691,11 +691,11 @@ MDE3NTU1NDQzXX0=
 The entire redirect_uri must match therefore no additional parameter is allowed.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODA0NjQ2MDU1LDk2NzU5MzYxNywtNjEwOT
-AzOTk5LDY4NTE2ODAyLDMxNDY0NTg2OSwtMTgyNTM4NTI0Miwx
-NjUxODcwMTA2LDIxMTExMzMxODAsLTEyMjY0Mzk0MzksLTIzND
-U1NTI4NCw1MTYyNzAzMCwtNDIxOTc3MiwtODAxMjczMDUyLDE0
-MzAwNTEwNSwyMTEzMzg3NzQyLC0xNjY0OTU2MTA1LC0xMzYxNz
-AzNTYyLDE1Njg3NTM1MDgsLTE3NjQ0MDQ5NDQsOTEzMTE1ODgz
-XX0=
+eyJoaXN0b3J5IjpbMjA2MDA4MjgzNSw5Njc1OTM2MTcsLTYxMD
+kwMzk5OSw2ODUxNjgwMiwzMTQ2NDU4NjksLTE4MjUzODUyNDIs
+MTY1MTg3MDEwNiwyMTExMTMzMTgwLC0xMjI2NDM5NDM5LC0yMz
+Q1NTUyODQsNTE2MjcwMzAsLTQyMTk3NzIsLTgwMTI3MzA1Miwx
+NDMwMDUxMDUsMjExMzM4Nzc0MiwtMTY2NDk1NjEwNSwtMTM2MT
+cwMzU2MiwxNTY4NzUzNTA4LC0xNzY0NDA0OTQ0LDkxMzExNTg4
+M119
 -->
