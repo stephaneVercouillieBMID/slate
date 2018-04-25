@@ -167,6 +167,12 @@ Error | Description
 `invalid_request_object` | The request parameter contains an invalid Request Object.
 `request_uri_not_supported` | does not support use of the request_uri parameter.
 `registration_not_supported` | does not support use of the registration parameter.
+
+#### 3.1.3.1. Response When User Rejects the Action
+`{"error_description":null,"error":"access_denied"}`
+
+#### 3.1.3.2. Response When Session Expired
+
 ## <a name="tokenEndpoint"></a> 3.2. Token Endpoint
 As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
 
@@ -715,7 +721,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxMjc0NDc4NSwtMTI2OTc2NjczNiw5Mz
+eyJoaXN0b3J5IjpbLTcyODc0NDQ2MSwtMTI2OTc2NjczNiw5Mz
 MzOTQzNzUsLTQxNTk4NzE3NywtMzkzOTgzNTc1LDY5NDc1MjM1
 OSwtOTgyNDAwMzk2LC0xMTczNzc1NDM1LDk2NzU5MzYxNywtNj
 EwOTAzOTk5LDY4NTE2ODAyLDMxNDY0NTg2OSwtMTgyNTM4NTI0
