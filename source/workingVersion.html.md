@@ -173,7 +173,7 @@ Error | Description
 
 #### 3.1.3.2. Response when session expired 
 Error code : 500
-Error message : Authentication context is not valid anymore
+Error message : Authentication context is not valid anymore.
 
 ## <a name="tokenEndpoint"></a> 3.2. Token Endpoint
 As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
@@ -723,7 +723,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzQ1NDAwODU0LDE0NDc4NzY2OTgsLTkyNz
+eyJoaXN0b3J5IjpbNjc5OTk3ODI0LDE0NDc4NzY2OTgsLTkyNz
 A2NDQ5NiwxOTgxNzUyNTU4LC0xMjY5NzY2NzM2LDkzMzM5NDM3
 NSwtNDE1OTg3MTc3LC0zOTM5ODM1NzUsNjk0NzUyMzU5LC05OD
 I0MDAzOTYsLTExNzM3NzU0MzUsOTY3NTkzNjE3LC02MTA5MDM5
