@@ -170,8 +170,7 @@ Error | Description
 
 #### 3.1.3.1. Response When User Rejects the Action
 `
-{"error_description":null,
-"error":"access_denied"}`
+{"error_description":null,"error":"access_denied"}`
 #### 3.1.3.2. Response When Session Expired 
 
 
@@ -723,7 +722,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjE3MzI2MDk3LDE5ODE3NTI1NTgsLTEyNj
+eyJoaXN0b3J5IjpbMTM0ODU1MjAzLDE5ODE3NTI1NTgsLTEyNj
 k3NjY3MzYsOTMzMzk0Mzc1LC00MTU5ODcxNzcsLTM5Mzk4MzU3
 NSw2OTQ3NTIzNTksLTk4MjQwMDM5NiwtMTE3Mzc3NTQzNSw5Nj
 c1OTM2MTcsLTYxMDkwMzk5OSw2ODUxNjgwMiwzMTQ2NDU4Njks
