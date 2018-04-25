@@ -503,10 +503,9 @@ Authorization: Bearer SlAV32hkKG
 The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed. The itsme Back-End replies with the Identity Data that were requested in the Authorization Request.
  
 #### 4.3.1.4. User info Response Example
-
- (Not encrypted nor signed)
+(Not encrypted nor signed)
  
- ```http--inline
+```http--inline
  HTTP/1.1 200 OK
  Content-Type: application/json
  
@@ -537,19 +536,18 @@ To get further information about token types, token request/response specificati
 
 #### 4.3.2.2 Example of Id Token Containing “claims”
 *Will be provided soon*
- # 5. Advanced topics
+# 5. Advanced topics
  
- ## 5.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs
+## 5.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs
  
- As per specified by OIDC [here](https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests), Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.
+As per specified by OIDC [here](https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests), Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.
  
- The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains at least the following properties:
+The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains at least the following properties:
  
- Property | Required | Comment
- -- | -- | :--:
- **iss** | Required | Specifies the issuing authority. Issuer of the id_tokenIssuer. Must be the `client_id`
- **aud** | Required | Audience. MUST be the Token Endpoint URL
- 
+Property | Required | Comment
+-- | -- | :--:
+**iss** | Required | Specifies the issuing authority. Issuer of the id_tokenIssuer. Must be the `client_id`
+**aud** | Required | Audience. MUST be the Token Endpoint URL
  > Example of claim request before base64url encoding, signing and encryption. In this example, the partner is using the login service.
  
  ```json--inline
@@ -739,5 +737,5 @@ eyJoaXN0b3J5IjpbOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2Nz
 UwMTQ3LDIwNjc3ODY1MTVdfQ==
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5NjUxOTM2MF19
+eyJoaXN0b3J5IjpbLTIwNzE2NzI5MzZdfQ==
 -->
