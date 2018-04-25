@@ -169,10 +169,9 @@ Error | Description
 `registration_not_supported` | does not support use of the registration parameter.
 
 #### 3.1.3.1. Response When User Rejects the Action
-`
-{"error_description":null,"error":"access_denied"}`
+`"error_description":null,"error":"access_denied"}`
 #### 3.1.3.2. Response When Session Expired 
-
+`{"error_description":null,"error":"access_denied"}`
 
 ## <a name="tokenEndpoint"></a> 3.2. Token Endpoint
 As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
@@ -722,11 +721,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM0ODU1MjAzLDE5ODE3NTI1NTgsLTEyNj
-k3NjY3MzYsOTMzMzk0Mzc1LC00MTU5ODcxNzcsLTM5Mzk4MzU3
-NSw2OTQ3NTIzNTksLTk4MjQwMDM5NiwtMTE3Mzc3NTQzNSw5Nj
-c1OTM2MTcsLTYxMDkwMzk5OSw2ODUxNjgwMiwzMTQ2NDU4Njks
-LTE4MjUzODUyNDIsMTY1MTg3MDEwNiwyMTExMTMzMTgwLC0xMj
-I2NDM5NDM5LC0yMzQ1NTUyODQsNTE2MjcwMzAsLTQyMTk3NzJd
-fQ==
+eyJoaXN0b3J5IjpbLTkyNzA2NDQ5NiwxOTgxNzUyNTU4LC0xMj
+Y5NzY2NzM2LDkzMzM5NDM3NSwtNDE1OTg3MTc3LC0zOTM5ODM1
+NzUsNjk0NzUyMzU5LC05ODI0MDAzOTYsLTExNzM3NzU0MzUsOT
+Y3NTkzNjE3LC02MTA5MDM5OTksNjg1MTY4MDIsMzE0NjQ1ODY5
+LC0xODI1Mzg1MjQyLDE2NTE4NzAxMDYsMjExMTEzMzE4MCwtMT
+IyNjQzOTQzOSwtMjM0NTU1Mjg0LDUxNjI3MDMwLC00MjE5Nzcy
+XX0=
 -->
