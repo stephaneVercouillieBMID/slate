@@ -423,20 +423,20 @@ A JSON object with the following keys: (only keys with cardinality [1…1] will 
 -  “deviceId” [1…1]: (regexp =“[a-f0-9]{33}”) the device identifier.   
 -  “osRelease” [0…1]: Version of the OS running on your Device.  
 -   “manufacturer” [0…1]: Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android).
- - “hasSimEnabled” [0…1]: Whether there is a SIM in the Device. Should
- be always true, as long as BMID keeps forbidding installing itsme on
-   a tablet.   
-    -  “deviceLockLevel” [0…1]: The type of action to be
-   performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.   
-    - “smsEnabled” [0…1]: Can send SMS. On iOS, means it’s an iPhone.    
-    -  “rooted” [0…1]: Coming from Gemalto. ‘true’ the device is
-   jailbreaked/rooted.   
-   - “imei” [0…1]: (regexp = “[0-9]{15,17}”) the
-   device IMEI value.   
-    -  “deviceModel” [0…1]: Model of the Device.  
-   e.g. SAMSUNG GALAXY A5   
-   - “msisdn” [0…1]: the user’s phone number.  
-    - “sdkRelease” [0…1]: Sdk release
+- “hasSimEnabled” [0…1]: Whether there is a SIM in the Device. Should
+be always true, as long as BMID keeps forbidding installing itsme on
+a tablet.   
+-  “deviceLockLevel” [0…1]: The type of action to be
+performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.   
+- “smsEnabled” [0…1]: Can send SMS. On iOS, means it’s an iPhone.    
+-  “rooted” [0…1]: Coming from Gemalto. ‘true’ the device is
+jailbreaked/rooted.   
+- “imei” [0…1]: (regexp = “[0-9]{15,17}”) the
+device IMEI value.   
+-  “deviceModel” [0…1]: Model of the Device.  
+e.g. SAMSUNG GALAXY A5   
+- “msisdn” [0…1]: the user’s phone number.  
+- “sdkRelease” [0…1]: Sdk release
 ##### <a name id="exampleDeviceClaimValue"></a>4.2.2.2.1. Example of Device Claim Value Usage
 `{ "os": "ANDROID", "appName": "itsme app", "appRelease": "1.17.13", "deviceLabel": "myDevice", "debugEnabled": false, "deviceId": "deviceId", "osRelease": "Android 4.4.2", "manufacturer": "samsung", "hasSimEnabled": true, "deviceLockLevel": "touchID", "smsEnabled": true, "rooted": false,"imei": "12345678901234567", "deviceModel": "S8", "msisdn": "0412123123", "sdkRelease": "1.17.12" }`
 
@@ -739,5 +739,5 @@ eyJoaXN0b3J5IjpbOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2Nz
 UwMTQ3LDIwNjc3ODY1MTVdfQ==
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NzQ5NTAzODBdfQ==
+eyJoaXN0b3J5IjpbLTU5NjUxOTM2MF19
 -->
