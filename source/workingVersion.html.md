@@ -41,7 +41,7 @@ Before you can start working on the integration of itsme(r) services, we need to
 - JWKset URL, and associated SSL/TLS certificate
 You can consult [our B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) for more information about this step.
  
- <aside class="success"> What is the use of our Certificate? Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
+<aside class="success"> What is the use of our Certificate? Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
 For testing, you could use a self signed certificate like that you could define validity period.</aside>
 
 <aside class="success">Should I warn BMID if the certificate is changed?Yes, we need to be aware on time</aside>
@@ -694,11 +694,11 @@ MDE3NTU1NDQzXX0=
 The entire redirect_uri must match therefore no additional parameter is allowed.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3ODY1MzM4MTgsLTExNzM3NzU0MzUsOT
-Y3NTkzNjE3LC02MTA5MDM5OTksNjg1MTY4MDIsMzE0NjQ1ODY5
-LC0xODI1Mzg1MjQyLDE2NTE4NzAxMDYsMjExMTEzMzE4MCwtMT
-IyNjQzOTQzOSwtMjM0NTU1Mjg0LDUxNjI3MDMwLC00MjE5Nzcy
-LC04MDEyNzMwNTIsMTQzMDA1MTA1LDIxMTMzODc3NDIsLTE2Nj
-Q5NTYxMDUsLTEzNjE3MDM1NjIsMTU2ODc1MzUwOCwtMTc2NDQw
-NDk0NF19
+eyJoaXN0b3J5IjpbLTk4MjQwMDM5NiwtMTE3Mzc3NTQzNSw5Nj
+c1OTM2MTcsLTYxMDkwMzk5OSw2ODUxNjgwMiwzMTQ2NDU4Njks
+LTE4MjUzODUyNDIsMTY1MTg3MDEwNiwyMTExMTMzMTgwLC0xMj
+I2NDM5NDM5LC0yMzQ1NTUyODQsNTE2MjcwMzAsLTQyMTk3NzIs
+LTgwMTI3MzA1MiwxNDMwMDUxMDUsMjExMzM4Nzc0MiwtMTY2ND
+k1NjEwNSwtMTM2MTcwMzU2MiwxNTY4NzUzNTA4LC0xNzY0NDA0
+OTQ0XX0=
 -->
