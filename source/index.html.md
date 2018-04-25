@@ -216,12 +216,12 @@ GET /oidc/authorization?response_type=code
 The Token Response follow these specifications:
 
 Parameter | Provided | Comment
- -- | -- | :--
- **[`access_token`](#actoken)** | Always | Will be provided. 
- **[`token_type`](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)** | Always | Will be `Bearer`
- **[`id_token`](#idtoken)** | Always | The id_token corresponding to the Authentication Request (signed and  encrypted). 
- **[`at_hash`](http://openid.net/specs/openid-connect-core-1_0.html#CodeIDToken)** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
- **[`refresh_token`](#rfshtoken)** | Never | Won't be provided as **itsme(r)** only maintains short-lived session to enforce re-authentication.
+-- | -- | :--
+**[`access_token`](#actoken)** | Always | Will be provided. 
+**[`token_type`](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)** | Always | Will be `Bearer`
+**[`id_token`](#idtoken)** | Always | The id_token corresponding to the Authentication Request (signed and  encrypted). 
+**[`at_hash`](http://openid.net/specs/openid-connect-core-1_0.html#CodeIDToken)** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
+**[`refresh_token`](#rfshtoken)** | Never | Won't be provided as **itsme(r)** only maintains short-lived session to enforce re-authentication.
 
 
 ### 3.2.5. Token Response Example
@@ -246,13 +246,13 @@ Three representations of Claim Values are defined officially:
  
 We do not support Aggregated and Distributed Claims due to all the data we expose come from our own database.
  
- #### 4.1.1.1. Normal Claims
+#### 4.1.1.1. Normal Claims
 Claims that are directly asserted by the OpenID Provider.
 
 Normal Claims are represented as members in a JSON object. The Claim Name is the member name and the Claim Value is the member value.
 
 The following is a non-normative response containing Normal Claims:
- ```http--inline
+```http--inline
   {
    "name": "Jane Doe",
    "given_name": "Jane",
@@ -271,9 +271,8 @@ In practice, it means the User may not opt out the sharing of specific Data; the
 ## <a name id="decClaim"></a> 4.2. Declaring Claims
 
 You can declare Claims in two ways:
-
- - With 'scope' values
- - With 'claims' parameter
+- With 'scope' values
+- With 'claims' parameter
 
 In each case, the claims need to be declared in the Authorization Request.
 
@@ -741,5 +740,5 @@ eyJoaXN0b3J5IjpbOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2Nz
 UwMTQ3LDIwNjc3ODY1MTVdfQ==
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMDYxOTI3NjVdfQ==
+eyJoaXN0b3J5IjpbLTM2MzYxNTI0N119
 -->
