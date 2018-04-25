@@ -296,8 +296,7 @@ The following scope values are supported and allow access to predefined sets of 
 | profile | given_name, family_name, gender, birthdate,  locale|
 email|email, email_verified|
 phone| phone_number, phone_number_verified| 
- address|address, with subfields,<br>street_address (newline separator \n)<br> locality <br> postal_code <br> country
-
+address|address, with subfields,<br>street_address (newline separator \n)<br> locality <br> postal_code <br> country
 #### 4.2.1.2 Example of an Authorization Request using "scope" values
 URL:
 ```http--inline
@@ -331,13 +330,12 @@ Some specific data cannot be requested by using scope values. They have to be re
 **List of Supported Custom "claim" Values:**
 
 Here are these claims:
-
- Data | Claim | Comment 
- :-- | :--: | :--: 
- Subject | **`sub`** | The subject of the `private_key_jwt` (the client ID). Supports value in request. 
- Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | An error will be raised if request as a value element for the claim 
- Place of Birth - city | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** |An error will be raised if request as a value element for the claim 
- Place of Birth - country | **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** | An error will be raised if request as a value element for the claim 
+Data | Claim | Comment 
+:-- | :--: | :--: 
+Subject | **`sub`** | The subject of the `private_key_jwt`(the client ID). Supports value in request. 
+Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | An error will be raised if request as a value element for the claim 
+Place of Birth - city | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** |An error will be raised if request as a value element for the claim 
+Place of Birth - country | **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** | An error will be raised if request as a value element for the claim 
 E-ID Metadata  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** |  [Specifications](#eidMetadata)
 Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | Simple string containing the user’s Passport Serial Number. 
 Device | **`tag:sixdots.be,2017-05:claim_device`** | [Specifications](#deviceClaim) and [an example of device claim value usage](#exampleDeviceClaimValue)<br>
@@ -740,5 +738,5 @@ eyJoaXN0b3J5IjpbOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2Nz
 UwMTQ3LDIwNjc3ODY1MTVdfQ==
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2MzYxNTI0N119
+eyJoaXN0b3J5IjpbODg2NDQ1NjczXX0=
 -->
