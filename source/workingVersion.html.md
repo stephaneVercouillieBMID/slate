@@ -54,7 +54,8 @@ Currently, the certificate is used to protect the JWKSet and it is not directly 
 <aside class="success"> What should I do once I changed my JWKSet URL? You must notify Support and create a new certificate accordingly.</aside>
 
 <aside class="success"> Is it possible to register multiple valid callback URIs/jwkset URIs for one environment, or will they have to change this every time they switch URIs? While it is possible to register several redirect urls, it is not possible to register several JWKSet URLs. 
-The redirect URL is specified in each Authorization request, the User will be redirected to that URL after the (failed or successful) authentication in the itsme App. You need to specify it in the onboarding file because it needs to be whitelisted by our F5. We can whitelist several urls. The jwkset urls, however, is used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know what URL to contact, and thus we can register only one jwkset url.</aside>
+The redirect URL is specified in each Authorization request, the User will be redirected to that URL after the (failed or successful) authentication in the itsme App. You need to specify it in the onboarding file because it needs to be whitelisted by our F5. We can whitelist several urls. The jwkset urls, however, is used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know what URL to contact, and thus we can register only one
+JWKSet URL.</aside>
 
 <aside class="success">
 Once your Sandbox is created, you will receive:
@@ -77,12 +78,11 @@ To simplify implementations and increase flexibility, OpenID Connect allows the 
 - URIs of the authorization, 
 - token, 
 - userinfo, 
-- - supported claims 
+- supported claims 
 - [JWKSet](#jwks) to interact with it. 
  
 <aside class="success">The Discovery document for itsme® service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside>
- 
- Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html).
+Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
 <aside class="success"> Can we re-use the same service for another environment?
 No, We will create new services for the OIDC.
@@ -689,11 +689,11 @@ MDE3NTU1NDQzXX0=
 The entire redirect_uri must match therefore no additional parameter is allowed.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwMDgxNzIyOCwtNjEwOTAzOTk5LDY4NT
-E2ODAyLDMxNDY0NTg2OSwtMTgyNTM4NTI0MiwxNjUxODcwMTA2
-LDIxMTExMzMxODAsLTEyMjY0Mzk0MzksLTIzNDU1NTI4NCw1MT
-YyNzAzMCwtNDIxOTc3MiwtODAxMjczMDUyLDE0MzAwNTEwNSwy
-MTEzMzg3NzQyLC0xNjY0OTU2MTA1LC0xMzYxNzAzNTYyLDE1Nj
-g3NTM1MDgsLTE3NjQ0MDQ5NDQsOTEzMTE1ODgzLC0xODc1MTg2
-NTFdfQ==
+eyJoaXN0b3J5IjpbOTY3NTkzNjE3LC02MTA5MDM5OTksNjg1MT
+Y4MDIsMzE0NjQ1ODY5LC0xODI1Mzg1MjQyLDE2NTE4NzAxMDYs
+MjExMTEzMzE4MCwtMTIyNjQzOTQzOSwtMjM0NTU1Mjg0LDUxNj
+I3MDMwLC00MjE5NzcyLC04MDEyNzMwNTIsMTQzMDA1MTA1LDIx
+MTMzODc3NDIsLTE2NjQ5NTYxMDUsLTEzNjE3MDM1NjIsMTU2OD
+c1MzUwOCwtMTc2NDQwNDk0NCw5MTMxMTU4ODMsLTE4NzUxODY1
+MV19
 -->
