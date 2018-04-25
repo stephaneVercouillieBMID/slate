@@ -168,10 +168,10 @@ Error | Description
 `request_uri_not_supported` | does not support use of the request_uri parameter.
 `registration_not_supported` | does not support use of the registration parameter.
 
-#### 3.1.3.1. Response wWhen User Rejects the Action/
+#### 3.1.3.1. Response when user rejects the action/ chooses the wrong poke-yoke icon,
 `"error_description":null,"error":"access_denied"}`
 
-#### 3.1.3.2. Response When Session Expired 
+#### 3.1.3.2. Response when session expired 
 `{"error_description":null,"error":"access_denied"}`
 
 ## <a name="tokenEndpoint"></a> 3.2. Token Endpoint
@@ -722,11 +722,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMDE1ODU2NTQsLTkyNzA2NDQ5NiwxOT
-gxNzUyNTU4LC0xMjY5NzY2NzM2LDkzMzM5NDM3NSwtNDE1OTg3
-MTc3LC0zOTM5ODM1NzUsNjk0NzUyMzU5LC05ODI0MDAzOTYsLT
-ExNzM3NzU0MzUsOTY3NTkzNjE3LC02MTA5MDM5OTksNjg1MTY4
-MDIsMzE0NjQ1ODY5LC0xODI1Mzg1MjQyLDE2NTE4NzAxMDYsMj
-ExMTEzMzE4MCwtMTIyNjQzOTQzOSwtMjM0NTU1Mjg0LDUxNjI3
-MDMwXX0=
+eyJoaXN0b3J5IjpbMTQ0Nzg3NjY5OCwtOTI3MDY0NDk2LDE5OD
+E3NTI1NTgsLTEyNjk3NjY3MzYsOTMzMzk0Mzc1LC00MTU5ODcx
+NzcsLTM5Mzk4MzU3NSw2OTQ3NTIzNTksLTk4MjQwMDM5NiwtMT
+E3Mzc3NTQzNSw5Njc1OTM2MTcsLTYxMDkwMzk5OSw2ODUxNjgw
+MiwzMTQ2NDU4NjksLTE4MjUzODUyNDIsMTY1MTg3MDEwNiwyMT
+ExMTMzMTgwLC0xMjI2NDM5NDM5LC0yMzQ1NTUyODQsNTE2Mjcw
+MzBdfQ==
 -->
