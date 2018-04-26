@@ -630,10 +630,11 @@ Select : General
 Select : Profiles & Device Management  
 Select : Belgian Mobile ID NV  
 Select : Trust
->**Can I have my own itsme app (production) together with the itsme UAT app?**
-Currently, you can only have 1 itsme app on your device at one moment in time independently of Production, UAT or E2E.
->**Has itsme app in Prod & UAT different URL-scheme's?**
 
+**Can I have my own itsme app (production) together with the itsme UAT app?**
+Currently, you can only have 1 itsme app on your device at one moment in time independently of Production, UAT or E2E.
+
+**Has itsme app in Prod & UAT different URL-scheme's?**
 On iOS:  
 - for enrollment, it's always "be.bmid.itsme://" "  
 - for app to app actions, it's based on universal links and these are different for each environment depicted in the following table: 
@@ -644,10 +645,10 @@ UAT|https://uatmobileapp.sixdots.be/mobile/processAction<br>https://uatmobileapp
 | E2E  |https://e2emobileapp.sixdots.be/mobile/processAction<br> https://e2emobileapp.sixdots.be/mobile/authorize 
 | PRD |https://mobileapp.sixdots.be/mobile/processAction  https://mobileapp.sixdots.be/mobile/authorize
 
->**How can I set the level of security at the level of the App (5 digit code only without fingerprint or facial recognition  eg.)**?
+**How can I set the level of security at the level of the App (5 digit code only without fingerprint or facial recognition  eg.)**?
 You can configure this option through the parameter “**acr_values**”, documented in   [this](#acrvalues) section. 
 
-> **What is Two Factor Authentication?**
+ **What is Two Factor Authentication?**
 
 Two Factor Authentication, also known as 2FA, two step verification or TFA (as an acronym), is an extra layer of security that is known as "multi factor authentication" that requires not only a password and username but also something that only that user has on them, i.e. a piece of information only they should know or have immediately to hand - such as a physical token.
 
@@ -663,14 +664,14 @@ You must provide at least two from this list :
 - With itsme, web2app, you obviously have two factors: The itsme PIN and the mobile device.
 - With app2app: It is still the same, as the two apps need to be running on the same smartphone. Therefore, the attacker needs the device to initiate any malicious transaction. So there are still two factors : you must possess the mobile AND you must be acknowledged of the PIN.
  
-<!/TODO
+<!--- /TODO
 Aside of that there's:
 With Rogue Apps, an attacker can attempt to intercept Codes, PIN, transaction details and (try to …) replay them: No need to “Possess” the Compromised Device, and attacker will in time obtain “Knowledge” of the PIN, compromising the 2 factors required. In theory this remains possible.
  
 So far for theory: We acknowledge this risk, treat it accordingly, and test if it works. itsme’s apps (iOS and Android) are  safeguarded to detect device compromises (and block). On top, even when compromised, make it (extremely) difficult to intercept the PIN, or replay transactions. As the official test by French ANSSI Authorities state it, for Gemalto’s SDK on Android:  “Even if root rights obtained, PIN cannot be obtained to generate OTP / Authentication Response” 
-//TODO
+//TODO<--->
 
->**What is the purpose of the https://uatmerchant.sixdots.be/oidc/register? Seems to be a link to be registered as a SP, but do we make use of it?**
+**What is the purpose of the https://uatmerchant.sixdots.be/oidc/register? Seems to be a link to be registered as a SP, but do we make use of it?**
 
 We do not use this as it is part of the OIDC standard. Normally used to register new OIDC partners but the registering process is done by an administrator (“the back end team” for the moment) during the “partner on boarding process”.
 
@@ -725,7 +726,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY5Mzk1MTk2MSw0NTk5NjIzOTUsNTc4Mz
+eyJoaXN0b3J5IjpbLTIzOTIzNDA0Nyw0NTk5NjIzOTUsNTc4Mz
 A3ODA5LDEzNjIzNjYyODcsNjc5OTk3ODI0LDE0NDc4NzY2OTgs
 LTkyNzA2NDQ5NiwxOTgxNzUyNTU4LC0xMjY5NzY2NzM2LDkzMz
 M5NDM3NSwtNDE1OTg3MTc3LC0zOTM5ODM1NzUsNjk0NzUyMzU5
