@@ -560,7 +560,6 @@ Property | Required | Comment
 **aud** | Required | Audience. MUST be the Token Endpoint URL
  
 > Example of claim request before base64url encoding, signing and encryption. In this example, the partner is using the login service.
- 
 ```json--inline
  {
  	// JWT Registered claims (https://tools.ietf.org/html/rfc7519#section-4.1)
@@ -720,7 +719,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NjM3MTkyNywtMTY3NDcxOTIwNywxMD
+eyJoaXN0b3J5IjpbLTc3NzU5NzU5MSwtMTY3NDcxOTIwNywxMD
 I5OTAzMzUzLDQ1OTk2MjM5NSw1NzgzMDc4MDksMTM2MjM2NjI4
 Nyw2Nzk5OTc4MjQsMTQ0Nzg3NjY5OCwtOTI3MDY0NDk2LDE5OD
 E3NTI1NTgsLTEyNjk3NjY3MzYsOTMzMzk0Mzc1LC00MTU5ODcx
