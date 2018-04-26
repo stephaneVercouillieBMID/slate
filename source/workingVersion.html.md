@@ -85,6 +85,7 @@ To simplify implementations and increase flexibility, OpenID Connect allows the 
 - [JWKSet](#jwks) to interact with it. 
  
 <aside class="success">The Discovery document for itsme® service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside>
+
 Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
 <aside class="success"> Can we re-use the same service for another environment?
@@ -724,11 +725,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM2MjM2NjI4Nyw2Nzk5OTc4MjQsMTQ0Nz
-g3NjY5OCwtOTI3MDY0NDk2LDE5ODE3NTI1NTgsLTEyNjk3NjY3
-MzYsOTMzMzk0Mzc1LC00MTU5ODcxNzcsLTM5Mzk4MzU3NSw2OT
-Q3NTIzNTksLTk4MjQwMDM5NiwtMTE3Mzc3NTQzNSw5Njc1OTM2
-MTcsLTYxMDkwMzk5OSw2ODUxNjgwMiwzMTQ2NDU4NjksLTE4Mj
-UzODUyNDIsMTY1MTg3MDEwNiwyMTExMTMzMTgwLC0xMjI2NDM5
-NDM5XX0=
+eyJoaXN0b3J5IjpbLTEzNTY1NzU3NDcsMTM2MjM2NjI4Nyw2Nz
+k5OTc4MjQsMTQ0Nzg3NjY5OCwtOTI3MDY0NDk2LDE5ODE3NTI1
+NTgsLTEyNjk3NjY3MzYsOTMzMzk0Mzc1LC00MTU5ODcxNzcsLT
+M5Mzk4MzU3NSw2OTQ3NTIzNTksLTk4MjQwMDM5NiwtMTE3Mzc3
+NTQzNSw5Njc1OTM2MTcsLTYxMDkwMzk5OSw2ODUxNjgwMiwzMT
+Q2NDU4NjksLTE4MjUzODUyNDIsMTY1MTg3MDEwNiwyMTExMTMz
+MTgwXX0=
 -->
