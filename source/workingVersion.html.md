@@ -663,7 +663,7 @@ You must provide at least two from this list :
 - With itsme, web2app, you obviously have two factors: The itsme PIN and the mobile device.
 - With app2app: It is still the same, as the two apps need to be running on the same smartphone. Therefore, the attacker needs the device to initiate any malicious transaction. So there are still two factors : you must possess the mobile AND you must be acknowledged of the PIN.
  
-//TODO
+<!/TODO
 Aside of that there's:
 With Rogue Apps, an attacker can attempt to intercept Codes, PIN, transaction details and (try to …) replay them: No need to “Possess” the Compromised Device, and attacker will in time obtain “Knowledge” of the PIN, compromising the 2 factors required. In theory this remains possible.
  
@@ -725,11 +725,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDU5OTYyMzk1LDU3ODMwNzgwOSwxMzYyMz
-Y2Mjg3LDY3OTk5NzgyNCwxNDQ3ODc2Njk4LC05MjcwNjQ0OTYs
-MTk4MTc1MjU1OCwtMTI2OTc2NjczNiw5MzMzOTQzNzUsLTQxNT
-k4NzE3NywtMzkzOTgzNTc1LDY5NDc1MjM1OSwtOTgyNDAwMzk2
-LC0xMTczNzc1NDM1LDk2NzU5MzYxNywtNjEwOTAzOTk5LDY4NT
-E2ODAyLDMxNDY0NTg2OSwtMTgyNTM4NTI0MiwxNjUxODcwMTA2
+eyJoaXN0b3J5IjpbMTY5Mzk1MTk2MSw0NTk5NjIzOTUsNTc4Mz
+A3ODA5LDEzNjIzNjYyODcsNjc5OTk3ODI0LDE0NDc4NzY2OTgs
+LTkyNzA2NDQ5NiwxOTgxNzUyNTU4LC0xMjY5NzY2NzM2LDkzMz
+M5NDM3NSwtNDE1OTg3MTc3LC0zOTM5ODM1NzUsNjk0NzUyMzU5
+LC05ODI0MDAzOTYsLTExNzM3NzU0MzUsOTY3NTkzNjE3LC02MT
+A5MDM5OTksNjg1MTY4MDIsMzE0NjQ1ODY5LC0xODI1Mzg1MjQy
 XX0=
 -->
