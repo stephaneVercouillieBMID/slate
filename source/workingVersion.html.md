@@ -392,7 +392,7 @@ NRN | not supported|
  }
  ```
  
- **List of Supported Standard "claim" Values:**
+**List of Supported Standard "claim" Values:**
 
 As per specified by OpenID Connect, there is a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), or user attributes. They are intended to supply the client app with consented user details such as email, name and picture, upon request.  They can be requested to be returned either in the UserInfo Response, per [Section 5.3.2](https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse), or in the ID Token, per [Section 2](https://openid.net/specs/openid-connect-core-1_0.html#IDToken).
 
@@ -725,11 +725,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTc4MzA3ODA5LDEzNjIzNjYyODcsNjc5OT
-k3ODI0LDE0NDc4NzY2OTgsLTkyNzA2NDQ5NiwxOTgxNzUyNTU4
-LC0xMjY5NzY2NzM2LDkzMzM5NDM3NSwtNDE1OTg3MTc3LC0zOT
-M5ODM1NzUsNjk0NzUyMzU5LC05ODI0MDAzOTYsLTExNzM3NzU0
-MzUsOTY3NTkzNjE3LC02MTA5MDM5OTksNjg1MTY4MDIsMzE0Nj
-Q1ODY5LC0xODI1Mzg1MjQyLDE2NTE4NzAxMDYsMjExMTEzMzE4
-MF19
+eyJoaXN0b3J5IjpbLTE5NjQ0MjM4NjksNTc4MzA3ODA5LDEzNj
+IzNjYyODcsNjc5OTk3ODI0LDE0NDc4NzY2OTgsLTkyNzA2NDQ5
+NiwxOTgxNzUyNTU4LC0xMjY5NzY2NzM2LDkzMzM5NDM3NSwtND
+E1OTg3MTc3LC0zOTM5ODM1NzUsNjk0NzUyMzU5LC05ODI0MDAz
+OTYsLTExNzM3NzU0MzUsOTY3NTkzNjE3LC02MTA5MDM5OTksNj
+g1MTY4MDIsMzE0NjQ1ODY5LC0xODI1Mzg1MjQyLDE2NTE4NzAx
+MDZdfQ==
 -->
