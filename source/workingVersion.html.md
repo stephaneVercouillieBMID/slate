@@ -300,13 +300,11 @@ You can declare Claims in two ways:
 
 In each case, the claims need to be declared in the Authorization Request.
 ### <a name id="scope"></a>4.2.2. Scope
-
 Scopes are space-separated lists of identifiers used to specify what access privileges are being requested. 
 
 Scopes can be used to request that specific sets of information available as Claim Values in User Info Token. 
 
 Using this method, you will always receive Claims from the UserInfo Endpoint.
-
 <!-- (always User Info Endpoint)-->
 #### 4.2.1.1 List of Supported Scope Values
 <aside class="success">Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>
@@ -722,7 +720,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg1MTk4OTcxOSwtMTY3NDcxOTIwNywxMD
+eyJoaXN0b3J5IjpbLTE1NjM3MTkyNywtMTY3NDcxOTIwNywxMD
 I5OTAzMzUzLDQ1OTk2MjM5NSw1NzgzMDc4MDksMTM2MjM2NjI4
 Nyw2Nzk5OTc4MjQsMTQ0Nzg3NjY5OCwtOTI3MDY0NDk2LDE5OD
 E3NTI1NTgsLTEyNjk3NjY3MzYsOTMzMzk0Mzc1LC00MTU5ODcx
