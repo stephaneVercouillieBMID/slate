@@ -217,11 +217,9 @@ The Authentication Response includes a `code` parameter, a one-time authorizatio
 - In header the Content-Type : application/x-www-form-urlencoded  MUST be added</aside>
 
 <aside class="success">Do you need an App Client Secret on the OpenID client?
-OpenID allows multiple ways for authentication as a Service Provider. BMID only supports **private_key_jwt** as client authentication method with all the SSL requirements exposed via JWKSet, use the corresponding private key to encrypt/sign and decrypt/validate exchanged information. So other authentication methods such as
-`client_secret`(Open ID Connect default method but the less secured one are not supported since they are considered less secure. </aside>
+OpenID allows multiple ways for authentication as a Service Provider. BMID only supports private_key_jwt as client authentication method with all the SSL requirements exposed via JWKSet, use the corresponding private key to encrypt/sign and decrypt/validate exchanged information. So other authentication methods such client_secret (Open ID Connect default method but the less secured one are not supported since they are considered less secure. </aside>
 
 In order to communicate with Token Endpoint, TLS MUST be implemented. See  [Section 16.17](http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements)  for more information on using TLS.
-
 ```http--inline
 GET /oidc/authorization?response_type=code
 &client_id=yourpartnercode
@@ -266,9 +264,6 @@ Parameter | Provided | Comment
 `{"user_info":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","birthdate":"1974-04-12","gender":"male","name":"Ada Gardner","iss":"tokenEndpointURL","given_name":"Ada","locale":"fr","family_name":"Gardner"},"id_token":{"access_token":"UVfXK3QzTRKyFiw3f1v85Yr4ko4o7uI1oJ8XNZeRcJE","id_token":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","acr":"tag:sixdots.be,2016-06:acr_basic","auth_time":1523626355,"iss":"tokenEndpointURL","exp":1523626660,"iat":1523626360,"nonce":"anonce"},"token_type":"Bearer","expire_in":163}}`
 ### 3.2.4. Token Error Response 
 As per <a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse" onclick="return ! window.open(this.href);">OIDC Specification Aggregated Response</a>
-
-
-
 # 4. User Data
 ## 4.1. What is a claim?
 The concept of claim is about declaring something you expect as return from the OP. When it comes to end user data, you have to use claims in order to declare the end user data you will need for your business before the authentication. This is a privacy-oriented way of getting data.
@@ -727,7 +722,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxMDE3MzE1NSwtMTY3NDcxOTIwNywxMD
+eyJoaXN0b3J5IjpbLTg1MTk4OTcxOSwtMTY3NDcxOTIwNywxMD
 I5OTAzMzUzLDQ1OTk2MjM5NSw1NzgzMDc4MDksMTM2MjM2NjI4
 Nyw2Nzk5OTc4MjQsMTQ0Nzg3NjY5OCwtOTI3MDY0NDk2LDE5OD
 E3NTI1NTgsLTEyNjk3NjY3MzYsOTMzMzk0Mzc1LC00MTU5ODcx
