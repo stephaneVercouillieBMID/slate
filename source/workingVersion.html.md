@@ -92,7 +92,7 @@ Field  names and meanings in this document are defined in [OpenID Connect Discov
 No, We will create new services for the OIDC.
 </aside>
 
-<aside class="success">We want to integrate itsme(r) but we only have 1 development machine & so there is no unique IP for the back-end in test due to it isn't unique & runs in local on each machine. </aside>
+<aside class="success">We want to integrate itsme(r) but we only have 1 development machine & so there is no unique IP for the back-end in test due to it isn't unique & it runs in locally on each machine. </aside>
 
 # 3. Authenticating the User
 
@@ -725,11 +725,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjgzOTAzNTUsMTM2MjM2NjI4Nyw2Nz
-k5OTc4MjQsMTQ0Nzg3NjY5OCwtOTI3MDY0NDk2LDE5ODE3NTI1
-NTgsLTEyNjk3NjY3MzYsOTMzMzk0Mzc1LC00MTU5ODcxNzcsLT
-M5Mzk4MzU3NSw2OTQ3NTIzNTksLTk4MjQwMDM5NiwtMTE3Mzc3
-NTQzNSw5Njc1OTM2MTcsLTYxMDkwMzk5OSw2ODUxNjgwMiwzMT
-Q2NDU4NjksLTE4MjUzODUyNDIsMTY1MTg3MDEwNiwyMTExMTMz
-MTgwXX0=
+eyJoaXN0b3J5IjpbNTc4MzA3ODA5LDEzNjIzNjYyODcsNjc5OT
+k3ODI0LDE0NDc4NzY2OTgsLTkyNzA2NDQ5NiwxOTgxNzUyNTU4
+LC0xMjY5NzY2NzM2LDkzMzM5NDM3NSwtNDE1OTg3MTc3LC0zOT
+M5ODM1NzUsNjk0NzUyMzU5LC05ODI0MDAzOTYsLTExNzM3NzU0
+MzUsOTY3NTkzNjE3LC02MTA5MDM5OTksNjg1MTY4MDIsMzE0Nj
+Q1ODY5LC0xODI1Mzg1MjQyLDE2NTE4NzAxMDYsMjExMTEzMzE4
+MF19
 -->
