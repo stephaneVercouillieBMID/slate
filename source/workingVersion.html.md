@@ -41,7 +41,7 @@ For testing, you could use a self signed certificate like that you could define 
 <aside class="success"> Does a same service point to separate SSL Certificates?
 Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.</aside>
  
-<aside class="success"> Is it possible to use a self-signed certificate for the integration? In Sandbox, yes it is pos but not for production where we need the certificate & its intermediate chain.</aside>
+<aside class="success"> Is it possible to use a self-signed certificate for the integration? In Sandbox, yes it is. -For production, unfortunately no due to BMID needs the certificate & its intermediate chain.</aside>
 
 <aside class="success"> What should I do once I changed my JWKSet URL? You must notify Support and create a new certificate accordingly.</aside>
 
@@ -708,6 +708,6 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTAxNzcyNTYsMTc2MjE3NDY2MSwxMj
-g1MjI2Mzc0LC0xNTU0MTU2Nzg2LC03Nzc1OTc1OTFdfQ==
+eyJoaXN0b3J5IjpbMTE5NDc5MTg2NywxNzYyMTc0NjYxLDEyOD
+UyMjYzNzQsLTE1NTQxNTY3ODYsLTc3NzU5NzU5MV19
 -->
