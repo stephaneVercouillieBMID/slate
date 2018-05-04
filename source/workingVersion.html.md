@@ -205,7 +205,7 @@ The Authentication Response includes a `code` parameter, a one-time authorizatio
 <aside class="success">Do you need an App Client Secret on the OpenID client?
 OpenID allows multiple ways for authentication as a Service Provider. BMID only supports private_key_jwt as client authentication method with all the SSL requirements exposed via JWKSet, use the corresponding private key to encrypt/sign and decrypt/validate exchanged information. So other authentication methods such client_secret (Open ID Connect default method but the less secured one are not supported since they are considered less secure. </aside>
 
-<aside class="notice"> In order to communicate with Token Endpoint, TLS MUST be implemented. See <a href="" [Section 16.17](http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements)  for more information on using TLS. </aside>
+<aside class="notice"> In order to communicate with Token Endpoint, TLS MUST be implemented. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements">Section 16.17</a> for more information on using TLS. </aside>
 
 ```http--inline
 GET /oidc/authorization?response_type=code
@@ -706,7 +706,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwNjg5NTU0LDEzNjU0NzA0NjMsNjAwNj
+eyJoaXN0b3J5IjpbOTMzMzY5OTMzLDEzNjU0NzA0NjMsNjAwNj
 YyNjU2LDM2NDE1NDY4OCwtMTgwMzQwNTk0NCwtNDk5ODg5Niwx
 NzYyMTc0NjYxLDEyODUyMjYzNzQsLTE1NTQxNTY3ODYsLTc3Nz
 U5NzU5MV19
