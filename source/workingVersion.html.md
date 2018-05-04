@@ -36,7 +36,7 @@ Before you can start working on the integration of itsme(r) services, we need to
 <aside class="notice">You can consult <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">our B2B portal</a> for more information about this step.</aside>
 <aside class="success"> What is the use of our Certificate? Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
 For testing, you could use a self signed certificate like that you could define validity period.</aside>
-<aside class="success">Should I warn BMID if the certificate is changed?Yes, we need to be aware on time</aside>
+<aside class="success">Should I notify BMID if the certificate is changed?Yes, we need to be notified on time</aside>
 <aside class="success">What are the consequences of a change label in Sandbox environment? At the moment it's done, all pending approval/login will result in a "Wrong PIN".</aside>
 
 <aside class="success"> Can a same service point to separate SSL Certificates?
@@ -710,6 +710,6 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMDQyNDYxNTAsMTI4NTIyNjM3NCwtMT
+eyJoaXN0b3J5IjpbLTE5NDMyOTE1NDMsMTI4NTIyNjM3NCwtMT
 U1NDE1Njc4NiwtNzc3NTk3NTkxXX0=
 -->
