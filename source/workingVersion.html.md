@@ -95,7 +95,7 @@ As per the OpenID Connect specification <a href="http://openid.net/specs/openid-
 
 You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
 
-<aside class="notice">itsme® supports the use of both HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters must be serialized using [Form Serialization] <a href(http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization).</aside>
+<aside class="notice">itsme® supports the use of both HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters must be serialized using [] <a href="http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization">Form Serialization</a></aside>
 
 Please check the following table for request parameters,
 
@@ -708,7 +708,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQwNjYzNTg3OCwzNjQxNTQ2ODgsLTE4MD
-M0MDU5NDQsLTQ5OTg4OTYsMTc2MjE3NDY2MSwxMjg1MjI2Mzc0
-LC0xNTU0MTU2Nzg2LC03Nzc1OTc1OTFdfQ==
+eyJoaXN0b3J5IjpbLTE1MTQwNDU1NDgsMzY0MTU0Njg4LC0xOD
+AzNDA1OTQ0LC00OTk4ODk2LDE3NjIxNzQ2NjEsMTI4NTIyNjM3
+NCwtMTU1NDE1Njc4NiwtNzc3NTk3NTkxXX0=
 -->
