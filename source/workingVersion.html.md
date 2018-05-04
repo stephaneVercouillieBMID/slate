@@ -350,7 +350,7 @@ Device | **`tag:sixdots.be,2017-05:claim_device`** | [Specifications](#deviceCla
 Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |[Specifications](#transactionInfo) and [an example of usage](#transactionInfoExample) 
 E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
 NRN | not supported|
-<aside class="success"> Taking into account you allowed to receive the NRN from us, we can't and get access to NRN and block the access to the eID group</aside> TODO 
+<aside class="success"> Taking into account you allowed to receive the NRN from us, we can't and get access to NRN and block the access to the eID group</aside>
  
 #### <b id="example-endpoint"></b> 4.2.2.1. Set of Request Parameter Adapted to itsme(r)
 ```json--inline
@@ -459,8 +459,7 @@ A JSON object with the following keys: (only keys with cardinality \\\[1..1\\\] 
 `{ "securityLevel": "SIM\\\_AND\\\_SOFT", "bindLevel": "SIM\\\_AND\\\_SOFT", "mcc": 206 }`
 ## 4.3. Getting Data
 
-As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest),
-Depending on how you declared claims in the Authentication Request, you will receive the user data from
+As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest), depending on how you declared claims in the Authentication Request, you will receive the user data from:
 - The UserInfo Endpoint
 - The Token Endpoint, in the ID Token
 <aside class="success">Should there be 2 calls to itsme(r) for this schedule, one for Token Request & one for UserInfo Request?   
@@ -487,7 +486,7 @@ As per specified [OIDC UserInfo Request](http://openid.net/specs/openid-connect-
 
 The Client sends the UserInfo Request using either HTTP  GET  or HTTP  POST. The Access Token obtained from an OpenID Connect Authentication Request MUST be sent as a Bearer Token, per Section 2 of  [OAuth 2.0 Bearer Token Usage](http://openid.net/specs/openid-connect-core-1_0.html#RFC6750)  [RFC6750].
 
-It is RECOMMENDED that the request use the HTTP  GET  method and the Access Token be sent using the  Authorization  header field.
+<aside class="notice">It is RECOMMENDED that the request use the HTTP  GET  method and the Access Token be sent using the  Authorization  header field.</aside>
 ```http--inline
 GET /userinfo HTTP/1.1 
 Host: server.example.com 
@@ -706,8 +705,8 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTMzMzY5OTMzLDEzNjU0NzA0NjMsNjAwNj
-YyNjU2LDM2NDE1NDY4OCwtMTgwMzQwNTk0NCwtNDk5ODg5Niwx
-NzYyMTc0NjYxLDEyODUyMjYzNzQsLTE1NTQxNTY3ODYsLTc3Nz
-U5NzU5MV19
+eyJoaXN0b3J5IjpbNjkzMjM3Njg3LDkzMzM2OTkzMywxMzY1ND
+cwNDYzLDYwMDY2MjY1NiwzNjQxNTQ2ODgsLTE4MDM0MDU5NDQs
+LTQ5OTg4OTYsMTc2MjE3NDY2MSwxMjg1MjI2Mzc0LC0xNTU0MT
+U2Nzg2LC03Nzc1OTc1OTFdfQ==
 -->
