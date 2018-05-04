@@ -57,7 +57,7 @@ Once your Sandbox is created, you will receive:
 </ul>
 </aside>
 
-Please consult <a name="ServiceCode"></a>[Service Code Concept](#ServiceCode) for more information about the notion of Service Code. 
+<aside class="notice">Please consult <a name="ServiceCode"></a>[Service Code Concept](#ServiceCode)</aside> for more information about the notion of Service Code. 
 <aside class="success">What are the consequences of a changing label in sandbox environment?</aside>All pending approval/login will result in a "Wrong PIN".
 
 ## 2.2. Integration of itsme® services
@@ -708,7 +708,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY5MDM2MDcyLC00OTk4ODk2LDE3NjIxNz
-Q2NjEsMTI4NTIyNjM3NCwtMTU1NDE1Njc4NiwtNzc3NTk3NTkx
-XX0=
+eyJoaXN0b3J5IjpbLTEzNzIwODk1NjgsLTQ5OTg4OTYsMTc2Mj
+E3NDY2MSwxMjg1MjI2Mzc0LC0xNTU0MTU2Nzg2LC03Nzc1OTc1
+OTFdfQ==
 -->
