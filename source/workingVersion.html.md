@@ -6,10 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 - json: JSON
 - http: HTTP
  
-toc_footers:
-<!-- - <a href='#'>Sign Up for a Developer Key</a> -->
-- <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
- 
+
 search: true
 ---
 # 1. Introduction
@@ -708,7 +705,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjAwNjYyNjU2LDM2NDE1NDY4OCwtMTgwMz
-QwNTk0NCwtNDk5ODg5NiwxNzYyMTc0NjYxLDEyODUyMjYzNzQs
-LTE1NTQxNTY3ODYsLTc3NzU5NzU5MV19
+eyJoaXN0b3J5IjpbMTM2NTQ3MDQ2Myw2MDA2NjI2NTYsMzY0MT
+U0Njg4LC0xODAzNDA1OTQ0LC00OTk4ODk2LDE3NjIxNzQ2NjEs
+MTI4NTIyNjM3NCwtMTU1NDE1Njc4NiwtNzc3NTk3NTkxXX0=
 -->
