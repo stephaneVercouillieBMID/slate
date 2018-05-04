@@ -31,11 +31,10 @@ The objective of this document is to provide all the information needed to integ
 ## 2.1. Configuration of your Sandbox
 Before you can start working on the integration of itsme(r) services, we need to create your Sandbox in which the integration takes place. Your company will provide us both functional and technical information we will use to create your Sandbox. These information include (not exhaustively):
 - Information to customize the user consent screen
-- Redirect URIs associated to your instances of itsme(r) services (to which the user will be redirected after the autentication)
+- Redirect URIs associated to your instances of itsme(r) services (to which the user will be redirected after the authentication)
 - JWKSet URL, and associated SSL/TLS certificate
 You can consult [our B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) for more information about this step.
- 
-<aside class="success"> What is the use of our Certificate? Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
+ <aside class="success"> What is the use of our Certificate? Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
 For testing, you could use a self signed certificate like that you could define validity period.</aside>
 
 <aside class="success">Should I warn BMID if the certificate is changed?Yes, we need to be aware on time</aside>
@@ -713,6 +712,6 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcwNDkwMzgxMCwxMjg1MjI2Mzc0LC0xNT
+eyJoaXN0b3J5IjpbMTU2MzYxMjQzNCwxMjg1MjI2Mzc0LC0xNT
 U0MTU2Nzg2LC03Nzc1OTc1OTFdfQ==
 -->
