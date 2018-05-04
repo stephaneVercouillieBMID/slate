@@ -43,7 +43,7 @@ Currently, the certificate is used to protect the JWKSet and it is not directly 
  
 <aside class="success"> Is it possible to use a self-signed certificate for the integration? In Sandbox, yes it is. -For production, unfortunately no due to BMID needs the certificate & its intermediate chain.</aside>
 
-<aside class="success"> What should I do once I changed my JWKSet URL? You must notify Support and create a new certificate accordingly.</aside>
+<aside class="success"> What is the next step once changing the JWKSet URL? You must notify Support and create a new certificate accordingly.</aside>
 
 <aside class="success"> Is it possible to register multiple valid callback URIs/jwkset URIs for one environment, or will they have to change this every time they switch URIs? While it is possible to register several redirect urls, it is not possible to register several JWKSet URLs. 
 The redirect URL is specified in each Authorization request, the User will be redirected to that URL after the (failed or successful) authentication in the itsme App. You need to specify it in the onboarding file because it needs to be whitelisted by our F5. We can whitelist several urls. The jwkset urls, however, is used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know what URL to contact, and thus we can register only one
@@ -708,6 +708,6 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5NDc5MTg2NywxNzYyMTc0NjYxLDEyOD
-UyMjYzNzQsLTE1NTQxNTY3ODYsLTc3NzU5NzU5MV19
+eyJoaXN0b3J5IjpbLTE1MDM1NzI4ODMsMTc2MjE3NDY2MSwxMj
+g1MjI2Mzc0LC0xNTU0MTU2Nzg2LC03Nzc1OTc1OTFdfQ==
 -->
