@@ -33,7 +33,7 @@ Before you can start working on the integration of itsme(r) services, we need to
 - Information to customize the user consent screen
 - Redirect URIs associated to your instances of itsme(r) services (to which the user will be redirected after the authentication)
 - JWKSet URL, and associated SSL/TLS certificate
-<aside class="notice">You can consult [our B2B portal]<a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7"</a>) for more information about this step.</aside>
+<aside class="notice">You can consult <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">our B2B portal</a> for more information about this step.</aside>
 <aside class="success"> What is the use of our Certificate? Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
 For testing, you could use a self signed certificate like that you could define validity period.</aside>
 <aside class="success">Should I warn BMID if the certificate is changed?Yes, we need to be aware on time</aside>
@@ -710,6 +710,6 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMwODIyNjAzOSwxMjg1MjI2Mzc0LC0xNT
-U0MTU2Nzg2LC03Nzc1OTc1OTFdfQ==
+eyJoaXN0b3J5IjpbLTEzMDQyNDYxNTAsMTI4NTIyNjM3NCwtMT
+U1NDE1Njc4NiwtNzc3NTk3NTkxXX0=
 -->
