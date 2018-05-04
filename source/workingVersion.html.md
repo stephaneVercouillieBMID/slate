@@ -20,19 +20,14 @@ This documentation describes our OAuth 2.0 implementation of **itsme® Login**, 
 ## 1.2. Objective
 The objective of this document is to provide all the information needed to integrate the itsme(r) services using OpenID Connect protocol.
 ## 1.3. The itsme® services in a few words
- 
-itsme® offers 3 services, which act as strong enablers for every process digitalization project. Further information about itsme(r) services is provided on our B2B portal:
-
+ itsme® offers 3 services, which act as strong enablers for every process digitalization project. Further information about itsme(r) services is provided on our B2B portal:
 - [**itsme®Login**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/login-with-itsme)
 - [**itsme®Confirm**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/confirm-with-itsme)
  - [**itsme®Shared Data**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/shared-data)
-
 # 2. <a name id="Onboarding"></a> On boarding Process
- 
-Our on boarding process consists of two main steps:
+ Our on boarding process consists of two main steps:
 - The configuration of your Sandbox
 - The integration of itsme(r) services
- 
 ## 2.1. Configuration of your Sandbox
 Before you can start working on the integration of itsme(r) services, we need to create your Sandbox in which the integration takes place. Your company will provide us both functional and technical information we will use to create your Sandbox. These information include (not exhaustively):
 - Information to customize the user consent screen
@@ -718,6 +713,6 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgxNDg2MzE3MiwxMjg1MjI2Mzc0LC0xNT
+eyJoaXN0b3J5IjpbLTcwNDkwMzgxMCwxMjg1MjI2Mzc0LC0xNT
 U0MTU2Nzg2LC03Nzc1OTc1OTFdfQ==
 -->
