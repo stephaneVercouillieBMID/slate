@@ -199,7 +199,7 @@ As per the [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.
 The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the **token_endpoint** key. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. 
 
 <aside class="success">Which information must be present to contact Token Endpoint?
-- Request MUST be a POST, not a GET
+- Request MUST be a POST, not a GET request
 - In header the Content-Type : application/x-www-form-urlencoded  MUST be added</aside>
 
 <aside class="success">Do you need an App Client Secret on the OpenID client?
@@ -705,8 +705,8 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI4Nzc2NDQxNCwxMzY1NDcwNDYzLDYwMD
-Y2MjY1NiwzNjQxNTQ2ODgsLTE4MDM0MDU5NDQsLTQ5OTg4OTYs
-MTc2MjE3NDY2MSwxMjg1MjI2Mzc0LC0xNTU0MTU2Nzg2LC03Nz
-c1OTc1OTFdfQ==
+eyJoaXN0b3J5IjpbOTUyNTM3Nzc5LDEzNjU0NzA0NjMsNjAwNj
+YyNjU2LDM2NDE1NDY4OCwtMTgwMzQwNTk0NCwtNDk5ODg5Niwx
+NzYyMTc0NjYxLDEyODUyMjYzNzQsLTE1NTQxNTY3ODYsLTc3Nz
+U5NzU5MV19
 -->
