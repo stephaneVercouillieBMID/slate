@@ -38,7 +38,7 @@ Before you can start working on the integration of itsme(r) services, we need to
 For testing, you could use a self signed certificate like that you could define validity period.</aside>
 <aside class="success">Should I notify BMID if the certificate is changed? Yes, BMID must be notified on time.</aside>
 <aside class="success">What are the consequences of changing a label in Sandbox environment? At the moment it's done, all pending approval/login will result in a "Wrong PIN".</aside>
-<aside class="success"> Can a same service point to separate SSL Certificates?
+<aside class="success"> Does a same service point to separate SSL Certificates?
 Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.</aside>
  
 <aside class="success"> Can I use a self signed certificate for my integration? In Sandbox, yes but not for production where we need the certificate & its intermediate chain.</aside>
@@ -708,6 +708,6 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzg3OTkzNTMwLDEyODUyMjYzNzQsLTE1NT
-QxNTY3ODYsLTc3NzU5NzU5MV19
+eyJoaXN0b3J5IjpbMTc2MjE3NDY2MSwxMjg1MjI2Mzc0LC0xNT
+U0MTU2Nzg2LC03Nzc1OTc1OTFdfQ==
 -->
