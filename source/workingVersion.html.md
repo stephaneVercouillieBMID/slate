@@ -40,8 +40,11 @@ For testing, you could use a self signed certificate like that you could define 
 <aside class="success">What are the consequences of changing a label in Sandbox environment? At the moment it's done, all pending approval/login will result in a "Wrong PIN".</aside>
 <aside class="success"> Does a same service point to separate SSL Certificates?
 Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.</aside>
-<aside class="success"> Can I use a self signed certificate for my integration? In Sandbox, yes but not for production where we need the certificate & its intermediate chain.</aside>
+ 
+<aside class="success"> Is it possible to use a self-signed certificate for the integration? In Sandbox, yes it is pos but not for production where we need the certificate & its intermediate chain.</aside>
+
 <aside class="success"> What should I do once I changed my JWKSet URL? You must notify Support and create a new certificate accordingly.</aside>
+
 <aside class="success"> Is it possible to register multiple valid callback URIs/jwkset URIs for one environment, or will they have to change this every time they switch URIs? While it is possible to register several redirect urls, it is not possible to register several JWKSet URLs. 
 The redirect URL is specified in each Authorization request, the User will be redirected to that URL after the (failed or successful) authentication in the itsme App. You need to specify it in the onboarding file because it needs to be whitelisted by our F5. We can whitelist several urls. The jwkset urls, however, is used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know what URL to contact, and thus we can register only one
 JWKSet URL.</aside>
@@ -705,6 +708,6 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5ODY2NTg3NzMsMTc2MjE3NDY2MSwxMj
+eyJoaXN0b3J5IjpbLTEwNTAxNzcyNTYsMTc2MjE3NDY2MSwxMj
 g1MjI2Mzc0LC0xNTU0MTU2Nzg2LC03Nzc1OTc1OTFdfQ==
 -->
