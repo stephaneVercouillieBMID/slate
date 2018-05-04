@@ -350,7 +350,7 @@ Device | **`tag:sixdots.be,2017-05:claim_device`** | [Specifications](#deviceCla
 Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |[Specifications](#transactionInfo) and [an example of usage](#transactionInfoExample) 
 E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
 NRN | not supported|
-<aside class="success"> Taking into account you allowed to receive the NRN from us, we can't and get access to NRN and block the access to the eID group</aside>
+<aside class="success"> Taking into account you are allowed to receive the NRN from BMID, BMID can't and get access to NRN and block the access to the eID group</aside>
  
 #### <b id="example-endpoint"></b> 4.2.2.1. Set of Request Parameter Adapted to itsme(r)
 ```json--inline
@@ -502,7 +502,7 @@ Authorization: Bearer SlAV32hkKG
 
 #### 4.3.1.2. User info Response Specification
 The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed. The itsme Back-End replies with the Identity Data that were requested in the Authorization Request.
-<aside class="success">What is the lay-out of the Identity Data that we get back in the Userinfo Response? They are the same as on the eID card </aside>
+<aside class="success">What is the lay-out of the Identity Data that  BMID get back in the Userinfo Response? They are the same as on the eID card </aside>
 <aside class="success">What format does the certificate need to be?
 It needs to be in ZIP file, X509 format (cer or crt). Pem file is not supported.  </aside>
 
@@ -706,8 +706,8 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3OTcwMTcyMyw5MzMzNjk5MzMsMTM2NT
-Q3MDQ2Myw2MDA2NjI2NTYsMzY0MTU0Njg4LC0xODAzNDA1OTQ0
-LC00OTk4ODk2LDE3NjIxNzQ2NjEsMTI4NTIyNjM3NCwtMTU1ND
-E1Njc4NiwtNzc3NTk3NTkxXX0=
+eyJoaXN0b3J5IjpbLTEzODcxODcwMjksLTU3OTcwMTcyMyw5Mz
+MzNjk5MzMsMTM2NTQ3MDQ2Myw2MDA2NjI2NTYsMzY0MTU0Njg4
+LC0xODAzNDA1OTQ0LC00OTk4ODk2LDE3NjIxNzQ2NjEsMTI4NT
+IyNjM3NCwtMTU1NDE1Njc4NiwtNzc3NTk3NTkxXX0=
 -->
