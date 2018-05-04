@@ -38,7 +38,7 @@ For testing, you could use a self signed certificate like that you could define 
 <aside class="success"> Does a same service point to separate SSL Certificates?
 Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, so for one Partner code you have maximum 1 JWKSet.</aside>
  
-<aside class="success"> Is it possible to use a self-signed certificate for the integration? In Sandbox, yes it is. -For production, unfortunately no due to BMID needs the certificate & its intermediate chain.</aside>
+<aside class="success"> Is it possible to use a self-signed certificate for the integration? In Sandbox, yes it is. For production, unfortunately no due to BMID needs the certificate & its intermediate chain.</aside>
 
 <aside class="success"> What is the next step once changing the JWKSet URL? BMID Support must be notified immediately in order to create a new certificate.</aside>
 
@@ -502,7 +502,7 @@ Authorization: Bearer SlAV32hkKG
 
 #### 4.3.1.2. User info Response Specification
 The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed. The itsme Back-End replies with the Identity Data that were requested in the Authorization Request.
-<aside class="success">What is the lay-out of the Identity Data that  BMID get back in the Userinfo Response? They are the same as on the eID card </aside>
+<aside class="success">What is the lay-out of the Identity Data that BMID get back in the Userinfo Response? They are the same as on the eID card </aside>
 <aside class="success">What format does the certificate need to be?
 It needs to be in ZIP file, X509 format (cer or crt). Pem file is not supported.  </aside>
 
@@ -706,7 +706,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzODcxODcwMjksLTU3OTcwMTcyMyw5Mz
+eyJoaXN0b3J5IjpbLTE0NTQ4MzExODgsLTU3OTcwMTcyMyw5Mz
 MzNjk5MzMsMTM2NTQ3MDQ2Myw2MDA2NjI2NTYsMzY0MTU0Njg4
 LC0xODAzNDA1OTQ0LC00OTk4ODk2LDE3NjIxNzQ2NjEsMTI4NT
 IyNjM3NCwtMTU1NDE1Njc4NiwtNzc3NTk3NTkxXX0=
