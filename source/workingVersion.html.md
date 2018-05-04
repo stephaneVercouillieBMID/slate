@@ -33,12 +33,10 @@ Before you can start working on the integration of itsme(r) services, we need to
 - Information to customize the user consent screen
 - Redirect URIs associated to your instances of itsme(r) services (to which the user will be redirected after the authentication)
 - JWKSet URL, and associated SSL/TLS certificate
-You can consult [our B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) for more information about this step.
- <aside class="success"> What is the use of our Certificate? Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
+ <aside class="notice">You can consult [our B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) for more information about this step.</aside>
+<aside class="success"> What is the use of our Certificate? Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
 For testing, you could use a self signed certificate like that you could define validity period.</aside>
-
 <aside class="success">Should I warn BMID if the certificate is changed?Yes, we need to be aware on time</aside>
-
 <aside class="success">What are the consequences of a change label in Sandbox environment? At the moment it's done, all pending approval/login will result in a "Wrong PIN".</aside>
 
 <aside class="success"> Can a same service point to separate SSL Certificates?
@@ -712,6 +710,6 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU2MzYxMjQzNCwxMjg1MjI2Mzc0LC0xNT
-U0MTU2Nzg2LC03Nzc1OTc1OTFdfQ==
+eyJoaXN0b3J5IjpbLTE3MzAzNzU0MjgsMTI4NTIyNjM3NCwtMT
+U1NDE1Njc4NiwtNzc3NTk3NTkxXX0=
 -->
