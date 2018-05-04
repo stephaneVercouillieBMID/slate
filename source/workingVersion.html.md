@@ -487,6 +487,7 @@ As per specified [OIDC UserInfo Request](http://openid.net/specs/openid-connect-
 The Client sends the UserInfo Request using either HTTP  GET  or HTTP  POST. The Access Token obtained from an OpenID Connect Authentication Request MUST be sent as a Bearer Token, per Section 2 of  [OAuth 2.0 Bearer Token Usage](http://openid.net/specs/openid-connect-core-1_0.html#RFC6750)  [RFC6750].
 
 <aside class="notice">It is RECOMMENDED that the request use the HTTP  GET  method and the Access Token be sent using the  Authorization  header field.</aside>
+
 ```http--inline
 GET /userinfo HTTP/1.1 
 Host: server.example.com 
@@ -705,8 +706,8 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjkzMjM3Njg3LDkzMzM2OTkzMywxMzY1ND
-cwNDYzLDYwMDY2MjY1NiwzNjQxNTQ2ODgsLTE4MDM0MDU5NDQs
-LTQ5OTg4OTYsMTc2MjE3NDY2MSwxMjg1MjI2Mzc0LC0xNTU0MT
-U2Nzg2LC03Nzc1OTc1OTFdfQ==
+eyJoaXN0b3J5IjpbLTU3OTcwMTcyMyw5MzMzNjk5MzMsMTM2NT
+Q3MDQ2Myw2MDA2NjI2NTYsMzY0MTU0Njg4LC0xODAzNDA1OTQ0
+LC00OTk4ODk2LDE3NjIxNzQ2NjEsMTI4NTIyNjM3NCwtMTU1ND
+E1Njc4NiwtNzc3NTk3NTkxXX0=
 -->
