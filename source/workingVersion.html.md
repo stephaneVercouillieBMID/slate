@@ -180,7 +180,7 @@ As per the [OIDC Specification](http://openid.net/specs/openid-connect-core-1_0.
 - ID tokens carry user’s authentication information encoded in the token itself, it must be a JWT and authorization server will return them.
 -  the token can be certainly verified to prove that it hasn’t been tampered with.
 
-There’s a set of [rules](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation) in the specification for validating an `id_token`.
+<aside class="notice"There’s a set of <a href="http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation"</a>[rules](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation) in the specification for validating an `id_token`.
 
 #### <a name id="actoken"></a> 3.2.1.2 Access Tokens
 
@@ -705,7 +705,8 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM2NTQ3MDQ2Myw2MDA2NjI2NTYsMzY0MT
-U0Njg4LC0xODAzNDA1OTQ0LC00OTk4ODk2LDE3NjIxNzQ2NjEs
-MTI4NTIyNjM3NCwtMTU1NDE1Njc4NiwtNzc3NTk3NTkxXX0=
+eyJoaXN0b3J5IjpbMTA5NDU1ODk5MywxMzY1NDcwNDYzLDYwMD
+Y2MjY1NiwzNjQxNTQ2ODgsLTE4MDM0MDU5NDQsLTQ5OTg4OTYs
+MTc2MjE3NDY2MSwxMjg1MjI2Mzc0LC0xNTU0MTU2Nzg2LC03Nz
+c1OTc1OTFdfQ==
 -->
