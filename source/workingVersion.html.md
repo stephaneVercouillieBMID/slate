@@ -47,8 +47,7 @@ Currently, the certificate is used to protect the JWKSet and it is not directly 
 
 <aside class="success"> Is it possible to register multiple valid callback URIs/JWKSet URIs for one environment, or will they have to change this every time they switch URIs? While it is possible to register several redirect URLs but not possible to register several JWKSet URLs. 
 
-The redirect URL is specified in each Authorization request, the User will be redirected to that URL after the (failed or successful) authentication in the itsme App. You need to specify it in the onboarding file because it needs to be whitelisted by our F5. We can whitelist several urls. The jwkset urls, however, is used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know what URL to contact, and thus we can register only one
-JWKSet URL.</aside>
+The redirect URL is specified in each Authorization request, the User will be redirected to that URL after the (failed or successful) authentication in the itsme App. You need to specify it in the onboarding file because it needs to be whitelisted by our F5. We can whitelist several urls. The jwkset urls, however, is used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know what URL to contact, and thus we can register only one JWKSet URL.</aside>
 
 <aside class="success">
 Once your Sandbox is created, you will receive:
@@ -709,6 +708,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5OTg4OTYsMTc2MjE3NDY2MSwxMjg1Mj
-I2Mzc0LC0xNTU0MTU2Nzg2LC03Nzc1OTc1OTFdfQ==
+eyJoaXN0b3J5IjpbLTY5MDM2MDcyLC00OTk4ODk2LDE3NjIxNz
+Q2NjEsMTI4NTIyNjM3NCwtMTU1NDE1Njc4NiwtNzc3NTk3NTkx
+XX0=
 -->
