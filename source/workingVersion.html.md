@@ -88,8 +88,8 @@ To simplify implementations and increase flexibility, OpenID Connect allows the 
 
 Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
-<aside class="success"> Can we re-use the same service for another environment?
-No, We will create new services for the OIDC.
+<aside class="success"> Is it possible to use the same service for another environment?
+No, BMID will create new services for the OIDC.
 </aside>
 
 <aside class="success">We want to integrate itsme(r) but we only have 1 development machine & so there is no unique IP for the back-end in test due to it isn't unique & it runs in locally on each machine. </aside>
@@ -719,5 +719,5 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc3NzU5NzU5MV19
+eyJoaXN0b3J5IjpbLTE1NTQxNTY3ODYsLTc3NzU5NzU5MV19
 -->
