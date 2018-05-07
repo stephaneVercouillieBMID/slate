@@ -36,7 +36,7 @@ For testing, you could use a self signed certificate like that you could define 
 <aside class="success">Should I notify BMID if the certificate is changed? Yes, BMID must be notified on time.</aside>
 <aside class="success">What are the consequences of changing a label in Sandbox environment? At the moment it's done, all pending approval/login will result in a "Wrong PIN".</aside>
 <aside class="success"> Does a same service point to separate SSL Certificates?
-Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, therefoe for one Partner code you have maximum 1 JWKSet.</aside>
+Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, therefore for one Partner code you have maximum 1 JWKSet.</aside>
  
 <aside class="success"> Is it possible to use a self-signed certificate for the integration? In Sandbox, yes it is. For production, unfortunately no due to BMID needs the certificate & its intermediate chain.</aside>
 
@@ -706,10 +706,10 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3MjMzNTAzNCwyMTI3NjkxMTM0LC0xNz
-U0ODAyNDQ5LDE3MzQ0MTk0MzQsLTE2MzM0Mzk4MTMsLTE0NTQ4
-MzExODgsLTU3OTcwMTcyMyw5MzMzNjk5MzMsMTM2NTQ3MDQ2My
-w2MDA2NjI2NTYsMzY0MTU0Njg4LC0xODAzNDA1OTQ0LC00OTk4
-ODk2LDE3NjIxNzQ2NjEsMTI4NTIyNjM3NCwtMTU1NDE1Njc4Ni
-wtNzc3NTk3NTkxXX0=
+eyJoaXN0b3J5IjpbNDQ1MTM4NzA4LDIxMjc2OTExMzQsLTE3NT
+Q4MDI0NDksMTczNDQxOTQzNCwtMTYzMzQzOTgxMywtMTQ1NDgz
+MTE4OCwtNTc5NzAxNzIzLDkzMzM2OTkzMywxMzY1NDcwNDYzLD
+YwMDY2MjY1NiwzNjQxNTQ2ODgsLTE4MDM0MDU5NDQsLTQ5OTg4
+OTYsMTc2MjE3NDY2MSwxMjg1MjI2Mzc0LC0xNTU0MTU2Nzg2LC
+03Nzc1OTc1OTFdfQ==
 -->
