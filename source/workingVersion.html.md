@@ -30,7 +30,7 @@ Before you can start working on the integration of itsme(r) services, we need to
 - Information to customize the user consent screen
 - Redirect URIs associated to your instances of itsme(r) services (to which the user will be redirected after the authentication)
 - JWKSet URL, and associated SSL/TLS certificate
-<aside class="notice">You can consult <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">our B2B portal</a> for more information about this step.</aside>
+<aside class="notice">You can consult <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">our B2B portal</a> for furthzeinformation about this step.</aside>
 <aside class="success"> What is the use of our Certificate? Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
 For testing, you could use a self signed certificate like that you could define validity period.</aside>
 <aside class="success">Should I notify BMID if the certificate is changed? Yes, BMID must be notified on time.</aside>
@@ -502,7 +502,7 @@ Authorization: Bearer SlAV32hkKG
 
 #### 4.3.1.2. User info Response Specification
 The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed. The itsme Back-End replies with the Identity Data that were requested in the Authorization Request.
-<aside class="success">What is the lay-out of the Identity Data that BMID get back in the Userinfo Response? They are the same as on the eID card </aside>
+<aside class="success">What is the lay-out of the Identity Data that BMID obtain in the Userinfo Response? They are the same as on the eID card </aside>
 <aside class="success">What format does the certificate need to be?
 It needs to be in ZIP file, X509 format (cer or crt). Pem file is not supported.  </aside>
 
@@ -706,7 +706,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjU1MTQxNDk2LDE3MzQ0MTk0MzQsLTE2Mz
+eyJoaXN0b3J5IjpbNTUyODUyMTk1LDE3MzQ0MTk0MzQsLTE2Mz
 M0Mzk4MTMsLTE0NTQ4MzExODgsLTU3OTcwMTcyMyw5MzMzNjk5
 MzMsMTM2NTQ3MDQ2Myw2MDA2NjI2NTYsMzY0MTU0Njg4LC0xOD
 AzNDA1OTQ0LC00OTk4ODk2LDE3NjIxNzQ2NjEsMTI4NTIyNjM3
