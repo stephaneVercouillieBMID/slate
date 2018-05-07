@@ -40,7 +40,7 @@ Currently, the certificate is used to protect the JWKSet and it is not directly 
  
 <aside class="success"> Is it possible to use a self-signed certificate for the integration? In Sandbox, yes it is. For production, unfortunately no due to BMID needs the certificate & its intermediate chain.</aside>
 
-<aside class="success"> What is the next step once changing the JWKSet URL? BMID Support must be notified immediately in order to create a new certificate.</aside>
+<aside class="success"> What is the next step after changing the JWKSet URL? BMID Support must be notified immediately in order to create a new certificate.</aside>
 
 <aside class="success"> Is it possible to register multiple valid callback URIs/JWKSet URIs for one environment, or will they have to change this every time they switch URIs? While it is possible to register several redirect URLs but not possible to register several JWKSet URLs. 
 
@@ -706,9 +706,10 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NTQ4MDI0NDksMTczNDQxOTQzNCwtMT
-YzMzQzOTgxMywtMTQ1NDgzMTE4OCwtNTc5NzAxNzIzLDkzMzM2
-OTkzMywxMzY1NDcwNDYzLDYwMDY2MjY1NiwzNjQxNTQ2ODgsLT
-E4MDM0MDU5NDQsLTQ5OTg4OTYsMTc2MjE3NDY2MSwxMjg1MjI2
-Mzc0LC0xNTU0MTU2Nzg2LC03Nzc1OTc1OTFdfQ==
+eyJoaXN0b3J5IjpbMjEyNzY5MTEzNCwtMTc1NDgwMjQ0OSwxNz
+M0NDE5NDM0LC0xNjMzNDM5ODEzLC0xNDU0ODMxMTg4LC01Nzk3
+MDE3MjMsOTMzMzY5OTMzLDEzNjU0NzA0NjMsNjAwNjYyNjU2LD
+M2NDE1NDY4OCwtMTgwMzQwNTk0NCwtNDk5ODg5NiwxNzYyMTc0
+NjYxLDEyODUyMjYzNzQsLTE1NTQxNTY3ODYsLTc3NzU5NzU5MV
+19
 -->
