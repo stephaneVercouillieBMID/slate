@@ -350,7 +350,7 @@ Device | **`tag:sixdots.be,2017-05:claim_device`** | [Specifications](#deviceCla
 Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |[Specifications](#transactionInfo) and [an example of usage](#transactionInfoExample) 
 E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
 NRN | not supported|
-<aside class="success"> Taking into account you are allowed to receive the NRN from BMID, BMID can't and get access to NRN and block the access to the eID group</aside>
+<aside class="success"> Taking into account that you are allowed to receive the NRN from BMID, BMID can't and get access to NRN and block the access to the eID group</aside>
  
 #### <b id="example-endpoint"></b> 4.2.2.1. Set of Request Parameter Adapted to itsme(r)
 ```json--inline
@@ -706,9 +706,9 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MzM0Mzk4MTMsLTE0NTQ4MzExODgsLT
-U3OTcwMTcyMyw5MzMzNjk5MzMsMTM2NTQ3MDQ2Myw2MDA2NjI2
-NTYsMzY0MTU0Njg4LC0xODAzNDA1OTQ0LC00OTk4ODk2LDE3Nj
-IxNzQ2NjEsMTI4NTIyNjM3NCwtMTU1NDE1Njc4NiwtNzc3NTk3
-NTkxXX0=
+eyJoaXN0b3J5IjpbMTczNDQxOTQzNCwtMTYzMzQzOTgxMywtMT
+Q1NDgzMTE4OCwtNTc5NzAxNzIzLDkzMzM2OTkzMywxMzY1NDcw
+NDYzLDYwMDY2MjY1NiwzNjQxNTQ2ODgsLTE4MDM0MDU5NDQsLT
+Q5OTg4OTYsMTc2MjE3NDY2MSwxMjg1MjI2Mzc0LC0xNTU0MTU2
+Nzg2LC03Nzc1OTc1OTFdfQ==
 -->
