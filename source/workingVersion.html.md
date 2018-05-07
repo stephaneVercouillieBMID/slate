@@ -303,7 +303,7 @@ The following scope values are supported and allow access to predefined sets of 
 email|email, email_verified|
 phone| phone_number, phone_number_verified| 
 address|address, with subfields,<br>street_address (newline separator \n)<br> locality <br> postal_code <br> country
-<aside class="success">Is it normal that the scope "eid" is not mentioned in the supported scopes?
+<aside class="success">Is it expected that the scope "eid" is not mentioned in the supported scopes?
 The “eid” scope was introduced exclusively for FAS (BOSSA). </aside>
 
 #### 4.2.1.2 Example of an Authorization Request using "scope" values
@@ -706,8 +706,9 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NTQ4MzExODgsLTU3OTcwMTcyMyw5Mz
-MzNjk5MzMsMTM2NTQ3MDQ2Myw2MDA2NjI2NTYsMzY0MTU0Njg4
-LC0xODAzNDA1OTQ0LC00OTk4ODk2LDE3NjIxNzQ2NjEsMTI4NT
-IyNjM3NCwtMTU1NDE1Njc4NiwtNzc3NTk3NTkxXX0=
+eyJoaXN0b3J5IjpbLTE2MzM0Mzk4MTMsLTE0NTQ4MzExODgsLT
+U3OTcwMTcyMyw5MzMzNjk5MzMsMTM2NTQ3MDQ2Myw2MDA2NjI2
+NTYsMzY0MTU0Njg4LC0xODAzNDA1OTQ0LC00OTk4ODk2LDE3Nj
+IxNzQ2NjEsMTI4NTIyNjM3NCwtMTU1NDE1Njc4NiwtNzc3NTk3
+NTkxXX0=
 -->
