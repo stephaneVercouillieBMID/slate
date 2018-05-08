@@ -31,10 +31,13 @@ Before you can start working on the integration of itsme(r) services, we need to
 - Redirect URIs associated to your instances of itsme(r) services (to which the user will be redirected after the authentication)
 - JWKSet URL, and associated SSL/TLS certificate
 <aside class="notice">You can consult <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">our B2B portal</a> for furher information about this step.</aside>
-<aside class="success"> What is the use of our Certificate? Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
-For testing, you could use a self signed certificate like that you could define validity period.</aside>
-<aside class="success">Should I notify BMID if the certificate is changed? Yes, BMID must be notified on time.</aside>
-<aside class="success">What are the consequences of changing a label in Sandbox environment? At the moment it's done, all pending approval/login will result in a "Wrong PIN".</aside>
+<aside class="success"> What is the use of our Certificate? </aside>
+Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
+For testing, you could use a self signed certificate like that you could define validity period.
+<aside class="success">Should I notify BMID if the certificate is changed? </aside>
+Yes, BMID must be notified on time.
+<aside class="success">What are the consequences of changing a label in Sandbox environment? </aside>
+At the moment it's done, all pending approval/login will result in a "Wrong PIN".
 <aside class="success"> Does a same service point to separate SSL Certificates?
 Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, therefore for one Partner code you have maximum 1 JWKSet.</aside>
  
@@ -706,10 +709,10 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNzA1ODYyMjksNDQ1MTM4NzA4LDIxMj
-c2OTExMzQsLTE3NTQ4MDI0NDksMTczNDQxOTQzNCwtMTYzMzQz
-OTgxMywtMTQ1NDgzMTE4OCwtNTc5NzAxNzIzLDkzMzM2OTkzMy
-wxMzY1NDcwNDYzLDYwMDY2MjY1NiwzNjQxNTQ2ODgsLTE4MDM0
-MDU5NDQsLTQ5OTg4OTYsMTc2MjE3NDY2MSwxMjg1MjI2Mzc0LC
-0xNTU0MTU2Nzg2LC03Nzc1OTc1OTFdfQ==
+eyJoaXN0b3J5IjpbMTA1NDEzNTY3MSwtMTM3MDU4NjIyOSw0ND
+UxMzg3MDgsMjEyNzY5MTEzNCwtMTc1NDgwMjQ0OSwxNzM0NDE5
+NDM0LC0xNjMzNDM5ODEzLC0xNDU0ODMxMTg4LC01Nzk3MDE3Mj
+MsOTMzMzY5OTMzLDEzNjU0NzA0NjMsNjAwNjYyNjU2LDM2NDE1
+NDY4OCwtMTgwMzQwNTk0NCwtNDk5ODg5NiwxNzYyMTc0NjYxLD
+EyODUyMjYzNzQsLTE1NTQxNTY3ODYsLTc3NzU5NzU5MV19
 -->
