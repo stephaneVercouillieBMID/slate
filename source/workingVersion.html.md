@@ -190,10 +190,9 @@ As per the [OIDC Specification](http://openid.net/specs/openid-connect-core-1_0.
 - ID tokens carry user’s authentication information encoded in the token itself, it must be a JWT and authorization server will return them.
 -  the token can be certainly verified to prove that it hasn’t been tampered with.
 
-<aside class="notice">There’s a set of <a href="http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation"> rules </a> in the specification for validating an id_token.
+<aside class="notice">There’s a set of http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation" rule in the specification for validating an id_token.</aside>
 
 #### <a name id="actoken"></a> 3.2.1.2 Access Tokens
-
 Bearer token concept must be mentioned before access token is explained. Bearer token is a protected token which can access to authorized resources without further identification. The format for OAuth 2.0 Bearer tokens is actually described in a separate spec, [RFC 6750](https://tools.ietf.org/html/rfc6750).
 
 - Access tokens are bearer tokens. They specify set of end user data the RP has access to in the context of the authentication (content of access token thus depends on the static access rights to data as defined during [on boarding process](#Onboarding)).
@@ -716,11 +715,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgxMTM3MzM1LDE0MTA3ODkxMDUsLTE3NT
-g3NDQyNywxMDE1MTYzODY3LC0xMzcwNTg2MjI5LDQ0NTEzODcw
-OCwyMTI3NjkxMTM0LC0xNzU0ODAyNDQ5LDE3MzQ0MTk0MzQsLT
-E2MzM0Mzk4MTMsLTE0NTQ4MzExODgsLTU3OTcwMTcyMyw5MzMz
-Njk5MzMsMTM2NTQ3MDQ2Myw2MDA2NjI2NTYsMzY0MTU0Njg4LC
-0xODAzNDA1OTQ0LC00OTk4ODk2LDE3NjIxNzQ2NjEsMTI4NTIy
-NjM3NF19
+eyJoaXN0b3J5IjpbLTEwNjUxNDczNTgsMTgxMTM3MzM1LDE0MT
+A3ODkxMDUsLTE3NTg3NDQyNywxMDE1MTYzODY3LC0xMzcwNTg2
+MjI5LDQ0NTEzODcwOCwyMTI3NjkxMTM0LC0xNzU0ODAyNDQ5LD
+E3MzQ0MTk0MzQsLTE2MzM0Mzk4MTMsLTE0NTQ4MzExODgsLTU3
+OTcwMTcyMyw5MzMzNjk5MzMsMTM2NTQ3MDQ2Myw2MDA2NjI2NT
+YsMzY0MTU0Njg4LC0xODAzNDA1OTQ0LC00OTk4ODk2LDE3NjIx
+NzQ2NjFdfQ==
 -->
