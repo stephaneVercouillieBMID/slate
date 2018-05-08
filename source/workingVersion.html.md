@@ -248,6 +248,7 @@ Parameter | Provided | Comment
 **[`id_token`](#idtoken)** | Always | The id_token corresponding to the Authentication Request (signed and  encrypted). 
 **[`at_hash`](http://openid.net/specs/openid-connect-core-1_0.html#CodeIDToken)** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
 **[`refresh_token`](#rfshtoken)** | Never | Won't be provided as **itsme(r)** only maintains short-lived session to enforce re-authentication.
+
 ### 3.2.5. Token Response Example
 `{"user_info":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","birthdate":"1974-04-12","gender":"male","name":"Ada Gardner","iss":"tokenEndpointURL","given_name":"Ada","locale":"fr","family_name":"Gardner"},"id_token":{"access_token":"UVfXK3QzTRKyFiw3f1v85Yr4ko4o7uI1oJ8XNZeRcJE","id_token":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","acr":"tag:sixdots.be,2016-06:acr_basic","auth_time":1523626355,"iss":"tokenEndpointURL","exp":1523626660,"iat":1523626360,"nonce":"anonce"},"token_type":"Bearer","expire_in":163}}`
 
@@ -709,7 +710,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwNTkzNDMyNCwxMjA0MDY2Mzc4LDE1ND
+eyJoaXN0b3J5IjpbLTgxNDM4ODQyMiwxMjA0MDY2Mzc4LDE1ND
 M0MTExNTQsLTY2OTk5OTIwOCwtNjIyMTI5MDMsOTY2MzYwNjQ3
 LDE4MTEzNzMzNSwxNDEwNzg5MTA1LC0xNzU4NzQ0MjcsMTAxNT
 E2Mzg2NywtMTM3MDU4NjIyOSw0NDUxMzg3MDgsMjEyNzY5MTEz
