@@ -210,8 +210,8 @@ The Authentication Response includes a `code` parameter, a one-time authorizatio
 <aside class="success">Which information must be present to contact Token Endpoint?</aside> Request MUST be a POST, not a GET request. In header the Content-Type : application/x-www-form-urlencoded  MUST be added
 
 <aside class="success">Do you need an App Client Secret on the OpenID client?</aside> OpenID allows multiple ways for authentication as a Service Provider. BMID only supports private_key_jwt as client authentication method with all the SSL requirements exposed via JWKSet, use the corresponding private key to encrypt/sign and decrypt/validate exchanged information. So other authentication methods such client_secret (Open ID Connect default method but the less secured one are not supported since they are considered less secure. 
-<aside class="notice"> In order to communicate with Token Endpoint, TLS MUST be implemented. See http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements">Section 16.17</a> for more information on using TLS. </aside>
-
+<aside class="notice"> In order to communicate with Token Endpoint, TLS MUST be implemented. See http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements 16.17 for more information on using TLS. </aside>
+ 
 ```http--inline
 GET /oidc/authorization?response_type=code
 &client_id=yourpartnercode
@@ -711,11 +711,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMjcwNjI2NjgsMTgxMTM3MzM1LDE0MT
-A3ODkxMDUsLTE3NTg3NDQyNywxMDE1MTYzODY3LC0xMzcwNTg2
-MjI5LDQ0NTEzODcwOCwyMTI3NjkxMTM0LC0xNzU0ODAyNDQ5LD
-E3MzQ0MTk0MzQsLTE2MzM0Mzk4MTMsLTE0NTQ4MzExODgsLTU3
-OTcwMTcyMyw5MzMzNjk5MzMsMTM2NTQ3MDQ2Myw2MDA2NjI2NT
-YsMzY0MTU0Njg4LC0xODAzNDA1OTQ0LC00OTk4ODk2LDE3NjIx
-NzQ2NjFdfQ==
+eyJoaXN0b3J5IjpbOTY2MzYwNjQ3LDE4MTEzNzMzNSwxNDEwNz
+g5MTA1LC0xNzU4NzQ0MjcsMTAxNTE2Mzg2NywtMTM3MDU4NjIy
+OSw0NDUxMzg3MDgsMjEyNzY5MTEzNCwtMTc1NDgwMjQ0OSwxNz
+M0NDE5NDM0LC0xNjMzNDM5ODEzLC0xNDU0ODMxMTg4LC01Nzk3
+MDE3MjMsOTMzMzY5OTMzLDEzNjU0NzA0NjMsNjAwNjYyNjU2LD
+M2NDE1NDY4OCwtMTgwMzQwNTk0NCwtNDk5ODg5NiwxNzYyMTc0
+NjYxXX0=
 -->
