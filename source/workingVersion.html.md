@@ -56,7 +56,6 @@ Once your Sandbox is created, you will receive:
 <li>Your Service Codes, which are the identifiers of your instances of itsme(r) services. </li>
 </ul>
 </aside>
-
 <aside class="notice">Please consult <a name="ServiceCode"></a> for more information about the notion of Service Code.</aside>
 <aside class="success">What are the consequences of a changing label in sandbox environment?</aside>
 All pending approval/login will result in a "Wrong PIN".
@@ -90,7 +89,7 @@ No, BMID will create new services for the OIDC.
 ## 3.1. **Authorization Endpoint** 
 The first step is forming an HTTPS request to the Authorization Endpoint with the appropriate URI parameters. Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused.
 ### 3.1.1. Authentication Request Specifications
-As per the OpenID Connect specification <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest" target="_blank">Authentication Request</a> and <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint" target="_blank">Authorization Endpoint</a>.
+As per the OpenID Connect specification <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest" target="_blank">Authentication Request</a> and <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint">Authorization Endpoint</a>.
 
 You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
 
@@ -707,11 +706,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU0MzQxMTE1NCwtNjY5OTk5MjA4LC02Mj
-IxMjkwMyw5NjYzNjA2NDcsMTgxMTM3MzM1LDE0MTA3ODkxMDUs
-LTE3NTg3NDQyNywxMDE1MTYzODY3LC0xMzcwNTg2MjI5LDQ0NT
-EzODcwOCwyMTI3NjkxMTM0LC0xNzU0ODAyNDQ5LDE3MzQ0MTk0
-MzQsLTE2MzM0Mzk4MTMsLTE0NTQ4MzExODgsLTU3OTcwMTcyMy
-w5MzMzNjk5MzMsMTM2NTQ3MDQ2Myw2MDA2NjI2NTYsMzY0MTU0
-Njg4XX0=
+eyJoaXN0b3J5IjpbMTYxNzE4NjU4MywxNTQzNDExMTU0LC02Nj
+k5OTkyMDgsLTYyMjEyOTAzLDk2NjM2MDY0NywxODExMzczMzUs
+MTQxMDc4OTEwNSwtMTc1ODc0NDI3LDEwMTUxNjM4NjcsLTEzNz
+A1ODYyMjksNDQ1MTM4NzA4LDIxMjc2OTExMzQsLTE3NTQ4MDI0
+NDksMTczNDQxOTQzNCwtMTYzMzQzOTgxMywtMTQ1NDgzMTE4OC
+wtNTc5NzAxNzIzLDkzMzM2OTkzMywxMzY1NDcwNDYzLDYwMDY2
+MjY1Nl19
 -->
