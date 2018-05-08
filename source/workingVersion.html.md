@@ -18,7 +18,7 @@ The objective of this document is to provide all the information needed to integ
 - [**itsme®Login**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/login-with-itsme)
 - [**itsme®Confirm**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/confirm-with-itsme)
  - [**itsme®Shared Data**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/shared-data)
-#  <a name id="Onboarding"></a> On boarding Process
+# <a name id="Onboarding"></a> 2. On boarding Process
  Our on boarding process consists of two main steps:
 - The configuration of your Sandbox
 - The integration of itsme(r) services
@@ -707,7 +707,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMjYwODQ2NCwtNjY5OTk5MjA4LC02Mj
+eyJoaXN0b3J5IjpbMTU0MzQxMTE1NCwtNjY5OTk5MjA4LC02Mj
 IxMjkwMyw5NjYzNjA2NDcsMTgxMTM3MzM1LDE0MTA3ODkxMDUs
 LTE3NTg3NDQyNywxMDE1MTYzODY3LC0xMzcwNTg2MjI5LDQ0NT
 EzODcwOCwyMTI3NjkxMTM0LC0xNzU0ODAyNDQ5LDE3MzQ0MTk0
