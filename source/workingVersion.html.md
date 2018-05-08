@@ -221,7 +221,7 @@ GET /oidc/authorization?response_type=code
 The Token Request must include the following parameters in the POST body:
 
 Parameter | Required | Comment
-:-- | -- | --
+-- | -- | --
 **grant_type** | Required | Must be `authorization_code`. 
 **code** | Required | The code value provided in the Authentication Response
 **redirect_uri** | Required | The **redirect_uri** used in the Authentication Request. This is the URL to which you want the user to be redirected after the authorization is complete.
@@ -231,7 +231,7 @@ Parameter | Required | Comment
 #### 3.2.2.1. `client_assertion` 
 According to the `private_key_jwt` client authentication method, the **client assertion** JWT must contain the following properties:
 Property | Comment
-:-- | :--
+-- |--
 **iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID).
 **sub** | The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the on boarding file provided by BMID). 
 **aud** | Must be the token endpoint URL
@@ -707,11 +707,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxMTQwNDc4LDEyMDQwNjYzNzgsMTU0Mz
-QxMTE1NCwtNjY5OTk5MjA4LC02MjIxMjkwMyw5NjYzNjA2NDcs
-MTgxMTM3MzM1LDE0MTA3ODkxMDUsLTE3NTg3NDQyNywxMDE1MT
-YzODY3LC0xMzcwNTg2MjI5LDQ0NTEzODcwOCwyMTI3NjkxMTM0
-LC0xNzU0ODAyNDQ5LDE3MzQ0MTk0MzQsLTE2MzM0Mzk4MTMsLT
-E0NTQ4MzExODgsLTU3OTcwMTcyMyw5MzMzNjk5MzMsMTM2NTQ3
-MDQ2M119
+eyJoaXN0b3J5IjpbLTE2ODM5NTkwOCwxMjA0MDY2Mzc4LDE1ND
+M0MTExNTQsLTY2OTk5OTIwOCwtNjIyMTI5MDMsOTY2MzYwNjQ3
+LDE4MTEzNzMzNSwxNDEwNzg5MTA1LC0xNzU4NzQ0MjcsMTAxNT
+E2Mzg2NywtMTM3MDU4NjIyOSw0NDUxMzg3MDgsMjEyNzY5MTEz
+NCwtMTc1NDgwMjQ0OSwxNzM0NDE5NDM0LC0xNjMzNDM5ODEzLC
+0xNDU0ODMxMTg4LC01Nzk3MDE3MjMsOTMzMzY5OTMzLDEzNjU0
+NzA0NjNdfQ==
 -->
