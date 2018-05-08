@@ -114,8 +114,8 @@ Please check the following table for request parameters,
 
 Parameter | Required | Specification | Parameter Explained
 :--------- | :-------| :-----|:-------|
-**client_id** | Required |This is your client identifier at the OpenID Provider. MUST be the Partner Code you obtained from BMID during [on-boarding process](#Onboarding) and this value will be unique to each partner per environment. |
-**response_type** | Required | MUST be <code>code</code>.|Used to indicate an authorization code flow.
+**client_id** | Required |This is your client identifier at the OpenID Provider. MUST be the Partner Code you obtained from BMID during [on-boarding process](#Onboarding) and this value will be unique to each partner per environment.
+**response_type** | Required | MUST be <code>code</code> Used to indicate an authorization code flow.
 **scope** | Required | MUST contain at least `openid` or an HTTP ERROR `not_implemented` will be returned. `offline_access` value will yield an error. MUST also includes the target service in the form `service:<SERVICE_CODE>` as provided by BMID during the on-boarding process (see <a name="ServiceCode"></a>[Service Code Concept](#ServiceCode) for further information).| Used to specify the scope of the requested authorization in OAuth, as well as pre-defined sets of claims (see [Scope](#scope)). The scope value `openid` signals a request for OpenID authentication and ID token. . ***Note**: Requested data will only be provided based on your current accesses. These accesses are specified in the on-boarding file provided by BMID.* The value `service` is a BMID extension of the OpenID standard specification.
 **redirect_uri** | Required | MUST be the HTTPS endpoint on your server that will receive the Authentication Response from **itsme(r)**. This value MUST match one of the values provided to BMID during on-boarding process. ***Note**: the Partner can define different **redirect_uri** specific to each Service.*|The URI where the user will be redirected to  as for the Authentication Response.
 **state** | An appropriate value is RECOMMENDED. No syntactic requirement on this parameter | Should include the value of the anti-forgery unique session token, as well as any other information needed to recover the context when the user returns to your application.|Value set by your end to maintain state between request and callback.
@@ -716,11 +716,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzNjExMTQwOSwtMTc1ODc0NDI3LDEwMT
-UxNjM4NjcsLTEzNzA1ODYyMjksNDQ1MTM4NzA4LDIxMjc2OTEx
-MzQsLTE3NTQ4MDI0NDksMTczNDQxOTQzNCwtMTYzMzQzOTgxMy
-wtMTQ1NDgzMTE4OCwtNTc5NzAxNzIzLDkzMzM2OTkzMywxMzY1
-NDcwNDYzLDYwMDY2MjY1NiwzNjQxNTQ2ODgsLTE4MDM0MDU5ND
-QsLTQ5OTg4OTYsMTc2MjE3NDY2MSwxMjg1MjI2Mzc0LC0xNTU0
-MTU2Nzg2XX0=
+eyJoaXN0b3J5IjpbLTExNDI0MjY1NDUsLTE3NTg3NDQyNywxMD
+E1MTYzODY3LC0xMzcwNTg2MjI5LDQ0NTEzODcwOCwyMTI3Njkx
+MTM0LC0xNzU0ODAyNDQ5LDE3MzQ0MTk0MzQsLTE2MzM0Mzk4MT
+MsLTE0NTQ4MzExODgsLTU3OTcwMTcyMyw5MzMzNjk5MzMsMTM2
+NTQ3MDQ2Myw2MDA2NjI2NTYsMzY0MTU0Njg4LC0xODAzNDA1OT
+Q0LC00OTk4ODk2LDE3NjIxNzQ2NjEsMTI4NTIyNjM3NCwtMTU1
+NDE1Njc4Nl19
 -->
