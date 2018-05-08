@@ -134,6 +134,8 @@ Parameter | Required | Specification | Parameter Explained
 **request_uri** | Unsupported | Not supported (yet)|
 **registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the [on boarding process](#Onboarding).|
 
+Further Explanations of Parameters
+
 ### 3.1.2. Authentication Response Specification
 An Authentication Response is an [OAuth 2.0 Authorization Response](https://tools.ietf.org/html/rfc6749#section-4.1.2) message. 
 
@@ -713,11 +715,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1ODg5NzIsLTE3NTg3NDQyNywxMDE1MT
-YzODY3LC0xMzcwNTg2MjI5LDQ0NTEzODcwOCwyMTI3NjkxMTM0
-LC0xNzU0ODAyNDQ5LDE3MzQ0MTk0MzQsLTE2MzM0Mzk4MTMsLT
-E0NTQ4MzExODgsLTU3OTcwMTcyMyw5MzMzNjk5MzMsMTM2NTQ3
-MDQ2Myw2MDA2NjI2NTYsMzY0MTU0Njg4LC0xODAzNDA1OTQ0LC
-00OTk4ODk2LDE3NjIxNzQ2NjEsMTI4NTIyNjM3NCwtMTU1NDE1
-Njc4Nl19
+eyJoaXN0b3J5IjpbLTE4ODk4MTc1OSwtMTc1ODc0NDI3LDEwMT
+UxNjM4NjcsLTEzNzA1ODYyMjksNDQ1MTM4NzA4LDIxMjc2OTEx
+MzQsLTE3NTQ4MDI0NDksMTczNDQxOTQzNCwtMTYzMzQzOTgxMy
+wtMTQ1NDgzMTE4OCwtNTc5NzAxNzIzLDkzMzM2OTkzMywxMzY1
+NDcwNDYzLDYwMDY2MjY1NiwzNjQxNTQ2ODgsLTE4MDM0MDU5ND
+QsLTQ5OTg4OTYsMTc2MjE3NDY2MSwxMjg1MjI2Mzc0LC0xNTU0
+MTU2Nzg2XX0=
 -->
