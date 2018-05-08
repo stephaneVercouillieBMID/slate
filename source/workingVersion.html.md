@@ -89,7 +89,7 @@ No, BMID will create new services for the OIDC.
 ## 3.1. **Authorization Endpoint** 
 The first step is forming an HTTPS request to the Authorization Endpoint with the appropriate URI parameters. Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused.
 ### 3.1.1. Authentication Request Specifications
-As per the OpenID Connect specification <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest" target="_blank">Authentication Request</a> and <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint">Authorization Endpoint</a>.
+As per the OpenID Connect specification <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest">Authentication Request</a> and <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint">Authorization Endpoint</a>.
 
 You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
 
@@ -706,7 +706,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYxNzE4NjU4MywxNTQzNDExMTU0LC02Nj
+eyJoaXN0b3J5IjpbMTIwNDA2NjM3OCwxNTQzNDExMTU0LC02Nj
 k5OTkyMDgsLTYyMjEyOTAzLDk2NjM2MDY0NywxODExMzczMzUs
 MTQxMDc4OTEwNSwtMTc1ODc0NDI3LDEwMTUxNjM4NjcsLTEzNz
 A1ODYyMjksNDQ1MTM4NzA4LDIxMjc2OTExMzQsLTE3NTQ4MDI0
