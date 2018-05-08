@@ -44,11 +44,12 @@ Currently, the certificate is used to protect the JWKSet and it is not directly 
 <aside class="success"> Is it possible to use a self-signed certificate for the integration?</aside>
 In Sandbox, yes it is. For production, unfortunately no due to BMID needs the certificate & its intermediate chain.
 
-<aside class="success"> What is the next step after changing the JWKSet URL?</aside>BMID Support must be notified immediately in order to create a new certificate.
+<aside class="success"> What is the next step after changing the JWKSet URL?</aside>
+BMID Support must be notified immediately in order to create a new certificate.
 
-<aside class="success"> Is it possible to register multiple valid callback URIs/JWKSet URIs for one environment, or will they have to change this every time they switch URIs? While it is possible to register several redirect URLs but not possible to register several JWKSet URLs. 
+<aside class="success"> Is it possible to register multiple valid callback URIs/JWKSet URIs for one environment? Or will they have to change this every time they switch URIs? While it is possible to register several redirect URLs but not possible to register several JWKSet URLs. 
 
-The redirect URL is specified in each Authorization request, the User will be redirected to that URL after the (failed or successful) authentication in the itsme App. You need to specify it in the onboarding file because it needs to be whitelisted by our F5. We can whitelist several urls. The jwkset urls, however, is used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know what URL to contact, and thus we can register only one JWKSet URL.</aside>
+The redirect URL is specified in each Authorization request, the User will be redirected to that URL after the (failed or successful) authentication in the itsme App. You need to specify it in the onboarding file because it needs to be whitelisted by our F5. We can whitelist several urls. The jwkset urls, however, is used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know what URL to contact, and thus we can register only one JWKSet URL.
 
 <aside class="success">
 Once your Sandbox is created, you will receive:
@@ -710,10 +711,10 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY5MTA5MDc3LC0xMzcwNTg2MjI5LDQ0NT
-EzODcwOCwyMTI3NjkxMTM0LC0xNzU0ODAyNDQ5LDE3MzQ0MTk0
-MzQsLTE2MzM0Mzk4MTMsLTE0NTQ4MzExODgsLTU3OTcwMTcyMy
-w5MzMzNjk5MzMsMTM2NTQ3MDQ2Myw2MDA2NjI2NTYsMzY0MTU0
-Njg4LC0xODAzNDA1OTQ0LC00OTk4ODk2LDE3NjIxNzQ2NjEsMT
-I4NTIyNjM3NCwtMTU1NDE1Njc4NiwtNzc3NTk3NTkxXX0=
+eyJoaXN0b3J5IjpbMTAxNTE2Mzg2NywtMTM3MDU4NjIyOSw0ND
+UxMzg3MDgsMjEyNzY5MTEzNCwtMTc1NDgwMjQ0OSwxNzM0NDE5
+NDM0LC0xNjMzNDM5ODEzLC0xNDU0ODMxMTg4LC01Nzk3MDE3Mj
+MsOTMzMzY5OTMzLDEzNjU0NzA0NjMsNjAwNjYyNjU2LDM2NDE1
+NDY4OCwtMTgwMzQwNTk0NCwtNDk5ODg5NiwxNzYyMTc0NjYxLD
+EyODUyMjYzNzQsLTE1NTQxNTY3ODYsLTc3NzU5NzU5MV19
 -->
