@@ -447,15 +447,18 @@ device IMEI value.
 e.g. SAMSUNG GALAXY A5   
 - “msisdn” [0…1]: the user’s phone number.  
 - “sdkRelease” [0…1]: Sdk release
+
 ##### <a name id="exampleDeviceClaimValue"></a>4.2.2.2.1. Example of Device Claim Value Usage
 `{ "os": "ANDROID", "appName": "itsme app", "appRelease": "1.17.13", "deviceLabel": "myDevice", "debugEnabled": false, "deviceId": "deviceId", "osRelease": "Android 4.4.2", "manufacturer": "samsung", "hasSimEnabled": true, "deviceLockLevel": "touchID", "smsEnabled": true, "rooted": false,"imei": "12345678901234567", "deviceModel": "S8", "msisdn": "0412123123", "sdkRelease": "1.17.12" }`
-#### <a name id="eidMetadata"></a>4.2.2.3. Eid Metadata Claim 
+
+#### <a name id="eidMetadata"></a> 4.2.2.3. Eid Metadata Claim 
 Claim value: **`tag:itsmetag:sixdots.be,2016-06:claim_eid`**
 
 This claim is Belgian Electronic ID card information encoded in JSON, with the following keys,
 
 `eid`: the electronic ID card serial number. <br>`issuance_locality`: the issuance locality. <br>`validity_from`: eID card validity “from” date. <br>`validity_to`: eID card validity “to” date. <br>`certificate_validity`: the certificate validity. <br>`read_date`: the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: 2017-04-01T19:43:37+0000
-#### <a name id="transactionInfo"></a>4.2.2.4.Transaction Info Claim
+
+#### <a name id="transactionInfo"></a> 4.2.2.4.Transaction Info Claim
 Claim value: **`tag:sixdots.be,2017-05:claim_transaction_info`**
 Information available in the context of the current transaction.
 
@@ -711,11 +714,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM3ODE1OTA1NSw1MzQ1NjQ3NzMsMTIwND
-A2NjM3OCwxNTQzNDExMTU0LC02Njk5OTkyMDgsLTYyMjEyOTAz
-LDk2NjM2MDY0NywxODExMzczMzUsMTQxMDc4OTEwNSwtMTc1OD
-c0NDI3LDEwMTUxNjM4NjcsLTEzNzA1ODYyMjksNDQ1MTM4NzA4
-LDIxMjc2OTExMzQsLTE3NTQ4MDI0NDksMTczNDQxOTQzNCwtMT
-YzMzQzOTgxMywtMTQ1NDgzMTE4OCwtNTc5NzAxNzIzLDkzMzM2
-OTkzM119
+eyJoaXN0b3J5IjpbLTI1OTU2MzY0OSwxMzc4MTU5MDU1LDUzND
+U2NDc3MywxMjA0MDY2Mzc4LDE1NDM0MTExNTQsLTY2OTk5OTIw
+OCwtNjIyMTI5MDMsOTY2MzYwNjQ3LDE4MTEzNzMzNSwxNDEwNz
+g5MTA1LC0xNzU4NzQ0MjcsMTAxNTE2Mzg2NywtMTM3MDU4NjIy
+OSw0NDUxMzg3MDgsMjEyNzY5MTEzNCwtMTc1NDgwMjQ0OSwxNz
+M0NDE5NDM0LC0xNjMzNDM5ODEzLC0xNDU0ODMxMTg4LC01Nzk3
+MDE3MjNdfQ==
 -->
