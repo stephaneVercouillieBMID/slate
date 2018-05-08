@@ -177,8 +177,8 @@ Error message : Authentication context is not valid anymore.
 As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
 
 Possible token end-point URLs:  
->[https://merchant.itsme.be/oidc/token](https://merchant.itsme.be/oidc/token)  
->[https://e2emerchant.itsme.be/oidc/token](https://e2emerchant.itsme.be/oidc/token)  
+https://merchant.itsme.be/oidc/token](https://merchant.itsme.be/oidc/token
+https://e2emerchant.itsme.be/oidc/token](https://e2emerchant.itsme.be/oidc/token
 
 ### 3.2.1. About Tokens
 In this section, we will go through token types and their specifics.
@@ -716,11 +716,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ4NjE0NjMxMywxNDEwNzg5MTA1LC0xNz
-U4NzQ0MjcsMTAxNTE2Mzg2NywtMTM3MDU4NjIyOSw0NDUxMzg3
-MDgsMjEyNzY5MTEzNCwtMTc1NDgwMjQ0OSwxNzM0NDE5NDM0LC
-0xNjMzNDM5ODEzLC0xNDU0ODMxMTg4LC01Nzk3MDE3MjMsOTMz
-MzY5OTMzLDEzNjU0NzA0NjMsNjAwNjYyNjU2LDM2NDE1NDY4OC
-wtMTgwMzQwNTk0NCwtNDk5ODg5NiwxNzYyMTc0NjYxLDEyODUy
-MjYzNzRdfQ==
+eyJoaXN0b3J5IjpbLTExMjIyMjg2NjMsMTQxMDc4OTEwNSwtMT
+c1ODc0NDI3LDEwMTUxNjM4NjcsLTEzNzA1ODYyMjksNDQ1MTM4
+NzA4LDIxMjc2OTExMzQsLTE3NTQ4MDI0NDksMTczNDQxOTQzNC
+wtMTYzMzQzOTgxMywtMTQ1NDgzMTE4OCwtNTc5NzAxNzIzLDkz
+MzM2OTkzMywxMzY1NDcwNDYzLDYwMDY2MjY1NiwzNjQxNTQ2OD
+gsLTE4MDM0MDU5NDQsLTQ5OTg4OTYsMTc2MjE3NDY2MSwxMjg1
+MjI2Mzc0XX0=
 -->
