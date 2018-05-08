@@ -113,7 +113,7 @@ Please check the following table for request parameters,
  ```
 
 Parameter | Required | Specification | Parameter Explained
-:--------- | :-------| :-----|:--------------|
+:--------- | :-------| :-----|:-------|
 **client_id** | Required | MUST be the Partner Code you obtained from BMID during [on-boarding process](#Onboarding) and this value will be unique to each partner per environment. |This is your client identifier at the OpenID Provider.
 **response_type** | Required | MUST be <code>code</code>.|Used to indicate an authorization code flow.
 **scope** | Required | MUST contain at least `openid` or an HTTP ERROR `not_implemented` will be returned. `offline_access` value will yield an error. MUST also includes the target service in the form `service:<SERVICE_CODE>` as provided by BMID during the on-boarding process (see <a name="ServiceCode"></a>[Service Code Concept](#ServiceCode) for further information).| Used to specify the scope of the requested authorization in OAuth, as well as pre-defined sets of claims (see [Scope](#scope)). The scope value `openid` signals a request for OpenID authentication and ID token. . ***Note**: Requested data will only be provided based on your current accesses. These accesses are specified in the on-boarding file provided by BMID.* The value `service` is a BMID extension of the OpenID standard specification.
@@ -713,11 +713,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NTg3NDQyNywxMDE1MTYzODY3LC0xMz
-cwNTg2MjI5LDQ0NTEzODcwOCwyMTI3NjkxMTM0LC0xNzU0ODAy
-NDQ5LDE3MzQ0MTk0MzQsLTE2MzM0Mzk4MTMsLTE0NTQ4MzExOD
-gsLTU3OTcwMTcyMyw5MzMzNjk5MzMsMTM2NTQ3MDQ2Myw2MDA2
-NjI2NTYsMzY0MTU0Njg4LC0xODAzNDA1OTQ0LC00OTk4ODk2LD
-E3NjIxNzQ2NjEsMTI4NTIyNjM3NCwtMTU1NDE1Njc4NiwtNzc3
-NTk3NTkxXX0=
+eyJoaXN0b3J5IjpbLTE1ODg5NzIsLTE3NTg3NDQyNywxMDE1MT
+YzODY3LC0xMzcwNTg2MjI5LDQ0NTEzODcwOCwyMTI3NjkxMTM0
+LC0xNzU0ODAyNDQ5LDE3MzQ0MTk0MzQsLTE2MzM0Mzk4MTMsLT
+E0NTQ4MzExODgsLTU3OTcwMTcyMyw5MzMzNjk5MzMsMTM2NTQ3
+MDQ2Myw2MDA2NjI2NTYsMzY0MTU0Njg4LC0xODAzNDA1OTQ0LC
+00OTk4ODk2LDE3NjIxNzQ2NjEsMTI4NTIyNjM3NCwtMTU1NDE1
+Njc4Nl19
 -->
