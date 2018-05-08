@@ -208,7 +208,7 @@ The Authentication Response includes a `code` parameter, a one-time authorizatio
 
 <aside class="notice"> In order to communicate with Token Endpoint, TLS MUST be implemented. See http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements 16.17 for more information on using TLS. </aside>
 
-``'http--inline
+```http--inline
 GET /oidc/authorization?response_type=code
 &client_id=yourpartnercode
 &yourredirecturl
@@ -707,11 +707,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1NTQ2ODY5OSwxMjA0MDY2Mzc4LDE1ND
-M0MTExNTQsLTY2OTk5OTIwOCwtNjIyMTI5MDMsOTY2MzYwNjQ3
-LDE4MTEzNzMzNSwxNDEwNzg5MTA1LC0xNzU4NzQ0MjcsMTAxNT
-E2Mzg2NywtMTM3MDU4NjIyOSw0NDUxMzg3MDgsMjEyNzY5MTEz
-NCwtMTc1NDgwMjQ0OSwxNzM0NDE5NDM0LC0xNjMzNDM5ODEzLC
-0xNDU0ODMxMTg4LC01Nzk3MDE3MjMsOTMzMzY5OTMzLDEzNjU0
-NzA0NjNdfQ==
+eyJoaXN0b3J5IjpbLTMxMTQwNDc4LDEyMDQwNjYzNzgsMTU0Mz
+QxMTE1NCwtNjY5OTk5MjA4LC02MjIxMjkwMyw5NjYzNjA2NDcs
+MTgxMTM3MzM1LDE0MTA3ODkxMDUsLTE3NTg3NDQyNywxMDE1MT
+YzODY3LC0xMzcwNTg2MjI5LDQ0NTEzODcwOCwyMTI3NjkxMTM0
+LC0xNzU0ODAyNDQ5LDE3MzQ0MTk0MzQsLTE2MzM0Mzk4MTMsLT
+E0NTQ4MzExODgsLTU3OTcwMTcyMyw5MzMzNjk5MzMsMTM2NTQ3
+MDQ2M119
 -->
