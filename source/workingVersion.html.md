@@ -190,7 +190,7 @@ As per the [OIDC Specification](http://openid.net/specs/openid-connect-core-1_0.
 - ID tokens carry user’s authentication information encoded in the token itself, it must be a JWT and authorization server will return them.
 -  the token can be certainly verified to prove that it hasn’t been tampered with.
 
-<aside class="notice">There’s a set of http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation" rule in the specification for validating an id_token.</aside>
+<aside class="notice">There’s a set of rules here in the specification http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation" for validating an id_token.</aside>
 
 #### <a name id="actoken"></a> 3.2.1.2 Access Tokens
 Bearer token concept must be mentioned before access token is explained. Bearer token is a protected token which can access to authorized resources without further identification. The format for OAuth 2.0 Bearer tokens is actually described in a separate spec, [RFC 6750](https://tools.ietf.org/html/rfc6750).
@@ -715,7 +715,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNjUxNDczNTgsMTgxMTM3MzM1LDE0MT
+eyJoaXN0b3J5IjpbLTEzNDczMTM5NzksMTgxMTM3MzM1LDE0MT
 A3ODkxMDUsLTE3NTg3NDQyNywxMDE1MTYzODY3LC0xMzcwNTg2
 MjI5LDQ0NTEzODcwOCwyMTI3NjkxMTM0LC0xNzU0ODAyNDQ5LD
 E3MzQ0MTk0MzQsLTE2MzM0Mzk4MTMsLTE0NTQ4MzExODgsLTU3
