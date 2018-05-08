@@ -47,8 +47,8 @@ In Sandbox, yes it is. For production, unfortunately no due to BMID needs the ce
 <aside class="success"> What is the next step after changing the JWKSet URL?</aside>
 BMID Support must be notified immediately in order to create a new certificate.
 
-<aside class="success"> Is it possible to register multiple valid callback URIs/JWKSet URIs for one environment? Or does it need to be change will they have to change this every time they switch URIs? While it is possible to register several redirect URLs but not possible to register several JWKSet URLs. 
-
+<aside class="success"> Is it possible to register multiple valid callback URIs/JWKSet URIs for one environment? Or does it need to be change whenever URIs are switched?</aside>
+While it is possible to register several redirect URLs but not possible to register several JWKSet URLs. 
 The redirect URL is specified in each Authorization request, the User will be redirected to that URL after the (failed or successful) authentication in the itsme App. You need to specify it in the onboarding file because it needs to be whitelisted by our F5. We can whitelist several urls. The jwkset urls, however, is used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know what URL to contact, and thus we can register only one JWKSet URL.
 
 <aside class="success">
@@ -711,7 +711,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjc1MjY3NDYxLDEwMTUxNjM4NjcsLTEzNz
+eyJoaXN0b3J5IjpbNDg3MTE4NjE4LDEwMTUxNjM4NjcsLTEzNz
 A1ODYyMjksNDQ1MTM4NzA4LDIxMjc2OTExMzQsLTE3NTQ4MDI0
 NDksMTczNDQxOTQzNCwtMTYzMzQzOTgxMywtMTQ1NDgzMTE4OC
 wtNTc5NzAxNzIzLDkzMzM2OTkzMywxMzY1NDcwNDYzLDYwMDY2
