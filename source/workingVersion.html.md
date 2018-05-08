@@ -33,6 +33,7 @@ Before you can start working on the integration of itsme(r) services, we need to
 <aside class="notice">You can consult <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">our B2B portal</a> for furher information about this step.</aside>
 <aside class="success"> What is the use of our Certificate? </aside>
 Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
+
 For testing, you could use a self signed certificate like that you could define validity period.
 <aside class="success">Should I notify BMID if the certificate is changed? </aside>
 Yes, BMID must be notified on time.
@@ -712,11 +713,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjY1NDAzMjksMTAxNTE2Mzg2NywtMT
-M3MDU4NjIyOSw0NDUxMzg3MDgsMjEyNzY5MTEzNCwtMTc1NDgw
-MjQ0OSwxNzM0NDE5NDM0LC0xNjMzNDM5ODEzLC0xNDU0ODMxMT
-g4LC01Nzk3MDE3MjMsOTMzMzY5OTMzLDEzNjU0NzA0NjMsNjAw
-NjYyNjU2LDM2NDE1NDY4OCwtMTgwMzQwNTk0NCwtNDk5ODg5Ni
-wxNzYyMTc0NjYxLDEyODUyMjYzNzQsLTE1NTQxNTY3ODYsLTc3
-NzU5NzU5MV19
+eyJoaXN0b3J5IjpbLTE3NTg3NDQyNywxMDE1MTYzODY3LC0xMz
+cwNTg2MjI5LDQ0NTEzODcwOCwyMTI3NjkxMTM0LC0xNzU0ODAy
+NDQ5LDE3MzQ0MTk0MzQsLTE2MzM0Mzk4MTMsLTE0NTQ4MzExOD
+gsLTU3OTcwMTcyMyw5MzMzNjk5MzMsMTM2NTQ3MDQ2Myw2MDA2
+NjI2NTYsMzY0MTU0Njg4LC0xODAzNDA1OTQ0LC00OTk4ODk2LD
+E3NjIxNzQ2NjEsMTI4NTIyNjM3NCwtMTU1NDE1Njc4NiwtNzc3
+NTk3NTkxXX0=
 -->
