@@ -610,7 +610,7 @@ https://merchant.itsme.be/oidc/jwkSet
 It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
  
 # 6. **FAQ**
-How to use itsme-UAT through Hockey-app on IOS ( TODO only IOS?) properly? (without having "Non-trusted company app developer" message)
+**How to use itsme-UAT through Hockey-app on IOS ( TODO only IOS?) properly?**(without having "Non-trusted company app developer" message)
 
 To be able to use itsme on Hockey App, you need to :  
   
@@ -621,10 +621,10 @@ Select : Profiles & Device Management
 Select : Belgian Mobile ID NV  
 Select : Trust
 
-Can I have my own itsme app (production) together with the itsme UAT app?
+**Can I have my own itsme app (production) together with the itsme UAT app?**
 Currently, you can only have 1 itsme app on your device at one moment in time independently of Production, UAT or E2E.
 
-Has itsme app in Prod & UAT different URL-scheme's?
+**Has itsme app in Prod & UAT different URL-scheme's?**
 On iOS:  
 - for enrollment, it's always "be.bmid.itsme://"  
 - for app to app actions, it's based on universal links and these are different for each environment depicted in the following table: 
@@ -717,11 +717,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0Mjg5NTg3MjMsMTM3ODE1OTA1NSw1Mz
-Q1NjQ3NzMsMTIwNDA2NjM3OCwxNTQzNDExMTU0LC02Njk5OTky
-MDgsLTYyMjEyOTAzLDk2NjM2MDY0NywxODExMzczMzUsMTQxMD
-c4OTEwNSwtMTc1ODc0NDI3LDEwMTUxNjM4NjcsLTEzNzA1ODYy
-MjksNDQ1MTM4NzA4LDIxMjc2OTExMzQsLTE3NTQ4MDI0NDksMT
-czNDQxOTQzNCwtMTYzMzQzOTgxMywtMTQ1NDgzMTE4OCwtNTc5
-NzAxNzIzXX0=
+eyJoaXN0b3J5IjpbLTI1NDI0OTQ3NSwxMzc4MTU5MDU1LDUzND
+U2NDc3MywxMjA0MDY2Mzc4LDE1NDM0MTExNTQsLTY2OTk5OTIw
+OCwtNjIyMTI5MDMsOTY2MzYwNjQ3LDE4MTEzNzMzNSwxNDEwNz
+g5MTA1LC0xNzU4NzQ0MjcsMTAxNTE2Mzg2NywtMTM3MDU4NjIy
+OSw0NDUxMzg3MDgsMjEyNzY5MTEzNCwtMTc1NDgwMjQ0OSwxNz
+M0NDE5NDM0LC0xNjMzNDM5ODEzLC0xNDU0ODMxMTg4LC01Nzk3
+MDE3MjNdfQ==
 -->
