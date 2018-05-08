@@ -112,8 +112,8 @@ Please check the following table for request parameters,
  Host: server.itsme.be
  ```
 
-Parameter | Required | Specification | Parameter Explained
-:--------- | :-------| :-----|:-------|
+Parameter | Required | Specification
+:--------- | :-------| :----- 
 **client_id** | Required |This is your client identifier at the OpenID Provider. MUST be the Partner Code you obtained from BMID during [on-boarding process](#Onboarding) and this value will be unique to each partner per environment.
 **response_type** | Required | MUST be <code>code</code> Used to indicate an authorization code flow.
 **scope** | Required | MUST contain at least `openid` or an HTTP ERROR `not_implemented` will be returned. `offline_access` value will yield an error. MUST also includes the target service in the form `service:<SERVICE_CODE>` as provided by BMID during the on-boarding process (see <a name="ServiceCode"></a>[Service Code Concept](#ServiceCode) for further information).Used to specify the scope of the requested authorization in OAuth, as well as pre-defined sets of claims (see [Scope](#scope)). The scope value `openid` signals a request for OpenID authentication and ID token. . ***Note**: Requested data will only be provided based on your current accesses. These accesses are specified in the on-boarding file provided by BMID.* The value `service` is a BMID extension of the OpenID standard specification.
@@ -716,7 +716,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI5NjQwMzczOSwtMTc1ODc0NDI3LDEwMT
+eyJoaXN0b3J5IjpbMTQxMDc4OTEwNSwtMTc1ODc0NDI3LDEwMT
 UxNjM4NjcsLTEzNzA1ODYyMjksNDQ1MTM4NzA4LDIxMjc2OTEx
 MzQsLTE3NTQ4MDI0NDksMTczNDQxOTQzNCwtMTYzMzQzOTgxMy
 wtMTQ1NDgzMTE4OCwtNTc5NzAxNzIzLDkzMzM2OTkzMywxMzY1
