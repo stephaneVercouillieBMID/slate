@@ -301,8 +301,8 @@ Using this method, you will always receive Claims from the UserInfo Endpoint.
 <aside class="success">Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>
 
 The following scope values are supported and allow access to predefined sets of Identity Data:
-|Scope Value | Associated Claims|
-|--|:--|
+Scope Value | Associated Claims
+|--|--|
 |profile | given_name, family_name, gender, birthdate,  locale|
 email|email, email_verified|
 phone| phone_number, phone_number_verified| 
@@ -710,7 +710,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM4MTU5Mzc5LDEyMDQwNjYzNzgsMTU0Mz
+eyJoaXN0b3J5IjpbNTM0NTY0NzczLDEyMDQwNjYzNzgsMTU0Mz
 QxMTE1NCwtNjY5OTk5MjA4LC02MjIxMjkwMyw5NjYzNjA2NDcs
 MTgxMTM3MzM1LDE0MTA3ODkxMDUsLTE3NTg3NDQyNywxMDE1MT
 YzODY3LC0xMzcwNTg2MjI5LDQ0NTEzODcwOCwyMTI3NjkxMTM0
