@@ -38,12 +38,13 @@ For testing, you could use a self signed certificate like that you could define 
 Yes, BMID must be notified on time.
 <aside class="success">What are the consequences of changing a label in Sandbox environment? </aside>
 At the moment it's done, all pending approval/login will result in a "Wrong PIN".
-<aside class="success"> Does a same service point to separate SSL Certificates?
-Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, therefore for one Partner code you have maximum 1 JWKSet.</aside>
+<aside class="success"> Does a same service point to separate SSL Certificates?</aside>
+Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, therefore for one Partner code you have maximum 1 JWKSet.
  
-<aside class="success"> Is it possible to use a self-signed certificate for the integration? In Sandbox, yes it is. For production, unfortunately no due to BMID needs the certificate & its intermediate chain.</aside>
+<aside class="success"> Is it possible to use a self-signed certificate for the integration?</aside>
+In Sandbox, yes it is. For production, unfortunately no due to BMID needs the certificate & its intermediate chain.
 
-<aside class="success"> What is the next step after changing the JWKSet URL? BMID Support must be notified immediately in order to create a new certificate.</aside>
+<aside class="success"> What is the next step after changing the JWKSet URL?</aside>BMID Support must be notified immediately in order to create a new certificate.
 
 <aside class="success"> Is it possible to register multiple valid callback URIs/JWKSet URIs for one environment, or will they have to change this every time they switch URIs? While it is possible to register several redirect URLs but not possible to register several JWKSet URLs. 
 
@@ -709,10 +710,10 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA1NDEzNTY3MSwtMTM3MDU4NjIyOSw0ND
-UxMzg3MDgsMjEyNzY5MTEzNCwtMTc1NDgwMjQ0OSwxNzM0NDE5
-NDM0LC0xNjMzNDM5ODEzLC0xNDU0ODMxMTg4LC01Nzk3MDE3Mj
-MsOTMzMzY5OTMzLDEzNjU0NzA0NjMsNjAwNjYyNjU2LDM2NDE1
-NDY4OCwtMTgwMzQwNTk0NCwtNDk5ODg5NiwxNzYyMTc0NjYxLD
-EyODUyMjYzNzQsLTE1NTQxNTY3ODYsLTc3NzU5NzU5MV19
+eyJoaXN0b3J5IjpbMTY5MTA5MDc3LC0xMzcwNTg2MjI5LDQ0NT
+EzODcwOCwyMTI3NjkxMTM0LC0xNzU0ODAyNDQ5LDE3MzQ0MTk0
+MzQsLTE2MzM0Mzk4MTMsLTE0NTQ4MzExODgsLTU3OTcwMTcyMy
+w5MzMzNjk5MzMsMTM2NTQ3MDQ2Myw2MDA2NjI2NTYsMzY0MTU0
+Njg4LC0xODAzNDA1OTQ0LC00OTk4ODk2LDE3NjIxNzQ2NjEsMT
+I4NTIyNjM3NCwtMTU1NDE1Njc4NiwtNzc3NTk3NTkxXX0=
 -->
