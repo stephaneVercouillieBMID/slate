@@ -296,7 +296,7 @@ Scopes are space-separated lists of identifiers used to specify what access priv
 Scopes can be used to request that specific sets of information available as Claim Values in User Info Token. 
 
 Using this method, you will always receive Claims from the UserInfo Endpoint.
-<!-- (always User Info Endpoint)-->
+
 #### 4.2.1.1 List of Supported Scope Values
 <aside class="success">Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>
 
@@ -710,11 +710,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgxNDM4ODQyMiwxMjA0MDY2Mzc4LDE1ND
-M0MTExNTQsLTY2OTk5OTIwOCwtNjIyMTI5MDMsOTY2MzYwNjQ3
-LDE4MTEzNzMzNSwxNDEwNzg5MTA1LC0xNzU4NzQ0MjcsMTAxNT
-E2Mzg2NywtMTM3MDU4NjIyOSw0NDUxMzg3MDgsMjEyNzY5MTEz
-NCwtMTc1NDgwMjQ0OSwxNzM0NDE5NDM0LC0xNjMzNDM5ODEzLC
-0xNDU0ODMxMTg4LC01Nzk3MDE3MjMsOTMzMzY5OTMzLDEzNjU0
-NzA0NjNdfQ==
+eyJoaXN0b3J5IjpbLTM4MTU5Mzc5LDEyMDQwNjYzNzgsMTU0Mz
+QxMTE1NCwtNjY5OTk5MjA4LC02MjIxMjkwMyw5NjYzNjA2NDcs
+MTgxMTM3MzM1LDE0MTA3ODkxMDUsLTE3NTg3NDQyNywxMDE1MT
+YzODY3LC0xMzcwNTg2MjI5LDQ0NTEzODcwOCwyMTI3NjkxMTM0
+LC0xNzU0ODAyNDQ5LDE3MzQ0MTk0MzQsLTE2MzM0Mzk4MTMsLT
+E0NTQ4MzExODgsLTU3OTcwMTcyMyw5MzMzNjk5MzMsMTM2NTQ3
+MDQ2M119
 -->
