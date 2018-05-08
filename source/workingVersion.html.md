@@ -344,7 +344,7 @@ Some specific data cannot be requested by using scope values. They have to be re
 Here are these claims:
 
 Data | Claim | Comment 
-:-- | :--: | :--: 
+-- | -- | --
 Subject | **`sub`** | The subject of the `private_key_jwt` (the client ID). Supports value in request. 
 Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | An error will be raised if request as a value element for the claim 
 Place of Birth - city | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** |An error will be raised if request as a value element for the claim 
@@ -382,8 +382,8 @@ NRN | not supported|
 As per specified by OpenID Connect, there is a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), or user attributes. They are intended to supply the client app with consented user details such as email, name and picture, upon request.  They can be requested to be returned either in the UserInfo Response, per [Section 5.3.2](https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse), or in the ID Token, per [Section 2](https://openid.net/specs/openid-connect-core-1_0.html#IDToken).
 
 Here following table lists the supported standard "claim" values, 
-|Member  |Type  |Description |
-|:--|--|--|
+Member  |Type  |Description
+|--|--|--|
 name |string|Subject - Identifier for the End-User at the Issuer.
 given_name|string|  Given name(s) or first name(s) of the End-User. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.
 family_name|string|Surname(s) or last name(s) of the End-User. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.
@@ -711,7 +711,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwODIxNzM1Myw1MzQ1NjQ3NzMsMTIwND
+eyJoaXN0b3J5IjpbMTM3ODE1OTA1NSw1MzQ1NjQ3NzMsMTIwND
 A2NjM3OCwxNTQzNDExMTU0LC02Njk5OTkyMDgsLTYyMjEyOTAz
 LDk2NjM2MDY0NywxODExMzczMzUsMTQxMDc4OTEwNSwtMTc1OD
 c0NDI3LDEwMTUxNjM4NjcsLTEzNzA1ODYyMjksNDQ1MTM4NzA4
