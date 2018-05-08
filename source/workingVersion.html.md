@@ -54,7 +54,7 @@ The redirect URL is specified in each Authorization request, the User will be re
 <aside class="success">
 Once your Sandbox is created, you will receive:
 <ul> 
-<li>Your Partner Code, which corresponds to the OpenID <b>client_id</b> </li>
+<li>Your Partner Code, which corresponds to the OpenID <b>client_id</b></li>
 <li>Your Service Codes, which are the identifiers of your instances of itsme(r) services. </li>
 </ul>
 </aside>
@@ -711,10 +711,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAxNTE2Mzg2NywtMTM3MDU4NjIyOSw0ND
-UxMzg3MDgsMjEyNzY5MTEzNCwtMTc1NDgwMjQ0OSwxNzM0NDE5
-NDM0LC0xNjMzNDM5ODEzLC0xNDU0ODMxMTg4LC01Nzk3MDE3Mj
-MsOTMzMzY5OTMzLDEzNjU0NzA0NjMsNjAwNjYyNjU2LDM2NDE1
-NDY4OCwtMTgwMzQwNTk0NCwtNDk5ODg5NiwxNzYyMTc0NjYxLD
-EyODUyMjYzNzQsLTE1NTQxNTY3ODYsLTc3NzU5NzU5MV19
+eyJoaXN0b3J5IjpbMTUyNzQ4NDg5LDEwMTUxNjM4NjcsLTEzNz
+A1ODYyMjksNDQ1MTM4NzA4LDIxMjc2OTExMzQsLTE3NTQ4MDI0
+NDksMTczNDQxOTQzNCwtMTYzMzQzOTgxMywtMTQ1NDgzMTE4OC
+wtNTc5NzAxNzIzLDkzMzM2OTkzMywxMzY1NDcwNDYzLDYwMDY2
+MjY1NiwzNjQxNTQ2ODgsLTE4MDM0MDU5NDQsLTQ5OTg4OTYsMT
+c2MjE3NDY2MSwxMjg1MjI2Mzc0LC0xNTU0MTU2Nzg2LC03Nzc1
+OTc1OTFdfQ==
 -->
