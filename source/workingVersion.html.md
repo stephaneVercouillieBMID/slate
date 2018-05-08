@@ -489,6 +489,7 @@ The content type of the response will be `application/JWT`. The response will be
 
 The UserInfo endpoint can be accessed only with a valid **access_token** and for a very limited duration after end user authentication. There must be _less than 3 minutes_ between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info Endpoint.
 The Access Token will define the list of Data that will be provided back to the client. In order to request specific claims, you can  [use scopes](https://stackedit.io/app#stClaims)  in the Authentication Request and/or  [use the claims parameter](https://stackedit.io/app#Claims-Request)  of the  request Object.
+
 #### 4.3.1.1. User info Request Specification
 As per specified [OIDC UserInfo Request](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest).
 
@@ -501,8 +502,8 @@ GET /userinfo HTTP/1.1
 Host: server.example.com 
 Authorization: Bearer SlAV32hkKG
 ``` 
-|Parameter  | Comment  |
-|--|:--|
+|Parameter  | Comment
+|--|--|
 | acr | Possible values: <br>`tag:sixdots.be,2016-06:acr_basic`<br>`tag:sixdots.be,2016-06:acr_advanced` |
 | amr |Won’t be provided  |
 | azp| Won’t be provided |
@@ -540,8 +541,10 @@ The following is a non-normative example of a UserInfo Error Response:
 ### 4.3.2. Token Endpoint
 As per specified by OIDC, when using the authorization code flow to obtain an Access Token and an ID Token, you will send a token request to token endpoint to have a token response.
 If you declared  claims in the `id_Token` part of the `claims` parameter in the `request` object,  you will receive the end user data from the Token Endpoint.
+
 #### 4.3.2.1. Token Endpoint Specs
 To get further information about token types, token request/response specifications please proceed with [3.2 Token Endpoint](#tokenEndpoint).
+
 #### 4.3.2.2 Example of Id Token Containing “claims”
 *Will be provided soon*
 # 5. Advanced topics
@@ -550,7 +553,7 @@ As per specified by OIDC [here](https://openid.net/specs/openid-connect-core-1_0
  
 The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains at least the following properties:
 Property | Required | Comment
--- | -- | :--:
+-- | -- | --
 **iss** | Required | Specifies the issuing authority. Issuer of the id_tokenIssuer. Must be the `client_id`
 **aud** | Required | Audience. MUST be the Token Endpoint URL
  
@@ -714,11 +717,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI1OTU2MzY0OSwxMzc4MTU5MDU1LDUzND
-U2NDc3MywxMjA0MDY2Mzc4LDE1NDM0MTExNTQsLTY2OTk5OTIw
-OCwtNjIyMTI5MDMsOTY2MzYwNjQ3LDE4MTEzNzMzNSwxNDEwNz
-g5MTA1LC0xNzU4NzQ0MjcsMTAxNTE2Mzg2NywtMTM3MDU4NjIy
-OSw0NDUxMzg3MDgsMjEyNzY5MTEzNCwtMTc1NDgwMjQ0OSwxNz
-M0NDE5NDM0LC0xNjMzNDM5ODEzLC0xNDU0ODMxMTg4LC01Nzk3
-MDE3MjNdfQ==
+eyJoaXN0b3J5IjpbLTEwMTMxNTMzMzcsMTM3ODE1OTA1NSw1Mz
+Q1NjQ3NzMsMTIwNDA2NjM3OCwxNTQzNDExMTU0LC02Njk5OTky
+MDgsLTYyMjEyOTAzLDk2NjM2MDY0NywxODExMzczMzUsMTQxMD
+c4OTEwNSwtMTc1ODc0NDI3LDEwMTUxNjM4NjcsLTEzNzA1ODYy
+MjksNDQ1MTM4NzA4LDIxMjc2OTExMzQsLTE3NTQ4MDI0NDksMT
+czNDQxOTQzNCwtMTYzMzQzOTgxMywtMTQ1NDgzMTE4OCwtNTc5
+NzAxNzIzXX0=
 -->
