@@ -683,20 +683,7 @@ First, you need to  validate that you are able (and **authorized**) to keep the 
 **Why App2Back-end communication does not exist but a App2B2B connection does instead?**
 We are sending the user information not through an app but to a highly authenticated server (which implies to put in place necessary measure to protect the data confidentiality)  
 This condition implies the need to put in place a back end layer on your side.  
- 
- <!--stackedit_data:
--eyJoaXN0b3J5IjpbMTExNjg1ODVdfQ==
-+eyJoaXN0b3J5IjpbLTE4Nzg1Nzg0NTZdfQ==
- --> 
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2ODEyNjQ2OSwtOTA2NTQ0NDkxLC04Mj
-k2OTYwNzQsMTQ0MjgxODMwNiwtMTY2MzMyNzQ3OSwtMTk2ODY0
-OTA0MCwtMTk3MjQ3NzcwNSwtMjA5Mzk0NjMxNCwtOTA1NDA3OT
-Y2LDk4ODMwMjQ0NCw1NDkyMjE0MjYsLTU1MDE2OTU4LC0xMTA4
-MzI2NDY5LDI1OTg4ODMxMCwxNjcxMTQzNTY4LDE0NjczOTkzOT
-AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
-MDE3NTU1NDQzXX0=
--->
+
 **When the end-user is redirected to itsme in the browser, we specify a redirect_uri afterwards. We have to provide BMID the Redirect URIs. Can we give additional parameters? Or does the entire redirect_uri need to match?”**
 
 The entire redirect_uri must match therefore no additional parameter is allowed.
@@ -705,7 +692,8 @@ The entire redirect_uri must match therefore no additional parameter is allowed.
 
 **For signature and encryption, does BMID accept either RP self-signed certificates or certificates signed by an internal PKI (in which case we need to provide also our internal CA certificate)?”**
 
-This JWKSet is accessible, using a secured HTTPS URL. (sample HTTPS URL for OpenID Provider https://merchant.itsme.be/oidc/jwkSet)
+This JWKSet is accessible, using a secured HTTPS URL. 
+(sample HTTPS URL for OpenID Provider https://merchant.itsme.be/oidc/jwkSet)
 
 This HTTPS URL must be communicated to us, during the partner on-boarding.
 
@@ -717,7 +705,7 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI1NDI0OTQ3NSwxMzc4MTU5MDU1LDUzND
+eyJoaXN0b3J5IjpbLTkyNDAxNDExNywxMzc4MTU5MDU1LDUzND
 U2NDc3MywxMjA0MDY2Mzc4LDE1NDM0MTExNTQsLTY2OTk5OTIw
 OCwtNjIyMTI5MDMsOTY2MzYwNjQ3LDE4MTEzNzMzNSwxNDEwNz
 g5MTA1LC0xNzU4NzQ0MjcsMTAxNTE2Mzg2NywtMTM3MDU4NjIy
