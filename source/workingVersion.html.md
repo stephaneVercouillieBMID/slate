@@ -101,6 +101,7 @@ You should retrieve the base URI from the [Discovery document](https://merchant.
 Please check the following table for request parameters,
 
 ```http--inline
+ HTTP/1.1
  GET /authorize?response_type=code
  &scope=openid%20profile%20email%20service%3Aclient.registration
  &client_id=s6BhdRkqt3
