@@ -51,7 +51,7 @@ BMID Support must be notified immediately in order to create a new certificate.
 While it is possible to register several redirect URLs but not possible to register several JWKSet URLs. 
 The redirect URL is specified in each Authorization request, the User will be redirected to that URL after the (failed or successful) authentication in the itsme App. You need to specify it in the onboarding file because it needs to be whitelisted by our F5. We can whitelist several urls. The jwkset urls, however, is used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know what URL to contact, and thus we can register only one JWKSet URL.
 
-<aside class="success">
+<aside class="notice">
 Once your Sandbox is created, you will receive:
 <ul> 
 <li>Your Partner Code, which corresponds to the OpenID <b>client_id</b></li>
@@ -60,7 +60,8 @@ Once your Sandbox is created, you will receive:
 </aside>
 
 <aside class="notice">Please consult <a name="ServiceCode"></a> for more information about the notion of Service Code.</aside>
-<aside class="success">What are the consequences of a changing label in sandbox environment?</aside>All pending approval/login will result in a "Wrong PIN".
+<aside class="success">What are the consequences of a changing label in sandbox environment?</aside>
+All pending approval/login will result in a "Wrong PIN".
 
 ## 2.2. Integration of itsme® services
 Once your Sandbox has been created, you can start working on the integration itself. All the information needed to do so is the object of this
@@ -711,11 +712,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDg3MTE4NjE4LDEwMTUxNjM4NjcsLTEzNz
-A1ODYyMjksNDQ1MTM4NzA4LDIxMjc2OTExMzQsLTE3NTQ4MDI0
-NDksMTczNDQxOTQzNCwtMTYzMzQzOTgxMywtMTQ1NDgzMTE4OC
-wtNTc5NzAxNzIzLDkzMzM2OTkzMywxMzY1NDcwNDYzLDYwMDY2
-MjY1NiwzNjQxNTQ2ODgsLTE4MDM0MDU5NDQsLTQ5OTg4OTYsMT
-c2MjE3NDY2MSwxMjg1MjI2Mzc0LC0xNTU0MTU2Nzg2LC03Nzc1
-OTc1OTFdfQ==
+eyJoaXN0b3J5IjpbLTEyMjY1NDAzMjksMTAxNTE2Mzg2NywtMT
+M3MDU4NjIyOSw0NDUxMzg3MDgsMjEyNzY5MTEzNCwtMTc1NDgw
+MjQ0OSwxNzM0NDE5NDM0LC0xNjMzNDM5ODEzLC0xNDU0ODMxMT
+g4LC01Nzk3MDE3MjMsOTMzMzY5OTMzLDEzNjU0NzA0NjMsNjAw
+NjYyNjU2LDM2NDE1NDY4OCwtMTgwMzQwNTk0NCwtNDk5ODg5Ni
+wxNzYyMTc0NjYxLDEyODUyMjYzNzQsLTE1NTQxNTY3ODYsLTc3
+NzU5NzU5MV19
 -->
