@@ -184,6 +184,7 @@ https://e2emerchant.itsme.be/oidc/token
 In this section, we will go through token types and their specifics.
 
 There are three types of tokens in OIDC: [id_token](#idtoken), [access_token](#actoken) and [refresh_token](#rfshtoken).
+
 #### <a name id="idtoken"></a> 3.2.1.1. ID Tokens 
 As per the [OIDC Specification](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse), an `id_token` is a JWT.
 
@@ -711,11 +712,11 @@ So, on the HTTPS protocol level, the connections must be secured using trusted R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTY2MzYwNjQ3LDE4MTEzNzMzNSwxNDEwNz
-g5MTA1LC0xNzU4NzQ0MjcsMTAxNTE2Mzg2NywtMTM3MDU4NjIy
-OSw0NDUxMzg3MDgsMjEyNzY5MTEzNCwtMTc1NDgwMjQ0OSwxNz
-M0NDE5NDM0LC0xNjMzNDM5ODEzLC0xNDU0ODMxMTg4LC01Nzk3
-MDE3MjMsOTMzMzY5OTMzLDEzNjU0NzA0NjMsNjAwNjYyNjU2LD
-M2NDE1NDY4OCwtMTgwMzQwNTk0NCwtNDk5ODg5NiwxNzYyMTc0
-NjYxXX0=
+eyJoaXN0b3J5IjpbLTYyMjEyOTAzLDk2NjM2MDY0NywxODExMz
+czMzUsMTQxMDc4OTEwNSwtMTc1ODc0NDI3LDEwMTUxNjM4Njcs
+LTEzNzA1ODYyMjksNDQ1MTM4NzA4LDIxMjc2OTExMzQsLTE3NT
+Q4MDI0NDksMTczNDQxOTQzNCwtMTYzMzQzOTgxMywtMTQ1NDgz
+MTE4OCwtNTc5NzAxNzIzLDkzMzM2OTkzMywxMzY1NDcwNDYzLD
+YwMDY2MjY1NiwzNjQxNTQ2ODgsLTE4MDM0MDU5NDQsLTQ5OTg4
+OTZdfQ==
 -->
