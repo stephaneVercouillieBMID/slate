@@ -85,9 +85,9 @@ The Discovery document for itsme® service may be retrieved from: https://mercha
 
 Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
-<aside class="success"> Is it possible to use the same service for another environment?</aside>
-No, BMID will create new services for the OIDC.
-<aside class="success">We want to integrate itsme(r) but we only have 1 development machine & so there is no unique IP for the back-end in test due to it isn't unique & it runs in locally on each machine. </aside>
+<aside class="success"> BMID will create new services for the OIDC, it is not poss use the same service for another environment?</aside>
+
+No, .
 
 # 3. Authenticating the User
 
@@ -746,8 +746,9 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDMyOTMyMTk2LC0xNTE0MDAzNzE4LDM3NT
-A2MDAxMywtMTkxNzU4OTIxMSwyMTE0ODg2OTQsLTEzNzIyMzYx
-NDUsNzkyNjcwNDczLC0xOTQwNjQ3NzIyLDEzNzkyNjgwNjksNj
-U2MDkyMDI4LC0yMDkzMzUyNzk4LDEzNTcwMDA1ODZdfQ==
+eyJoaXN0b3J5IjpbLTEyMDY3NzU4Niw0MzI5MzIxOTYsLTE1MT
+QwMDM3MTgsMzc1MDYwMDEzLC0xOTE3NTg5MjExLDIxMTQ4ODY5
+NCwtMTM3MjIzNjE0NSw3OTI2NzA0NzMsLTE5NDA2NDc3MjIsMT
+M3OTI2ODA2OSw2NTYwOTIwMjgsLTIwOTMzNTI3OTgsMTM1NzAw
+MDU4Nl19
 -->
