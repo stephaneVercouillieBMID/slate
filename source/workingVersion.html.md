@@ -60,9 +60,9 @@ About self-signed certificate:
 
 ### 2.1.2.  About JWKSet, JWKSet URIs, Callback-Redirect URLs
 
-The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know 
+The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know which URL to contact.
 
-Due to our BE must know which URL to contact, we can register only one JWKSet URL.
+<aside class="success"> BMID can register only one JWKSet URL </aside>
 
 - Once your Sandbox is created and the your Partner code is provided to you, for one Partner code you will have maximum 1 JWKSet.
 
@@ -750,9 +750,9 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODE0NzMxNzA0LDk5MDgzNTQ3NSwzMTMxMD
-IwMzcsNDMyOTMyMTk2LC0xNTE0MDAzNzE4LDM3NTA2MDAxMywt
-MTkxNzU4OTIxMSwyMTE0ODg2OTQsLTEzNzIyMzYxNDUsNzkyNj
-cwNDczLC0xOTQwNjQ3NzIyLDEzNzkyNjgwNjksNjU2MDkyMDI4
-LC0yMDkzMzUyNzk4LDEzNTcwMDA1ODZdfQ==
+eyJoaXN0b3J5IjpbMTA3NzE0NDMzNSw5OTA4MzU0NzUsMzEzMT
+AyMDM3LDQzMjkzMjE5NiwtMTUxNDAwMzcxOCwzNzUwNjAwMTMs
+LTE5MTc1ODkyMTEsMjExNDg4Njk0LC0xMzcyMjM2MTQ1LDc5Mj
+Y3MDQ3MywtMTk0MDY0NzcyMiwxMzc5MjY4MDY5LDY1NjA5MjAy
+OCwtMjA5MzM1Mjc5OCwxMzU3MDAwNTg2XX0=
 -->
