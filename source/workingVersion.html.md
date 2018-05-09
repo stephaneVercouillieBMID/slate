@@ -34,7 +34,7 @@ Before you can start working on the integration of itsme(r) services, we need to
 
 - You must specify the Redirect URI in the onboarding file because it needs to be whitelisted by our F5. Multiple URLs can be whitelisted by BMID. 
 
-<aside class="warning">It is not possible to register multiple JWKSet URLs for one environment.</aside>
+<aside class="warning"> BMID can register only one JWKSet URL. It is not possible to register multiple JWKSet URLs for one environment.</aside>
 
 Once your Sandbox is created, you will receive:
 <ul> 
@@ -61,8 +61,6 @@ About self-signed certificate:
 ### 2.1.2.  About JWKSet, JWKSet URIs, Callback-Redirect URLs
 
 The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know which URL to contact.
-
-<aside class="success"> BMID can register only one JWKSet URL </aside>
 
 - Once your Sandbox is created and the your Partner code is provided to you, for one Partner code you will have maximum 1 JWKSet.
 
@@ -750,9 +748,10 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3NzE0NDMzNSw5OTA4MzU0NzUsMzEzMT
-AyMDM3LDQzMjkzMjE5NiwtMTUxNDAwMzcxOCwzNzUwNjAwMTMs
-LTE5MTc1ODkyMTEsMjExNDg4Njk0LC0xMzcyMjM2MTQ1LDc5Mj
-Y3MDQ3MywtMTk0MDY0NzcyMiwxMzc5MjY4MDY5LDY1NjA5MjAy
-OCwtMjA5MzM1Mjc5OCwxMzU3MDAwNTg2XX0=
+eyJoaXN0b3J5IjpbMjA4NDE3NTg0NCwxMDc3MTQ0MzM1LDk5MD
+gzNTQ3NSwzMTMxMDIwMzcsNDMyOTMyMTk2LC0xNTE0MDAzNzE4
+LDM3NTA2MDAxMywtMTkxNzU4OTIxMSwyMTE0ODg2OTQsLTEzNz
+IyMzYxNDUsNzkyNjcwNDczLC0xOTQwNjQ3NzIyLDEzNzkyNjgw
+NjksNjU2MDkyMDI4LC0yMDkzMzUyNzk4LDEzNTcwMDA1ODZdfQ
+==
 -->
