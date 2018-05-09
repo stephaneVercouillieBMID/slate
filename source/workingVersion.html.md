@@ -53,17 +53,21 @@ About self-signed certificate:
 - In production, it is not possible to use a self-signed certificate for the integration due to BMID needs the certificate & its intermediate chain.
 - For testing/Sandbox you can use a self signed certificate like that you could define validity period.
 
+
+
 <aside class="success"> Does a same service point to separate SSL Certificates?</aside>
 
 Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, therefore for one Partner code you have maximum 1 JWKSet.
 
 <aside class="success"> What is the next step after changing the JWKSet URL?</aside>
+
 BMID Support must be notified immediately in order to create a new certificate.
 
 <aside class="success"> Is it possible to register multiple valid callback URIs/JWKSet URIs for one environment? Or does it need to be change whenever URIs are switched?</aside>
-While it is possible to register several redirect URLs but not possible to register several JWKSet URLs. 
-The redirect URL is specified in each Authorization request, the User will be redirected to that URL after the (failed or successful) authentication in the itsme App. You need to specify it in the onboarding file because it needs to be whitelisted by our F5. We can whitelist several urls. The jwkset urls, however, is used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know what URL to contact, and thus we can register only one JWKSet URL.
 
+While it is possible to register several redirect URLs but not possible to register several JWKSet URLs. 
+
+The redirect URL is specified in each Authorization request, the User will be redirected to that URL after the (failed or successful) authentication in the itsme App. You need to specify it in the onboarding file because it needs to be whitelisted by our F5. We can whitelist several urls. The jwkset urls, however, is used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know what URL to contact, and thus we can register only one JWKSet URL.
 
 <aside class="notice">Please consult <a name="ServiceCode"></a> for more information about the notion of Service Code.</aside>
 
@@ -743,7 +747,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzkyNjcwNDczLC0xOTQwNjQ3NzIyLDEzNz
-kyNjgwNjksNjU2MDkyMDI4LC0yMDkzMzUyNzk4LDEzNTcwMDA1
-ODZdfQ==
+eyJoaXN0b3J5IjpbLTExMjYwMDQ1MDcsNzkyNjcwNDczLC0xOT
+QwNjQ3NzIyLDEzNzkyNjgwNjksNjU2MDkyMDI4LC0yMDkzMzUy
+Nzk4LDEzNTcwMDA1ODZdfQ==
 -->
