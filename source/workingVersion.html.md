@@ -308,7 +308,7 @@ Using this method, you will always receive Claims from the UserInfo Endpoint.
 The following scope values are supported and allow access to predefined sets of Identity Data:
 
 Scope Value | Associated Claims
---|--|
+--|--
 profile | given_name, family_name, gender, birthdate,  locale
 email|email, email_verified
 phone| phone_number, phone_number_verified
@@ -729,5 +729,5 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MDczMjQ5NTQsMTM1NzAwMDU4Nl19
+eyJoaXN0b3J5IjpbLTIwOTMzNTI3OTgsMTM1NzAwMDU4Nl19
 -->
