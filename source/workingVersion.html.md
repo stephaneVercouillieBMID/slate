@@ -64,9 +64,9 @@ On the HTTPS protocol level, the connections must be secured using trusted Root 
 **For signature and encryption, does BMID accept either RP self-signed certificates or certificates signed by an internal PKI (in which case we need to provide also our internal CA certificate)?”**
 
 This JWKSet is accessible, using a secured HTTPS URL. 
-(sample HTTPS URL for OpenID Provider https://merchant.itsme.be/oidc/jwkSet)
 
-This HTTPS URL must be communicated to us, during the partner on-boarding.
+
+
 
 This HTTPS URL must be protected using a valid certificates chain starting from a Root CA trusted by our back end.
 
@@ -74,8 +74,12 @@ During on-boarding, we can check that we have all the required certificates to e
 
 ### 2.1.2.  About JWKSet, JWKSet URIs, Callback-Redirect URLs
 
+
 The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know which URL to contact.
 
+Our JWKSet is accessible; using a secured HTTPS URL.
+(sample HTTPS URL for OpenID Provider https://merchant.itsme.be/oidc/jwkSet)
+This HTTPS URL must be communicated to us, during the partner on-boarding.
 - Once your Sandbox is created and the your Partner code is provided to you, for one Partner code you will have maximum 1 JWKSet.
 
 - When your JWKSet URL changes, BMID Support must be notified immediately in order to create a new certificate.
@@ -761,7 +765,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5MDEyMDIzLDU0NjQ1Mzk1MywxMDc3MT
+eyJoaXN0b3J5IjpbODA3MTg3NDY0LDU0NjQ1Mzk1MywxMDc3MT
 Q0MzM1LDk5MDgzNTQ3NSwzMTMxMDIwMzcsNDMyOTMyMTk2LC0x
 NTE0MDAzNzE4LDM3NTA2MDAxMywtMTkxNzU4OTIxMSwyMTE0OD
 g2OTQsLTEzNzIyMzYxNDUsNzkyNjcwNDczLC0xOTQwNjQ3NzIy
