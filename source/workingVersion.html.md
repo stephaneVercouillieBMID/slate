@@ -40,8 +40,10 @@ For testing, you could use a self signed certificate like that you could define 
 
 Yes, BMID must be notified on time.
 <aside class="success">What are the consequences of changing a label in Sandbox environment? </aside>
+
 At the moment it's done, all pending approval/login will result in a "Wrong PIN".
 <aside class="success"> Does a same service point to separate SSL Certificates?</aside>
+
 Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, therefore for one Partner code you have maximum 1 JWKSet.
  
 <aside class="success"> Is it possible to use a self-signed certificate for the integration?</aside>
@@ -741,6 +743,6 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NTU4NTMxNTIsLTIwOTMzNTI3OTgsMT
-M1NzAwMDU4Nl19
+eyJoaXN0b3J5IjpbNjU2MDkyMDI4LC0yMDkzMzUyNzk4LDEzNT
+cwMDA1ODZdfQ==
 -->
