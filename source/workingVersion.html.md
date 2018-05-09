@@ -50,7 +50,11 @@ All pending approval/login will result in a "Wrong PIN".
 
 ### 2.1.1. About Certificates
 
-The purpose of using our certificate is to retrieve your JWKSet. Therefore BMID needs the root, the intermediate CA and the final public certifiate of yours. There is no need for your client certificate. Currently the certificate is also used to protect the JWKSet and it is not directly linked to the SSL certificate.
+The purpose of using our certificate is to retrieve your JWKSet. Therefore BMID needs the root, the intermediate CA and the final public certifiate of yours. 
+
+<aside class="warning"> On the HTTPS protocol level, connections must be secured using trusted Root CA.</aside>
+
+There is no need for your client certificate. Currently the certificate is also used to protect the JWKSet and it is not directly linked to the SSL certificate.
 
 <aside class="notice">BMID must be notified on time if the certificate is changed.</aside>
 
@@ -58,8 +62,6 @@ About self-signing:
 - The key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.
 - In production, it is not possible to use a self-signed certificate for the integration due to BMID needs the certificate & its intermediate chain.
 - For testing/Sandbox you can use a self signed certificate like that you could define validity period.
-
-<aside class="warning"> On the HTTPS protocol level, t (not self-signed). In contrary, 
 
 ### 2.1.2.  About JWKSet, JWKSet URIs, Callback-Redirect URLs
 
@@ -756,10 +758,10 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzM2MDQ5NjU3LDU0NjQ1Mzk1MywxMDc3MT
-Q0MzM1LDk5MDgzNTQ3NSwzMTMxMDIwMzcsNDMyOTMyMTk2LC0x
-NTE0MDAzNzE4LDM3NTA2MDAxMywtMTkxNzU4OTIxMSwyMTE0OD
-g2OTQsLTEzNzIyMzYxNDUsNzkyNjcwNDczLC0xOTQwNjQ3NzIy
-LDEzNzkyNjgwNjksNjU2MDkyMDI4LC0yMDkzMzUyNzk4LDEzNT
-cwMDA1ODZdfQ==
+eyJoaXN0b3J5IjpbLTE0MjY4NjA4MDcsNTQ2NDUzOTUzLDEwNz
+cxNDQzMzUsOTkwODM1NDc1LDMxMzEwMjAzNyw0MzI5MzIxOTYs
+LTE1MTQwMDM3MTgsMzc1MDYwMDEzLC0xOTE3NTg5MjExLDIxMT
+Q4ODY5NCwtMTM3MjIzNjE0NSw3OTI2NzA0NzMsLTE5NDA2NDc3
+MjIsMTM3OTI2ODA2OSw2NTYwOTIwMjgsLTIwOTMzNTI3OTgsMT
+M1NzAwMDU4Nl19
 -->
