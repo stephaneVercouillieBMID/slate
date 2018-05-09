@@ -47,16 +47,15 @@ All pending approval/login will result in a "Wrong PIN".
 
 The purpose of using our certificate is to retrieve your JWKSet. Therefore BMID needs the root, the intermediate CA and the final public certifiate of yours. There is no need for your client certificate. Currently the certificate is also used to protect the JWKSet and it is not directly linked to the SSL certificate.
 
-<aside class="info">BMID must be notified on time if certificiate is changed.</aside>
-<aside class="success"> Does a same service point to separate SSL Certificates?</aside>
+<aside class="info">BMID must be notified on time if the certificate is changed.</aside>
+
 About self-signed certificate:
 - In production, it is not possible to use a self-signed certificate for the integration due to BMID needs the certificate & its intermediate chain.
 - For testing/Sandbox you can use a self signed certificate like that you could define validity period.
 
-
 <aside class="success"> Does a same service point to separate SSL Certificates?</aside>
 
-Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, therefore for one Partner code you have maximum 1 JWKSet.
+ therefore for one Partner code you have maximum 1 JWKSet.
 
 <aside class="success"> What is the next step after changing the JWKSet URL?</aside>
 
@@ -746,7 +745,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUwMzk4MDU5MCwtMTM3MjIzNjE0NSw3OT
-I2NzA0NzMsLTE5NDA2NDc3MjIsMTM3OTI2ODA2OSw2NTYwOTIw
-MjgsLTIwOTMzNTI3OTgsMTM1NzAwMDU4Nl19
+eyJoaXN0b3J5IjpbOTA3MDEyNzE4LC0xMzcyMjM2MTQ1LDc5Mj
+Y3MDQ3MywtMTk0MDY0NzcyMiwxMzc5MjY4MDY5LDY1NjA5MjAy
+OCwtMjA5MzM1Mjc5OCwxMzU3MDAwNTg2XX0=
 -->
