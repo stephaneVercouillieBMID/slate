@@ -57,7 +57,7 @@ About self-signed certificate:
 
 <aside class="success"> Does a same service point to separate SSL Certificates?</aside>
 
- therefore for one Partner code you have maximum 1 JWKSet.
+ Therefore for one Partner code you have maximum 1 JWKSet.
 
 <aside class="success"> What is the next step after changing the JWKSet URL?</aside>
 
@@ -747,7 +747,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIyNzkxMzQ4MCwtMTM3MjIzNjE0NSw3OT
-I2NzA0NzMsLTE5NDA2NDc3MjIsMTM3OTI2ODA2OSw2NTYwOTIw
-MjgsLTIwOTMzNTI3OTgsMTM1NzAwMDU4Nl19
+eyJoaXN0b3J5IjpbODc1NDcxMDgwLC0xMzcyMjM2MTQ1LDc5Mj
+Y3MDQ3MywtMTk0MDY0NzcyMiwxMzc5MjY4MDY5LDY1NjA5MjAy
+OCwtMjA5MzM1Mjc5OCwxMzU3MDAwNTg2XX0=
 -->
