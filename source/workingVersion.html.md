@@ -640,11 +640,11 @@ On iOS:
 - for enrollment, it's always "be.bmid.itsme://"  
 - for app to app actions, it's based on universal links and these are different for each environment depicted in the following table: 
 
-|Environment| URL |
+|Environment| URL 
 |--|--|
 UAT|https://uatmobileapp.sixdots.be/mobile/processAction<br>https://uatmobileapp.sixdots.be/mobile/authorize  
-| E2E  |https://e2emobileapp.sixdots.be/mobile/processAction<br> https://e2emobileapp.sixdots.be/mobile/authorize 
-| PRD |https://mobileapp.sixdots.be/mobile/processAction  https://mobileapp.sixdots.be/mobile/authorize
+E2E  |https://e2emobileapp.sixdots.be/mobile/processAction<br> https://e2emobileapp.sixdots.be/mobile/authorize 
+PRD |https://mobileapp.sixdots.be/mobile/processAction  https://mobileapp.sixdots.be/mobile/authorize
 
 **How can I set the level of security at the level of the App (5 digit code only without fingerprint or facial recognition  eg.)**?
 You can configure this option through the parameter “**acr_values**”, documented in   [this](#acrvalues) section. 
@@ -728,5 +728,5 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NDczMTY5ODBdfQ==
+eyJoaXN0b3J5IjpbMTM1NzAwMDU4Nl19
 -->
