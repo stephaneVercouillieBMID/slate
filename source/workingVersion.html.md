@@ -96,7 +96,9 @@ No, BMID will create new services for the OIDC.
 ![enter image description here](https://lh3.googleusercontent.com/vi1iEAv0LtjFbvT30UE62rHDLu-fPFysH5oj1dpa_hVzaTbmKSV2Js_NjTCI7-5tXGVKgd8p4CQ "auth diag")
 ## 3.1. **Authorization Endpoint** 
 The first step is forming an HTTPS request to the Authorization Endpoint with the appropriate URI parameters. Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused.
+
 ### 3.1.1. Authentication Request Specifications
+
 As per the OpenID Connect specification <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest">Authentication Request</a> and <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint">Authorization Endpoint</a>.
 
 You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
@@ -744,8 +746,8 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTQwMDM3MTgsMzc1MDYwMDEzLC0xOT
-E3NTg5MjExLDIxMTQ4ODY5NCwtMTM3MjIzNjE0NSw3OTI2NzA0
-NzMsLTE5NDA2NDc3MjIsMTM3OTI2ODA2OSw2NTYwOTIwMjgsLT
-IwOTMzNTI3OTgsMTM1NzAwMDU4Nl19
+eyJoaXN0b3J5IjpbMzQ1NTI5NjIyLC0xNTE0MDAzNzE4LDM3NT
+A2MDAxMywtMTkxNzU4OTIxMSwyMTE0ODg2OTQsLTEzNzIyMzYx
+NDUsNzkyNjcwNDczLC0xOTQwNjQ3NzIyLDEzNzkyNjgwNjksNj
+U2MDkyMDI4LC0yMDkzMzUyNzk4LDEzNTcwMDA1ODZdfQ==
 -->
