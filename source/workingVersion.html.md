@@ -53,13 +53,13 @@ About self-signed certificate:
 - In production, it is not possible to use a self-signed certificate for the integration due to BMID needs the certificate & its intermediate chain.
 - For testing/Sandbox you can use a self signed certificate like that you could define validity period.
 
-### 2.1.2.  About JWKSet 
+### 2.1.2.  About JWKSet/JWKSet URIs/Callback URLs
 
 Once your Sandbox is created and the your Partner code is provided to you, for one Partner code you will have maximum 1 JWKSet.
 
-Once you change the JWKSet URL, BMID Support must be notified immediately in order to create a new certificate.
+When you change the JWKSet URL, BMID Support must be notified immediately in order to create a new certificate.
 
-### 2.1.3 About Call back URIs
+
 
 <aside class="success"> Is it possible to register multiple valid callback URIs/JWKSet URIs for one environment? Or does it need to be changed whenever URIs are switched?</aside>
 
@@ -745,7 +745,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNzM3MDUwNTgsLTE5MTc1ODkyMTEsMj
+eyJoaXN0b3J5IjpbLTEyMjM0NjAxOTcsLTE5MTc1ODkyMTEsMj
 ExNDg4Njk0LC0xMzcyMjM2MTQ1LDc5MjY3MDQ3MywtMTk0MDY0
 NzcyMiwxMzc5MjY4MDY5LDY1NjA5MjAyOCwtMjA5MzM1Mjc5OC
 wxMzU3MDAwNTg2XX0=
