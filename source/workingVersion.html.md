@@ -29,17 +29,16 @@ Before you can start working on the integration of itsme(r) services, we need to
 - Information to customize the user consent screen
 - Redirect URIs associated to your instances of itsme(r) services (to which the user will be redirected after the authentication)
 - JWKSet URL, and associated SSL/TLS certificate
+
 <aside class="notice">You can consult <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">our B2B portal</a> for furher information about this step.</aside>
 
 ### 2.1.1. Certificates
 
 The purpose of using our certificate is to retrieve your JWKSet. Therefore BMID needs the root, the intermediate CA and the final public certifiate of yours. There is no need for your client certificate.
 
+- For testing, you could use a self signed certificate like that you could define validity period.
 
-Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
-
-For testing, you could use a self signed certificate like that you could define validity period.
-<aside class="success">Should I notify BMID if the certificate is changed? </aside>
+- <aside class="success">Should I notify BMID if the certificate is changed? </aside>
 
 Yes, BMID must be notified on time.
 <aside class="success">What are the consequences of changing a label in Sandbox environment? </aside>
@@ -746,6 +745,6 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODY2MDA5NjkyLDEzNzkyNjgwNjksNjU2MD
+eyJoaXN0b3J5IjpbMTg0NzI2MzI2LDEzNzkyNjgwNjksNjU2MD
 kyMDI4LC0yMDkzMzUyNzk4LDEzNTcwMDA1ODZdfQ==
 -->
