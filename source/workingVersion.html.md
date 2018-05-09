@@ -66,7 +66,7 @@ Once your Sandbox is created and the your Partner code is provided to you, for o
 
 When your JWKSet URL changes, BMID Support must be notified immediately in order to create a new certificate.
 
-It is possible to register valid callback URIs/JWKSet URIs for one environment 
+It is possible to register valid callback URIs/JWKSet 
 
 
 <aside class="success"> Is it possible to register multiple valid callback URIs/JWKSet URIs for one environment? Or does it need to be changed whenever URIs are switched?</aside>
@@ -753,8 +753,8 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExNTg3NDc5MywtMTkxNzU4OTIxMSwyMT
-E0ODg2OTQsLTEzNzIyMzYxNDUsNzkyNjcwNDczLC0xOTQwNjQ3
-NzIyLDEzNzkyNjgwNjksNjU2MDkyMDI4LC0yMDkzMzUyNzk4LD
-EzNTcwMDA1ODZdfQ==
+eyJoaXN0b3J5IjpbLTEyMTQ0MTA5OTYsLTE5MTc1ODkyMTEsMj
+ExNDg4Njk0LC0xMzcyMjM2MTQ1LDc5MjY3MDQ3MywtMTk0MDY0
+NzcyMiwxMzc5MjY4MDY5LDY1NjA5MjAyOCwtMjA5MzM1Mjc5OC
+wxMzU3MDAwNTg2XX0=
 -->
