@@ -1,7 +1,6 @@
  ---
 title: itsme(r) OpenID Connect documentation
- 
-language_tabs: # must be one of https://git.io/vQNgJ
+ language_tabs: # must be one of https://git.io/vQNgJ
 - json: JSON
 - http: HTTP
 ---
@@ -743,6 +742,6 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY3MTcxMDQ3Myw2NTYwOTIwMjgsLTIwOT
+eyJoaXN0b3J5IjpbMTM3OTI2ODA2OSw2NTYwOTIwMjgsLTIwOT
 MzNTI3OTgsMTM1NzAwMDU4Nl19
 -->
