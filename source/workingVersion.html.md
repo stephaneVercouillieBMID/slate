@@ -33,7 +33,7 @@ Before you can start working on the integration of itsme(r) services, we need to
 
 ### 2.1.1. Certificates
 
-To retrieve your JWKSet, BMID needs the root, the intermediate CA and the final public certifiate 
+The purpose of using our certificTo retrieve your JWKSet, BMID needs the root, the intermediate CA and the final public certifiate of yours. 
 <aside class="success"> What is the use of our Certificate? </aside>
 
 Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
@@ -746,6 +746,6 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczNTQ3NDEzNSwxMzc5MjY4MDY5LDY1Nj
+eyJoaXN0b3J5IjpbMTc1OTY4NzIyNywxMzc5MjY4MDY5LDY1Nj
 A5MjAyOCwtMjA5MzM1Mjc5OCwxMzU3MDAwNTg2XX0=
 -->
