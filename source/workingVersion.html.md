@@ -53,8 +53,9 @@ About self-signed certificate:
 - In production, it is not possible to use a self-signed certificate for the integration due to BMID needs the certificate & its intermediate chain.
 - For testing/Sandbox you can use a self signed certificate like that you could define validity period.
 
+About SSL certificates:
 
-
+The certificate 
 <aside class="success"> Does a same service point to separate SSL Certificates?</aside>
 
 Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, therefore for one Partner code you have maximum 1 JWKSet.
@@ -747,7 +748,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMjYwMDQ1MDcsNzkyNjcwNDczLC0xOT
+eyJoaXN0b3J5IjpbLTExMDQzNDk0NTgsNzkyNjcwNDczLC0xOT
 QwNjQ3NzIyLDEzNzkyNjgwNjksNjU2MDkyMDI4LC0yMDkzMzUy
 Nzk4LDEzNTcwMDA1ODZdfQ==
 -->
