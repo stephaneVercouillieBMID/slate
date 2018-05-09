@@ -561,12 +561,14 @@ To get further information about token types, token request/response specificati
 As per specified by OIDC [here](https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests), Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.
  
 The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains at least the following properties:
+
 Property | Required | Comment
 -- | -- | --
 **iss** | Required | Specifies the issuing authority. Issuer of the id_tokenIssuer. Must be the `client_id`
 **aud** | Required | Audience. MUST be the Token Endpoint URL
  
  Example of claim request before base64url encoding, signing and encryption. In this example, the partner is using the login service.
+ 
 ```json--inline
  {
  	// JWT Registered claims (https://tools.ietf.org/html/rfc7519#section-4.1)
@@ -726,5 +728,5 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4MDY1NTU1NCwtMTA1NzcyMzIxXX0=
+eyJoaXN0b3J5IjpbLTE0NDczMTY5ODBdfQ==
 -->
