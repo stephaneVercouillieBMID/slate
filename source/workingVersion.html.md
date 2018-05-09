@@ -306,12 +306,12 @@ Using this method, you will always receive Claims from the UserInfo Endpoint.
 
 The following scope values are supported and allow access to predefined sets of Identity Data:
 Scope Value | Associated Claims
-|--|--|
-|profile | given_name, family_name, gender, birthdate,  locale|
-email|email, email_verified|
-phone| phone_number, phone_number_verified| 
+--|--|
+profile | given_name, family_name, gender, birthdate,  locale
+email|email, email_verified
+phone| phone_number, phone_number_verified
 address|address, with subfields,<br>street_address (newline separator \n)<br> locality <br> postal_code <br> country
-<aside class="success">Is it expected that the scope "eid" is not mentioned in the supported scopes?
+<aside class="success">Is it expected that the scope "eid" was not mentioned in the supported scopes?
 The “eid” scope was introduced exclusively for FAS (BOSSA). </aside>
 
 #### 4.2.1.2 Example of an Authorization Request using "scope" values
@@ -721,5 +721,5 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTc3MjMyMV19
+eyJoaXN0b3J5IjpbLTEyNzAzNzUyMzYsLTEwNTc3MjMyMV19
 -->
