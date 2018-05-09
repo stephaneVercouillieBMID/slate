@@ -58,6 +58,20 @@ About self-signed certificate:
 - In production, it is not possible to use a self-signed certificate for the integration due to BMID needs the certificate & its intermediate chain.
 - For testing/Sandbox you can use a self signed certificate like that you could define validity period.
 
+**For signature and encryption, does BMID accept either RP self-signed certificates or certificates signed by an internal PKI (in which case we need to provide also our internal CA certificate)?”**
+
+This JWKSet is accessible, using a secured HTTPS URL. 
+(sample HTTPS URL for OpenID Provider https://merchant.itsme.be/oidc/jwkSet)
+
+This HTTPS URL must be communicated to us, during the partner on-boarding.
+
+This HTTPS URL must be protected using a valid certificates chain starting from a Root CA trusted by our back end.
+
+During on-boarding, we can check that we have all the required certificates to establish the trust.
+
+So, on the HTTPS protocol level, the connections must be secured using trusted Root CA (not self-signed). In contrary, the key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.
+
+
 ### 2.1.2.  About JWKSet, JWKSet URIs, Callback-Redirect URLs
 
 The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know which URL to contact.
@@ -747,9 +761,10 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTQ2NDUzOTUzLDEwNzcxNDQzMzUsOTkwOD
-M1NDc1LDMxMzEwMjAzNyw0MzI5MzIxOTYsLTE1MTQwMDM3MTgs
-Mzc1MDYwMDEzLC0xOTE3NTg5MjExLDIxMTQ4ODY5NCwtMTM3Mj
-IzNjE0NSw3OTI2NzA0NzMsLTE5NDA2NDc3MjIsMTM3OTI2ODA2
-OSw2NTYwOTIwMjgsLTIwOTMzNTI3OTgsMTM1NzAwMDU4Nl19
+eyJoaXN0b3J5IjpbLTEwMDYzNzU2NTUsNTQ2NDUzOTUzLDEwNz
+cxNDQzMzUsOTkwODM1NDc1LDMxMzEwMjAzNyw0MzI5MzIxOTYs
+LTE1MTQwMDM3MTgsMzc1MDYwMDEzLC0xOTE3NTg5MjExLDIxMT
+Q4ODY5NCwtMTM3MjIzNjE0NSw3OTI2NzA0NzMsLTE5NDA2NDc3
+MjIsMTM3OTI2ODA2OSw2NTYwOTIwMjgsLTIwOTMzNTI3OTgsMT
+M1NzAwMDU4Nl19
 -->
