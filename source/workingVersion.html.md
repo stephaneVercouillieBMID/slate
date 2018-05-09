@@ -478,8 +478,7 @@ Claim value: **`tag:sixdots.be,2017-05:claim_transaction_info`**
 Information available in the context of the current transaction.
 
 A JSON object with the following keys: (only keys with cardinality \\\[1..1\\\] will be always available)
-**“securityLevel” \\\[1..1\\\]**: 
-(supported values: <br>{SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) Security level used during transaction. <br>
+**“securityLevel” \\\[1..1\\\]**: (supported values: {SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) Security level used during transaction. <br>
 **“bindLevel” \\\[1..1\\\]**: (supported values: {SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. <br>
 **“mcc” \\\[0..1\\\]**: the Mobile Country Code. An Integer (three digits) representing the mobile network country. 
 
@@ -740,6 +739,6 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTMxNDk3MiwtMjA5MzM1Mjc5OCwxMz
-U3MDAwNTg2XX0=
+eyJoaXN0b3J5IjpbMTEyMjc5NDkyLC0yMDkzMzUyNzk4LDEzNT
+cwMDA1ODZdfQ==
 -->
