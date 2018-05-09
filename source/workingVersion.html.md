@@ -80,7 +80,7 @@ To simplify implementations and increase flexibility, OpenID Connect allows the 
 - supported claims 
 - [JWKSet](#jwks) to interact with it. 
  
-<aside class="success">The Discovery document for itsme® service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside>
+The Discovery document for itsme® service may be retrieved from: https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration
 
 Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
@@ -743,7 +743,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY2MDQxNjg2MywtMTk0MDY0NzcyMiwxMz
+eyJoaXN0b3J5IjpbMTE3MjUwNzQ5OSwtMTk0MDY0NzcyMiwxMz
 c5MjY4MDY5LDY1NjA5MjAyOCwtMjA5MzM1Mjc5OCwxMzU3MDAw
 NTg2XX0=
 -->
