@@ -54,10 +54,9 @@ About self-signed certificate:
 - For testing/Sandbox you can use a self signed certificate like that you could define validity period.
 
 ### 2.1.2.  About JWKSet 
-Once your Sandbox is created and the your Partner code is 
+Once your Sandbox is created and the your Partner code is provided to you, for one Partner code you will have maximum 1 JWKSet.
 
 
-<aside class="info"> For one Partner code you have maximum 1 JWKSet.</aside>
 
 <aside class="success"> Does a same service point to separate SSL Certificates?</aside>
 
@@ -751,8 +750,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzOTE1MTQyMDEsMjExNDg4Njk0LC0xMz
-cyMjM2MTQ1LDc5MjY3MDQ3MywtMTk0MDY0NzcyMiwxMzc5MjY4
-MDY5LDY1NjA5MjAyOCwtMjA5MzM1Mjc5OCwxMzU3MDAwNTg2XX
-0=
+eyJoaXN0b3J5IjpbMTQ3NTUzMjQyLDIxMTQ4ODY5NCwtMTM3Mj
+IzNjE0NSw3OTI2NzA0NzMsLTE5NDA2NDc3MjIsMTM3OTI2ODA2
+OSw2NTYwOTIwMjgsLTIwOTMzNTI3OTgsMTM1NzAwMDU4Nl19
 -->
