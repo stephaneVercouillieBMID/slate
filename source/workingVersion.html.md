@@ -60,20 +60,13 @@ About self-signed certificate:
 
 ### 2.1.2.  About JWKSet/JWKSet URIs/Callback/Redirect URLs
 
-The JWKSet URLs are used by our BackEnd for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Due to our BE must know which URL to contact, we can register only one JWKSet URL.
+- The JWKSet URLs are used by our BackEnd for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Due to our BE must know which URL to contact, we can register only one JWKSet URL.
 
-Once your Sandbox is created and the your Partner code is provided to you, for one Partner code you will have maximum 1 JWKSet.
+- Once your Sandbox is created and the your Partner code is provided to you, for one Partner code you will have maximum 1 JWKSet.
 
-When your JWKSet URL changes, BMID Support must be notified immediately in order to create a new certificate.
+- When your JWKSet URL changes, BMID Support must be notified immediately in order to create a new certificate.
 
-It is possible to register valid redirect URLs for one environment but not possible to register multiple JWKSet URLs.
-
-
-<aside class="success"> Is it possible to register multiple valid callback URIs/JWKSet URIs for one environment? Or does it need to be changed whenever URIs are switched?</aside>
-
-While it is possible to register several redirect URLs but not possible to register several JWKSet URLs. 
-
-
+- It is possible to register valid redirect URLs for one environment but not possible to register multiple JWKSet URLs.
 
 <aside class="notice">Please consult <a name="ServiceCode"></a> for more information about the notion of Service Code.</aside>
 
@@ -753,8 +746,8 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAyNTcxMjYwMCwtMTkxNzU4OTIxMSwyMT
-E0ODg2OTQsLTEzNzIyMzYxNDUsNzkyNjcwNDczLC0xOTQwNjQ3
-NzIyLDEzNzkyNjgwNjksNjU2MDkyMDI4LC0yMDkzMzUyNzk4LD
-EzNTcwMDA1ODZdfQ==
+eyJoaXN0b3J5IjpbLTEyMDk0MzA4OTQsLTE5MTc1ODkyMTEsMj
+ExNDg4Njk0LC0xMzcyMjM2MTQ1LDc5MjY3MDQ3MywtMTk0MDY0
+NzcyMiwxMzc5MjY4MDY5LDY1NjA5MjAyOCwtMjA5MzM1Mjc5OC
+wxMzU3MDAwNTg2XX0=
 -->
