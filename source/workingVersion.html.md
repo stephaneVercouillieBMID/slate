@@ -27,7 +27,7 @@ The objective of this document is to provide all the information needed to integ
 Before you can start working on the integration of itsme(r) services, we need to create your Sandbox in which the integration takes place. Your company will provide us both functional and technical information we will use to create your Sandbox. These information include (not exhaustively):
 
 - Information to customize the user consent screen
-- Redirect URIs associated to your instances of itsme(r) services (to which the user will be redirected after the authentication)
+- Redirect URIs associated to your instances of itsme(r) services (to which the user will be redirected after the authentication. You must specify the Redirect URI in the onboarding file because it needs to be whitelisted by our F5.)
 - JWKSet URL, and associated SSL/TLS certificate
 
 <aside class="notice">
@@ -747,8 +747,8 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNjM4MDY1MTYsLTE5MTc1ODkyMTEsMj
-ExNDg4Njk0LC0xMzcyMjM2MTQ1LDc5MjY3MDQ3MywtMTk0MDY0
-NzcyMiwxMzc5MjY4MDY5LDY1NjA5MjAyOCwtMjA5MzM1Mjc5OC
-wxMzU3MDAwNTg2XX0=
+eyJoaXN0b3J5IjpbLTQyMDYwNTc2MywtMTkxNzU4OTIxMSwyMT
+E0ODg2OTQsLTEzNzIyMzYxNDUsNzkyNjcwNDczLC0xOTQwNjQ3
+NzIyLDEzNzkyNjgwNjksNjU2MDkyMDI4LC0yMDkzMzUyNzk4LD
+EzNTcwMDA1ODZdfQ==
 -->
