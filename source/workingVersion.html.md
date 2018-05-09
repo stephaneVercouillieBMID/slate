@@ -45,7 +45,7 @@ All pending approval/login will result in a "Wrong PIN".
 
 ### 2.1.1. Certificates
 
-The purpose of using our certificate is to retrieve your JWKSet. Therefore BMID needs the root, the intermediate CA and the final public certifiate of yours. There is no need for your client certificate. 
+The purpose of using our certificate is to retrieve and protect your JWKSet. Therefore BMID needs the root, the intermediate CA and the final public certifiate of yours. There is no need for your client certificate. 
 
 As the certificate is used to protect the JWKSet 
 
@@ -748,7 +748,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg5MzcxNDIyOSw3OTI2NzA0NzMsLTE5ND
-A2NDc3MjIsMTM3OTI2ODA2OSw2NTYwOTIwMjgsLTIwOTMzNTI3
-OTgsMTM1NzAwMDU4Nl19
+eyJoaXN0b3J5IjpbLTEzNzIyMzYxNDUsNzkyNjcwNDczLC0xOT
+QwNjQ3NzIyLDEzNzkyNjgwNjksNjU2MDkyMDI4LC0yMDkzMzUy
+Nzk4LDEzNTcwMDA1ODZdfQ==
 -->
