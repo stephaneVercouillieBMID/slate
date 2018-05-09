@@ -34,16 +34,15 @@ Before you can start working on the integration of itsme(r) services, we need to
 <aside class="notice"> You must specify the Redirect URI in the onboarding file because it needs to be whitelisted by our F5. Multiple URLs can be whitelisted by BMID. </aside>
 
 - JWKSet URL, and associated SSL/TLS certificate
-<aside class="notice">It is not possible to register multiple JWKSet URLs for one environment.
+<aside class="notice">It is not possible to register multiple JWKSet URLs for one environment.</aside>
 
-<aside class="notice">
 Once your Sandbox is created, you will receive:
 <ul> 
 <li>Your Partner Code, which corresponds to the OpenID <b>client_id</b></li>
 <li>Your Service Codes, which are the identifiers of your instances of itsme(r) services. </li>
 </ul>
 </aside>
-<aside class="success">What are the consequences of changing a label in Sandbox environment? </aside>
+<aside class="success">What are the consequences of changing a label in Sandbox environment?
 
 All pending approval/login will result in a "Wrong PIN".
 
@@ -67,7 +66,7 @@ About self-signed certificate:
 
 - When your JWKSet URL changes, BMID Support must be notified immediately in order to create a new certificate.
 
-- It is possible to register valid redirect URLs for one environment but not possible to register multiple JWKSet URLs.
+- It is possible to register valid redirect URLs for one environment.
 
 <aside class="notice">Please consult <a name="ServiceCode"></a> for more information about the notion of Service Code.</aside>
 
@@ -747,7 +746,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk4NzAxNDE4OCwtMTkxNzU4OTIxMSwyMT
+eyJoaXN0b3J5IjpbMjA2NTEwNzU1MCwtMTkxNzU4OTIxMSwyMT
 E0ODg2OTQsLTEzNzIyMzYxNDUsNzkyNjcwNDczLC0xOTQwNjQ3
 NzIyLDEzNzkyNjgwNjksNjU2MDkyMDI4LC0yMDkzMzUyNzk4LD
 EzNTcwMDA1ODZdfQ==
