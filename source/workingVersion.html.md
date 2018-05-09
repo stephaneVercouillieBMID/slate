@@ -704,7 +704,7 @@ You must provide at least two from this list :
 - With itsme, web2app, you obviously have two factors: The itsme PIN and the mobile device.
 - With app2app: It is still the same, as the two apps need to be running on the same smartphone. Therefore, the attacker needs the device to initiate any malicious transaction. So there are still two factors : you must possess the mobile AND you must be acknowledged of the PIN.
 
-**What is the purpose of the https://uatmerchant.sixdots.be/oidc/register? Seems to be a link to be registered as a SP?**
+**What is the purpose of the https://uatmerchant.sixdots.be/oidc/register? Is it a link to be registered as a SP?**
 
 We do not use this as it is part of the OIDC standard. Normally used to register new OIDC partners but the registering process is done by an administrator (“the back end team” for the moment) during the “partner on boarding process”.
 
@@ -740,10 +740,10 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQxNjExMTI1Miw1NDY0NTM5NTMsMTA3Nz
-E0NDMzNSw5OTA4MzU0NzUsMzEzMTAyMDM3LDQzMjkzMjE5Niwt
-MTUxNDAwMzcxOCwzNzUwNjAwMTMsLTE5MTc1ODkyMTEsMjExND
-g4Njk0LC0xMzcyMjM2MTQ1LDc5MjY3MDQ3MywtMTk0MDY0Nzcy
-MiwxMzc5MjY4MDY5LDY1NjA5MjAyOCwtMjA5MzM1Mjc5OCwxMz
-U3MDAwNTg2XX0=
+eyJoaXN0b3J5IjpbNjI1ODcyNDI4LC00MTYxMTEyNTIsNTQ2ND
+UzOTUzLDEwNzcxNDQzMzUsOTkwODM1NDc1LDMxMzEwMjAzNyw0
+MzI5MzIxOTYsLTE1MTQwMDM3MTgsMzc1MDYwMDEzLC0xOTE3NT
+g5MjExLDIxMTQ4ODY5NCwtMTM3MjIzNjE0NSw3OTI2NzA0NzMs
+LTE5NDA2NDc3MjIsMTM3OTI2ODA2OSw2NTYwOTIwMjgsLTIwOT
+MzNTI3OTgsMTM1NzAwMDU4Nl19
 -->
