@@ -68,8 +68,6 @@ About self-signed certificate:
 
 - It is possible to register valid redirect URLs for one environment.
 
-<aside class="notice">Please consult <a name="ServiceCode"></a> for more information about the notion of Service Code.</aside>
-
 ## 2.2. Integration of itsme® services
 Once your Sandbox has been created, you can start working on the integration itself. All the information needed to do so is the object of this
 document.
@@ -103,7 +101,7 @@ As per the OpenID Connect specification <a href="http://openid.net/specs/openid-
 
 You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
 
-<aside class="notice">itsme® supports the use of both HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters must be serialized using <a href="http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization">Form Serialization.</a></aside>
+<aside class="notice"> itsme® supports the use of both HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters must be serialized using <a href="http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization">Form Serialization.</a></aside>
 
 Please check the following table for request parameters,
 
@@ -746,8 +744,8 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2NTEwNzU1MCwtMTkxNzU4OTIxMSwyMT
-E0ODg2OTQsLTEzNzIyMzYxNDUsNzkyNjcwNDczLC0xOTQwNjQ3
-NzIyLDEzNzkyNjgwNjksNjU2MDkyMDI4LC0yMDkzMzUyNzk4LD
-EzNTcwMDA1ODZdfQ==
+eyJoaXN0b3J5IjpbMzc1MDYwMDEzLC0xOTE3NTg5MjExLDIxMT
+Q4ODY5NCwtMTM3MjIzNjE0NSw3OTI2NzA0NzMsLTE5NDA2NDc3
+MjIsMTM3OTI2ODA2OSw2NTYwOTIwMjgsLTIwOTMzNTI3OTgsMT
+M1NzAwMDU4Nl19
 -->
