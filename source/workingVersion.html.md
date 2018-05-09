@@ -137,10 +137,7 @@ Parameter | Required | Specification
 **id\_token\_hint** | Unsupported | Ignored if provided.
 **claims_locales** | Unsupported | None are supported.|
 **request_uri** | Unsupported | Not supported (yet)|
-**registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the [on boarding process](#Onboarding).|
-
-Further Explanations of Parameters
-client_id: This is your client identifier at the OpenID Provider.
+**registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the [on boarding process](#Onboarding).
 
 ### 3.1.2. Authentication Response Specification
 An Authentication Response is an [OAuth 2.0 Authorization Response](https://tools.ietf.org/html/rfc6749#section-4.1.2) message. 
@@ -749,7 +746,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MzEyMjc0ODEsMTA3NzE0NDMzNSw5OT
+eyJoaXN0b3J5IjpbLTIwNDM4NDk1MzIsMTA3NzE0NDMzNSw5OT
 A4MzU0NzUsMzEzMTAyMDM3LDQzMjkzMjE5NiwtMTUxNDAwMzcx
 OCwzNzUwNjAwMTMsLTE5MTc1ODkyMTEsMjExNDg4Njk0LC0xMz
 cyMjM2MTQ1LDc5MjY3MDQ3MywtMTk0MDY0NzcyMiwxMzc5MjY4
