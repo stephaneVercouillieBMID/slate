@@ -574,7 +574,9 @@ To get further information about token types, token request/response specificati
 #### 4.3.2.2 Example of Id Token Containing “claims”
 *Will be provided soon*
 # 5. Advanced topics
+
 ## 5.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs
+
 As per specified by OIDC [here](https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests), Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.
  
 The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains at least the following properties:
@@ -657,11 +659,12 @@ On iOS:
 - for enrollment, it's always "be.bmid.itsme://"  
 - for app to app actions, it's based on universal links and these are different for each environment depicted in the following table: 
 
-|Environment| URL 
+Environment| URL 
 |--|--|
 UAT|https://uatmobileapp.sixdots.be/mobile/processAction<br>https://uatmobileapp.sixdots.be/mobile/authorize  
 E2E  |https://e2emobileapp.sixdots.be/mobile/processAction<br> https://e2emobileapp.sixdots.be/mobile/authorize 
 PRD |https://mobileapp.sixdots.be/mobile/processAction  https://mobileapp.sixdots.be/mobile/authorize
+
 
 **How can I set the level of security at the level of the App (5 digit code only without fingerprint or facial recognition  eg.)**?
 You can configure this option through the parameter “**acr_values**”, documented in   [this](#acrvalues) section. 
@@ -745,9 +748,9 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzEzMTAyMDM3LDQzMjkzMjE5NiwtMTUxND
-AwMzcxOCwzNzUwNjAwMTMsLTE5MTc1ODkyMTEsMjExNDg4Njk0
-LC0xMzcyMjM2MTQ1LDc5MjY3MDQ3MywtMTk0MDY0NzcyMiwxMz
-c5MjY4MDY5LDY1NjA5MjAyOCwtMjA5MzM1Mjc5OCwxMzU3MDAw
-NTg2XX0=
+eyJoaXN0b3J5IjpbOTkwODM1NDc1LDMxMzEwMjAzNyw0MzI5Mz
+IxOTYsLTE1MTQwMDM3MTgsMzc1MDYwMDEzLC0xOTE3NTg5MjEx
+LDIxMTQ4ODY5NCwtMTM3MjIzNjE0NSw3OTI2NzA0NzMsLTE5ND
+A2NDc3MjIsMTM3OTI2ODA2OSw2NTYwOTIwMjgsLTIwOTMzNTI3
+OTgsMTM1NzAwMDU4Nl19
 -->
