@@ -267,16 +267,21 @@ As per <a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorR
 
 # 4. User Data
 ## 4.1. What is a claim?
+
 The concept of claim is about declaring something you expect as return from the OP. When it comes to end user data, you have to use claims in order to declare the end user data you will need for your business before the authentication. This is a privacy-oriented way of getting data.
+
 Technically, you have to declare the claims in the Authorization Request in the way described in the section [Declaring Claims](#decClaim).
+
 Claims will come as name/value pairs packaged in a JSON object that contain information about a user, as well as meta-information about the OIDC service. The official definition from the spec is a [“piece of information asserted about an Entity.”](http://openid.net/specs/openid-connect-core-1_0.html#Terminology)
 
 ### 4.1.1. Claim Types
+
 Three representations of Claim Values are defined officially: 
 - Normal Claims
 - Aggregated Claims (not supported)
 - Distributed Claims (not supported)
 We do not support Aggregated and Distributed Claims due to all the data we expose come from our own database.
+
 #### 4.1.1.1. Normal Claims
 Claims that are directly asserted by the OpenID Provider.
 Normal Claims are represented as members in a JSON object. The Claim Name is the member name and the Claim Value is the member value.
@@ -320,8 +325,8 @@ email|email, email_verified
 phone| phone_number, phone_number_verified
 address|address, with subfields,<br>street_address (newline separator \n)<br> locality <br> postal_code <br> country
 
-<aside class="success">Is it expected that the scope "eid" was not mentioned in the supported scopes?
-The “eid” scope was introduced exclusively for FAS (BOSSA). </aside>
+<aside class="success"> The reason why ''eiThe “eid” scope was introduced exclusively for FAS (BOSSA).Is it expected that the scope "eid" was not mentioned in the supported scopes?
+ </aside>
 
 #### 4.2.1.2 Example of an Authorization Request using "scope" values
 URL:
@@ -748,9 +753,10 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDA4MDQ2MDEsMTA3NzE0NDMzNSw5OTA4Mz
-U0NzUsMzEzMTAyMDM3LDQzMjkzMjE5NiwtMTUxNDAwMzcxOCwz
-NzUwNjAwMTMsLTE5MTc1ODkyMTEsMjExNDg4Njk0LC0xMzcyMj
-M2MTQ1LDc5MjY3MDQ3MywtMTk0MDY0NzcyMiwxMzc5MjY4MDY5
-LDY1NjA5MjAyOCwtMjA5MzM1Mjc5OCwxMzU3MDAwNTg2XX0=
+eyJoaXN0b3J5IjpbMTQ4NDQ1MjgyOCwxMDc3MTQ0MzM1LDk5MD
+gzNTQ3NSwzMTMxMDIwMzcsNDMyOTMyMTk2LC0xNTE0MDAzNzE4
+LDM3NTA2MDAxMywtMTkxNzU4OTIxMSwyMTE0ODg2OTQsLTEzNz
+IyMzYxNDUsNzkyNjcwNDczLC0xOTQwNjQ3NzIyLDEzNzkyNjgw
+NjksNjU2MDkyMDI4LC0yMDkzMzUyNzk4LDEzNTcwMDA1ODZdfQ
+==
 -->
