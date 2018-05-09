@@ -40,6 +40,7 @@ All pending approval/login will result in a "Wrong PIN".
 
 The purpose of using our certificate is to retrieve your JWKSet. Therefore BMID needs the root, the intermediate CA and the final public certifiate of yours. There is no need for your client certificate.
 
+- In production, due to BMID needs the certificate &
 - For testing, you could use a self signed certificate like that you could define validity period.
 
 - <aside class="success">Should I notify BMID if the certificate is changed? </aside>
@@ -748,6 +749,6 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAzNTc5NDkyLDEzNzkyNjgwNjksNjU2MD
-kyMDI4LC0yMDkzMzUyNzk4LDEzNTcwMDA1ODZdfQ==
+eyJoaXN0b3J5IjpbLTExOTMwMDQ2OTMsMTM3OTI2ODA2OSw2NT
+YwOTIwMjgsLTIwOTMzNTI3OTgsMTM1NzAwMDU4Nl19
 -->
