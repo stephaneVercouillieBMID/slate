@@ -54,12 +54,12 @@ The purpose of using our certificate is to retrieve your JWKSet. Therefore BMID 
 
 <aside class="notice">BMID must be notified on time if the certificate is changed.</aside>
 
-About self-signed certificate:
-
+About self-signing:
+- The key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.
 - In production, it is not possible to use a self-signed certificate for the integration due to BMID needs the certificate & its intermediate chain.
 - For testing/Sandbox you can use a self signed certificate like that you could define validity period.
 
-<aside class="warning"> On the HTTPS protocol level, the connections must be secured using trusted Root CA (not self-signed). In contrary, the key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.
+<aside class="warning"> On the HTTPS protocol level, t (not self-signed). In contrary, 
 
 ### 2.1.2.  About JWKSet, JWKSet URIs, Callback-Redirect URLs
 
@@ -756,7 +756,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODk0OTEzMDMwLDU0NjQ1Mzk1MywxMDc3MT
+eyJoaXN0b3J5IjpbMzM2MDQ5NjU3LDU0NjQ1Mzk1MywxMDc3MT
 Q0MzM1LDk5MDgzNTQ3NSwzMTMxMDIwMzcsNDMyOTMyMTk2LC0x
 NTE0MDAzNzE4LDM3NTA2MDAxMywtMTkxNzU4OTIxMSwyMTE0OD
 g2OTQsLTEzNzIyMzYxNDUsNzkyNjcwNDczLC0xOTQwNjQ3NzIy
