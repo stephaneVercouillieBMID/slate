@@ -305,12 +305,14 @@ Using this method, you will always receive Claims from the UserInfo Endpoint.
 <aside class="success">Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>
 
 The following scope values are supported and allow access to predefined sets of Identity Data:
+
 Scope Value | Associated Claims
 --|--|
 profile | given_name, family_name, gender, birthdate,  locale
 email|email, email_verified
 phone| phone_number, phone_number_verified
 address|address, with subfields,<br>street_address (newline separator \n)<br> locality <br> postal_code <br> country
+
 <aside class="success">Is it expected that the scope "eid" was not mentioned in the supported scopes?
 The “eid” scope was introduced exclusively for FAS (BOSSA). </aside>
 
@@ -359,6 +361,7 @@ Device | **`tag:sixdots.be,2017-05:claim_device`** | [Specifications](#deviceCla
 Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |[Specifications](#transactionInfo) and [an example of usage](#transactionInfoExample) 
 E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
 NRN | not supported|
+
 <aside class="success"> Taking into account that you are allowed to receive the NRN from BMID, BMID can't and get access to NRN and block the access to the eID group</aside>
  
 #### <b id="example-endpoint"></b> 4.2.2.1. Set of Request Parameter Adapted to itsme(r)
@@ -721,5 +724,5 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNzAzNzUyMzYsLTEwNTc3MjMyMV19
+eyJoaXN0b3J5IjpbLTkwMzU0MTMyNiwtMTA1NzcyMzIxXX0=
 -->
