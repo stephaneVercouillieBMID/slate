@@ -30,6 +30,14 @@ Before you can start working on the integration of itsme(r) services, we need to
 - Redirect URIs associated to your instances of itsme(r) services (to which the user will be redirected after the authentication)
 - JWKSet URL, and associated SSL/TLS certificate
 
+<aside class="notice">
+Once your Sandbox is created, you will receive:
+<ul> 
+<li>Your Partner Code, which corresponds to the OpenID <b>client_id</b></li>
+<li>Your Service Codes, which are the identifiers of your instances of itsme(r) services. </li>
+</ul>
+</aside>
+
 <aside class="success">What are the consequences of changing a label in Sandbox environment? </aside>
 
 All pending approval/login will result in a "Wrong PIN".
@@ -57,13 +65,7 @@ BMID Support must be notified immediately in order to create a new certificate.
 While it is possible to register several redirect URLs but not possible to register several JWKSet URLs. 
 The redirect URL is specified in each Authorization request, the User will be redirected to that URL after the (failed or successful) authentication in the itsme App. You need to specify it in the onboarding file because it needs to be whitelisted by our F5. We can whitelist several urls. The jwkset urls, however, is used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know what URL to contact, and thus we can register only one JWKSet URL.
 
-<aside class="notice">
-Once your Sandbox is created, you will receive:
-<ul> 
-<li>Your Partner Code, which corresponds to the OpenID <b>client_id</b></li>
-<li>Your Service Codes, which are the identifiers of your instances of itsme(r) services. </li>
-</ul>
-</aside>
+
 <aside class="notice">Please consult <a name="ServiceCode"></a> for more information about the notion of Service Code.</aside>
 <aside class="success">What are the consequences of a changing label in sandbox environment?</aside>
 All pending approval/login will result in a "Wrong PIN".
@@ -744,6 +746,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDA2NDc3MjIsMTM3OTI2ODA2OSw2NT
-YwOTIwMjgsLTIwOTMzNTI3OTgsMTM1NzAwMDU4Nl19
+eyJoaXN0b3J5IjpbLTE3NjkzNjk3NCwtMTk0MDY0NzcyMiwxMz
+c5MjY4MDY5LDY1NjA5MjAyOCwtMjA5MzM1Mjc5OCwxMzU3MDAw
+NTg2XX0=
 -->
