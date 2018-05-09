@@ -232,8 +232,8 @@ GET /oidc/authorization?response_type=code
 The Token Request must include the following parameters in the POST body:
 
 Parameter | Required | Comment
--- | -- | --
-**grant_type** | Required | Must be `authorization_code`. 
+--| -- |--
+**grant_type** | Required | Must be `authorization_code`
 **code** | Required | The code value provided in the Authentication Response
 **redirect_uri** | Required | The **redirect_uri** used in the Authentication Request. This is the URL to which you want the user to be redirected after the authorization is complete.
 **client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` client authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
@@ -746,7 +746,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzQ1NTI5NjIyLC0xNTE0MDAzNzE4LDM3NT
+eyJoaXN0b3J5IjpbNDMyOTMyMTk2LC0xNTE0MDAzNzE4LDM3NT
 A2MDAxMywtMTkxNzU4OTIxMSwyMTE0ODg2OTQsLTEzNzIyMzYx
 NDUsNzkyNjcwNDczLC0xOTQwNjQ3NzIyLDEzNzkyNjgwNjksNj
 U2MDkyMDI4LC0yMDkzMzUyNzk4LDEzNTcwMDA1ODZdfQ==
