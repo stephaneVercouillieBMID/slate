@@ -29,11 +29,12 @@ Before you can start working on the integration of itsme(r) services, we need to
 - Information to customize the user consent screen
 - Redirect URIs associated to your instances of itsme(r) services. 
 
-<aside class="info"> Redirect URI: User will be redirected to that URL after the (failed or successful) authentication in the itsme App. </aside>
+<aside class="notice"> Redirect URI: User will be redirected to that URL after the (failed or successful) authentication in the itsme App. </aside>
 
 <aside class="notice"> You must specify the Redirect URI in the onboarding file because it needs to be whitelisted by our F5. Multiple URLs can be whitelisted by BMID. </aside>
 
 - JWKSet URL, and associated SSL/TLS certificate
+
 <aside class="warning">It is not possible to register multiple JWKSet URLs for one environment.</aside>
 
 Once your Sandbox is created, you will receive:
@@ -748,9 +749,9 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjkyNzU3NzI4LDk5MDgzNTQ3NSwzMTMxMD
-IwMzcsNDMyOTMyMTk2LC0xNTE0MDAzNzE4LDM3NTA2MDAxMywt
-MTkxNzU4OTIxMSwyMTE0ODg2OTQsLTEzNzIyMzYxNDUsNzkyNj
-cwNDczLC0xOTQwNjQ3NzIyLDEzNzkyNjgwNjksNjU2MDkyMDI4
-LC0yMDkzMzUyNzk4LDEzNTcwMDA1ODZdfQ==
+eyJoaXN0b3J5IjpbLTEwODc2Nzc2MDQsOTkwODM1NDc1LDMxMz
+EwMjAzNyw0MzI5MzIxOTYsLTE1MTQwMDM3MTgsMzc1MDYwMDEz
+LC0xOTE3NTg5MjExLDIxMTQ4ODY5NCwtMTM3MjIzNjE0NSw3OT
+I2NzA0NzMsLTE5NDA2NDc3MjIsMTM3OTI2ODA2OSw2NTYwOTIw
+MjgsLTIwOTMzNTI3OTgsMTM1NzAwMDU4Nl19
 -->
