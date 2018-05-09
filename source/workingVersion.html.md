@@ -210,9 +210,10 @@ As per the [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.
 
 The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the **token_endpoint** key. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. 
 
-<aside class="success"> To reach out Token Endpoint;Request MUST be a POST, not a GET request. In header the Content-Type : application/x-www-form-urlencoded  MUST be added
+<aside class="success"> To reach out Token Endpoint, request MUST be a POST, not a GET request. In header the Content-Type : application/x-www-form-urlencoded MUST be present.</aside>
 
-<aside class="success">Do you need an App Client Secret on the OpenID client?</aside> OpenID allows multiple ways for authentication as a Service Provider. BMID only supports private_key_jwt as client authentication method with all the SSL requirements exposed via JWKSet, use the corresponding private key to encrypt/sign and decrypt/validate exchanged information. So other authentication methods such client_secret (Open ID Connect default method but the less secured one are not supported since they are considered less secure. 
+<aside class="success">Do you need an App Client Secret on the OpenID client?
+</aside> OpenID allows multiple ways for authentication as a Service Provider. BMID only supports private_key_jwt as client authentication method with all the SSL requirements exposed via JWKSet, use the corresponding private key to encrypt/sign and decrypt/validate exchanged information. So other authentication methods such client_secret (Open ID Connect default method but the less secured one are not supported since they are considered less secure. 
 
 <aside class="notice"> In order to communicate with Token Endpoint, TLS MUST be implemented. See http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements 16.17 for more information on using TLS. </aside>
 
@@ -269,6 +270,7 @@ As per <a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorR
 The concept of claim is about declaring something you expect as return from the OP. When it comes to end user data, you have to use claims in order to declare the end user data you will need for your business before the authentication. This is a privacy-oriented way of getting data.
 Technically, you have to declare the claims in the Authorization Request in the way described in the section [Declaring Claims](#decClaim).
 Claims will come as name/value pairs packaged in a JSON object that contain information about a user, as well as meta-information about the OIDC service. The official definition from the spec is a [“piece of information asserted about an Entity.”](http://openid.net/specs/openid-connect-core-1_0.html#Terminology)
+
 ### 4.1.1. Claim Types
 Three representations of Claim Values are defined officially: 
 - Normal Claims
@@ -746,10 +748,9 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzMDU4MjQ4OCwxMDc3MTQ0MzM1LDk5MD
-gzNTQ3NSwzMTMxMDIwMzcsNDMyOTMyMTk2LC0xNTE0MDAzNzE4
-LDM3NTA2MDAxMywtMTkxNzU4OTIxMSwyMTE0ODg2OTQsLTEzNz
-IyMzYxNDUsNzkyNjcwNDczLC0xOTQwNjQ3NzIyLDEzNzkyNjgw
-NjksNjU2MDkyMDI4LC0yMDkzMzUyNzk4LDEzNTcwMDA1ODZdfQ
-==
+eyJoaXN0b3J5IjpbNDA4MDQ2MDEsMTA3NzE0NDMzNSw5OTA4Mz
+U0NzUsMzEzMTAyMDM3LDQzMjkzMjE5NiwtMTUxNDAwMzcxOCwz
+NzUwNjAwMTMsLTE5MTc1ODkyMTEsMjExNDg4Njk0LC0xMzcyMj
+M2MTQ1LDc5MjY3MDQ3MywtMTk0MDY0NzcyMiwxMzc5MjY4MDY5
+LDY1NjA5MjAyOCwtMjA5MzM1Mjc5OCwxMzU3MDAwNTg2XX0=
 -->
