@@ -34,6 +34,10 @@ Before you can start working on the integration of itsme(r) services, we need to
 
 - You must specify the Redirect URI in the onboarding file because it needs to be whitelisted by our F5. Multiple URLs can be whitelisted by BMID. 
 
+<aside class="success"> When the end-user is redirected to itsme in the browser, we specify a redirect_uri afterwards. We have to provide BMID the Redirect URIs. Can we give additional parameters? Or does the entire redirect_uri need to match?”**
+
+The entire redirect_uri must match therefore no additional parameter is allowed.
+
 <aside class="warning"> BMID can register only one JWKSet URL. It is not possible to register multiple JWKSet URLs for one environment.</aside>
 
 Once your Sandbox is created, you will receive:
@@ -725,10 +729,6 @@ First, you need to  validate that you are able (and **authorized**) to keep the 
 We are sending the user information not through an app but to a highly authenticated server (which implies to put in place necessary measure to protect the data confidentiality)  
 This condition implies the need to put in place a back end layer on your side.  
 
-**When the end-user is redirected to itsme in the browser, we specify a redirect_uri afterwards. We have to provide BMID the Redirect URIs. Can we give additional parameters? Or does the entire redirect_uri need to match?”**
-
-The entire redirect_uri must match therefore no additional parameter is allowed.
-
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTkyNDAxNDExNywxMzc4MTU5MDU1LDUzND
 U2NDc3MywxMjA0MDY2Mzc4LDE1NDM0MTExNTQsLTY2OTk5OTIw
@@ -742,10 +742,10 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDU0NzgzNzQwLDU0NjQ1Mzk1MywxMDc3MT
-Q0MzM1LDk5MDgzNTQ3NSwzMTMxMDIwMzcsNDMyOTMyMTk2LC0x
-NTE0MDAzNzE4LDM3NTA2MDAxMywtMTkxNzU4OTIxMSwyMTE0OD
-g2OTQsLTEzNzIyMzYxNDUsNzkyNjcwNDczLC0xOTQwNjQ3NzIy
-LDEzNzkyNjgwNjksNjU2MDkyMDI4LC0yMDkzMzUyNzk4LDEzNT
-cwMDA1ODZdfQ==
+eyJoaXN0b3J5IjpbLTEyMjM5MDgwNjQsNTQ2NDUzOTUzLDEwNz
+cxNDQzMzUsOTkwODM1NDc1LDMxMzEwMjAzNyw0MzI5MzIxOTYs
+LTE1MTQwMDM3MTgsMzc1MDYwMDEzLC0xOTE3NTg5MjExLDIxMT
+Q4ODY5NCwtMTM3MjIzNjE0NSw3OTI2NzA0NzMsLTE5NDA2NDc3
+MjIsMTM3OTI2ODA2OSw2NTYwOTIwMjgsLTIwOTMzNTI3OTgsMT
+M1NzAwMDU4Nl19
 -->
