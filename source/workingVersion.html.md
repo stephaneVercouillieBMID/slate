@@ -53,19 +53,21 @@ About self-signed certificate:
 - In production, it is not possible to use a self-signed certificate for the integration due to BMID needs the certificate & its intermediate chain.
 - For testing/Sandbox you can use a self signed certificate like that you could define validity period.
 
-### 2.1.2.  About JWKSet/JWKSet URIs/Callback URLs
+### 2.1.2.  About JWKSet/JWKSet URIs/Callback/Redirect URLs
 
 Once your Sandbox is created and the your Partner code is provided to you, for one Partner code you will have maximum 1 JWKSet.
 
-When you change the JWKSet URL, BMID Support must be notified immediately in order to create a new certificate.
+When your JWKSet URL changes, BMID Support must be notified immediately in order to create a new certificate.
 
+
+The redirect URL is specified in each Authorization request, the User will be redirected to that URL after the (failed or successful) authentication in the itsme App.
 
 
 <aside class="success"> Is it possible to register multiple valid callback URIs/JWKSet URIs for one environment? Or does it need to be changed whenever URIs are switched?</aside>
 
 While it is possible to register several redirect URLs but not possible to register several JWKSet URLs. 
 
-The redirect URL is specified in each Authorization request, the User will be redirected to that URL after the (failed or successful) authentication in the itsme App. You need to specify it in the onboarding file because it needs to be whitelisted by our F5. We can whitelist several urls. The jwkset urls, however, is used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know what URL to contact, and thus we can register only one JWKSet URL.
+
 
 <aside class="notice">Please consult <a name="ServiceCode"></a> for more information about the notion of Service Code.</aside>
 
@@ -745,8 +747,8 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjM0NjAxOTcsLTE5MTc1ODkyMTEsMj
-ExNDg4Njk0LC0xMzcyMjM2MTQ1LDc5MjY3MDQ3MywtMTk0MDY0
-NzcyMiwxMzc5MjY4MDY5LDY1NjA5MjAyOCwtMjA5MzM1Mjc5OC
-wxMzU3MDAwNTg2XX0=
+eyJoaXN0b3J5IjpbNzI2NDI2MTUyLC0xOTE3NTg5MjExLDIxMT
+Q4ODY5NCwtMTM3MjIzNjE0NSw3OTI2NzA0NzMsLTE5NDA2NDc3
+MjIsMTM3OTI2ODA2OSw2NTYwOTIwMjgsLTIwOTMzNTI3OTgsMT
+M1NzAwMDU4Nl19
 -->
