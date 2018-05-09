@@ -30,7 +30,9 @@ Before you can start working on the integration of itsme(r) services, we need to
 - Redirect URIs associated to your instances of itsme(r) services. 
 
 <aside class="success"> Redirect URI: User will be redirected to that URL after the (failed or successful) authentication in the itsme App. </aside>
-You must specify the Redirect URI in the onboarding file because it needs to be whitelisted by our F5.)
+
+<aside class="notice"> You must specify the Redirect URI in the onboarding file because it needs to be whitelisted by our F5. </aside>
+
 - JWKSet URL, and associated SSL/TLS certificate
 
 <aside class="notice">
@@ -750,7 +752,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczNDEwNjc1OSwtMTkxNzU4OTIxMSwyMT
+eyJoaXN0b3J5IjpbMTQwNTg0MzU5MiwtMTkxNzU4OTIxMSwyMT
 E0ODg2OTQsLTEzNzIyMzYxNDUsNzkyNjcwNDczLC0xOTQwNjQ3
 NzIyLDEzNzkyNjgwNjksNjU2MDkyMDI4LC0yMDkzMzUyNzk4LD
 EzNTcwMDA1ODZdfQ==
