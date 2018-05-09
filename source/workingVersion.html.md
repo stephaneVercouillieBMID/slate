@@ -56,11 +56,11 @@ About self-signed certificate:
 ### 2.1.2.  About JWKSet 
 Once your Sandbox is created and the your Partner code is provided to you, for one Partner code you will have maximum 1 JWKSet.
 
-
+Once you chanf
 
 <aside class="success"> Does a same service point to separate SSL Certificates?</aside>
 
- Therefore for one Partner code you have maximum 1 JWKSet.
+
 
 <aside class="success"> What is the next step after changing the JWKSet URL?</aside>
 
@@ -750,7 +750,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ3NTUzMjQyLDIxMTQ4ODY5NCwtMTM3Mj
+eyJoaXN0b3J5IjpbOTc4NTc0MzkyLDIxMTQ4ODY5NCwtMTM3Mj
 IzNjE0NSw3OTI2NzA0NzMsLTE5NDA2NDc3MjIsMTM3OTI2ODA2
 OSw2NTYwOTIwMjgsLTIwOTMzNTI3OTgsMTM1NzAwMDU4Nl19
 -->
