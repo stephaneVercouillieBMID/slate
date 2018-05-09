@@ -34,7 +34,7 @@ Before you can start working on the integration of itsme(r) services, we need to
 <aside class="notice"> You must specify the Redirect URI in the onboarding file because it needs to be whitelisted by our F5. Multiple URLs can be whitelisted by BMID. </aside>
 
 - JWKSet URL, and associated SSL/TLS certificate
-It is not possible to register multiple JWKSet URLs for one environment.
+<aside class="notice">It is not possible to register multiple JWKSet URLs for one environment.
 
 <aside class="notice">
 Once your Sandbox is created, you will receive:
@@ -747,7 +747,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4ODgzMzYyOSwtMTkxNzU4OTIxMSwyMT
+eyJoaXN0b3J5IjpbMTk4NzAxNDE4OCwtMTkxNzU4OTIxMSwyMT
 E0ODg2OTQsLTEzNzIyMzYxNDUsNzkyNjcwNDczLC0xOTQwNjQ3
 NzIyLDEzNzkyNjgwNjksNjU2MDkyMDI4LC0yMDkzMzUyNzk4LD
 EzNTcwMDA1ODZdfQ==
