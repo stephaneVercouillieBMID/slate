@@ -37,7 +37,6 @@ Once your Sandbox is created, you will receive:
 <li>Your Service Codes, which are the identifiers of your instances of itsme(r) services. </li>
 </ul>
 </aside>
-
 <aside class="success">What are the consequences of changing a label in Sandbox environment? </aside>
 
 All pending approval/login will result in a "Wrong PIN".
@@ -67,8 +66,6 @@ The redirect URL is specified in each Authorization request, the User will be re
 
 
 <aside class="notice">Please consult <a name="ServiceCode"></a> for more information about the notion of Service Code.</aside>
-<aside class="success">What are the consequences of a changing label in sandbox environment?</aside>
-All pending approval/login will result in a "Wrong PIN".
 
 ## 2.2. Integration of itsme® services
 Once your Sandbox has been created, you can start working on the integration itself. All the information needed to do so is the object of this
@@ -746,7 +743,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NjkzNjk3NCwtMTk0MDY0NzcyMiwxMz
+eyJoaXN0b3J5IjpbMTY2MDQxNjg2MywtMTk0MDY0NzcyMiwxMz
 c5MjY4MDY5LDY1NjA5MjAyOCwtMjA5MzM1Mjc5OCwxMzU3MDAw
 NTg2XX0=
 -->
