@@ -234,6 +234,7 @@ Parameter | Required | Comment
 
 #### 3.2.2.1. `client_assertion` 
 According to the `private_key_jwt` client authentication method, the **client assertion** JWT must contain the following properties:
+
 Property | Comment
 -- |--
 **iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID).
@@ -728,5 +729,5 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1NzAwMDU4Nl19
+eyJoaXN0b3J5IjpbMjUwOTE5MzUyLDEzNTcwMDA1ODZdfQ==
 -->
