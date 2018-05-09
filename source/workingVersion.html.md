@@ -365,6 +365,7 @@ NRN | not supported|
 <aside class="success"> Taking into account that you are allowed to receive the NRN from BMID, BMID can't and get access to NRN and block the access to the eID group</aside>
  
 #### <b id="example-endpoint"></b> 4.2.2.1. Set of Request Parameter Adapted to itsme(r)
+
 ```json--inline
  {
     "userinfo":
@@ -424,6 +425,7 @@ Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_devic
  	"sdkRelease": "1.17.12"  
  }
  ```
+ 
 #### <a name id="deviceClaim"></a> 4.2.2.2. Device Claim 
 This claim is the information about the end user device. 
 
@@ -724,5 +726,5 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkwMzU0MTMyNiwtMTA1NzcyMzIxXX0=
+eyJoaXN0b3J5IjpbMTA4MDY1NTU1NCwtMTA1NzcyMzIxXX0=
 -->
