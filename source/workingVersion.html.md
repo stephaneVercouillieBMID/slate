@@ -28,7 +28,8 @@ Before you can start working on the integration of itsme(r) services, we need to
 
 - Information to customize the user consent screen
 - Redirect URIs associated to your instances of itsme(r) services. 
-(Redirect URI: User will be redirected to that URL after the (failed or successful) authentication in the itsme App.)  
+
+<aside class="success"> Redirect URI: User will be redirected to that URL after the (failed or successful) authentication in the itsme App. </aside>
 You must specify the Redirect URI in the onboarding file because it needs to be whitelisted by our F5.)
 - JWKSet URL, and associated SSL/TLS certificate
 
@@ -749,7 +750,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2OTYwNzEwMSwtMTkxNzU4OTIxMSwyMT
+eyJoaXN0b3J5IjpbMTczNDEwNjc1OSwtMTkxNzU4OTIxMSwyMT
 E0ODg2OTQsLTEzNzIyMzYxNDUsNzkyNjcwNDczLC0xOTQwNjQ3
 NzIyLDEzNzkyNjgwNjksNjU2MDkyMDI4LC0yMDkzMzUyNzk4LD
 EzNTcwMDA1ODZdfQ==
