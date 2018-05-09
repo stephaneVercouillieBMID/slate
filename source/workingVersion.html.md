@@ -247,7 +247,7 @@ Property | Comment
 The Token Response follow these specifications:
 
 Parameter | Provided | Comment
--- | -- | :--
+-- | -- | --
 **[`access_token`](#actoken)** | Always | Will be provided. 
 **[`token_type`](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)** | Always | Will be `Bearer`
 **[`id_token`](#idtoken)** | Always | The id_token corresponding to the Authentication Request (signed and  encrypted). 
@@ -729,5 +729,5 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjUwOTE5MzUyLDEzNTcwMDA1ODZdfQ==
+eyJoaXN0b3J5IjpbLTE0MDczMjQ5NTQsMTM1NzAwMDU4Nl19
 -->
