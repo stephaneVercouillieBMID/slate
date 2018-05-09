@@ -391,8 +391,9 @@ NRN | not supported|
 As per specified by OpenID Connect, there is a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), or user attributes. They are intended to supply the client app with consented user details such as email, name and picture, upon request.  They can be requested to be returned either in the UserInfo Response, per [Section 5.3.2](https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse), or in the ID Token, per [Section 2](https://openid.net/specs/openid-connect-core-1_0.html#IDToken).
 
 Here following table lists the supported standard "claim" values, 
+
 Member  |Type  |Description
-|--|--|--|
+--|--|--
 name |string|Subject - Identifier for the End-User at the Issuer.
 given_name|string|  Given name(s) or first name(s) of the End-User. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.
 family_name|string|Surname(s) or last name(s) of the End-User. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.
@@ -729,5 +730,6 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwOTMzNTI3OTgsMTM1NzAwMDU4Nl19
+eyJoaXN0b3J5IjpbLTEyNjQwNDQ5MiwtMjA5MzM1Mjc5OCwxMz
+U3MDAwNTg2XX0=
 -->
