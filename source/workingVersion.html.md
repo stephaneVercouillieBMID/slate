@@ -32,10 +32,12 @@ Before you can start working on the integration of itsme(r) services, we need to
 - JWKSet URL, and associated SSL/TLS certificate
 <aside class="notice">You can consult <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">our B2B portal</a> for furher information about this step.</aside>
 <aside class="success"> What is the use of our Certificate? </aside>
+
 Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
 
 For testing, you could use a self signed certificate like that you could define validity period.
 <aside class="success">Should I notify BMID if the certificate is changed? </aside>
+
 Yes, BMID must be notified on time.
 <aside class="success">What are the consequences of changing a label in Sandbox environment? </aside>
 At the moment it's done, all pending approval/login will result in a "Wrong PIN".
@@ -739,6 +741,6 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEyMjc5NDkyLC0yMDkzMzUyNzk4LDEzNT
-cwMDA1ODZdfQ==
+eyJoaXN0b3J5IjpbLTE0NTU4NTMxNTIsLTIwOTMzNTI3OTgsMT
+M1NzAwMDU4Nl19
 -->
