@@ -33,7 +33,7 @@ Before you can start working on the integration of itsme(r) services, we need to
 
 ### 2.1.1. Certificates
 
-
+To retrieve 
 <aside class="success"> What is the use of our Certificate? </aside>
 
 Certificate is used to retrieve your JWKSet. We don't need client certificate but we need the root, the intermediate CA and the final public certificate.  
@@ -746,6 +746,6 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NzM4NjExMjIsMTM3OTI2ODA2OSw2NT
+eyJoaXN0b3J5IjpbLTEzNjU3NTg1OTMsMTM3OTI2ODA2OSw2NT
 YwOTIwMjgsLTIwOTMzNTI3OTgsMTM1NzAwMDU4Nl19
 -->
