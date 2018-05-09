@@ -80,14 +80,13 @@ To simplify implementations and increase flexibility, OpenID Connect allows the 
 - userinfo, 
 - supported claims 
 - [JWKSet](#jwks) to interact with it. 
+
+<aside class="success"> BMID will create new services for the OIDC, it is not possible to use the same service for another environment</aside>
  
 The Discovery document for itsme® service may be retrieved from: https://merchant.itsme.be/oidc/.well-known/openid-configuration
 
 Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
-<aside class="success"> BMID will create new services for the OIDC, it is not poss use the same service for another environment?</aside>
-
-No, .
 
 # 3. Authenticating the User
 
@@ -746,9 +745,9 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDY3NzU4Niw0MzI5MzIxOTYsLTE1MT
-QwMDM3MTgsMzc1MDYwMDEzLC0xOTE3NTg5MjExLDIxMTQ4ODY5
-NCwtMTM3MjIzNjE0NSw3OTI2NzA0NzMsLTE5NDA2NDc3MjIsMT
-M3OTI2ODA2OSw2NTYwOTIwMjgsLTIwOTMzNTI3OTgsMTM1NzAw
-MDU4Nl19
+eyJoaXN0b3J5IjpbMzEzMTAyMDM3LDQzMjkzMjE5NiwtMTUxND
+AwMzcxOCwzNzUwNjAwMTMsLTE5MTc1ODkyMTEsMjExNDg4Njk0
+LC0xMzcyMjM2MTQ1LDc5MjY3MDQ3MywtMTk0MDY0NzcyMiwxMz
+c5MjY4MDY5LDY1NjA5MjAyOCwtMjA5MzM1Mjc5OCwxMzU3MDAw
+NTg2XX0=
 -->
