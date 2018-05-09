@@ -34,9 +34,7 @@ Before you can start working on the integration of itsme(r) services, we need to
 
 - You must specify the Redirect URI in the onboarding file because it needs to be whitelisted by our F5. Multiple URLs can be whitelisted by BMID. 
 
-<aside class="success"> To redirect the end-user to itsme in the browser, you provide  BMID specifies redirect_uri. The entire redirect_uri must match therefore no additional parameter is allowed. To rediWhen the end-user is redirected to itsme in the browser, we specify a redirect_uri afterwards. We have to provide BMID the Redirect URIs. Can we give additional parameters? Or does the entire redirect_uri need to match?”**
-
-
+<aside class="warning"> To redirect the end-user to itsme in the browser, you provide  Redirect URIs and BMID specifies redirect_uri. Additional parameters are not allowed and entire redirect_uri must match.
 
 <aside class="warning"> BMID can register only one JWKSet URL. It is not possible to register multiple JWKSet URLs for one environment.</aside>
 
@@ -742,7 +740,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc4NzYxODUzOSw1NDY0NTM5NTMsMTA3Nz
+eyJoaXN0b3J5IjpbLTg1MDIyMzE0NCw1NDY0NTM5NTMsMTA3Nz
 E0NDMzNSw5OTA4MzU0NzUsMzEzMTAyMDM3LDQzMjkzMjE5Niwt
 MTUxNDAwMzcxOCwzNzUwNjAwMTMsLTE5MTc1ODkyMTEsMjExND
 g4Njk0LC0xMzcyMjM2MTQ1LDc5MjY3MDQ3MywtMTk0MDY0Nzcy
