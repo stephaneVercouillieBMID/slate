@@ -56,15 +56,10 @@ About self-signed certificate:
 ### 2.1.2.  About JWKSet 
 Once your Sandbox is created and the your Partner code is provided to you, for one Partner code you will have maximum 1 JWKSet.
 
-Once you chanf
+Once you change the JWKSet URL, BMID Support must be notified immediately in order to create a new certificate.
 
 <aside class="success"> Does a same service point to separate SSL Certificates?</aside>
 
-
-
-<aside class="success"> What is the next step after changing the JWKSet URL?</aside>
-
-BMID Support must be notified immediately in order to create a new certificate.
 
 <aside class="success"> Is it possible to register multiple valid callback URIs/JWKSet URIs for one environment? Or does it need to be change whenever URIs are switched?</aside>
 
@@ -750,7 +745,8 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTc4NTc0MzkyLDIxMTQ4ODY5NCwtMTM3Mj
-IzNjE0NSw3OTI2NzA0NzMsLTE5NDA2NDc3MjIsMTM3OTI2ODA2
-OSw2NTYwOTIwMjgsLTIwOTMzNTI3OTgsMTM1NzAwMDU4Nl19
+eyJoaXN0b3J5IjpbLTE5MTc1ODkyMTEsMjExNDg4Njk0LC0xMz
+cyMjM2MTQ1LDc5MjY3MDQ3MywtMTk0MDY0NzcyMiwxMzc5MjY4
+MDY5LDY1NjA5MjAyOCwtMjA5MzM1Mjc5OCwxMzU3MDAwNTg2XX
+0=
 -->
