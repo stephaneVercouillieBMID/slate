@@ -23,12 +23,16 @@ The objective of this document is to provide all the information needed to integ
  
 - The configuration of your Sandbox
 - The integration of itsme(r) services
-## 2.1. Configuration of your Sandbox
+## 2.1. Configuring your Sandbox Environment
 Before you can start working on the integration of itsme(r) services, we need to create your Sandbox in which the integration takes place. Your company will provide us both functional and technical information we will use to create your Sandbox. These information include (not exhaustively):
 
 - Information to customize the user consent screen
 - Redirect URIs associated to your instances of itsme(r) services (to which the user will be redirected after the authentication)
 - JWKSet URL, and associated SSL/TLS certificate
+
+<aside class="success">What are the consequences of changing a label in Sandbox environment? </aside>
+
+All pending approval/login will result in a "Wrong PIN".
 
 <aside class="notice">You can consult <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">our B2B portal</a> for furher information about this step.</aside>
 
@@ -41,9 +45,8 @@ The purpose of using our certificate is to retrieve your JWKSet. Therefore BMID 
 - <aside class="success">Should I notify BMID if the certificate is changed? </aside>
 
 Yes, BMID must be notified on time.
-<aside class="success">What are the consequences of changing a label in Sandbox environment? </aside>
 
-At the moment it's done, all pending approval/login will result in a "Wrong PIN".
+
 <aside class="success"> Does a same service point to separate SSL Certificates?</aside>
 
 Currently, the certificate is used to protect the JWKSet and it is not directly linked to the SSL certificate, therefore for one Partner code you have maximum 1 JWKSet.
@@ -745,6 +748,6 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0NzI2MzI2LDEzNzkyNjgwNjksNjU2MD
+eyJoaXN0b3J5IjpbMjAzNTc5NDkyLDEzNzkyNjgwNjksNjU2MD
 kyMDI4LC0yMDkzMzUyNzk4LDEzNTcwMDA1ODZdfQ==
 -->
