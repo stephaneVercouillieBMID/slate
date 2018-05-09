@@ -57,6 +57,7 @@ The purpose of using our certificate is to retrieve your JWKSet. Therefore BMID 
 About self-signed certificate:
 - In production, it is not possible to use a self-signed certificate for the integration due to BMID needs the certificate & its intermediate chain.
 - For testing/Sandbox you can use a self signed certificate like that you could define validity period.
+- on the HTTPS protocol level, the connections must be secured using trusted Root CA (not self-signed). In contrary, the key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.
 
 **For signature and encryption, does BMID accept either RP self-signed certificates or certificates signed by an internal PKI (in which case we need to provide also our internal CA certificate)?”**
 
@@ -69,7 +70,7 @@ This HTTPS URL must be protected using a valid certificates chain starting from 
 
 During on-boarding, we can check that we have all the required certificates to establish the trust.
 
-So, on the HTTPS protocol level, the connections must be secured using trusted Root CA (not self-signed). In contrary, the key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.
+So, 
 
 
 ### 2.1.2.  About JWKSet, JWKSet URIs, Callback-Redirect URLs
@@ -761,10 +762,10 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMDYzNzU2NTUsNTQ2NDUzOTUzLDEwNz
-cxNDQzMzUsOTkwODM1NDc1LDMxMzEwMjAzNyw0MzI5MzIxOTYs
-LTE1MTQwMDM3MTgsMzc1MDYwMDEzLC0xOTE3NTg5MjExLDIxMT
-Q4ODY5NCwtMTM3MjIzNjE0NSw3OTI2NzA0NzMsLTE5NDA2NDc3
-MjIsMTM3OTI2ODA2OSw2NTYwOTIwMjgsLTIwOTMzNTI3OTgsMT
-M1NzAwMDU4Nl19
+eyJoaXN0b3J5IjpbLTIwNjc4OTczOCw1NDY0NTM5NTMsMTA3Nz
+E0NDMzNSw5OTA4MzU0NzUsMzEzMTAyMDM3LDQzMjkzMjE5Niwt
+MTUxNDAwMzcxOCwzNzUwNjAwMTMsLTE5MTc1ODkyMTEsMjExND
+g4Njk0LC0xMzcyMjM2MTQ1LDc5MjY3MDQ3MywtMTk0MDY0Nzcy
+MiwxMzc5MjY4MDY5LDY1NjA5MjAyOCwtMjA5MzM1Mjc5OCwxMz
+U3MDAwNTg2XX0=
 -->
