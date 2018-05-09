@@ -210,7 +210,7 @@ As per the [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.
 
 The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the **token_endpoint** key. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. 
 
-<aside class="success">Which information must be present to contact Token Endpoint?</aside> Request MUST be a POST, not a GET request. In header the Content-Type : application/x-www-form-urlencoded  MUST be added
+<aside class="success"> To reach out Token Endpoint;Request MUST be a POST, not a GET request. In header the Content-Type : application/x-www-form-urlencoded  MUST be added
 
 <aside class="success">Do you need an App Client Secret on the OpenID client?</aside> OpenID allows multiple ways for authentication as a Service Provider. BMID only supports private_key_jwt as client authentication method with all the SSL requirements exposed via JWKSet, use the corresponding private key to encrypt/sign and decrypt/validate exchanged information. So other authentication methods such client_secret (Open ID Connect default method but the less secured one are not supported since they are considered less secure. 
 
@@ -746,10 +746,10 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNDM4NDk1MzIsMTA3NzE0NDMzNSw5OT
-A4MzU0NzUsMzEzMTAyMDM3LDQzMjkzMjE5NiwtMTUxNDAwMzcx
-OCwzNzUwNjAwMTMsLTE5MTc1ODkyMTEsMjExNDg4Njk0LC0xMz
-cyMjM2MTQ1LDc5MjY3MDQ3MywtMTk0MDY0NzcyMiwxMzc5MjY4
-MDY5LDY1NjA5MjAyOCwtMjA5MzM1Mjc5OCwxMzU3MDAwNTg2XX
-0=
+eyJoaXN0b3J5IjpbMTQzMDU4MjQ4OCwxMDc3MTQ0MzM1LDk5MD
+gzNTQ3NSwzMTMxMDIwMzcsNDMyOTMyMTk2LC0xNTE0MDAzNzE4
+LDM3NTA2MDAxMywtMTkxNzU4OTIxMSwyMTE0ODg2OTQsLTEzNz
+IyMzYxNDUsNzkyNjcwNDczLC0xOTQwNjQ3NzIyLDEzNzkyNjgw
+NjksNjU2MDkyMDI4LC0yMDkzMzUyNzk4LDEzNTcwMDA1ODZdfQ
+==
 -->
