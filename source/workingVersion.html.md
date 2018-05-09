@@ -325,10 +325,10 @@ email|email, email_verified
 phone| phone_number, phone_number_verified
 address|address, with subfields,<br>street_address (newline separator \n)<br> locality <br> postal_code <br> country
 
-<aside class="success"> The reason why ''eiThe “eid” scope was introduced exclusively for FAS (BOSSA).Is it expected that the scope "eid" was not mentioned in the supported scopes?
- </aside>
+<aside class="success"> The reason why ''eid'' scope was not mentioned in the supported scope is that the “eid” scope was introduced exclusively for FAS (BOSSA </aside>
 
 #### 4.2.1.2 Example of an Authorization Request using "scope" values
+
 URL:
 
 ```http--inline
@@ -355,6 +355,7 @@ prompt=login
 max_age=1
 ```
 ### 4.2.2 “claims” Parameter
+
 Some specific data cannot be requested by using scope values. They have to be requested in the claims as request parameter of the Authentication Request. Using this [method](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter) of requesting claims, you need to specify the endpoint you want the claims to come from. ( see example for different specifying endpoints [4.2.2.1. Set of Request Parameter Adapted to itsme(r)](#example-endpoint))
 
 **List of Supported Custom "claim" Values:**
@@ -753,10 +754,9 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ4NDQ1MjgyOCwxMDc3MTQ0MzM1LDk5MD
-gzNTQ3NSwzMTMxMDIwMzcsNDMyOTMyMTk2LC0xNTE0MDAzNzE4
-LDM3NTA2MDAxMywtMTkxNzU4OTIxMSwyMTE0ODg2OTQsLTEzNz
-IyMzYxNDUsNzkyNjcwNDczLC0xOTQwNjQ3NzIyLDEzNzkyNjgw
-NjksNjU2MDkyMDI4LC0yMDkzMzUyNzk4LDEzNTcwMDA1ODZdfQ
-==
+eyJoaXN0b3J5IjpbODUxNDE3MjcxLDEwNzcxNDQzMzUsOTkwOD
+M1NDc1LDMxMzEwMjAzNyw0MzI5MzIxOTYsLTE1MTQwMDM3MTgs
+Mzc1MDYwMDEzLC0xOTE3NTg5MjExLDIxMTQ4ODY5NCwtMTM3Mj
+IzNjE0NSw3OTI2NzA0NzMsLTE5NDA2NDc3MjIsMTM3OTI2ODA2
+OSw2NTYwOTIwMjgsLTIwOTMzNTI3OTgsMTM1NzAwMDU4Nl19
 -->
