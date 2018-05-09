@@ -1,5 +1,4 @@
- 
----
+ ---
 title: itsme(r) OpenID Connect documentation
  
 language_tabs: # must be one of https://git.io/vQNgJ
@@ -18,8 +17,9 @@ The objective of this document is to provide all the information needed to integ
  
 - [**itsme®Login**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/login-with-itsme)
 - [**itsme®Confirm**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/confirm-with-itsme)
- - [**itsme®Shared Data**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/shared-data)
-# <a name id="Onboarding"></a> 2. On boarding Process
+- [**itsme®Shared Data**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/shared-data)
+ 
+# <a name id="Onboarding"></a>2. On-boarding Process
  Our on boarding process consists of two main steps:
  
 - The configuration of your Sandbox
@@ -743,6 +743,6 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjU2MDkyMDI4LC0yMDkzMzUyNzk4LDEzNT
-cwMDA1ODZdfQ==
+eyJoaXN0b3J5IjpbLTY3MTcxMDQ3Myw2NTYwOTIwMjgsLTIwOT
+MzNTI3OTgsMTM1NzAwMDU4Nl19
 -->
