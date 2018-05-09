@@ -31,7 +31,7 @@ Before you can start working on the integration of itsme(r) services, we need to
 
 <aside class="success"> Redirect URI: User will be redirected to that URL after the (failed or successful) authentication in the itsme App. </aside>
 
-<aside class="notice"> You must specify the Redirect URI in the onboarding file because it needs to be whitelisted by our F5. </aside>
+<aside class="notice"> You must specify the Redirect URI in the onboarding file because it needs to be whitelisted by our F5. We can whitelist several urls can be whitelisted. </aside>
 
 - JWKSet URL, and associated SSL/TLS certificate
 
@@ -60,13 +60,13 @@ About self-signed certificate:
 
 ### 2.1.2.  About JWKSet/JWKSet URIs/Callback/Redirect URLs
 
-The JWKSet URLs are used by our BackEnd for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know which URL to contact, anthus we can register only one JWKSet URL.
+The JWKSet URLs are used by our BackEnd for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Due to our BE must know which URL to contact, we can register only one JWKSet URL.
 
 Once your Sandbox is created and the your Partner code is provided to you, for one Partner code you will have maximum 1 JWKSet.
 
 When your JWKSet URL changes, BMID Support must be notified immediately in order to create a new certificate.
 
-We can whitelist several urls. 
+
 
 
 <aside class="success"> Is it possible to register multiple valid callback URIs/JWKSet URIs for one environment? Or does it need to be changed whenever URIs are switched?</aside>
@@ -753,7 +753,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQzNDU1NDQ5MCwtMTkxNzU4OTIxMSwyMT
+eyJoaXN0b3J5IjpbMTAxNzk0MjUxMSwtMTkxNzU4OTIxMSwyMT
 E0ODg2OTQsLTEzNzIyMzYxNDUsNzkyNjcwNDczLC0xOTQwNjQ3
 NzIyLDEzNzkyNjgwNjksNjU2MDkyMDI4LC0yMDkzMzUyNzk4LD
 EzNTcwMDA1ODZdfQ==
