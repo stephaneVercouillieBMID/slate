@@ -527,7 +527,7 @@ As per specified [OIDC UserInfo Request](http://openid.net/specs/openid-connect-
 
 The Client sends the UserInfo Request using either HTTP  GET  or HTTP  POST. The Access Token obtained from an OpenID Connect Authentication Request MUST be sent as a Bearer Token, per Section 2 of  [OAuth 2.0 Bearer Token Usage](http://openid.net/specs/openid-connect-core-1_0.html#RFC6750)  [RFC6750].
 
-<aside class="success">It is recommended that the sHTTP GET  method and the Access Token can be sent using the Authorization header field.</aside>
+<aside class="success">It is recommended that using HTTP GET request method and  sending Access Token by using the Authorization header field.</aside>
 
 ```http--inline
 GET /userinfo HTTP/1.1 
@@ -646,7 +646,7 @@ https://merchant.itsme.be/oidc/jwkSet
 It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
  
 # 6. **FAQ**
-**How to use itsme-UAT through Hockey-app on IOS ( TODO only IOS?) properly?**(without having "Non-trusted company app developer" message)
+**How to use itsme-UAT through Hockey-app on IOS  properly?**(without having "Non-trusted company app developer" message)
 
 To be able to use itsme on Hockey App, you need to :  
   
@@ -754,10 +754,9 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM2Mzc0ODc0NiwxMDc3MTQ0MzM1LDk5MD
-gzNTQ3NSwzMTMxMDIwMzcsNDMyOTMyMTk2LC0xNTE0MDAzNzE4
-LDM3NTA2MDAxMywtMTkxNzU4OTIxMSwyMTE0ODg2OTQsLTEzNz
-IyMzYxNDUsNzkyNjcwNDczLC0xOTQwNjQ3NzIyLDEzNzkyNjgw
-NjksNjU2MDkyMDI4LC0yMDkzMzUyNzk4LDEzNTcwMDA1ODZdfQ
-==
+eyJoaXN0b3J5IjpbMTAyOTI5NDQ1LDEwNzcxNDQzMzUsOTkwOD
+M1NDc1LDMxMzEwMjAzNyw0MzI5MzIxOTYsLTE1MTQwMDM3MTgs
+Mzc1MDYwMDEzLC0xOTE3NTg5MjExLDIxMTQ4ODY5NCwtMTM3Mj
+IzNjE0NSw3OTI2NzA0NzMsLTE5NDA2NDc3MjIsMTM3OTI2ODA2
+OSw2NTYwOTIwMjgsLTIwOTMzNTI3OTgsMTM1NzAwMDU4Nl19
 -->
