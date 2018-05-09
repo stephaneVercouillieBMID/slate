@@ -52,13 +52,13 @@ All pending approval/login will result in a "Wrong PIN".
 
 The purpose of using our certificate is to retrieve your JWKSet. Therefore BMID needs the root, the intermediate CA and the final public certifiate of yours. There is no need for your client certificate. Currently the certificate is also used to protect the JWKSet and it is not directly linked to the SSL certificate.
 
-<aside class="info">BMID must be notified on time if the certificate is changed.</aside>
+<aside class="notice">BMID must be notified on time if the certificate is changed.</aside>
 
 About self-signed certificate:
 - In production, it is not possible to use a self-signed certificate for the integration due to BMID needs the certificate & its intermediate chain.
 - For testing/Sandbox you can use a self signed certificate like that you could define validity period.
 
-### 2.1.2.  About JWKSet/JWKSet URIs/Callback/Redirect URLs
+### 2.1.2.  About JWKSet/JWKSet URIs/Callback-Redirect URLs
 
 - The JWKSet URLs are used by our BackEnd for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Due to our BE must know which URL to contact, we can register only one JWKSet URL.
 
@@ -748,7 +748,7 @@ MDE3MjNdfQ==
 eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4MDE3ODU3Myw5OTA4MzU0NzUsMzEzMT
+eyJoaXN0b3J5IjpbMTc1ODU3NTg0NSw5OTA4MzU0NzUsMzEzMT
 AyMDM3LDQzMjkzMjE5NiwtMTUxNDAwMzcxOCwzNzUwNjAwMTMs
 LTE5MTc1ODkyMTEsMjExNDg4Njk0LC0xMzcyMjM2MTQ1LDc5Mj
 Y3MDQ3MywtMTk0MDY0NzcyMiwxMzc5MjY4MDY5LDY1NjA5MjAy
