@@ -134,7 +134,7 @@ Parameter | Provided | Description
  state=af0ifjsldkj
  ```
 ### 3.1.4. Authentication Errors
-As explained by OIDC [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://openid.net/specs/openid-connect-core-1_0.html#AuthError), if the authentication is NOT successful, the following errors can be triggered by itsme®:
+Among the error codes defined by OIDC specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://openid.net/specs/openid-connect-core-1_0.html#AuthError), itsme(r) returns only the following (the other error codes are linked to features not supported by itsme(r)). Please note that the error codes defined by OAuth 2.0 are possible.
 
 Error | Description
 :--: |:--
