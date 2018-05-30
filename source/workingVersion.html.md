@@ -30,11 +30,11 @@ Your company will provide us through <a href="https://brand.belgianmobileid.be/d
 -  JWKSet URL, and associated SSL/TLS certificate
 - Redirect URIs associated to your instances of itsme(r) services. 
 
-<aside class="notice"> Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5. Multiple URLs can be whitelisted by BMID.</aside>
-
- 
-
-<aside class="notice"> To redirect the end-user to itsme in the browser, you provide  Redirect URIs and BMID specifies redirect_uri. Additional parameters are not allowed and entire redirect_uri must match.
+<aside class="notice"> Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5. Please note that: 
+  <ul>
+    <li> Multiple URLs can be whitelisted per service (can include Universal Link for your App)</li>
+    <li> Additional parameters are not allowed and entire redirect_uri must match </li>
+  </ul>  </aside>
 
 <aside class="warning"> BMID can register only one JWKSet URL. It is not possible to register multiple JWKSet URLs for one environment.</aside>
 
