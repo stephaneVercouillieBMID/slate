@@ -11,7 +11,7 @@ This document is intended to be read by Service Provider developers who are in c
 The objective of this document is to provide all the information needed to integrate the [**itsme®Login**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/login-with-itsme) using OpenID Connect protocol, by describing our OAuth 2.0 implementation of **itsme® Login**, which conforms to  the <a href="http://openid.net/specs/openid-connect-core-1_0.html"> OpenID Connect Core </a> specifications.
   
 <a name id="Onboarding"></a>
-# 2. Integration Process
+# 2. Integration prerequisites
  
 ## 2.1. Configuring your Sandbox Environment
 First, your company will provide us through <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">our B2B portal</a> the functional and technical information needed to create your Sandbox. These information include (not exhaustively):
@@ -29,8 +29,6 @@ Once your Sandbox is created, you will receive:
 ### 2.1.1. JWKSet URL and Certificate attention points
 
 The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know which URL to contact.
-
-Please note the following attention points about the JWKSet certificate:
 
 <aside class="warning">
   <ul>
