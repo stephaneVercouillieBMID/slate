@@ -17,32 +17,28 @@ The objective of this document is to provide all the information needed to integ
 First, your company will provide us through <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">our B2B portal</a> the functional and technical information needed to create your Sandbox. These information include (not exhaustively):
 
 - Information to customize the user consent screen
--  JWKSet URL, and associated SSL/TLS certificate (see details below)
+- JWKSet URL, and associated SSL/TLS certificate (see details below)
 - Redirect URIs associated to your instances of itsme(r) services. 
-
-<aside class="warning"> You can specify only one JWKSet URL per environment.</aside>
-
-<aside class="warning"> Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5. Please note that: 
-  <ul>
-    <li> Multiple URLs can be whitelisted per service (can include Universal Link for your App)</li>
-    <li> Additional parameters are not allowed and entire redirect_uri must match </li>
-  </ul>  </aside>
 
 Once your Sandbox is created, you will receive:
 <ul> 
 <li>Your Partner Code, which corresponds to the OpenID <b>client_id</b></li>
 <li>Your Service Codes, which are the identifiers of your instances of itsme(r) services. </li>
 </ul>
-</aside>
 
-### 2.1.1. JWKSet Certificates attention points
+### 2.1.1. JWKSet URL and Certificate attention points
+
+The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know which URL to contact.
 
 Please note the following attention points about the JWKSet certificate:
 
-<aside class="notice">
+<aside class="warning">
   <ul>
      <li>
        It must contain the root, the intermediate CA and the final public certifiate.
+    </li>
+    <li>
+      You can specify only one JWKSet URL per environment.
     </li>
      <li>
        On the HTTPS protocol level, connections must be secured using trusted Root CA.
@@ -51,31 +47,22 @@ Please note the following attention points about the JWKSet certificate:
        In production, it is not possible the certificate is NOT self-signed (it can be self-signed in Sandbox)
     </li>
     <li>
-      BMID is notified on time if the certificate is changed.
+      BMID is notified on time if the certificate or the URL is changed.
     </li>
      <li>
        There is no need for your client certificate. Currently the certificate is also used to protect the JWKSet and it is not directly linked to the SSL certificate.
     </li>
   </ul>
 
-<aside class="warning"></aside>
+<aside class="notice">You can find our own JWKSet URL in our [OpenID configuration file] (https://merchant.itsme.be/oidc/.well-known/openid-configuration), in the field "jwks_uri"</aside>
 
+### 2.1.2. Redirect_URI attention points
 
-### 2.1.2.  About JWKSet, JWKSet URIs, Callback-Redirect URLs
-
-The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know which URL to contact.
-
-<aside class="success"> Our JWKSet is accessible using a secured HTTPS URL.
-(sample HTTPS URL for OpenID Provider https://merchant.itsme.be/oidc/jwkSet)
-- This HTTPS URL must be communicated to us, during the partner on-boarding.
-- This HTTPS URL must be protected using a valid certificates chain starting from a Root CA trusted by our back end.
-- During on-boarding, we can check that we have all the required certificates to establish the trust.</aside>
-
-- Once your Sandbox is created and the your Partner code is provided to you, for one Partner code you will have maximum 1 JWKSet.
-
-- When your JWKSet URL changes, BMID Support must be notified immediately in order to create a new certificate.
-
-- It is possible to register valid redirect URLs for one environment.
+<aside class="warning"> Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5. Please note that: 
+  <ul>
+    <li> Multiple URLs can be whitelisted per service (can include Universal Link for your App)</li>
+    <li> Additional parameters are not allowed and entire redirect_uri must match </li>
+  </ul>  </aside>
 
 ## 2.2. itsme® OpenID Configuration
 The OpenID Connect protocol requires the use of multiple endpoints for authenticating users, and for requesting resources including tokens, user information and public keys.
