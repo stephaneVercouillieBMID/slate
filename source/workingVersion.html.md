@@ -17,22 +17,23 @@ itsme® offers 3 services, which act as strong enablers for every process digita
 
 The objective of this document is to provide all the information needed to integrate the **itsme® Login** using OpenID Connect protocol, by describing our OAuth 2.0 implementation of **itsme® Login**, which conforms to  the <a href="http://openid.net/specs/openid-connect-core-1_0.html"> OpenID Connect Core </a> specifications.
   
-# <a name id="Onboarding"></a>2. Integration Process
+<a name id="Onboarding"></a>
+# 2. Integration Process
  
 ## 2.1. Configuring your Sandbox Environment
 First, your company will provide us through <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">our B2B portal</a> the functional and technical information needed to create your Sandbox. These information include (not exhaustively):
 
 - Information to customize the user consent screen
--  JWKSet URL, and associated SSL/TLS certificate
+-  JWKSet URL, and associated SSL/TLS certificate (see details below)
 - Redirect URIs associated to your instances of itsme(r) services. 
 
-<aside class="notice"> Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5. Please note that: 
+<aside class="warning"> You can specify only one JWKSet URL per environment.</aside>
+
+<aside class="warning"> Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5. Please note that: 
   <ul>
     <li> Multiple URLs can be whitelisted per service (can include Universal Link for your App)</li>
     <li> Additional parameters are not allowed and entire redirect_uri must match </li>
   </ul>  </aside>
-
-<aside class="warning"> You can specify only one JWKSet URL per environment.</aside>
 
 Once your Sandbox is created, you will receive:
 <ul> 
@@ -40,26 +41,32 @@ Once your Sandbox is created, you will receive:
 <li>Your Service Codes, which are the identifiers of your instances of itsme(r) services. </li>
 </ul>
 </aside>
-<aside class="success">What are the consequences of changing a label in Sandbox environment?
 
-All pending approval/login will result in a "Wrong PIN".
+### 2.1.1. JWKSet Certificates attention points
 
+Please note the following attention points about the JWKSet certificate:
 
+<aside class="notice">
+  <ul>
+     <li>
+       It must contain the root, the intermediate CA and the final public certifiate.
+    </li>
+     <li>
+       On the HTTPS protocol level, connections must be secured using trusted Root CA.
+    </li>
+     <li>
+       In production, it is not possible the certificate is NOT self-signed (it can be self-signed in Sandbox)
+    </li>
+    <li>
+      BMID is notified on time if the certificate is changed.
+    </li>
+     <li>
+       There is no need for your client certificate. Currently the certificate is also used to protect the JWKSet and it is not directly linked to the SSL certificate.
+    </li>
+  </ul>
 
-### 2.1.1. About Certificates
+<aside class="warning"></aside>
 
-The purpose of using our certificate is to retrieve your JWKSet. Therefore BMID needs the root, the intermediate CA and the final public certifiate of yours. 
-
-<aside class="warning"> On the HTTPS protocol level, connections must be secured using trusted Root CA.</aside>
-
-There is no need for your client certificate. Currently the certificate is also used to protect the JWKSet and it is not directly linked to the SSL certificate.
-
-<aside class="notice">BMID must be notified on time if the certificate is changed.</aside>
-
-About self-signing:
-- The key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.
-- In production, it is not possible to use a self-signed certificate for the integration due to BMID needs the certificate & its intermediate chain.
-- For testing/Sandbox you can use a self signed certificate like that you could define validity period.
 
 ### 2.1.2.  About JWKSet, JWKSet URIs, Callback-Redirect URLs
 
