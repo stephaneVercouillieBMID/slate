@@ -17,9 +17,9 @@ itsme® offers 3 services, which act as strong enablers for every process digita
 
 The objective of this document is to provide all the information needed to integrate the **itsme® Login** using OpenID Connect protocol, by describing our OAuth 2.0 implementation of **itsme® Login**, which conforms to  the <a href="http://openid.net/specs/openid-connect-core-1_0.html"> OpenID Connect Core </a> specifications.
   
-# <a name id="Onboarding"></a>2. Starting the integration Process
+# <a name id="Onboarding"></a>2. Integration Process
  
-Before you can start working on the integration of itsme(r) services
+In order to start working on the integration of itsme(r) services
 - we need to configure your Sandbox in which the integration takes place
 - you need to adapt your development environment to our OpenID configuration
 
@@ -30,9 +30,9 @@ Your company will provide us both functional and technical information we will u
 -  JWKSet URL, and associated SSL/TLS certificate
 - Redirect URIs associated to your instances of itsme(r) services. 
 
-<aside class="notice"> Redirect URI: User will be redirected to that URL after the (failed or successful) authentication in the itsme App. </aside>
+<aside class="notice"> Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5. Multiple URLs can be whitelisted by BMID.</aside>
 
-- You must specify the Redirect URI in the onboarding file because it needs to be whitelisted by our F5. Multiple URLs can be whitelisted by BMID. 
+ 
 
 <aside class="notice"> To redirect the end-user to itsme in the browser, you provide  Redirect URIs and BMID specifies redirect_uri. Additional parameters are not allowed and entire redirect_uri must match.
 
