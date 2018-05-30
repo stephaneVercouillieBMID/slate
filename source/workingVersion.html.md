@@ -8,14 +8,7 @@ title: itsme(r) OpenID Connect documentation
 
 This document is intended to be read by Service Provider developers who are in charge of developing and integrating the itsme(r) services.
 
-itsme® offers 3 services, which act as strong enablers for every process digitalization project. Further information about itsme(r) services is provided on our B2B portal:
- 
-- [**itsme®Login**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/login-with-itsme)
-- [**itsme®Confirm**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/confirm-with-itsme)
-- [**itsme®Shared Data**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/shared-data)
-
-
-The objective of this document is to provide all the information needed to integrate the **itsme® Login** using OpenID Connect protocol, by describing our OAuth 2.0 implementation of **itsme® Login**, which conforms to  the <a href="http://openid.net/specs/openid-connect-core-1_0.html"> OpenID Connect Core </a> specifications.
+The objective of this document is to provide all the information needed to integrate the [**itsme®Login**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/login-with-itsme) using OpenID Connect protocol, by describing our OAuth 2.0 implementation of **itsme® Login**, which conforms to  the <a href="http://openid.net/specs/openid-connect-core-1_0.html"> OpenID Connect Core </a> specifications.
   
 <a name id="Onboarding"></a>
 # 2. Integration Process
