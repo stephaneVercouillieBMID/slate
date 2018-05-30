@@ -19,12 +19,8 @@ The objective of this document is to provide all the information needed to integ
   
 # <a name id="Onboarding"></a>2. Integration Process
  
-In order to start working on the integration of itsme(r) services
-- we need to configure your Sandbox in which the integration takes place
-- you need to adapt your development environment to our OpenID configuration
-
 ## 2.1. Configuring your Sandbox Environment
-Your company will provide us through <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">our B2B portal</a> the functional and technical information needed to create your Sandbox. These information include (not exhaustively):
+First, your company will provide us through <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">our B2B portal</a> the functional and technical information needed to create your Sandbox. These information include (not exhaustively):
 
 - Information to customize the user consent screen
 -  JWKSet URL, and associated SSL/TLS certificate
@@ -36,7 +32,7 @@ Your company will provide us through <a href="https://brand.belgianmobileid.be/d
     <li> Additional parameters are not allowed and entire redirect_uri must match </li>
   </ul>  </aside>
 
-<aside class="warning"> BMID can register only one JWKSet URL. It is not possible to register multiple JWKSet URLs for one environment.</aside>
+<aside class="warning"> You can specify only one JWKSet URL per environment.</aside>
 
 Once your Sandbox is created, you will receive:
 <ul> 
