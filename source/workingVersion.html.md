@@ -24,7 +24,7 @@ In order to start working on the integration of itsme(r) services
 - you need to adapt your development environment to our OpenID configuration
 
 ## 2.1. Configuring your Sandbox Environment
-Your company will provide us both functional and technical information we will use to create your Sandbox. These information include (not exhaustively):
+Your company will provide us through <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">our B2B portal</a> the functional and technical information needed to create your Sandbox. These information include (not exhaustively):
 
 - Information to customize the user consent screen
 -  JWKSet URL, and associated SSL/TLS certificate
@@ -48,7 +48,7 @@ Once your Sandbox is created, you will receive:
 
 All pending approval/login will result in a "Wrong PIN".
 
-<aside class="notice">You can consult <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">our B2B portal</a> for furher information about this step.</aside>
+
 
 ### 2.1.1. About Certificates
 
