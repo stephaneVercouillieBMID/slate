@@ -6,7 +6,7 @@ title: itsme(r) OpenID Connect documentation
 ---
 # 1. Introduction
 
-This document is intended to be read by Service Provider developers who are in charge of developing and integrating the itsme(r) services. In this document, we speak directly to the developers, using 'you' to designate them.
+This document is intended to be read by Service Provider developers who are in charge of developing and integrating the itsme(r) services.
 
 itsme® offers 3 services, which act as strong enablers for every process digitalization project. Further information about itsme(r) services is provided on our B2B portal:
  
@@ -15,18 +15,16 @@ itsme® offers 3 services, which act as strong enablers for every process digita
 - [**itsme®Shared Data**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/shared-data)
 
 
-The objective of this document is to provide all the information needed to integrate the **itsme® Login** using OpenID Connect protocol., by describing our OAuth 2.0 implementation of **itsme® Login**, which conforms to  the <a href="http://openid.net/specs/openid-connect-core-1_0.html"> OpenID Connect 1.0 </a> specifications.
-## 1.2. Objective
-
-## 1.3. The itsme® services in a few words
+The objective of this document is to provide all the information needed to integrate the **itsme® Login** using OpenID Connect protocol, by describing our OAuth 2.0 implementation of **itsme® Login**, which conforms to  the <a href="http://openid.net/specs/openid-connect-core-1_0.html"> OpenID Connect Core </a> specifications.
   
-# <a name id="Onboarding"></a>2. On-boarding Process
- Our on boarding process consists of two main steps:
+# <a name id="Onboarding"></a>2. Starting the integration Process
  
-- The configuration of your Sandbox
-- The integration of itsme(r) services
+Before you can start working on the integration of itsme(r) services
+- we need to configure your Sandbox in which the integration takes place
+- you need to adapt your development environment to our OpenID configuration
+
 ## 2.1. Configuring your Sandbox Environment
-Before you can start working on the integration of itsme(r) services, we need to create your Sandbox in which the integration takes place. Your company will provide us both functional and technical information we will use to create your Sandbox. These information include (not exhaustively):
+Your company will provide us both functional and technical information we will use to create your Sandbox. These information include (not exhaustively):
 
 - Information to customize the user consent screen
 -  JWKSet URL, and associated SSL/TLS certificate
@@ -83,10 +81,7 @@ The JWKSet URLs are used by our BE for the decryption and signature verification
 
 - It is possible to register valid redirect URLs for one environment.
 
-## 2.2. Integration of itsme® services
-Once your Sandbox has been created, you can start working on the integration itself. All the information needed to do so is the object of this
-document.
-### 2.2.1. itsme® OpenID Configuration
+## 2.2. itsme® OpenID Configuration
 The OpenID Connect protocol requires the use of multiple endpoints for authenticating users, and for requesting resources including tokens, user information and public keys.
  
 To simplify implementations and increase flexibility, OpenID Connect allows the use of a "Discovery document", a JSON document found at well-known location containing key-value pairs which provide details about the OpenID Connect provider's configuration including, 
