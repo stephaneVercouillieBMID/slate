@@ -5,19 +5,21 @@ title: itsme(r) OpenID Connect documentation
 - http: HTTP
 ---
 # 1. Introduction
-## 1.1. Who should read this document
+
 This document is intended to be read by Service Provider developers who are in charge of developing and integrating the itsme(r) services. In this document, we speak directly to the developers, using 'you' to designate them.
- 
-This documentation describes our OAuth 2.0 implementation of **itsme® Login**, which conforms to  the <a href="http://openid.net/specs/openid-connect-core-1_0.html"> OpenID Connect 1.0 </a> specifications.
-## 1.2. Objective
-The objective of this document is to provide all the information needed to integrate the itsme(r) services using OpenID Connect protocol.
-## 1.3. The itsme® services in a few words
- itsme® offers 3 services, which act as strong enablers for every process digitalization project. Further information about itsme(r) services is provided on our B2B portal:
+
+itsme® offers 3 services, which act as strong enablers for every process digitalization project. Further information about itsme(r) services is provided on our B2B portal:
  
 - [**itsme®Login**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/login-with-itsme)
 - [**itsme®Confirm**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/confirm-with-itsme)
 - [**itsme®Shared Data**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/shared-data)
- 
+
+
+The objective of this document is to provide all the information needed to integrate the **itsme® Login** using OpenID Connect protocol., by describing our OAuth 2.0 implementation of **itsme® Login**, which conforms to  the <a href="http://openid.net/specs/openid-connect-core-1_0.html"> OpenID Connect 1.0 </a> specifications.
+## 1.2. Objective
+
+## 1.3. The itsme® services in a few words
+  
 # <a name id="Onboarding"></a>2. On-boarding Process
  Our on boarding process consists of two main steps:
  
