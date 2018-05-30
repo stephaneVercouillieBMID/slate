@@ -54,12 +54,13 @@ Please note the following attention points about the JWKSet certificate:
     </li>
   </ul>
 
-<aside class="notice">You can find our own JWKSet URL in our [OpenID configuration file] (https://merchant.itsme.be/oidc/.well-known/openid-configuration), in the field "jwks_uri"</aside>
+<aside class="notice">You can find our own JWKSet URL in our [OpenID configuration file](https://merchant.itsme.be/oidc/.well-known/openid-configuration), in the field "jwks_uri"</aside>.
 
 ### 2.1.2. Redirect_URI attention points
 
-<aside class="warning"> Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5. Please note that: 
-  <ul>
+Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5.
+<aside class="warning"> 
+<ul>
     <li> Multiple URLs can be whitelisted per service (can include Universal Link for your App)</li>
     <li> Additional parameters are not allowed and entire redirect_uri must match </li>
   </ul>  </aside>
