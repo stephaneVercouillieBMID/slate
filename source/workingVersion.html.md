@@ -91,7 +91,8 @@ The Authorization Endpoint performs the authentication of the user. The first st
 
 You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
 
-This base URI is a valid Universal Link, meaning that any installed itsme App can catch it, allowing a better user exeperience.
+This base URI is the address of our OpenID webpage, but this base URI is a valid Universal Link, meaning that any installed itsme App can catch it, allowing a better user experience:
+
 <img src="AppOrWebbToApp.png" alt="The itsme App can be trigerred automatically if present on the same device">
 
 <aside class="warning">The base URI available in the Discovery document will only be caught by recent versions of itsme Apps. As from 30/05/2018, more than 50% of the itsme Apps on the market will not catch this universal link. For these Apps, the flow will be functional but not optimal.</aside>
