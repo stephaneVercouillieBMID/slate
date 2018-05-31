@@ -179,7 +179,9 @@ The Token Endpoint URL is available in our [OpenID discovery document](https://m
 <aside class="notice">There are many types of tokens mentioned in the OpenID specification. The tokens you expect from the Token Endpoint are the <a href="http://openid.net/specs/openid-connect-core-1_0.html#IDToken">ID Token</a> and the Access Token (the latter only if you need Data). The Access Token is a type of <a href="https://tools.ietf.org/html/rfc6750">Bearer Token</a>. You might also read in the OpenID specification about the Refresh Token, but we don't support them (we don't implement any session mechanism).</aside>
 
 ### 3.2.2. Token Request Specification
-As per the [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest), with a private_key_jwt for client authentication.
+As per the [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
+
+<aside class="warning">We only support `private_key_jwt` for client authentication.</aside>
 
 The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the **token_endpoint** key. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. 
 
