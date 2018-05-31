@@ -91,7 +91,7 @@ The Authorization Endpoint performs the authentication of the user. The first st
 
 You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
 
-This base URI is the address of our OpenID webpage, but this base URI is a valid Universal/App Link. As a result, if the itsme App is present on the same device as your front-end interface, the user will be automatically redirected to the itsme app without going through our OpenID webpage, improving the user experience:
+This base URI is the address of our OpenID webpage, but this base URI is a valid Universal/App Link. As a result, if the itsme App is present on the same device as your front-end interface, the user will be automatically redirected to the itsme app (option B) without going through our OpenID webpage (option A), improving the user experience since in option A user will have to open the itsme App manually:
 
 <img src="AppOrWebbToApp.png" alt="The itsme App can be trigerred automatically if present on the same device">
 
