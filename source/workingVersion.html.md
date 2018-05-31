@@ -139,6 +139,7 @@ Parameter | Required | Specification
 ### 3.1.2. Authentication Response Specification
 An Authentication Response is an [OAuth 2.0 Authorization Response](https://tools.ietf.org/html/rfc6749#section-4.1.2) message. 
 
+#### 3.1.2.1. Successful Authentication Response
 The itsme Back-End provides an Authorization Code to the Service Provider Back-End. In the Response, the Service Provider Back-End knows that the User was successfully authenticated.
  
 ```http--inline
@@ -154,6 +155,12 @@ Parameter | Provided | Description
 **code** | Always | Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.
 **state** |  | The exact value received from the client, if the parameter was present in the Authentication Request.
  
+#### 3.1.2.2. Response when user rejects the action/ chooses the wrong poke-yoke icon
+`"error_description":null,"error":"access_denied"}`
+
+#### 3.1.2.3. Cases where there is no redirection
+In some cases, it is possible that the user is not redirected automatically to your environment. A typical example is when the user stays inactive in our front-end (whether in the itsme App or in our OpenID webpage).
+
 ### 3.1.3. Authentication Errors
 As explained by OIDC [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://openid.net/specs/openid-connect-core-1_0.html#AuthError), if the authentication is NOT successful, the following errors can be triggered by itsme®:
 
@@ -164,20 +171,7 @@ Error | Description
 `request_uri_not_supported` | does not support use of the request_uri parameter.
 `registration_not_supported` | does not support use of the registration parameter.
 
-#### 3.1.3.1. Response when user rejects the action/ chooses the wrong poke-yoke icon
-`"error_description":null,"error":"access_denied"}`
 
-#### 3.1.3.2. Response when user doesn't take any action
-Error code : 500
-Error message : Authentication context is not valid anymore.
-
-![enter image description here](https://lh3.googleusercontent.com/WRsJPugEMcN26AWaQZ7GyoT7x6e5HhMuyGFVWZEXIXw5F7yJ17-zXiw-neKuUp0tk6ysF9zQ1Fs)
-## <a name="tokenEndpoint"></a> 3.2. Token Endpoint
-As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
-
-Possible token end-point URLs:  
-https://merchant.itsme.be/oidc/token
-https://e2emerchant.itsme.be/oidc/token
 
 ### 3.2.1. About Tokens
 In this section, we will go through token types and their specifics.
