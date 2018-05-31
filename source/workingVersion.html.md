@@ -75,7 +75,7 @@ To simplify implementations and increase flexibility, OpenID Connect allows the 
 
 The Discovery document for itsme® service may be retrieved from: https://merchant.itsme.be/oidc/.well-known/openid-configuration .
 
-<aside class="warning">There is one deprecated endpoint which is not documented in the Discovery document, and is used today by over 50% of our Apps. Please find details in section [Authentication Request Specifications](#AuthNRequest)</aside>
+<aside class="warning">There is one deprecated endpoint which is not documented in the Discovery document, and is used today by over 50% of our Apps. Please find details in section <a href="#AuthNRequest">Authentication Request Specifications</a></aside>
 
 Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
