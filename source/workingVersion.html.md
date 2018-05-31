@@ -71,7 +71,7 @@ To simplify implementations and increase flexibility, OpenID Connect allows the 
 - token, 
 - userinfo, 
 - supported claims 
-- [JWKSet](#jwks) to interact with it. 
+- [JWKSet](#jwks) URL. 
 
 The Discovery document for itsme® service may be retrieved from: https://merchant.itsme.be/oidc/.well-known/openid-configuration .
 
