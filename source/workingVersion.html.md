@@ -88,7 +88,7 @@ Field  names and meanings in this document are defined in [OpenID Connect Discov
 
 
 ## 3.1. **Authorization Endpoint**
-<a name="AuthNRequest"/>
+<a name="AuthNRequest"></a>
 ### 3.1.1. Authentication Request Specifications
 The Authorization Endpoint performs the authentication of the user. The first step is forming an HTTPS request to the Authorization Endpoint with the appropriate URI parameters. Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. Crafting the Authentication Request works as per the OpenID Connect specification [Authentication Request](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [Authorization Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint).
 
