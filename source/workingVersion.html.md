@@ -171,12 +171,10 @@ Error | Description
 `request_uri_not_supported` | does not support use of the request_uri parameter.
 `registration_not_supported` | does not support use of the registration parameter.
 
--## <a name="tokenEndpoint"></a> 3.2. Token Endpoint
--As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
+## <a name="tokenEndpoint"></a> 3.2. Token Endpoint
+As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
  
--Possible token end-point URLs:  
--https://merchant.itsme.be/oidc/token
--https://e2emerchant.itsme.be/oidc/token
+The Token Endpoint URL is available in our [OpenID discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration), at key "token_endpoint". In this discussion, we assume this URL is 'https://merchant.itsme.be/oidc/token'.
 
 ### 3.2.1. About Tokens
 In this section, we will go through token types and their specifics.
