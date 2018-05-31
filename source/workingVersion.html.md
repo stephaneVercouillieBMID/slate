@@ -75,6 +75,8 @@ To simplify implementations and increase flexibility, OpenID Connect allows the 
 
 The Discovery document for itsme® service may be retrieved from: https://merchant.itsme.be/oidc/.well-known/openid-configuration .
 
+<aside class="warning">There is one deprecated endpoint which is not documented in the Discovery document, and is used today by over 50% of our Apps. Please find details in section [Authentication Request Specifications](#AuthNRequest)</aside>
+
 Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
 
@@ -85,7 +87,8 @@ Field  names and meanings in this document are defined in [OpenID Connect Discov
  ![enter image description here](https://lh3.googleusercontent.com/vi1iEAv0LtjFbvT30UE62rHDLu-fPFysH5oj1dpa_hVzaTbmKSV2Js_NjTCI7-5tXGVKgd8p4CQ "auth diag")
 
 
-## 3.1. **Authorization Endpoint** 
+## 3.1. **Authorization Endpoint**
+<a name="AuthNRequest"/>
 ### 3.1.1. Authentication Request Specifications
 The Authorization Endpoint performs the authentication of the user. The first step is forming an HTTPS request to the Authorization Endpoint with the appropriate URI parameters. Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. Crafting the Authentication Request works as per the OpenID Connect specification [Authentication Request](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [Authorization Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint).
 
@@ -97,7 +100,7 @@ This base URI is the address of our OpenID webpage, but this base URI is a valid
 
 As suggested by this diagram, you can provide us a valid Universal/App Link as the redirect URI in order to improve the user experience as well. This redirect URI needs to be whitelisted on our end, as specified in the [Integration Prerequisites](#Onboarding) section.
 
-<aside class="warning">The base URI available in the Discovery document will only be caught by recent versions of itsme Apps. As from 30/05/2018, more than 50% of the itsme Apps on the market will not catch this universal link. For these Apps, the flow will be functional but not optimal.</aside>
+<aside class="warning">The base URI available in the Discovery document will only be caught by recent versions of itsme Apps. As from 30/05/2018, more than 50% of the itsme Apps on the market will not catch this universal link. For these Apps, the flow will be functional but not optimal. In order to cover 100% of our Apps, please use the endpoint https://mobileapp.sixdots.be/mobile/authorize</aside>
 
 
 <aside class="warning">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism. If you still opt for usage of the HTTP `POST` method, the request parameters must be serialized using <a href="http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization">Form Serialization.</a></aside>
