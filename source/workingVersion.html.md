@@ -176,28 +176,7 @@ As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#
  
 The Token Endpoint URL is available in our [OpenID discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration), at key "token_endpoint". In this discussion, we assume this URL is 'https://merchant.itsme.be/oidc/token'.
 
-### 3.2.1. About Tokens
-In this section, we will go through token types and their specifics.
-
-There are three types of tokens in OIDC: [id_token](#idtoken), [access_token](#actoken) and [refresh_token](#rfshtoken).
-
-#### <a name id="idtoken"></a> 3.2.1.1. ID Tokens 
-As per the [OIDC Specification](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse), an `id_token` is a JWT.
-
-- ID tokens carry user’s authentication information encoded in the token itself, it must be a JWT and authorization server will return them.
--  the token can be certainly verified to prove that it hasn’t been tampered with.
-
-<aside class="notice">There’s a set of rules here in the specification http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation" for validating an id_token.</aside>
-
-#### <a name id="actoken"></a> 3.2.1.2 Access Tokens
-Bearer token concept must be mentioned before access token is explained. Bearer token is a protected token which can access to authorized resources without further identification. The format for OAuth 2.0 Bearer tokens is actually described in a separate spec, [RFC 6750](https://tools.ietf.org/html/rfc6750).
-
-- Access tokens are bearer tokens. They specify set of end user data the RP has access to in the context of the authentication (content of access token thus depends on the static access rights to data as defined during [on boarding process](#Onboarding)).
-- They have short lifespan, expire for improving security. The user must authenticate again for the RP to get a new access token limiting the exposure of the fact that it’s a bearer token.
-
-#### <a name id="rfshtoken"></a> 3.2.1.3 Refresh Tokens (_not supported_) 
-
-Refresh tokens are not supported since we do not maintain authenticated sessions on purpose.
+<aside class="notice">There are many types of tokens mentioned in the OpenID specification. The tokens you expect from the Token Endpoint are the <a href="http://openid.net/specs/openid-connect-core-1_0.html#IDToken">ID Token</a> and the Access Token (the latter only if you need Data). The Access Token is a type of <a href="https://tools.ietf.org/html/rfc6750">Bearer Token</a>. You might also read in the OpenID specification about the Refresh Token, but we don't support them (we don't implement any session mechanism).</aside>
 
 ### 3.2.2. Token Request Specification
 As per the [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest), with a private_key_jwt for client authentication.
