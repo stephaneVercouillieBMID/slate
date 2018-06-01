@@ -246,13 +246,32 @@ As per <a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorR
 # 4. Matching users databases
 The first time a user uses itsme(r) at your side, you will receive an unknown userCode from the [Token Response](#TokenResponse) for him. You then have to determine whether or not you already have an account at your own side for this user, and this section briefly describes our recommendation on the topic, in order to optimize the user experience.
 
-When receiving a new userCode, simply authenticate the user with your usual credentials while keeping the userCode in memory. It is the safest and simplest way to find the matching user in your database. We strongly discourage using the [user data](#Data) we provide you to perform this match, as all user data we share can change at any moment in the life of the user. Only the userCode is stable and will never change during the life of the itsme(r) user account.
+## 4.1. Automatic match
 
-Of course, it is possible that the user has no account yet at your side. You may in that case use the [user data](#Data) we provide you to create that account and automatically link it to the userCode.
+The smoothest user experience comes when you can guarantee a high level of verification of a set of data we have in common with you. If you ask for user data that you own on your side as well, you can match these data to automatically associate the userCode to the correct user account on your side, and offer a seamless journey to the user
 
-The following diagram depicts both cases:
+Of course, it is possible that the user has no account yet at your side. You may use in that case  the [user data](#Data) we provide you to facilitate the account creation and automatically link it to the userCode.
 
-<img src="LinkUser.png" alt="Diagram depicting possibilities for linking user accounts">
+The following picture illustrates both cases:
+
+<img src="LinkUserAuto.png" alt="Automatically linking user accounts">
+
+For this to be safe, though, the following must be verified between you and us:
+- On both sides, the data used to match the accounts must uniquely identify the user
+- On both sides, the lifecycle of the data used to match the accounts must be understood and must guarantee a constant control of the user identified through this data
+
+<aside class="success">If you intend to implement this, please contact us so that we can verify the consistency of this use case together.</aside>
+
+
+## 4.2. Manual match
+
+If there is no data that can be used on both sides to match the accounts automatically, simply authenticate the user with your usual credentials when you receive a new userCode from the [Token Response](#TokenResponse). You then have to associate this userCode to the account on your side.
+
+Of course, it is possible that the user has no account yet at your side. You may use in that case  the [user data](#Data) we provide you to facilitate the account creation and automatically link it to the userCode.
+
+The following picture illustrates both cases:
+
+<img src="LinkUser.png" alt="Picture illustrates possibilities for linking user accounts">
 
 <a name="Data"></a>
 # 5. User Data
