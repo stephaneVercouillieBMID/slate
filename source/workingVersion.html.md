@@ -309,13 +309,13 @@ The following is a non-normative response containing Normal Claims:
 In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims requested via scope as **Essential** (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)). **Voluntary** claims are thus supported, but are used as **Essential**.
 
 In practice, it means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims. You should thus already request claims according to your business case. 
-## <a name id="decClaim"></a> 4.2. Declaring Claims
+## <a name id="decClaim"></a> 5.2. Declaring Claims
 You can declare Claims in two ways:
 - With 'scope' values
 - With 'claims' parameter
 
 In each case, the claims need to be declared in the Authorization Request.
-### <a name id="scope"></a>4.2.2. Scope
+### <a name id="scope"></a>5.2.1. Scope
 Scopes are space-separated lists of identifiers used to specify what access privileges are being requested. 
 
 Scopes can be used to request that specific sets of information available as Claim Values in User Info Token. 
@@ -334,7 +334,6 @@ email|email, email_verified
 phone| phone_number, phone_number_verified
 address|address, with subfields,<br>street_address (newline separator \n)<br> locality <br> postal_code <br> country
 
-<aside class="success"> The reason why ''eid'' scope was not mentioned in the supported scope is that the “eid” scope was introduced exclusively for FAS (BOSSA </aside>
 
 #### 5.2.1.2 Example of an Authorization Request using "scope" values
 
@@ -518,7 +517,7 @@ Indeed, You need to perform two Back-End to Back-End calls:
 On top of this, the Authorization Request (AuthN Request in the schedule) consists of an HTTP redirection to the OpenID webpage of BMID. The content of this HTTP request is to be crafted by your system, it is actually a third call from your side to BMID, this one being Front-End to Back-End.</aside>
 
 ### 5.3.1. UserInfo Endpoint
-As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest), 
+As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest).
 
 If you declared claims with `scope` values or if you declared claims in the `userinfo` part of the `claims` parameter in the `request` object, you will receive the end user data from the UserInfo Endpoint.
 
