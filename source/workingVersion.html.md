@@ -11,26 +11,21 @@ itsme is an identity checking system allowing Service Providers to use verified 
 - Share ID
 - Sign (coming soon)
 
-The objective of this document is to provide all the information needed to integrate the Login and Share ID services using the OpenID Connect Core 1.0 specifications.
+The objective of this document is to provide all the information needed to integrate the Login and Share ID services using the [OpenID Connect Core 1.0 specifications](http://openid.net/specs/openid-connect-core-1_0.html).
 
   
 <a name id="Onboarding"></a>
-# 2. Integration prerequisites
+# 2. Registering
  
-## 2.1. Configuring your Sandbox Environment
-First, your company will provide us through <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">our B2B portal</a> the functional and technical information needed to create your Sandbox. These information include (not exhaustively):
+Before your application can use integrate the itsme(r) OpenID implementation, you must set up a project in the [itsme(r) B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) to obtain credentials, set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. 
 
-- Information to customize the user consent screen
-- JWKSet URL, and associated SSL/TLS certificate (see details below)
-- Redirect URIs associated to your instances of itsme(r) services. 
+Once your project is created, you will receive:
+- Your Partner Code, which corresponds to the OpenID `client_id`
+- Your Service Codes, which are the identifiers of your instances of itsme(r) services.
 
-Once your Sandbox is created, you will receive:
-<ul> 
-<li>Your Partner Code, which corresponds to the OpenID <b>client_id</b></li>
-<li>Your Service Codes, which are the identifiers of your instances of itsme(r) services. </li>
-</ul>
+You can find below some attention points when setting up the project.
 
-### 2.1.1. JWKSet URL and Certificate attention points
+## 2.1. JWKSet URL and Certificate attention points
 
 The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know which URL to contact.
 
@@ -58,7 +53,7 @@ The JWKSet URLs are used by our BE for the decryption and signature verification
 
 <aside class="notice">You can find our own JWKSet URL in our [OpenID configuration file](https://merchant.itsme.be/oidc/.well-known/openid-configuration), in the field "jwks_uri"</aside>.
 
-### 2.1.2. Redirect_URI attention points
+## 2.2. Redirect_URI attention points
 
 Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5.
 <aside class="warning"> 
@@ -67,7 +62,13 @@ Redirect URIs (to which the User will be redirected after authentication in the 
     <li> Additional parameters are not allowed and entire redirect_uri must match </li>
   </ul>  </aside>
 
-## 2.2. itsme® OpenID Configuration
+# 3. Integrating itsme(r) services
+
+**itsme® Login** is based on the [Authorization Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in [OpenID Connect Core Authorization Code Flow Steps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps), depicted in the following  [diagram](https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Untitled%20Diagram.html#R7Vxbd6o4FP41PtZFCAF87HVOH6bTNZ1Zc%2BaRQlRWkTiAtZ1fP4mEWxIrYhC1Yx9aNnFjvi%2F7mtgRvF18%2FJJ4y%2FmvJMDRyDSCjxG8G5kmoD%2F0F5N85hLb5YJZEgZ8UCV4Cf%2FFXGhw6SoMcNoYmBESZeGyKfRJHGM%2Fa8i8JCHr5rApiZpPXXozLAlefC%2BSpX%2BFQTbPpa7pVPIfOJzNiycDe5LfWXjFYD6TdO4FZF0TwfsRvE0IyfK%2FFh%2B3OGLgFbjk73vYcrf8YAmOszZv4Li%2Fe9GKz41%2FruyzmGxCVnGA2XgwgjfreZjhl6Xns7trSi%2BVzbNFxG9zdTjJ8MfWjwTKidIVgskCZ8knHcLf4HBo%2BNqA%2FHJdAQ0K9OY1kG0u8zi3s1JxNX36B0dAjQY8PTSGhMM6PTisAeFApweHPSActgTHnylOJEjo5LLmvNMsIW%2F4lkQkoZKYxHTkzTSMIkHkReEsppc%2BBYMqhjcMqpB64Wt%2BYxEGAXuMEuiKCoOpJ3HG4wiAerAHoIk9krG3FNCbGqB3JOjDLF1gKrpeLr8PA3A4BtytDNx4%2FtsVjoPvQ4Pl7qQBGD3xMJF4eMHJe%2BgzJp4T8k7zROqSjEcG3JTB8m1YsQdkpbDLr0IlNZFrlopXgAZeOi9jZ40QERwKQPL5kyE3RsXl342YigMpfxdgowWDl8xwMWc1kjWokAKpQpbgyMvC9%2BYTVfDxJzyTkH6WKo7AJlG2GJxTskp8zN9Vz%2BVFRWZTURmgCkX5lCVFGzbLabcjuEXd0J3gtiQOxRgUGIOizbRlTFQkUa%2BRsRa1zdAmmcPGobFlM7WGJB3pMlNkNxVN%2BuO8RQE3NOd1ftGQ%2FDq6%2BHWcY%2FFb0FnjF4w32U6YhV7GciDPz0ISb0CkGNK35lnqySdBpqYKwRJCoiFnQWZfWZCiYWCOr1fZ%2FIkKf8f%2FrHCanQEVmloVSMhHgSVTUWYsuqmAsie0xvcbnGidMGcAmsbTavF6Fg0MXa1FJDAyUTAC%2B2JEbh9JyNcgXzJ3uXkcuhmhOybBSUifynC9I0k2JzMSe9FzJe1lERc2zSErK51GVSUjZulATO76nFw0r2dwtitH%2BJz180%2Fh4LFCfLFwWpJOljjesBc8hFFBNb2qh9Uti2Afor8kENh62BLrYgAmY9SNLzG3U6jSSNl%2BtfElUSbhrMvAAOqTsBZlUo0BMYi%2Fkiwji5w0gdSG8604dbXyyCEzxtBGkyZq%2FbhNUDxm7wbVLkVbOK0UFQPJdJrig3mX83M4vgvTZeQxXB8Dinw4pVTzEurFTzCl9fvkh2LxpMrYnZ7yQyQbJWK1bcXP2qNVbjxjZKiJOQebNVAvJmpanWOlaKQKVcc1UySbqc1Wwm%2BMr7Kjodz53HMFvEbEf%2Bsrxrr9ZEVS7tm192y67ZxxFwYHqVyocZW3a2Xhxlu2ZVToSY%2Bkgga5O4k%2F4kaEvrXQW0GD5J3zr8z2ROp%2BKNb9qlaJguey33jQQRsgQeaM6YSnJFlQMQ1%2Bm0zFi9J8mrWcpR9%2FWLM4w2yaHDDQ4TZXNzB7t4Fp8qwQNjnuvKuHhH1YCNy%2BrMmWY6PLYuMToZnrZxEVDTJl6evK93GaHroojpkmHZoViUR0LUfFbQRJkUZGz9I%2Fin1R2LIvKsaZTu5RPgMkIda939JY5wy5B28RRmyaP3D0jpm5KHISdl0UeyMTGpuXquJrlor1od2t5kjNVNEmxPyxa3NOUqTPuIpitbZUJs2isnSS26r9y%2FWWUPSWXbNJsUSRFGkk1JQIBWD8BzUpVhpu22MdvCzkQF3RfElyk5qyGdGqrM7ZzC5Fx%2B0GOHJfCMBxfvLceIyn5H%2FeG3QhsQLpyruk6Mi8y5kuMGuWni5JnMonW07YXZc9QKAnHot22vn80i5FRyZebh4BSzL4M6ZfWwu4mYIjeMB26U5VR14DF1EUlZHzCIdFnP2KosGPfjqD9lF1HgwZw9pLqIrdydiuvSZOK6PqYDCuXOicocEgxWnNvgzG3e98%2FCWf2kBiV6Zr4Scp0rjAFWUA2rOUv9iNe7FdiYot1PricRWGpOWbkYp8zWDMVCeftyRrF8uHePQZOgq%2FpvqatpZT6L5jTbDtADidIs%2FGVwqCvvJ0fuSlaeh%2F7c9qCQEcNfdggaV3Q2jYI6TS9rv4Hbuum0TlV%2BoO9pX0svr%2FIfnw6r%2BwwPv%2FAA%3D%3D),
+  
+ ![enter image description here](https://lh3.googleusercontent.com/vi1iEAv0LtjFbvT30UE62rHDLu-fPFysH5oj1dpa_hVzaTbmKSV2Js_NjTCI7-5tXGVKgd8p4CQ "auth diag")
+
+## 3.1. Checking itsme® OpenID Configuration
 The OpenID Connect protocol requires the use of multiple endpoints for authenticating users, and for requesting resources including tokens, user information and public keys.
  
 To simplify implementations and increase flexibility, OpenID Connect allows the use of a "Discovery document", a JSON document found at well-known location containing key-value pairs which provide details about the OpenID Connect provider's configuration including, 
@@ -83,17 +84,9 @@ The Discovery document for itsme® service may be retrieved from: https://mercha
 
 Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
-
-# 3. Authenticating the User
-
-**itsme® Login** is based on the [Authorization Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in [OpenID Connect Core Authorization Code Flow Steps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps), depicted in the following  [diagram](https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Untitled%20Diagram.html#R7Vxbd6o4FP41PtZFCAF87HVOH6bTNZ1Zc%2BaRQlRWkTiAtZ1fP4mEWxIrYhC1Yx9aNnFjvi%2F7mtgRvF18%2FJJ4y%2FmvJMDRyDSCjxG8G5kmoD%2F0F5N85hLb5YJZEgZ8UCV4Cf%2FFXGhw6SoMcNoYmBESZeGyKfRJHGM%2Fa8i8JCHr5rApiZpPXXozLAlefC%2BSpX%2BFQTbPpa7pVPIfOJzNiycDe5LfWXjFYD6TdO4FZF0TwfsRvE0IyfK%2FFh%2B3OGLgFbjk73vYcrf8YAmOszZv4Li%2Fe9GKz41%2FruyzmGxCVnGA2XgwgjfreZjhl6Xns7trSi%2BVzbNFxG9zdTjJ8MfWjwTKidIVgskCZ8knHcLf4HBo%2BNqA%2FHJdAQ0K9OY1kG0u8zi3s1JxNX36B0dAjQY8PTSGhMM6PTisAeFApweHPSActgTHnylOJEjo5LLmvNMsIW%2F4lkQkoZKYxHTkzTSMIkHkReEsppc%2BBYMqhjcMqpB64Wt%2BYxEGAXuMEuiKCoOpJ3HG4wiAerAHoIk9krG3FNCbGqB3JOjDLF1gKrpeLr8PA3A4BtytDNx4%2FtsVjoPvQ4Pl7qQBGD3xMJF4eMHJe%2BgzJp4T8k7zROqSjEcG3JTB8m1YsQdkpbDLr0IlNZFrlopXgAZeOi9jZ40QERwKQPL5kyE3RsXl342YigMpfxdgowWDl8xwMWc1kjWokAKpQpbgyMvC9%2BYTVfDxJzyTkH6WKo7AJlG2GJxTskp8zN9Vz%2BVFRWZTURmgCkX5lCVFGzbLabcjuEXd0J3gtiQOxRgUGIOizbRlTFQkUa%2BRsRa1zdAmmcPGobFlM7WGJB3pMlNkNxVN%2BuO8RQE3NOd1ftGQ%2FDq6%2BHWcY%2FFb0FnjF4w32U6YhV7GciDPz0ISb0CkGNK35lnqySdBpqYKwRJCoiFnQWZfWZCiYWCOr1fZ%2FIkKf8f%2FrHCanQEVmloVSMhHgSVTUWYsuqmAsie0xvcbnGidMGcAmsbTavF6Fg0MXa1FJDAyUTAC%2B2JEbh9JyNcgXzJ3uXkcuhmhOybBSUifynC9I0k2JzMSe9FzJe1lERc2zSErK51GVSUjZulATO76nFw0r2dwtitH%2BJz180%2Fh4LFCfLFwWpJOljjesBc8hFFBNb2qh9Uti2Afor8kENh62BLrYgAmY9SNLzG3U6jSSNl%2BtfElUSbhrMvAAOqTsBZlUo0BMYi%2Fkiwji5w0gdSG8604dbXyyCEzxtBGkyZq%2FbhNUDxm7wbVLkVbOK0UFQPJdJrig3mX83M4vgvTZeQxXB8Dinw4pVTzEurFTzCl9fvkh2LxpMrYnZ7yQyQbJWK1bcXP2qNVbjxjZKiJOQebNVAvJmpanWOlaKQKVcc1UySbqc1Wwm%2BMr7Kjodz53HMFvEbEf%2Bsrxrr9ZEVS7tm192y67ZxxFwYHqVyocZW3a2Xhxlu2ZVToSY%2Bkgga5O4k%2F4kaEvrXQW0GD5J3zr8z2ROp%2BKNb9qlaJguey33jQQRsgQeaM6YSnJFlQMQ1%2Bm0zFi9J8mrWcpR9%2FWLM4w2yaHDDQ4TZXNzB7t4Fp8qwQNjnuvKuHhH1YCNy%2BrMmWY6PLYuMToZnrZxEVDTJl6evK93GaHroojpkmHZoViUR0LUfFbQRJkUZGz9I%2Fin1R2LIvKsaZTu5RPgMkIda939JY5wy5B28RRmyaP3D0jpm5KHISdl0UeyMTGpuXquJrlor1od2t5kjNVNEmxPyxa3NOUqTPuIpitbZUJs2isnSS26r9y%2FWWUPSWXbNJsUSRFGkk1JQIBWD8BzUpVhpu22MdvCzkQF3RfElyk5qyGdGqrM7ZzC5Fx%2B0GOHJfCMBxfvLceIyn5H%2FeG3QhsQLpyruk6Mi8y5kuMGuWni5JnMonW07YXZc9QKAnHot22vn80i5FRyZebh4BSzL4M6ZfWwu4mYIjeMB26U5VR14DF1EUlZHzCIdFnP2KosGPfjqD9lF1HgwZw9pLqIrdydiuvSZOK6PqYDCuXOicocEgxWnNvgzG3e98%2FCWf2kBiV6Zr4Scp0rjAFWUA2rOUv9iNe7FdiYot1PricRWGpOWbkYp8zWDMVCeftyRrF8uHePQZOgq%2FpvqatpZT6L5jTbDtADidIs%2FGVwqCvvJ0fuSlaeh%2F7c9qCQEcNfdggaV3Q2jYI6TS9rv4Hbuum0TlV%2BoO9pX0svr%2FIfnw6r%2BwwPv%2FAA%3D%3D),
-  
- ![enter image description here](https://lh3.googleusercontent.com/vi1iEAv0LtjFbvT30UE62rHDLu-fPFysH5oj1dpa_hVzaTbmKSV2Js_NjTCI7-5tXGVKgd8p4CQ "auth diag")
-
-
-## 3.1. **Authorization Endpoint**
+## 3.2. Forming an authentication request
 <a name="AuthNRequest"></a>
-### 3.1.1. Authentication Request Specifications
+
 The Authorization Endpoint performs the authentication of the user. The first step is forming an HTTPS request to the Authorization Endpoint with the appropriate URI parameters. Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. Crafting the Authentication Request works as per the OpenID Connect specification [Authentication Request](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [Authorization Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint).
 
 You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
@@ -104,7 +97,7 @@ This base URI is the address of our OpenID webpage, but this base URI is a valid
 
 As suggested by this diagram, you can provide us a valid Universal/App Link as the redirect URI in order to improve the user experience as well. This redirect URI needs to be whitelisted on our end, as specified in the [Integration Prerequisites](#Onboarding) section.
 
-<aside class="warning">The base URI available in the Discovery document will only be caught by recent versions of itsme Apps. As from 30/05/2018, more than 50% of the itsme Apps on the market will not catch this universal link. For these Apps, the flow will be functional but not optimal. In order to cover 100% of our Apps, please use the endpoint https://mobileapp.sixdots.be/mobile/authorize</aside>
+<aside class="warning">The base URI available in the Discovery document will only be caught by recent versions of itsme Apps. As from 30/05/2018, more than 50% of the itsme Apps on the market will not catch this universal link. For these Apps, the flow will be functional but not optimal. The deprecated endpoint used by these Apps is https://mobileapp.sixdots.be/mobile/authorize</aside>
 
 
 <aside class="warning">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism. If you still opt for usage of the HTTP `POST` method, the request parameters must be serialized using <a href="http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization">Form Serialization.</a></aside>
@@ -143,11 +136,9 @@ Parameter | Required | Specification
 **request_uri** | Unsupported | Not supported (yet)|
 **registration** | Unsupported | Not supported. The client registration process is manual. Please consult [integration prerequisites](#Onboarding).
 
-### 3.1.2. Authentication Response Specification
-An Authentication Response is an [OAuth 2.0 Authorization Response](https://tools.ietf.org/html/rfc6749#section-4.1.2) message. 
-
-#### 3.1.2.1. Successful Authentication Response
-The itsme Back-End provides an Authorization Code to the Service Provider Back-End. In the Response, the Service Provider Back-End knows that the User was successfully authenticated.
+<a name="AuthNResponse"></a>
+## 3.3. Capturing an Authorization Code
+If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an authorisation code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the `redirect_uri` specified previously in the authentication request.
  
 ```http--inline
  HTTP/1.1 302 Found
@@ -162,14 +153,26 @@ Parameter | Provided | Description
 **code** | Always | Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.
 **state** |  | The exact value received from the client, if the parameter was present in the Authentication Request.
  
-#### 3.1.2.2. Response when user rejects the action/ chooses the wrong poke-yoke icon
-`"error_description":null,"error":"access_denied"}`
+### Handling Authentication Error Response
 
-#### 3.1.2.3. Cases where there is no redirection
-In some cases, it is possible that the user is not redirected automatically to your environment. A typical example is when the user stays inactive in our front-end (whether in the itsme App or in our OpenID webpage).
+In some cases, it is possible that the user is not redirected automatically to your environment. A typical example is when the user stays inactive in our front-end (whether in the itsme App or in our OpenID webpage). It would also be the case if the `redirect_uri` is malformed.
 
-### 3.1.3. Authentication Errors
-As explained by OIDC [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://openid.net/specs/openid-connect-core-1_0.html#AuthError), if the authentication is NOT successful, the following errors can be triggered by itsme®:
+There are also cases where the user will be redirected to your environment with an [Authentication Error Response]((http://openid.net/specs/openid-connect-core-1_0.html#AuthError)). As for a successful response this is achieved by returning a HTTPS 302 redirect request to the redirection_uri specified in the authentication request. Following parameters could be added to the query component of the redirection_uri:
+
+```http--inline
+HTTP/1.1 302 Found
+Location: https://client.example.org/cb?
+error=invalid_request
+&error_description=Unsupported%20response_type%20value
+&state=af0ifjsldkj 
+```
+
+Parameter |	Required	| Description
+:--|:--|:--
+error	| Required |	Error type.
+error_description |	Optional	| Indicating the nature of the error
+
+The following errors can be triggered by itsme(r):
 
 Error | Description
 :-- |:--
@@ -178,24 +181,25 @@ Error | Description
 `request_uri_not_supported` | does not support use of the request_uri parameter.
 `registration_not_supported` | does not support use of the registration parameter.
 
-## <a name="tokenEndpoint"></a> 3.2. Token Endpoint
-As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
- 
-The Token Endpoint URL is available in our [OpenID discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration), at key "token_endpoint". In this discussion, we assume this URL is 'https://merchant.itsme.be/oidc/token'.
+## 3.4. Supporting Universal Links and App Links mechanism
+[Universal links](https://developer.apple.com/ios/universal-links/) and [App links](https://developer.android.com/studio/write/app-link-indexing) are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.
+An App link is the Android version of the Universal link.
+How do Universal Links work in iOS and Android ? Before Universal Links, the primary mechanism to open up an app when it was installed was by trying to redirect to an app’s URI scheme  in the web browser. But there was no way to check if the app was installed or not. This meant that developers would try to call the URI scheme 100% of the time, in the off chance that the app was installed, then fallback gracefully to the App Store or Google Play Store when not by using a timer.
+iOS Universal Links and Android App Links were intended to fix this. Instead of opening up the web browser first when a link is clicked, the OS will check if a Universal Link has been registered (a file should be there in the domain which contains the bundle id of the app and the paths the app should open) for the domain associated with the link, then check if the corresponding app is installed. If the app is currently installed, it will be opened. If it’s not, the web browser will open and the HTTPS link will load.
+Functionally, it will allow you to have a single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.
+The specifications for the implementation of Universal links and App links can be found in the Appendix.
 
-<aside class="notice">There are many types of tokens mentioned in the OpenID specification. The tokens you expect from the Token Endpoint are the <a href="http://openid.net/specs/openid-connect-core-1_0.html#IDToken">ID Token</a> and the Access Token (the latter only if you need Data). The Access Token is a type of <a href="https://tools.ietf.org/html/rfc6750">Bearer Token</a>. You might also read in the OpenID specification about the Refresh Token, but we don't support them (we don't implement any session mechanism).</aside>
 
-### 3.2.1. Token Request Specification
-As per the [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
+## <a name="tokenEndpoint"></a> 3.5. Exchanging the authorisation code 
+Once your server component has received an [authorization code](#AuthNResponse), your server can exchange it for an Access Token and an ID token.
+
+<aside class="notice">There are many types of tokens mentioned in the OpenID specification. You might also read in the OpenID specification about the Refresh Token, but we don't support them (we don't implement any session mechanism).</aside>
+
+Your server makes this exchange by sending an HTTPS POST request to the Token Endpoint, called [Token Request](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest). The Token Endpoint URL is available in our [OpenID discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration), at key "token_endpoint". In this discussion, we assume this URL is 'https://merchant.itsme.be/oidc/token'.
 
 <aside class="warning">We only support `private_key_jwt` for client authentication.</aside>
 
-The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the **token_endpoint** key. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. 
-
-<aside class="success"> To reach out Token Endpoint, request MUST be a POST, not a GET request. In header the Content-Type : application/x-www-form-urlencoded MUST be present.</aside>
-
-<aside class="success">Do you need an App Client Secret on the OpenID client?
-</aside> OpenID allows multiple ways for authentication as a Service Provider. BMID only supports private_key_jwt as client authentication method with all the SSL requirements exposed via JWKSet, use the corresponding private key to encrypt/sign and decrypt/validate exchanged information. So other authentication methods such client_secret (Open ID Connect default method but the less secured one are not supported since they are considered less secure. 
+<aside class="success"> The header Content-Type : application/x-www-form-urlencoded MUST be present.</aside>
 
 <aside class="notice"> In order to communicate with Token Endpoint, TLS MUST be implemented. See http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements 16.17 for more information on using TLS. </aside>
 
@@ -219,7 +223,7 @@ Parameter | Required | Comment
 **client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` client authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
 **client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` 
 
-#### 3.2.1.1. `client_assertion` 
+### `client_assertion` 
 According to the `private_key_jwt` client authentication method, the **client assertion** JWT must contain the following properties:
 
 Property | Comment
@@ -231,11 +235,34 @@ Property | Comment
 **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 
 <a name="TokenResponse"></a>
-### 3.2.2. Token Response Specification
+## 3.6. Managing Token Response
+### Handling a successful Token Response
+If the Token Request validation is successful we will return an HTTP 200 OK response including id and access tokens as in the example aside:
+
+```http--inline
+HTTP/1.1 200 OK
+  Content-Type: application/json
+  Cache-Control: no-store
+  Pragma: no-cache
+
+  {
+   "access_token": "SlAV32hkKG",
+   "token_type": "Bearer",
+   "expires_in": 3600,
+   "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjFlOWdkazcifQ.ewogImlzc
+     yI6ICJodHRwOi8vc2VydmVyLmV4YW1wbGUuY29tIiwKICJzdWIiOiAiMjQ4Mjg5
+     NzYxMDAxIiwKICJhdWQiOiAiczZCaGRSa3F0MyIsCiAibm9uY2UiOiAibi0wUzZ
+     fV3pBMk1qIiwKICJleHAiOiAxMzExMjgxOTcwLAogImlhdCI6IDEzMTEyODA5Nz
+     AKfQ.ggW8hZ1EuVLuxNuuIJKX_V8a_OMXzR0EHR9R6jgdqrOOF4daGU96Sr_P6q
+     Jp6IcmD3HP99Obi1PRs-cwh3LO-p146waJ8IhehcwL7F09JdijmBqkvPeB2T9CJ
+     NqeGpe-gccMg4vfKjkM8FcGvnzZUN4_KSP0aAp1tOJ1zZwgjxqGByKHiOtX7Tpd
+     QyHE5lcMiKPXfEIQILVq0pc_E2DzL7emopWoaoZTF_m0_N0YzFC6g6EJbOEoRoS
+     K5hoDalrcvRYLSrQAZZKflyuVCyixEoV9GfNQC3_osjzw2PAithfubEEBLuVVk4
+     XUVrWOLrLl0nx7RkKU8NXNHq-rvKMzqg"
+  }
+
+```
 The Token Response follow these specifications:
-
-`{"user_info":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","birthdate":"1974-04-12","gender":"male","name":"Ada Gardner","iss":"tokenEndpointURL","given_name":"Ada","locale":"fr","family_name":"Gardner"},"id_token":{"access_token":"UVfXK3QzTRKyFiw3f1v85Yr4ko4o7uI1oJ8XNZeRcJE","id_token":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","acr":"tag:sixdots.be,2016-06:acr_basic","auth_time":1523626355,"iss":"tokenEndpointURL","exp":1523626660,"iat":1523626360,"nonce":"anonce"},"token_type":"Bearer","expire_in":163}}`
-
 Parameter | Provided | Comment
 -- | -- | --
 **[`access_token`](#actoken)** | Always | Will be provided. 
@@ -244,8 +271,32 @@ Parameter | Provided | Comment
 **[`at_hash`](http://openid.net/specs/openid-connect-core-1_0.html#CodeIDToken)** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
 **[`refresh_token`](#rfshtoken)** | Never | Won't be provided as **itsme(r)** only maintains short-lived session to enforce re-authentication.
 
-### 3.2.3. Token Error Response 
-As per <a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse">OIDC Specification Aggregated Response</a>
+The ID Token follow these specifications:
+Parameter |	Required |	Description
+:-- | :-- | :--
+iss	| Required |	Identifier of the issuer of the ID Token.
+sub |	Required	| An identifier for the User (e.g.: UserCode), unique among all itsme® accounts and never reused. Use sub within in the application as the unique-identifier key for the user.
+aud	| Required |	Audience of the ID Token. Will include the `client_id`
+exp	| Required |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
+iat |	Required	| The time the ID token was issued, represented in Unix time (integer seconds)
+auth_time | Will always be provided | Time when the End-User authentication occurred. Its value is a JSON number representing the number of seconds from 1970-01-01T0:0:0Z as measured in UTC until the date/time.
+nonce | Provided if present in Authentication Request | String value used to associate a Client session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. If present in the ID Token, Clients MUST verify that the nonce Claim Value is equal to the value of the nonce parameter sent in the Authentication Request. If present in the Authentication Request, Authorization Servers MUST include a nonce Claim in the ID Token with the Claim Value being the nonce value sent in the Authentication Request.
+acr | Will always be provided | Possible values: `tag:sixdots.be,2016-06:acr_basic` and `tag:sixdots.be,2016-06:acr_advanced`
+amr | Will never be provided |
+azp | Will never be provided |
+
+### Handling Token Error Response 
+If the Token Request is invalid or unauthorized an HTTP 400 response will be returned as in the example:
+```http--inline
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Cache-Control: no-store
+Pragma: no-cache
+{
+  "error": "invalid_request"
+}
+```
+The response will contain an error parameter and optionally `error_description` and `error_uri` parameters. The error_uri parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.
 
 # 4. Matching users databases
 The first time a user uses itsme(r) at your side, you will receive an unknown userCode from the [Token Response](#TokenResponse) for him. You then have to determine whether or not you already have an account at your own side for this user, and this section briefly describes our recommendation on the topic, in order to optimize the user experience.
@@ -657,74 +708,180 @@ https://merchant.itsme.be/oidc/jwkSet
  
 It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
  
-# 7. **FAQ**
-**How to use itsme-UAT through Hockey-app on IOS  properly?**(without having "Non-trusted company app developer" message)
+7. Appendixes
+7.1. Universal Links on iOS
+Integration is going to be pretty straightforward, all details can be found in below steps (as documented on [Universal Links official documentation](https://developer.apple.com/ios/universal-links/)):
+1. Register your app at developer.apple.com
+2. Enable ‘Associated Domains’ on your app identifier
+3. Enable ‘Associated Domain’ on in your Xcode project
+4. Add the proper domain entitlement and make sure the entitlements file is included at build: Xcode will do it automatically by itself.
+5. Create the ‘apple-app-site-association’ file (AASA). The AASA file contains a JSON object with a list of apps and the URL paths on the domain that should be included or excluded as Universal Links. Here is a sample AASA file:
 
-To be able to use itsme on Hockey App, you need to :  
+```
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": “JHGFJHHYX.com.facebook.ios",
+        "paths": [
+          "*"
+        ]
+      }
+    ]
+  }
+} 
+```
+The JSON object will contain 
+
+Parameter |	Description
+:-- | :--
+appID	| Built by combining your app’s Team ID (it should be retrieved from https://developer.apple.com/account/#/membership/) and the Bundle Identifier. In the example attached, JHGFJHHYX is the Team ID and com.facebook.ios is the Bundle ID.
+paths	| Array of strings that specify which paths are included or excluded from association. Note: these strings are case sensitive and that query strings and fragment identifiers are ignored.
+
+6. Upload the ‘apple-app-site-association’ file to your HTTPS web server for the redirection URI communicated in the Authentication request. The file can be placed at the root of your server or in the .well-known subdirectory.
+
+<aside class="notice"> While hosting the AASA file, please ensure that the AASA file:
+<ul>
+  <li>
+    is served over HTTPS.
+  </li>
+  <li>
+    uses application/json MIME type.
+  </li>
+  <li>
+    don’t append .json to the apple-app-site-association filename.
+  </li>
+  <li>
+    has a size not exceeding 128 Kb (requirement in iOS 9.3.1 onwards)
+  </li>
+</aside>
+
+7. Check if the AASA file is valid and is accessible by using the [following link](https://branch.io/resources/aasa-validator/#resultsbox)
+8. Add an entitlement to all redirect URI that the your app need to supports. In Xcode, open the Associated Domains section in the Capabilities tab and add an entry for each Redirect URI that your app supports, prefixed with `applinks`.
+<aside class="notice">Apple doc says to limit this list to no more than about 20 to 30 domains<aside>
+
+To match all subdomains of an associated redirect URI, you can specify a wildcard by prefixing `*.` before the beginning of a specific Redirect URI (the period is required). Redirect URI matching is based on the longest substring in the `applinks` entries. For example, if you specify the entries `applinks:*.mywebsite.com` and `applinks:*.users.mywebsite.com`, matching for the redirect URI `emily.users.mywebsite.com` is performed against the longer `*.users.mywebsite.com` entry. Note that an entry for `*.mywebsite.com` does not match `mywebsite.com` because of the period after the asterisk. To enable matching for both `*.mywebsite.com` and `mywebsite.com`, you need to provide a separate `applinks` entry for each.
   
-Select : “Annuleer”  
-Go to your settings  
-Select : General  
-Select : Profiles & Device Management  
-Select : Belgian Mobile ID NV  
-Select : Trust
+9. Update the app delegate to respond appropriately when it receives the `NSUserActivity` object. After all above steps are completed perfectly, when the User click a universal link, the app will open up and the method `application:continueUserActivity:restorationHandler` will get called in `Appdelegate`. When iOS launches the the app after a User taps a universal link, you receive an `NSUserActivity` object with an `activityType` value of `NSUserActivityTypeBrowsingWeb`. The activity object’s `webpageURL` property contains the redirect URI that the user is accessing. The webpage URL property always contains an HTTPS URL, and you can use `NSURLComponents` APIs to manipulate the components of the URL.
 
-**Can I have my own itsme app (production) together with the itsme UAT app?**
-Currently, you can only have 1 itsme app on your device at one moment in time independently of Production, UAT or E2E.
+```http--inline
+func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    print("Continue User Activity called: ")
+    if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
+        let url = userActivity.webpageURL!
+        print(url.absoluteString)
+        //handle url and open whatever page you want to open.
+    }
+    return true
+}
+```
 
-**Has itsme app in Prod & UAT different URL-scheme's?**
-On iOS:  
-- for enrollment, it's always "be.bmid.itsme://"  
-- for app to app actions, it's based on universal links and these are different for each environment depicted in the following table: 
+For getting the URL parameters, use the following function:
 
-Environment| URL 
-|--|--|
-UAT|https://uatmobileapp.sixdots.be/mobile/processAction<br>https://uatmobileapp.sixdots.be/mobile/authorize  
-E2E  |https://e2emobileapp.sixdots.be/mobile/processAction<br> https://e2emobileapp.sixdots.be/mobile/authorize 
-PRD |https://mobileapp.sixdots.be/mobile/processAction  https://mobileapp.sixdots.be/mobile/authorize
+```http--inline
+//playground code..
+var str = “https://google.com/contents/someotherpath?category=series&contentid=1562167825"
+let url = URL(string: str)
+func queryParameters(from url: URL) -> [String: String] {
+let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
+var queryParams = [String: String]()
+for queryItem: URLQueryItem in (urlComponents?.queryItems)! {
+if queryItem.value == nil {
+continue
+}
+queryParams[queryItem.name] = queryItem.value
+}
+return queryParams
+}
+// print the url parameters dictionary
+print(queryParameters(from: url!))
 
+//It will print [“category”: “series”, “contentid”: “1562167825”]
+```
 
-**How can I set the level of security at the level of the App (5 digit code only without fingerprint or facial recognition  eg.)**?
-You can configure this option through the parameter “**acr_values**”, documented in   [this](#acrvalues) section. 
+Also if you want to check if the app had opened by clicking a universal link or not in the `didFinishLaunchingWithOptions` method:
 
- **What is Two Factor Authentication?**
+```http--inline
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+ var isUniversalLinkClick: Bool = false
+ if launchOptions[UIApplicationLaunchOptionsUserActivityDictionaryKey] {
+ let activityDictionary = launchOptions[UIApplicationLaunchOptionsUserActivityDictionaryKey] as? [AnyHashable: Any] ?? [AnyHashable: Any]()
+ let activity = activityDictionary[“UIApplicationLaunchOptionsUserActivityKey”] as? NSUserActivity ?? NSUserActivity()
+ if activity != nil {
+ isUniversalLinkClick = true
+ }
+ }
+ if isUniversalLinkClick {
+ // app opened via clicking a universal link.
+ } else {
+ // set the initial viewcontroller
+ }
+ return true
+}
+```
+7.2. App Links on Android
 
-Two Factor Authentication, also known as 2FA, two step verification or TFA (as an acronym), is an extra layer of security that is known as "multi factor authentication" that requires not only a password and username but also something that only that user has on them, i.e. a piece of information only they should know or have immediately to hand - such as a physical token.
+The App Links Assistant in Android Studio can help you create intent filters in your manifest and map existing URLs from your website to activities in your app. Follow below steps to configure the App links (as documented on [App Links official documentation](https://developer.android.com/studio/write/app-link-indexing)):
 
-The purpose is to use username and password together with a piece of information that only the user knows make it harder for potential intruders to gain access and steal that person's personal data or identity.
+1. Add the intent filters to your manifest. Go through the your manifest and select Tools > App Links Assistant. Click Open URL Mapping Editor and then click Add  at the bottom of the URL Mapping list to add a new URL mapping.
+2. Add details for the new URL mapping:
+  * Entering your redirect URI in the `host` field 
+  * Add a `path`, `pathPrefix`, or `pathPattern` for the redirect URIs you want to map. For example, if you have a recipe-sharing app, with all the recipes available in the same activity, and your corresponding website's recipes are all in the same `/recipe directory`, use `pathPrefix` and enter `/recipe`. This way, the redirect URI http://www.recipe-app.com/recipe/grilled-potato-salad maps to the activity you select in the following step.
+  * Select the Activity the redirect URI should take users to.
+  * Click OK.
+3. The App Links Assistant adds intent filters based on your URL mapping to the `AndroidManifest.xml` file, and highlights it in the `Preview` field. If the you would like to make any changes, click Open `AndroidManifest.xml` to edit the intent filter.
 
-2FA in the course of itsme(r):
-You must provide at least two from this list :
-- knowledge (something you know), Eg. password
-- possession (something you have), Eg. mobile phone
-- inherence (something you are). Eg. biometrics
- 
-- With standard login/password on web app: You only have to provide something you know (i.e. the password).
-- With itsme, web2app, you obviously have two factors: The itsme PIN and the mobile device.
-- With app2app: It is still the same, as the two apps need to be running on the same smartphone. Therefore, the attacker needs the device to initiate any malicious transaction. So there are still two factors : you must possess the mobile AND you must be acknowledged of the PIN.
+<aside class="notice">To support more links without updating the app, you should define a URL mapping that supports redirect URIs that he will add in the future. </aside>
 
-**What is the purpose of the https://uatmerchant.sixdots.be/oidc/register? Is it a link to be registered as a SP?**
+4. To verify the URL mapping works properly, enter a URL in the Check URL Mapping field and click Check Mapping. If it's working correctly, the success message shows that the URL entered maps to the activity you selected.
+5. Handle incoming links. Once you have verified that the URL mapping is working correctly, you MUST add the logic to handle the intent he created.
+  * Click Select Activity from the App Links Assistant.
+  * Select an activity from the list and click Insert Code.
+The App Links Assistant adds code to the activity's Java file, similar to the following:
+```
+// ATTENTION: This was auto-generated to handle app links.
+Intent appLinkIntent = getIntent();
+String appLinkAction = appLinkIntent.getAction();
+Uri appLinkData = appLinkIntent.getData();
+```
+However, this code isn't complete on its own. You MUST now take an action based on the URI in <appLinkData>, such as display the corresponding content. For example, for the recipe-sharing app, the code might look like the following sample:
 
-We do not use this as it is part of the OIDC standard. Normally used to register new OIDC partners but the registering process is done by an administrator (“the back end team” for the moment) during the “partner on boarding process”.
+```
+  protected void onCreate(Bundle savedInstanceState) {
+  super.onCreate(savedInstanceState);
+  ...
+  handleIntent(getIntent());
+}
 
-**Is https://uatmerchant.sixdots.be/oidc/.well-known/openid-configuration
- auto generated?**
+protected void onNewIntent(Intent intent) {
+  super.onNewIntent(intent);
+  handleIntent(intent);
+}
 
-Yes, this page is auto-generated by the back end. But the content is mainly composed of hard coded values, only the environment specific values (like URLs) are loaded from configuration files. It is a summary of the parameters used for BMID implementation of OpenID Connect standard (supported encryption types, list of supported claims and scope values, endpoints, ...).
- 
-### <a name id="ServiceCode"></a>[Service Code Concept](#ServiceCode), What is it?
-To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances. 
+private void handleIntent(Intent intent) {
+    String appLinkAction = intent.getAction();
+    Uri appLinkData = intent.getData();
+    if (Intent.ACTION_VIEW.equals(appLinkAction) && appLinkData != null){
+        String recipeId = appLinkData.getLastPathSegment();
+        Uri appData = Uri.parse("content://com.recipe_app/recipe/").buildUpon()
+            .appendPath(recipeId).build();
+        showRecipe(appData);
+    }
+}
+```
 
-For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
+6. Associate the app with the redirect URI. After setting up URL support for your app, the App Links Assistant generates a Digital Asset Links file you can use to associate his website with your app. As an alternative to using the Digital Asset Links file, you can associate your site and app in Search Console. To associate the app and the website using the App Links Assistant, click Open the Digital Asset Links File Generator from the App Links Assistant and follow these steps:
+  * Enter your Site domain and Application ID.
+  * To include support in your Digital Asset Links file for Smart Lock for Passwords, select Support sharing credentials between the app and the website and enter your site's login URL. This adds the following string to your Digital Asset Links file declaring that your app and website share sign-in credentials: `delegate_permission/common.get_login_creds`.
+  * Specify the signing config or select a keystore file. Make sure to select the right config or keystore file for either the release build or debug build of your app. If you want to set up his production build, use the release config. If you want to test his build, use the debug config.
+  * Click `Generate Digital Asset Links` file.
+  * Once Android Studio generates the file, click `Save file` to download it.
+  * Upload the `assetlinks.json` file to redirect URI site, with read-access for everyone, at `https://<yoursite>/.well-known/assetlinks.json`.
 
-### I would like to receive a new service code to do my local development...
-So we would need a service code for the register operation with the following callback URL: http://localhost:23874/web2app/Identify/IdentificationCallBack  
- 
-First, you need to  validate that you are able (and **authorized**) to keep the "xxx UAT JWKSet signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens.
+<aside class="notice">The system verifies the Digital Asset Links file via the encrypted HTTPS protocol. Make sure that the assetlinks.json file is accessible over an HTTPS connection, regardless of whether your app's intent filter includes https</aside>
+  * Click <Link and Verify> to confirm that you've uploaded the correct Digital Asset Links file to the correct location.
 
-**Why App2Back-end communication does not exist but a App2B2B connection does instead?**
-We are sending the user information not through an app but to a highly authenticated server (which implies to put in place necessary measure to protect the data confidentiality)  
-This condition implies the need to put in place a back end layer on your side.  
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTkyNDAxNDExNywxMzc4MTU5MDU1LDUzND
