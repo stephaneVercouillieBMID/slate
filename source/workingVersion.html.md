@@ -298,10 +298,10 @@ Pragma: no-cache
 ```
 The response will contain an error parameter and optionally `error_description` and `error_uri` parameters. The error_uri parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.
 
-# 4. Matching users databases
+## 3.7. Matching users databases
 The first time a user uses itsme(r) at your side, you will receive an unknown userCode from the [Token Response](#TokenResponse) for him. You then have to determine whether or not you already have an account at your own side for this user, and this section briefly describes our recommendation on the topic, in order to optimize the user experience.
 
-## 4.1. Automatic match
+### Automatic match
 
 The smoothest user experience comes when you can guarantee a high level of verification of a set of data we have in common with you. If you ask for user data that you own on your side as well, you can match these data to automatically associate the userCode to the correct user account on your side, and offer a seamless journey to the user
 
@@ -318,7 +318,7 @@ For this to be safe, though, the following must be verified between you and us:
 <aside class="success">If you intend to implement this, please contact us so that we can verify the consistency of this use case together.</aside>
 
 
-## 4.2. Manual match
+### Manual match
 
 If there is no data that can be used on both sides to match the accounts automatically, simply authenticate the user with your usual credentials when you receive a new userCode from the [Token Response](#TokenResponse). You then have to associate this userCode to the account on your side.
 
@@ -329,8 +329,8 @@ The following picture illustrates both cases:
 <img src="LinkUser.png" alt="Picture illustrates possibilities for linking user accounts">
 
 <a name="Data"></a>
-# 5. User Data
-## 5.1. What is a claim?
+## 3.8 Obtain User Data
+### What is a claim?
 
 The concept of claim is about declaring something you expect as return from the OP. When it comes to end user data, you have to use claims in order to declare the end user data you will need for your business before the authentication. This is a privacy-oriented way of getting data.
 
@@ -338,15 +338,8 @@ Technically, you have to declare the claims in the Authorization Request in the 
 
 Claims will come as name/value pairs packaged in a JSON object that contain information about a user, as well as meta-information about the OIDC service. The official definition from the spec is a [“piece of information asserted about an Entity.”](http://openid.net/specs/openid-connect-core-1_0.html#Terminology)
 
-### 5.1.1. Claim Types
+<aside class="notice"> We do not support Aggregated and Distributed Claims due to all the data we expose come from our own database.</aside>
 
-Three representations of Claim Values are defined officially: 
-- Normal Claims
-- Aggregated Claims (not supported)
-- Distributed Claims (not supported)
-We do not support Aggregated and Distributed Claims due to all the data we expose come from our own database.
-
-#### 5.1.1.1. Normal Claims
 Claims that are directly asserted by the OpenID Provider.
 Normal Claims are represented as members in a JSON object. The Claim Name is the member name and the Claim Value is the member value.
 
@@ -360,24 +353,23 @@ The following is a non-normative response containing Normal Claims:
    "picture": "https://www.itsme.be/uploads/media/57da4dee8c5d2/logo-itsme-badge.svg?production-f26c079"
   } 
   ```
-### 5.1.2 Essential Claims vs Voluntary Claims
 In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims requested via scope as **Essential** (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)). **Voluntary** claims are thus supported, but are used as **Essential**.
 
-In practice, it means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims. You should thus already request claims according to your business case. 
-## <a name id="decClaim"></a> 5.2. Declaring Claims
+In practice, it means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims. You should thus already request claims according to your business case.
+
+### <a name id="decClaim"></a> Declaring Claims
 You can declare Claims in two ways:
-- With 'scope' values
-- With 'claims' parameter
+- With `scope` values
+- With `claims` parameter
 
 In each case, the claims need to be declared in the Authorization Request.
-### <a name id="scope"></a>5.2.1. Scope
+#### <a name id="scope"></a> Using `scope` values
 Scopes are space-separated lists of identifiers used to specify what access privileges are being requested. 
 
 Scopes can be used to request that specific sets of information available as Claim Values in User Info Token. 
 
 Using this method, you will always receive Claims from the UserInfo Endpoint.
 
-#### 5.2.1.1 List of Supported Scope Values
 <aside class="success">Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>
 
 The following scope values are supported and allow access to predefined sets of Identity Data:
@@ -389,10 +381,6 @@ email|email, email_verified
 phone| phone_number, phone_number_verified
 address|address, with subfields,<br>street_address (newline separator \n)<br> locality <br> postal_code <br> country
 
-
-#### 5.2.1.2 Example of an Authorization Request using "scope" values
-
-URL:
 
 ```http--inline
 GET /oidc/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fuat_OIDC_TEST1%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_LOGIN+profile+eid+phone=phone_number+phone_number_verified+email=email_verified+address=postal_code+country+&state=anystate&nonce=anonce&prompt=login&max_age=1 HTTP/1.1
@@ -406,28 +394,14 @@ Connection: keep-alive
 Upgrade-Insecure-Requests: 1
 ```
 
-URL Parameters without encoding:
-```http inline--   
-response_type=code
-client_id=yourpartnercode
-redirect_uri=https%3A%2F%2Fyourredirecturl
-scope=openid+service%3Ayourservicecode+profile+eid+phone=phone_number+phone_number_verified+email=email_verified+address=postal_code+country+
-state=anystate
-nonce=anonce
-prompt=login
-max_age=1
-```
-### 5.2.2 “claims” Parameter
+#### Using `claims` parameter
 
 Some specific data cannot be requested by using scope values. They have to be requested in the claims as request parameter of the Authentication Request. Using this [method](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter) of requesting claims, you need to specify the endpoint you want the claims to come from. ( see example for different specifying endpoints [4.2.2.1. Set of Request Parameter Adapted to itsme(r)](#example-endpoint))
 
-**List of Supported Custom "claim" Values:**
-
-Here are these claims:
+Here are these custom claims defined by BMID:
 
 Data | Claim | Comment 
 -- | -- | --
-Subject | **`sub`** | The subject of the `private_key_jwt` (the client ID). Supports value in request. 
 Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | An error will be raised if request as a value element for the claim 
 Place of Birth - city | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** |An error will be raised if request as a value element for the claim 
 Place of Birth - country | **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** | An error will be raised if request as a value element for the claim 
@@ -436,36 +410,11 @@ Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | Simple string
 Device | **`tag:sixdots.be,2017-05:claim_device`** | [Specifications](#deviceClaim) and [an example of device claim value usage](#exampleDeviceClaimValue)<br>
 Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |[Specifications](#transactionInfo) and [an example of usage](#transactionInfoExample) 
 E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
-NRN | not supported|
-
-<aside class="success"> Taking into account that you are allowed to receive the NRN from BMID, BMID can't and get access to NRN and block the access to the eID group</aside>
  
-#### <b id="example-endpoint"></b> 5.2.2.1. Set of Request Parameter Adapted to itsme(r)
-
-```json--inline
- {
-    "userinfo":
-     {
-      "given_name": {"essential": true},
-      "nickname": null,
-      "email": {"essential": true},
-      "email_verified": {"essential": true},
-      "picture": null,
-      "http://example.info/claims/groups": null
-     },
-    "id_token":
-     {
-      "auth_time": {"essential": true},
-      "acr": {"values": ["urn:mace:incommon:iap:silver"] }
-     }
- }
- ```
  
-**List of Supported Standard "claim" Values:**
-
 As per specified by OpenID Connect, there is a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), or user attributes. They are intended to supply the client app with consented user details such as email, name and picture, upon request.  They can be requested to be returned either in the UserInfo Response, per [Section 5.3.2](https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse), or in the ID Token, per [Section 2](https://openid.net/specs/openid-connect-core-1_0.html#IDToken).
 
-Here following table lists the supported standard "claim" values, 
+The following table lists the supported standard "claim" values, 
 
 Member  |Type  |Description
 --|--|--
@@ -482,7 +431,7 @@ phone_number|string|  End-User's preferred telephone number.  [E.164](https://op
 phone_number_verified |boolean (**always true**)|True if the End-User's phone number has been verified; otherwise false. When this Claim Value is true, this means that the OP took affirmative steps to ensure that this phone number was controlled by the End-User at the time the verification was performed. The means by which a phone number is verified is context-specific, and dependent upon the trust framework or contractual agreements within which the parties are operating. When true, the phone_number Claim MUST be in E.164 format and any extensions MUST be represented in RFC 3966 format.
 address|JSON object|End-User's preferred postal address. The value of the address member is a JSON [[RFC4627]](https://openid.net/specs/openid-connect-core-1_0.html#RFC4627) structure containing some or all of the members defined in [Section 5.1.1](https://openid.net/specs/openid-connect-core-1_0.html#AddressClaim).
 
-#### 5.2.2.2. Example of a Valid “claims” Object 
+#### Example of a Valid “claims” Object 
 
 Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_device`:
 
@@ -506,7 +455,7 @@ Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_devic
  }
  ```
  
-#### <a name id="deviceClaim"></a> 5.2.2.2. Device Claim 
+#### <a name id="deviceClaim"></a> Device Claim 
 This claim is the information about the end user device. 
 
 Claim value: **`tag:sixdots.be,2017-05:claim_device`**
@@ -537,10 +486,10 @@ e.g. SAMSUNG GALAXY A5
 - “msisdn” [0…1]: the user’s phone number.  
 - “sdkRelease” [0…1]: Sdk release
 
-##### <a name id="exampleDeviceClaimValue"></a>5.2.2.2.1. Example of Device Claim Value Usage
+<a name id="exampleDeviceClaimValue"></a>Example of Device Claim Value Usage
 `{ "os": "ANDROID", "appName": "itsme app", "appRelease": "1.17.13", "deviceLabel": "myDevice", "debugEnabled": false, "deviceId": "deviceId", "osRelease": "Android 4.4.2", "manufacturer": "samsung", "hasSimEnabled": true, "deviceLockLevel": "touchID", "smsEnabled": true, "rooted": false,"imei": "12345678901234567", "deviceModel": "S8", "msisdn": "0412123123", "sdkRelease": "1.17.12" }`
 
-#### <a name id="eidMetadata"></a> 5.2.2.3. Eid Metadata Claim 
+#### <a name id="eidMetadata"></a> Eid Metadata Claim 
 
 Claim value: **`tag:itsmetag:sixdots.be,2016-06:claim_eid`**
 
@@ -548,7 +497,7 @@ This claim is Belgian Electronic ID card information encoded in JSON, with the f
 
 `eid`: the electronic ID card serial number. <br>`issuance_locality`: the issuance locality. <br>`validity_from`: eID card validity “from” date. <br>`validity_to`: eID card validity “to” date. <br>`certificate_validity`: the certificate validity. <br>`read_date`: the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: 2017-04-01T19:43:37+0000
 
-#### <a name id="transactionInfo"></a> 5.2.2.4.Transaction Info Claim
+#### <a name id="transactionInfo"></a> Transaction Info Claim
 Claim value: **`tag:sixdots.be,2017-05:claim_transaction_info`**
 Information available in the context of the current transaction.
 
@@ -557,10 +506,10 @@ A JSON object with the following keys: (only keys with cardinality \\\[1..1\\\] 
 **“bindLevel” \\\[1..1\\\]**: (supported values: {SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. <br>
 **“mcc” \\\[0..1\\\]**: the Mobile Country Code. An Integer (three digits) representing the mobile network country. 
 
-##### <a name id="transactionInfoExample"></a>5.2.2.4.1. Example of The Usage of Transaction Info Claim Value
+<a name id="transactionInfoExample"></a>5.2.2.4.1. Example of The Usage of Transaction Info Claim Value
 `{ "securityLevel": "SIM\\\_AND\\\_SOFT", "bindLevel": "SIM\\\_AND\\\_SOFT", "mcc": 206 }`
 
-## 5.3. Getting Data
+### Getting Data
 
 As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest), depending on how you declared claims in the Authentication Request, you will receive the user data from:
 - The UserInfo Endpoint
@@ -571,7 +520,7 @@ Indeed, You need to perform two Back-End to Back-End calls:
 - The UserInfo Request  
 On top of this, the Authorization Request (AuthN Request in the schedule) consists of an HTTP redirection to the OpenID webpage of BMID. The content of this HTTP request is to be crafted by your system, it is actually a third call from your side to BMID, this one being Front-End to Back-End.</aside>
 
-### 5.3.1. UserInfo Endpoint
+#### UserInfo Endpoint
 As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest).
 
 If you declared claims with `scope` values or if you declared claims in the `userinfo` part of the `claims` parameter in the `request` object, you will receive the end user data from the UserInfo Endpoint.
@@ -585,7 +534,7 @@ The content type of the response will be `application/JWT`. The response will be
 The UserInfo endpoint can be accessed only with a valid **access_token** and for a very limited duration after end user authentication. There must be _less than 3 minutes_ between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info Endpoint.
 The Access Token will define the list of Data that will be provided back to the client. In order to request specific claims, you can  [use scopes](https://stackedit.io/app#stClaims)  in the Authentication Request and/or  [use the claims parameter](https://stackedit.io/app#Claims-Request)  of the  request Object.
 
-#### 5.3.1.1. User info Request Specification
+##### User info Request Specification
 As per specified [OIDC UserInfo Request](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest).
 
 The Client sends the UserInfo Request using either HTTP  GET  or HTTP  POST. The Access Token obtained from an OpenID Connect Authentication Request MUST be sent as a Bearer Token, per Section 2 of  [OAuth 2.0 Bearer Token Usage](http://openid.net/specs/openid-connect-core-1_0.html#RFC6750)  [RFC6750].
@@ -604,13 +553,13 @@ Authorization: Bearer SlAV32hkKG
 | azp| Won’t be provided |
 |auth_time | Will always be provided
 
-#### 5.3.1.2. User info Response Specification
+##### User info Response Specification
 The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed. The itsme Back-End replies with the Identity Data that were requested in the Authorization Request.
 <aside class="success">What is the lay-out of the Identity Data that BMID obtain in the Userinfo Response? They are the same as on the eID card </aside>
 <aside class="success">What format does the certificate need to be?
 It needs to be in ZIP file, X509 format (cer or crt). Pem file is not supported.  </aside>
 
-#### 5.3.1.3. User info Response Example
+##### User info Response Example
 (Not encrypted nor signed)
  
 ```http--inline
@@ -623,7 +572,7 @@ It needs to be in ZIP file, X509 format (cer or crt). Pem file is not supported.
     "email": "janedoe@example.com"
  }
  ```
-#### 5.3.1.4. User info Errors
+##### User info Errors
 When an error condition occurs, the UserInfo Endpoint returns an Error Response as defined in Section 3 of  [OAuth 2.0 Bearer Token Usage RFC6750](https://tools.ietf.org/html/rfc6750)   (HTTP errors unrelated to RFC 6750 are returned to the User Agent using the appropriate HTTP status code.)
 
 The following is a non-normative example of a UserInfo Error Response:
@@ -633,18 +582,19 @@ The following is a non-normative example of a UserInfo Error Response:
     error_description="The Access Token expired"
  ```
 
-### 5.3.2. Token Endpoint
+#### Token Endpoint
 As per specified by OIDC, when using the authorization code flow to obtain an Access Token and an ID Token, you will send a token request to token endpoint to have a token response.
 If you declared  claims in the `id_Token` part of the `claims` parameter in the `request` object,  you will receive the end user data from the Token Endpoint.
 
-#### 5.3.2.1. Token Endpoint Specs
+##### Token Endpoint Specs
 To get further information about token types, token request/response specifications please proceed with [3.2 Token Endpoint](#tokenEndpoint).
 
-#### 5.3.2.2 Example of Id Token Containing “claims”
+##### Example of Id Token Containing “claims”
 *Will be provided soon*
-# 6. Advanced topics
 
-## 6.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs
+ 
+# 4. Appendixes
+## 4.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs
 
 As per specified by OIDC [here](https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests), Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.
  
@@ -682,7 +632,7 @@ Property | Required | Comment
  }
  ```
  
-## 6.2. Requests Signing and Encryption 
+## 4.2. Requests Signing and Encryption 
 Encryption algorithm used: RSA SHA-256
  
 Supported algorithms and encryption methods for:
@@ -707,9 +657,9 @@ itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
 https://merchant.itsme.be/oidc/jwkSet
  
 It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
- 
-7. Appendixes
-7.1. Universal Links on iOS
+
+
+## 4.3. Universal Links on iOS
 Integration is going to be pretty straightforward, all details can be found in below steps (as documented on [Universal Links official documentation](https://developer.apple.com/ios/universal-links/)):
 1. Register your app at developer.apple.com
 2. Enable ‘Associated Domains’ on your app identifier
@@ -820,7 +770,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
  return true
 }
 ```
-7.2. App Links on Android
+## 4.4. App Links on Android
 
 The App Links Assistant in Android Studio can help you create intent filters in your manifest and map existing URLs from your website to activities in your app. Follow below steps to configure the App links (as documented on [App Links official documentation](https://developer.android.com/studio/write/app-link-indexing)):
 
