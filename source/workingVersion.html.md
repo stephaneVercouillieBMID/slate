@@ -493,9 +493,9 @@ A JSON object with the following keys:
 
 Key | Value
 :-- | :--
-`**securityLevel**` | (supported values: `SOFT_ONLY`, `SIM_ONLY`, `SIM_AND_SOFT`) Security level used during transaction
-`**bindLevel**` | (supported values: `SOFT_ONLY`, `SIM_ONLY`, `SIM_AND_SOFT`) tells if the user account is bound to a SIM or not, at the time the transaction occurred
-`**mcc**` | the Mobile Country Code. An Integer (three digits) representing the mobile network country. 
+`securityLevel` | (supported values: `SOFT_ONLY`, `SIM_ONLY`, `SIM_AND_SOFT`) Security level used during transaction
+`bindLevel` | (supported values: `SOFT_ONLY`, `SIM_ONLY`, `SIM_AND_SOFT`) tells if the user account is bound to a SIM or not, at the time the transaction occurred
+`mcc` | the Mobile Country Code. An Integer (three digits) representing the mobile network country. 
 
 
 
