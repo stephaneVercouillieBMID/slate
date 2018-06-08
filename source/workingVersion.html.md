@@ -490,6 +490,7 @@ Information available in the context of the current transaction.
 ```
 
 A JSON object with the following keys:
+
 Key | Value
 :-- | :--
 `**securityLevel**` | (supported values: `SOFT_ONLY`, `SIM_ONLY`, `SIM_AND_SOFT`) Security level used during transaction
