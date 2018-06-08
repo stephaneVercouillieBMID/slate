@@ -15,7 +15,7 @@ The objective of this document is to provide all the information needed to integ
 
   
 <a name id="Onboarding"></a>
-# 2. Registering
+# 2. Creating Sandboc
  
 Before your application can integrate the itsme(r) OpenID implementation, you must set up a project in the [itsme(r) B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) to obtain credentials, set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. 
 
