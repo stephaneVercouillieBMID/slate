@@ -50,6 +50,7 @@ The JWKSet URLs are used by our BE for the decryption and signature verification
        There is no need for your client certificate. Currently the certificate is also used to protect the JWKSet and it is not directly linked to the SSL certificate.
     </li>
   </ul>
+</aside>
 
 <aside class="notice">You can find our own JWKSet URL in our [OpenID configuration file](https://merchant.itsme.be/oidc/.well-known/openid-configuration), in the field "jwks_uri"</aside>.
 
