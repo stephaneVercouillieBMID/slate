@@ -17,7 +17,7 @@ The objective of this document is to provide all the information needed to integ
 <a name id="Onboarding"></a>
 # 2. Registering
  
-Before your application can use integrate the itsme(r) OpenID implementation, you must set up a project in the [itsme(r) B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) to obtain credentials, set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. 
+Before your application can integrate the itsme(r) OpenID implementation, you must set up a project in the [itsme(r) B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) to obtain credentials, set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. 
 
 Once your project is created, you will receive:
 - Your Partner Code, which corresponds to the OpenID `client_id`
@@ -263,6 +263,7 @@ HTTP/1.1 200 OK
 
 ```
 The Token Response follow these specifications:
+
 Parameter | Provided | Comment
 -- | -- | --
 **[`access_token`](#actoken)** | Always | Will be provided. 
@@ -272,6 +273,7 @@ Parameter | Provided | Comment
 **[`refresh_token`](#rfshtoken)** | Never | Won't be provided as **itsme(r)** only maintains short-lived session to enforce re-authentication.
 
 The ID Token follow these specifications:
+
 Parameter |	Required |	Description
 :-- | :-- | :--
 iss	| Required |	Identifier of the issuer of the ID Token.
@@ -381,19 +383,6 @@ email|email, email_verified
 phone| phone_number, phone_number_verified
 address|address, with subfields,<br>street_address (newline separator \n)<br> locality <br> postal_code <br> country
 
-
-```http--inline
-GET /oidc/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fuat_OIDC_TEST1%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_LOGIN+profile+eid+phone=phone_number+phone_number_verified+email=email_verified+address=postal_code+country+&state=anystate&nonce=anonce&prompt=login&max_age=1 HTTP/1.1
-Host: uatmerchant.sixdots.be
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:52.0) Gecko/20100101 Firefox/52.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-Accept-Language: en-US,en;q=0.5
-Accept-Encoding: gzip, deflate, br
-Cookie: JSESSIONID=871EA8BD595FE9F89BB9F4346ABD16B094ABB62AEFC2ABED925F8361E1B3031178073D9C12A0DBDF4FB02C28AB72E917763275E9E853CB6A0D178744291D15DB92DECDA43BE66D0E5673A7E48DD23564B6E40BAC61F9012F4137B5A02112CEF5788DD47500AC51B1024AE061E0A93593CF954051E913B7BC1D772B947C8C7FB8; TS01afcf7e=0163058fe5252ff79320ae0af6fe6d839a75ea2aec42d57c6c4f7781ddc75d5c4aeec90a783e72b1e9ea8053bb334a3bc6a2ca0c09cd3409043e8ac82f7001989a812dee31; cookieconsent_status=dismiss; mobileid-phonenumber=null; BIGipServer~DMZ~pool_uat_5000=rd1o00000000000000000000ffff0ac21e03o5000; TS01da5469=0163058fe527f1fa81765220131ba80249a2f3e34342d57c6c4f7781ddc75d5c4aeec90a7804b2672a8fd3a85c4d2f9c7eb480d78ce9f71f0e45414210e79c2179584c20a4
-Connection: keep-alive
-Upgrade-Insecure-Requests: 1
-```
-
 #### Using `claims` parameter
 
 Some specific data cannot be requested by using scope values. They have to be requested in the claims as request parameter of the Authentication Request. Using this [method](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter) of requesting claims, you need to specify the endpoint you want the claims to come from. ( see example for different specifying endpoints [4.2.2.1. Set of Request Parameter Adapted to itsme(r)](#example-endpoint))
@@ -402,13 +391,13 @@ Here are these custom claims defined by BMID:
 
 Data | Claim | Comment 
 -- | -- | --
-Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | An error will be raised if request as a value element for the claim 
-Place of Birth - city | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** |An error will be raised if request as a value element for the claim 
-Place of Birth - country | **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** | An error will be raised if request as a value element for the claim 
-E-ID Metadata  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** |  [Specifications](#eidMetadata)
+Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** |
+Place of Birth - city | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** |
+Place of Birth - country | **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** | 
+E-ID Metadata  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** |  See [eID Metadata](#eidMetadata)
 Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | Simple string containing the user’s Passport Serial Number. 
-Device | **`tag:sixdots.be,2017-05:claim_device`** | [Specifications](#deviceClaim) and [an example of device claim value usage](#exampleDeviceClaimValue)<br>
-Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |[Specifications](#transactionInfo) and [an example of usage](#transactionInfoExample) 
+Device | **`tag:sixdots.be,2017-05:claim_device`** | See [Device Claim](#deviceClaim)
+Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |See [Transaction Info](#transactionInfo)
 E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
  
  
@@ -417,8 +406,8 @@ As per specified by OpenID Connect, there is a set of [standard claims](https://
 The following table lists the supported standard "claim" values, 
 
 Member  |Type  |Description
---|--|--
-name |string|Subject - Identifier for the End-User at the Issuer.
+:--|:--|:--
+name |string|Subject - Concatenation  for the End-User at the Issuer.
 given_name|string|  Given name(s) or first name(s) of the End-User. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.
 family_name|string|Surname(s) or last name(s) of the End-User. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.
 profile|string|URL of the End-User's profile page. The contents of this Web page SHOULD be about the End-User.
@@ -430,84 +419,84 @@ locale|string|End-User's locale, represented as a [BCP47](https://openid.net/spe
 phone_number|string|  End-User's preferred telephone number.  [E.164](https://openid.net/specs/openid-connect-core-1_0.html#E.164)  [E.164] is RECOMMENDED as the format of this Claim.If the phone number contains an extension, it is RECOMMENDED that the extension be represented using the  [RFC 3966](https://openid.net/specs/openid-connect-core-1_0.html#RFC3966)  [RFC3966] extension syntax.
 phone_number_verified |boolean (**always true**)|True if the End-User's phone number has been verified; otherwise false. When this Claim Value is true, this means that the OP took affirmative steps to ensure that this phone number was controlled by the End-User at the time the verification was performed. The means by which a phone number is verified is context-specific, and dependent upon the trust framework or contractual agreements within which the parties are operating. When true, the phone_number Claim MUST be in E.164 format and any extensions MUST be represented in RFC 3966 format.
 address|JSON object|End-User's preferred postal address. The value of the address member is a JSON [[RFC4627]](https://openid.net/specs/openid-connect-core-1_0.html#RFC4627) structure containing some or all of the members defined in [Section 5.1.1](https://openid.net/specs/openid-connect-core-1_0.html#AddressClaim).
-
-#### Example of a Valid “claims” Object 
-
-Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_device`:
-
-```json--inline
- {  
- 	"os": "ANDROID",  
- 	"appName": "itsme app", "appRelease": "1.17.13",
- 	"deviceLabel": "myDevice",
- 	"debugEnabled": false, 
- 	"deviceId": "deviceId",
- 	"osRelease": "Android 4.4.2", 
- 	"manufacturer": "samsung", 
- 	"hasSimEnabled": true,
- 	"deviceLockLevel": "touchID", 
- 	"smsEnabled": true,
- 	"rooted": false,
- 	"imei": "12345678901234567",
- 	"deviceModel": "S8",  
- 	"msisdn": "0412123123", 
- 	"sdkRelease": "1.17.12"  
- }
- ```
  
 #### <a name id="deviceClaim"></a> Device Claim 
 This claim is the information about the end user device. 
 
 Claim value: **`tag:sixdots.be,2017-05:claim_device`**
 
-A JSON object with the following keys: (only keys with cardinality [1…1] will be always available)
+This will return you a JSON object with the following keys: (only keys with cardinality [1…1] will be always available)
 
-- “os” [1…1]: the device operating system (supported values:
-- {ANDROID, IOS})   
-- “appName” [0…1]: the application name.   
-- “appRelease” [0…1]: the application current release.   
-- “deviceLabel” [0…1]: the name of the device.   
-- “debugEnabled” [0…1]: if debug mode is activated.   
-- “deviceId” [1…1]: (regexp =“[a-f0-9]{33}”) the device identifier.   
-- “osRelease” [0…1]: Version of the OS running on your Device.  
-- “manufacturer” [0…1]: Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android).
-- “hasSimEnabled” [0…1]: Whether there is a SIM in the Device. Should
-be always true, as long as BMID keeps forbidding installing itsme on
-a tablet.   
--  “deviceLockLevel” [0…1]: The type of action to be
-performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.   
-- “smsEnabled” [0…1]: Can send SMS. On iOS, means it’s an iPhone.    
--  “rooted” [0…1]: Coming from Gemalto. ‘true’ the device is
-jailbreaked/rooted.   
-- “imei” [0…1]: (regexp = “[0-9]{15,17}”) the
-device IMEI value.   
--  “deviceModel” [0…1]: Model of the Device.  
-e.g. SAMSUNG GALAXY A5   
-- “msisdn” [0…1]: the user’s phone number.  
-- “sdkRelease” [0…1]: Sdk release
-
-<a name id="exampleDeviceClaimValue"></a>Example of Device Claim Value Usage
-`{ "os": "ANDROID", "appName": "itsme app", "appRelease": "1.17.13", "deviceLabel": "myDevice", "debugEnabled": false, "deviceId": "deviceId", "osRelease": "Android 4.4.2", "manufacturer": "samsung", "hasSimEnabled": true, "deviceLockLevel": "touchID", "smsEnabled": true, "rooted": false,"imei": "12345678901234567", "deviceModel": "S8", "msisdn": "0412123123", "sdkRelease": "1.17.12" }`
+```json--inline
+{ 
+  "os": "ANDROID",
+  "appName": "itsme app",
+  "appRelease": "1.17.13",
+  "deviceLabel": "myDevice",
+  "debugEnabled": false,
+  "deviceId": "deviceId",
+  "osRelease": "Android 4.4.2",
+  "manufacturer": "samsung",
+  "hasSimEnabled": true,
+  "deviceLockLevel": "touchID",
+  "smsEnabled": true,
+  "rooted": false,
+  "imei": "12345678901234567",
+  "deviceModel": "S8",
+  "msisdn": "0412123123",
+  "sdkRelease": "1.17.12" 
+ }
+```
+Key | Value
+:-- | :--
+`os` | the device operating system (possible values: `ANDROID`, `IOS`)   
+`appName` | the application name.   
+`appRelease` | the application current release.   
+`deviceLabel` | the name of the device.   
+`debugEnabled` | if debug mode is activated.   
+`deviceId` | (regexp =“[a-f0-9]{33}”) the device identifier.   
+`osRelease` | Version of the OS running on your Device.  
+`manufacturer` | Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android).
+`hasSimEnabled` | Whether there is a SIM in the Device. Is always `true`, as long as BMID keeps forbidding installing itsme on a tablet. 
+`deviceLockLevel` | The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.   
+`smsEnabled` | Can send SMS. On iOS, means it’s an iPhone.
+`rooted` | Always `false` as long as BMID keeps forbidding using itsme on a jailbreaked/rooted device.   
+`imei` | (regexp = “[0-9]{15,17}”) the device IMEI value.
+`deviceModel` | Model of the Device, e.g. `SAMSUNG GALAXY A5`
+`msisdn` | the user’s phone number.  
+`sdkRelease` | SDK release
 
 #### <a name id="eidMetadata"></a> Eid Metadata Claim 
 
 Claim value: **`tag:itsmetag:sixdots.be,2016-06:claim_eid`**
 
-This claim is Belgian Electronic ID card information encoded in JSON, with the following keys,
+This claim is Belgian Electronic ID card information encoded in JSON, with the following keys:
 
-`eid`: the electronic ID card serial number. <br>`issuance_locality`: the issuance locality. <br>`validity_from`: eID card validity “from” date. <br>`validity_to`: eID card validity “to” date. <br>`certificate_validity`: the certificate validity. <br>`read_date`: the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: 2017-04-01T19:43:37+0000
+Key | Value
+:-- | :--
+`eid` | the electronic ID card serial number
+`issuance_locality` | the issuance locality
+`validity_from` | eID card validity “from” date
+`validity_to` | eID card validity “to” date
+`certificate_validity` |the certificate validity
+`read_date` | the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: 2017-04-01T19:43:37+0000
 
 #### <a name id="transactionInfo"></a> Transaction Info Claim
 Claim value: **`tag:sixdots.be,2017-05:claim_transaction_info`**
 Information available in the context of the current transaction.
 
-A JSON object with the following keys: (only keys with cardinality \\\[1..1\\\] will be always available)
-**“securityLevel” \\\[1..1\\\]**: (supported values: {SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) Security level used during transaction. <br>
-**“bindLevel” \\\[1..1\\\]**: (supported values: {SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. <br>
-**“mcc” \\\[0..1\\\]**: the Mobile Country Code. An Integer (three digits) representing the mobile network country. 
+```http--inline
+{ "securityLevel": "SIM\\\_AND\\\_SOFT", "bindLevel": "SIM\\\_AND\\\_SOFT", "mcc": 206 }
+```
 
-<a name id="transactionInfoExample"></a>5.2.2.4.1. Example of The Usage of Transaction Info Claim Value
-`{ "securityLevel": "SIM\\\_AND\\\_SOFT", "bindLevel": "SIM\\\_AND\\\_SOFT", "mcc": 206 }`
+A JSON object with the following keys:
+Key | Value
+:-- | :--
+`**securityLevel**` | (supported values: `SOFT_ONLY`, `SIM_ONLY`, `SIM_AND_SOFT`) Security level used during transaction
+`**bindLevel**` | (supported values: `SOFT_ONLY`, `SIM_ONLY`, `SIM_AND_SOFT`) tells if the user account is bound to a SIM or not, at the time the transaction occurred
+`**mcc**` | the Mobile Country Code. An Integer (three digits) representing the mobile network country. 
+
+
 
 ### Getting Data
 
