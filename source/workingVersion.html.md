@@ -187,7 +187,8 @@ Functionally, it will allow you to have a single link that will either open your
 The specifications for the implementation of Universal links and App links can be found in the Appendix.
 
 
-## <a name="tokenEndpoint"></a> 3.5. Exchanging the authorisation code 
+## 3.5. Exchanging the authorisation code 
+<a name="tokenEndpoint"></a> 
 Once your server component has received an [authorization code](#AuthNResponse), your server can exchange it for an Access Token and an ID token.
 
 <aside class="notice">There are many types of tokens mentioned in the OpenID specification. You might also read in the OpenID specification about the Refresh Token, but we don't support them (we don't implement any session mechanism).</aside>
