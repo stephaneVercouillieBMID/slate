@@ -1,8 +1,15 @@
 ---
 title: itsme(r) OpenID Connect documentation
- language_tabs: # must be one of https://git.io/vQNgJ
-- json: JSON
-- http: HTTP
+
+language_tabs: # must be one of https://git.io/vQNgJ
+ - json: JSON
+ - http: HTTP
+
+toc_footers:
+ - <a href='#'>Sign Up for a Developer Key</a> -->
+ - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+
+search: true
 ---
 # 1. Introduction
 itsme is an identity checking system allowing Service Providers to use verified identities – through 4 services – for authentication and authorization on their web desktop, mobile web and in-app mobile applications:
