@@ -13,8 +13,7 @@ search: true
 ---
 # 1. Introduction
 itsme is an identity checking system allowing Service Providers to use verified identities – through 4 services – for authentication and authorization on their web desktop, mobile web and in-app mobile applications:
-<ul>
-     <li>
+<ul><li>
        Login
     </li>
     <li>
