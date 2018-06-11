@@ -12,10 +12,12 @@ toc_footers:
 search: true
 ---
 # 1. Introduction
-itsme is an identity checking system allowing Service Providers to use verified identities – through 4 services – for authentication and authorization on their web desktop, mobile web and in-app mobile applications:<ul><li>Login</li>
-    <li>Confirm</li>
-    <li>Share Data</li>
-    <li>Sign</li>
+itsme is an identity checking system allowing Service Providers to use verified identities – through 4 services – for authentication and authorization on their web desktop, mobile web and in-app mobile applications:
+<ul>
+  <li>Login</li>
+  <li>Confirm</li>
+  <li>Share Data</li>
+  <li>Sign</li>
 </ul>
 
 The objective of this document is to provide all the information needed to integrate the Login and Share Data services using the [OpenID Connect Core 1.0 specifications](http://openid.net/specs/openid-connect-core-1_0.html).
@@ -26,7 +28,7 @@ The objective of this document is to provide all the information needed to integ
  
 Before your application can use itsme® OpenID Login and Share Data services, you must set up a project in the [itsme(r) B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) to obtain credentials (PartnerCode, ServiceCode,...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. 
 
-<aside class="warning"> The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know which URL to contact.
+<aside class="warning"> The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. 
   <ul>
     <li>It must contain the root, the intermediate CA and the final public certifiate.</li>
     <li>You can specify only one JWKSet URL per environment.</li>
@@ -41,8 +43,8 @@ Before your application can use itsme® OpenID Login and Share Data services, yo
 
 <aside class="warning"> Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5.
   <ul>
-    <li> Multiple URLs can be whitelisted per service (can include Universal Link for your App)</li>
-    <li> Additional parameters are not allowed and entire redirect_uri must match </li>
+    <li>Multiple URLs can be whitelisted per service (can include Universal Link for your App)</li>
+    <li>Additional parameters are not allowed and entire redirect_uri must match</li>
   </ul>  
 </aside>
 
@@ -52,18 +54,19 @@ The itsme® Login and Share Data service integration is based on the [Authorizat
   
  ![enter image description here](https://lh3.googleusercontent.com/vi1iEAv0LtjFbvT30UE62rHDLu-fPFysH5oj1dpa_hVzaTbmKSV2Js_NjTCI7-5tXGVKgd8p4CQ "auth diag")
  
-1. Your web desktop, mobile web or in-app mobile application (e.g.: The Relying Party) sends a request to itsme® (e.g.: OpenID Provider) to authenticate the User. 
-2. itsme® authenticates the User by asking him 
-   * to enter his MSISDN on the itsme® OpenID web page
-   * authorize the release of some information’s to your application
-   * to provide his credentials (password or fingerprint or FaceID)
-
-   If you are building a mobile web or in-app mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will directly be redirected to the itsme app via the Universal links and App links.
-
-3. Once the User has has authorized the request and has been authenticated the request itsme® will return an authorization code to your server component.
-4. Your server component contacts the token endpoint and exchanges the authorization code for an id token identifying the User and an access token, redirecting the user to your mobile or web application.
-5. You may request the additional user information from the UserInfo endpoint by presenting the access token obtained in the previous step.
-
+<ol>
+  <li>Your web desktop, mobile web or in-app mobile application (e.g.: The Relying Party) sends a request to itsme® (e.g.: OpenID Provider) to authenticate the User.</li>
+  <li>itsme® authenticates the User by asking him
+    <ol type="a">
+      <li>to enter his MSISDN on the itsme® OpenID web page</li>
+      <li>authorize the release of some information’s to your application</li>
+      <li>to provide his credentials (password or fingerprint or FaceID)</li>
+    <ol/>
+      If you are building a mobile web or in-app mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will directly be redirected to the itsme app via the Universal links and App links.</li>
+  <li>Once the User has has authorized the request and has been authenticated the request itsme® will return an authorization code to your server component.</li>
+  <li>Your server component contacts the token endpoint and exchanges the authorization code for an id token identifying the User and an access token, redirecting the user to your mobile or web application.</li>
+  <li>You may request the additional user information from the UserInfo endpoint by presenting the access token obtained in the previous step.</li>
+ 
 
 ## 3.1. Checking itsme® OpenID Configuration
 The OpenID Connect protocol requires the use of multiple endpoints for authenticating users, and for requesting resources including tokens, user information and public keys.
