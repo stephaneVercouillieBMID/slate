@@ -241,7 +241,7 @@
                     <a href="#3-4-supporting-universal-links-and-app-links-mechanism" class="toc-h2 toc-link" data-title="3-4-supporting-universal-links-and-app-links-mechanism">3.4. Supporting Universal Links and App Links mechanism</a>
                   </li>
                   <li>
-                    <a href="#3-5-exchanging-the-authorisation-code" class="toc-h2 toc-link" data-title="a-name-tokenendpoint-a-3-5-exchanging-the-authorisation-code"><a name="tokenEndpoint"></a> 3.5. Exchanging the authorisation code</a>
+                    <a href="#3-5-exchanging-the-authorisation-code" class="toc-h2 toc-link" data-title="3-5-exchanging-the-authorisation-code">3.5. Exchanging the authorisation code</a>
                   </li>
                   <li>
                     <a href="#3-6-managing-token-response" class="toc-h2 toc-link" data-title="3-6-managing-token-response">3.6. Managing Token Response</a>
@@ -567,8 +567,9 @@ How do Universal Links work in iOS and Android ? Before Universal Links, the pri
 iOS Universal Links and Android App Links were intended to fix this. Instead of opening up the web browser first when a link is clicked, the OS will check if a Universal Link has been registered (a file should be there in the domain which contains the bundle id of the app and the paths the app should open) for the domain associated with the link, then check if the corresponding app is installed. If the app is currently installed, it will be opened. If it’s not, the web browser will open and the HTTPS link will load.
 Functionally, it will allow you to have a single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.
 The specifications for the implementation of Universal links and App links can be found in the Appendix.</p>
-<h2 id='3-5-exchanging-the-authorisation-code'><a name="tokenEndpoint"></a> 3.5. Exchanging the authorisation code</h2>
-<p>Once your server component has received an <a href="#AuthNResponse">authorization code</a>, your server can exchange it for an Access Token and an ID token.</p>
+<h2 id='3-5-exchanging-the-authorisation-code'>3.5. Exchanging the authorisation code</h2>
+<p><a name="tokenEndpoint"></a> 
+Once your server component has received an <a href="#AuthNResponse">authorization code</a>, your server can exchange it for an Access Token and an ID token.</p>
 
 <aside class="notice">There are many types of tokens mentioned in the OpenID specification. You might also read in the OpenID specification about the Refresh Token, but we don't support them (we don't implement any session mechanism).</aside>
 
