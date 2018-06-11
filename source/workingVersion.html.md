@@ -180,10 +180,15 @@ Error | Description
 
 ## 3.4. Supporting Universal Links and App Links mechanism
 [Universal links](https://developer.apple.com/ios/universal-links/) and [App links](https://developer.android.com/studio/write/app-link-indexing) are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.
+
 An App link is the Android version of the Universal link.
+
 How do Universal Links work in iOS and Android ? Before Universal Links, the primary mechanism to open up an app when it was installed was by trying to redirect to an app’s URI scheme  in the web browser. But there was no way to check if the app was installed or not. This meant that developers would try to call the URI scheme 100% of the time, in the off chance that the app was installed, then fallback gracefully to the App Store or Google Play Store when not by using a timer.
+
 iOS Universal Links and Android App Links were intended to fix this. Instead of opening up the web browser first when a link is clicked, the OS will check if a Universal Link has been registered (a file should be there in the domain which contains the bundle id of the app and the paths the app should open) for the domain associated with the link, then check if the corresponding app is installed. If the app is currently installed, it will be opened. If it’s not, the web browser will open and the HTTPS link will load.
+
 Functionally, it will allow you to have a single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.
+
 The specifications for the implementation of Universal links and App links can be found in the Appendix.
 
 
