@@ -1,4 +1,4 @@
- ---
+---
 title: itsme(r) OpenID Connect documentation
  language_tabs: # must be one of https://git.io/vQNgJ
 - json: JSON
