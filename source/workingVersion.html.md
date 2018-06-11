@@ -13,26 +13,20 @@ search: true
 ---
 # 1. Introduction
 itsme is an identity checking system allowing Service Providers to use verified identities – through 4 services – for authentication and authorization on their web desktop, mobile web and in-app mobile applications:
-* Login
-* Confirm
-* Share Data
-* Sign (coming soon)
+..* Login
+..* Confirm
+..* Share Data
+..* Sign (coming soon)
 
 The objective of this document is to provide all the information needed to integrate the Login and Share Data services using the [OpenID Connect Core 1.0 specifications](http://openid.net/specs/openid-connect-core-1_0.html).
 
   
 <a name id="Onboarding"></a>
-# 2. Creating Sandbox
+# 2. Creating sandbox
  
-Before your application can use itsme® OpenID Login and Share Data services, you must set up a project in the [itsme(r) B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) to obtain credentials, set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. 
+Before your application can use itsme® OpenID Login and Share Data services, you must set up a project in the [itsme(r) B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) to obtain credentials (PartnerCode, ServiceCode,...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. 
 
-You can find below some attention points when setting up the project.
-
-## 2.1. JWKSet URL and Certificate attention points
-
-The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know which URL to contact.
-
-<aside class="warning">
+<aside class="warning"> The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know which URL to contact.
   <ul>
      <li>
        It must contain the root, the intermediate CA and the final public certifiate.
@@ -55,12 +49,9 @@ The JWKSet URLs are used by our BE for the decryption and signature verification
   </ul>
 </aside>
 
-<aside class="notice">You can find our own JWKSet URL in our [OpenID configuration file](https://merchant.itsme.be/oidc/.well-known/openid-configuration), in the field "jwks_uri"</aside>
+<aside class="notice">You can find our own JWKSet URL in our [OpenID configuration file](https://merchant.itsme.be/oidc/.well-known/openid-configuration), in the field `jwks_uri`</aside>
 
-## 2.2. Redirect_URI attention points
-
-Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5.
-<aside class="warning"> 
+<aside class="warning"> Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5.
 <ul>
     <li> Multiple URLs can be whitelisted per service (can include Universal Link for your App)</li>
     <li> Additional parameters are not allowed and entire redirect_uri must match </li>
