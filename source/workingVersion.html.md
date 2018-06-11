@@ -13,13 +13,10 @@ search: true
 ---
 # 1. Introduction
 itsme is an identity checking system allowing Service Providers to use verified identities – through 4 services – for authentication and authorization on their web desktop, mobile web and in-app mobile applications:
-<ul> 
-  <nobr>
-    <li>Login</li>
+<ul><li>Login</li>
     <li>Confirm</li>
     <li>Share Data</li>
     <li>Sign</li>
- </nobr> 
 </ul>
 
 The objective of this document is to provide all the information needed to integrate the Login and Share Data services using the [OpenID Connect Core 1.0 specifications](http://openid.net/specs/openid-connect-core-1_0.html).
