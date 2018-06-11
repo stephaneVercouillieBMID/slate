@@ -13,7 +13,6 @@ search: true
 ---
 # 1. Introduction
 itsme is an identity checking system allowing Service Providers to use verified identities – through 4 services – for authentication and authorization on their web desktop, mobile web and in-app mobile applications:
-<aside>
   <ul>
     <li>
        Login
@@ -28,7 +27,6 @@ itsme is an identity checking system allowing Service Providers to use verified 
       Sign
     </li>
   </UL>
-</aside>
 
 The objective of this document is to provide all the information needed to integrate the Login and Share Data services using the [OpenID Connect Core 1.0 specifications](http://openid.net/specs/openid-connect-core-1_0.html).
 
@@ -78,9 +76,9 @@ The itsme® Login and Share Data service integration is based on the [Authorizat
  
 1. Your web desktop, mobile web or in-app mobile application (e.g.: The Relying Party) sends a request to itsme® (e.g.: OpenID Provider) to authenticate the User. 
 2. itsme® authenticates the User by asking him 
-   1. to enter his MSISDN on the itsme® OpenID web page
-   2. authorize the release of some information’s to your application
-   3. to provide his credentials (password or fingerprint or FaceID)
+   * to enter his MSISDN on the itsme® OpenID web page
+   * authorize the release of some information’s to your application
+   * to provide his credentials (password or fingerprint or FaceID)
 
    If you are building a mobile web or in-app mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will directly be redirected to the itsme app via the Universal links and App links.
 
