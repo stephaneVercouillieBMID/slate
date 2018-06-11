@@ -278,10 +278,10 @@
       <div class="content">
         <h1 id='1-introduction'>1. Introduction</h1>
 <p>itsme is an identity checking system allowing Service Providers to use verified identities – through 4 services – for authentication and authorization on their web desktop, mobile web and in-app mobile applications:
-- Login
-- Confirm
-- Share Data
-- Sign (coming soon)</p>
+* Login
+* Confirm
+* Share Data
+* Sign (coming soon)</p>
 
 <p>The objective of this document is to provide all the information needed to integrate the Login and Share Data services using the <a href="http://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect Core 1.0 specifications</a>.</p>
 
@@ -556,12 +556,17 @@
 </tr>
 </tbody></table>
 <h2 id='3-4-supporting-universal-links-and-app-links-mechanism'>3.4. Supporting Universal Links and App Links mechanism</h2>
-<p><a href="https://developer.apple.com/ios/universal-links/">Universal links</a> and <a href="https://developer.android.com/studio/write/app-link-indexing">App links</a> are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.
-An App link is the Android version of the Universal link.
-How do Universal Links work in iOS and Android ? Before Universal Links, the primary mechanism to open up an app when it was installed was by trying to redirect to an app’s URI scheme  in the web browser. But there was no way to check if the app was installed or not. This meant that developers would try to call the URI scheme 100% of the time, in the off chance that the app was installed, then fallback gracefully to the App Store or Google Play Store when not by using a timer.
-iOS Universal Links and Android App Links were intended to fix this. Instead of opening up the web browser first when a link is clicked, the OS will check if a Universal Link has been registered (a file should be there in the domain which contains the bundle id of the app and the paths the app should open) for the domain associated with the link, then check if the corresponding app is installed. If the app is currently installed, it will be opened. If it’s not, the web browser will open and the HTTPS link will load.
-Functionally, it will allow you to have a single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.
-The specifications for the implementation of Universal links and App links can be found in the Appendix.</p>
+<p><a href="https://developer.apple.com/ios/universal-links/">Universal links</a> and <a href="https://developer.android.com/studio/write/app-link-indexing">App links</a> are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.</p>
+
+<p>An App link is the Android version of the Universal link.</p>
+
+<p>How do Universal Links work in iOS and Android ? Before Universal Links, the primary mechanism to open up an app when it was installed was by trying to redirect to an app’s URI scheme  in the web browser. But there was no way to check if the app was installed or not. This meant that developers would try to call the URI scheme 100% of the time, in the off chance that the app was installed, then fallback gracefully to the App Store or Google Play Store when not by using a timer.</p>
+
+<p>iOS Universal Links and Android App Links were intended to fix this. Instead of opening up the web browser first when a link is clicked, the OS will check if a Universal Link has been registered (a file should be there in the domain which contains the bundle id of the app and the paths the app should open) for the domain associated with the link, then check if the corresponding app is installed. If the app is currently installed, it will be opened. If it’s not, the web browser will open and the HTTPS link will load.</p>
+
+<p>Functionally, it will allow you to have a single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.</p>
+
+<p>The specifications for the implementation of Universal links and App links can be found in the Appendix.</p>
 <h2 id='3-5-exchanging-the-authorisation-code'>3.5. Exchanging the authorisation code</h2>
 <p><a name="tokenEndpoint"></a> 
 Once your server component has received an <a href="#AuthNResponse">authorization code</a>, your server can exchange it for an Access Token and an ID token.</p>
