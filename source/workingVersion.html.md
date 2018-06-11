@@ -14,19 +14,11 @@ search: true
 # 1. Introduction
 itsme is an identity checking system allowing Service Providers to use verified identities – through 4 services – for authentication and authorization on their web desktop, mobile web and in-app mobile applications:
   <ul>
-    <li>
-       Login
-    </li>
-    <li>
-      Confirm
-    </li>
-     <li>
-       Share Data
-    </li>
-    <li>
-      Sign
-    </li>
-  </UL>
+    <li>Login</li>
+    <li>Confirm</li>
+    <li>Share Data</li>
+    <li>Sign</li>
+  </ul>
 
 The objective of this document is to provide all the information needed to integrate the Login and Share Data services using the [OpenID Connect Core 1.0 specifications](http://openid.net/specs/openid-connect-core-1_0.html).
 
@@ -38,24 +30,12 @@ Before your application can use itsme® OpenID Login and Share Data services, yo
 
 <aside class="warning"> The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Our BE must know which URL to contact.
   <ul>
-     <li>
-       It must contain the root, the intermediate CA and the final public certifiate.
-    </li>
-    <li>
-      You can specify only one JWKSet URL per environment.
-    </li>
-     <li>
-       On the HTTPS protocol level, connections must be secured using trusted Root CA.
-    </li>
-     <li>
-       In production, it is not possible the certificate is NOT self-signed (it can be self-signed in Sandbox)
-    </li>
-    <li>
-      BMID is notified on time if the certificate or the URL is changed.
-    </li>
-     <li>
-       There is no need for your client certificate. Currently the certificate is also used to protect the JWKSet and it is not directly linked to the SSL certificate.
-    </li>
+    <li>It must contain the root, the intermediate CA and the final public certifiate.</li>
+    <li>You can specify only one JWKSet URL per environment.</li>
+    <li>On the HTTPS protocol level, connections must be secured using trusted Root CA.</li>
+    <li>In production, it is not possible the certificate is NOT self-signed (it can be self-signed in Sandbox)</li>
+    <li>BMID is notified on time if the certificate or the URL is changed.</li>
+    <li>There is no need for your client certificate. Currently the certificate is also used to protect the JWKSet and it is not directly linked to the SSL certificate.</li>
   </ul>
 </aside>
 
