@@ -12,7 +12,8 @@ toc_footers:
 search: true
 ---
 # 1. Introduction
-itsme® is an identity checking system allowing Service Providers to use verified identities – through 4 services – for authentication and authorization on their web desktop, mobile web and in-app mobile applications:<ul>
+itsme® is an identity checking system allowing Service Providers to use verified identities – through 4 services – for authentication and authorization on their web desktop, mobile web and in-app mobile applications:
+<ul>
   <li>Login</li>
   <li>Confirm</li>
   <li>Share Data</li>
@@ -22,7 +23,7 @@ itsme® is an identity checking system allowing Service Providers to use verifie
 The objective of this document is to provide all the information needed to integrate the Login and Share Data services using the [OpenID Connect Core 1.0 specifications](http://openid.net/specs/openid-connect-core-1_0.html).
 
   
-<a name id="Onboarding"></a>
+<a name="Onboarding"></a>
 # 2. Creating sandbox
  
 Before your application can use itsme® OpenID Login and Share Data services, you must set up a project in the [itsme(r) B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) to obtain credentials (PartnerCode, ServiceCode,...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. 
@@ -38,7 +39,7 @@ Before your application can use itsme® OpenID Login and Share Data services, yo
   </ul>
 </aside>
 
-<aside class="notice">You can find our own JWKSet URL in our [OpenID configuration file](https://merchant.itsme.be/oidc/.well-known/openid-configuration), in the field `jwks_uri`</aside>
+<aside class="notice">You can find our own JWKSet URL in our [OpenID configuration file](https://merchant.itsme.be/oidc/.well-known/openid-configuration), in the field `jwks_uri`.</aside>
 
 <aside class="warning"> Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5.
   <ul>
@@ -90,9 +91,7 @@ The Discovery document for itsme® services may be retrieved from: https://merch
 
 First, you will form a HTTPS GET request that MUST be sent to the itsme® authorization endpoint. The itsme® authorization endpoint is https://merchant.itsme.be/oidc/authorize (it can be retrieved from the itsme® [Discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html), using the key `authorization_endpoint`)
 
-This base URI is the address of our OpenID webpage, but this base URI is a valid Universal/App Link. As a result, if the itsme App is present on the same device as your front-end interface, the user will be automatically redirected to the itsme app (option B) without going through our OpenID webpage (option A), improving the user experience since in option A user will have to open the itsme App manually:
-
-<aside class="warning">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in section [3.4. Supporting Universal Links and App Links mechanism](https://openid.net/specs/openid-connect-discovery-1_0.html). If you still opt for usage of the HTTP `POST` method, the request parameters must be serialized using <a href="http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization">Form Serialization.</a></aside>
+<aside class="warning">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in section [3.4. Supporting Universal Links and App Links mechanism](#UniversalLinks).</aside>
 
 Please check the following table for request parameters,
 
@@ -173,6 +172,7 @@ Error | Description
 `request_uri_not_supported` | does not support use of the request_uri parameter.
 `registration_not_supported` | does not support use of the registration parameter.
 
+<a name="UniversalLinks"></a> 
 ## 3.4. Supporting Universal Links and App Links mechanism
 [Universal links](https://developer.apple.com/ios/universal-links/) and [App links](https://developer.android.com/studio/write/app-link-indexing) are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.
 
