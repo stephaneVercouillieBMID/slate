@@ -1,5 +1,5 @@
 ---
-title: itsme(r) OpenID Connect documentation
+title: itsme® OpenID Connect documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
  - json: JSON
@@ -12,7 +12,7 @@ toc_footers:
 search: true
 ---
 # 1. Introduction
-itsme is an identity checking system allowing Service Providers to use verified identities – through 4 services – for authentication and authorization on their web desktop, mobile web and in-app mobile applications:
+itsme® is an identity checking system allowing Service Providers to use verified identities – through 4 services – for authentication and authorization on their web desktop, mobile web and in-app mobile applications:
 <ul>
   <li>Login</li>
   <li>Confirm</li>
@@ -89,20 +89,11 @@ The Discovery document for itsme® services may be retrieved from: https://merch
 <a name="AuthNRequest"></a>
 ## 3.2. Forming an authentication request
 
-The Authorization Endpoint performs the authentication of the user. The first step is forming an HTTPS request to the Authorization Endpoint with the appropriate URI parameters. Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. Crafting the Authentication Request works as per the OpenID Connect specification [Authentication Request](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [Authorization Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint).
-
-You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
+First, you will form a HTTPS GET request that MUST be sent to the itsme® authorization endpoint. The itsme® authorization endpoint is https://merchant.itsme.be/oidc/authorize (it can be retrieved from the itsme® [Discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html), using the key `authorization_endpoint`)
 
 This base URI is the address of our OpenID webpage, but this base URI is a valid Universal/App Link. As a result, if the itsme App is present on the same device as your front-end interface, the user will be automatically redirected to the itsme app (option B) without going through our OpenID webpage (option A), improving the user experience since in option A user will have to open the itsme App manually:
 
-<img src="AppOrWebbToApp.png" alt="The itsme App can be trigerred automatically if present on the same device">
-
-As suggested by this diagram, you can provide us a valid Universal/App Link as the redirect URI in order to improve the user experience as well. This redirect URI needs to be whitelisted on our end, as specified in the [Integration Prerequisites](#Onboarding) section.
-
-<aside class="warning">The base URI available in the Discovery document will only be caught by recent versions of itsme Apps. As from 30/05/2018, more than 50% of the itsme Apps on the market will not catch this universal link. For these Apps, the flow will be functional but not optimal. The deprecated endpoint used by these Apps is https://mobileapp.sixdots.be/mobile/authorize</aside>
-
-
-<aside class="warning">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism. If you still opt for usage of the HTTP `POST` method, the request parameters must be serialized using <a href="http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization">Form Serialization.</a></aside>
+<aside class="warning">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in section [3.4. Supporting Universal Links and App Links mechanism](https://openid.net/specs/openid-connect-discovery-1_0.html). If you still opt for usage of the HTTP `POST` method, the request parameters must be serialized using <a href="http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization">Form Serialization.</a></aside>
 
 Please check the following table for request parameters,
 
