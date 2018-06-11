@@ -48,7 +48,7 @@ The JWKSet URLs are used by our BE for the decryption and signature verification
   </ul>
 </aside>
 
-<aside class="notice">You can find our own JWKSet URL in our [OpenID configuration file](https://merchant.itsme.be/oidc/.well-known/openid-configuration), in the field "jwks_uri"</aside>.
+<aside class="notice">You can find our own JWKSet URL in our [OpenID configuration file](https://merchant.itsme.be/oidc/.well-known/openid-configuration), in the field "jwks_uri"</aside>
 
 ## 2.2. Redirect_URI attention points
 
