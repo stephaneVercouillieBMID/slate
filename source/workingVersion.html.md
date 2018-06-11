@@ -64,7 +64,6 @@ The itsme® Login and Share Data service integration is based on the [Authorizat
     </ul>
   
   If you are building a mobile web or in-app mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will directly be redirected to the itsme app via the Universal links and App links
-  
   </li>
   <li>Once the User has has authorized the request and has been authenticated the request itsme® will return an authorization code to your server component.</li>
   <li>Your server component contacts the token endpoint and exchanges the authorization code for an id token identifying the User and an access token, redirecting the user to your mobile or web application.</li>
