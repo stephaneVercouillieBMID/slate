@@ -13,6 +13,7 @@ search: true
 ---
 # 1. Introduction
 itsme is an identity checking system allowing Service Providers to use verified identities – through 4 services – for authentication and authorization on their web desktop, mobile web and in-app mobile applications:
+<aside>
   <ul>
     <li>
        Login
@@ -27,6 +28,7 @@ itsme is an identity checking system allowing Service Providers to use verified 
       Sign
     </li>
   </UL>
+</aside>
 
 The objective of this document is to provide all the information needed to integrate the Login and Share Data services using the [OpenID Connect Core 1.0 specifications](http://openid.net/specs/openid-connect-core-1_0.html).
 
@@ -62,10 +64,11 @@ Before your application can use itsme® OpenID Login and Share Data services, yo
 <aside class="notice">You can find our own JWKSet URL in our [OpenID configuration file](https://merchant.itsme.be/oidc/.well-known/openid-configuration), in the field `jwks_uri`</aside>
 
 <aside class="warning"> Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5.
-<ul>
+  <ul>
     <li> Multiple URLs can be whitelisted per service (can include Universal Link for your App)</li>
     <li> Additional parameters are not allowed and entire redirect_uri must match </li>
-  </ul>  </aside>
+  </ul>  
+</aside>
 
 # 3. Integrating itsme(r) services
 
