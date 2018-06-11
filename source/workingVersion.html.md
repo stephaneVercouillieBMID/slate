@@ -70,26 +70,24 @@ The itsme® Login and Share Data service integration is based on the [Authorizat
   <li>Your server component contacts the token endpoint and exchanges the authorization code for an id token identifying the User and an access token, redirecting the user to your mobile or web application.</li>
   <li>You may request the additional user information from the UserInfo endpoint by presenting the access token obtained in the previous step.</li>
 </ol>
+
+This flow is described in much more detail in the following sections.
  
 
 ## 3.1. Checking itsme® OpenID Configuration
-The OpenID Connect protocol requires the use of multiple endpoints for authenticating users, and for requesting resources including tokens, user information and public keys.
- 
-To simplify implementations and increase flexibility, OpenID Connect allows the use of a "Discovery document", a JSON document found at well-known location containing key-value pairs which provide details about the OpenID Connect provider's configuration including, 
-- URIs of the authorization, 
-- token, 
-- userinfo, 
-- supported claims 
-- [JWKSet](#jwks) URL. 
 
-The Discovery document for itsme® service may be retrieved from: https://merchant.itsme.be/oidc/.well-known/openid-configuration .
+To simplify implementations and increase flexibility, OpenID Connect allows the use of a [Discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html), a JSON document containing key-value pairs which provide details about itsme® system configuration, such as 
+* URIs of the authorization
+* Token 
+* UserInfo
+* supported claims
+* JWKSet URL
 
-<aside class="warning">There is one deprecated endpoint which is not documented in the Discovery document, and is used today by over 50% of our Apps. Please find details in section <a href="#AuthNRequest">Authentication Request Specifications</a></aside>
+The Discovery document for itsme® services may be retrieved from: https://merchant.itsme.be/oidc/.well-known/openid-configuration.
 
-Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
-## 3.2. Forming an authentication request
 <a name="AuthNRequest"></a>
+## 3.2. Forming an authentication request
 
 The Authorization Endpoint performs the authentication of the user. The first step is forming an HTTPS request to the Authorization Endpoint with the appropriate URI parameters. Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused. Crafting the Authentication Request works as per the OpenID Connect specification [Authentication Request](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and [Authorization Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint).
 
