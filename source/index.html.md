@@ -122,14 +122,17 @@ Parameter | Required | Description
 <a name="acrvalues">**acr_values**</a> | Optional | Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference.<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br>`tag:itsmetag:sixdots.be,2016-06:acr_basic`</br></li><li>Advanced level - force the User to use PIN<br>`tag:itsmetag:sixdots.be,2016-06:acr_advanced`</br></li></ul>When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used.</br>
 **claims** | Optional | This parameter is used to request that specific claims be returned. The value is a JSON object listing the requested claims.<br>Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the returned data will be encrypted.</br><br>See [User Data](#Data) for more information.</br>
 **request** | Optional | This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. The parameter value is a Request Object value.<br>See [Passing Request Parameters as JWTs](#JWTRequest) for more information.</br>
-**response_mode** | Unsupported | Any supplied value will be ignored.
-**id\_token\_hint** | Unsupported | Any supplied value will be ignored.
-**claims_locales** | Unsupported | Any supplied value will be ignored.
-**request_uri** | Unsupported | Any supplied value will be ignored.
-**registration** | Unsupported | Any supplied value will be ignored.
+**response_mode** | Not supported | Any supplied value will be ignored.
+**id\_token\_hint** | Not supported | Any supplied value will be ignored.
+**claims_locales** | Not supported | Any supplied value will be ignored.
+**request_uri** | Not supported | Any supplied value will be ignored.
+**registration** | Not supported | Any supplied value will be ignored.
 
 <a name="AuthNResponse"></a>
 ## 3.3. Capturing an Authorization Code
+
+### Capturing a successful Authorisation Code
+
 If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an authorisation code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the `redirect_uri` specified previously in the authentication request.
  
 ```http--inline
@@ -138,12 +141,13 @@ If the User is successfully authenticated and authorizes access to the data requ
  code=SplxlOBeZQQYbYS6WxSbIA&
  state=af0ifjsldkj
  ```
-As such, the Authentication Response will return the following parameters:
+The response will contain:
 
-Parameter | Provided | Description
-:--:| :--:|:--
-**code** | Always | Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.
-**state** |  | The exact value received from the client, if the parameter was present in the Authentication Request.
+Parameter | Description
+:--:|:--
+**code** | The code parameter holds the authorization code which is a string value. The content of authorization code is opaque for you.
+This code has a lifetime of 3 minutes.
+**state** | The state parameter will be returned if you provided a value in the authentication request. You should validate that the value returned matches the one supplied in the authentication request. The state value can additionally be used to mitigate against XSRF attacks by cryptographically binding the value of this parameter with a browser cookie.
  
 ### Handling Authentication Error Response
 
