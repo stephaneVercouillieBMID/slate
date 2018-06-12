@@ -145,8 +145,7 @@ The response will contain:
 
 Parameter | Description
 :--:|:--
-**code** | The code parameter holds the authorization code which is a string value. The content of authorization code is opaque for you.
-This code has a lifetime of 3 minutes.
+**code** | The code parameter holds the authorization code which is a string value. The content of authorization code is opaque for you. This code has a lifetime of 3 minutes.
 **state** | The state parameter will be returned if you provided a value in the authentication request. You should validate that the value returned matches the one supplied in the authentication request. The state value can additionally be used to mitigate against XSRF attacks by cryptographically binding the value of this parameter with a browser cookie.
  
 ### Handling Authentication Error Response
