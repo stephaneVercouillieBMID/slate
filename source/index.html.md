@@ -112,7 +112,7 @@ Parameter | Required | Description
 **scope** | Required | The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value `openid` and `service: service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding). <br>The `openid` scope can return standard user attributes (these claims are:`iss`, `aud`, `exp`, `iat` and `at_hash`) in the id_token and/or in the response from the /userinfo endpoint.</br><br>Applications can ask for additional scopes, separated by spaces, to request more information about the user. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `picture` and `updated_at`.</li><li>email: will request the `email` and `email_verified` claims.</li></ul>For more information on user attributes or claims, please consult the [Scope](#scope) section.</br><br>An HTTP ERROR <not_implemented> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br><br>Note: you'll need to define one scope for each itsme® service you want to use.</br>
 **redirect_uri** | Required | This is the URI to which the authentication response should be sent. This must exactly match one of the redirection URIs defined when registering your application in the [itsme® B2B portal](#Onboarding).
 **state** | An appropriate value is strongly RECOMMENDED | It is recommended that you use this parameter to maintain state between the request and the callback. Typically, Cross-Site Request Forgery (CSRF, XSRF) mitigation is done by cryptographically binding the value of this parameter with a browser cookie.
-**nonce** | An appropriate value is strongly RECOMMENDED | String value used to associate a session with an id token, and to mitigate replay attacks. The value is passed through unmodified from the authentication request to the id token. Sufficient entropy MUST be present in the nonce values used to prevent attackers from guessing values. See [the OpenID Connect Core specifications](http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes) for more information.
+**nonce** | An appropriate value is strongly RECOMMENDED | String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the authentication request to the id token. Sufficient entropy MUST be present in the `nonce` values used to prevent attackers from guessing values. See [the OpenID Connect Core specifications](http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes) for more information.
 **login_hint** | Optional | Hint to the Authorization Server about the login identifier the User might use to log in (if necessary).<br>This value MUST be a phone number in the format specified for the `phone_number` claim: `<countrycode>+<phonenumber>`. E.g. `login_hint=32+123456789`.</br><br>`login_hint` with invalid syntax will be ignored.</br>
 **display** | Optional | ASCII string value that specifies how the Authorization Server displays the authentication and consent user interface pages to the User. MUST be `page` if provided.<br>Other values will yield an HTTP ERROR `not_implemented`.</br>
 **prompt** | Optional | Space delimited, case sensitive list of ASCII string values that specifies whether the Authorization Server prompts the User for reauthentication and consent. MUST be `consent` if provided. 
@@ -142,10 +142,10 @@ If the User is successfully authenticated and authorizes access to the data requ
  ```
 The response will contain:
 
-Parameter | Required |Description
+Parameter | Returned | Description
 :--:|:-- |:--
-**code** | Required |The code parameter holds the authorization code which is a string value. The content of authorization code is opaque for you. This code has a lifetime of 3 minutes.
-**state** | Optional |The state parameter will be returned if you provided a value in the authentication request. You should validate that the value returned matches the one supplied in the authentication request. The state value can additionally be used to mitigate against XSRF attacks by cryptographically binding the value of this parameter with a browser cookie.
+**code** | Always |The code parameter holds the authorization code which is a string value. The content of authorization code is opaque for you. This code has a lifetime of 3 minutes.
+**state** | If provided |The state parameter will be returned if you provided a value in the Authentication request. You should validate that the value returned matches the one supplied in the authentication request. The state value can additionally be used to mitigate against XSRF attacks by cryptographically binding the value of this parameter with a browser cookie.
  
 ### Handling Authentication Error Response
 
@@ -162,10 +162,10 @@ error=invalid_request
 &state=af0ifjsldkj 
 ```
 
-Parameter |	Required | Description
+Parameter |	Returned | Description
 :--|:--|:--
-**error**	| Required |	Error type. 
-**error_description** |	Optional	| Indicating the nature of the error
+**error**	| Always |	Error type. 
+**error_description** |	Always	| Indicating the nature of the error
 
 The following table describes the various error codes that can be returned in the `error` parameter of the error response:
 
@@ -264,31 +264,32 @@ HTTP/1.1 200 OK
 ```
 The response body will include the following parameters:
 
-Parameter | Required | Comment
+Parameter | Returned | Comment
 :-- | :-- | :--
-**[`access_token`](#actoken)** | Required | The access token which may be used to access the UserInfo endpoint.
-**[`token_type`](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)** | Required | Set to `Bearer`.
-**[`id_token`](#idtoken)** | Required | The Base64URL encoded id token corresponding to the Authentication Request.
+**[`access_token`](#actoken)** | Always | The Access token which may be used to access the UserInfo endpoint.
+**[`token_type`](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)** | Always | Set to `Bearer`.
+**[`id_token`](#idtoken)** | Always | The Base64URL encoded id token corresponding to the Authentication Request.
 **[`at_hash`](http://openid.net/specs/openid-connect-core-1_0.html#CodeIDToken)** | Not supported | itsme® does not provide any value for this parameter.
 **[`refresh_token`](#rfshtoken)** | Not supported | itsme® does not provide any value for this parameter as it only maintains short-lived session to enforce re-authentication.
 
 The ID token MUST contain the following fields:
 
-Parameter |	Required |	Description
+Parameter |	Returned |	Description
 :-- | :-- | :--
-**iss**	| Required |	Identifier of the issuer of the ID Token.
-**sub |	Required	| An identifier for the User (e.g.: UserCode), unique among all itsme® accounts and never reused. Use sub within in the application as the unique-identifier key for the user.
-**aud**	| Required |	Audience of the ID Token. Will include the `client_id`
-**exp**	| Required |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
-**iat** |	Required	| The time the ID token was issued, represented in Unix time (integer seconds)
-**auth_time** | Will always be provided | Time when the End-User authentication occurred. Its value is a JSON number representing the number of seconds from 1970-01-01T0:0:0Z as measured in UTC until the date/time.
-**nonce** | Provided if present in Authentication Request | String value used to associate a Client session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. If present in the ID Token, Clients MUST verify that the nonce Claim Value is equal to the value of the nonce parameter sent in the Authentication Request. If present in the Authentication Request, Authorization Servers MUST include a nonce Claim in the ID Token with the Claim Value being the nonce value sent in the Authentication Request.
-**acr** | Will always be provided | Possible values: `tag:sixdots.be,2016-06:acr_basic` and `tag:sixdots.be,2016-06:acr_advanced`
-**amr** | Will never be provided |
-**azp** | Will never be provided |
+**iss**	| Always | Identifier of the issuer of the ID token.
+**sub** |	Always | An identifier for the User (e.g.: UserCode), unique among all itsme® accounts and never reused. Use `sub` in the application as the unique-identifier key for the User.
+**aud**	| Always |	Audience of the ID token. This MUST contain the `client_id`. This is the client identifier (e.g. : ParterCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
+**exp**	| Always |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
+**iat** |	Always	| The time the ID token was issued, represented in Unix time (integer seconds).
+**auth_time** | Always | The time the User authentication occurred, represented in Unix time (integer seconds). 
+**nonce** | If provided | String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID token. Sufficient entropy MUST be present in the `nonce` values used to prevent attackers from guessing values. See [the OpenID Connect Core specifications](http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes) for more information.
+**acr** | Always | Possible values: `tag:sixdots.be,2016-06:acr_basic` and `tag:sixdots.be,2016-06:acr_advanced`
+**amr** | Never |
+**azp** | Never |
 
 ### Handling Token Error Response 
-If the Token Request is invalid or unauthorized an HTTP 400 response will be returned as in the example:
+
+If the Token request is invalid or unauthorized an HTTP 400 response will be returned as in the example:
 ```http--inline
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
@@ -298,10 +299,24 @@ Pragma: no-cache
   "error": "invalid_request"
 }
 ```
-The response will contain an error parameter and optionally `error_description` and `error_uri` parameters. The error_uri parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.
+The response will contain an error parameter and optionally `error_description` and `error_uri` parameters. The `error_uri` parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.
 
-## 3.7. Matching users databases
-The first time a user uses itsme(r) at your side, you will receive an unknown userCode from the [Token Response](#TokenResponse) for him. You then have to determine whether or not you already have an account at your own side for this user, and this section briefly describes our recommendation on the topic, in order to optimize the user experience.
+## 3.7. Authenticating the User
+
+After obtaining the user ID and Access token, you should query your database to check if you know the User, or not. If the User already exists in your database, you should start an application session for that User.
+
+If the User does not exist in the your database, one of the following scenario should be implemented to link the UserCode to the correct user account:
+<ul>
+  <il>If you requested the ID claims in the Authentication request for a specific User, you can check if these data's match those you have in your database and automatically link User's UserCode to the correct User account on your side.</il>
+  <il>If you requested the ID claims in the Authentication request for a specific User, you can check if these data's match those you have in your database and automatically link User's UserCode to the correct User account on your side.</il>
+    
+
+you should redirect the User to the new-user sign-up flow. You may be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required on the registration form. 
+
+All these cases are depicted in the diagrams below:
+
+
+
 
 ### Automatic match
 
