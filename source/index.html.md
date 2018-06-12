@@ -307,46 +307,19 @@ After obtaining the user ID and Access token, you should query your database to 
 
 If the User does not exist in the your database, one of the following scenario should be implemented to link the UserCode to the correct user account:
 <ul>
-  <il>If you requested the ID claims in the Authentication request for a specific User, you can check if these data's match those you have in your database and automatically link User's UserCode to the correct User account on your side.</il>
-  <il>If you requested the ID claims in the Authentication request for a specific User, you can check if these data's match those you have in your database and automatically link User's UserCode to the correct User account on your side.</il>
+  <il>If you requested user attributes in the Authentication request, you can check if these data's match those you have in your database and automatically link User's UserCode to the correct User account on your side.</il>
+  <il>If you requested user attributes in the Authentication request but you can't match with certainty the provided data's with the one from your database, you could  redirect the User to the new-user sign-up flow. You may be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required on the registration form (under the condition you requested the user attributes in the Authentication request).</il>
+  <il>If you didn't request user attributes in the Authentication request, simply ask the user to authenticate with his usual credentials and link the UserCode to his account on your side. 
     
-
-you should redirect the User to the new-user sign-up flow. You may be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required on the registration form. 
-
-All these cases are depicted in the diagrams below:
-
-
-
-
-### Automatic match
-
-The smoothest user experience comes when you can guarantee a high level of verification of a set of data we have in common with you. If you ask for user data that you own on your side as well, you can match these data to automatically associate the userCode to the correct user account on your side, and offer a seamless journey to the user
-
-Of course, it is possible that the user has no account yet at your side. You may use in that case  the [user data](#Data) we provide you to facilitate the account creation and automatically link it to the userCode.
-
-The following picture illustrates both cases:
+All these scenario's are depicted in the diagrams below:
 
 <img src="LinkUserAuto.png" alt="Automatically linking user accounts">
-
-For this to be safe, though, the following must be verified between you and us:
-- On both sides, the data used to match the accounts must uniquely identify the user
-- On both sides, the lifecycle of the data used to match the accounts must be understood and must guarantee a constant control of the user identified through this data
-
-<aside class="success">If you intend to implement this, please contact us so that we can verify the consistency of this use case together.</aside>
-
-
-### Manual match
-
-If there is no data that can be used on both sides to match the accounts automatically, simply authenticate the user with your usual credentials when you receive a new userCode from the [Token Response](#TokenResponse). You then have to associate this userCode to the account on your side.
-
-Of course, it is possible that the user has no account yet at your side. You may use in that case  the [user data](#Data) we provide you to facilitate the account creation and automatically link it to the userCode.
-
-The following picture illustrates both cases:
 
 <img src="LinkUser.png" alt="Picture illustrates possibilities for linking user accounts">
 
 <a name="Data"></a>
-## 3.8 Obtain User Data
+## 3.8 Requesting ID claims/user attibutes
+
 ### What is a claim?
 
 The concept of claim is about declaring something you expect as return from the OP. When it comes to end user data, you have to use claims in order to declare the end user data you will need for your business before the authentication. This is a privacy-oriented way of getting data.
