@@ -150,9 +150,10 @@ Parameter | Description
  
 ### Handling Authentication Error Response
 
-In some cases, it is possible that the user is not redirected automatically to your environment. A typical example is when the user stays inactive in our front-end (whether in the itsme App or in our OpenID webpage). It would also be the case if the `redirect_uri` is malformed.
+If the request fails due to a missing, invalid, or mismatching redirection URI, or if the client identifier is missing or invalid, the authorization server SHOULD inform the User of the error and MUST NOT automatically redirect him to the invalid redirection URI. 
 
-There are also cases where the user will be redirected to your environment with an [Authentication Error Response]((http://openid.net/specs/openid-connect-core-1_0.html#AuthError)). As for a successful response this is achieved by returning a HTTPS 302 redirect request to the redirection_uri specified in the authentication request. Following parameters could be added to the query component of the redirection_uri:
+If the User denies the authentication request or if the request fails for reasons other than a missing or invalid redirection URI, itsme® will return an error response to your application. As for a successful response this is achieved by returning a HTTPS 302 redirect request to the redirection_uri specified in the authentication request. Following parameters could be added to the query component of the redirection_uri:
+
 
 ```http--inline
 HTTP/1.1 302 Found
@@ -164,17 +165,19 @@ error=invalid_request
 
 Parameter |	Required	| Description
 :--|:--|:--
-error	| Required |	Error type.
-error_description |	Optional	| Indicating the nature of the error
+**error**	| Required |	Error type. 
+**error_description** |	Optional	| Indicating the nature of the error
 
-The following errors can be triggered by itsme(r):
+The following table describes the various error codes that can be returned in the `error` parameter of the error response:
 
 Error | Description
 :-- |:--
-`interaction_required`  | The Authorization Server requires End-User interaction of some form to proceed.
-`invalid_request_object` | The request parameter contains an invalid Request Object.
-`request_uri_not_supported` | does not support use of the request_uri parameter.
-`registration_not_supported` | does not support use of the registration parameter.
+**interaction_required**  | The Authorization Server requires User interaction of some form to proceed.
+**invalid_request_object** | The request parameter contains an invalid Request Object.
+**request_uri_not_supported** | This error is returned because itsme® does not support use of the `request_uri` parameter defined in the JWTs.
+**registration_not_supported** | This error is returned because itsme® does not support use of the `registration` parameter.
+
+All other HTTPS errors unrelated to OpenID Connect Core will be returned to the User using the appropriate HTTPS status code.
 
 <a name="UniversalLinks"></a> 
 ## 3.4. Supporting Universal Links and App Links mechanism
@@ -188,8 +191,7 @@ iOS Universal Links and Android App Links were intended to fix this. Instead of 
 
 Functionally, it will allow you to have a single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.
 
-The specifications for the implementation of Universal links and App links can be found in the Appendix.
-
+The specifications for the implementation of Universal links and App links can be found in the [Appendix](#Appendix).
 
 ## 3.5. Exchanging the authorisation code 
 <a name="tokenEndpoint"></a> 
@@ -586,7 +588,9 @@ To get further information about token types, token request/response specificati
 
  
 # 4. Appendixes
-## 4.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs
+<a name="Appendix"></a> 
+## 4.1. Passing Request Parameters as JWTs
+<a name="JWTRequest"></a>
 
 As per specified by OIDC [here](https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests), Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.
  
