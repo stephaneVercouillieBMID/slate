@@ -26,7 +26,7 @@ The objective of this document is to provide all the information needed to integ
 <a name="Onboarding"></a>
 # 2. Creating sandbox
  
-Before your application can use itsme® OpenID Login and Share Data services, you must set up a project in the [itsme(r) B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) to obtain credentials (PartnerCode, ServiceCode,...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. 
+Before your application can use itsme® OpenID Login and Share Data services, you must set up a project in the [itsme® B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) to obtain credentials (PartnerCode, ServiceCode,...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. 
 
 <aside class="warning"> The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. 
   <ul>
@@ -39,7 +39,7 @@ Before your application can use itsme® OpenID Login and Share Data services, yo
   </ul>
 </aside>
 
-<aside class="notice">You can find our own JWKSet URL in our <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">OpenID configuration file</a>, in the field `jwks_uri`.</aside>
+<aside class="notice">You can find our JWKSet URL in the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">OpenID configuration file</a>, using the key `jwks_uri`.</aside>
 
 <aside class="warning"> Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5.
   <ul>
