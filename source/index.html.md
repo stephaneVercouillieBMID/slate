@@ -143,10 +143,10 @@ If the User is successfully authenticated and authorizes access to the data requ
  ```
 The response will contain:
 
-Parameter | Description
-:--:|:--
-**code** | The code parameter holds the authorization code which is a string value. The content of authorization code is opaque for you. This code has a lifetime of 3 minutes.
-**state** | The state parameter will be returned if you provided a value in the authentication request. You should validate that the value returned matches the one supplied in the authentication request. The state value can additionally be used to mitigate against XSRF attacks by cryptographically binding the value of this parameter with a browser cookie.
+Parameter | Required |Description
+:--:|:-- |:--
+**code** | Required |The code parameter holds the authorization code which is a string value. The content of authorization code is opaque for you. This code has a lifetime of 3 minutes.
+**state** | Optional |The state parameter will be returned if you provided a value in the authentication request. You should validate that the value returned matches the one supplied in the authentication request. The state value can additionally be used to mitigate against XSRF attacks by cryptographically binding the value of this parameter with a browser cookie.
  
 ### Handling Authentication Error Response
 
@@ -163,7 +163,7 @@ error=invalid_request
 &state=af0ifjsldkj 
 ```
 
-Parameter |	Required	| Description
+Parameter |	Required | Description
 :--|:--|:--
 **error**	| Required |	Error type. 
 **error_description** |	Optional	| Indicating the nature of the error
@@ -171,7 +171,7 @@ Parameter |	Required	| Description
 The following table describes the various error codes that can be returned in the `error` parameter of the error response:
 
 Error | Description
-:-- |:--
+:-- | :-- 
 **interaction_required**  | The Authorization Server requires User interaction of some form to proceed.
 **invalid_request_object** | The `request` parameter contains an invalid Request Object.
 **request_uri_not_supported** | This error is returned because itsme® does not support use of the `request_uri` parameter defined in the JWTs.
@@ -201,7 +201,7 @@ Once your server component has received an [authorization code](#AuthNResponse),
 
 Your server makes this exchange by sending an HTTPS POST request to the itsme® token endpoint URI `https://merchant.itsme.be/oidc/token`. This URI can be retrieved from the itsme® [Discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html) using the key `token_endpoint`.
 
-<aside class="notice"> •	An authorization code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling Token Error Response. </aside>
+<aside class="notice"> An authorization code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling Token Error Response. </aside>
 
 The request MUST include the following parameters in the `POST` body:
 
@@ -216,7 +216,7 @@ GET /oidc/authorization?response_type=code
 }}}&state=anystate&nonce=anonce&prompt=login&max_age=1
 ```
 Parameter | Required | Description
---| -- |--
+:-- | :-- | :--
 **grant_type** | Required | This MUST be set to `authorization_code`.
 **code** | Required | The Authorization Code received in response to the Authentication Request.
 **redirect_uri** | Required | The redirection URI supplied in the original Authentication Request. This is the URL to which you want the User to be redirected after the authorization is complete.
@@ -226,7 +226,7 @@ Parameter | Required | Description
 According to the `private_key_jwt` client authentication method, the `client_assertion` JWT must contain the following properties:
 
 Property | Description
--- |--
+:-- | :-- 
 **iss** | The issuer of the `private_key_jwt`. This MUST contain the `client_id`. This is the client identifier (e.g. : ParterCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
 **sub** | The subject of the `private_key_jwt`. This MUST contain the `client_id`. This is the client identifier (e.g. : ParterCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
 **aud** | Value that identifies the Authorization Server as an intended audience. This MUST be the itsme® token endpoint URL : `https://merchant.itsme.be/oidc/token`
@@ -235,8 +235,10 @@ Property | Description
 
 <a name="TokenResponse"></a>
 ## 3.6. Managing Token Response
-### Handling a successful Token Response
-If the Token Request validation is successful we will return an HTTP 200 OK response including id and access tokens as in the example aside:
+
+### Extracting a successful Token response
+
+If the Token request has been sucessfully validated we will return an HTTP 200 OK response including ID and Access tokens as in the example aside:
 
 ```http--inline
 HTTP/1.1 200 OK
@@ -261,30 +263,30 @@ HTTP/1.1 200 OK
   }
 
 ```
-The Token Response follow these specifications:
+The response body will include the following parameters:
 
-Parameter | Provided | Comment
--- | -- | --
-**[`access_token`](#actoken)** | Always | Will be provided. 
-**[`token_type`](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)** | Always | Will be `Bearer`
-**[`id_token`](#idtoken)** | Always | The id_token corresponding to the Authentication Request (signed and  encrypted). 
-**[`at_hash`](http://openid.net/specs/openid-connect-core-1_0.html#CodeIDToken)** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
-**[`refresh_token`](#rfshtoken)** | Never | Won't be provided as **itsme(r)** only maintains short-lived session to enforce re-authentication.
+Parameter | Required | Comment
+:-- | :-- | :--
+**[`access_token`](#actoken)** | Required | The access token which may be used to access the UserInfo endpoint.
+**[`token_type`](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)** | Required | Set to `Bearer`.
+**[`id_token`](#idtoken)** | Required | The Base64URL encoded id token corresponding to the Authentication Request.
+**[`at_hash`](http://openid.net/specs/openid-connect-core-1_0.html#CodeIDToken)** | Not supported | itsme® does not provide any value for this parameter.
+**[`refresh_token`](#rfshtoken)** | Not supported | itsme® does not provide any value for this parameter as it only maintains short-lived session to enforce re-authentication.
 
-The ID Token follow these specifications:
+The ID token MUST contain the following fields:
 
 Parameter |	Required |	Description
 :-- | :-- | :--
-iss	| Required |	Identifier of the issuer of the ID Token.
-sub |	Required	| An identifier for the User (e.g.: UserCode), unique among all itsme® accounts and never reused. Use sub within in the application as the unique-identifier key for the user.
-aud	| Required |	Audience of the ID Token. Will include the `client_id`
-exp	| Required |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
-iat |	Required	| The time the ID token was issued, represented in Unix time (integer seconds)
-auth_time | Will always be provided | Time when the End-User authentication occurred. Its value is a JSON number representing the number of seconds from 1970-01-01T0:0:0Z as measured in UTC until the date/time.
-nonce | Provided if present in Authentication Request | String value used to associate a Client session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. If present in the ID Token, Clients MUST verify that the nonce Claim Value is equal to the value of the nonce parameter sent in the Authentication Request. If present in the Authentication Request, Authorization Servers MUST include a nonce Claim in the ID Token with the Claim Value being the nonce value sent in the Authentication Request.
-acr | Will always be provided | Possible values: `tag:sixdots.be,2016-06:acr_basic` and `tag:sixdots.be,2016-06:acr_advanced`
-amr | Will never be provided |
-azp | Will never be provided |
+**iss**	| Required |	Identifier of the issuer of the ID Token.
+**sub |	Required	| An identifier for the User (e.g.: UserCode), unique among all itsme® accounts and never reused. Use sub within in the application as the unique-identifier key for the user.
+**aud**	| Required |	Audience of the ID Token. Will include the `client_id`
+**exp**	| Required |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
+**iat** |	Required	| The time the ID token was issued, represented in Unix time (integer seconds)
+**auth_time** | Will always be provided | Time when the End-User authentication occurred. Its value is a JSON number representing the number of seconds from 1970-01-01T0:0:0Z as measured in UTC until the date/time.
+**nonce** | Provided if present in Authentication Request | String value used to associate a Client session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. If present in the ID Token, Clients MUST verify that the nonce Claim Value is equal to the value of the nonce parameter sent in the Authentication Request. If present in the Authentication Request, Authorization Servers MUST include a nonce Claim in the ID Token with the Claim Value being the nonce value sent in the Authentication Request.
+**acr** | Will always be provided | Possible values: `tag:sixdots.be,2016-06:acr_basic` and `tag:sixdots.be,2016-06:acr_advanced`
+**amr** | Will never be provided |
+**azp** | Will never be provided |
 
 ### Handling Token Error Response 
 If the Token Request is invalid or unauthorized an HTTP 400 response will be returned as in the example:
