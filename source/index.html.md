@@ -173,7 +173,7 @@ The following table describes the various error codes that can be returned in th
 Error | Description
 :-- |:--
 **interaction_required**  | The Authorization Server requires User interaction of some form to proceed.
-**invalid_request_object** | The request parameter contains an invalid Request Object.
+**invalid_request_object** | The `request` parameter contains an invalid Request Object.
 **request_uri_not_supported** | This error is returned because itsme® does not support use of the `request_uri` parameter defined in the JWTs.
 **registration_not_supported** | This error is returned because itsme® does not support use of the `registration` parameter.
 
@@ -195,17 +195,15 @@ The specifications for the implementation of Universal links and App links can b
 
 ## 3.5. Exchanging the authorisation code 
 <a name="tokenEndpoint"></a> 
-Once your server component has received an [authorization code](#AuthNResponse), your server can exchange it for an Access Token and an ID token.
+Once your server component has received an [authorization code](#AuthNResponse), your server can exchange it for an Access token and an ID token.
 
-<aside class="notice">There are many types of tokens mentioned in the OpenID specification. You might also read in the OpenID specification about the Refresh Token, but we don't support them (we don't implement any session mechanism).</aside>
+<aside class="notice">You might also read in the OpenID Connect Core specification about the Refresh token, but we don't support them (we don't implement any session mechanism).</aside>
 
-Your server makes this exchange by sending an HTTPS POST request to the Token Endpoint, called [Token Request](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest). The Token Endpoint URL is available in our [OpenID discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration), at key "token_endpoint". In this discussion, we assume this URL is 'https://merchant.itsme.be/oidc/token'.
+Your server makes this exchange by sending an HTTPS POST request to the itsme® token endpoint URI `https://merchant.itsme.be/oidc/token`. This URI can be retrieved from the itsme® [Discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html) using the key `token_endpoint`.
 
-<aside class="warning">We only support `private_key_jwt` for client authentication.</aside>
+<aside class="notice"> •	An authorization code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling Token Error Response. </aside>
 
-<aside class="success"> The header Content-Type : application/x-www-form-urlencoded MUST be present.</aside>
-
-<aside class="notice"> In order to communicate with Token Endpoint, TLS MUST be implemented. See http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements 16.17 for more information on using TLS. </aside>
+The request MUST include the following parameters in the `POST` body:
 
 ```http--inline
 GET /oidc/authorization?response_type=code
@@ -217,24 +215,21 @@ GET /oidc/authorization?response_type=code
 {"value":["tag:sixdots.be,2016-06:acr_advanced"]
 }}}&state=anystate&nonce=anonce&prompt=login&max_age=1
 ```
-The Token Request must include the following parameters in the POST body:
-
-Parameter | Required | Comment
+Parameter | Required | Description
 --| -- |--
-**grant_type** | Required | Must be `authorization_code`
-**code** | Required | The code value provided in the Authentication Response
-**redirect_uri** | Required | The **redirect_uri** used in the Authentication Request. This is the URL to which you want the user to be redirected after the authorization is complete.
-**client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` client authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
-**client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` 
+**grant_type** | Required | This MUST be set to `authorization_code`.
+**code** | Required | The Authorization Code received in response to the Authentication Request.
+**redirect_uri** | Required | The redirection URI supplied in the original Authentication Request. This is the URL to which you want the User to be redirected after the authorization is complete.
+**client_assertion** | Required | To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the token request.<br>The OpenID Connect Core Specification support multiple authentication methods, but itsme® only supports `private_key_jwt`. This authentication method uses a JWT signed with a public key you have registered. The JWT MUST be sent as the value of a client_assertion parameter.</br><br>See [section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID Connect Core specification for more information.</br>
+**client\_assertion\_type** | Required | This MUST be set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. 
 
-### `client_assertion` 
-According to the `private_key_jwt` client authentication method, the **client assertion** JWT must contain the following properties:
+According to the `private_key_jwt` client authentication method, the `client_assertion` JWT must contain the following properties:
 
-Property | Comment
+Property | Description
 -- |--
-**iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID).
-**sub** | The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the on boarding file provided by BMID). 
-**aud** | Must be the token endpoint URL
+**iss** | The issuer of the `private_key_jwt`. This MUST contain the `client_id`. This is the client identifier (e.g. : ParterCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
+**sub** | The subject of the `private_key_jwt`. This MUST contain the `client_id`. This is the client identifier (e.g. : ParterCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
+**aud** | Value that identifies the Authorization Server as an intended audience. This MUST be the itsme® token endpoint URL : `https://merchant.itsme.be/oidc/token`
 **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
 **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 
