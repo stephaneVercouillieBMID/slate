@@ -1,5 +1,5 @@
 ---
-title: itsme(r) OpenID Connect documentation
+title: itsme® OpenID Connect documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
  - json: JSON
@@ -12,78 +12,90 @@ toc_footers:
 search: true
 ---
 # 1. Introduction
-## 1.1. Who should read this document
-This document is intended to be read by Service Provider developers who are in charge of developing and integrating the itsme(r) services. In this document, we speak directly to the developers, using 'you' to
-designate them.
-
-This documentation describes our OAuth 2.0 implementation of **itsme® Login**, which conforms to  the <a href="http://openid.net/specs/openid-connect-core-1_0.html"> OpenID Connect 1.0 </a> specifications.
-
-## 1.2. Objective
-The objective of this document is to provide all the information needed to integrate the itsme(r) services using OpenID Connect protocol.
-## 1.3. The itsme® services in a few words
-
-itsme® offers 3 services, which act as strong enablers for every process digitalization project. Further information about itsme(r) services is provided on our B2B portal:
-- [**itsme®Login**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/login-with-itsme)
-- [**itsme®Confirm**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/confirm-with-itsme)
- - [**itsme®Shared Data**](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/documentation/general-information/shared-data)
-
-# 2. On boarding Process
-
-Our on boarding process consists of two main steps:
-- The configuration of your Sandbox
-- The integration of itsme(r) services
-
-## 2.1. Configuration of your Sandbox
-Before you can start working on the integration of itsme(r) services, we need to create your Sandbox in which the integration takes place. Your company will provide us both functional and technical information we will use to create your Sandbox. These information include (not exhaustively):
-- Information to customize the user consent screen
-- Redirect URIs associated to your instances of itsme(r) services (to which the user will be redirected after the autentication)
-- JWKset URL, and associated SSL/TLS certificate
-You can consult [our B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) for more information about this step.
-
-<aside class="success">
-Once your Sandbox is created, you will receive:
+itsme® is an identity checking system allowing Service Providers to use verified identities – through 4 services – for authentication and authorization on their web desktop, mobile web and in-app mobile applications:
 <ul>
-<li>Your Partner Code, which corresponds to the OpenID <b>client_id</b> </li>
-<li>Your Service Codes, which are the identifiers of your instances of itsme(r) services. </li>
+  <li>Login</li>
+  <li>Confirm</li>
+  <li>Share Data</li>
+  <li>Sign</li>
 </ul>
+
+The objective of this document is to provide all the information needed to integrate the Login and Share Data services using the [OpenID Connect Core 1.0 specifications](http://openid.net/specs/openid-connect-core-1_0.html).
+
+  
+<a name="Onboarding"></a>
+# 2. Creating sandbox
+ 
+Before your application can use itsme® OpenID Login and Share Data services, you must set up a project in the [itsme(r) B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) to obtain credentials (PartnerCode, ServiceCode,...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. 
+
+<aside class="warning"> The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. 
+  <ul>
+    <li>It must contain the root, the intermediate CA and the final public certifiate.</li>
+    <li>You can specify only one JWKSet URL per environment.</li>
+    <li>On the HTTPS protocol level, connections must be secured using trusted Root CA.</li>
+    <li>In production, it is not possible the certificate is NOT self-signed (it can be self-signed in Sandbox)</li>
+    <li>BMID is notified on time if the certificate or the URL is changed.</li>
+    <li>There is no need for your client certificate. Currently the certificate is also used to protect the JWKSet and it is not directly linked to the SSL certificate.</li>
+  </ul>
 </aside>
-Please consult <a name="ServiceCode"></a>[Service Code Concept](#ServiceCode) for more information about the notion of Service Code.
-## 2.2. Integration of itsme® services
-Once your Sandbox has been created, you can start working on the
-integration itself. All the information needed to do so is the object of this document.
-### 2.2.1. itsme® OpenID Configuration
-The OpenID Connect protocol requires the use of multiple endpoints for authenticating users, and for requesting resources including tokens, user information and public keys.
 
-To simplify implementations and increase flexibility, OpenID Connect allows the use of a "Discovery document", a JSON document found at a well-known location containing key-value pairs which provide details about the OpenID Connect provider's configuration including,
-- URIs of the authorization,
-- token,
-- userinfo,
-- supported claims
--  [JWKSet](#jwks) to interact with it.
+<aside class="notice">You can find our own JWKSet URL in our <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">OpenID configuration file</a>, in the field `jwks_uri`.</aside>
 
-<aside class="success">The Discovery document for itsme® service may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></aside>
+<aside class="warning"> Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5.
+  <ul>
+    <li>Multiple URLs can be whitelisted per service (can include Universal Link for your App)</li>
+    <li>Additional parameters are not allowed and entire redirect_uri must match</li>
+  </ul>  
+</aside>
 
-Field  names and meanings in this document are defined in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html).
+# 3. Integrating itsme(r) services
 
-# 3. Authenticating the User
+The itsme® Login and Share Data service integration is based on the [Authorization Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in [OpenID Connect Core Authorization Code Flow Steps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps), depicted in the following  [diagram](https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Untitled%20Diagram.html#R7Vxbd6o4FP41PtZFCAF87HVOH6bTNZ1Zc%2BaRQlRWkTiAtZ1fP4mEWxIrYhC1Yx9aNnFjvi%2F7mtgRvF18%2FJJ4y%2FmvJMDRyDSCjxG8G5kmoD%2F0F5N85hLb5YJZEgZ8UCV4Cf%2FFXGhw6SoMcNoYmBESZeGyKfRJHGM%2Fa8i8JCHr5rApiZpPXXozLAlefC%2BSpX%2BFQTbPpa7pVPIfOJzNiycDe5LfWXjFYD6TdO4FZF0TwfsRvE0IyfK%2FFh%2B3OGLgFbjk73vYcrf8YAmOszZv4Li%2Fe9GKz41%2FruyzmGxCVnGA2XgwgjfreZjhl6Xns7trSi%2BVzbNFxG9zdTjJ8MfWjwTKidIVgskCZ8knHcLf4HBo%2BNqA%2FHJdAQ0K9OY1kG0u8zi3s1JxNX36B0dAjQY8PTSGhMM6PTisAeFApweHPSActgTHnylOJEjo5LLmvNMsIW%2F4lkQkoZKYxHTkzTSMIkHkReEsppc%2BBYMqhjcMqpB64Wt%2BYxEGAXuMEuiKCoOpJ3HG4wiAerAHoIk9krG3FNCbGqB3JOjDLF1gKrpeLr8PA3A4BtytDNx4%2FtsVjoPvQ4Pl7qQBGD3xMJF4eMHJe%2BgzJp4T8k7zROqSjEcG3JTB8m1YsQdkpbDLr0IlNZFrlopXgAZeOi9jZ40QERwKQPL5kyE3RsXl342YigMpfxdgowWDl8xwMWc1kjWokAKpQpbgyMvC9%2BYTVfDxJzyTkH6WKo7AJlG2GJxTskp8zN9Vz%2BVFRWZTURmgCkX5lCVFGzbLabcjuEXd0J3gtiQOxRgUGIOizbRlTFQkUa%2BRsRa1zdAmmcPGobFlM7WGJB3pMlNkNxVN%2BuO8RQE3NOd1ftGQ%2FDq6%2BHWcY%2FFb0FnjF4w32U6YhV7GciDPz0ISb0CkGNK35lnqySdBpqYKwRJCoiFnQWZfWZCiYWCOr1fZ%2FIkKf8f%2FrHCanQEVmloVSMhHgSVTUWYsuqmAsie0xvcbnGidMGcAmsbTavF6Fg0MXa1FJDAyUTAC%2B2JEbh9JyNcgXzJ3uXkcuhmhOybBSUifynC9I0k2JzMSe9FzJe1lERc2zSErK51GVSUjZulATO76nFw0r2dwtitH%2BJz180%2Fh4LFCfLFwWpJOljjesBc8hFFBNb2qh9Uti2Afor8kENh62BLrYgAmY9SNLzG3U6jSSNl%2BtfElUSbhrMvAAOqTsBZlUo0BMYi%2Fkiwji5w0gdSG8604dbXyyCEzxtBGkyZq%2FbhNUDxm7wbVLkVbOK0UFQPJdJrig3mX83M4vgvTZeQxXB8Dinw4pVTzEurFTzCl9fvkh2LxpMrYnZ7yQyQbJWK1bcXP2qNVbjxjZKiJOQebNVAvJmpanWOlaKQKVcc1UySbqc1Wwm%2BMr7Kjodz53HMFvEbEf%2Bsrxrr9ZEVS7tm192y67ZxxFwYHqVyocZW3a2Xhxlu2ZVToSY%2Bkgga5O4k%2F4kaEvrXQW0GD5J3zr8z2ROp%2BKNb9qlaJguey33jQQRsgQeaM6YSnJFlQMQ1%2Bm0zFi9J8mrWcpR9%2FWLM4w2yaHDDQ4TZXNzB7t4Fp8qwQNjnuvKuHhH1YCNy%2BrMmWY6PLYuMToZnrZxEVDTJl6evK93GaHroojpkmHZoViUR0LUfFbQRJkUZGz9I%2Fin1R2LIvKsaZTu5RPgMkIda939JY5wy5B28RRmyaP3D0jpm5KHISdl0UeyMTGpuXquJrlor1od2t5kjNVNEmxPyxa3NOUqTPuIpitbZUJs2isnSS26r9y%2FWWUPSWXbNJsUSRFGkk1JQIBWD8BzUpVhpu22MdvCzkQF3RfElyk5qyGdGqrM7ZzC5Fx%2B0GOHJfCMBxfvLceIyn5H%2FeG3QhsQLpyruk6Mi8y5kuMGuWni5JnMonW07YXZc9QKAnHot22vn80i5FRyZebh4BSzL4M6ZfWwu4mYIjeMB26U5VR14DF1EUlZHzCIdFnP2KosGPfjqD9lF1HgwZw9pLqIrdydiuvSZOK6PqYDCuXOicocEgxWnNvgzG3e98%2FCWf2kBiV6Zr4Scp0rjAFWUA2rOUv9iNe7FdiYot1PricRWGpOWbkYp8zWDMVCeftyRrF8uHePQZOgq%2FpvqatpZT6L5jTbDtADidIs%2FGVwqCvvJ0fuSlaeh%2F7c9qCQEcNfdggaV3Q2jYI6TS9rv4Hbuum0TlV%2BoO9pX0svr%2FIfnw6r%2BwwPv%2FAA%3D%3D),
+  
+ ![enter image description here](https://lh3.googleusercontent.com/vi1iEAv0LtjFbvT30UE62rHDLu-fPFysH5oj1dpa_hVzaTbmKSV2Js_NjTCI7-5tXGVKgd8p4CQ "auth diag")
+ 
+<ol>
+  <li>Your web desktop, mobile web or in-app mobile application (e.g.: The Relying Party) sends a request to itsme® (e.g.: OpenID Provider) to authenticate the User.</li>
+  <li>itsme® authenticates the User by asking him
+    <ul type>
+      <li>to enter his MSISDN on the itsme® OpenID web page</li>
+      <li>authorize the release of some information’s to your application</li>
+      <li>to provide his credentials (password or fingerprint or FaceID)</li>
+    </ul>
+  
+  If you are building a mobile web or in-app mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will directly be redirected to the itsme app via the Universal links and App links
+  </li>
+  <li>Once the User has has authorized the request and has been authenticated the request itsme® will return an authorization code to your server component.</li>
+  <li>Your server component contacts the token endpoint and exchanges the authorization code for an id token identifying the User and an access token, redirecting the user to your mobile or web application.</li>
+  <li>You may request the additional user information from the UserInfo endpoint by presenting the access token obtained in the previous step.</li>
+</ol>
 
-**itsme® Login** is based on the [Authorization Code Flow
-(http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following  [diagram](https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Untitled%20Diagram.html#R7Vxbd6o4FP41PtZFCAF87HVOH6bTNZ1Zc%2BaRQlRWkTiAtZ1fP4mEWxIrYhC1Yx9aNnFjvi%2F7mtgRvF18%2FJJ4y%2FmvJMDRyDSCjxG8G5kmoD%2F0F5N85hLb5YJZEgZ8UCV4Cf%2FFXGhw6SoMcNoYmBESZeGyKfRJHGM%2Fa8i8JCHr5rApiZpPXXozLAlefC%2BSpX%2BFQTbPpa7pVPIfOJzNiycDe5LfWXjFYD6TdO4FZF0TwfsRvE0IyfK%2FFh%2B3OGLgFbjk73vYcrf8YAmOszZv4Li%2Fe9GKz41%2FruyzmGxCVnGA2XgwgjfreZjhl6Xns7trSi%2BVzbNFxG9zdTjJ8MfWjwTKidIVgskCZ8knHcLf4HBo%2BNqA%2FHJdAQ0K9OY1kG0u8zi3s1JxNX36B0dAjQY8PTSGhMM6PTisAeFApweHPSActgTHnylOJEjo5LLmvNMsIW%2F4lkQkoZKYxHTkzTSMIkHkReEsppc%2BBYMqhjcMqpB64Wt%2BYxEGAXuMEuiKCoOpJ3HG4wiAerAHoIk9krG3FNCbGqB3JOjDLF1gKrpeLr8PA3A4BtytDNx4%2FtsVjoPvQ4Pl7qQBGD3xMJF4eMHJe%2BgzJp4T8k7zROqSjEcG3JTB8m1YsQdkpbDLr0IlNZFrlopXgAZeOi9jZ40QERwKQPL5kyE3RsXl342YigMpfxdgowWDl8xwMWc1kjWokAKpQpbgyMvC9%2BYTVfDxJzyTkH6WKo7AJlG2GJxTskp8zN9Vz%2BVFRWZTURmgCkX5lCVFGzbLabcjuEXd0J3gtiQOxRgUGIOizbRlTFQkUa%2BRsRa1zdAmmcPGobFlM7WGJB3pMlNkNxVN%2BuO8RQE3NOd1ftGQ%2FDq6%2BHWcY%2FFb0FnjF4w32U6YhV7GciDPz0ISb0CkGNK35lnqySdBpqYKwRJCoiFnQWZfWZCiYWCOr1fZ%2FIkKf8f%2FrHCanQEVmloVSMhHgSVTUWYsuqmAsie0xvcbnGidMGcAmsbTavF6Fg0MXa1FJDAyUTAC%2B2JEbh9JyNcgXzJ3uXkcuhmhOybBSUifynC9I0k2JzMSe9FzJe1lERc2zSErK51GVSUjZulATO76nFw0r2dwtitH%2BJz180%2Fh4LFCfLFwWpJOljjesBc8hFFBNb2qh9Uti2Afor8kENh62BLrYgAmY9SNLzG3U6jSSNl%2BtfElUSbhrMvAAOqTsBZlUo0BMYi%2Fkiwji5w0gdSG8604dbXyyCEzxtBGkyZq%2FbhNUDxm7wbVLkVbOK0UFQPJdJrig3mX83M4vgvTZeQxXB8Dinw4pVTzEurFTzCl9fvkh2LxpMrYnZ7yQyQbJWK1bcXP2qNVbjxjZKiJOQebNVAvJmpanWOlaKQKVcc1UySbqc1Wwm%2BMr7Kjodz53HMFvEbEf%2Bsrxrr9ZEVS7tm192y67ZxxFwYHqVyocZW3a2Xhxlu2ZVToSY%2Bkgga5O4k%2F4kaEvrXQW0GD5J3zr8z2ROp%2BKNb9qlaJguey33jQQRsgQeaM6YSnJFlQMQ1%2Bm0zFi9J8mrWcpR9%2FWLM4w2yaHDDQ4TZXNzB7t4Fp8qwQNjnuvKuHhH1YCNy%2BrMmWY6PLYuMToZnrZxEVDTJl6evK93GaHroojpkmHZoViUR0LUfFbQRJkUZGz9I%2Fin1R2LIvKsaZTu5RPgMkIda939JY5wy5B28RRmyaP3D0jpm5KHISdl0UeyMTGpuXquJrlor1od2t5kjNVNEmxPyxa3NOUqTPuIpitbZUJs2isnSS26r9y%2FWWUPSWXbNJsUSRFGkk1JQIBWD8BzUpVhpu22MdvCzkQF3RfElyk5qyGdGqrM7ZzC5Fx%2B0GOHJfCMBxfvLceIyn5H%2FeG3QhsQLpyruk6Mi8y5kuMGuWni5JnMonW07YXZc9QKAnHot22vn80i5FRyZebh4BSzL4M6ZfWwu4mYIjeMB26U5VR14DF1EUlZHzCIdFnP2KosGPfjqD9lF1HgwZw9pLqIrdydiuvSZOK6PqYDCuXOicocEgxWnNvgzG3e98%2FCWf2kBiV6Zr4Scp0rjAFWUA2rOUv9iNe7FdiYot1PricRWGpOWbkYp8zWDMVCeftyRrF8uHePQZOgq%2FpvqatpZT6L5jTbDtADidIs%2FGVwqCvvJ0fuSlaeh%2F7c9qCQEcNfdggaV3Q2jYI6TS9rv4Hbuum0TlV%2BoO9pX0svr%2FIfnw6r%2BwwPv%2FAA%3D%3D),
+This flow is described in much more detail in the following sections.
+ 
 
-![enter image description here](https://lh3.googleusercontent.com/vi1iEAv0LtjFbvT30UE62rHDLu-fPFysH5oj1dpa_hVzaTbmKSV2Js_NjTCI7-5tXGVKgd8p4CQ "auth diag")
+## 3.1. Checking itsme® OpenID Configuration
 
-## 3.1. **Authorization Endpoint**
-The first step is forming an HTTPS request to the Authorization Endpoint with the appropriate URI parameters. Please note the use of HTTPS rather than HTTP in all the steps of this process; HTTP connections are refused.
-### 3.1.1. Authentication Request Specifications
-As per the OpenID Connect specification <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest" >Authentication Request</a> and <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint" >Authorization Endpoint</a>.
+To simplify implementations and increase flexibility, OpenID Connect allows the use of a [Discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html), a JSON document containing key-value pairs which provide details about itsme® system configuration, such as 
+* URIs of the authorization
+* Token 
+* UserInfo
+* supported claims
+* JWKSet URL
 
-You should retrieve the base URI from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the key **authorization_endpoint**. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/authorize`.
+The Discovery document for itsme® services may be retrieved from: https://merchant.itsme.be/oidc/.well-known/openid-configuration.
 
-**itsme®** supports the use of both HTTP `GET` and `POST` methods. If using the HTTP `POST` method, the request parameters must be serialized using [Form Serialization](http://openid.net/specs/openid-connect-core-1_0.html#FormSerialization).
+
+<a name="AuthNRequest"></a>
+## 3.2. Forming an authentication request
+
+First, you will form a HTTPS GET request that MUST be sent to the itsme® authorization endpoint. The itsme® authorization endpoint is https://merchant.itsme.be/oidc/authorize (it can be retrieved from the itsme® [Discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html), using the key `authorization_endpoint`)
+
+<aside class="warning">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in [section 3.4](#UniversalLinks).</aside>
 
 Please check the following table for request parameters,
 
 ```http--inline
+ HTTP/1.1
  GET /authorize?response_type=code
  &scope=openid%20profile%20email%20service%3Aclient.registration
  &client_id=s6BhdRkqt3
@@ -92,115 +104,101 @@ Please check the following table for request parameters,
  Host: server.itsme.be
  ```
 
-Parameter | Required | Specification | Parameter Explained
-:--------- | :-------| :-----|:--------------|
-**client_id** | Required | MUST be the Partner Code you obtained from BMID during [on-boarding process](#Onboarding) and this value will be unique to each partner per environment.|This is your client identifier at the OpenID Provider.
-**response_type** | Required | MUST be <code>code</code>.|Used to indicate an authorization code flow.
-**scope** | Required | MUST contain at least `openid` or an HTTP ERROR `not_implemented` will be returned. `offline_access` value will yield an error. MUST also includes the target service in the form `service:<SERVICE_CODE>` as provided by BMID during the on-boarding process (see <a name="ServiceCode"></a>[Service Code Concept](#ServiceCode) for further information).| Used to specify the scope of the requested authorization in OAuth, as well as pre-defined sets of claims (see [Scope](#scope)). The scope value `openid` signals a request for OpenID authentication and ID token. * **Note**: Requested data will only be provided based on your current accesses. These accesses are specified in the on-boarding file provided by BMID.* The value `service` is a BMID extension of the OpenID standard specification.
-**redirect_uri** | Required | MUST be the HTTPS endpoint on your server that will receive the Authentication Response from **itsme(r)**. This value MUST match one of the values provided to BMID during on-boarding process. * **Note**: the Partner can define different **redirect_uri** specific to each Service. * | The URI where the user will be redirected to  as for the Authentication Response.
-**state** | An appropriate value is RECOMMENDED. No syntactic requirement on this parameter | Should include the value of the anti-forgery unique session token, as well as any other information needed to recover the context when the user returns to your application.|Value set by your end to maintain state between request and callback.
-**nonce** | Optional | a random value generated by your app that enables replay protection when present. No syntactic requirement on this parameter. |The purpose is to prevent id token to be displaced by an attacker by sending a valid id token from a different request in order to trick user visiting another website. The nonce parameter value needs to include per-session state and be unguessable to attackers. One method to achieve this for Web Server Clients is to store a cryptographically random value as an HttpOnly session cookie and use a cryptographic hash of the value as the nonce parameter. In that case, the nonce in the returned ID Token is compared to the hash of the session cookie to detect ID Token replay by third parties. A related method applicable to JavaScript Clients is to store the cryptographically random value in HTML5 local storage and use a cryptographic hash of this value.
-**login_hint** | Optional | OPTIONAL and supported, though NOT RECOMMENDED. Only phone numbers are supported as `login_hint`. Format is : `<countrycode>+<phonenumber>`. E.g. `login_hint=32+123456789`. `login_hint` with invalid syntax will be ignored. Usage of claim value `phone_number` in an encrypted `request` object is recommended in order to avoid disclosure of phone number of the end user on the user agent (such as mobile app or web browser)|Hint to the Authorization Server about the login identifier the End-User might use to log in.
-**display** | Optional | MUST be `page` if provided. Other values will yield an HTTP ERROR `not_implemented`.|An ASCII string value for specifying how the authorization server displays the authentication and consent user interface pages.
-**prompt** | Optional | MUST be `consent` if provided.|By giving 'consent' as value, the authorization server prompts the user for consent before returning information to the client. Offline access to data is not supported by BMID on purpose.
-**ui_locales** | Optional | Supported values are: {“fr”, “nl”, “en”, “de”}. Any other value will be ignored. |Can be used to specify the language to be used by the Open ID login page.
-**max_age** | Optional | Supported but not used |Specifies the allowable elapsed time in seconds since the last time the End-User was actively authenticated by the OP. If the elapsed time is greater than this value, the OP MUST attempt to actively re-authenticate the End-User. BMID does not maintain a session mechanism on purpose, an active authentication is thus always required.
-**acr_values** | Optional | OPTIONAL and supported, though NOT RECOMMENDED. Possible values are `tag:itsmetag:sixdots.be,2016-06:acr_basic`, `tag:itsmetag:sixdots.be,2016-06:acr_advanced`. When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used. As there is no such idea of an existing session on itsme Core, even if the `acr_values` is requested as a voluntarily claim, the `acr` value returned will always be the more constraining method in the `acr_values` list, or the authentication will fail. Usage of `acr` parameter in the `request` object is recommended over this parameter as it will be signed in the JWT token.| These values are used to specify the level of authentication the RP requires from the OP. BMID imposes more strict security rules on advanced level as for basic.
-**claims** | Optional | NOT RECOMMENDED. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the data will be encrypted | MAY include claims for end user data
+Parameter | Required | Specification
+:-------- | :-------| :----- 
+**client_id** | Required |This is your client identifier at the OpenID Provider. MUST be the Partner Code you obtained from BMID as part of the [integration prerequisites](#Onboarding).
+**response_type** | Required | Used to indicate an authorization code flow. MUST be `code`. 
+**scope** | Required | Used to specify the scope of the requested authorization in OAuth, as well as pre-defined sets of claims (see [Scope](#scope)). MUST contain at least `openid` or an HTTP ERROR `not_implemented` will be returned. As a BMID extension of the OpenID standard specification, MUST also includes the target service in the form `service:<SERVICE_CODE>` as provided by BMID during the [integration prerequisites](#Onboarding) (see <a name="ServiceCode"></a>[Service Code Concept](#ServiceCode) for further information).   ***Note**: Requested data will only be provided based on your current accesses. These accesses are specified as part of the [integration prerequisites](#Onboarding).* `offline_access` value will yield an error.
+**redirect_uri** | Required | MUST be the HTTPS endpoint on your server that will receive the Authentication Response from **itsme(r)**. This value MUST match one of the values provided to BMID during [integration prerequisites](#Onboarding). ***Note**: the Partner can define different **redirect_uri** specific to each Service.*
+**state** | An appropriate value is strongly RECOMMENDED. | No syntactic requirement on this parameter. Purpose is to serve as a reference for your transaction, to trace it through the different steps of the authentication. Should include the value of the anti-forgery unique session token, as well as any other information needed to recover the context when the user returns to your application. To use it for troubleshooting purposes, it is up to you to ensure the unicity of the `state` value.
+**nonce** | An appropriate value is strongly RECOMMENDED.  | Value set by your end that you can use as a replay protection. No syntactic requirement on this parameter. Should be a random value with hig entropy. The purpose is to prevent id token to be displaced by an attacker by sending a valid id token from a different request in order to trick user visiting another website. See [note about nonce in OpenID specs](http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes) for more information.
+**login_hint** | Optional. Supported, though NOT RECOMMENDED. Usage of claim value `phone_number` in an encrypted `request` object is recommended in order to avoid disclosure of phone number of the end user on the user agent |  Hint to the Authorization Server about the login identifier the End-User might use to log in. Only phone numbers are supported as `login_hint`. Format is : `<countrycode>+<phonenumber>`. E.g. `login_hint=32+123456789`. `login_hint` with invalid syntax will be ignored.
+**display** | Optional | An ASCII string value for specifying how the authorization server displays the authentication and consent user interface pages. MUST be `page` if provided. Other values will yield an HTTP ERROR `not_implemented`.
+**prompt** | Optional | MUST be `consent` if provided. By giving 'consent' as value, the authorization server prompts the user for consent before returning information to the client. Offline access to data is not supported by BMID on purpose.
+**ui_locales** | Optional | Can be used to specify the language to be used by the Open ID login page. Supported values are: {“fr”, “nl”, “en”, “de”}. Any other value will be ignored.
+**max_age** | Optional. Supported but not used. | Specifies the allowable elapsed time in seconds since the last time the End-User was actively authenticated by the OP. If the elapsed time is greater than this value, the OP MUST attempt to actively re-authenticate the End-User. BMID does not maintain a session mechanism on purpose, an active authentication is thus always required.
+<a name id="acrvalues">**acr_values**</a> | Optional. Supported, though NOT RECOMMENDED. Usage of `acr` parameter in the `request` object is recommended over this parameter as it will be signed in the JWT token |These values are used to specify the level of authentication the RP requires from the OP. BMID imposes more strict security rules on advanced level as for basic. Two values are supported `tag:itsmetag:sixdots.be,2016-06:acr_basic`: Basic level will let the User to choose either fingerprint usage (if Device is compatible) or PIN, `tag:itsmetag:sixdots.be,2016-06:acr_advanced`: Advanced level will force the User to use PIN. *When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used.* As there is no such idea of an existing session on itsme(r) Core, even if the `acr_values` is requested as a voluntarily claim, the `acr` value returned will always be the more constraining method in the `acr_values` list, or the authentication will fail.
+**claims** | Optional. Supported, though NOT RECOMMENDED. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the returned data will be encrypted. | MAY include claims for end user data. See [User Data](#Data) for more information.
 **request** | Optional | See [Passing Request Parameters as JWTs](#JWTRequest)
 **response_mode** | Unsupported | MUST not be used. Any supplied value will be ignored.|
 **id\_token\_hint** | Unsupported | Ignored if provided.
 **claims_locales** | Unsupported | None are supported.|
 **request_uri** | Unsupported | Not supported (yet)|
-**registration** | Unsupported | Not supported due to “client dynamic registration”is not supported. The client registration process is done during the [on boarding process](#Onboarding).|
+**registration** | Unsupported | Not supported. The client registration process is manual. Please consult [integration prerequisites](#Onboarding).
 
-### 3.1.2. Authentication Response Specification
-An Authentication Response is an [OAuth 2.0 Authorization Response](https://tools.ietf.org/html/rfc6749#section-4.1.2) message.
-
-The itsme Back-End provides an Authorization Code to the Service Provider Back-End. In the Response, the Service Provider Back-End knows that the User was successfully authenticated.
-
+<a name="AuthNResponse"></a>
+## 3.3. Capturing an Authorization Code
+If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an authorisation code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the `redirect_uri` specified previously in the authentication request.
+ 
+```http--inline
+ HTTP/1.1 302 Found
+ Location: https://client.example.org/cb?
+ code=SplxlOBeZQQYbYS6WxSbIA&
+ state=af0ifjsldkj
+ ```
 As such, the Authentication Response will return the following parameters:
 
 Parameter | Provided | Description
 :--:| :--:|:--
 **code** | Always | Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.
 **state** |  | The exact value received from the client, if the parameter was present in the Authentication Request.
-### 3.1.3. Authentication Response Example
+ 
+### Handling Authentication Error Response
+
+In some cases, it is possible that the user is not redirected automatically to your environment. A typical example is when the user stays inactive in our front-end (whether in the itsme App or in our OpenID webpage). It would also be the case if the `redirect_uri` is malformed.
+
+There are also cases where the user will be redirected to your environment with an [Authentication Error Response]((http://openid.net/specs/openid-connect-core-1_0.html#AuthError)). As for a successful response this is achieved by returning a HTTPS 302 redirect request to the redirection_uri specified in the authentication request. Following parameters could be added to the query component of the redirection_uri:
 
 ```http--inline
- HTTP/1.1 302 Found
- Location: https://client.example.org/cb?
-  code=SplxlOBeZQQYbYS6WxSbIA&
- state=af0ifjsldkj
- ```
-### 3.1.4. Authentication Errors
-Among the error codes defined by OIDC specification [http://openid.net/specs/openid-connect-core-1_0.html#AuthError](http://openid.net/specs/openid-connect-core-1_0.html#AuthError), itsme(r) returns only the following (the other error codes are linked to features not supported by itsme(r)). Please note that the error codes defined by OAuth 2.0 are possible.
+HTTP/1.1 302 Found
+Location: https://client.example.org/cb?
+error=invalid_request
+&error_description=Unsupported%20response_type%20value
+&state=af0ifjsldkj 
+```
+
+Parameter |	Required	| Description
+:--|:--|:--
+error	| Required |	Error type.
+error_description |	Optional	| Indicating the nature of the error
+
+The following errors can be triggered by itsme(r):
 
 Error | Description
-:--: |:--
+:-- |:--
 `interaction_required`  | The Authorization Server requires End-User interaction of some form to proceed.
 `invalid_request_object` | The request parameter contains an invalid Request Object.
 `request_uri_not_supported` | does not support use of the request_uri parameter.
 `registration_not_supported` | does not support use of the registration parameter.
-## 3.2. Token Endpoint
-As per specified by OIDC, [http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest).
 
-Possible token end-point URLs:  
->[https://merchant.itsme.be/oidc/token](https://merchant.itsme.be/oidc/token)  
->[https://e2emerchant.itsme.be/oidc/token](https://e2emerchant.itsme.be/oidc/token)  
+<a name="UniversalLinks"></a> 
+## 3.4. Supporting Universal Links and App Links mechanism
+[Universal links](https://developer.apple.com/ios/universal-links/) and [App links](https://developer.android.com/studio/write/app-link-indexing) are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.
 
-### 3.2.1. About Tokens
-In this section, we will go through token types and their specifics.
+An App link is the Android version of the Universal link.
 
-There are three types of tokens in OIDC: [id_token](#idtoken), [access_token](#actoken) and [refresh_token](#rfshtoken).
-#### 3.2.1.1. ID Tokens
-As per the [OIDC Specification](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse), an `id_token` is a JWT.
+How do Universal Links work in iOS and Android ? Before Universal Links, the primary mechanism to open up an app when it was installed was by trying to redirect to an app’s URI scheme  in the web browser. But there was no way to check if the app was installed or not. This meant that developers would try to call the URI scheme 100% of the time, in the off chance that the app was installed, then fallback gracefully to the App Store or Google Play Store when not by using a timer.
 
-- ID tokens carry user’s authentication information encoded in the token itself, it must be a JWT and authorization server will return them.
--  the token can be certainly verified to prove that it hasn’t been tampered with.
+iOS Universal Links and Android App Links were intended to fix this. Instead of opening up the web browser first when a link is clicked, the OS will check if a Universal Link has been registered (a file should be there in the domain which contains the bundle id of the app and the paths the app should open) for the domain associated with the link, then check if the corresponding app is installed. If the app is currently installed, it will be opened. If it’s not, the web browser will open and the HTTPS link will load.
 
-There’s a set of [rules](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation) in the specification for validating an `id_token`.
+Functionally, it will allow you to have a single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.
 
-#### 3.2.1.2 Access Tokens
+The specifications for the implementation of Universal links and App links can be found in the Appendix.
 
-Bearer token concept must be mentioned before access token is explained. Bearer token is a protected token which can access to authorized resources without further identification. The format for OAuth 2.0 Bearer tokens is actually described in a separate spec, [RFC 6750](https://tools.ietf.org/html/rfc6750).
 
-- Access tokens are bearer tokens. They specify set of end user data the RP has access to in the context of the authentication (content of access token thus depends on the static access rights to data as defined during [on boarding process](#Onboarding)).
-- They have short lifespan, expire for improving security. The user must authenticate again for the RP to get a new access token limiting the exposure of the fact that it’s a bearer token.
+## 3.5. Exchanging the authorisation code 
+<a name="tokenEndpoint"></a> 
+Once your server component has received an [authorization code](#AuthNResponse), your server can exchange it for an Access Token and an ID token.
 
-#### 3.2.1.3 Refresh Tokens (_not supported_)
+<aside class="notice">There are many types of tokens mentioned in the OpenID specification. You might also read in the OpenID specification about the Refresh Token, but we don't support them (we don't implement any session mechanism).</aside>
 
-Refresh tokens are not supported since we do not maintain authenticated sessions on purpose.
+Your server makes this exchange by sending an HTTPS POST request to the Token Endpoint, called [Token Request](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest). The Token Endpoint URL is available in our [OpenID discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration), at key "token_endpoint". In this discussion, we assume this URL is 'https://merchant.itsme.be/oidc/token'.
 
-### 3.2.2. Token Request Specification
-As per the [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest), with a private_key_jwt for client authentication.
+<aside class="warning">We only support `private_key_jwt` for client authentication.</aside>
 
-The Authentication Response includes a `code` parameter, a one-time authorization code that your server can exchange for an ID token. Your server makes this exchange by sending an HTPS `POST`request. The `POST` request is sent to the token endpoint, which you should retrieve from the [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration) using the **token_endpoint** key. The following discussion assumes the endpoint is `https://merchant.itsme.be/oidc/token`. Please note that BMID only supports `private_key_jwt` as client authentication method. The `client_secret` authentication methods are not supported since they are considered less secure.
+<aside class="success"> The header Content-Type : application/x-www-form-urlencoded MUST be present.</aside>
 
-In order to communicate with Token Endpoint, TLS MUST be implemented. See  [Section 16.17](http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements)  for more information on using TLS.
-
-The Token Request must include the following parameters in the POST body:
-
-Parameter | Required | Comment
-:-- | -- | --
-**grant_type** | Required | Must be `authorization_code`.
-**code** | Required | The code value provided in the Authentication Response
-**redirect_uri** | Required | The **redirect_uri** used in the Authentication Request. This is the URL to which you want the user to be redirected after the authorization is complete.
-**client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` client authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
-**client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
-
-#### 3.2.2.1. `client_assertion`
-According to the `private_key_jwt` client authentication method, the **client assertion** JWT must contain the following properties:
-
-Property | Comment
-:-- | :--
-**iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID).
-**sub** | The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the on boarding file provided by BMID).
-**aud** | Must be the token endpoint URL
-**jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
-**exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
-
-### 3.2.3. Token Request Example
+<aside class="notice"> In order to communicate with Token Endpoint, TLS MUST be implemented. See http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements 16.17 for more information on using TLS. </aside>
 
 ```http--inline
 GET /oidc/authorization?response_type=code
@@ -208,170 +206,205 @@ GET /oidc/authorization?response_type=code
 &yourredirecturl
 &scope=openid+service%3Ayourservicecode+profile+
 &claims={"userinfo":{" tag:sixdots.be,2016-06:claim_nationality": null},
-"id_token":{"auth_time": {"essential": true},"acr_values":{"value":["tag:sixdots.be,2016-06:acr_advanced"]
+"id_token":{"auth_time": {"essential": true},"acr_values
+{"value":["tag:sixdots.be,2016-06:acr_advanced"]
 }}}&state=anystate&nonce=anonce&prompt=login&max_age=1
 ```
-### 3.2.4. Token Response Specification
+The Token Request must include the following parameters in the POST body:
+
+Parameter | Required | Comment
+--| -- |--
+**grant_type** | Required | Must be `authorization_code`
+**code** | Required | The code value provided in the Authentication Response
+**redirect_uri** | Required | The **redirect_uri** used in the Authentication Request. This is the URL to which you want the user to be redirected after the authorization is complete.
+**client_assertion** | Required | Must be a valid JWT complying with the `private_key_jwt` client authentication method as defined in [Section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID specification. This JWT must be signed.
+**client\_assertion\_type** | Required | Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` 
+
+### `client_assertion` 
+According to the `private_key_jwt` client authentication method, the **client assertion** JWT must contain the following properties:
+
+Property | Comment
+-- |--
+**iss** | The issuer of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID).
+**sub** | The subject of the `private_key_jwt` (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the on boarding file provided by BMID). 
+**aud** | Must be the token endpoint URL
+**jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
+**exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
+
+<a name="TokenResponse"></a>
+## 3.6. Managing Token Response
+### Handling a successful Token Response
+If the Token Request validation is successful we will return an HTTP 200 OK response including id and access tokens as in the example aside:
+
+```http--inline
+HTTP/1.1 200 OK
+  Content-Type: application/json
+  Cache-Control: no-store
+  Pragma: no-cache
+
+  {
+   "access_token": "SlAV32hkKG",
+   "token_type": "Bearer",
+   "expires_in": 3600,
+   "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjFlOWdkazcifQ.ewogImlzc
+     yI6ICJodHRwOi8vc2VydmVyLmV4YW1wbGUuY29tIiwKICJzdWIiOiAiMjQ4Mjg5
+     NzYxMDAxIiwKICJhdWQiOiAiczZCaGRSa3F0MyIsCiAibm9uY2UiOiAibi0wUzZ
+     fV3pBMk1qIiwKICJleHAiOiAxMzExMjgxOTcwLAogImlhdCI6IDEzMTEyODA5Nz
+     AKfQ.ggW8hZ1EuVLuxNuuIJKX_V8a_OMXzR0EHR9R6jgdqrOOF4daGU96Sr_P6q
+     Jp6IcmD3HP99Obi1PRs-cwh3LO-p146waJ8IhehcwL7F09JdijmBqkvPeB2T9CJ
+     NqeGpe-gccMg4vfKjkM8FcGvnzZUN4_KSP0aAp1tOJ1zZwgjxqGByKHiOtX7Tpd
+     QyHE5lcMiKPXfEIQILVq0pc_E2DzL7emopWoaoZTF_m0_N0YzFC6g6EJbOEoRoS
+     K5hoDalrcvRYLSrQAZZKflyuVCyixEoV9GfNQC3_osjzw2PAithfubEEBLuVVk4
+     XUVrWOLrLl0nx7RkKU8NXNHq-rvKMzqg"
+  }
+
+```
 The Token Response follow these specifications:
 
 Parameter | Provided | Comment
--- | -- | :--
-**[`access_token`](#actoken)** | Always | Will be provided.
+-- | -- | --
+**[`access_token`](#actoken)** | Always | Will be provided. 
 **[`token_type`](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)** | Always | Will be `Bearer`
-**[`id_token`](#idtoken)** | Always | The id_token corresponding to the Authentication Request (signed and  encrypted).
+**[`id_token`](#idtoken)** | Always | The id_token corresponding to the Authentication Request (signed and  encrypted). 
 **[`at_hash`](http://openid.net/specs/openid-connect-core-1_0.html#CodeIDToken)** | Never | Current version of itsme(r) Core does not produce the `at_hash` value
 **[`refresh_token`](#rfshtoken)** | Never | Won't be provided as **itsme(r)** only maintains short-lived session to enforce re-authentication.
 
+The ID Token follow these specifications:
 
-### 3.2.5. Token Response Example
-`{"user_info":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","birthdate":"1974-04-12","gender":"male","name":"Ada Gardner","iss":"tokenEndpointURL","given_name":"Ada","locale":"fr","family_name":"Gardner"},"id_token":{"access_token":"UVfXK3QzTRKyFiw3f1v85Yr4ko4o7uI1oJ8XNZeRcJE","id_token":{"sub":"qn2b631umr23bpou8rfzbtu79b5q5phxcml8","aud":"OIDC_TEST1","acr":"tag:sixdots.be,2016-06:acr_basic","auth_time":1523626355,"iss":"tokenEndpointURL","exp":1523626660,"iat":1523626360,"nonce":"anonce"},"token_type":"Bearer","expire_in":163}}`
+Parameter |	Required |	Description
+:-- | :-- | :--
+iss	| Required |	Identifier of the issuer of the ID Token.
+sub |	Required	| An identifier for the User (e.g.: UserCode), unique among all itsme® accounts and never reused. Use sub within in the application as the unique-identifier key for the user.
+aud	| Required |	Audience of the ID Token. Will include the `client_id`
+exp	| Required |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
+iat |	Required	| The time the ID token was issued, represented in Unix time (integer seconds)
+auth_time | Will always be provided | Time when the End-User authentication occurred. Its value is a JSON number representing the number of seconds from 1970-01-01T0:0:0Z as measured in UTC until the date/time.
+nonce | Provided if present in Authentication Request | String value used to associate a Client session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. If present in the ID Token, Clients MUST verify that the nonce Claim Value is equal to the value of the nonce parameter sent in the Authentication Request. If present in the Authentication Request, Authorization Servers MUST include a nonce Claim in the ID Token with the Claim Value being the nonce value sent in the Authentication Request.
+acr | Will always be provided | Possible values: `tag:sixdots.be,2016-06:acr_basic` and `tag:sixdots.be,2016-06:acr_advanced`
+amr | Will never be provided |
+azp | Will never be provided |
 
-### 3.2.6. Token Error Response
+### Handling Token Error Response 
+If the Token Request is invalid or unauthorized an HTTP 400 response will be returned as in the example:
+```http--inline
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Cache-Control: no-store
+Pragma: no-cache
+{
+  "error": "invalid_request"
+}
+```
+The response will contain an error parameter and optionally `error_description` and `error_uri` parameters. The error_uri parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.
 
-As per <a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenErrorResponse" onclick="return ! window.open(this.href);">OIDC Specification Aggregated Response</a>
+## 3.7. Matching users databases
+The first time a user uses itsme(r) at your side, you will receive an unknown userCode from the [Token Response](#TokenResponse) for him. You then have to determine whether or not you already have an account at your own side for this user, and this section briefly describes our recommendation on the topic, in order to optimize the user experience.
 
-# 4. User Data
-## 4.1. What is a claim?
+### Automatic match
+
+The smoothest user experience comes when you can guarantee a high level of verification of a set of data we have in common with you. If you ask for user data that you own on your side as well, you can match these data to automatically associate the userCode to the correct user account on your side, and offer a seamless journey to the user
+
+Of course, it is possible that the user has no account yet at your side. You may use in that case  the [user data](#Data) we provide you to facilitate the account creation and automatically link it to the userCode.
+
+The following picture illustrates both cases:
+
+<img src="LinkUserAuto.png" alt="Automatically linking user accounts">
+
+For this to be safe, though, the following must be verified between you and us:
+- On both sides, the data used to match the accounts must uniquely identify the user
+- On both sides, the lifecycle of the data used to match the accounts must be understood and must guarantee a constant control of the user identified through this data
+
+<aside class="success">If you intend to implement this, please contact us so that we can verify the consistency of this use case together.</aside>
+
+
+### Manual match
+
+If there is no data that can be used on both sides to match the accounts automatically, simply authenticate the user with your usual credentials when you receive a new userCode from the [Token Response](#TokenResponse). You then have to associate this userCode to the account on your side.
+
+Of course, it is possible that the user has no account yet at your side. You may use in that case  the [user data](#Data) we provide you to facilitate the account creation and automatically link it to the userCode.
+
+The following picture illustrates both cases:
+
+<img src="LinkUser.png" alt="Picture illustrates possibilities for linking user accounts">
+
+<a name="Data"></a>
+## 3.8 Obtain User Data
+### What is a claim?
+
 The concept of claim is about declaring something you expect as return from the OP. When it comes to end user data, you have to use claims in order to declare the end user data you will need for your business before the authentication. This is a privacy-oriented way of getting data.
+
 Technically, you have to declare the claims in the Authorization Request in the way described in the section [Declaring Claims](#decClaim).
+
 Claims will come as name/value pairs packaged in a JSON object that contain information about a user, as well as meta-information about the OIDC service. The official definition from the spec is a [“piece of information asserted about an Entity.”](http://openid.net/specs/openid-connect-core-1_0.html#Terminology)
 
+<aside class="notice"> We do not support Aggregated and Distributed Claims due to all the data we expose come from our own database.</aside>
 
-### 4.1.1. Claim Types
-Three representations of Claim Values are defined officially:
-- Normal Claims
-- Aggregated Claims (not supported)
-- Distributed Claims (not supported)
-
-We do not support Aggregated and Distributed Claims due to all the data we expose come from our own database.
-
-#### 4.1.1.1. Normal Claims
 Claims that are directly asserted by the OpenID Provider.
-
 Normal Claims are represented as members in a JSON object. The Claim Name is the member name and the Claim Value is the member value.
 
 The following is a non-normative response containing Normal Claims:
-```http--inline
+ ```http--inline
   {
    "name": "Jane Doe",
    "given_name": "Jane",
    "family_name": "Doe",
    "email": "janedoe@example.com",
    "picture": "https://www.itsme.be/uploads/media/57da4dee8c5d2/logo-itsme-badge.svg?production-f26c079"
-  }
+  } 
   ```
-
-### 4.1.2 Essential Claims vs Voluntary Claims
-
 In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims requested via scope as **Essential** (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)). **Voluntary** claims are thus supported, but are used as **Essential**.
 
 In practice, it means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims. You should thus already request claims according to your business case.
 
-## <a name id="decClaim"></a> 4.2. Declaring Claims
-
+### <a name id="decClaim"></a> Declaring Claims
 You can declare Claims in two ways:
-- With 'scope' values
-- With 'claims' parameter
+- With `scope` values
+- With `claims` parameter
 
 In each case, the claims need to be declared in the Authorization Request.
+#### <a name id="scope"></a> Using `scope` values
+Scopes are space-separated lists of identifiers used to specify what access privileges are being requested. 
 
-### <a name id="scope"></a>4.2.2. Scope
-
-Scopes are space-separated lists of identifiers used to specify what access privileges are being requested.
-
-Scopes can be used to request that specific sets of information available as Claim Values in User Info Token.
+Scopes can be used to request that specific sets of information available as Claim Values in User Info Token. 
 
 Using this method, you will always receive Claims from the UserInfo Endpoint.
 
-<!-- (always User Info Endpoint)-->
-
-#### 4.2.1.1 List of Supported Scope Values
-**Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>**
+<aside class="success">Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>
 
 The following scope values are supported and allow access to predefined sets of Identity Data:
 
-| Scope Value | Associated Claims|
-|--|:--|
-| profile | given_name, family_name, gender, birthdate,  locale|
-email|email, email_verified|
-phone| phone_number, phone_number_verified|
+Scope Value | Associated Claims
+--|--
+profile | given_name, family_name, gender, birthdate,  locale
+email|email, email_verified
+phone| phone_number, phone_number_verified
 address|address, with subfields,<br>street_address (newline separator \n)<br> locality <br> postal_code <br> country
-#### 4.2.1.2 Example of an Authorization Request using "scope" values
-URL:
-```http--inline
-GET /oidc/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fuat_OIDC_TEST1%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_LOGIN+profile+eid+phone=phone_number+phone_number_verified+email=email_verified+address=postal_code+country+&state=anystate&nonce=anonce&prompt=login&max_age=1 HTTP/1.1
-Host: uatmerchant.sixdots.be
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:52.0) Gecko/20100101 Firefox/52.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-Accept-Language: en-US,en;q=0.5
-Accept-Encoding: gzip, deflate, br
-Cookie: JSESSIONID=871EA8BD595FE9F89BB9F4346ABD16B094ABB62AEFC2ABED925F8361E1B3031178073D9C12A0DBDF4FB02C28AB72E917763275E9E853CB6A0D178744291D15DB92DECDA43BE66D0E5673A7E48DD23564B6E40BAC61F9012F4137B5A02112CEF5788DD47500AC51B1024AE061E0A93593CF954051E913B7BC1D772B947C8C7FB8; TS01afcf7e=0163058fe5252ff79320ae0af6fe6d839a75ea2aec42d57c6c4f7781ddc75d5c4aeec90a783e72b1e9ea8053bb334a3bc6a2ca0c09cd3409043e8ac82f7001989a812dee31; cookieconsent_status=dismiss; mobileid-phonenumber=null; BIGipServer~DMZ~pool_uat_5000=rd1o00000000000000000000ffff0ac21e03o5000; TS01da5469=0163058fe527f1fa81765220131ba80249a2f3e34342d57c6c4f7781ddc75d5c4aeec90a7804b2672a8fd3a85c4d2f9c7eb480d78ce9f71f0e45414210e79c2179584c20a4
-Connection: keep-alive
-Upgrade-Insecure-Requests: 1
-```
-URL Parameters without encoding:
 
-```http inline--   
-response_type=code
-client_id=yourpartnercode
-redirect_uri=https%3A%2F%2Fyourredirecturl
-scope=openid+service%3Ayourservicecode+profile+eid+phone=phone_number+phone_number_verified+email=email_verified+address=postal_code+country+
-state=anystate
-nonce=anonce
-prompt=login
-max_age=1
-```
-
-### 4.2.2 “claims” Parameter
+#### Using `claims` parameter
 
 Some specific data cannot be requested by using scope values. They have to be requested in the claims as request parameter of the Authentication Request. Using this [method](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter) of requesting claims, you need to specify the endpoint you want the claims to come from. ( see example for different specifying endpoints [4.2.2.1. Set of Request Parameter Adapted to itsme(r)](#example-endpoint))
 
-**List of Supported Custom "claim" Values:**
+Here are these custom claims defined by BMID:
 
-Here are these claims:
-Data | Claim | Comment
-:-- | :--: | :--:
-Subject | **`sub`** | The subject of the `private_key_jwt`(the client ID). Supports value in request.
-Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** | An error will be raised if request as a value element for the claim
-Place of Birth - city | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** |An error will be raised if request as a value element for the claim
-Place of Birth - country | **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** | An error will be raised if request as a value element for the claim
-E-ID Metadata  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** |  [Specifications](#eidMetadata)
-Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | Simple string containing the user’s Passport Serial Number.
-Device | **`tag:sixdots.be,2017-05:claim_device`** | [Specifications](#deviceClaim) and [an example of device claim value usage](#exampleDeviceClaimValue)<br>
-Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |[Specifications](#transactionInfo) and [an example of usage](#transactionInfoExample)
+Data | Claim | Comment 
+-- | -- | --
+Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** |
+Place of Birth - city | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** |
+Place of Birth - country | **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** | 
+E-ID Metadata  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** |  See [eID Metadata](#eidMetadata)
+Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | Simple string containing the user’s Passport Serial Number. 
+Device | **`tag:sixdots.be,2017-05:claim_device`** | See [Device Claim](#deviceClaim)
+Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |See [Transaction Info](#transactionInfo)
 E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
-NRN | not supported|
-
-#### <b id="example-endpoint"></b> 4.2.2.1. Set of Request Parameter Adapted to itsme(r)
-
-```json--inline
- {
-    "userinfo":
-     {
-      "given_name": {"essential": true},
-      "nickname": null,
-      "email": {"essential": true},
-      "email_verified": {"essential": true},
-      "picture": null,
-      "http://example.info/claims/groups": null
-     },
-    "id_token":
-     {
-      "auth_time": {"essential": true},
-      "acr": {"values": ["urn:mace:incommon:iap:silver"] }
-     }
- }
- ```
-
-**List of Supported Standard "claim" Values:**
-
+ 
+ 
 As per specified by OpenID Connect, there is a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), or user attributes. They are intended to supply the client app with consented user details such as email, name and picture, upon request.  They can be requested to be returned either in the UserInfo Response, per [Section 5.3.2](https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse), or in the ID Token, per [Section 2](https://openid.net/specs/openid-connect-core-1_0.html#IDToken).
 
-Here following table lists the supported standard "claim" values,
+The following table lists the supported standard "claim" values, 
 
-|Member  |Type  |Description |
-|:--|--|--|
-name |string|Subject - Identifier for the End-User at the Issuer.
+Member  |Type  |Description
+:--|:--|:--
+name |string|Subject - Concatenation  for the End-User at the Issuer.
 given_name|string|  Given name(s) or first name(s) of the End-User. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.
 family_name|string|Surname(s) or last name(s) of the End-User. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.
 profile|string|URL of the End-User's profile page. The contents of this Web page SHOULD be about the End-User.
@@ -383,88 +416,99 @@ locale|string|End-User's locale, represented as a [BCP47](https://openid.net/spe
 phone_number|string|  End-User's preferred telephone number.  [E.164](https://openid.net/specs/openid-connect-core-1_0.html#E.164)  [E.164] is RECOMMENDED as the format of this Claim.If the phone number contains an extension, it is RECOMMENDED that the extension be represented using the  [RFC 3966](https://openid.net/specs/openid-connect-core-1_0.html#RFC3966)  [RFC3966] extension syntax.
 phone_number_verified |boolean (**always true**)|True if the End-User's phone number has been verified; otherwise false. When this Claim Value is true, this means that the OP took affirmative steps to ensure that this phone number was controlled by the End-User at the time the verification was performed. The means by which a phone number is verified is context-specific, and dependent upon the trust framework or contractual agreements within which the parties are operating. When true, the phone_number Claim MUST be in E.164 format and any extensions MUST be represented in RFC 3966 format.
 address|JSON object|End-User's preferred postal address. The value of the address member is a JSON [[RFC4627]](https://openid.net/specs/openid-connect-core-1_0.html#RFC4627) structure containing some or all of the members defined in [Section 5.1.1](https://openid.net/specs/openid-connect-core-1_0.html#AddressClaim).
-
-#### 4.2.2.2. Example of a Valid “claims” Object
-Example of JSON device object requested with `tag:sixdots.be,2017-05:claim_device`:
-
-```json--inline
- {  
- 	"os": "ANDROID",  
- 	"appName": "itsme app", "appRelease": "1.17.13",
- 	"deviceLabel": "myDevice",
- 	"debugEnabled": false,
- 	"deviceId": "deviceId",
- 	"osRelease": "Android 4.4.2",
- 	"manufacturer": "samsung",
- 	"hasSimEnabled": true,
- 	"deviceLockLevel": "touchID",
- 	"smsEnabled": true,
- 	"rooted": false,
- 	"imei": "12345678901234567",
- 	"deviceModel": "S8",  
- 	"msisdn": "0412123123",
- 	"sdkRelease": "1.17.12"  
- }
- ```
-#### <a name id="deviceClaim"></a> 4.2.2.2. Device Claim
-This claim is the information about the end user device.
+ 
+#### <a name id="deviceClaim"></a> Device Claim 
+This claim is the information about the end user device. 
 
 Claim value: **`tag:sixdots.be,2017-05:claim_device`**
 
-A JSON object with the following keys: (only keys with cardinality [1…1] will be always available)
+This will return you a JSON object with the following keys: (only keys with cardinality [1…1] will be always available)
 
-- “os” [1…1]: the device operating system (supported values:
-- {ANDROID, IOS})   
--  “appName” [0…1]: the application name.   
--   “appRelease” [0…1]: the application current release.   
--   “deviceLabel” [0…1]: the name of the device.   
-- “debugEnabled” [0…1]: if debug mode is activated.   
--  “deviceId” [1…1]: (regexp =“[a-f0-9]{33}”) the device identifier.   
--  “osRelease” [0…1]: Version of the OS running on your Device.  
--   “manufacturer” [0…1]: Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android).
-- “hasSimEnabled” [0…1]: Whether there is a SIM in the Device. Should
-be always true, as long as BMID keeps forbidding installing itsme on
-a tablet.   
--  “deviceLockLevel” [0…1]: The type of action to be
-performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.   
-- “smsEnabled” [0…1]: Can send SMS. On iOS, means it’s an iPhone.    
--  “rooted” [0…1]: Coming from Gemalto. ‘true’ the device is
-jailbreaked/rooted.   
-- “imei” [0…1]: (regexp = “[0-9]{15,17}”) the
-device IMEI value.   
--  “deviceModel” [0…1]: Model of the Device.  
-e.g. SAMSUNG GALAXY A5   
-- “msisdn” [0…1]: the user’s phone number.  
-- “sdkRelease” [0…1]: Sdk release
-##### <a name id="exampleDeviceClaimValue"></a>4.2.2.2.1. Example of Device Claim Value Usage
-`{ "os": "ANDROID", "appName": "itsme app", "appRelease": "1.17.13", "deviceLabel": "myDevice", "debugEnabled": false, "deviceId": "deviceId", "osRelease": "Android 4.4.2", "manufacturer": "samsung", "hasSimEnabled": true, "deviceLockLevel": "touchID", "smsEnabled": true, "rooted": false,"imei": "12345678901234567", "deviceModel": "S8", "msisdn": "0412123123", "sdkRelease": "1.17.12" }`
+```json--inline
+{ 
+  "os": "ANDROID",
+  "appName": "itsme app",
+  "appRelease": "1.17.13",
+  "deviceLabel": "myDevice",
+  "debugEnabled": false,
+  "deviceId": "deviceId",
+  "osRelease": "Android 4.4.2",
+  "manufacturer": "samsung",
+  "hasSimEnabled": true,
+  "deviceLockLevel": "touchID",
+  "smsEnabled": true,
+  "rooted": false,
+  "imei": "12345678901234567",
+  "deviceModel": "S8",
+  "msisdn": "0412123123",
+  "sdkRelease": "1.17.12" 
+ }
+```
+Key | Value
+:-- | :--
+`os` | the device operating system (possible values: `ANDROID`, `IOS`)   
+`appName` | the application name.   
+`appRelease` | the application current release.   
+`deviceLabel` | the name of the device.   
+`debugEnabled` | if debug mode is activated.   
+`deviceId` | (regexp =“[a-f0-9]{33}”) the device identifier.   
+`osRelease` | Version of the OS running on your Device.  
+`manufacturer` | Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android).
+`hasSimEnabled` | Whether there is a SIM in the Device. Is always `true`, as long as BMID keeps forbidding installing itsme on a tablet. 
+`deviceLockLevel` | The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.   
+`smsEnabled` | Can send SMS. On iOS, means it’s an iPhone.
+`rooted` | Always `false` as long as BMID keeps forbidding using itsme on a jailbreaked/rooted device.   
+`imei` | (regexp = “[0-9]{15,17}”) the device IMEI value.
+`deviceModel` | Model of the Device, e.g. `SAMSUNG GALAXY A5`
+`msisdn` | the user’s phone number.  
+`sdkRelease` | SDK release
 
-#### <a name id="eidMetadata"></a>4.2.2.3. Eid Metadata Claim
+#### <a name id="eidMetadata"></a> Eid Metadata Claim 
+
 Claim value: **`tag:itsmetag:sixdots.be,2016-06:claim_eid`**
 
-This claim is Belgian Electronic ID card information encoded in JSON, with the following keys,
+This claim is Belgian Electronic ID card information encoded in JSON, with the following keys:
 
-`eid`: the electronic ID card serial number. <br>`issuance_locality`: the issuance locality. <br>`validity_from`: eID card validity “from” date. <br>`validity_to`: eID card validity “to” date. <br>`certificate_validity`: the certificate validity. <br>`read_date`: the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: 2017-04-01T19:43:37+0000
+Key | Value
+:-- | :--
+`eid` | the electronic ID card serial number
+`issuance_locality` | the issuance locality
+`validity_from` | eID card validity “from” date
+`validity_to` | eID card validity “to” date
+`certificate_validity` |the certificate validity
+`read_date` | the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: 2017-04-01T19:43:37+0000
 
-#### <a name id="transactionInfo"></a>4.2.2.4.Transaction Info Claim
+#### <a name id="transactionInfo"></a> Transaction Info Claim
 Claim value: **`tag:sixdots.be,2017-05:claim_transaction_info`**
-
 Information available in the context of the current transaction.
 
-A JSON object with the following keys: (only keys with cardinality \\\[1..1\\\] will be always available)<br> **“securityLevel” \\\[1..1\\\]**: (supported values: <br>{SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) Security level used during transaction. <br>**“bindLevel” \\\[1..1\\\]**: (supported values: {SOFT\\\_ONLY, SIM\\\_ONLY, SIM\\\_AND\\\_SOFT}) tells if the user account is bound to a SIM or not, at the time the transaction occurred. <br>**“mcc” \\\[0..1\\\]**: the Mobile Country Code. An Integer (three digits) representing the mobile network country.
-##### <a name id="transactionInfoExample"></a>4.2.2.4.1. Example of The Usage of Transaction Info Claim Value
-`{ "securityLevel": "SIM\\\_AND\\\_SOFT", "bindLevel": "SIM\\\_AND\\\_SOFT", "mcc": 206 }`
-## 4.3. Getting Data
+```http--inline
+{ "securityLevel": "SIM\\\_AND\\\_SOFT", "bindLevel": "SIM\\\_AND\\\_SOFT", "mcc": 206 }
+```
 
-As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest(http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest)
+A JSON object with the following keys:
 
-Depending on how you declared claims in the Authentication Request, you will receive the user data from
+Key | Value
+:-- | :--
+`securityLevel` | (supported values: `SOFT_ONLY`, `SIM_ONLY`, `SIM_AND_SOFT`) Security level used during transaction
+`bindLevel` | (supported values: `SOFT_ONLY`, `SIM_ONLY`, `SIM_AND_SOFT`) tells if the user account is bound to a SIM or not, at the time the transaction occurred
+`mcc` | the Mobile Country Code. An Integer (three digits) representing the mobile network country. 
+
+
+
+### Getting Data
+
+As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest), depending on how you declared claims in the Authentication Request, you will receive the user data from:
 - The UserInfo Endpoint
 - The Token Endpoint, in the ID Token
+<aside class="success">Should there be 2 calls to itsme(r) for this schedule, one for Token Request & one for UserInfo Request?   
+Indeed, You need to perform two Back-End to Back-End calls:  
+- The Token Request  
+- The UserInfo Request  
+On top of this, the Authorization Request (AuthN Request in the schedule) consists of an HTTP redirection to the OpenID webpage of BMID. The content of this HTTP request is to be crafted by your system, it is actually a third call from your side to BMID, this one being Front-End to Back-End.</aside>
 
-
-### 4.3.1. UserInfo Endpoint
-As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest),
+#### UserInfo Endpoint
+As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest).
 
 If you declared claims with `scope` values or if you declared claims in the `userinfo` part of the `claims` parameter in the `request` object, you will receive the end user data from the UserInfo Endpoint.
 
@@ -472,49 +516,50 @@ The UserInfo endpoint returns previously consented user profile information to t
 
 Your server sends the User Info Request using either HTTP  `GET`  or HTTP  `POST` method. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP  `GET`method and the Access Token be sent the using the  `Authorization`  header field. The HTTP request is sent to the User Info endpoint, which you should retrieve from the  [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration)  using the key  **userinfo_endpoint**.
 
-The content type of the response will be `application/JWT`. The response will be signed and encrypted.
+The content type of the response will be `application/JWT`. The response will be signed and encrypted. 
 
 The UserInfo endpoint can be accessed only with a valid **access_token** and for a very limited duration after end user authentication. There must be _less than 3 minutes_ between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info Endpoint.
 The Access Token will define the list of Data that will be provided back to the client. In order to request specific claims, you can  [use scopes](https://stackedit.io/app#stClaims)  in the Authentication Request and/or  [use the claims parameter](https://stackedit.io/app#Claims-Request)  of the  request Object.
 
-#### 4.3.1.1. User info Request Specification
+##### User info Request Specification
 As per specified [OIDC UserInfo Request](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest).
 
 The Client sends the UserInfo Request using either HTTP  GET  or HTTP  POST. The Access Token obtained from an OpenID Connect Authentication Request MUST be sent as a Bearer Token, per Section 2 of  [OAuth 2.0 Bearer Token Usage](http://openid.net/specs/openid-connect-core-1_0.html#RFC6750)  [RFC6750].
 
-It is RECOMMENDED that the request use the HTTP  GET  method and the Access Token be sent using the  Authorization  header field.
+<aside class="success">It is recommended that using HTTP GET request method and  sending Access Token by using the Authorization header field.</aside>
 
-| Parameter  | Comment  |
-|--|:--|
+```http--inline
+GET /userinfo HTTP/1.1 
+Host: server.example.com 
+Authorization: Bearer SlAV32hkKG
+``` 
+|Parameter  | Comment
+|--|--|
 | acr | Possible values: <br>`tag:sixdots.be,2016-06:acr_basic`<br>`tag:sixdots.be,2016-06:acr_advanced` |
 | amr |Won’t be provided  |
 | azp| Won’t be provided |
 |auth_time | Will always be provided
-#### 4.3.1.2. User info Request Example
 
-```http--inline
-GET /userinfo HTTP/1.1
-Host: server.example.com
-Authorization: Bearer SlAV32hkKG
-```
-#### 4.3.1.3. User info Response Specification
-
+##### User info Response Specification
 The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed. The itsme Back-End replies with the Identity Data that were requested in the Authorization Request.
+<aside class="success">What is the lay-out of the Identity Data that BMID obtain in the Userinfo Response? They are the same as on the eID card </aside>
+<aside class="success">What format does the certificate need to be?
+It needs to be in ZIP file, X509 format (cer or crt). Pem file is not supported.  </aside>
 
-#### 4.3.1.4. User info Response Example
+##### User info Response Example
 (Not encrypted nor signed)
-
+ 
 ```http--inline
  HTTP/1.1 200 OK
  Content-Type: application/json
-
+ 
  {
     "sub": "248289761001",
     "name": "Jane Doe",
     "email": "janedoe@example.com"
  }
  ```
-#### 4.3.1.5. User info Errors
+##### User info Errors
 When an error condition occurs, the UserInfo Endpoint returns an Error Response as defined in Section 3 of  [OAuth 2.0 Bearer Token Usage RFC6750](https://tools.ietf.org/html/rfc6750)   (HTTP errors unrelated to RFC 6750 are returned to the User Agent using the appropriate HTTP status code.)
 
 The following is a non-normative example of a UserInfo Error Response:
@@ -524,30 +569,31 @@ The following is a non-normative example of a UserInfo Error Response:
     error_description="The Access Token expired"
  ```
 
-### 4.3.2. Token Endpoint
+#### Token Endpoint
 As per specified by OIDC, when using the authorization code flow to obtain an Access Token and an ID Token, you will send a token request to token endpoint to have a token response.
-
 If you declared  claims in the `id_Token` part of the `claims` parameter in the `request` object,  you will receive the end user data from the Token Endpoint.
 
-
-#### 4.3.2.1. Token Endpoint Specs
+##### Token Endpoint Specs
 To get further information about token types, token request/response specifications please proceed with [3.2 Token Endpoint](#tokenEndpoint).
 
-#### 4.3.2.2 Example of Id Token Containing “claims”
+##### Example of Id Token Containing “claims”
 *Will be provided soon*
-# 5. Advanced topics
 
-## 5.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs
+ 
+# 4. Appendixes
+## 4.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs
 
 As per specified by OIDC [here](https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests), Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.
-
+ 
 The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains at least the following properties:
 
 Property | Required | Comment
--- | -- | :--:
+-- | -- | --
 **iss** | Required | Specifies the issuing authority. Issuer of the id_tokenIssuer. Must be the `client_id`
 **aud** | Required | Audience. MUST be the Token Endpoint URL
-> Example of claim request before base64url encoding, signing and encryption. In this example, the partner is using the login service.
+ 
+ Example of claim request before base64url encoding, signing and encryption. In this example, the partner is using the login service.
+ 
 ```json--inline
  {
  	// JWT Registered claims (https://tools.ietf.org/html/rfc7519#section-4.1)
@@ -572,10 +618,10 @@ Property | Required | Comment
  	}
  }
  ```
-
-## 5.2. Requests Signing and Encryption
-
+ 
+## 4.2. Requests Signing and Encryption 
 Encryption algorithm used: RSA SHA-256
+ 
 Supported algorithms and encryption methods for:
 - ID Token
 -- Encryption Method (enc): A128CBC-HS256
@@ -589,146 +635,208 @@ Supported algorithms and encryption methods for:
 -- Encryption Method (enc): A128CBC-HS256
 -- Encryption Algorithm (alg): RSA-OAEP
 -- Signing Algorithm (alg): RS256
-
-Offline access is not supported.
-
+ 
+Offline access is not supported. 
+ 
 Dynamic client registration is not allowed.
-
-itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet)
+ 
+itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet) 
 https://merchant.itsme.be/oidc/jwkSet
-
+ 
 It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
-# 6. **FAQ**
-## <a name="jwks"></a> JWKSet
-### What is a JWKSet?
-We require you to expose a set of public key (a signature key & one encryption key) to setup the connectivity.
 
-For example our E2E JWKSet is here https://e2emerchant.itsme.be/oidc/jwkSet. We need the Service Provider to expose some similar content – on a very public https endpoint (nothing is confidential in there).
 
-The signature key is used to verify the Service provider when they come fetch data on a client.
+## 4.3. Universal Links on iOS
+Integration is going to be pretty straightforward, all details can be found in below steps (as documented on [Universal Links official documentation](https://developer.apple.com/ios/universal-links/)):
+1. Register your app at developer.apple.com
+2. Enable ‘Associated Domains’ on your app identifier
+3. Enable ‘Associated Domain’ on in your Xcode project
+4. Add the proper domain entitlement and make sure the entitlements file is included at build: Xcode will do it automatically by itself.
+5. Create the ‘apple-app-site-association’ file (AASA). The AASA file contains a JSON object with a list of apps and the URL paths on the domain that should be included or excluded as Universal Links. Here is a sample AASA file:
 
-The encryption key is used to encrypt data so that nobody can read the data which we are transfering apart from the service provider component who has the right to access these data (so that you can encode/reencode the https in intern in a less secured component; it stays encrypted).
-
-If the question is ONLY related to OpenID Connect (OIDC) aspects,
->
-> _“For signature and encryption, does BMID accept either RP self-signed certificates or certificates signed by an internal PKI (in which case we need to provide also our internal CA certificate)?”_
->
->_The RP (the partner) provides his public key used for encryption and the other one used for signature of OIDC JWT (= JSON Web Tokens), using a JSON file called “JWKSet”. (sample JWKSet for Itsme OpenID Provider)_
->
-- This JWKSet is accessible, using a secured HTTPS URL.
-(sample HTTPS URL for OpenID Provider https://merchant.itsme.be/oidc/jwkSet)
-
-- This HTTPS URL must be communicated to us, during the partner on-boarding.<br>
-- This HTTPS URL must be protected using a valid certificates chain starting from a Root CA trusted by our backend.
->
-During on-boarding, we can check that we have all the required certificates to establish the trust.<br>
-So, on the HTTPS protocol level, the connections must be secured using trusted Root CA (not self-signed).
-In contrary, the key pairs used for signing and/or encrypting the OIDC JWT tokens can be self-signed.
-
-### How to create JWKSet?
-
-The following JSON Web Key Generator can be used to create JWKSet
 ```
- https://mkjwk.org/
-  ```
-Another resource you could use to generate your JWKSet is:
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": “JHGFJHHYX.com.facebook.ios",
+        "paths": [
+          "*"
+        ]
+      }
+    ]
+  }
+} 
 ```
- https://connect2id.com/products/nimbus-jose-jwt/examples/jwk-generation
-  ```
-Another option (using python) is available at:
+The JSON object will contain 
+
+Parameter |	Description
+:-- | :--
+appID	| Built by combining your app’s Team ID (it should be retrieved from https://developer.apple.com/account/#/membership/) and the Bundle Identifier. In the example attached, JHGFJHHYX is the Team ID and com.facebook.ios is the Bundle ID.
+paths	| Array of strings that specify which paths are included or excluded from association. Note: these strings are case sensitive and that query strings and fragment identifiers are ignored.
+
+6. Upload the ‘apple-app-site-association’ file to your HTTPS web server for the redirection URI communicated in the Authentication request. The file can be placed at the root of your server or in the .well-known subdirectory.
+
+<aside class="notice"> While hosting the AASA file, please ensure that the AASA file:
+<ul>
+  <li>
+    is served over HTTPS.
+  </li>
+  <li>
+    uses application/json MIME type.
+  </li>
+  <li>
+    don’t append .json to the apple-app-site-association filename.
+  </li>
+  <li>
+    has a size not exceeding 128 Kb (requirement in iOS 9.3.1 onwards)
+  </li>
+</aside>
+
+7. Check if the AASA file is valid and is accessible by using the [following link](https://branch.io/resources/aasa-validator/#resultsbox)
+8. Add an entitlement to all redirect URI that the your app need to supports. In Xcode, open the Associated Domains section in the Capabilities tab and add an entry for each Redirect URI that your app supports, prefixed with `applinks`.
+<aside class="notice">Apple doc says to limit this list to no more than about 20 to 30 domains<aside>
+
+To match all subdomains of an associated redirect URI, you can specify a wildcard by prefixing `*.` before the beginning of a specific Redirect URI (the period is required). Redirect URI matching is based on the longest substring in the `applinks` entries. For example, if you specify the entries `applinks:*.mywebsite.com` and `applinks:*.users.mywebsite.com`, matching for the redirect URI `emily.users.mywebsite.com` is performed against the longer `*.users.mywebsite.com` entry. Note that an entry for `*.mywebsite.com` does not match `mywebsite.com` because of the period after the asterisk. To enable matching for both `*.mywebsite.com` and `mywebsite.com`, you need to provide a separate `applinks` entry for each.
+  
+9. Update the app delegate to respond appropriately when it receives the `NSUserActivity` object. After all above steps are completed perfectly, when the User click a universal link, the app will open up and the method `application:continueUserActivity:restorationHandler` will get called in `Appdelegate`. When iOS launches the the app after a User taps a universal link, you receive an `NSUserActivity` object with an `activityType` value of `NSUserActivityTypeBrowsingWeb`. The activity object’s `webpageURL` property contains the redirect URI that the user is accessing. The webpage URL property always contains an HTTPS URL, and you can use `NSURLComponents` APIs to manipulate the components of the URL.
+
+```http--inline
+func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    print("Continue User Activity called: ")
+    if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
+        let url = userActivity.webpageURL!
+        print(url.absoluteString)
+        //handle url and open whatever page you want to open.
+    }
+    return true
+}
 ```
- https://stackoverflow.com/questions/42504079/how-do-you-extract-n-and-e-from-a-rsa-public-key-in-python
-  ```
 
+For getting the URL parameters, use the following function:
 
-### How to Transfer JWKSets?
-The following link can be used to convert encoded public and private keys to JWKSet format:
+```http--inline
+//playground code..
+var str = “https://google.com/contents/someotherpath?category=series&contentid=1562167825"
+let url = URL(string: str)
+func queryParameters(from url: URL) -> [String: String] {
+let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
+var queryParams = [String: String]()
+for queryItem: URLQueryItem in (urlComponents?.queryItems)! {
+if queryItem.value == nil {
+continue
+}
+queryParams[queryItem.name] = queryItem.value
+}
+return queryParams
+}
+// print the url parameters dictionary
+print(queryParameters(from: url!))
+
+//It will print [“category”: “series”, “contentid”: “1562167825”]
 ```
- https://www.npmjs.com/package/rsa-pem-to-jwk
-  ```
 
-### What are the JWKSet requirements?
-In Opend ID Connect 1.0 the important is the JWKSet which is exposed on a public URL and the linked chain of certificates which is included in our trust store.
+Also if you want to check if the app had opened by clicking a universal link or not in the `didFinishLaunchingWithOptions` method:
 
-This is 1 per partner. So in UAT 1, in Prod, for your 4 clients, it would be
-1 JWKSet if it's under Norbloc name or 4 JWKSet if it's under each client name.
-When you send request to us,
-- You sign the request with your 'sign' private key and to encrypt it you use our 'encryption' public key.
-- Once we answer your request, we send an encrypted JWT token (based on your 'encryption' public key) which needs to be decrypted with your 'encryption' private key.
-- Once decrypted, you need to validate our signature with our 'public' sign key found in our JWKSet.
-
-We are here working in HTTPS Client Authentication.For more details the best is to refer to the Open ID Connect documentation(http://openid.net/connect/) - and more specifically follow links relating JWT encryption & signing.
-
-For the call back URI (not URL) you will need in UAT 4 URI, one per service. So in Prod, for 4 clients using each the 4 services, you would have at least 16 Service codes.
-
-### What are the JWKSet encryption requirements?
-In the JWKSet, encryption should be done with **RSA256**,  the signature in **SHA256** (in short the encryption algorithm is RS256) and the key size is 2048 bits.
-
-As a comparison here's the public keys for itsme UAT JWKSet.<br/>
-**JWKSET itsme(r) UAT**
-```json--inline
- {
- "keys": [
- {
- "kty": "RSA",
- "e": "AQAB",
- "use": "sig",
- "kid": "s1",
- "n": "46FaPodZLqflpnRlFpxwDWT7WNweWAtJ_QYJML2XjB71AlgW20D97VekezlxIudYXbp3aNSkIBcaBQGhzTNHQWuBPwTfemeH9KC2iOTEm3Bu2CsAtaeLzAJT2BjSC2Q4ZUAP2pUq1UQh1XoqjzViXzZIRV35eesKZD301bPsJ6E4z4VKkuzcCeG4jIicNWmbWjkdbdhDe39Ja-BhZrhRmfeoVUe_h2SuplVip4MycLggaO89LomHWF7GktNsmHkt1xOtBgWeCNYj7exXSegoR-29HMS4lzFielxOlr3K0oS8ImMHx-6aRbe3635vfn6Jy6Q9_uAlbWTUsdtFhnpofw"
- },
- {
- "kty": "RSA",
- "e": "AQAB",
- "use": "enc",
- "kid": "e1",
- "n": "rvwzdu-sVCABIgd4plRfoLifTZw6K7JKHuA8HeSgJvUYDUk5MPA7xNKQ5xIXyxisKUzMqIeGaWuaHoFTg4uy-mBFOpm-vG5yGr5GdMCtsA1Ub80x_MmdbkUG3MFsGqz7hE4VpQw0docrrsoS2D9plAMpGA3-_a2u6T1fxomBY5_sxFvyW3erkvjFPG3waU3b34txVIEvdZ6KAjAWR57Y6C749T6ky0eL_uBvPwcq9xmQ6O327MKU8sakEBXb57KDqe4Vm8CbezwIUAC23ia5sO1grqlJGDZW_dbosTcggCxgHW7m6j9RdkGR_mnmECukitwlNvXeCLQPFSunlUh52Q"
+```http--inline
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+ var isUniversalLinkClick: Bool = false
+ if launchOptions[UIApplicationLaunchOptionsUserActivityDictionaryKey] {
+ let activityDictionary = launchOptions[UIApplicationLaunchOptionsUserActivityDictionaryKey] as? [AnyHashable: Any] ?? [AnyHashable: Any]()
+ let activity = activityDictionary[“UIApplicationLaunchOptionsUserActivityKey”] as? NSUserActivity ?? NSUserActivity()
+ if activity != nil {
+ isUniversalLinkClick = true
  }
- ]
  }
- ```  
-You can find the configuration parameters in in document « 33020 Technical Specification Service Provider OpenID Documentation » or via the following back-end URL:
+ if isUniversalLinkClick {
+ // app opened via clicking a universal link.
+ } else {
+ // set the initial viewcontroller
+ }
+ return true
+}
+```
+## 4.4. App Links on Android
 
-https://uatmerchant.sixdots.be/oidc/.well-known/openid-configuration<br>
-### What should I do once I changed my JWKSet?
-Please notify Support and create a new certificate.
-### What should I do once I changed my JWKSet but not the URL, does it mean no new certificates?<br>
-You should contact support and mention the change to allow a refresh of the cache on back-end side, this should be solved in March where the refresh time will be 30 min.
+The App Links Assistant in Android Studio can help you create intent filters in your manifest and map existing URLs from your website to activities in your app. Follow below steps to configure the App links (as documented on [App Links official documentation](https://developer.android.com/studio/write/app-link-indexing)):
 
-A workaround to force a refresh, let the SP send a request with an unknown **"KID"** (key id).<br>
-Because not found in the current cache, this one will be refreshed. But the client has to correct his JWKSet first, if not yet done.
+1. Add the intent filters to your manifest. Go through the your manifest and select Tools > App Links Assistant. Click Open URL Mapping Editor and then click Add  at the bottom of the URL Mapping list to add a new URL mapping.
+2. Add details for the new URL mapping:
+  * Entering your redirect URI in the `host` field 
+  * Add a `path`, `pathPrefix`, or `pathPattern` for the redirect URIs you want to map. For example, if you have a recipe-sharing app, with all the recipes available in the same activity, and your corresponding website's recipes are all in the same `/recipe directory`, use `pathPrefix` and enter `/recipe`. This way, the redirect URI http://www.recipe-app.com/recipe/grilled-potato-salad maps to the activity you select in the following step.
+  * Select the Activity the redirect URI should take users to.
+  * Click OK.
+3. The App Links Assistant adds intent filters based on your URL mapping to the `AndroidManifest.xml` file, and highlights it in the `Preview` field. If the you would like to make any changes, click Open `AndroidManifest.xml` to edit the intent filter.
 
-### <a name id="ServiceCode"></a>[Service Code Concept](#ServiceCode), 	What is it?
-To be able to use an itsme service (such as login, confirm, sign, share data) you should be provided a service instance for it. The service code is the identifier of this instance. The same Service Provider may utilise several service instances.
+<aside class="notice">To support more links without updating the app, you should define a URL mapping that supports redirect URIs that he will add in the future. </aside>
 
-For example, assuming that one SP would like to use login as an itsme(r) service for business and private channels. In this case, SP could ask BMID to allocate two service instances, one issued for private account login, one for business account login. Consent screen needs to be customised for each instance.
+4. To verify the URL mapping works properly, enter a URL in the Check URL Mapping field and click Check Mapping. If it's working correctly, the success message shows that the URL entered maps to the activity you selected.
+5. Handle incoming links. Once you have verified that the URL mapping is working correctly, you MUST add the logic to handle the intent he created.
+  * Click Select Activity from the App Links Assistant.
+  * Select an activity from the list and click Insert Code.
+The App Links Assistant adds code to the activity's Java file, similar to the following:
+```
+// ATTENTION: This was auto-generated to handle app links.
+Intent appLinkIntent = getIntent();
+String appLinkAction = appLinkIntent.getAction();
+Uri appLinkData = appLinkIntent.getData();
+```
+However, this code isn't complete on its own. You MUST now take an action based on the URI in <appLinkData>, such as display the corresponding content. For example, for the recipe-sharing app, the code might look like the following sample:
 
-### I would like to receive a new service code to do my local development...
+```
+  protected void onCreate(Bundle savedInstanceState) {
+  super.onCreate(savedInstanceState);
+  ...
+  handleIntent(getIntent());
+}
 
-So we would need a service code for the register operation with the following callback URL: http://localhost:23874/web2app/Identify/IdentificationCallBack  
+protected void onNewIntent(Intent intent) {
+  super.onNewIntent(intent);
+  handleIntent(intent);
+}
 
-First, you need to  validate that you are able (and **authorized**) to keep the "xxx UAT JWKSet signing and encryption private keys" on your local machine because you will need them to sign the requests and decrypt the JWT tokens.
+private void handleIntent(Intent intent) {
+    String appLinkAction = intent.getAction();
+    Uri appLinkData = intent.getData();
+    if (Intent.ACTION_VIEW.equals(appLinkAction) && appLinkData != null){
+        String recipeId = appLinkData.getLastPathSegment();
+        Uri appData = Uri.parse("content://com.recipe_app/recipe/").buildUpon()
+            .appendPath(recipeId).build();
+        showRecipe(appData);
+    }
+}
+```
+
+6. Associate the app with the redirect URI. After setting up URL support for your app, the App Links Assistant generates a Digital Asset Links file you can use to associate his website with your app. As an alternative to using the Digital Asset Links file, you can associate your site and app in Search Console. To associate the app and the website using the App Links Assistant, click Open the Digital Asset Links File Generator from the App Links Assistant and follow these steps:
+  * Enter your Site domain and Application ID.
+  * To include support in your Digital Asset Links file for Smart Lock for Passwords, select Support sharing credentials between the app and the website and enter your site's login URL. This adds the following string to your Digital Asset Links file declaring that your app and website share sign-in credentials: `delegate_permission/common.get_login_creds`.
+  * Specify the signing config or select a keystore file. Make sure to select the right config or keystore file for either the release build or debug build of your app. If you want to set up his production build, use the release config. If you want to test his build, use the debug config.
+  * Click `Generate Digital Asset Links` file.
+  * Once Android Studio generates the file, click `Save file` to download it.
+  * Upload the `assetlinks.json` file to redirect URI site, with read-access for everyone, at `https://<yoursite>/.well-known/assetlinks.json`.
+
+<aside class="notice">The system verifies the Digital Asset Links file via the encrypted HTTPS protocol. Make sure that the assetlinks.json file is accessible over an HTTPS connection, regardless of whether your app's intent filter includes https</aside>
+  * Click <Link and Verify> to confirm that you've uploaded the correct Digital Asset Links file to the correct location.
+
+
 <!--stackedit_data:
--eyJoaXN0b3J5IjpbMTExNjg1ODVdfQ==
-+eyJoaXN0b3J5IjpbLTE4Nzg1Nzg0NTZdfQ==
+eyJoaXN0b3J5IjpbLTkyNDAxNDExNywxMzc4MTU5MDU1LDUzND
+U2NDc3MywxMjA0MDY2Mzc4LDE1NDM0MTExNTQsLTY2OTk5OTIw
+OCwtNjIyMTI5MDMsOTY2MzYwNjQ3LDE4MTEzNzMzNSwxNDEwNz
+g5MTA1LC0xNzU4NzQ0MjcsMTAxNTE2Mzg2NywtMTM3MDU4NjIy
+OSw0NDUxMzg3MDgsMjEyNzY5MTEzNCwtMTc1NDgwMjQ0OSwxNz
+M0NDE5NDM0LC0xNjMzNDM5ODEzLC0xNDU0ODMxMTg4LC01Nzk3
+MDE3MjNdfQ==
 -->
-
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2ODEyNjQ2OSwtOTA2NTQ0NDkxLC04Mj
-k2OTYwNzQsMTQ0MjgxODMwNiwtMTY2MzMyNzQ3OSwtMTk2ODY0
-OTA0MCwtMTk3MjQ3NzcwNSwtMjA5Mzk0NjMxNCwtOTA1NDA3OT
-Y2LDk4ODMwMjQ0NCw1NDkyMjE0MjYsLTU1MDE2OTU4LC0xMTA4
-MzI2NDY5LDI1OTg4ODMxMCwxNjcxMTQzNTY4LDE0NjczOTkzOT
-AsLTIwNDM2MDMwNTksMTAxNTMwNTc1MiwtMTM4MTY2ODg1OSwx
-MDE3NTU1NDQzXX0=
+eyJoaXN0b3J5IjpbLTc5MTgxMTAwNl19
 -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTI5MTY2NTU4LDQwNzAyNzg3MCwtOTQ2Nz
-UwMTQ3LDIwNjc3ODY1MTVdfQ==
--->
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODM3MDcyNTYsLTEzMTA4MTYwMThdfQ
-==
--->
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzNjU5NjY4XX0=
+eyJoaXN0b3J5IjpbNjI1ODcyNDI4LC00MTYxMTEyNTIsNTQ2ND
+UzOTUzLDEwNzcxNDQzMzUsOTkwODM1NDc1LDMxMzEwMjAzNyw0
+MzI5MzIxOTYsLTE1MTQwMDM3MTgsMzc1MDYwMDEzLC0xOTE3NT
+g5MjExLDIxMTQ4ODY5NCwtMTM3MjIzNjE0NSw3OTI2NzA0NzMs
+LTE5NDA2NDc3MjIsMTM3OTI2ODA2OSw2NTYwOTIwMjgsLTIwOT
+MzNTI3OTgsMTM1NzAwMDU4Nl19
 -->
