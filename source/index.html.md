@@ -26,9 +26,9 @@ The objective of this document is to provide all the information needed to integ
 <a name="Onboarding"></a>
 # 2. Creating sandbox
  
-Before your application can use itsme® OpenID Login and Share Data services, you must set up a project in the [itsme® B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) to obtain credentials (PartnerCode, ServiceCode,...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. 
+Before your application can use itsme® OpenID Login and Share Data services, you must set up a project in the [itsme® B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) to obtain credentials (`client_id`, ServiceCode,...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. 
 
-<aside class="warning"> The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. 
+<aside class="notice"> The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. 
   <ul>
     <li>It must contain the root, the intermediate CA and the final public certifiate.</li>
     <li>You can specify only one JWKSet URL per environment.</li>
@@ -41,7 +41,7 @@ Before your application can use itsme® OpenID Login and Share Data services, yo
 
 <aside class="notice">You can find our JWKSet URL in the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">OpenID configuration file</a>, using the key `jwks_uri`.</aside>
 
-<aside class="warning"> Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5.
+<aside class="notice"> Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5.
   <ul>
     <li>Multiple URLs can be whitelisted per service</li>
     <li>Additional parameters are not allowed and entire redirect_uri must match</li>
@@ -89,9 +89,13 @@ The Discovery document for itsme® services may be retrieved from: `https://merc
 <a name="AuthNRequest"></a>
 ## 3.2. Forming an authentication request
 
-First, you will form a HTTPS GET request that MUST be sent to the itsme® authorization endpoint. The itsme® authorization endpoint is `https://merchant.itsme.be/oidc/authorize` (it can be retrieved from the itsme® [Discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html), using the key `authorization_endpoint`)
+First, you will form a HTTPS GET request that MUST be sent to the itsme® authorization endpoint. The itsme® authorization endpoint is
 
-<aside class="warning">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in <a href="#UniversalLinks">section 3.4</a>.</aside>
+    `https://merchant.itsme.be/oidc/authorize`
+  
+This URI can be retrieved from the itsme® [Discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html), using the key `authorization_endpoint`.
+
+<aside class="notice">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in <a href="#UniversalLinks">section 3.4</a>.</aside>
 
 The OpenID Connect Core Specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:
 
