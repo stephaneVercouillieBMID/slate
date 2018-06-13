@@ -89,11 +89,7 @@ The Discovery document for itsme® services may be retrieved from: `https://merc
 <a name="AuthNRequest"></a>
 ## 3.2. Forming an authentication request
 
-First, you will form a HTTPS GET request that MUST be sent to the itsme® authorization endpoint. The itsme® authorization endpoint is 
-
-> `https://merchant.itsme.be/oidc/authorize`
-  
-This URI can be retrieved from the itsme® [Discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html), using the key `authorization_endpoint`.
+First, you will form a HTTPS GET request that MUST be sent to the itsme® authorization endpoint. The itsme® authorization endpoint is `https://merchant.itsme.be/oidc/authorize`. This URI can be retrieved from the itsme® [Discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html), using the key `authorization_endpoint`.
 
 <aside class="notice">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in <a href="#UniversalLinks">section 3.4</a>.</aside>
 
@@ -313,7 +309,8 @@ If the User does not exist in the your database, one of the following scenario s
 <ul>
   <il>If you requested user attributes in the Authentication request, you can check if these data's match those you have in your database and automatically link User's UserCode to the correct User account on your side.</il>
   <il>If you requested user attributes in the Authentication request but you can't match with certainty the provided data's with the one from your database, you could  redirect the User to the new-user sign-up flow. You may be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required on the registration form (under the condition you requested the user attributes in the Authentication request).</il>
-  <il>If you didn't request user attributes in the Authentication request, simply ask the user to authenticate with his usual credentials and link the UserCode to his account on your side. 
+  <il>If you didn't request user attributes in the Authentication request, simply ask the user to authenticate with his usual credentials and link the UserCode to his account on your side.</il>
+</ul>
     
 All these scenario's are depicted in the diagrams below:
 
@@ -324,32 +321,36 @@ All these scenario's are depicted in the diagrams below:
 <a name="Data"></a>
 ## 3.8 Requesting ID claims/user attibutes
 
-### What is a claim?
+OpenID Connect Core specifications also allow your application to obtain basic profile information about them in a interoperable way. This information can be returned in the `id_token` and/or in the response from the itsme® UserInfo endpoint (depending on the type of request).
 
-The concept of claim is about declaring something you expect as return from the OP. When it comes to end user data, you have to use claims in order to declare the end user data you will need for your business before the authentication. This is a privacy-oriented way of getting data.
+Following the OpenID Connect Core specifications, there are multiple ways to request ID claims/user attributes for a specific User:
+<ul>
+  <il>using the `scope` parameter in the Authentication request</il>
+  <il>using the `claims` parameter in the Authentication request</il>
+  <il>presenting the Access token to the itsme® UserInfo endpoint</il>
+</ul>
 
-Technically, you have to declare the claims in the Authorization Request in the way described in the section [Declaring Claims](#decClaim).
+###  Using `scope` parameter to request claims
+<a name id="decClaim"></a>
 
-Claims will come as name/value pairs packaged in a JSON object that contain information about a user, as well as meta-information about the OIDC service. The official definition from the spec is a [“piece of information asserted about an Entity.”](http://openid.net/specs/openid-connect-core-1_0.html#Terminology)
+The scope parameter allows the application to express the desired scope of the access request. As stated before, it MUST contain the value `openid` and `service: service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding). 
 
-<aside class="notice"> We do not support Aggregated and Distributed Claims due to all the data we expose come from our own database.</aside>
+The basic claims returned for the `openid` value are the sub claim - which uniquely identifies the user (e.g.: UserCode), the `iss`, `aud`, `exp`, `iat` and `at_hash`. All these claims will be present in the `id_token` JWT, a cryptographically signed Base64-encoded JSON object returned in the [Token response](#TokenResponse).
 
-Claims that are directly asserted by the OpenID Provider.
-Normal Claims are represented as members in a JSON object. The Claim Name is the member name and the Claim Value is the member value.
+Your applications can ask for additional scopes to request more information about the User. The following additional scopes apply:
 
-The following is a non-normative response containing Normal Claims:
- ```http--inline
-  {
-   "name": "Jane Doe",
-   "given_name": "Jane",
-   "family_name": "Doe",
-   "email": "janedoe@example.com",
-   "picture": "https://www.itsme.be/uploads/media/57da4dee8c5d2/logo-itsme-badge.svg?production-f26c079"
-  } 
-  ```
-In current version and in contradiction to the OpenID Connect specification, **itsme(r)** considers all claims requested via scope as **Essential** (see [Individual Claim Request](http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)). **Voluntary** claims are thus supported, but are used as **Essential**.
+* `profile`: will request the claims representing basic profile information. These are `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `picture` and `updated_at`.
+* `email`: will request the `email` and `email_verified` claims.
 
-In practice, it means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, in a future version **itsme(r)**  will make the difference between **Essential** and **Voluntary** claims. You should thus already request claims according to your business case.
+
+
+The `openid` scope can return standard user attributes (these claims are:`iss`, `aud`, `exp`, `iat` and `at_hash`) in the id_token and/or in the response from the /userinfo endpoint.</br><br>Applications can ask for additional scopes, separated by spaces, to request more information about the user. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `picture` and `updated_at`.</li><li>email: will request the `email` and `email_verified` claims.</li></ul>For more information on user attributes or claims, please consult the [Scope](#scope) section.</br><br>An HTTP ERROR <not_implemented> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br><br>Note: you'll need to define one scope for each itsme® service you want to use.</br>
+
+
+
+
+
+
 
 ### <a name id="decClaim"></a> Declaring Claims
 You can declare Claims in two ways:
