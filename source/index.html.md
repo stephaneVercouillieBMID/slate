@@ -109,7 +109,7 @@ Parameter | Required | Description
 :-------- | :-------| :----- 
 **client_id** | Required |This MUST be the client identifier (e.g. : ParterCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
 **response_type** | Required | This defines the processing flow to be used when forming the response. Because itsme® uses the Authorization Code Flow as described above, this value MUST be `code`.
-**scope** | Required | The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value `openid` and `service: service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding). <br>The `openid` scope can return standard user attributes (these claims are:`iss`, `aud`, `exp`, `iat` and `at_hash`) in the id_token and/or in the response from the /userinfo endpoint.</br><br>Applications can ask for additional scopes, separated by spaces, to request more information about the user. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `picture` and `updated_at`.</li><li>email: will request the `email` and `email_verified` claims.</li></ul>For more information on user attributes or claims, please consult the [Scope](#scope) section.</br><br>An HTTP ERROR <not_implemented> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br><br>Note: you'll need to define one scope for each itsme® service you want to use.</br>
+**scope** | Required | The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value `openid` and `service: service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding). <br>The `openid` scope can return standard user attributes (these claims are:`iss`, `aud`, `exp`, `iat` and `at_hash`) in the id_token and/or in the response from the /userinfo endpoint.</br><br>Applications can ask for additional scopes, separated by spaces, to request more information about the user. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `picture` and `updated_at`.</li><li>email: will request the `email` and `email_verified` claims.</li></ul>For more information on user attributes or claims, please consult the [ID claims](#Data) section.</br><br>An HTTP ERROR `not_implemented` will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br><br>Note: you'll need to define one scope for each itsme® service you want to use.</br>
 **redirect_uri** | Required | This is the URI to which the authentication response should be sent. This must exactly match one of the redirection URIs defined when registering your application in the [itsme® B2B portal](#Onboarding).
 **state** | An appropriate value is strongly RECOMMENDED | It is recommended that you use this parameter to maintain state between the request and the callback. Typically, Cross-Site Request Forgery (CSRF, XSRF) mitigation is done by cryptographically binding the value of this parameter with a browser cookie.
 **nonce** | An appropriate value is strongly RECOMMENDED | String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the authentication request to the id token. Sufficient entropy MUST be present in the `nonce` values used to prevent attackers from guessing values. See [the OpenID Connect Core specifications](http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes) for more information.
@@ -344,7 +344,6 @@ Your applications can ask for additional scopes to request more information abou
 
 
 
-The `openid` scope can return standard user attributes (these claims are:`iss`, `aud`, `exp`, `iat` and `at_hash`) in the id_token and/or in the response from the /userinfo endpoint.</br><br>Applications can ask for additional scopes, separated by spaces, to request more information about the user. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `picture` and `updated_at`.</li><li>email: will request the `email` and `email_verified` claims.</li></ul>For more information on user attributes or claims, please consult the [Scope](#scope) section.</br><br>An HTTP ERROR <not_implemented> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br><br>Note: you'll need to define one scope for each itsme® service you want to use.</br>
 
 
 
@@ -352,12 +351,9 @@ The `openid` scope can return standard user attributes (these claims are:`iss`, 
 
 
 
-### <a name id="decClaim"></a> Declaring Claims
-You can declare Claims in two ways:
-- With `scope` values
-- With `claims` parameter
 
-In each case, the claims need to be declared in the Authorization Request.
+
+
 #### <a name id="scope"></a> Using `scope` values
 Scopes are space-separated lists of identifiers used to specify what access privileges are being requested. 
 
