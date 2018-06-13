@@ -342,7 +342,7 @@ Your applications can ask for additional scopes to request more information abou
 ID claims | Description
 :-- | :-- 
 **profile** | This MUST be set to `profile`. It will request the claims representing basic profile information. These are `family_name`, `given_name`, `gender`, `birthdate` and `locale`
-**email** | This MUST be set to `email`. It will request t`profile`. It we `email` and `email_verified` claims.
+**email** | This MUST be set to `email`. It will request the `email` and `email_verified` claims.
 **phone** | This MUST be set to `phone`. It will request the `phone_number` and `phone_number_verified` claims.
 **address**  | This MUST be set to `address`. It will request the `street_address`, `locality`, `postal_code` and `country`
 
@@ -359,13 +359,21 @@ ID claims | Description
 **nationality** | This MUST be set to `tag:itsmetag:sixdots.be,2016-06:claim_nationality` 
 **place of Birth - city** | This MUST be set to `tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`
 **place of Birth - country** | This MUST be set to`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** 
-**e-ID Metadata**  | This MUST be set to`tag:itsmetag:sixdots.be,2016-06:claim_eid`. It will request a JSON object with the following keys:<br>`eid` - the eID card serial number.</br><br>`issuance_locality` - the eID card issuance locality.</br><br>`validity_from` - the eID card validity “from” date.</br><br>`validity_to` - the eID card validity “to” date.</br><br>`certificate_validity` - the eID card certificate validity.</br><br>`read_date` - the data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000).</br>
+**e-ID Metadata**  | This MUST be set to`tag:itsmetag:sixdots.be,2016-06:claim_eid`. It will request a JSON object with the following keys:<br><ul><li>`eid` - the eID card serial number.</br></li><li>`issuance_locality` - the eID card issuance locality.</br></li><li>`validity_from` - the eID card validity “from” date.</br></li><li>`validity_to` - the eID card validity “to” date.</br></li><li>`certificate_validity` - the eID card certificate validity.</br></li><li>`read_date` - the data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000).</br></li></ul>
 **passport Number** | Simple string containing the user’s Passport Serial Number. This MUST be set to `tag:sixdots.be,2017-05:claim_passport_sn`
 **device** | This MUST be set to `tag:sixdots.be,2017-05:claim_device`. It will request a JSON object with the following keys:<br>`os` - the device operating system. The returned values will be `ANDROID`or `iOS`.</br><br>`appName` - the application name.</br><br>`appRelease` - the application current release.</br><br>`deviceLabel` - the name of the device.</br><br>`debugEnabled` - if debug mode is activated.</br><br>`deviceId` - the device identifier.</br><br>`osRelease` - the version of the OS running on your device.</br><br>`manufacturer` - the brand of the device manufacturer.</br><br>`hasSimEnabled` - it tells you if a SIM card is installed in the device. The returned value is always `true` as long as itsme® can't be installed on tablets.</br><br>`deviceLockLevel`</br><br>`smsEnabled`</br><br>`rooted` - the returned value is always `false` as long as itsme® can't be used on a jailbreaked/rooted device.</br><br>`imei` - the device IMEI value.</br><br>`deviceModel` - model of the device.</br><br>`msisdn` - the User’s phone number.</br><br>`sdkRelease`</br>
 **transaction Info** | This MUST be set to `tag:sixdots.be,2017-05:claim_transaction_info`. It will request a JSON object with the following keys:<br>`securityLevel` - the security level used during transaction. The returned values could be `SOFT_ONLY`, `SIM_ONLY` or `SIM_AND_SOFT`.</br><br>`bindLevel` - it tells you if the user account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be `SOFT_ONLY`, `SIM_ONLY` or `SIM_AND_SOFT`.</br><br>`mcc` - the Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country. 
 **e-ID Picture** | This MUST be set to `tag:sixdots.be,2017-05:2017-05:claim_photo`
 
 All these claims will be present either in the `id_token` JWT, a cryptographically signed Base64-encoded JSON object returned in the [Token response](#TokenResponse), or in the UserInfo response.
+
+
+
+<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br>`tag:itsmetag:sixdots.be,2016-06:acr_basic`</br></li><li>Advanced level - force the User to use PIN<br>`tag:itsmetag:sixdots.be,2016-06:acr_advanced`</br></li></ul>When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used.</br>
+
+
+
+
 
 
 
