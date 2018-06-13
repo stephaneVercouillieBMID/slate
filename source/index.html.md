@@ -89,9 +89,9 @@ The Discovery document for itsme® services may be retrieved from: `https://merc
 <a name="AuthNRequest"></a>
 ## 3.2. Forming an authentication request
 
-First, you will form a HTTPS GET request that MUST be sent to the itsme® authorization endpoint. The itsme® authorization endpoint is
+First, you will form a HTTPS GET request that MUST be sent to the itsme® authorization endpoint. The itsme® authorization endpoint is 
 
-> https://merchant.itsme.be/oidc/authorize
+> `https://merchant.itsme.be/oidc/authorize`
   
 This URI can be retrieved from the itsme® [Discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html), using the key `authorization_endpoint`.
 
