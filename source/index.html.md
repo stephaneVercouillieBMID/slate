@@ -321,13 +321,12 @@ All these scenario's are depicted in the diagrams below:
 <a name="Data"></a>
 ## 3.8 Requesting ID claims/user attibutes
 
-OpenID Connect Core specifications also allow your application to obtain basic profile information about them in a interoperable way. This information can be returned in the `id_token` and/or in the response from the itsme® UserInfo endpoint (depending on the type of request).
+OpenID Connect Core specifications also allow your application to obtain basic profile information about them in a interoperable way. 
 
-Following the OpenID Connect Core specifications, there are multiple ways to request ID claims/user attributes for a specific User:
+Following the OpenID Connect Core specifications, there are 2 ways to request ID claims/user attributes for a specific User:
 <ul>
   <il>using the `scope` parameter in the Authentication request</il>
   <il>using the `claims` parameter in the Authentication request</il>
-  <il>presenting the Access token to the itsme® UserInfo endpoint</il>
 </ul>
 
 ###  Using `scope` parameter to request claims
@@ -335,7 +334,7 @@ Following the OpenID Connect Core specifications, there are multiple ways to req
 
 The scope parameter allows the application to express the desired scope of the access request. As stated before, it MUST contain the value `openid` and `service: service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding). 
 
-The basic claims returned for the `openid` value are the `sub` claim - which uniquely identifies the user (e.g.: UserCode), the `iss`, `aud`, `exp`, `iat` and `at_hash`. All these claims will be present either in the `id_token` JWT, a cryptographically signed Base64-encoded JSON object returned in the [Token response](#TokenResponse), or in the UserInfo response.
+The basic claims returned for the `openid` value are the `sub` claim - which uniquely identifies the user (e.g.: UserCode), the `iss`, `aud`, `exp`, `iat` and `at_hash`. 
 
 Your applications can ask for additional scopes to request more information about the User. The following additional scopes apply:
 
@@ -346,8 +345,6 @@ ID claims | Description
 **phone** | This MUST be set to `phone`. It will request the `phone_number` and `phone_number_verified` claims.
 **address**  | This MUST be set to `address`. It will request the `street_address`, `locality`, `postal_code` and `country`
 
-Your application now can retrieve these values and use them to personalize the UI.
-
 ###  Using `claims` parameter to request claims
 
 Some specific data's cannot be requested by using `scope` parameter. However, you can still add custom claims in the `claims` parameter, but they must conform to a namespaced format to avoid possible collisions with those requested through the `scope` parameter. 
@@ -356,21 +353,19 @@ Here are the custom claims you can request:
 
 ID claims | Description
 :-- | :-- 
-**nationality** | This MUST be set to `tag:itsmetag:sixdots.be,2016-06:claim_nationality` 
-**place of Birth - city** | This MUST be set to `tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`
-**place of Birth - country** | This MUST be set to`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** 
+**nationality** | This MUST be set to `tag:itsmetag:sixdots.be,2016-06:claim_nationality`.
+**place of Birth - city** | This MUST be set to `tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`.
+**place of Birth - country** | This MUST be set to`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`.
 **e-ID Metadata**  | This MUST be set to`tag:itsmetag:sixdots.be,2016-06:claim_eid`. It will request a JSON object with the following keys:<br><ul><li>`eid` - the eID card serial number.</br></li><li>`issuance_locality` - the eID card issuance locality.</br></li><li>`validity_from` - the eID card validity “from” date.</br></li><li>`validity_to` - the eID card validity “to” date.</br></li><li>`certificate_validity` - the eID card certificate validity.</br></li><li>`read_date` - the data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000).</br></li></ul>
-**passport Number** | Simple string containing the user’s Passport Serial Number. This MUST be set to `tag:sixdots.be,2017-05:claim_passport_sn`
-**device** | This MUST be set to `tag:sixdots.be,2017-05:claim_device`. It will request a JSON object with the following keys:<br>`os` - the device operating system. The returned values will be `ANDROID`or `iOS`.</br><br>`appName` - the application name.</br><br>`appRelease` - the application current release.</br><br>`deviceLabel` - the name of the device.</br><br>`debugEnabled` - if debug mode is activated.</br><br>`deviceId` - the device identifier.</br><br>`osRelease` - the version of the OS running on your device.</br><br>`manufacturer` - the brand of the device manufacturer.</br><br>`hasSimEnabled` - it tells you if a SIM card is installed in the device. The returned value is always `true` as long as itsme® can't be installed on tablets.</br><br>`deviceLockLevel`</br><br>`smsEnabled`</br><br>`rooted` - the returned value is always `false` as long as itsme® can't be used on a jailbreaked/rooted device.</br><br>`imei` - the device IMEI value.</br><br>`deviceModel` - model of the device.</br><br>`msisdn` - the User’s phone number.</br><br>`sdkRelease`</br>
-**transaction Info** | This MUST be set to `tag:sixdots.be,2017-05:claim_transaction_info`. It will request a JSON object with the following keys:<br>`securityLevel` - the security level used during transaction. The returned values could be `SOFT_ONLY`, `SIM_ONLY` or `SIM_AND_SOFT`.</br><br>`bindLevel` - it tells you if the user account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be `SOFT_ONLY`, `SIM_ONLY` or `SIM_AND_SOFT`.</br><br>`mcc` - the Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country. 
-**e-ID Picture** | This MUST be set to `tag:sixdots.be,2017-05:2017-05:claim_photo`
-
-All these claims will be present either in the `id_token` JWT, a cryptographically signed Base64-encoded JSON object returned in the [Token response](#TokenResponse), or in the UserInfo response.
+**passport Number** | Simple string containing the user’s Passport Serial Number. This MUST be set to `tag:sixdots.be,2017-05:claim_passport_sn`.
+**device** | This MUST be set to `tag:sixdots.be,2017-05:claim_device`. It will request a JSON object with the following keys:<br><ul><li>`os` - the device operating system. The returned values will be `ANDROID`or `iOS`.</br></li><li>`appName` - the application name.</br></li><li>`appRelease` - the application current release.</br></li><li>`deviceLabel` - the name of the device.</br></li><li>`debugEnabled` - if debug mode is activated.</br></li><li>`deviceId` - the device identifier.</br></li><li>`osRelease` - the version of the OS running on your device.</br></li><li>`manufacturer` - the brand of the device manufacturer.</br></li><li>`hasSimEnabled` - it tells you if a SIM card is installed in the device. The returned value is always `true` as long as itsme® can't be installed on tablets.</br></li><li>`deviceLockLevel`</br></li><li>`smsEnabled`</br></li><li>`rooted` - the returned value is always `false` as long as itsme® can't be used on a jailbreaked/rooted device.</br></li><li>`imei` - the device IMEI value.</br></li><li>`deviceModel` - model of the device.</br></li><li>`msisdn` - the User’s phone number.</br></li><li>`sdkRelease`</br></li></ul>
+**transaction Info** | This MUST be set to `tag:sixdots.be,2017-05:claim_transaction_info`. It will request a JSON object with the following keys:<br><ul><li>`securityLevel` - the security level used during transaction. The returned values could be `SOFT_ONLY`, `SIM_ONLY` or `SIM_AND_SOFT`.</br></li><li>`bindLevel` - it tells you if the user account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be `SOFT_ONLY`, `SIM_ONLY` or `SIM_AND_SOFT`.</br></li><li>`mcc` - the Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country.</br></li></ul>
+**e-ID Picture** | This MUST be set to `tag:sixdots.be,2017-05:2017-05:claim_photo`.
 
 
+## 3.9 Obtaining ID claims/user attibutes
 
-<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br>`tag:itsmetag:sixdots.be,2016-06:acr_basic`</br></li><li>Advanced level - force the User to use PIN<br>`tag:itsmetag:sixdots.be,2016-06:acr_advanced`</br></li></ul>When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used.</br>
-
+All claims requested in the Autentication request (see the [previous](#Data) section for more informations) can be returned in the `id_token` and/or in the response from the itsme® UserInfo endpoint (depending on the type of request).
 
 
 
