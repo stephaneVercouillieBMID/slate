@@ -226,7 +226,7 @@
             <a href="#2-creating-sandbox" class="toc-h1 toc-link" data-title="2-creating-sandbox">2. Creating sandbox</a>
           </li>
           <li>
-            <a href="#3-integrating-itsme-r-services" class="toc-h1 toc-link" data-title="3-integrating-itsme-r-services">3. Integrating itsme(r) services</a>
+            <a href="#3-integrating-itsme-services" class="toc-h1 toc-link" data-title="3-integrating-itsme-services">3. Integrating itsme® services</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#3-1-checking-itsme-openid-configuration" class="toc-h2 toc-link" data-title="3-1-checking-itsme-openid-configuration">3.1. Checking itsme® OpenID Configuration</a>
@@ -247,10 +247,13 @@
                     <a href="#3-6-managing-token-response" class="toc-h2 toc-link" data-title="3-6-managing-token-response">3.6. Managing Token Response</a>
                   </li>
                   <li>
-                    <a href="#3-7-matching-users-databases" class="toc-h2 toc-link" data-title="3-7-matching-users-databases">3.7. Matching users databases</a>
+                    <a href="#3-7-authenticating-the-user" class="toc-h2 toc-link" data-title="3-7-authenticating-the-user">3.7. Authenticating the User</a>
                   </li>
                   <li>
-                    <a href="#3-8-obtain-user-data" class="toc-h2 toc-link" data-title="3-8-obtain-user-data">3.8 Obtain User Data</a>
+                    <a href="#3-8-requesting-id-claims-user-attibutes" class="toc-h2 toc-link" data-title="3-8-requesting-id-claims-user-attibutes">3.8 Requesting ID claims/user attibutes</a>
+                  </li>
+                  <li>
+                    <a href="#3-9-obtaining-id-claims-user-attibutes" class="toc-h2 toc-link" data-title="3-9-obtaining-id-claims-user-attibutes">3.9 Obtaining ID claims/user attibutes</a>
                   </li>
               </ul>
           </li>
@@ -258,7 +261,7 @@
             <a href="#4-appendixes" class="toc-h1 toc-link" data-title="4-appendixes">4. Appendixes</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#4-1-passing-request-parameters-as-jwts" class="toc-h2 toc-link" data-title="4-1-a-name-jwtrequest-a-passing-request-parameters-as-jwts">4.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs</a>
+                    <a href="#4-1-passing-request-parameters-as-jwts" class="toc-h2 toc-link" data-title="4-1-passing-request-parameters-as-jwts">4.1. Passing Request Parameters as JWTs</a>
                   </li>
                   <li>
                     <a href="#4-2-requests-signing-and-encryption" class="toc-h2 toc-link" data-title="4-2-requests-signing-and-encryption">4.2. Requests Signing and Encryption</a>
@@ -293,9 +296,9 @@
 
 <p><a name="Onboarding"></a></p>
 <h1 id='2-creating-sandbox'>2. Creating sandbox</h1>
-<p>Before your application can use itsme® OpenID Login and Share Data services, you must set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">itsme(r) B2B portal</a> to obtain credentials (PartnerCode, ServiceCode,...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. </p>
+<p>Before your application can use itsme® OpenID Login and Share Data services, you must set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7">itsme® B2B portal</a> to obtain credentials (<code>client_id</code>, ServiceCode,...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. </p>
 
-<aside class="warning"> The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. 
+<aside class="notice"> The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. 
   <ul>
     <li>It must contain the root, the intermediate CA and the final public certifiate.</li>
     <li>You can specify only one JWKSet URL per environment.</li>
@@ -306,15 +309,15 @@
   </ul>
 </aside>
 
-<aside class="notice">You can find our own JWKSet URL in our <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">OpenID configuration file</a>, in the field `jwks_uri`.</aside>
+<aside class="notice">You can find our JWKSet URL in the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">OpenID configuration file</a>, using the key `jwks_uri`.</aside>
 
-<aside class="warning"> Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5.
+<aside class="notice"> Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5.
   <ul>
-    <li>Multiple URLs can be whitelisted per service (can include Universal Link for your App)</li>
+    <li>Multiple URLs can be whitelisted per service</li>
     <li>Additional parameters are not allowed and entire redirect_uri must match</li>
   </ul>  
 </aside>
-<h1 id='3-integrating-itsme-r-services'>3. Integrating itsme(r) services</h1>
+<h1 id='3-integrating-itsme-services'>3. Integrating itsme® services</h1>
 <p>The itsme® Login and Share Data service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following  <a href="https://www.draw.io/?lightbox=1&amp;highlight=0000ff&amp;edit=_blank&amp;layers=1&amp;nav=1&amp;title=Untitled%20Diagram.html#R7Vxbd6o4FP41PtZFCAF87HVOH6bTNZ1Zc%2BaRQlRWkTiAtZ1fP4mEWxIrYhC1Yx9aNnFjvi%2F7mtgRvF18%2FJJ4y%2FmvJMDRyDSCjxG8G5kmoD%2F0F5N85hLb5YJZEgZ8UCV4Cf%2FFXGhw6SoMcNoYmBESZeGyKfRJHGM%2Fa8i8JCHr5rApiZpPXXozLAlefC%2BSpX%2BFQTbPpa7pVPIfOJzNiycDe5LfWXjFYD6TdO4FZF0TwfsRvE0IyfK%2FFh%2B3OGLgFbjk73vYcrf8YAmOszZv4Li%2Fe9GKz41%2FruyzmGxCVnGA2XgwgjfreZjhl6Xns7trSi%2BVzbNFxG9zdTjJ8MfWjwTKidIVgskCZ8knHcLf4HBo%2BNqA%2FHJdAQ0K9OY1kG0u8zi3s1JxNX36B0dAjQY8PTSGhMM6PTisAeFApweHPSActgTHnylOJEjo5LLmvNMsIW%2F4lkQkoZKYxHTkzTSMIkHkReEsppc%2BBYMqhjcMqpB64Wt%2BYxEGAXuMEuiKCoOpJ3HG4wiAerAHoIk9krG3FNCbGqB3JOjDLF1gKrpeLr8PA3A4BtytDNx4%2FtsVjoPvQ4Pl7qQBGD3xMJF4eMHJe%2BgzJp4T8k7zROqSjEcG3JTB8m1YsQdkpbDLr0IlNZFrlopXgAZeOi9jZ40QERwKQPL5kyE3RsXl342YigMpfxdgowWDl8xwMWc1kjWokAKpQpbgyMvC9%2BYTVfDxJzyTkH6WKo7AJlG2GJxTskp8zN9Vz%2BVFRWZTURmgCkX5lCVFGzbLabcjuEXd0J3gtiQOxRgUGIOizbRlTFQkUa%2BRsRa1zdAmmcPGobFlM7WGJB3pMlNkNxVN%2BuO8RQE3NOd1ftGQ%2FDq6%2BHWcY%2FFb0FnjF4w32U6YhV7GciDPz0ISb0CkGNK35lnqySdBpqYKwRJCoiFnQWZfWZCiYWCOr1fZ%2FIkKf8f%2FrHCanQEVmloVSMhHgSVTUWYsuqmAsie0xvcbnGidMGcAmsbTavF6Fg0MXa1FJDAyUTAC%2B2JEbh9JyNcgXzJ3uXkcuhmhOybBSUifynC9I0k2JzMSe9FzJe1lERc2zSErK51GVSUjZulATO76nFw0r2dwtitH%2BJz180%2Fh4LFCfLFwWpJOljjesBc8hFFBNb2qh9Uti2Afor8kENh62BLrYgAmY9SNLzG3U6jSSNl%2BtfElUSbhrMvAAOqTsBZlUo0BMYi%2Fkiwji5w0gdSG8604dbXyyCEzxtBGkyZq%2FbhNUDxm7wbVLkVbOK0UFQPJdJrig3mX83M4vgvTZeQxXB8Dinw4pVTzEurFTzCl9fvkh2LxpMrYnZ7yQyQbJWK1bcXP2qNVbjxjZKiJOQebNVAvJmpanWOlaKQKVcc1UySbqc1Wwm%2BMr7Kjodz53HMFvEbEf%2Bsrxrr9ZEVS7tm192y67ZxxFwYHqVyocZW3a2Xhxlu2ZVToSY%2Bkgga5O4k%2F4kaEvrXQW0GD5J3zr8z2ROp%2BKNb9qlaJguey33jQQRsgQeaM6YSnJFlQMQ1%2Bm0zFi9J8mrWcpR9%2FWLM4w2yaHDDQ4TZXNzB7t4Fp8qwQNjnuvKuHhH1YCNy%2BrMmWY6PLYuMToZnrZxEVDTJl6evK93GaHroojpkmHZoViUR0LUfFbQRJkUZGz9I%2Fin1R2LIvKsaZTu5RPgMkIda939JY5wy5B28RRmyaP3D0jpm5KHISdl0UeyMTGpuXquJrlor1od2t5kjNVNEmxPyxa3NOUqTPuIpitbZUJs2isnSS26r9y%2FWWUPSWXbNJsUSRFGkk1JQIBWD8BzUpVhpu22MdvCzkQF3RfElyk5qyGdGqrM7ZzC5Fx%2B0GOHJfCMBxfvLceIyn5H%2FeG3QhsQLpyruk6Mi8y5kuMGuWni5JnMonW07YXZc9QKAnHot22vn80i5FRyZebh4BSzL4M6ZfWwu4mYIjeMB26U5VR14DF1EUlZHzCIdFnP2KosGPfjqD9lF1HgwZw9pLqIrdydiuvSZOK6PqYDCuXOicocEgxWnNvgzG3e98%2FCWf2kBiV6Zr4Scp0rjAFWUA2rOUv9iNe7FdiYot1PricRWGpOWbkYp8zWDMVCeftyRrF8uHePQZOgq%2FpvqatpZT6L5jTbDtADidIs%2FGVwqCvvJ0fuSlaeh%2F7c9qCQEcNfdggaV3Q2jYI6TS9rv4Hbuum0TlV%2BoO9pX0svr%2FIfnw6r%2BwwPv%2FAA%3D%3D">diagram</a>,</p>
 
 <p><img src="https://lh3.googleusercontent.com/vi1iEAv0LtjFbvT30UE62rHDLu-fPFysH5oj1dpa_hVzaTbmKSV2Js_NjTCI7-5tXGVKgd8p4CQ" title="auth diag" alt="enter image description here" /></p>
@@ -328,8 +331,7 @@
       <li>to provide his credentials (password or fingerprint or FaceID)</li>
     </ul>
   
-  If you are building a mobile web or in-app mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will directly be redirected to the itsme app via the Universal links and App links
-  </li>
+  If you are building a mobile web or in-app mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will directly be redirected to the itsme app via the Universal links and App links.</li>
   <li>Once the User has has authorized the request and has been authenticated the request itsme® will return an authorization code to your server component.</li>
   <li>Your server component contacts the token endpoint and exchanges the authorization code for an id token identifying the User and an access token, redirecting the user to your mobile or web application.</li>
   <li>You may request the additional user information from the UserInfo endpoint by presenting the access token obtained in the previous step.</li>
@@ -338,21 +340,23 @@
 <p>This flow is described in much more detail in the following sections.</p>
 <h2 id='3-1-checking-itsme-openid-configuration'>3.1. Checking itsme® OpenID Configuration</h2>
 <p>To simplify implementations and increase flexibility, OpenID Connect allows the use of a <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">Discovery document</a>, a JSON document containing key-value pairs which provide details about itsme® system configuration, such as 
-* URIs of the authorization
-* Token 
-* UserInfo
-* supported claims
-* JWKSet URL</p>
+<ul>
+  <li>URIs of the authorization</li>
+  <li>token</li>
+  <li>UserInfo</li>
+  <li>supported claims</li>
+  <li>JWKSet URL</li>
+</ul></p>
 
-<p>The Discovery document for itsme® services may be retrieved from: https://merchant.itsme.be/oidc/.well-known/openid-configuration.</p>
+<p>The Discovery document for itsme® services may be retrieved from: <code>https://merchant.itsme.be/oidc/.well-known/openid-configuration</code>.</p>
 
 <p><a name="AuthNRequest"></a></p>
 <h2 id='3-2-forming-an-authentication-request'>3.2. Forming an authentication request</h2>
-<p>First, you will form a HTTPS GET request that MUST be sent to the itsme® authorization endpoint. The itsme® authorization endpoint is https://merchant.itsme.be/oidc/authorize (it can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">Discovery document</a>, using the key <code>authorization_endpoint</code>)</p>
+<p>First, you will form a HTTPS GET request that MUST be sent to the itsme® authorization endpoint. The itsme® authorization endpoint is <code>https://merchant.itsme.be/oidc/authorize</code>. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">Discovery document</a>, using the key <code>authorization_endpoint</code>.</p>
 
-<aside class="warning">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in [section 3.4](#UniversalLinks).</aside>
+<aside class="notice">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in <a href="#UniversalLinks">section 3.4</a>.</aside>
 
-<p>Please check the following table for request parameters,</p>
+<p>The OpenID Connect Core Specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:</p>
 <pre class="highlight http tab-http--inline"><code><span class="err"> HTTP/1.1
  GET /authorize?response_type=code
  &amp;scope=openid%20profile%20email%20service%3Aclient.registration
@@ -365,138 +369,138 @@
 <tr>
 <th style="text-align: left">Parameter</th>
 <th style="text-align: left">Required</th>
-<th style="text-align: left">Specification</th>
+<th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>client_id</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This is your client identifier at the OpenID Provider. MUST be the Partner Code you obtained from BMID as part of the <a href="#Onboarding">integration prerequisites</a>.</td>
+<td style="text-align: left">This MUST be the client identifier (e.g. : ParterCode) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>response_type</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">Used to indicate an authorization code flow. MUST be <code>code</code>.</td>
+<td style="text-align: left">This defines the processing flow to be used when forming the response. Because itsme® uses the Authorization Code Flow as described above, this value MUST be <code>code</code>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>scope</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">Used to specify the scope of the requested authorization in OAuth, as well as pre-defined sets of claims (see <a href="#scope">Scope</a>). MUST contain at least <code>openid</code> or an HTTP ERROR <code>not_implemented</code> will be returned. As a BMID extension of the OpenID standard specification, MUST also includes the target service in the form <code>service:&lt;SERVICE_CODE&gt;</code> as provided by BMID during the <a href="#Onboarding">integration prerequisites</a> (see <a name="ServiceCode"></a><a href="#ServiceCode">Service Code Concept</a> for further information).   <em>**Note</em><em>: Requested data will only be provided based on your current accesses. These accesses are specified as part of the <a href="#Onboarding">integration prerequisites</a>.</em> <code>offline_access</code> value will yield an error.</td>
+<td style="text-align: left">The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <code>openid</code> and <code>service: service_code</code>, the itsme® service you want to use as defined for your application in the <a href="#Onboarding">itsme® B2B portal</a>. <br>The <code>openid</code> scope can return standard user attributes (these claims are:<code>iss</code>, <code>aud</code>, <code>exp</code>, <code>iat</code> and <code>at_hash</code>) in the id_token and/or in the response from the /userinfo endpoint.</br><br>Applications can ask for additional scopes, separated by spaces, to request more information about the user. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are <code>family_name</code>, <code>given_name</code>, <code>gender</code>, <code>birthdate</code> and <code>locale</code>.</li><li>email: will request the <code>email</code> and <code>email_verified</code> claims.</li></ul>For more information on user attributes or claims, please consult the <a href="#Data">ID claims</a> section.</br><br>An HTTP ERROR <code>not_implemented</code> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br><br>Note: you&#39;ll need to define one scope for each itsme® service you want to use.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>redirect_uri</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">MUST be the HTTPS endpoint on your server that will receive the Authentication Response from <strong>itsme(r)</strong>. This value MUST match one of the values provided to BMID during <a href="#Onboarding">integration prerequisites</a>. <em>**Note</em><em>: the Partner can define different **redirect_uri</em>* specific to each Service.*</td>
+<td style="text-align: left">This is the URI to which the authentication response should be sent. This must exactly match one of the redirection URIs defined when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>state</strong></td>
-<td style="text-align: left">An appropriate value is strongly RECOMMENDED.</td>
-<td style="text-align: left">No syntactic requirement on this parameter. Purpose is to serve as a reference for your transaction, to trace it through the different steps of the authentication. Should include the value of the anti-forgery unique session token, as well as any other information needed to recover the context when the user returns to your application. To use it for troubleshooting purposes, it is up to you to ensure the unicity of the <code>state</code> value.</td>
+<td style="text-align: left">An appropriate value is strongly RECOMMENDED</td>
+<td style="text-align: left">It is recommended that you use this parameter to maintain state between the request and the callback. Typically, Cross-Site Request Forgery (CSRF, XSRF) mitigation is done by cryptographically binding the value of this parameter with a browser cookie.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>nonce</strong></td>
-<td style="text-align: left">An appropriate value is strongly RECOMMENDED.</td>
-<td style="text-align: left">Value set by your end that you can use as a replay protection. No syntactic requirement on this parameter. Should be a random value with hig entropy. The purpose is to prevent id token to be displaced by an attacker by sending a valid id token from a different request in order to trick user visiting another website. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes">note about nonce in OpenID specs</a> for more information.</td>
+<td style="text-align: left">An appropriate value is strongly RECOMMENDED</td>
+<td style="text-align: left">String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the authentication request to the id token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes">the OpenID Connect Core specifications</a> for more information.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>login_hint</strong></td>
-<td style="text-align: left">Optional. Supported, though NOT RECOMMENDED. Usage of claim value <code>phone_number</code> in an encrypted <code>request</code> object is recommended in order to avoid disclosure of phone number of the end user on the user agent</td>
-<td style="text-align: left">Hint to the Authorization Server about the login identifier the End-User might use to log in. Only phone numbers are supported as <code>login_hint</code>. Format is : <code>&lt;countrycode&gt;+&lt;phonenumber&gt;</code>. E.g. <code>login_hint=32+123456789</code>. <code>login_hint</code> with invalid syntax will be ignored.</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">Hint to the Authorization Server about the login identifier the User might use to log in (if necessary).<br>This value MUST be a phone number in the format specified for the <code>phone_number</code> claim: <code>&lt;countrycode&gt;+&lt;phonenumber&gt;</code>. E.g. <code>login_hint=32+123456789</code>.</br><br><code>login_hint</code> with invalid syntax will be ignored.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>display</strong></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">An ASCII string value for specifying how the authorization server displays the authentication and consent user interface pages. MUST be <code>page</code> if provided. Other values will yield an HTTP ERROR <code>not_implemented</code>.</td>
+<td style="text-align: left">ASCII string value that specifies how the Authorization Server displays the authentication and consent user interface pages to the User. MUST be <code>page</code> if provided.<br>Other values will yield an HTTP ERROR <code>not_implemented</code>.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>prompt</strong></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">MUST be <code>consent</code> if provided. By giving &#39;consent&#39; as value, the authorization server prompts the user for consent before returning information to the client. Offline access to data is not supported by BMID on purpose.</td>
+<td style="text-align: left">Space delimited, case sensitive list of ASCII string values that specifies whether the Authorization Server prompts the User for reauthentication and consent. MUST be <code>consent</code> if provided.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>ui_locales</strong></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">Can be used to specify the language to be used by the Open ID login page. Supported values are: {“fr”, “nl”, “en”, “de”}. Any other value will be ignored.</td>
+<td style="text-align: left">User&#39;s preferred languages and scripts for the user interface (e.g.: OpenID web page). Supported values are: {“fr”, “nl”, “en”, “de”}. Any other value will be ignored.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>max_age</strong></td>
-<td style="text-align: left">Optional. Supported but not used.</td>
-<td style="text-align: left">Specifies the allowable elapsed time in seconds since the last time the End-User was actively authenticated by the OP. If the elapsed time is greater than this value, the OP MUST attempt to actively re-authenticate the End-User. BMID does not maintain a session mechanism on purpose, an active authentication is thus always required.</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">Specifies the allowable elapsed time in seconds since the last time the user was actively authenticated by itsme®. If the elapsed time is greater than this value, the authentication system MUST attempt to actively re-authenticate the User. As itsme® does not maintain a session mechanism, an active authentication is always required.</td>
 </tr>
 <tr>
-<td style="text-align: left"><a name id="acrvalues"><strong>acr_values</strong></a></td>
-<td style="text-align: left">Optional. Supported, though NOT RECOMMENDED. Usage of <code>acr</code> parameter in the <code>request</code> object is recommended over this parameter as it will be signed in the JWT token</td>
-<td style="text-align: left">These values are used to specify the level of authentication the RP requires from the OP. BMID imposes more strict security rules on advanced level as for basic. Two values are supported <code>tag:itsmetag:sixdots.be,2016-06:acr_basic</code>: Basic level will let the User to choose either fingerprint usage (if Device is compatible) or PIN, <code>tag:itsmetag:sixdots.be,2016-06:acr_advanced</code>: Advanced level will force the User to use PIN. <em>When multiple values are provided only the most constraining will be used (advanced &gt; basic). If not provided basic level will be used.</em> As there is no such idea of an existing session on itsme(r) Core, even if the <code>acr_values</code> is requested as a voluntarily claim, the <code>acr</code> value returned will always be the more constraining method in the <code>acr_values</code> list, or the authentication will fail.</td>
+<td style="text-align: left"><a name="acrvalues"><strong>acr_values</strong></a></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference.<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br><code>tag:itsmetag:sixdots.be,2016-06:acr_basic</code></br></li><li>Advanced level - force the User to use PIN<br><code>tag:itsmetag:sixdots.be,2016-06:acr_advanced</code></br></li></ul>When multiple values are provided only the most constraining will be used (advanced &gt; basic). If not provided basic level will be used.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>claims</strong></td>
-<td style="text-align: left">Optional. Supported, though NOT RECOMMENDED. Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the returned data will be encrypted.</td>
-<td style="text-align: left">MAY include claims for end user data. See <a href="#Data">User Data</a> for more information.</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">This parameter is used to request that specific claims be returned. The value is a JSON object listing the requested claims.<br>Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the returned data will be encrypted.</br><br>See <a href="#Data">User Data</a> for more information.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>request</strong></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">See <a href="#JWTRequest">Passing Request Parameters as JWTs</a></td>
+<td style="text-align: left">This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. The parameter value is a Request Object value.<br>See <a href="#JWTRequest">Passing Request Parameters as JWTs</a> for more information.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>response_mode</strong></td>
-<td style="text-align: left">Unsupported</td>
-<td style="text-align: left">MUST not be used. Any supplied value will be ignored.</td>
+<td style="text-align: left">Not supported</td>
+<td style="text-align: left">Any supplied value will be ignored.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>id_token_hint</strong></td>
-<td style="text-align: left">Unsupported</td>
-<td style="text-align: left">Ignored if provided.</td>
+<td style="text-align: left">Not supported</td>
+<td style="text-align: left">Any supplied value will be ignored.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>claims_locales</strong></td>
-<td style="text-align: left">Unsupported</td>
-<td style="text-align: left">None are supported.</td>
+<td style="text-align: left">Not supported</td>
+<td style="text-align: left">Any supplied value will be ignored.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>request_uri</strong></td>
-<td style="text-align: left">Unsupported</td>
-<td style="text-align: left">Not supported (yet)</td>
+<td style="text-align: left">Not supported</td>
+<td style="text-align: left">Any supplied value will be ignored.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>registration</strong></td>
-<td style="text-align: left">Unsupported</td>
-<td style="text-align: left">Not supported. The client registration process is manual. Please consult <a href="#Onboarding">integration prerequisites</a>.</td>
+<td style="text-align: left">Not supported</td>
+<td style="text-align: left">Any supplied value will be ignored.</td>
 </tr>
 </tbody></table>
 
 <p><a name="AuthNResponse"></a></p>
-<h2 id='3-3-capturing-an-authorization-code'>3.3. Capturing an Authorization Code</h2>
+<h2 id='3-3-capturing-an-authorization-code'>3.3. Capturing an Authorization Code</h2><h3 id='capturing-a-successful-authorisation-code'>Capturing a successful Authorisation Code</h3>
 <p>If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an authorisation code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the <code>redirect_uri</code> specified previously in the authentication request.</p>
 <pre class="highlight http tab-http--inline"><code><span class="err"> </span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
 <span class="s"> Location: https://client.example.org/cb?</span>
 <span class="s"> code=SplxlOBeZQQYbYS6WxSbIA&amp;</span>
 <span class="s"> state=af0ifjsldkj</span>
 </code></pre>
-<p>As such, the Authentication Response will return the following parameters:</p>
+<p>The response will contain:</p>
 
 <table><thead>
 <tr>
 <th style="text-align: center">Parameter</th>
-<th style="text-align: center">Provided</th>
+<th style="text-align: left">Returned</th>
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: center"><strong>code</strong></td>
-<td style="text-align: center">Always</td>
-<td style="text-align: left">Authorization code to later provide to the token endpoint. This code has a lifetime of 3 minutes.</td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">The code parameter holds the authorization code which is a string value. The content of authorization code is opaque for you. This code has a lifetime of 3 minutes.</td>
 </tr>
 <tr>
 <td style="text-align: center"><strong>state</strong></td>
-<td style="text-align: center"></td>
-<td style="text-align: left">The exact value received from the client, if the parameter was present in the Authentication Request.</td>
+<td style="text-align: left">If provided</td>
+<td style="text-align: left">The state parameter will be returned if you provided a value in the Authentication request. You should validate that the value returned matches the one supplied in the authentication request. The state value can additionally be used to mitigate against XSRF attacks by cryptographically binding the value of this parameter with a browser cookie.</td>
 </tr>
 </tbody></table>
 <h3 id='handling-authentication-error-response'>Handling Authentication Error Response</h3>
-<p>In some cases, it is possible that the user is not redirected automatically to your environment. A typical example is when the user stays inactive in our front-end (whether in the itsme App or in our OpenID webpage). It would also be the case if the <code>redirect_uri</code> is malformed.</p>
+<p>If the request fails due to a missing, invalid, or mismatching redirection URI, or if the client identifier is missing or invalid, the authorization server SHOULD inform the User of the error and MUST NOT automatically redirect him to the invalid redirection URI. </p>
 
-<p>There are also cases where the user will be redirected to your environment with an <a href="(http://openid.net/specs/openid-connect-core-1_0.html#AuthError)">Authentication Error Response</a>. As for a successful response this is achieved by returning a HTTPS 302 redirect request to the redirection_uri specified in the authentication request. Following parameters could be added to the query component of the redirection_uri:</p>
+<p>If the User denies the authentication request or if the request fails for reasons other than a missing or invalid redirection URI, itsme® will return an error response to your application. As for a successful response this is achieved by returning a HTTPS 302 redirect request to the redirection_uri specified in the authentication request. Following parameters could be added to the query component of the redirection_uri:</p>
 <pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
 <span class="na">Location</span><span class="p">:</span> <span class="s">https://client.example.org/cb?</span>
 <span class="s">error=invalid_request</span>
@@ -506,23 +510,23 @@
 <table><thead>
 <tr>
 <th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
+<th style="text-align: left">Returned</th>
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">error</td>
-<td style="text-align: left">Required</td>
+<td style="text-align: left"><strong>error</strong></td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">Error type.</td>
 </tr>
 <tr>
-<td style="text-align: left">error_description</td>
-<td style="text-align: left">Optional</td>
+<td style="text-align: left"><strong>error_description</strong></td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">Indicating the nature of the error</td>
 </tr>
 </tbody></table>
 
-<p>The following errors can be triggered by itsme(r):</p>
+<p>The following table describes the various error codes that can be returned in the <code>error</code> parameter of the error response:</p>
 
 <table><thead>
 <tr>
@@ -531,22 +535,24 @@
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left"><code>interaction_required</code></td>
-<td style="text-align: left">The Authorization Server requires End-User interaction of some form to proceed.</td>
+<td style="text-align: left"><strong>interaction_required</strong></td>
+<td style="text-align: left">The Authorization Server requires User interaction of some form to proceed.</td>
 </tr>
 <tr>
-<td style="text-align: left"><code>invalid_request_object</code></td>
-<td style="text-align: left">The request parameter contains an invalid Request Object.</td>
+<td style="text-align: left"><strong>invalid_request_object</strong></td>
+<td style="text-align: left">The <code>request</code> parameter contains an invalid Request Object.</td>
 </tr>
 <tr>
-<td style="text-align: left"><code>request_uri_not_supported</code></td>
-<td style="text-align: left">does not support use of the request_uri parameter.</td>
+<td style="text-align: left"><strong>request_uri_not_supported</strong></td>
+<td style="text-align: left">This error is returned because itsme® does not support use of the <code>request_uri</code> parameter defined in the JWTs.</td>
 </tr>
 <tr>
-<td style="text-align: left"><code>registration_not_supported</code></td>
-<td style="text-align: left">does not support use of the registration parameter.</td>
+<td style="text-align: left"><strong>registration_not_supported</strong></td>
+<td style="text-align: left">This error is returned because itsme® does not support use of the <code>registration</code> parameter.</td>
 </tr>
 </tbody></table>
+
+<p>All other HTTPS errors unrelated to OpenID Connect Core will be returned to the User using the appropriate HTTPS status code.</p>
 
 <p><a name="UniversalLinks"></a> </p>
 <h2 id='3-4-supporting-universal-links-and-app-links-mechanism'>3.4. Supporting Universal Links and App Links mechanism</h2>
@@ -560,20 +566,18 @@
 
 <p>Functionally, it will allow you to have a single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.</p>
 
-<p>The specifications for the implementation of Universal links and App links can be found in the Appendix.</p>
+<p>The specifications for the implementation of Universal links and App links can be found in the <a href="#Appendix">Appendix</a>.</p>
 <h2 id='3-5-exchanging-the-authorisation-code'>3.5. Exchanging the authorisation code</h2>
 <p><a name="tokenEndpoint"></a> 
-Once your server component has received an <a href="#AuthNResponse">authorization code</a>, your server can exchange it for an Access Token and an ID token.</p>
+Once your server component has received an <a href="#AuthNResponse">authorization code</a>, your server can exchange it for an Access token and an ID token.</p>
 
-<aside class="notice">There are many types of tokens mentioned in the OpenID specification. You might also read in the OpenID specification about the Refresh Token, but we don't support them (we don't implement any session mechanism).</aside>
+<aside class="notice">You might also read in the OpenID Connect Core specification about the Refresh token, but we don't support them (we don't implement any session mechanism).</aside>
 
-<p>Your server makes this exchange by sending an HTTPS POST request to the Token Endpoint, called <a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest">Token Request</a>. The Token Endpoint URL is available in our <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">OpenID discovery document</a>, at key &quot;token_endpoint&quot;. In this discussion, we assume this URL is &#39;https://merchant.itsme.be/oidc/token&#39;.</p>
+<p>Your server makes this exchange by sending an HTTPS POST request to the itsme® token endpoint URI <code>https://merchant.itsme.be/oidc/token</code>. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">Discovery document</a> using the key <code>token_endpoint</code>.</p>
 
-<aside class="warning">We only support `private_key_jwt` for client authentication.</aside>
+<aside class="notice"> An authorization code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling Token Error Response. </aside>
 
-<aside class="success"> The header Content-Type : application/x-www-form-urlencoded MUST be present.</aside>
-
-<aside class="notice"> In order to communicate with Token Endpoint, TLS MUST be implemented. See http://openid.net/specs/openid-connect-core-1_0.html#TLSRequirements 16.17 for more information on using TLS. </aside>
+<p>The request MUST include the following parameters in the <code>POST</code> body:</p>
 <pre class="highlight http tab-http--inline"><code><span class="err">GET /oidc/authorization?response_type=code
 &amp;client_id=yourpartnercode
 &amp;yourredirecturl
@@ -583,75 +587,73 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 {"value":["tag:sixdots.be,2016-06:acr_advanced"]
 }}}&amp;state=anystate&amp;nonce=anonce&amp;prompt=login&amp;max_age=1
 </span></code></pre>
-<p>The Token Request must include the following parameters in the POST body:</p>
-
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Comment</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>grant_type</strong></td>
-<td>Required</td>
-<td>Must be <code>authorization_code</code></td>
+<td style="text-align: left"><strong>grant_type</strong></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This MUST be set to <code>authorization_code</code>.</td>
 </tr>
 <tr>
-<td><strong>code</strong></td>
-<td>Required</td>
-<td>The code value provided in the Authentication Response</td>
+<td style="text-align: left"><strong>code</strong></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">The Authorization Code received in response to the Authentication Request.</td>
 </tr>
 <tr>
-<td><strong>redirect_uri</strong></td>
-<td>Required</td>
-<td>The <strong>redirect_uri</strong> used in the Authentication Request. This is the URL to which you want the user to be redirected after the authorization is complete.</td>
+<td style="text-align: left"><strong>redirect_uri</strong></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">The redirection URI supplied in the original Authentication Request. This is the URL to which you want the User to be redirected after the authorization is complete.</td>
 </tr>
 <tr>
-<td><strong>client_assertion</strong></td>
-<td>Required</td>
-<td>Must be a valid JWT complying with the <code>private_key_jwt</code> client authentication method as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication">Section 9</a> of the OpenID specification. This JWT must be signed.</td>
+<td style="text-align: left"><strong>client_assertion</strong></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the token request.<br>The OpenID Connect Core Specification support multiple authentication methods, but itsme® only supports <code>private_key_jwt</code>. This authentication method uses a JWT signed with a public key you have registered. The JWT MUST be sent as the value of a client_assertion parameter.</br><br>See <a href="http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication">section 9</a> of the OpenID Connect Core specification for more information.</br></td>
 </tr>
 <tr>
-<td><strong>client_assertion_type</strong></td>
-<td>Required</td>
-<td>Must be <code>urn:ietf:params:oauth:client-assertion-type:jwt-bearer</code></td>
+<td style="text-align: left"><strong>client_assertion_type</strong></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This MUST be set to <code>urn:ietf:params:oauth:client-assertion-type:jwt-bearer</code>.</td>
 </tr>
 </tbody></table>
-<h3 id='client_assertion'><code>client_assertion</code></h3>
-<p>According to the <code>private_key_jwt</code> client authentication method, the <strong>client assertion</strong> JWT must contain the following properties:</p>
+
+<p>According to the <code>private_key_jwt</code> client authentication method, the <code>client_assertion</code> JWT must contain the following properties:</p>
 
 <table><thead>
 <tr>
-<th>Property</th>
-<th>Comment</th>
+<th style="text-align: left">Property</th>
+<th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>iss</strong></td>
-<td>The issuer of the <code>private_key_jwt</code> (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the onboarding file provided by BMID).</td>
+<td style="text-align: left"><strong>iss</strong></td>
+<td style="text-align: left">The issuer of the <code>private_key_jwt</code>. This MUST contain the <code>client_id</code>. This is the client identifier (e.g. : ParterCode) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
-<td><strong>sub</strong></td>
-<td>The subject of the <code>private_key_jwt</code> (the client ID). MUST be the Partner Code you obtained from BMID during on-boarding process (this information is in the on boarding file provided by BMID).</td>
+<td style="text-align: left"><strong>sub</strong></td>
+<td style="text-align: left">The subject of the <code>private_key_jwt</code>. This MUST contain the <code>client_id</code>. This is the client identifier (e.g. : ParterCode) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
-<td><strong>aud</strong></td>
-<td>Must be the token endpoint URL</td>
+<td style="text-align: left"><strong>aud</strong></td>
+<td style="text-align: left">Value that identifies the Authorization Server as an intended audience. This MUST be the itsme® token endpoint URL : <code>https://merchant.itsme.be/oidc/token</code></td>
 </tr>
 <tr>
-<td><strong>jti</strong></td>
-<td>A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.</td>
+<td style="text-align: left"><strong>jti</strong></td>
+<td style="text-align: left">A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.</td>
 </tr>
 <tr>
-<td><strong>exp</strong></td>
-<td>Expiration time on or after which the ID Token MUST NOT be accepted for processing.</td>
+<td style="text-align: left"><strong>exp</strong></td>
+<td style="text-align: left">Expiration time on or after which the ID Token MUST NOT be accepted for processing.</td>
 </tr>
 </tbody></table>
 
 <p><a name="TokenResponse"></a></p>
-<h2 id='3-6-managing-token-response'>3.6. Managing Token Response</h2><h3 id='handling-a-successful-token-response'>Handling a successful Token Response</h3>
-<p>If the Token Request validation is successful we will return an HTTP 200 OK response including id and access tokens as in the example aside:</p>
+<h2 id='3-6-managing-token-response'>3.6. Managing Token Response</h2><h3 id='extracting-a-successful-token-response'>Extracting a successful Token response</h3>
+<p>If the Token request has been sucessfully validated we will return an HTTP 200 OK response including ID and Access tokens as in the example aside:</p>
 <pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="s">  Content-Type: application/json</span>
 <span class="s">  Cache-Control: no-store</span>
@@ -674,104 +676,104 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
   }
 
 </code></pre>
-<p>The Token Response follow these specifications:</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Provided</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong><a href="#actoken"><code>access_token</code></a></strong></td>
-<td>Always</td>
-<td>Will be provided.</td>
-</tr>
-<tr>
-<td><strong><a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse"><code>token_type</code></a></strong></td>
-<td>Always</td>
-<td>Will be <code>Bearer</code></td>
-</tr>
-<tr>
-<td><strong><a href="#idtoken"><code>id_token</code></a></strong></td>
-<td>Always</td>
-<td>The id_token corresponding to the Authentication Request (signed and  encrypted).</td>
-</tr>
-<tr>
-<td><strong><a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeIDToken"><code>at_hash</code></a></strong></td>
-<td>Never</td>
-<td>Current version of itsme(r) Core does not produce the <code>at_hash</code> value</td>
-</tr>
-<tr>
-<td><strong><a href="#rfshtoken"><code>refresh_token</code></a></strong></td>
-<td>Never</td>
-<td>Won&#39;t be provided as <strong>itsme(r)</strong> only maintains short-lived session to enforce re-authentication.</td>
-</tr>
-</tbody></table>
-
-<p>The ID Token follow these specifications:</p>
+<p>The response body will include the following parameters:</p>
 
 <table><thead>
 <tr>
 <th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
+<th style="text-align: left">Returned</th>
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">iss</td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">Identifier of the issuer of the ID Token.</td>
+<td style="text-align: left"><strong><a href="#actoken"><code>access_token</code></a></strong></td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">The Access token which may be used to access the UserInfo endpoint.</td>
 </tr>
 <tr>
-<td style="text-align: left">sub</td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">An identifier for the User (e.g.: UserCode), unique among all itsme® accounts and never reused. Use sub within in the application as the unique-identifier key for the user.</td>
+<td style="text-align: left"><strong><a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse"><code>token_type</code></a></strong></td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">Set to <code>Bearer</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left">aud</td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">Audience of the ID Token. Will include the <code>client_id</code></td>
+<td style="text-align: left"><strong><a href="#idtoken"><code>id_token</code></a></strong></td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">The Base64URL encoded id token corresponding to the Authentication Request.</td>
 </tr>
 <tr>
-<td style="text-align: left">exp</td>
-<td style="text-align: left">Required</td>
+<td style="text-align: left"><strong><a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeIDToken"><code>at_hash</code></a></strong></td>
+<td style="text-align: left">Not supported</td>
+<td style="text-align: left">itsme® does not provide any value for this parameter.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong><a href="#rfshtoken"><code>refresh_token</code></a></strong></td>
+<td style="text-align: left">Not supported</td>
+<td style="text-align: left">itsme® does not provide any value for this parameter as it only maintains short-lived session to enforce re-authentication.</td>
+</tr>
+</tbody></table>
+
+<p>The ID token MUST contain the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Returned</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>iss</strong></td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">Identifier of the issuer of the ID token.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>sub</strong></td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">An identifier for the User (e.g.: UserCode), unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>aud</strong></td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">Audience of the ID token. This MUST contain the <code>client_id</code>. This is the client identifier (e.g. : ParterCode) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>exp</strong></td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">Expiration time on or after which the ID Token MUST NOT be accepted for processing.</td>
 </tr>
 <tr>
-<td style="text-align: left">iat</td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">The time the ID token was issued, represented in Unix time (integer seconds)</td>
+<td style="text-align: left"><strong>iat</strong></td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">The time the ID token was issued, represented in Unix time (integer seconds).</td>
 </tr>
 <tr>
-<td style="text-align: left">auth_time</td>
-<td style="text-align: left">Will always be provided</td>
-<td style="text-align: left">Time when the End-User authentication occurred. Its value is a JSON number representing the number of seconds from 1970-01-01T0:0:0Z as measured in UTC until the date/time.</td>
+<td style="text-align: left"><strong>auth_time</strong></td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">The time the User authentication occurred, represented in Unix time (integer seconds).</td>
 </tr>
 <tr>
-<td style="text-align: left">nonce</td>
-<td style="text-align: left">Provided if present in Authentication Request</td>
-<td style="text-align: left">String value used to associate a Client session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. If present in the ID Token, Clients MUST verify that the nonce Claim Value is equal to the value of the nonce parameter sent in the Authentication Request. If present in the Authentication Request, Authorization Servers MUST include a nonce Claim in the ID Token with the Claim Value being the nonce value sent in the Authentication Request.</td>
+<td style="text-align: left"><strong>nonce</strong></td>
+<td style="text-align: left">If provided</td>
+<td style="text-align: left">String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes">the OpenID Connect Core specifications</a> for more information.</td>
 </tr>
 <tr>
-<td style="text-align: left">acr</td>
-<td style="text-align: left">Will always be provided</td>
+<td style="text-align: left"><strong>acr</strong></td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">Possible values: <code>tag:sixdots.be,2016-06:acr_basic</code> and <code>tag:sixdots.be,2016-06:acr_advanced</code></td>
 </tr>
 <tr>
-<td style="text-align: left">amr</td>
-<td style="text-align: left">Will never be provided</td>
+<td style="text-align: left"><strong>amr</strong></td>
+<td style="text-align: left">Never</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: left">azp</td>
-<td style="text-align: left">Will never be provided</td>
+<td style="text-align: left"><strong>azp</strong></td>
+<td style="text-align: left">Never</td>
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
 <h3 id='handling-token-error-response'>Handling Token Error Response</h3>
-<p>If the Token Request is invalid or unauthorized an HTTP 400 response will be returned as in the example:
+<p>If the Token request is invalid or unauthorized an HTTP 400 response will be returned as in the example:
 <code>http--inline
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
@@ -781,382 +783,110 @@ Pragma: no-cache
   &quot;error&quot;: &quot;invalid_request&quot;
 }
 </code>
-The response will contain an error parameter and optionally <code>error_description</code> and <code>error_uri</code> parameters. The error_uri parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.</p>
-<h2 id='3-7-matching-users-databases'>3.7. Matching users databases</h2>
-<p>The first time a user uses itsme(r) at your side, you will receive an unknown userCode from the <a href="#TokenResponse">Token Response</a> for him. You then have to determine whether or not you already have an account at your own side for this user, and this section briefly describes our recommendation on the topic, in order to optimize the user experience.</p>
-<h3 id='automatic-match'>Automatic match</h3>
-<p>The smoothest user experience comes when you can guarantee a high level of verification of a set of data we have in common with you. If you ask for user data that you own on your side as well, you can match these data to automatically associate the userCode to the correct user account on your side, and offer a seamless journey to the user</p>
+The response will contain an error parameter and optionally <code>error_description</code> and <code>error_uri</code> parameters. The <code>error_uri</code> parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.</p>
+<h2 id='3-7-authenticating-the-user'>3.7. Authenticating the User</h2>
+<p>After obtaining the user ID and Access token, you should query your database to check if you know the User, or not. If the User already exists in your database, you should start an application session for that User.</p>
 
-<p>Of course, it is possible that the user has no account yet at your side. You may use in that case  the <a href="#Data">user data</a> we provide you to facilitate the account creation and automatically link it to the userCode.</p>
+<p>If the User does not exist in the your database, one of the following scenario should be implemented to link the UserCode to the correct user account:
+<ul>
+  <il>If you requested user attributes in the Authentication request, you can check if these data&#39;s match those you have in your database and automatically link User&#39;s UserCode to the correct User account on your side.</il>
+  <il>If you requested user attributes in the Authentication request but you can&#39;t match with certainty the provided data&#39;s with the one from your database, you could  redirect the User to the new-user sign-up flow. You may be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required on the registration form (under the condition you requested the user attributes in the Authentication request).</il>
+  <il>If you didn&#39;t request user attributes in the Authentication request, simply ask the user to authenticate with his usual credentials and link the UserCode to his account on your side.</il>
+</ul></p>
 
-<p>The following picture illustrates both cases:</p>
+<p>All these scenario&#39;s are depicted in the diagrams below:</p>
 
 <p><img src="LinkUserAuto.png" alt="Automatically linking user accounts"></p>
-
-<p>For this to be safe, though, the following must be verified between you and us:
-- On both sides, the data used to match the accounts must uniquely identify the user
-- On both sides, the lifecycle of the data used to match the accounts must be understood and must guarantee a constant control of the user identified through this data</p>
-
-<aside class="success">If you intend to implement this, please contact us so that we can verify the consistency of this use case together.</aside>
-<h3 id='manual-match'>Manual match</h3>
-<p>If there is no data that can be used on both sides to match the accounts automatically, simply authenticate the user with your usual credentials when you receive a new userCode from the <a href="#TokenResponse">Token Response</a>. You then have to associate this userCode to the account on your side.</p>
-
-<p>Of course, it is possible that the user has no account yet at your side. You may use in that case  the <a href="#Data">user data</a> we provide you to facilitate the account creation and automatically link it to the userCode.</p>
-
-<p>The following picture illustrates both cases:</p>
 
 <p><img src="LinkUser.png" alt="Picture illustrates possibilities for linking user accounts"></p>
 
 <p><a name="Data"></a></p>
-<h2 id='3-8-obtain-user-data'>3.8 Obtain User Data</h2><h3 id='what-is-a-claim'>What is a claim?</h3>
-<p>The concept of claim is about declaring something you expect as return from the OP. When it comes to end user data, you have to use claims in order to declare the end user data you will need for your business before the authentication. This is a privacy-oriented way of getting data.</p>
+<h2 id='3-8-requesting-id-claims-user-attibutes'>3.8 Requesting ID claims/user attibutes</h2>
+<p>OpenID Connect Core specifications also allow your application to obtain basic profile information about them in a interoperable way. </p>
 
-<p>Technically, you have to declare the claims in the Authorization Request in the way described in the section <a href="#decClaim">Declaring Claims</a>.</p>
+<p>Following the OpenID Connect Core specifications, there are 2 ways to request ID claims/user attributes for a specific User:
+<ul>
+  <il>using the <code>scope</code> parameter in the Authentication request</il>
+  <il>using the <code>claims</code> parameter in the Authentication request</il>
+</ul></p>
+<h3 id='using-scope-parameter-to-request-claims'>Using <code>scope</code> parameter to request claims</h3>
+<p><a name id="decClaim"></a></p>
 
-<p>Claims will come as name/value pairs packaged in a JSON object that contain information about a user, as well as meta-information about the OIDC service. The official definition from the spec is a <a href="http://openid.net/specs/openid-connect-core-1_0.html#Terminology">“piece of information asserted about an Entity.”</a></p>
+<p>The scope parameter allows the application to express the desired scope of the access request. As stated before, it MUST contain the value <code>openid</code> and <code>service: service_code</code>, the itsme® service you want to use as defined for your application in the <a href="#Onboarding">itsme® B2B portal</a>. </p>
 
-<aside class="notice"> We do not support Aggregated and Distributed Claims due to all the data we expose come from our own database.</aside>
+<p>The basic claims returned for the <code>openid</code> value are the <code>sub</code> claim - which uniquely identifies the user (e.g.: UserCode), the <code>iss</code>, <code>aud</code>, <code>exp</code>, <code>iat</code> and <code>at_hash</code>. </p>
 
-<p>Claims that are directly asserted by the OpenID Provider.
-Normal Claims are represented as members in a JSON object. The Claim Name is the member name and the Claim Value is the member value.</p>
-
-<p>The following is a non-normative response containing Normal Claims:
- <code>http--inline
-  {
-   &quot;name&quot;: &quot;Jane Doe&quot;,
-   &quot;given_name&quot;: &quot;Jane&quot;,
-   &quot;family_name&quot;: &quot;Doe&quot;,
-   &quot;email&quot;: &quot;janedoe@example.com&quot;,
-   &quot;picture&quot;: &quot;https://www.itsme.be/uploads/media/57da4dee8c5d2/logo-itsme-badge.svg?production-f26c079&quot;
-  } 
-</code>
-In current version and in contradiction to the OpenID Connect specification, <strong>itsme(r)</strong> considers all claims requested via scope as <strong>Essential</strong> (see <a href="http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests">Individual Claim Request</a>). <strong>Voluntary</strong> claims are thus supported, but are used as <strong>Essential</strong>.</p>
-
-<p>In practice, it means the User may not opt out the sharing of specific Data; the User must either gives his consent for the sharing of all Data or refuse the request as a whole. However, in a future version <strong>itsme(r)</strong>  will make the difference between <strong>Essential</strong> and <strong>Voluntary</strong> claims. You should thus already request claims according to your business case.</p>
-<h3 id='declaring-claims'><a name id="decClaim"></a> Declaring Claims</h3>
-<p>You can declare Claims in two ways:
-- With <code>scope</code> values
-- With <code>claims</code> parameter</p>
-
-<p>In each case, the claims need to be declared in the Authorization Request.</p>
-<h4 id='using-scope-values'><a name id="scope"></a> Using <code>scope</code> values</h4>
-<p>Scopes are space-separated lists of identifiers used to specify what access privileges are being requested. </p>
-
-<p>Scopes can be used to request that specific sets of information available as Claim Values in User Info Token. </p>
-
-<p>Using this method, you will always receive Claims from the UserInfo Endpoint.</p>
-
-<aside class="success">Any claim requested by using the scope value can only be obtained from the User Info endpoint.</aside>
-
-<p>The following scope values are supported and allow access to predefined sets of Identity Data:</p>
+<p>Your applications can ask for additional scopes to request more information about the User. The following additional scopes apply:</p>
 
 <table><thead>
 <tr>
-<th>Scope Value</th>
-<th>Associated Claims</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>profile</td>
-<td>given_name, family_name, gender, birthdate,  locale</td>
-</tr>
-<tr>
-<td>email</td>
-<td>email, email_verified</td>
-</tr>
-<tr>
-<td>phone</td>
-<td>phone_number, phone_number_verified</td>
-</tr>
-<tr>
-<td>address</td>
-<td>address, with subfields,<br>street_address (newline separator \n)<br> locality <br> postal_code <br> country</td>
-</tr>
-</tbody></table>
-<h4 id='using-claims-parameter'>Using <code>claims</code> parameter</h4>
-<p>Some specific data cannot be requested by using scope values. They have to be requested in the claims as request parameter of the Authentication Request. Using this <a href="https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter">method</a> of requesting claims, you need to specify the endpoint you want the claims to come from. ( see example for different specifying endpoints <a href="#example-endpoint">4.2.2.1. Set of Request Parameter Adapted to itsme(r)</a>)</p>
-
-<p>Here are these custom claims defined by BMID:</p>
-
-<table><thead>
-<tr>
-<th>Data</th>
-<th>Claim</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Nationality</td>
-<td><strong><code>tag:itsmetag:sixdots.be,2016-06:claim_nationality</code></strong></td>
-<td></td>
-</tr>
-<tr>
-<td>Place of Birth - city</td>
-<td><strong><code>tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth</code></strong></td>
-<td></td>
-</tr>
-<tr>
-<td>Place of Birth - country</td>
-<td><strong><code>tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth</code></strong></td>
-<td></td>
-</tr>
-<tr>
-<td>E-ID Metadata</td>
-<td><strong><code>tag:itsmetag:sixdots.be,2016-06:claim_eid</code></strong></td>
-<td>See <a href="#eidMetadata">eID Metadata</a></td>
-</tr>
-<tr>
-<td>Passport Number</td>
-<td><strong><code>tag:sixdots.be,2017-05:claim_passport_sn</code></strong></td>
-<td>Simple string containing the user’s Passport Serial Number.</td>
-</tr>
-<tr>
-<td>Device</td>
-<td><strong><code>tag:sixdots.be,2017-05:claim_device</code></strong></td>
-<td>See <a href="#deviceClaim">Device Claim</a></td>
-</tr>
-<tr>
-<td>Transaction Info</td>
-<td><strong><code>tag:sixdots.be,2017-05:claim_transaction_info</code></strong></td>
-<td>See <a href="#transactionInfo">Transaction Info</a></td>
-</tr>
-<tr>
-<td>E-ID Picture</td>
-<td><strong><code>tag:sixdots.be,2017-05:2017-05:claim_photo</code></strong></td>
-<td></td>
-</tr>
-</tbody></table>
-
-<p>As per specified by OpenID Connect, there is a set of <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims">standard claims</a>, or user attributes. They are intended to supply the client app with consented user details such as email, name and picture, upon request.  They can be requested to be returned either in the UserInfo Response, per <a href="https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse">Section 5.3.2</a>, or in the ID Token, per <a href="https://openid.net/specs/openid-connect-core-1_0.html#IDToken">Section 2</a>.</p>
-
-<p>The following table lists the supported standard &quot;claim&quot; values, </p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Member</th>
-<th style="text-align: left">Type</th>
+<th style="text-align: left">ID claims</th>
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">name</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Subject - Concatenation  for the End-User at the Issuer.</td>
+<td style="text-align: left"><strong>profile</strong></td>
+<td style="text-align: left">This MUST be set to <code>profile</code>. It will request the claims representing basic profile information. These are <code>family_name</code>, <code>given_name</code>, <code>gender</code>, <code>birthdate</code> and <code>locale</code></td>
 </tr>
 <tr>
-<td style="text-align: left">given_name</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Given name(s) or first name(s) of the End-User. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.</td>
+<td style="text-align: left"><strong>email</strong></td>
+<td style="text-align: left">This MUST be set to <code>email</code>. It will request the <code>email</code> and <code>email_verified</code> claims.</td>
 </tr>
 <tr>
-<td style="text-align: left">family_name</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Surname(s) or last name(s) of the End-User. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.</td>
+<td style="text-align: left"><strong>phone</strong></td>
+<td style="text-align: left">This MUST be set to <code>phone</code>. It will request the <code>phone_number</code> and <code>phone_number_verified</code> claims.</td>
 </tr>
 <tr>
-<td style="text-align: left">profile</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">URL of the End-User&#39;s profile page. The contents of this Web page SHOULD be about the End-User.</td>
-</tr>
-<tr>
-<td style="text-align: left">email</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">End-User&#39;s preferred e-mail address. Its value MUST conform to the <a href="https://openid.net/specs/openid-connect-core-1_0.html#RFC5322">RFC 5322</a> [RFC5322] addr-spec syntax. The RP MUST NOT rely upon this value being unique, as discussed in <a href="https://openid.net/specs/openid-connect-core-1_0.html#ClaimStability">Section 5.7</a>.</td>
-</tr>
-<tr>
-<td style="text-align: left">email_verified</td>
-<td style="text-align: left">boolean</td>
-<td style="text-align: left">True if the End-User&#39;s e-mail address has been verified; otherwise false. When this Claim Value is true, this means that the OP took affirmative steps to ensure that this e-mail address was controlled by the End-User at the time the verification was performed. The means by which an e-mail address is verified is context-specific, and dependent upon the trust framework or contractual agreements within which the parties are operating.</td>
-</tr>
-<tr>
-<td style="text-align: left">gender</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">End-User&#39;s gender. Values defined by this specification are female and male. Other values MAY be used when neither of the defined values are applicable.</td>
-</tr>
-<tr>
-<td style="text-align: left">birthdate</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">End-User&#39;s birthday, represented as an <a href="https://openid.net/specs/openid-connect-core-1_0.html#ISO8601-2004">ISO 8601:2004</a> [ISO8601‑2004] YYYY-MM-DD format. The year MAY be 0000, indicating that it is omitted. To represent only the year, YYYY format is allowed. Note that depending on the underlying platform&#39;s date related function, providing just year can result in varying month and day, so the implementers need to take this factor into account to correctly process the dates.</td>
-</tr>
-<tr>
-<td style="text-align: left">locale</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">End-User&#39;s locale, represented as a <a href="https://openid.net/specs/openid-connect-core-1_0.html#RFC5646">BCP47</a> [RFC5646] language tag. This is typically an <a href="https://openid.net/specs/openid-connect-core-1_0.html#ISO639-1">ISO 639-1 Alpha-2</a> [ISO639‑1] language code in lowercase and an <a href="https://openid.net/specs/openid-connect-core-1_0.html#ISO3166-1">ISO 3166-1 Alpha-2</a>[ISO3166‑1] country code in uppercase, separated by a dash. For example, en-US or fr-CA. As a compatibility note, some implementations have used an underscore as the separator rather than a dash, for example, en_US; Relying Parties MAY choose to accept this locale syntax as well.</td>
-</tr>
-<tr>
-<td style="text-align: left">phone_number</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">End-User&#39;s preferred telephone number.  <a href="https://openid.net/specs/openid-connect-core-1_0.html#E.164">E.164</a>  [E.164] is RECOMMENDED as the format of this Claim.If the phone number contains an extension, it is RECOMMENDED that the extension be represented using the  <a href="https://openid.net/specs/openid-connect-core-1_0.html#RFC3966">RFC 3966</a>  [RFC3966] extension syntax.</td>
-</tr>
-<tr>
-<td style="text-align: left">phone_number_verified</td>
-<td style="text-align: left">boolean (<strong>always true</strong>)</td>
-<td style="text-align: left">True if the End-User&#39;s phone number has been verified; otherwise false. When this Claim Value is true, this means that the OP took affirmative steps to ensure that this phone number was controlled by the End-User at the time the verification was performed. The means by which a phone number is verified is context-specific, and dependent upon the trust framework or contractual agreements within which the parties are operating. When true, the phone_number Claim MUST be in E.164 format and any extensions MUST be represented in RFC 3966 format.</td>
-</tr>
-<tr>
-<td style="text-align: left">address</td>
-<td style="text-align: left">JSON object</td>
-<td style="text-align: left">End-User&#39;s preferred postal address. The value of the address member is a JSON <a href="https://openid.net/specs/openid-connect-core-1_0.html#RFC4627">[RFC4627]</a> structure containing some or all of the members defined in <a href="https://openid.net/specs/openid-connect-core-1_0.html#AddressClaim">Section 5.1.1</a>.</td>
+<td style="text-align: left"><strong>address</strong></td>
+<td style="text-align: left">This MUST be set to <code>address</code>. It will request the <code>street_address</code>, <code>locality</code>, <code>postal_code</code> and <code>country</code></td>
 </tr>
 </tbody></table>
-<h4 id='device-claim'><a name id="deviceClaim"></a> Device Claim</h4>
-<p>This claim is the information about the end user device. </p>
+<h3 id='using-claims-parameter-to-request-claims'>Using <code>claims</code> parameter to request claims</h3>
+<p>Some specific data&#39;s cannot be requested by using <code>scope</code> parameter. However, you can still add custom claims in the <code>claims</code> parameter, but they must conform to a namespaced format to avoid possible collisions with those requested through the <code>scope</code> parameter. </p>
 
-<p>Claim value: <strong><code>tag:sixdots.be,2017-05:claim_device</code></strong></p>
-
-<p>This will return you a JSON object with the following keys: (only keys with cardinality [1…1] will be always available)</p>
-<pre class="highlight json tab-json--inline"><code><span class="p">{</span><span class="w"> 
-  </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ANDROID"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"appName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itsme app"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"appRelease"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.17.13"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deviceLabel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myDevice"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"debugEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deviceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deviceId"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"osRelease"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Android 4.4.2"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"samsung"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"hasSimEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deviceLockLevel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"touchID"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"smsEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"rooted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"imei"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678901234567"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deviceModel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S8"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0412123123"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"sdkRelease"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.17.12"</span><span class="w"> 
- </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th style="text-align: left">Key</th>
-<th style="text-align: left">Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><code>os</code></td>
-<td style="text-align: left">the device operating system (possible values: <code>ANDROID</code>, <code>IOS</code>)</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>appName</code></td>
-<td style="text-align: left">the application name.</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>appRelease</code></td>
-<td style="text-align: left">the application current release.</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>deviceLabel</code></td>
-<td style="text-align: left">the name of the device.</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>debugEnabled</code></td>
-<td style="text-align: left">if debug mode is activated.</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>deviceId</code></td>
-<td style="text-align: left">(regexp =“[a-f0-9]{33}”) the device identifier.</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>osRelease</code></td>
-<td style="text-align: left">Version of the OS running on your Device.</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>manufacturer</code></td>
-<td style="text-align: left">Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android).</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>hasSimEnabled</code></td>
-<td style="text-align: left">Whether there is a SIM in the Device. Is always <code>true</code>, as long as BMID keeps forbidding installing itsme on a tablet.</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>deviceLockLevel</code></td>
-<td style="text-align: left">The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>smsEnabled</code></td>
-<td style="text-align: left">Can send SMS. On iOS, means it’s an iPhone.</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>rooted</code></td>
-<td style="text-align: left">Always <code>false</code> as long as BMID keeps forbidding using itsme on a jailbreaked/rooted device.</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>imei</code></td>
-<td style="text-align: left">(regexp = “[0-9]{15,17}”) the device IMEI value.</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>deviceModel</code></td>
-<td style="text-align: left">Model of the Device, e.g. <code>SAMSUNG GALAXY A5</code></td>
-</tr>
-<tr>
-<td style="text-align: left"><code>msisdn</code></td>
-<td style="text-align: left">the user’s phone number.</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>sdkRelease</code></td>
-<td style="text-align: left">SDK release</td>
-</tr>
-</tbody></table>
-<h4 id='eid-metadata-claim'><a name id="eidMetadata"></a> Eid Metadata Claim</h4>
-<p>Claim value: <strong><code>tag:itsmetag:sixdots.be,2016-06:claim_eid</code></strong></p>
-
-<p>This claim is Belgian Electronic ID card information encoded in JSON, with the following keys:</p>
+<p>Here are the custom claims you can request:</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">Key</th>
-<th style="text-align: left">Value</th>
+<th style="text-align: left">ID claims</th>
+<th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left"><code>eid</code></td>
-<td style="text-align: left">the electronic ID card serial number</td>
+<td style="text-align: left"><strong>nationality</strong></td>
+<td style="text-align: left">This MUST be set to <code>tag:itsmetag:sixdots.be,2016-06:claim_nationality</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left"><code>issuance_locality</code></td>
-<td style="text-align: left">the issuance locality</td>
+<td style="text-align: left"><strong>place of Birth - city</strong></td>
+<td style="text-align: left">This MUST be set to <code>tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left"><code>validity_from</code></td>
-<td style="text-align: left">eID card validity “from” date</td>
+<td style="text-align: left"><strong>place of Birth - country</strong></td>
+<td style="text-align: left">This MUST be set to<code>tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left"><code>validity_to</code></td>
-<td style="text-align: left">eID card validity “to” date</td>
+<td style="text-align: left"><strong>e-ID Metadata</strong></td>
+<td style="text-align: left">This MUST be set to<code>tag:itsmetag:sixdots.be,2016-06:claim_eid</code>. It will request a JSON object with the following keys:<br><ul><li><code>eid</code> - the eID card serial number.</br></li><li><code>issuance_locality</code> - the eID card issuance locality.</br></li><li><code>validity_from</code> - the eID card validity “from” date.</br></li><li><code>validity_to</code> - the eID card validity “to” date.</br></li><li><code>certificate_validity</code> - the eID card certificate validity.</br></li><li><code>read_date</code> - the data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000).</br></li></ul></td>
 </tr>
 <tr>
-<td style="text-align: left"><code>certificate_validity</code></td>
-<td style="text-align: left">the certificate validity</td>
+<td style="text-align: left"><strong>passport Number</strong></td>
+<td style="text-align: left">Simple string containing the user’s Passport Serial Number. This MUST be set to <code>tag:sixdots.be,2017-05:claim_passport_sn</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left"><code>read_date</code></td>
-<td style="text-align: left">the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: 2017-04-01T19:43:37+0000</td>
+<td style="text-align: left"><strong>device</strong></td>
+<td style="text-align: left">This MUST be set to <code>tag:sixdots.be,2017-05:claim_device</code>. It will request a JSON object with the following keys:<br><ul><li><code>os</code> - the device operating system. The returned values will be <code>ANDROID</code>or <code>iOS</code>.</br></li><li><code>appName</code> - the application name.</br></li><li><code>appRelease</code> - the application current release.</br></li><li><code>deviceLabel</code> - the name of the device.</br></li><li><code>debugEnabled</code> - if debug mode is activated.</br></li><li><code>deviceId</code> - the device identifier.</br></li><li><code>osRelease</code> - the version of the OS running on your device.</br></li><li><code>manufacturer</code> - the brand of the device manufacturer.</br></li><li><code>hasSimEnabled</code> - it tells you if a SIM card is installed in the device. The returned value is always <code>true</code> as long as itsme® can&#39;t be installed on tablets.</br></li><li><code>deviceLockLevel</code></br></li><li><code>smsEnabled</code></br></li><li><code>rooted</code> - the returned value is always <code>false</code> as long as itsme® can&#39;t be used on a jailbreaked/rooted device.</br></li><li><code>imei</code> - the device IMEI value.</br></li><li><code>deviceModel</code> - model of the device.</br></li><li><code>msisdn</code> - the User’s phone number.</br></li><li><code>sdkRelease</code></br></li></ul></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>transaction Info</strong></td>
+<td style="text-align: left">This MUST be set to <code>tag:sixdots.be,2017-05:claim_transaction_info</code>. It will request a JSON object with the following keys:<br><ul><li><code>securityLevel</code> - the security level used during transaction. The returned values could be <code>SOFT_ONLY</code>, <code>SIM_ONLY</code> or <code>SIM_AND_SOFT</code>.</br></li><li><code>bindLevel</code> - it tells you if the user account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <code>SOFT_ONLY</code>, <code>SIM_ONLY</code> or <code>SIM_AND_SOFT</code>.</br></li><li><code>mcc</code> - the Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country.</br></li></ul></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>e-ID Picture</strong></td>
+<td style="text-align: left">This MUST be set to <code>tag:sixdots.be,2017-05:2017-05:claim_photo</code>.</td>
 </tr>
 </tbody></table>
-<h4 id='transaction-info-claim'><a name id="transactionInfo"></a> Transaction Info Claim</h4>
-<p>Claim value: <strong><code>tag:sixdots.be,2017-05:claim_transaction_info</code></strong>
-Information available in the context of the current transaction.</p>
-<pre class="highlight http tab-http--inline"><code><span class="err">{ "securityLevel": "SIM\\\_AND\\\_SOFT", "bindLevel": "SIM\\\_AND\\\_SOFT", "mcc": 206 }
-</span></code></pre>
-<p>A JSON object with the following keys:</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Key</th>
-<th style="text-align: left">Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><code>securityLevel</code></td>
-<td style="text-align: left">(supported values: <code>SOFT_ONLY</code>, <code>SIM_ONLY</code>, <code>SIM_AND_SOFT</code>) Security level used during transaction</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>bindLevel</code></td>
-<td style="text-align: left">(supported values: <code>SOFT_ONLY</code>, <code>SIM_ONLY</code>, <code>SIM_AND_SOFT</code>) tells if the user account is bound to a SIM or not, at the time the transaction occurred</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>mcc</code></td>
-<td style="text-align: left">the Mobile Country Code. An Integer (three digits) representing the mobile network country.</td>
-</tr>
-</tbody></table>
+<h2 id='3-9-obtaining-id-claims-user-attibutes'>3.9 Obtaining ID claims/user attibutes</h2>
+<p>All claims requested in the Autentication request (see the <a href="#Data">previous</a> section for more informations) can be returned in the <code>id_token</code> and/or in the response from the itsme® UserInfo endpoint (depending on the type of request).</p>
 <h3 id='getting-data'>Getting Data</h3>
 <p>As per the <a href="http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest">OpenID Connect specification</a>, depending on how you declared claims in the Authentication Request, you will receive the user data from:
 - The UserInfo Endpoint
@@ -1243,7 +973,11 @@ If you declared  claims in the <code>id_Token</code> part of the <code>claims</c
 <p>To get further information about token types, token request/response specifications please proceed with <a href="#tokenEndpoint">3.2 Token Endpoint</a>.</p>
 <h5 id='example-of-id-token-containing-claims'>Example of Id Token Containing “claims”</h5>
 <p><em>Will be provided soon</em></p>
-<h1 id='4-appendixes'>4. Appendixes</h1><h2 id='4-1-passing-request-parameters-as-jwts'>4.1. <a name="JWTRequest"></a>Passing Request Parameters as JWTs</h2>
+<h1 id='4-appendixes'>4. Appendixes</h1>
+<p><a name="Appendix"></a> </p>
+<h2 id='4-1-passing-request-parameters-as-jwts'>4.1. Passing Request Parameters as JWTs</h2>
+<p><a name="JWTRequest"></a></p>
+
 <p>As per specified by OIDC <a href="https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests">here</a>, Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.</p>
 
 <p>The Request Object is a JWT token as defined in <a href="https://tools.ietf.org/html/rfc7519">RFC 7519</a>, which contains at least the following properties:</p>
