@@ -264,7 +264,7 @@ HTTP/1.1 200 OK
 ```
 The response body will include the following parameters:
 
-Parameter | Returned | Comment
+Parameter | Returned | Description
 :-- | :-- | :--
 **[`access_token`](#actoken)** | Always | The Access token which may be used to access the UserInfo endpoint.
 **[`token_type`](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)** | Always | Set to `Bearer`.
@@ -335,141 +335,38 @@ Following the OpenID Connect Core specifications, there are multiple ways to req
 
 The scope parameter allows the application to express the desired scope of the access request. As stated before, it MUST contain the value `openid` and `service: service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding). 
 
-The basic claims returned for the `openid` value are the sub claim - which uniquely identifies the user (e.g.: UserCode), the `iss`, `aud`, `exp`, `iat` and `at_hash`. All these claims will be present either in the `id_token` JWT, a cryptographically signed Base64-encoded JSON object returned in the [Token response](#TokenResponse), or in the UserInfo response.
+The basic claims returned for the `openid` value are the `sub` claim - which uniquely identifies the user (e.g.: UserCode), the `iss`, `aud`, `exp`, `iat` and `at_hash`. All these claims will be present either in the `id_token` JWT, a cryptographically signed Base64-encoded JSON object returned in the [Token response](#TokenResponse), or in the UserInfo response.
 
 Your applications can ask for additional scopes to request more information about the User. The following additional scopes apply:
 
-* `profile`: will request the claims representing basic profile information. These are `family_name`, `given_name`, `gender`, `birthdate` and `locale`
-* `email`: will request the `email` and `email_verified` claims.
-* `phone`: will request the `phone_number` and `phone_number_verified` claims.
-* `address`: will request the `street_address`, `locality`, `postal_code` and `country`
+ID claims | Description
+:-- | :-- 
+**profile** | This MUST be set to `profile`. It will request the claims representing basic profile information. These are `family_name`, `given_name`, `gender`, `birthdate` and `locale`
+**email** | This MUST be set to `email`. It will request t`profile`. It we `email` and `email_verified` claims.
+**phone** | This MUST be set to `phone`. It will request the `phone_number` and `phone_number_verified` claims.
+**address**  | This MUST be set to `address`. It will request the `street_address`, `locality`, `postal_code` and `country`
 
 Your application now can retrieve these values and use them to personalize the UI.
 
 ###  Using `claims` parameter to request claims
 
+Some specific data's cannot be requested by using `scope` parameter. However, you can still add custom claims in the `claims` parameter, but they must conform to a namespaced format to avoid possible collisions with those requested through the `scope` parameter. 
 
+Here are the custom claims you can request:
 
+ID claims | Description
+:-- | :-- 
+**nationality** | This MUST be set to `tag:itsmetag:sixdots.be,2016-06:claim_nationality` 
+**place of Birth - city** | This MUST be set to `tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`
+**place of Birth - country** | This MUST be set to`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** 
+**e-ID Metadata**  | This MUST be set to`tag:itsmetag:sixdots.be,2016-06:claim_eid`. It will request a JSON object with the following keys:<br>`eid` - the eID card serial number.</br><br>`issuance_locality` - the eID card issuance locality.</br><br>`validity_from` - the eID card validity “from” date.</br><br>`validity_to` - the eID card validity “to” date.</br><br>`certificate_validity` - the eID card certificate validity.</br><br>`read_date` - the data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000).</br>
+**passport Number** | Simple string containing the user’s Passport Serial Number. This MUST be set to `tag:sixdots.be,2017-05:claim_passport_sn`
+**device** | This MUST be set to `tag:sixdots.be,2017-05:claim_device`. It will request a JSON object with the following keys:<br>`os` - the device operating system. The returned values will be `ANDROID`or `iOS`.</br><br>`appName` - the application name.</br><br>`appRelease` - the application current release.</br><br>`deviceLabel` - the name of the device.</br><br>`debugEnabled` - if debug mode is activated.</br><br>`deviceId` - the device identifier.</br><br>`osRelease` - the version of the OS running on your device.</br><br>`manufacturer` - the brand of the device manufacturer.</br><br>`hasSimEnabled` - it tells you if a SIM card is installed in the device. The returned value is always `true` as long as itsme® can't be installed on tablets.</br><br>`deviceLockLevel`</br><br>`smsEnabled`</br><br>`rooted` - the returned value is always `false` as long as itsme® can't be used on a jailbreaked/rooted device.</br><br>`imei` - the device IMEI value.</br><br>`deviceModel` - model of the device.</br><br>`msisdn` - the User’s phone number.</br><br>`sdkRelease`</br>
+**transaction Info** | This MUST be set to `tag:sixdots.be,2017-05:claim_transaction_info`. It will request a JSON object with the following keys:<br>`securityLevel` - the security level used during transaction. The returned values could be `SOFT_ONLY`, `SIM_ONLY` or `SIM_AND_SOFT`.</br><br>`bindLevel` - it tells you if the user account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be `SOFT_ONLY`, `SIM_ONLY` or `SIM_AND_SOFT`.</br><br>`mcc` - the Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country. 
+**e-ID Picture** | This MUST be set to `tag:sixdots.be,2017-05:2017-05:claim_photo`
 
+All these claims will be present either in the `id_token` JWT, a cryptographically signed Base64-encoded JSON object returned in the [Token response](#TokenResponse), or in the UserInfo response.
 
-
-
-
-
-
-#### Using `claims` parameter
-
-Some specific data cannot be requested by using scope values. They have to be requested in the claims as request parameter of the Authentication Request. Using this [method](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter) of requesting claims, you need to specify the endpoint you want the claims to come from. ( see example for different specifying endpoints [4.2.2.1. Set of Request Parameter Adapted to itsme(r)](#example-endpoint))
-
-Here are these custom claims defined by BMID:
-
-Data | Claim | Comment 
--- | -- | --
-Nationality | **`tag:itsmetag:sixdots.be,2016-06:claim_nationality`** |
-Place of Birth - city | **`tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`** |
-Place of Birth - country | **`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`** | 
-E-ID Metadata  | **`tag:itsmetag:sixdots.be,2016-06:claim_eid`** |  See [eID Metadata](#eidMetadata)
-Passport Number | **`tag:sixdots.be,2017-05:claim_passport_sn`** | Simple string containing the user’s Passport Serial Number. 
-Device | **`tag:sixdots.be,2017-05:claim_device`** | See [Device Claim](#deviceClaim)
-Transaction Info| **`tag:sixdots.be,2017-05:claim_transaction_info`** |See [Transaction Info](#transactionInfo)
-E-ID Picture | **`tag:sixdots.be,2017-05:2017-05:claim_photo`**|
- 
- 
-As per specified by OpenID Connect, there is a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), or user attributes. They are intended to supply the client app with consented user details such as email, name and picture, upon request.  They can be requested to be returned either in the UserInfo Response, per [Section 5.3.2](https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse), or in the ID Token, per [Section 2](https://openid.net/specs/openid-connect-core-1_0.html#IDToken).
-
-The following table lists the supported standard "claim" values, 
-
-Member  |Type  |Description
-:--|:--|:--
-name |string|Subject - Concatenation  for the End-User at the Issuer.
-given_name|string|  Given name(s) or first name(s) of the End-User. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.
-family_name|string|Surname(s) or last name(s) of the End-User. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.
-profile|string|URL of the End-User's profile page. The contents of this Web page SHOULD be about the End-User.
-email|string|End-User's preferred e-mail address. Its value MUST conform to the [RFC 5322](https://openid.net/specs/openid-connect-core-1_0.html#RFC5322) [RFC5322] addr-spec syntax. The RP MUST NOT rely upon this value being unique, as discussed in [Section 5.7](https://openid.net/specs/openid-connect-core-1_0.html#ClaimStability).
-email_verified|boolean|True if the End-User's e-mail address has been verified; otherwise false. When this Claim Value is true, this means that the OP took affirmative steps to ensure that this e-mail address was controlled by the End-User at the time the verification was performed. The means by which an e-mail address is verified is context-specific, and dependent upon the trust framework or contractual agreements within which the parties are operating.
-gender|string|End-User's gender. Values defined by this specification are female and male. Other values MAY be used when neither of the defined values are applicable.
-birthdate|string|End-User's birthday, represented as an [ISO 8601:2004](https://openid.net/specs/openid-connect-core-1_0.html#ISO8601-2004) [ISO8601‑2004] YYYY-MM-DD format. The year MAY be 0000, indicating that it is omitted. To represent only the year, YYYY format is allowed. Note that depending on the underlying platform's date related function, providing just year can result in varying month and day, so the implementers need to take this factor into account to correctly process the dates.
-locale|string|End-User's locale, represented as a [BCP47](https://openid.net/specs/openid-connect-core-1_0.html#RFC5646) [RFC5646] language tag. This is typically an [ISO 639-1 Alpha-2](https://openid.net/specs/openid-connect-core-1_0.html#ISO639-1) [ISO639‑1] language code in lowercase and an [ISO 3166-1 Alpha-2](https://openid.net/specs/openid-connect-core-1_0.html#ISO3166-1)[ISO3166‑1] country code in uppercase, separated by a dash. For example, en-US or fr-CA. As a compatibility note, some implementations have used an underscore as the separator rather than a dash, for example, en_US; Relying Parties MAY choose to accept this locale syntax as well.
-phone_number|string|  End-User's preferred telephone number.  [E.164](https://openid.net/specs/openid-connect-core-1_0.html#E.164)  [E.164] is RECOMMENDED as the format of this Claim.If the phone number contains an extension, it is RECOMMENDED that the extension be represented using the  [RFC 3966](https://openid.net/specs/openid-connect-core-1_0.html#RFC3966)  [RFC3966] extension syntax.
-phone_number_verified |boolean (**always true**)|True if the End-User's phone number has been verified; otherwise false. When this Claim Value is true, this means that the OP took affirmative steps to ensure that this phone number was controlled by the End-User at the time the verification was performed. The means by which a phone number is verified is context-specific, and dependent upon the trust framework or contractual agreements within which the parties are operating. When true, the phone_number Claim MUST be in E.164 format and any extensions MUST be represented in RFC 3966 format.
-address|JSON object|End-User's preferred postal address. The value of the address member is a JSON [[RFC4627]](https://openid.net/specs/openid-connect-core-1_0.html#RFC4627) structure containing some or all of the members defined in [Section 5.1.1](https://openid.net/specs/openid-connect-core-1_0.html#AddressClaim).
- 
-#### <a name id="deviceClaim"></a> Device Claim 
-This claim is the information about the end user device. 
-
-Claim value: **`tag:sixdots.be,2017-05:claim_device`**
-
-This will return you a JSON object with the following keys: (only keys with cardinality [1…1] will be always available)
-
-```json--inline
-{ 
-  "os": "ANDROID",
-  "appName": "itsme app",
-  "appRelease": "1.17.13",
-  "deviceLabel": "myDevice",
-  "debugEnabled": false,
-  "deviceId": "deviceId",
-  "osRelease": "Android 4.4.2",
-  "manufacturer": "samsung",
-  "hasSimEnabled": true,
-  "deviceLockLevel": "touchID",
-  "smsEnabled": true,
-  "rooted": false,
-  "imei": "12345678901234567",
-  "deviceModel": "S8",
-  "msisdn": "0412123123",
-  "sdkRelease": "1.17.12" 
- }
-```
-Key | Value
-:-- | :--
-`os` | the device operating system (possible values: `ANDROID`, `IOS`)   
-`appName` | the application name.   
-`appRelease` | the application current release.   
-`deviceLabel` | the name of the device.   
-`debugEnabled` | if debug mode is activated.   
-`deviceId` | (regexp =“[a-f0-9]{33}”) the device identifier.   
-`osRelease` | Version of the OS running on your Device.  
-`manufacturer` | Brand of the device manufacturer (‘Apple’ on iOS, device specific on Android).
-`hasSimEnabled` | Whether there is a SIM in the Device. Is always `true`, as long as BMID keeps forbidding installing itsme on a tablet. 
-`deviceLockLevel` | The type of action to be performed to unlock the Device. On iOS : TOUCH_ID, PASSCODE or NONE if User protected his Device with TouchID, PIN or nothing.   
-`smsEnabled` | Can send SMS. On iOS, means it’s an iPhone.
-`rooted` | Always `false` as long as BMID keeps forbidding using itsme on a jailbreaked/rooted device.   
-`imei` | (regexp = “[0-9]{15,17}”) the device IMEI value.
-`deviceModel` | Model of the Device, e.g. `SAMSUNG GALAXY A5`
-`msisdn` | the user’s phone number.  
-`sdkRelease` | SDK release
-
-#### <a name id="eidMetadata"></a> Eid Metadata Claim 
-
-Claim value: **`tag:itsmetag:sixdots.be,2016-06:claim_eid`**
-
-This claim is Belgian Electronic ID card information encoded in JSON, with the following keys:
-
-Key | Value
-:-- | :--
-`eid` | the electronic ID card serial number
-`issuance_locality` | the issuance locality
-`validity_from` | eID card validity “from” date
-`validity_to` | eID card validity “to” date
-`certificate_validity` |the certificate validity
-`read_date` | the data extraction date. Each date is encoded using ISO 8601 UTC (timezone) date format. Example of ISO 8601 UTC date: 2017-04-01T19:43:37+0000
-
-#### <a name id="transactionInfo"></a> Transaction Info Claim
-Claim value: **`tag:sixdots.be,2017-05:claim_transaction_info`**
-Information available in the context of the current transaction.
-
-```http--inline
-{ "securityLevel": "SIM\\\_AND\\\_SOFT", "bindLevel": "SIM\\\_AND\\\_SOFT", "mcc": 206 }
-```
-
-A JSON object with the following keys:
-
-Key | Value
-:-- | :--
-`securityLevel` | (supported values: `SOFT_ONLY`, `SIM_ONLY`, `SIM_AND_SOFT`) Security level used during transaction
-`bindLevel` | (supported values: `SOFT_ONLY`, `SIM_ONLY`, `SIM_AND_SOFT`) tells if the user account is bound to a SIM or not, at the time the transaction occurred
-`mcc` | the Mobile Country Code. An Integer (three digits) representing the mobile network country. 
 
 
 
