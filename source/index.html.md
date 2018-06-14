@@ -120,7 +120,7 @@ Parameter | Required | Description
 **max_age** | Optional | Specifies the allowable elapsed time in seconds since the last time the user was actively authenticated by itsme®. If the elapsed time is greater than this value, the authentication system MUST attempt to actively re-authenticate the User. As itsme® does not maintain a session mechanism, an active authentication is always required.
 <a name="acrvalues">**acr_values**</a> | Optional | Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference.<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br>`tag:itsmetag:sixdots.be,2016-06:acr_basic`</br></li><li>Advanced level - force the User to use PIN<br>`tag:itsmetag:sixdots.be,2016-06:acr_advanced`</br></li></ul>When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used.</br>
 **claims** | Optional | This parameter is used to request that specific claims be returned. The value is a JSON object listing the requested claims.<br>Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the returned data will be encrypted.</br><br>See [User Data](#Data) for more information.</br>
-**request** | Optional | This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. The parameter value is a Request Object value.<br>See [Passing Request Parameters as JWTs](#JWTRequest) for more information.</br>
+**request** | Optional | This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. The parameter value is a Request Object value.<br>See [OpenID Connect Core specifications](https://openid.net/specs/openid-connect-core-1_0.html) for more information.</br>
 **response_mode** | Not supported | Any supplied value will be ignored.
 **id\_token\_hint** | Not supported | Any supplied value will be ignored.
 **claims_locales** | Not supported | Any supplied value will be ignored.
@@ -477,73 +477,8 @@ HTTP/1.1 401 Unauthorized
  
 # 4. Appendixes
 <a name="Appendix"></a> 
-## 4.1. Passing Request Parameters as JWTs
-<a name="JWTRequest"></a>
 
-As per specified by OIDC [here](https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests), Authorization Request parameters to enable Authentication Requests to be signed and optionally encrypted are explained.
- 
-The Request Object is a JWT token as defined in [RFC 7519](https://tools.ietf.org/html/rfc7519), which contains at least the following properties:
-
-Property | Required | Comment
--- | -- | --
-**iss** | Required | Specifies the issuing authority. Issuer of the id_tokenIssuer. Must be the `client_id`
-**aud** | Required | Audience. MUST be the Token Endpoint URL
- 
- Example of claim request before base64url encoding, signing and encryption. In this example, the partner is using the login service.
- 
-```json--inline
- {
- 	// JWT Registered claims (https://tools.ietf.org/html/rfc7519#section-4.1)
- 	iss: "s6BhdRkqt3",
- 	aud: "https://server.itsme.be",
- 	// OIDC parameters, must reflect the values of the HTTP parameters
- 	client_id: "s6BhdRkqt3",
- 	response_type: "code",
- 	redirect_uri: "https://client.example.org/cb",
- 	scope: "openid email service:PARTNER_LOGIN",
- 	state: "af0ifjsldkj",
- 	nonce: "n-0S6_WzA2Mj",
- 	claims:
- 	{
- 		userinfo: {
- 		    "tag:itsmetag:sixdots.be,2016-06:claim_nationality": null,
- 		},
- 		id_token: {
- 			auth_time: {"essential": true},
- 			acr: {"value": \["tag:itsmetag:sixdots.be,2016-06:acr_advanced"\] 		
- 		}
- 	}
- }
- ```
- 
-## 4.2. Requests Signing and Encryption 
-Encryption algorithm used: RSA SHA-256
- 
-Supported algorithms and encryption methods for:
-- ID Token
--- Encryption Method (enc): A128CBC-HS256
--- Encryption Algorithm (alg): RSA-OAEP
--- Signing Algorithm (alg): RS256
-- User Info
--- Encryption Method (enc): A128CBC-HS256
--- Encryption Algorithm (alg): RSA-OAEP
--- Signing Algorithm (alg):  RS256
-- Request Object
--- Encryption Method (enc): A128CBC-HS256
--- Encryption Algorithm (alg): RSA-OAEP
--- Signing Algorithm (alg): RS256
- 
-Offline access is not supported. 
- 
-Dynamic client registration is not allowed.
- 
-itsme(r) exposes its signing and encryption keys on a public endpoint (JWKSet) 
-https://merchant.itsme.be/oidc/jwkSet
- 
-It is expected that you will also expose their signing and encryption keys in such a way. The location of your JWKSet must be configured by an  administrator of BMID during your on-boarding. The exposed endpoint must be HTTPS.
-
-
-## 4.3. Universal Links on iOS
+## 4.1. Universal Links on iOS
 Integration is going to be pretty straightforward, all details can be found in below steps (as documented on [Universal Links official documentation](https://developer.apple.com/ios/universal-links/)):
 1. Register your app at developer.apple.com
 2. Enable ‘Associated Domains’ on your app identifier
@@ -566,7 +501,7 @@ Integration is going to be pretty straightforward, all details can be found in b
   }
 } 
 ```
-The JSON object will contain 
+The JSON object will contain:
 
 Parameter |	Description
 :-- | :--
@@ -654,7 +589,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
  return true
 }
 ```
-## 4.4. App Links on Android
+## 4.2. App Links on Android
 
 The App Links Assistant in Android Studio can help you create intent filters in your manifest and map existing URLs from your website to activities in your app. Follow below steps to configure the App links (as documented on [App Links official documentation](https://developer.android.com/studio/write/app-link-indexing)):
 
