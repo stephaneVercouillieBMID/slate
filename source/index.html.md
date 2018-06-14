@@ -329,57 +329,31 @@ All these scenario's are depicted in the diagrams below:
 <img src="LinkUser.png" alt="Picture illustrates possibilities for linking user accounts">
 
 <a name="Data"></a>
-## 3.8 Requesting ID claims/user attibutes
+## 3.8 Obtaining ID claims/user attibutes
 
 OpenID Connect Core specifications also allow your application to obtain basic profile information about them in a interoperable way. 
 
-Following the OpenID Connect Core specifications, there are 2 ways to request ID claims/user attributes for a specific User:
+Following the OpenID Connect Core specifications, there are 2 ways to obtain ID claims/user attributes for a specific User:
 <ul>
-  <il>using the `scope` parameter in the Authentication request</il>
-  <il>using the `claims` parameter in the Authentication request</il>
+  <il>using the `id_token` returned in the Token response</il>
+  <il>capturing the claims from the itsme® UserInfo Endpoint</il>
 </ul>
 
-###  Using `scope` parameter to request claims
+###  Using `id_token` to obtain claims
 <a name id="decClaim"></a>
 
-The scope parameter allows the application to express the desired scope of the access request. As stated before, it MUST contain the value `openid` and `service: service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding). 
-
-The basic claims returned for the `openid` value are the `sub` claim - which uniquely identifies the user (e.g.: UserCode), the `iss`, `aud`, `exp`, `iat` and `at_hash`. 
+The `id_token` will return specific claims, depending on the values you requested in the `scope` parameter. As stated before, `scope` MUST contain the value `openid` and `service: service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding). 
 
 Your applications can ask for additional scopes to request more information about the User. The following additional scopes apply:
 
 Parameter | Description
 :-- | :-- 
-**profile** | This MUST be set to `profile`. It will request the claims representing basic profile information. These are `family_name`, `given_name`, `gender`, `birthdate` and `locale`
-**email** | This MUST be set to `email`. It will request the `email` and `email_verified` claims.
-**phone** | This MUST be set to `phone`. It will request the `phone_number` and `phone_number_verified` claims.
-**address**  | This MUST be set to `address`. It will request the `street_address`, `locality`, `postal_code` and `country`.
+**profile** | This MUST be set to `profile`. 
+**email** | This MUST be set to `email`. 
+**phone** | This MUST be set to `phone`. 
+**address**  | This MUST be set to `address`. 
 
-###  Using `claims` parameter to request claims
-
-Some specific data's cannot be requested by using `scope` parameter. However, you can still add custom claims in the `claims` parameter, but they must conform to a namespaced format to avoid possible collisions with those requested through the `scope` parameter. 
-
-Here are the custom claims you can request:
-
-Parameter | Description
-:-- | :-- 
-**nationality** | This MUST be set to `tag:itsmetag:sixdots.be,2016-06:claim_nationality`.
-**place of Birth - city** | This MUST be set to `tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`.
-**place of Birth - country** | This MUST be set to`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`.
-**e-ID Metadata**  | This MUST be set to`tag:itsmetag:sixdots.be,2016-06:claim_eid`. It will request a JSON object with the following keys:<br><ul><li>`eid` - the eID card serial number.</br></li><li>`issuance_locality` - the eID card issuance locality.</br></li><li>`validity_from` - the eID card validity “from” date.</br></li><li>`validity_to` - the eID card validity “to” date.</br></li><li>`certificate_validity` - the eID card certificate validity.</br></li><li>`read_date` - the data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000).</br></li></ul>
-**passport Number** | Simple string containing the user’s Passport Serial Number. This MUST be set to `tag:sixdots.be,2017-05:claim_passport_sn`.
-**device** | This MUST be set to `tag:sixdots.be,2017-05:claim_device`. It will request a JSON object with the following keys:<br><ul><li>`os` - the device operating system. The returned values will be `ANDROID`or `iOS`.</br></li><li>`appName` - the application name.</br></li><li>`appRelease` - the application current release.</br></li><li>`deviceLabel` - the name of the device.</br></li><li>`debugEnabled` - if debug mode is activated.</br></li><li>`deviceId` - the device identifier.</br></li><li>`osRelease` - the version of the OS running on your device.</br></li><li>`manufacturer` - the brand of the device manufacturer.</br></li><li>`hasSimEnabled` - it tells you if a SIM card is installed in the device. The returned value is always `true` as long as itsme® can't be installed on tablets.</br></li><li>`deviceLockLevel`</br></li><li>`smsEnabled`</br></li><li>`rooted` - the returned value is always `false` as long as itsme® can't be used on a jailbreaked/rooted device.</br></li><li>`imei` - the device IMEI value.</br></li><li>`deviceModel` - model of the device.</br></li><li>`msisdn` - the User’s phone number.</br></li><li>`sdkRelease`</br></li></ul>
-**transaction Info** | This MUST be set to `tag:sixdots.be,2017-05:claim_transaction_info`. It will request a JSON object with the following keys:<br><ul><li>`securityLevel` - the security level used during transaction. The returned values could be `SOFT_ONLY`, `SIM_ONLY` or `SIM_AND_SOFT`.</br></li><li>`bindLevel` - it tells you if the user account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be `SOFT_ONLY`, `SIM_ONLY` or `SIM_AND_SOFT`.</br></li><li>`mcc` - the Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country.</br></li></ul>
-**e-ID Picture** | This MUST be set to `tag:sixdots.be,2017-05:2017-05:claim_photo`.
-
-
-## 3.9 Obtaining ID claims/user attibutes
-
-All claims requested in the Autentication request (see the [previous](#Data) section for more informations) can be returned in the `id_token` and/or in the response from the itsme® UserInfo endpoint (depending on the type of request).
-
-###  Via the `id_token` returned in the Token response
-
-The id token is comprised of three Base64URL encoded elements. You MUST decode this JWT if you to get a JSON object containing the claims about the User. As stated above, the fields returned via the `id_token` are those below
+As the `id_token` is comprised of three Base64URL encoded elements, you MUST decode this JWT to get a JSON object containing the claims about the User. The fields returned via the `id_token` are those below:
 
 Values |	Returned |	Description
 :-- | :-- | :--
@@ -393,92 +367,112 @@ Values |	Returned |	Description
 **acr** | Always | Possible values: `tag:sixdots.be,2016-06:acr_basic` and `tag:sixdots.be,2016-06:acr_advanced`
 **amr** | Never |
 **azp** | Never |
-**profile** | If provided | This MUST be set to `profile`. It will request the claims representing basic profile information. These are `family_name`, `given_name`, `gender`, `birthdate` and `locale`
-**email** | If provided | This MUST be set to `email`. It will request the `email` and `email_verified` claims.
-**phone** | If provided | This MUST be set to `phone`. It will request the `phone_number` and `phone_number_verified` claims.
-**address**  | If provided | This MUST be set to `address`. It will request the `street_address`, `locality`, `postal_code` and `country`.
+**family_name** | If requested | 
+**given_name** | If requested | 
+**gender** | If requested | 
+**birthdate** | If requested | 
+**locale** | If requested | 
+**email** | If requested | The user's email address. This may not be unique and is not suitable for use as a primary key. Provided only if your scope included the string "email".
+**email_verified** | If requested | `True` if the user's e-mail address has been verified; otherwise `false`.
+**phone_number** | If requested | 
+**phone_number_verified** | If requested | 
+**street_address** | If requested | 
+**locality** | If requested | 
+**postal_code** | If requested | 
+**country** | If requested | 
 
+###  Capturing claims from the UserInfo Endpoint
 
-The first element is the id token header. If we decode the value from the example above we get the string below:
+Typically the `id_token` only contains claims about the authentication event and the identity of the User. Other information about the User can be requested by including additional scopes in the authentication request as mentionned above (e.g.: phone, address, profile and email scopes). 
 
-`{"alg":"RS256","kid":"1e9gdk7"}`
+If the required claims are not returned in the `id_token` you can still add custom claims in the `claims` parameter as specified below:
 
+Parameter | Description
+:-- | :-- 
+**nationality** | This MUST be set to `tag:itsmetag:sixdots.be,2016-06:claim_nationality`.
+**place of Birth - city** | This MUST be set to `tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`.
+**place of Birth - country** | This MUST be set to`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`.
+**e-ID Metadata**  | This MUST be set to`tag:itsmetag:sixdots.be,2016-06:claim_eid`. 
+**passport Number** | This MUST be set to `tag:sixdots.be,2017-05:claim_passport_sn`.
+**device** | This MUST be set to `tag:sixdots.be,2017-05:claim_device`. 
+**transaction Info** | This MUST be set to `tag:sixdots.be,2017-05:claim_transaction_info`. 
+**e-ID Picture** | This MUST be set to `tag:sixdots.be,2017-05:2017-05:claim_photo`.
 
+You can obtain these additional claims - and those defined by using the `scope` parameter - by presenting the `access_token` to the itsme® UserInfo endpoint. This is achieved by sending a HTTPS GET request over TLS to the UserInfo endpoint URI, passing the access token value in the Authorization header using the Bearer authentication scheme.
 
-
-
-
-#### UserInfo Endpoint
-As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest).
-
-If you declared claims with `scope` values or if you declared claims in the `userinfo` part of the `claims` parameter in the `request` object, you will receive the end user data from the UserInfo Endpoint.
-
-The UserInfo endpoint returns previously consented user profile information to the client app. For that a valid access token is required.
-
-Your server sends the User Info Request using either HTTP  `GET`  or HTTP  `POST` method. The Access Token obtained from an Authentication Request must be sent as a Bearer Token. It is recommended that the request use the HTTP  `GET`method and the Access Token be sent the using the  `Authorization`  header field. The HTTP request is sent to the User Info endpoint, which you should retrieve from the  [Discovery document](https://merchant.itsme.be/oidc/.well-known/openid-configuration)  using the key  **userinfo_endpoint**.
-
-The content type of the response will be `application/JWT`. The response will be signed and encrypted. 
-
-The UserInfo endpoint can be accessed only with a valid **access_token** and for a very limited duration after end user authentication. There must be _less than 3 minutes_ between the creation of the user action to be confirmed by the end user on his mobile device, and the access to the User Info Endpoint.
-The Access Token will define the list of Data that will be provided back to the client. In order to request specific claims, you can  [use scopes](https://stackedit.io/app#stClaims)  in the Authentication Request and/or  [use the claims parameter](https://stackedit.io/app#Claims-Request)  of the  request Object.
-
-##### User info Request Specification
-As per specified [OIDC UserInfo Request](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest).
-
-The Client sends the UserInfo Request using either HTTP  GET  or HTTP  POST. The Access Token obtained from an OpenID Connect Authentication Request MUST be sent as a Bearer Token, per Section 2 of  [OAuth 2.0 Bearer Token Usage](http://openid.net/specs/openid-connect-core-1_0.html#RFC6750)  [RFC6750].
-
-<aside class="success">It is recommended that using HTTP GET request method and  sending Access Token by using the Authorization header field.</aside>
+The itsme® UserInfo endpoint is: `https://merchant.itsme.be/oidc/.well-known/openid-configuration`. This URI can be retrieved from the itsme® [Discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html), using the key `userinfo_endpoint`.
 
 ```http--inline
 GET /userinfo HTTP/1.1 
 Host: server.example.com 
 Authorization: Bearer SlAV32hkKG
 ``` 
-|Parameter  | Comment
-|--|--|
-| acr | Possible values: <br>`tag:sixdots.be,2016-06:acr_basic`<br>`tag:sixdots.be,2016-06:acr_advanced` |
-| amr |Won’t be provided  |
-| azp| Won’t be provided |
-|auth_time | Will always be provided
 
-##### User info Response Specification
-The content type of the response will be `application/jwt`. The response will be signed and encrypted by BMID using the signing and encryption certificate exposed. The itsme Back-End replies with the Identity Data that were requested in the Authorization Request.
-<aside class="success">What is the lay-out of the Identity Data that BMID obtain in the Userinfo Response? They are the same as on the eID card </aside>
-<aside class="success">What format does the certificate need to be?
-It needs to be in ZIP file, X509 format (cer or crt). Pem file is not supported.  </aside>
+The UserInfo claims will be returned in a HTTP 200 OK response. The non-exhaustive fields returned via the UserInfo endpoint are those below:
 
-##### User info Response Example
-(Not encrypted nor signed)
- 
 ```http--inline
- HTTP/1.1 200 OK
- Content-Type: application/json
- 
- {
-    "sub": "248289761001",
-    "name": "Jane Doe",
-    "email": "janedoe@example.com"
- }
- ```
-##### User info Errors
-When an error condition occurs, the UserInfo Endpoint returns an Error Response as defined in Section 3 of  [OAuth 2.0 Bearer Token Usage RFC6750](https://tools.ietf.org/html/rfc6750)   (HTTP errors unrelated to RFC 6750 are returned to the User Agent using the appropriate HTTP status code.)
+HTTP/1.1 200 OK
+  Content-Type: application/json
 
-The following is a non-normative example of a UserInfo Error Response:
+  {
+   "sub": "248289761001",
+   "name": "Jane Doe",
+   "given_name": "Jane",
+   "family_name": "Doe",
+   "preferred_username": "j.doe",
+   "email": "janedoe@example.com",
+   "picture": "http://example.com/janedoe/me.jpg"
+  }  
+```
+
+Values | Description
+:-- | :-- 
+**nationality** | 
+**place of Birth - city** | This MUST be set to `tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`.
+**place of Birth - country** | This MUST be set to`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`.
+**eid**  | The eID card serial number.
+**issuance_locality**  | The eID card issuance locality.
+**validity_from**  | The eID card validity “from” date.
+**validity_to**  | The eID card validity “to” date.
+**certificate_validity**  | The eID card certificate validity.
+**read_date**  | The data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000).
+**passport Number** | Simple string containing the user’s Passport Serial Number. 
+**os** | The device operating system. The returned values will be `ANDROID`or `iOS`
+**appName**  | The application name.
+**appRelease**  | The application current release.
+**deviceLabel**  | The name of the device.
+**debugEnabled**  | `True` if debug mode has been activated; otherwise `false`.
+**deviceId**  | The device identifier.
+**osRelease**  | The version of the OS running on your device.
+**manufacturer**  | The brand of the device manufacturer.
+**hasSimEnabled**  | It tells you if a SIM card is installed in the device, or not. The returned value is always `true` as long as itsme® can't be installed on tablets.
+**deviceLockLevel**  |
+**smsEnabled**  |
+**rooted**  | The returned value is always `false` as long as itsme® can't be used on a jailbreaked/rooted device.
+**imei**  | The device IMEI value.
+**deviceModel**  | The model of the device.
+**msisdn**  | The User’s phone number.
+**sdkRelease**  |
+**securityLevel** | The security level used during transaction. The returned values could be `SOFT_ONLY`, `SIM_ONLY` or `SIM_AND_SOFT`.
+**bindLevel**  | It tells you if the user account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be `SOFT_ONLY`, `SIM_ONLY` or `SIM_AND_SOFT`.
+**mcc**  | The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country.
+**e-ID Picture** | 
+
+<aside class="notice">The `sub` claim will always be included in the response and this should be verified by you to mitigate against token substitution attacks. The `sub` claim in the UserInfo response MUST be verified to exactly match the `sub` Claim in the `id_token`; if they do not match, the UserInfo response values MUST NOT be used.</aside>
+
+<aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
+
+<aside class="notice">itsme® will ensure that the UserInfo response is signed or encrypted, meaning that the content type will be set to application/jwt. If signed the UserInfo response will contain the `iss` and `aud` claims. You should validate that the `iss` value matches itsme® issuer identifier and the `aud` value contains the your `client_id`.</aside>
+
+<aside class="notice">You should authenticate the OpenID Provider either by checking the TLS certificate or by validating the signature of the JWT if provided.</aside>
+
+When an error condition occurs an error response as defined in the [OAuth 2.0 Bearer Token Usage specification](https://tools.ietf.org/html/rfc6750) will be returned.
+
 ```http--inline
-  HTTP/1.1 401 Unauthorized
+HTTP/1.1 401 Unauthorized
   WWW-Authenticate: error="invalid_token",
     error_description="The Access Token expired"
- ```
-
-#### Token Endpoint
-As per specified by OIDC, when using the authorization code flow to obtain an Access Token and an ID Token, you will send a token request to token endpoint to have a token response.
-If you declared  claims in the `id_Token` part of the `claims` parameter in the `request` object,  you will receive the end user data from the Token Endpoint.
-
-##### Token Endpoint Specs
-To get further information about token types, token request/response specifications please proceed with [3.2 Token Endpoint](#tokenEndpoint).
-
-##### Example of Id Token Containing “claims”
-*Will be provided soon*
+```
 
  
 # 4. Appendixes
