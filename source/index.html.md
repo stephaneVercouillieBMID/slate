@@ -329,7 +329,7 @@ All these scenario's are depicted in the diagrams below:
 <img src="LinkUser.png" alt="Picture illustrates possibilities for linking user accounts">
 
 <a name="Data"></a>
-## 3.8 Obtaining ID claims/user attibutes
+## 3.8. Obtaining ID claims/user attibutes
 
 OpenID Connect Core specifications also allow your application to obtain basic profile information about them in a interoperable way. 
 
