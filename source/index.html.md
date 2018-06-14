@@ -142,7 +142,7 @@ If the User is successfully authenticated and authorizes access to the data requ
  ```
 The response will contain:
 
-Parameter | Returned | Description
+Values | Returned | Description
 :--:|:-- |:--
 **code** | Always |The code parameter holds the authorization code which is a string value. The content of authorization code is opaque for you. This code has a lifetime of 3 minutes.
 **state** | If provided |The state parameter will be returned if you provided a value in the Authentication request. You should validate that the value returned matches the one supplied in the authentication request. The state value can additionally be used to mitigate against XSRF attacks by cryptographically binding the value of this parameter with a browser cookie.
@@ -162,7 +162,7 @@ error=invalid_request
 &state=af0ifjsldkj 
 ```
 
-Parameter |	Returned | Description
+Values |	Returned | Description
 :--|:--|:--
 **error**	| Always |	Error type. 
 **error_description** |	Always	| Indicating the nature of the error
@@ -222,9 +222,9 @@ Parameter | Required | Description
 **client_assertion** | Required | To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the token request.<br>The OpenID Connect Core Specification support multiple authentication methods, but itsme® only supports `private_key_jwt`. This authentication method uses a JWT signed with a public key you have registered. The JWT MUST be sent as the value of a client_assertion parameter.</br><br>See [section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID Connect Core specification for more information.</br>
 **client\_assertion\_type** | Required | This MUST be set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. 
 
-According to the `private_key_jwt` client authentication method, the `client_assertion` JWT must contain the following properties:
+According to the `private_key_jwt` client authentication method, the `client_assertion` JWT must contain the following parameters:
 
-Property | Description
+Parameter | Description
 :-- | :-- 
 **iss** | The issuer of the `private_key_jwt`. This MUST contain the `client_id`. This is the client identifier (e.g. : ParterCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
 **sub** | The subject of the `private_key_jwt`. This MUST contain the `client_id`. This is the client identifier (e.g. : ParterCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
@@ -264,7 +264,7 @@ HTTP/1.1 200 OK
 ```
 The response body will include the following parameters:
 
-Parameter | Returned | Description
+Values | Returned | Description
 :-- | :-- | :--
 **[`access_token`](#actoken)** | Always | The Access token which may be used to access the UserInfo endpoint.
 **[`token_type`](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)** | Always | Set to `Bearer`.
@@ -272,13 +272,19 @@ Parameter | Returned | Description
 **[`at_hash`](http://openid.net/specs/openid-connect-core-1_0.html#CodeIDToken)** | Not supported | itsme® does not provide any value for this parameter.
 **[`refresh_token`](#rfshtoken)** | Not supported | itsme® does not provide any value for this parameter as it only maintains short-lived session to enforce re-authentication.
 
-The ID token MUST contain the following fields:
+The `id_token` parameter is comprised of three Base64URL encoded elements. The first element is the id token header. If you decode the value you should get a string similar to the one below:
 
-Parameter |	Returned |	Description
+`{"alg":"RS256","kid":"1e9gdk7"}`
+
+This specifies that the token has been signed with an RSA Signature utilising the SHA-256 hashing algorithm and the key identified by the string “1e9gdk7”. 
+
+Decoding the second element gives you the JSON object containing the claims about the user. Following fields could be returned: For example decoding the value from the example above gives:
+
+Values |	Returned |	Description
 :-- | :-- | :--
 **iss**	| Always | Identifier of the issuer of the ID token.
 **sub** |	Always | An identifier for the User (e.g.: UserCode), unique among all itsme® accounts and never reused. Use `sub` in the application as the unique-identifier key for the User.
-**aud**	| Always |	Audience of the ID token. This MUST contain the `client_id`. This is the client identifier (e.g. : ParterCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
+**aud**	| Always |	Audience of the ID token. This will contain the `client_id`. This is the client identifier (e.g. : ParterCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
 **exp**	| Always |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 **iat** |	Always	| The time the ID token was issued, represented in Unix time (integer seconds).
 **auth_time** | Always | The time the User authentication occurred, represented in Unix time (integer seconds). 
@@ -286,6 +292,10 @@ Parameter |	Returned |	Description
 **acr** | Always | Possible values: `tag:sixdots.be,2016-06:acr_basic` and `tag:sixdots.be,2016-06:acr_advanced`
 **amr** | Never |
 **azp** | Never |
+
+The third element is the signature over the JSON object. Details on how this signature is created and on how to validate it can be found in the [JSON Web Signature specification](https://tools.ietf.org/html/rfc7515).
+
+In short, this Base64URL encoding is called a JSON Web Token (JWT). It makes sure that the data you received has not been modified. 
 
 ### Handling Token Error Response 
 
@@ -338,12 +348,12 @@ The basic claims returned for the `openid` value are the `sub` claim - which uni
 
 Your applications can ask for additional scopes to request more information about the User. The following additional scopes apply:
 
-ID claims | Description
+Parameter | Description
 :-- | :-- 
 **profile** | This MUST be set to `profile`. It will request the claims representing basic profile information. These are `family_name`, `given_name`, `gender`, `birthdate` and `locale`
 **email** | This MUST be set to `email`. It will request the `email` and `email_verified` claims.
 **phone** | This MUST be set to `phone`. It will request the `phone_number` and `phone_number_verified` claims.
-**address**  | This MUST be set to `address`. It will request the `street_address`, `locality`, `postal_code` and `country`
+**address**  | This MUST be set to `address`. It will request the `street_address`, `locality`, `postal_code` and `country`.
 
 ###  Using `claims` parameter to request claims
 
@@ -351,7 +361,7 @@ Some specific data's cannot be requested by using `scope` parameter. However, yo
 
 Here are the custom claims you can request:
 
-ID claims | Description
+Parameter | Description
 :-- | :-- 
 **nationality** | This MUST be set to `tag:itsmetag:sixdots.be,2016-06:claim_nationality`.
 **place of Birth - city** | This MUST be set to `tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`.
@@ -367,22 +377,36 @@ ID claims | Description
 
 All claims requested in the Autentication request (see the [previous](#Data) section for more informations) can be returned in the `id_token` and/or in the response from the itsme® UserInfo endpoint (depending on the type of request).
 
+###  Via the `id_token` returned in the Token response
+
+The id token is comprised of three Base64URL encoded elements. You MUST decode this JWT if you to get a JSON object containing the claims about the User. As stated above, the fields returned via the `id_token` are those below
+
+Values |	Returned |	Description
+:-- | :-- | :--
+**iss**	| Always | Identifier of the issuer of the ID token.
+**sub** |	Always | An identifier for the User (e.g.: UserCode), unique among all itsme® accounts and never reused. Use `sub` in the application as the unique-identifier key for the User.
+**aud**	| Always |	Audience of the ID token. This will contain the `client_id`. This is the client identifier (e.g. : ParterCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
+**exp**	| Always |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
+**iat** |	Always	| The time the ID token was issued, represented in Unix time (integer seconds).
+**auth_time** | Always | The time the User authentication occurred, represented in Unix time (integer seconds). 
+**nonce** | If provided | String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID token. Sufficient entropy MUST be present in the `nonce` values used to prevent attackers from guessing values. See [the OpenID Connect Core specifications](http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes) for more information.
+**acr** | Always | Possible values: `tag:sixdots.be,2016-06:acr_basic` and `tag:sixdots.be,2016-06:acr_advanced`
+**amr** | Never |
+**azp** | Never |
+**profile** | If provided | This MUST be set to `profile`. It will request the claims representing basic profile information. These are `family_name`, `given_name`, `gender`, `birthdate` and `locale`
+**email** | If provided | This MUST be set to `email`. It will request the `email` and `email_verified` claims.
+**phone** | If provided | This MUST be set to `phone`. It will request the `phone_number` and `phone_number_verified` claims.
+**address**  | If provided | This MUST be set to `address`. It will request the `street_address`, `locality`, `postal_code` and `country`.
+
+
+The first element is the id token header. If we decode the value from the example above we get the string below:
+
+`{"alg":"RS256","kid":"1e9gdk7"}`
 
 
 
 
 
-
-### Getting Data
-
-As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest), depending on how you declared claims in the Authentication Request, you will receive the user data from:
-- The UserInfo Endpoint
-- The Token Endpoint, in the ID Token
-<aside class="success">Should there be 2 calls to itsme(r) for this schedule, one for Token Request & one for UserInfo Request?   
-Indeed, You need to perform two Back-End to Back-End calls:  
-- The Token Request  
-- The UserInfo Request  
-On top of this, the Authorization Request (AuthN Request in the schedule) consists of an HTTP redirection to the OpenID webpage of BMID. The content of this HTTP request is to be crafted by your system, it is actually a third call from your side to BMID, this one being Front-End to Back-End.</aside>
 
 #### UserInfo Endpoint
 As per the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest).
