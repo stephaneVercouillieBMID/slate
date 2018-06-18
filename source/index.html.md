@@ -26,12 +26,12 @@ The objective of this document is to provide all the information needed to integ
 <a name="Onboarding"></a>
 # 2. Creating sandbox
  
-Before your application can use itsme® OpenID Login and Share Data services, you must set up a project in the [itsme® B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) to obtain credentials (`client_id`, ServiceCode, JWKSet URL, ...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. 
+Before your application can use itsme® OpenID Login and Share Data services, you must set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain credentials (`client_id`, ServiceCode, JWKSet URL, ...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. 
 
 
 # 3. Integrating itsme® services
 
-The itsme® Login and Share Data service integration is based on the [Authorization Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in [OpenID Connect Core Authorization Code Flow Steps](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps), depicted in the following  [diagram](https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Untitled%20Diagram.html#R7Vxbd6o4FP41PtZFCAF87HVOH6bTNZ1Zc%2BaRQlRWkTiAtZ1fP4mEWxIrYhC1Yx9aNnFjvi%2F7mtgRvF18%2FJJ4y%2FmvJMDRyDSCjxG8G5kmoD%2F0F5N85hLb5YJZEgZ8UCV4Cf%2FFXGhw6SoMcNoYmBESZeGyKfRJHGM%2Fa8i8JCHr5rApiZpPXXozLAlefC%2BSpX%2BFQTbPpa7pVPIfOJzNiycDe5LfWXjFYD6TdO4FZF0TwfsRvE0IyfK%2FFh%2B3OGLgFbjk73vYcrf8YAmOszZv4Li%2Fe9GKz41%2FruyzmGxCVnGA2XgwgjfreZjhl6Xns7trSi%2BVzbNFxG9zdTjJ8MfWjwTKidIVgskCZ8knHcLf4HBo%2BNqA%2FHJdAQ0K9OY1kG0u8zi3s1JxNX36B0dAjQY8PTSGhMM6PTisAeFApweHPSActgTHnylOJEjo5LLmvNMsIW%2F4lkQkoZKYxHTkzTSMIkHkReEsppc%2BBYMqhjcMqpB64Wt%2BYxEGAXuMEuiKCoOpJ3HG4wiAerAHoIk9krG3FNCbGqB3JOjDLF1gKrpeLr8PA3A4BtytDNx4%2FtsVjoPvQ4Pl7qQBGD3xMJF4eMHJe%2BgzJp4T8k7zROqSjEcG3JTB8m1YsQdkpbDLr0IlNZFrlopXgAZeOi9jZ40QERwKQPL5kyE3RsXl342YigMpfxdgowWDl8xwMWc1kjWokAKpQpbgyMvC9%2BYTVfDxJzyTkH6WKo7AJlG2GJxTskp8zN9Vz%2BVFRWZTURmgCkX5lCVFGzbLabcjuEXd0J3gtiQOxRgUGIOizbRlTFQkUa%2BRsRa1zdAmmcPGobFlM7WGJB3pMlNkNxVN%2BuO8RQE3NOd1ftGQ%2FDq6%2BHWcY%2FFb0FnjF4w32U6YhV7GciDPz0ISb0CkGNK35lnqySdBpqYKwRJCoiFnQWZfWZCiYWCOr1fZ%2FIkKf8f%2FrHCanQEVmloVSMhHgSVTUWYsuqmAsie0xvcbnGidMGcAmsbTavF6Fg0MXa1FJDAyUTAC%2B2JEbh9JyNcgXzJ3uXkcuhmhOybBSUifynC9I0k2JzMSe9FzJe1lERc2zSErK51GVSUjZulATO76nFw0r2dwtitH%2BJz180%2Fh4LFCfLFwWpJOljjesBc8hFFBNb2qh9Uti2Afor8kENh62BLrYgAmY9SNLzG3U6jSSNl%2BtfElUSbhrMvAAOqTsBZlUo0BMYi%2Fkiwji5w0gdSG8604dbXyyCEzxtBGkyZq%2FbhNUDxm7wbVLkVbOK0UFQPJdJrig3mX83M4vgvTZeQxXB8Dinw4pVTzEurFTzCl9fvkh2LxpMrYnZ7yQyQbJWK1bcXP2qNVbjxjZKiJOQebNVAvJmpanWOlaKQKVcc1UySbqc1Wwm%2BMr7Kjodz53HMFvEbEf%2Bsrxrr9ZEVS7tm192y67ZxxFwYHqVyocZW3a2Xhxlu2ZVToSY%2Bkgga5O4k%2F4kaEvrXQW0GD5J3zr8z2ROp%2BKNb9qlaJguey33jQQRsgQeaM6YSnJFlQMQ1%2Bm0zFi9J8mrWcpR9%2FWLM4w2yaHDDQ4TZXNzB7t4Fp8qwQNjnuvKuHhH1YCNy%2BrMmWY6PLYuMToZnrZxEVDTJl6evK93GaHroojpkmHZoViUR0LUfFbQRJkUZGz9I%2Fin1R2LIvKsaZTu5RPgMkIda939JY5wy5B28RRmyaP3D0jpm5KHISdl0UeyMTGpuXquJrlor1od2t5kjNVNEmxPyxa3NOUqTPuIpitbZUJs2isnSS26r9y%2FWWUPSWXbNJsUSRFGkk1JQIBWD8BzUpVhpu22MdvCzkQF3RfElyk5qyGdGqrM7ZzC5Fx%2B0GOHJfCMBxfvLceIyn5H%2FeG3QhsQLpyruk6Mi8y5kuMGuWni5JnMonW07YXZc9QKAnHot22vn80i5FRyZebh4BSzL4M6ZfWwu4mYIjeMB26U5VR14DF1EUlZHzCIdFnP2KosGPfjqD9lF1HgwZw9pLqIrdydiuvSZOK6PqYDCuXOicocEgxWnNvgzG3e98%2FCWf2kBiV6Zr4Scp0rjAFWUA2rOUv9iNe7FdiYot1PricRWGpOWbkYp8zWDMVCeftyRrF8uHePQZOgq%2FpvqatpZT6L5jTbDtADidIs%2FGVwqCvvJ0fuSlaeh%2F7c9qCQEcNfdggaV3Q2jYI6TS9rv4Hbuum0TlV%2BoO9pX0svr%2FIfnw6r%2BwwPv%2FAA%3D%3D),
+The itsme® Login and Share Data service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following [diagram](https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Untitled%20Diagram.html#R7Vxbd6o4FP41PtZFCAF87HVOH6bTNZ1Zc%2BaRQlRWkTiAtZ1fP4mEWxIrYhC1Yx9aNnFjvi%2F7mtgRvF18%2FJJ4y%2FmvJMDRyDSCjxG8G5kmoD%2F0F5N85hLb5YJZEgZ8UCV4Cf%2FFXGhw6SoMcNoYmBESZeGyKfRJHGM%2Fa8i8JCHr5rApiZpPXXozLAlefC%2BSpX%2BFQTbPpa7pVPIfOJzNiycDe5LfWXjFYD6TdO4FZF0TwfsRvE0IyfK%2FFh%2B3OGLgFbjk73vYcrf8YAmOszZv4Li%2Fe9GKz41%2FruyzmGxCVnGA2XgwgjfreZjhl6Xns7trSi%2BVzbNFxG9zdTjJ8MfWjwTKidIVgskCZ8knHcLf4HBo%2BNqA%2FHJdAQ0K9OY1kG0u8zi3s1JxNX36B0dAjQY8PTSGhMM6PTisAeFApweHPSActgTHnylOJEjo5LLmvNMsIW%2F4lkQkoZKYxHTkzTSMIkHkReEsppc%2BBYMqhjcMqpB64Wt%2BYxEGAXuMEuiKCoOpJ3HG4wiAerAHoIk9krG3FNCbGqB3JOjDLF1gKrpeLr8PA3A4BtytDNx4%2FtsVjoPvQ4Pl7qQBGD3xMJF4eMHJe%2BgzJp4T8k7zROqSjEcG3JTB8m1YsQdkpbDLr0IlNZFrlopXgAZeOi9jZ40QERwKQPL5kyE3RsXl342YigMpfxdgowWDl8xwMWc1kjWokAKpQpbgyMvC9%2BYTVfDxJzyTkH6WKo7AJlG2GJxTskp8zN9Vz%2BVFRWZTURmgCkX5lCVFGzbLabcjuEXd0J3gtiQOxRgUGIOizbRlTFQkUa%2BRsRa1zdAmmcPGobFlM7WGJB3pMlNkNxVN%2BuO8RQE3NOd1ftGQ%2FDq6%2BHWcY%2FFb0FnjF4w32U6YhV7GciDPz0ISb0CkGNK35lnqySdBpqYKwRJCoiFnQWZfWZCiYWCOr1fZ%2FIkKf8f%2FrHCanQEVmloVSMhHgSVTUWYsuqmAsie0xvcbnGidMGcAmsbTavF6Fg0MXa1FJDAyUTAC%2B2JEbh9JyNcgXzJ3uXkcuhmhOybBSUifynC9I0k2JzMSe9FzJe1lERc2zSErK51GVSUjZulATO76nFw0r2dwtitH%2BJz180%2Fh4LFCfLFwWpJOljjesBc8hFFBNb2qh9Uti2Afor8kENh62BLrYgAmY9SNLzG3U6jSSNl%2BtfElUSbhrMvAAOqTsBZlUo0BMYi%2Fkiwji5w0gdSG8604dbXyyCEzxtBGkyZq%2FbhNUDxm7wbVLkVbOK0UFQPJdJrig3mX83M4vgvTZeQxXB8Dinw4pVTzEurFTzCl9fvkh2LxpMrYnZ7yQyQbJWK1bcXP2qNVbjxjZKiJOQebNVAvJmpanWOlaKQKVcc1UySbqc1Wwm%2BMr7Kjodz53HMFvEbEf%2Bsrxrr9ZEVS7tm192y67ZxxFwYHqVyocZW3a2Xhxlu2ZVToSY%2Bkgga5O4k%2F4kaEvrXQW0GD5J3zr8z2ROp%2BKNb9qlaJguey33jQQRsgQeaM6YSnJFlQMQ1%2Bm0zFi9J8mrWcpR9%2FWLM4w2yaHDDQ4TZXNzB7t4Fp8qwQNjnuvKuHhH1YCNy%2BrMmWY6PLYuMToZnrZxEVDTJl6evK93GaHroojpkmHZoViUR0LUfFbQRJkUZGz9I%2Fin1R2LIvKsaZTu5RPgMkIda939JY5wy5B28RRmyaP3D0jpm5KHISdl0UeyMTGpuXquJrlor1od2t5kjNVNEmxPyxa3NOUqTPuIpitbZUJs2isnSS26r9y%2FWWUPSWXbNJsUSRFGkk1JQIBWD8BzUpVhpu22MdvCzkQF3RfElyk5qyGdGqrM7ZzC5Fx%2B0GOHJfCMBxfvLceIyn5H%2FeG3QhsQLpyruk6Mi8y5kuMGuWni5JnMonW07YXZc9QKAnHot22vn80i5FRyZebh4BSzL4M6ZfWwu4mYIjeMB26U5VR14DF1EUlZHzCIdFnP2KosGPfjqD9lF1HgwZw9pLqIrdydiuvSZOK6PqYDCuXOicocEgxWnNvgzG3e98%2FCWf2kBiV6Zr4Scp0rjAFWUA2rOUv9iNe7FdiYot1PricRWGpOWbkYp8zWDMVCeftyRrF8uHePQZOgq%2FpvqatpZT6L5jTbDtADidIs%2FGVwqCvvJ0fuSlaeh%2F7c9qCQEcNfdggaV3Q2jYI6TS9rv4Hbuum0TlV%2BoO9pX0svr%2FIfnw6r%2BwwPv%2FAA%3D%3D),
   
  ![enter image description here](https://lh3.googleusercontent.com/vi1iEAv0LtjFbvT30UE62rHDLu-fPFysH5oj1dpa_hVzaTbmKSV2Js_NjTCI7-5tXGVKgd8p4CQ "auth diag")
  
@@ -55,7 +55,7 @@ This flow is described in much more detail in the following sections.
 
 ## 3.1. Checking itsme® OpenID Configuration
 
-To simplify implementations and increase flexibility, OpenID Connect allows the use of a [Discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html), a JSON document containing key-value pairs which provide details about itsme® system configuration, such as 
+To simplify implementations and increase flexibility, OpenID Connect allows the use of a <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a>, a JSON document containing key-value pairs which provide details about itsme® system configuration, such as 
 <ul>
   <li>URIs of the authorization</li>
   <li>token</li>
@@ -70,7 +70,7 @@ The Discovery document for itsme® services may be retrieved from: `https://merc
 <a name="AuthNRequest"></a>
 ## 3.2. Forming an authentication request
 
-First, you will form a HTTPS GET request that MUST be sent to the itsme® authorization endpoint. The itsme® authorization endpoint is `https://merchant.itsme.be/oidc/authorize`. This URI can be retrieved from the itsme® [Discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html), using the key `authorization_endpoint`.
+First, you will form a HTTPS GET request that MUST be sent to the itsme® authorization endpoint. The itsme® authorization endpoint is `https://merchant.itsme.be/oidc/authorize`. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a>, using the key `authorization_endpoint`.
 
 <aside class="notice">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in <a href="#UniversalLinks">section 3.4</a>.</aside>
 
@@ -93,7 +93,7 @@ Parameter | Required | Description
 **scope** | Required | The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value `openid` and `service: service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding). <br>The `openid` scope can return standard user attributes (these claims are:`iss`, `aud`, `exp`, `iat` and `at_hash`) in the id_token and/or in the response from the /userinfo endpoint.</br><br>Applications can ask for additional scopes, separated by spaces, to request more information about the user. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are `family_name`, `given_name`, `gender`, `birthdate` and `locale`.</li><li>email: will request the `email` and `email_verified` claims.</li></ul>For more information on user attributes or claims, please consult the [ID claims](#Data) section.</br><br>An HTTP ERROR `not_implemented` will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br><br>Note: you'll need to define one scope for each itsme® service you want to use.</br>
 **redirect_uri** | Required | This is the URI to which the authentication response should be sent. This must exactly match one of the redirection URIs defined when registering your application in the [itsme® B2B portal](#Onboarding).
 **state** | An appropriate value is strongly RECOMMENDED | It is recommended that you use this parameter to maintain state between the request and the callback. Typically, Cross-Site Request Forgery (CSRF, XSRF) mitigation is done by cryptographically binding the value of this parameter with a browser cookie.
-**nonce** | An appropriate value is strongly RECOMMENDED | String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the authentication request to the id token. Sufficient entropy MUST be present in the `nonce` values used to prevent attackers from guessing values. See [the OpenID Connect Core specifications](http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes) for more information.
+**nonce** | An appropriate value is strongly RECOMMENDED | String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the authentication request to the id token. Sufficient entropy MUST be present in the `nonce` values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">OpenID Connect Core specifications</a> for more information.
 **login_hint** | Optional | Hint to the Authorization Server about the login identifier the User might use to log in (if necessary).<br>This value MUST be a phone number in the format specified for the `phone_number` claim: `<countrycode>+<phonenumber>`. E.g. `login_hint=32+123456789`.</br><br>`login_hint` with invalid syntax will be ignored.</br>
 **display** | Optional | ASCII string value that specifies how the Authorization Server displays the authentication and consent user interface pages to the User. MUST be `page` if provided.<br>Other values will yield an HTTP ERROR `not_implemented`.</br>
 **prompt** | Optional | Space delimited, case sensitive list of ASCII string values that specifies whether the Authorization Server prompts the User for reauthentication and consent. MUST be `consent` if provided. 
@@ -101,7 +101,7 @@ Parameter | Required | Description
 **max_age** | Optional | Specifies the allowable elapsed time in seconds since the last time the user was actively authenticated by itsme®. If the elapsed time is greater than this value, the authentication system MUST attempt to actively re-authenticate the User. As itsme® does not maintain a session mechanism, an active authentication is always required.
 <a name="acrvalues">**acr_values**</a> | Optional | Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference.<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br>`tag:itsmetag:sixdots.be,2016-06:acr_basic`</br></li><li>Advanced level - force the User to use PIN<br>`tag:itsmetag:sixdots.be,2016-06:acr_advanced`</br></li></ul>When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used.</br>
 **claims** | Optional | This parameter is used to request that specific claims be returned. The value is a JSON object listing the requested claims.<br>Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the returned data will be encrypted.</br><br>See [User Data](#Data) for more information.</br>
-**request** | Optional | This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. The parameter value is a Request Object value.<br>See [OpenID Connect Core specifications](https://openid.net/specs/openid-connect-core-1_0.html) for more information.</br>
+**request** | Optional | This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. The parameter value is a Request Object value.<br>See <a href="https://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core specifications</a> for more information.</br>
 **response_mode** | Not supported | Any supplied value will be ignored.
 **id\_token\_hint** | Not supported | Any supplied value will be ignored.
 **claims_locales** | Not supported | Any supplied value will be ignored.
@@ -161,7 +161,7 @@ All other HTTPS errors unrelated to OpenID Connect Core will be returned to the 
 
 <a name="UniversalLinks"></a> 
 ## 3.4. Supporting Universal Links and App Links mechanism
-[Universal links](https://developer.apple.com/ios/universal-links/) and [App links](https://developer.android.com/studio/write/app-link-indexing) are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.
+<a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal links</a> and <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App links</a> are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.
 
 An App link is the Android version of the Universal link.
 
@@ -179,7 +179,7 @@ Once your server component has received an [authorization code](#AuthNResponse),
 
 <aside class="notice">You might also read in the OpenID Connect Core specification about the Refresh token, but we don't support them (we don't implement any session mechanism).</aside>
 
-Your server makes this exchange by sending an HTTPS POST request to the itsme® token endpoint URI `https://merchant.itsme.be/oidc/token`. This URI can be retrieved from the itsme® [Discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html) using the key `token_endpoint`.
+Your server makes this exchange by sending an HTTPS POST request to the itsme® token endpoint URI `https://merchant.itsme.be/oidc/token`. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a> using the key `token_endpoint`.
 
 <aside class="notice"> An authorization code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling Token Error Response. </aside>
 
@@ -200,7 +200,7 @@ Parameter | Required | Description
 **grant_type** | Required | This MUST be set to `authorization_code`.
 **code** | Required | The Authorization Code received in response to the Authentication Request.
 **redirect_uri** | Required | The redirection URI supplied in the original Authentication Request. This is the URL to which you want the User to be redirected after the authorization is complete.
-**client_assertion** | Required | To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the token request.<br>The OpenID Connect Core Specification support multiple authentication methods, but itsme® only supports `private_key_jwt`. This authentication method uses a JWT signed with a public key you have registered. The JWT MUST be sent as the value of a client_assertion parameter.</br><br>See [section 9](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) of the OpenID Connect Core specification for more information.</br>
+**client_assertion** | Required | To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the token request.<br>The OpenID Connect Core Specification support multiple authentication methods, but itsme® only supports `private_key_jwt`. This authentication method uses a JWT signed with a public key you have registered. The JWT MUST be sent as the value of a client_assertion parameter.</br><br>See <a href="http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication" target="blank">section 9</a> of the OpenID Connect Core specification for more information.</br>
 **client\_assertion\_type** | Required | This MUST be set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. 
 
 According to the `private_key_jwt` client authentication method, the `client_assertion` JWT must contain the following parameters:
@@ -247,11 +247,11 @@ The response body will include the following parameters:
 
 Values | Returned | Description
 :-- | :-- | :--
-**[`access_token`](#actoken)** | Always | The Access token which may be used to access the UserInfo endpoint.
-**[`token_type`](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)** | Always | Set to `Bearer`.
-**[`id_token`](#idtoken)** | Always | The Base64URL encoded id token corresponding to the Authentication Request.
-**[`at_hash`](http://openid.net/specs/openid-connect-core-1_0.html#CodeIDToken)** | Not supported | itsme® does not provide any value for this parameter.
-**[`refresh_token`](#rfshtoken)** | Not supported | itsme® does not provide any value for this parameter as it only maintains short-lived session to enforce re-authentication.
+**`access_token`** | Always | The Access token which may be used to access the UserInfo endpoint.
+**`token_type`** | Always | Set to `Bearer`.
+**`id_token`** | Always | The Base64URL encoded id token corresponding to the Authentication Request.
+**`at_hash`** | Not supported | itsme® does not provide any value for this parameter.
+**`refresh_token`** | Not supported | itsme® does not provide any value for this parameter as it only maintains short-lived session to enforce re-authentication.
 
 The `id_token` parameter is comprised of three Base64URL encoded elements. The first element is the id token header. If you decode the value you should get a string similar to the one below:
 
@@ -269,12 +269,12 @@ Values |	Returned |	Description
 **exp**	| Always |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 **iat** |	Always	| The time the ID token was issued, represented in Unix time (integer seconds).
 **auth_time** | Always | The time the User authentication occurred, represented in Unix time (integer seconds). 
-**nonce** | If provided | String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID token. Sufficient entropy MUST be present in the `nonce` values used to prevent attackers from guessing values. See [the OpenID Connect Core specifications](http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes) for more information.
+**nonce** | If provided | String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID token. Sufficient entropy MUST be present in the `nonce` values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.
 **acr** | Always | Possible values: `tag:sixdots.be,2016-06:acr_basic` and `tag:sixdots.be,2016-06:acr_advanced`
 **amr** | Never |
 **azp** | Never |
 
-The third element is the signature over the JSON object. Details on how this signature is created and on how to validate it can be found in the [JSON Web Signature specification](https://tools.ietf.org/html/rfc7515).
+The third element is the signature over the JSON object. Details on how this signature is created and on how to validate it can be found in the <a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON Web Signature specification</a>.
 
 In short, this Base64URL encoding is called a JSON Web Token (JWT). It makes sure that the data you received has not been modified. 
 
@@ -344,7 +344,7 @@ Values |	Returned |	Description
 **exp**	| Always |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 **iat** |	Always	| The time the ID token was issued, represented in Unix time (integer seconds).
 **auth_time** | Always | The time the User authentication occurred, represented in Unix time (integer seconds). 
-**nonce** | If provided | String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID token. Sufficient entropy MUST be present in the `nonce` values used to prevent attackers from guessing values. See [the OpenID Connect Core specifications](http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes) for more information.
+**nonce** | If provided | String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID token. Sufficient entropy MUST be present in the `nonce` values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.
 **acr** | Always | Possible values: `tag:sixdots.be,2016-06:acr_basic` and `tag:sixdots.be,2016-06:acr_advanced`
 **amr** | Never |
 **azp** | Never |
@@ -381,7 +381,7 @@ Parameter | Description
 
 You can obtain these additional claims - and those defined by using the `scope` parameter - by presenting the `access_token` to the itsme® UserInfo endpoint. This is achieved by sending a HTTPS GET request over TLS to the UserInfo endpoint URI, passing the access token value in the Authorization header using the Bearer authentication scheme.
 
-The itsme® UserInfo endpoint is: `https://merchant.itsme.be/oidc/.well-known/openid-configuration`. This URI can be retrieved from the itsme® [Discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html), using the key `userinfo_endpoint`.
+The itsme® UserInfo endpoint is: `https://merchant.itsme.be/oidc/.well-known/openid-configuration`. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a>, using the key `userinfo_endpoint`.
 
 ```http--inline
 GET /userinfo HTTP/1.1 
@@ -447,7 +447,7 @@ Values | Description
 
 <aside class="notice">You should authenticate the OpenID Provider either by checking the TLS certificate or by validating the signature of the JWT if provided.</aside>
 
-When an error condition occurs an error response as defined in the [OAuth 2.0 Bearer Token Usage specification](https://tools.ietf.org/html/rfc6750) will be returned.
+When an error condition occurs an error response as defined in the <a href="https://tools.ietf.org/html/rfc6750" target="blank">OAuth 2.0 Bearer Token Usage specification</a> will be returned.
 
 ```http--inline
 HTTP/1.1 401 Unauthorized
@@ -460,7 +460,7 @@ HTTP/1.1 401 Unauthorized
 <a name="Appendix"></a> 
 
 ## 4.1. Universal Links on iOS
-Integration is going to be pretty straightforward, all details can be found in below steps (as documented on [Universal Links official documentation](https://developer.apple.com/ios/universal-links/)):
+Integration is going to be pretty straightforward, all details can be found in below steps (as documented on <a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal Links official documentation</a>):
 1. Register your app at developer.apple.com
 2. Enable ‘Associated Domains’ on your app identifier
 3. Enable ‘Associated Domain’ on in your Xcode project
@@ -507,7 +507,7 @@ paths	| Array of strings that specify which paths are included or excluded from 
   </li>
 </aside>
 
-7. Check if the AASA file is valid and is accessible by using the [following link](https://branch.io/resources/aasa-validator/#resultsbox)
+7. Check if the AASA file is valid and is accessible by using the <a href="https://branch.io/resources/aasa-validator/#resultsbox" target="blank">following link</a>.
 8. Add an entitlement to all redirect URI that the your app need to supports. In Xcode, open the Associated Domains section in the Capabilities tab and add an entry for each Redirect URI that your app supports, prefixed with `applinks`.
 <aside class="notice">Apple doc says to limit this list to no more than about 20 to 30 domains<aside>
 
@@ -572,7 +572,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 ```
 ## 4.2. App Links on Android
 
-The App Links Assistant in Android Studio can help you create intent filters in your manifest and map existing URLs from your website to activities in your app. Follow below steps to configure the App links (as documented on [App Links official documentation](https://developer.android.com/studio/write/app-link-indexing)):
+The App Links Assistant in Android Studio can help you create intent filters in your manifest and map existing URLs from your website to activities in your app. Follow below steps to configure the App links (as documented on <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App Links official documentation</a>):
 
 1. Add the intent filters to your manifest. Go through the your manifest and select Tools > App Links Assistant. Click Open URL Mapping Editor and then click Add  at the bottom of the URL Mapping list to add a new URL mapping.
 2. Add details for the new URL mapping:
