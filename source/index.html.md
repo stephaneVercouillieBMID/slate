@@ -20,33 +20,17 @@ itsme® is an identity checking system allowing Service Providers to use verifie
   <li>Sign</li>
 </ul>
 
-The objective of this document is to provide all the information needed to integrate the Login and Share Data services using the [OpenID Connect Core 1.0 specifications](http://openid.net/specs/openid-connect-core-1_0.html).
+The objective of this document is to provide all the information needed to integrate the Login and Share Data services using the
+<a href="http://openid.net/specs/openid-connect-core-1_0.html" target="_blank">OpenID Connect Core 1.0 specifications</a>.
+
+[OpenID Connect Core 1.0 specifications](http://openid.net/specs/openid-connect-core-1_0.html).
 
   
 <a name="Onboarding"></a>
 # 2. Creating sandbox
  
-Before your application can use itsme® OpenID Login and Share Data services, you must set up a project in the [itsme® B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) to obtain credentials (`client_id`, ServiceCode,...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. 
+Before your application can use itsme® OpenID Login and Share Data services, you must set up a project in the [itsme® B2B portal](https://brand.belgianmobileid.be/d/CX5YsAKEmVI7) to obtain credentials (`client_id`, ServiceCode, JWKSet URL, ...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. 
 
-<aside class="notice"> The JWKSet URLs are used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. 
-  <ul>
-    <li>It must contain the root, the intermediate CA and the final public certifiate.</li>
-    <li>You can specify only one JWKSet URL per environment.</li>
-    <li>On the HTTPS protocol level, connections must be secured using trusted Root CA.</li>
-    <li>In production, it is not possible the certificate is NOT self-signed (it can be self-signed in Sandbox)</li>
-    <li>BMID is notified on time if the certificate or the URL is changed.</li>
-    <li>There is no need for your client certificate. Currently the certificate is also used to protect the JWKSet and it is not directly linked to the SSL certificate.</li>
-  </ul>
-</aside>
-
-<aside class="notice">You can find our JWKSet URL in the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration">OpenID configuration file</a>, using the key `jwks_uri`.</aside>
-
-<aside class="notice"> Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5.
-  <ul>
-    <li>Multiple URLs can be whitelisted per service</li>
-    <li>Additional parameters are not allowed and entire redirect_uri must match</li>
-  </ul>  
-</aside>
 
 # 3. Integrating itsme® services
 
