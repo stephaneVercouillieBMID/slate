@@ -30,20 +30,21 @@ Before your application can use itsme® OpenID Login and Share Data services, yo
 
 <aside class="notice">When creating your sandbox, you have to provide us one JWKSet URL and the associated certificate. It will be used by our Back-End for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Following requirements MUST be met:
 <ul>
- <il>Only one JWKSet URL MUST be specified.</il>
- <il>The JWKSet URL certificate MUST contain the root, the intermediate Certificate Authority and the final public certifiate.</il>
- <il>On the HTTPS protocol level, connections MUST be secured using trusted Root CA.</il>
- <il>A self-signed certificate MAY be used (it MUST NOT be self-signed in production)</il>
- <il>BMID MUST notified on time if the certificate or the URL is changed.</il>
- <il>There is no need for your client certificate. Currently the certificate is also used to protect the JWKSet and it is not directly linked to the SSL certificate.</il>
-</il></aside>
+ <li>Only one JWKSet URL MUST be specified.</li>
+ <li>The JWKSet URL certificate MUST contain the root, the intermediate Certificate Authority and the final public certifiate.</li>
+ <li>On the HTTPS protocol level, connections MUST be secured using trusted Root CA.</li>
+ <li>A self-signed certificate MAY be used (it MUST NOT be self-signed in production)</li>
+ <li>Belgian Mobile ID MUST be notified on time if the certificate or the URL is changed.</li>
+ <li>There is no need for your client certificate. Currently the certificate is also used to protect the JWKSet and it is not directly linked to the SSL certificate.</li>
+</li></aside>
 
 <aside class="notice">You can find our JWKSet URL in the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID configuration file</a>, using the key <code>jwks_uri</code>.</aside>
 
 <aside class="notice">Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our Back-End.
 <ul>
-
-   <il>Additional parameters are not allowed and entire redirect_uri must match.</il>
+  <li>Additional URL parameters are not allowed and entire redirect_uri MUST match the one provided in the B2B portal.</li>
+  <li>Only one redirect_uri MUST be specified for each service.</li>
+  <li>Belgian Mobile ID MUST be notified on time if the URLs are changed.</li>
 </ul></aside>
 
 
