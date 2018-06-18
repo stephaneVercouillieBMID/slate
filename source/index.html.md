@@ -28,7 +28,7 @@ The objective of this document is to provide all the information needed to integ
  
 Before your application can use itsme® OpenID Login and Share Data services, you must set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain credentials (`client_id`, ServiceCode, JWKSet URL and associated certificates,...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. 
 
-<aside class="notice">When creating your sandbox, you have to provide us one JWKSet URL and the associated certificate. It will be used by our BE for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Following requirements MUST be met:
+<aside class="notice">When creating your sandbox, you have to provide us one JWKSet URL and the associated certificate. It will be used by our Back-End for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Following requirements MUST be met:
 <ul>
  <il>Only one JWKSet URL MUST be specified.</il>
  <il>The JWKSet URL certificate MUST contain the root, the intermediate Certificate Authority and the final public certifiate.</il>
@@ -38,11 +38,11 @@ Before your application can use itsme® OpenID Login and Share Data services, yo
  <il>There is no need for your client certificate. Currently the certificate is also used to protect the JWKSet and it is not directly linked to the SSL certificate.</il>
 </il></aside>
 
-<aside class="notice">You can find our JWKSet URL in the itsme® OpenID configuration file<a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID configuration file</a>, using the key <code>jwks_uri</code>.</aside>
+<aside class="notice">You can find our JWKSet URL in the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID configuration file</a>, using the key <code>jwks_uri</code>.</aside>
 
-<aside class="notice">Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our F5.
+<aside class="notice">Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our Back-End.
 <ul>
-   <il>Multiple URLs can be whitelisted per service.</il>
+
    <il>Additional parameters are not allowed and entire redirect_uri must match.</il>
 </ul></aside>
 
