@@ -56,8 +56,8 @@ The itsme® Login and Share Data service integration is based on the <a href="ht
  
 <ol>
   <li>The user indicates on your end he wishes to authenticate with itsme</li>
-  <li>Your web desktop, mobile web or in-app mobile application (e.g.: The Relying Party) sends a request to itsme® (e.g.: OpenID Provider) to authenticate the User. This request will redirect the user to our Front-End.</li>
-  <li>itsme® authenticates the User by asking him
+  <li>Your web desktop, mobile web or in-app mobile application (e.g.: The Relying Party) sends a request to itsme® (e.g.: OpenID Provider) to authenticate the User. This request will redirect the user to our Front-End.
+  itsme® then authenticates the User by asking him
     <ul type>
       <li>to enter his MSISDN on the itsme® OpenID web page</li>
       <li>authorize the release of some information’s to your application</li>
