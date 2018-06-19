@@ -54,7 +54,9 @@ The itsme® Login and Share Data service integration is based on the <a href="ht
   
  ![enter image description here](https://lh3.googleusercontent.com/vi1iEAv0LtjFbvT30UE62rHDLu-fPFysH5oj1dpa_hVzaTbmKSV2Js_NjTCI7-5tXGVKgd8p4CQ "auth diag")
  
- And... Tadaaa ![sequence diagram](https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1#G1ehUT0iD64OJTLvuR2oo69sOeB40mklpw)
+ And... Tadaaa
+ 
+ ![sequence diagram](https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1#G1ehUT0iD64OJTLvuR2oo69sOeB40mklpw)
  
 <ol>
   <li>Your web desktop, mobile web or in-app mobile application (e.g.: The Relying Party) sends a request to itsme® (e.g.: OpenID Provider) to authenticate the User.</li>
