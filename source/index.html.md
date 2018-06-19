@@ -56,18 +56,19 @@ The itsme® Login and Share Data service integration is based on the <a href="ht
  
 <ol>
   <li>The user indicates on your end he wishes to authenticate with itsme</li>
-  <li>Your web desktop, mobile web or in-app mobile application (e.g.: The Relying Party) sends a request to itsme® (e.g.: OpenID Provider) to authenticate the User.</li>
+  <li>Your web desktop, mobile web or in-app mobile application (e.g.: The Relying Party) sends a request to itsme® (e.g.: OpenID Provider) to authenticate the User. This request will redirect the user to our Front-End.</li>
   <li>itsme® authenticates the User by asking him
     <ul type>
       <li>to enter his MSISDN on the itsme® OpenID web page</li>
       <li>authorize the release of some information’s to your application</li>
-      <li>to provide his credentials (password or fingerprint or FaceID)</li>
+      <li>to provide his credentials (itsme® code or fingerprint or FaceID)</li>
     </ul>
   
-  If you are building a mobile web or in-app mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will directly be redirected to the itsme app via the Universal links and App links.</li>
+  If you are building a mobile web or in-app mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links and App links.</li>
   <li>Once the User has has authorized the request and has been authenticated the request itsme® will return an authorization code to your server component.</li>
   <li>Your server component contacts the token endpoint and exchanges the authorization code for an id token identifying the User and an access token, redirecting the user to your mobile or web application.</li>
   <li>You may request the additional user information from the UserInfo endpoint by presenting the access token obtained in the previous step.</li>
+  <li>At this stage you are able to confirm the success of the operation and display a success error message.</li>
 </ol>
 
 This flow is described in much more detail in the following sections.
