@@ -36,16 +36,23 @@ Before your application can use itsme® OpenID Login and Share Data services, yo
  <li>A self-signed certificate MAY be used (it MUST NOT be self-signed in production)</li>
  <li>Belgian Mobile ID MUST be notified on time if the certificate or the URL is changed.</li>
  <li>There is no need for your client certificate. Currently the certificate is also used to protect the JWKSet and it is not directly linked to the SSL certificate.</li>
-</li></aside>
+</li>
 
-<aside class="notice">You can find our JWKSet URL in the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID configuration file</a>, using the key <code>jwks_uri</code>.</aside>
+</aside>
+
+<aside class="notice">You can find our JWKSet URL in the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID configuration file</a>, using the key <code>jwks_uri</code>
+  .
+
+</aside>
 
 <aside class="notice">Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our Back-End.
 <ul>
   <li>Additional URL parameters are not allowed and entire redirect_uri MUST match the one provided in the B2B portal.</li>
   <li>Only one redirect_uri MUST be specified for each service.</li>
   <li>Belgian Mobile ID MUST be notified on time if the URLs are changed.</li>
-</ul></aside>
+</ul>
+
+</aside>
 
 
 # 3. Integrating itsme services
