@@ -91,12 +91,11 @@ To simplify implementations and increase flexibility, OpenID Connect allows the 
   <li>JWKSet URL</li>
 </ul>
 
-The Discovery Document for itsme® services may be retrieved from:
+The sandox Discovery Document for itsme® services may be retrieved from:<code>https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</code>
 
-Environment | URI
-:-- | :--
-Sandbox | <code>https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</code>
-Production | <code>https://merchant.itsme.be/oidc/.well-known/openid-configuration</code>
+<aside class="notice">The key-value pairs that MUST be used to integrate itsme® in production can be redeemed from <code>https://merchant.itsme.be/oidc/.well-known/openid-configuration</code>
+</aside>
+
 
 <a name="AuthNRequest"></a>
 ## 3.2. Forming an authentication request
@@ -120,15 +119,15 @@ Parameter | Required | Description
 :-------- | :-------| :----- 
 **client_id** | Required |This MUST be the client identifier (e.g. : PartnerCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
 **response_type** | Required | This defines the processing flow to be used when forming the response. Because itsme® uses the Authorization Code Flow as described above, this value MUST be `code`.
-**scope** | Required | The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value `openid` and `service: service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding). <br>The `openid` scope can return standard user attributes (these claims are:`iss`, `aud`, `exp`, `iat` and `at_hash`) in the id_token and/or in the response from the /userinfo endpoint.</br><br>Applications can ask for additional scopes, separated by spaces, to request more information about the user. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are `family_name`, `given_name`, `gender`, `birthdate` and `locale`.</li><li>email: will request the `email` and `email_verified` claims.</li></ul>For more information on user attributes or claims, please consult the [ID claims](#Data) section.</br><br>An HTTP ERROR `not_implemented` will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br><br>Note: you'll need to define one scope for each itsme® service you want to use.</br>
+**scope** | Required | The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value `openid` and `service: service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding). <br>The `openid` scope can return standard User attributes (these claims are:`iss`, `aud`, `exp`, `iat` and `at_hash`) in the id_token and/or in the response from the /userinfo endpoint.</br><br>Applications can ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are `family_name`, `given_name`, `gender`, `birthdate` and `locale`.</li><li>email: will request the `email` and `email_verified` claims.</li></ul>For more information on User attributes or claims, please consult the [ID claims](#Data) section.</br><br>An HTTP ERROR `not_implemented` will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br><br>Note: you'll need to define one scope for each itsme® service you want to use.</br>
 **redirect_uri** | Required | This is the URI to which the authentication response should be sent. This must exactly match one of the redirection URIs defined when registering your application in the [itsme® B2B portal](#Onboarding).
 **state** | An appropriate value is strongly RECOMMENDED | It is recommended that you use this parameter to maintain state between the request and the callback. Typically, Cross-Site Request Forgery (CSRF, XSRF) mitigation is done by cryptographically binding the value of this parameter with a browser cookie.
 **nonce** | An appropriate value is strongly RECOMMENDED | String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the authentication request to the id token. Sufficient entropy MUST be present in the `nonce` values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">OpenID Connect Core specifications</a> for more information.
 **login_hint** | Optional | Hint to the Authorization Server about the login identifier the User might use to log in (if necessary).<br>If provided, this value MUST be a phone number in the format specified for the `phone_number` claim: `<countrycode>+<phonenumber>`. E.g. `login_hint=32+123456789`.</br><br>`login_hint` with invalid syntax will be ignored.</br>
-**display** | Optional | ASCII string value that specifies how the Authorization Server displays the authentication and consent user interface pages to the User. MUST be `page` if provided.<br>Other values will yield an HTTP ERROR `not_implemented`.</br>
+**display** | Optional | ASCII string value that specifies how the Authorization Server displays the authentication and consent User interface pages to the User. MUST be `page` if provided.<br>Other values will yield an HTTP ERROR `not_implemented`.</br>
 **prompt** | Optional | Space delimited, case sensitive list of ASCII string values that specifies whether the Authorization Server prompts the User for reauthentication and consent. MUST be `consent` if provided. 
-**ui_locales** | Optional | User's preferred languages and scripts for the user interface (e.g.: OpenID web page). Supported values are: {“fr”, “nl”, “en”, “de”}. Any other value will be ignored.
-**max_age** | Optional | Specifies the allowable elapsed time in seconds since the last time the user was actively authenticated by itsme®. If the elapsed time is greater than this value, the authentication system MUST attempt to actively re-authenticate the User. As itsme® does not maintain a session mechanism, an active authentication is always required.
+**ui_locales** | Optional | User's preferred languages and scripts for the User interface (e.g.: OpenID web page). Supported values are: {“fr”, “nl”, “en”, “de”}. Any other value will be ignored.
+**max_age** | Optional | Specifies the allowable elapsed time in seconds since the last time the User was actively authenticated by itsme®. If the elapsed time is greater than this value, the authentication system MUST attempt to actively re-authenticate the User. As itsme® does not maintain a session mechanism, an active authentication is always required.
 <a name="acrvalues">**acr_values**</a> | Optional | Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference.<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br>`tag:itsmetag:sixdots.be,2016-06:acr_basic`</br></li><li>Advanced level - force the User to use PIN<br>`tag:itsmetag:sixdots.be,2016-06:acr_advanced`</br></li></ul>When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used.</br>
 **claims** | Optional | This parameter is used to request that specific claims be returned. The value is a JSON object listing the requested claims.<br>Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the returned data will be encrypted.</br><br>See [User Data](#Data) for more information.</br>
 **request** | Optional | This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. The parameter value is a Request Object value.<br>See <a href="https://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core specifications</a> for more information.</br>
@@ -293,7 +292,7 @@ The response body will include the following parameters:
 
 Values | Returned | Description
 :-- | :-- | :--
-**`access_token`** | Always | The Access token which may be used to access the UserInfo endpoint.
+**`access_token`** | Always | The Access token which may be used to access the userInfo endpoint.
 **`token_type`** | Always | Set to `Bearer`.
 **`id_token`** | Always | The Base64URL encoded id token corresponding to the Authentication Request.
 **`at_hash`** | Not supported | itsme® does not provide any value for this parameter.
@@ -305,7 +304,7 @@ The `id_token` parameter is comprised of three Base64URL encoded elements. The f
 
 This specifies that the token has been signed with an RSA Signature utilising the SHA-256 hashing algorithm and the key identified by the string “1e9gdk7”. 
 
-Decoding the second element gives you the JSON object containing the claims about the user. Following fields could be returned: For example decoding the value from the example above gives:
+Decoding the second element gives you the JSON object containing the claims about the User. Following fields could be returned: For example decoding the value from the example above gives:
 
 Values |	Returned |	Description
 :-- | :-- | :--
@@ -344,13 +343,13 @@ The response will contain an error parameter and optionally `error_description` 
 
 After obtaining the User ID Token, you should query your database to check if you know the `sub`, or not. If you already linked this `sub` to an account in your database, you should start an application session for that User.
 
-If the `sub` returned in the ID Token is unknown to you, one of the following scenarios should be implemented to link the userCode to the correct user account:
+If the `sub` returned in the ID Token is unknown to you, one of the following scenarios should be implemented to link the userCode to the correct User account:
 
 <ul>
   <li>
     If you requested User attributes in the Authentication request, you can check if these data match a User account in your database and automatically link the provided `sub` to this account:
     <img src="LinkUserAuto.png" alt="Automatically linking user accounts">
-    <aside class="success">
+    <aside class="notice">
       This approach requires a sanity check with us, to check how we can guarantee on both sides the unicity of the User identified with the data and the consistency of these data's lifecycle. If you opt for this approach, please contact us. 
     </aside>
   </li>
@@ -361,14 +360,14 @@ If the `sub` returned in the ID Token is unknown to you, one of the following sc
 </ul>
 
 <a name="Data"></a>
-## 3.8. Obtaining ID claims/user attibutes
+## 3.8. Obtaining ID claims/User attibutes
 
 OpenID Connect Core specifications also allow your application to obtain basic profile information about them in a interoperable way. 
 
-Following the OpenID Connect Core specifications, there are 2 ways to obtain ID claims/user attributes for a specific User:
+Following the OpenID Connect Core specifications, there are 2 ways to obtain ID claims/User attributes for a specific User:
 <ul>
   <il>using the `id_token` returned in the Token response</il>
-  <il>capturing the claims from the itsme® UserInfo Endpoint</il>
+  <il>capturing the claims from the itsme® userInfo Endpoint</il>
 </ul>
 
 ###  Using `id_token` to obtain claims
@@ -405,7 +404,7 @@ Values |	Returned |	Description
 **birthdate** | If requested | 
 **locale** | If requested | 
 **email** | If requested | The User's email address. This may not be unique and is not suitable for use as a primary key. Provided only if your scope included the string "email".
-**email_verified** | If requested | <code>true</code> if the user's e-mail address has been verified; otherwise <code>false</code>.
+**email_verified** | If requested | <code>true</code> if the User's e-mail address has been verified; otherwise <code>false</code>.
 **phone_number** | If requested | 
 **phone_number_verified** | If requested | 
 **street_address** | If requested | 
@@ -413,7 +412,7 @@ Values |	Returned |	Description
 **postal_code** | If requested | 
 **country** | If requested | 
 
-###  Capturing claims from the UserInfo Endpoint
+###  Capturing claims from the userInfo Endpoint
 
 Typically the `id_token` only contains claims about the authentication event and the identity of the User. Other information about the User can be requested by including additional scopes in the authentication request as mentionned above (e.g.: phone, address, profile and email scopes). 
 
@@ -430,7 +429,7 @@ Parameter | Description
 **transaction Info** | This MUST be set to `tag:sixdots.be,2017-05:claim_transaction_info`. 
 **e-ID Picture** | This MUST be set to `tag:sixdots.be,2017-05:2017-05:claim_photo`.
 
-You can obtain these additional claims - and those defined by using the `scope` parameter - by presenting the `access_token` to the itsme® UserInfo endpoint. This is achieved by sending a HTTPS GET request over TLS to the UserInfo endpoint URI, passing the access token value in the Authorization header using the Bearer authentication scheme.
+You can obtain these additional claims - and those defined by using the `scope` parameter - by presenting the `access_token` to the itsme® userInfo endpoint. This is achieved by sending a HTTPS GET request over TLS to the userInfo endpoint URI, passing the access token value in the Authorization header using the Bearer authentication scheme.
 
 The itsme® UserInfo endpoint is: `https://e2emerchant.itsme.be/oidc/userinfo`. This URI can be retrieved from the itsme® <a href=https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key `userinfo_endpoint`.
 
@@ -440,7 +439,7 @@ Host: server.example.com
 Authorization: Bearer SlAV32hkKG
 ```
 
-The UserInfo claims will be returned in a HTTP 200 OK response. The non-exhaustive fields returned via the UserInfo endpoint are those below:
+The userInfo claims will be returned in a HTTP 200 OK response. The non-exhaustive fields returned via the userInfo endpoint are those below:
 
 ```http--inline
 HTTP/1.1 200 OK
@@ -468,7 +467,7 @@ Values | Description
 **validity_to**  | The eID card validity “to” date.
 **certificate_validity**  | The eID card certificate validity.
 **read_date**  | The data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000).
-**passport Number** | Simple string containing the user’s Passport Serial Number. 
+**passport Number** | Simple string containing the User’s Passport Serial Number. 
 **os** | The device operating system. The returned values will be `ANDROID`or `iOS`
 **appName**  | The application name.
 **appRelease**  | The application current release.
@@ -486,15 +485,15 @@ Values | Description
 **msisdn**  | The User’s phone number.
 **sdkRelease**  |
 **securityLevel** | The security level used during transaction. The returned values could be `SOFT_ONLY`, `SIM_ONLY` or `SIM_AND_SOFT`.
-**bindLevel**  | It tells you if the user account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be `SOFT_ONLY`, `SIM_ONLY` or `SIM_AND_SOFT`.
+**bindLevel**  | It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be `SOFT_ONLY`, `SIM_ONLY` or `SIM_AND_SOFT`.
 **mcc**  | The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country.
 **e-ID Picture** | 
 
-<aside class="notice">The `sub` claim will always be included in the response and this should be verified by you to mitigate against token substitution attacks. The `sub` claim in the UserInfo response MUST be verified to exactly match the `sub` Claim in the `id_token`; if they do not match, the UserInfo response values MUST NOT be used.</aside>
+<aside class="notice">The `sub` claim will always be included in the response and this should be verified by you to mitigate against token substitution attacks. The `sub` claim in the userInfo response MUST be verified to exactly match the `sub` Claim in the `id_token`; if they do not match, the userInfo response values MUST NOT be used.</aside>
 
 <aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
 
-<aside class="notice">itsme® will ensure that the UserInfo response is signed or encrypted, meaning that the content type will be set to application/jwt. If signed the UserInfo response will contain the `iss` and `aud` claims. You should validate that the `iss` value matches itsme® issuer identifier and the `aud` value contains the your `client_id`.</aside>
+<aside class="notice">itsme® will ensure that the userInfo response is signed or encrypted, meaning that the content type will be set to application/jwt. If signed the userInfo response will contain the `iss` and `aud` claims. You should validate that the `iss` value matches itsme® issuer identifier and the `aud` value contains the your `client_id`.</aside>
 
 <aside class="notice">You should authenticate the OpenID Provider either by checking the TLS certificate or by validating the signature of the JWT if provided.</aside>
 
@@ -629,7 +628,7 @@ The App Links Assistant in Android Studio can help you create intent filters in 
 2. Add details for the new URL mapping:
   * Entering your redirect URI in the `host` field 
   * Add a `path`, `pathPrefix`, or `pathPattern` for the redirect URIs you want to map. For example, if you have a recipe-sharing app, with all the recipes available in the same activity, and your corresponding website's recipes are all in the same `/recipe directory`, use `pathPrefix` and enter `/recipe`. This way, the redirect URI http://www.recipe-app.com/recipe/grilled-potato-salad maps to the activity you select in the following step.
-  * Select the Activity the redirect URI should take users to.
+  * Select the Activity the redirect URI should take Users to.
   * Click OK.
 3. The App Links Assistant adds intent filters based on your URL mapping to the `AndroidManifest.xml` file, and highlights it in the `Preview` field. If the you would like to make any changes, click Open `AndroidManifest.xml` to edit the intent filter.
 
