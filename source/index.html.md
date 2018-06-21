@@ -72,8 +72,8 @@ The itsme® Login and Share Data service integration is based on the <a href="ht
   
   If you are building a mobile web or in-app mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links and App links.</li>
   <li>Once the User has has authorized the request and has been authenticated the request itsme® will return an authorization code to your server component.</li>
-  <li>Your server component contacts the token endpoint and exchanges the authorization code for an id token identifying the User and an access token, redirecting the user to your mobile or web application.</li>
-  <li>You may request the additional user information from the UserInfo endpoint by presenting the access token obtained in the previous step.</li>
+  <li>Your server component contacts the token endpoint and exchanges the authorization code for an ID Token identifying the User and an Access Token, redirecting the user to your mobile or web application.</li>
+  <li>You may request the additional user information from the UserInfo endpoint by presenting the Access Token obtained in the previous step.</li>
   <li>At this stage you are able to confirm the success of the operation and display a success error message.</li>
 </ol>
 
@@ -119,10 +119,10 @@ Parameter | Required | Description
 :-------- | :-------| :----- 
 **client_id** | Required |This MUST be the client identifier (e.g. : PartnerCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
 **response_type** | Required | This defines the processing flow to be used when forming the response. Because itsme® uses the Authorization Code Flow as described above, this value MUST be `code`.
-**scope** | Required | The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value `openid` and `service: service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding). <br>The `openid` scope can return standard User attributes (these claims are:`iss`, `aud`, `exp`, `iat` and `at_hash`) in the id_token and/or in the response from the /userinfo endpoint.</br><br>Applications can ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are `family_name`, `given_name`, `gender`, `birthdate` and `locale`.</li><li>email: will request the `email` and `email_verified` claims.</li></ul>For more information on User attributes or claims, please consult the [ID claims](#Data) section.</br><br>An HTTP ERROR `not_implemented` will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br><br>Note: you'll need to define one scope for each itsme® service you want to use.</br>
+**scope** | Required | The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value `openid` and `service: service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding). <br>The `openid` scope can return standard User attributes (these claims are:`iss`, `aud`, `exp`, `iat` and `at_hash`) in the `id_token` and/or in the response from the userInfo endpoint.</br><br>Applications can ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are `family_name`, `given_name`, `gender`, `birthdate` and `locale`.</li><li>email: will request the `email` and `email_verified` claims.</li></ul>For more information on User attributes or claims, please consult the [ID claims](#Data) section.</br><br>An HTTP ERROR `not_implemented` will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br><br>Note: you'll need to define one scope for each itsme® service you want to use.</br>
 **redirect_uri** | Required | This is the URI to which the authentication response should be sent. This must exactly match one of the redirection URIs defined when registering your application in the [itsme® B2B portal](#Onboarding).
 **state** | An appropriate value is strongly RECOMMENDED | It is recommended that you use this parameter to maintain state between the request and the callback. Typically, Cross-Site Request Forgery (CSRF, XSRF) mitigation is done by cryptographically binding the value of this parameter with a browser cookie.
-**nonce** | An appropriate value is strongly RECOMMENDED | String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the authentication request to the id token. Sufficient entropy MUST be present in the `nonce` values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">OpenID Connect Core specifications</a> for more information.
+**nonce** | An appropriate value is strongly RECOMMENDED | String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the authentication request to the ID Token. Sufficient entropy MUST be present in the `nonce` values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">OpenID Connect Core specifications</a> for more information.
 **login_hint** | Optional | Hint to the Authorization Server about the login identifier the User might use to log in (if necessary).<br>If provided, this value MUST be a phone number in the format specified for the `phone_number` claim: `<countrycode>+<phonenumber>`. E.g. `login_hint=32+123456789`.</br><br>`login_hint` with invalid syntax will be ignored.</br>
 **display** | Optional | ASCII string value that specifies how the Authorization Server displays the authentication and consent User interface pages to the User. MUST be `page` if provided.<br>Other values will yield an HTTP ERROR `not_implemented`.</br>
 **prompt** | Optional | Space delimited, case sensitive list of ASCII string values that specifies whether the Authorization Server prompts the User for reauthentication and consent. MUST be `consent` if provided. 
@@ -204,13 +204,13 @@ The specifications for the implementation of Universal links and App links can b
 
 ## 3.5. Exchanging the authorisation code 
 <a name="tokenEndpoint"></a> 
-Once your server component has received an [authorization code](#AuthNResponse), your server can exchange it for an Access token and an ID token.
+Once your server component has received an [authorization code](#AuthNResponse), your server can exchange it for an Access Token and an ID Token.
 
-<aside class="notice">You might also read in the OpenID Connect Core specification about the Refresh token, but we don't support them (we don't implement any session mechanism).</aside>
+<aside class="notice">You might also read in the OpenID Connect Core specification about the Refresh Token, but we don't support them (we don't implement any session mechanism).</aside>
 
 Your server makes this exchange by sending an HTTPS POST request to the itsme® token endpoint URI `https://e2emerchant.itsme.be/oidc/token`. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a> using the key `token_endpoint`.
 
-<aside class="notice"> An authorization code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling Token Error Response. </aside>
+<aside class="notice"> An authorization code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling token error response. </aside>
 
 The request MUST include the following parameters in the `POST` body:
 
@@ -265,7 +265,7 @@ Parameter | Description
 
 ### Extracting a successful Token response
 
-If the Token request has been sucessfully validated we will return an HTTP 200 OK response including ID and Access tokens as in the example aside:
+If the token request has been sucessfully validated we will return an HTTP 200 OK response including ID and Access Tokens as in the example aside:
 
 ```http--inline
 HTTP/1.1 200 OK
@@ -292,13 +292,13 @@ The response body will include the following parameters:
 
 Values | Returned | Description
 :-- | :-- | :--
-**`access_token`** | Always | The Access token which may be used to access the userInfo endpoint.
+**`access_token`** | Always | The Access Token which may be used to access the userInfo endpoint.
 **`token_type`** | Always | Set to `Bearer`.
-**`id_token`** | Always | The Base64URL encoded id token corresponding to the Authentication Request.
+**`id_token`** | Always | The Base64URL encoded ID Token corresponding to the Authentication Request.
 **`at_hash`** | Not supported | itsme® does not provide any value for this parameter.
 **`refresh_token`** | Not supported | itsme® does not provide any value for this parameter as it only maintains short-lived session to enforce re-authentication.
 
-The `id_token` parameter is comprised of three Base64URL encoded elements. The first element is the id token header. If you decode the value you should get a string similar to the one below:
+The `id_token` parameter is comprised of three Base64URL encoded elements. The first element is the ID Token header. If you decode the value you should get a string similar to the one below:
 
 `{"alg":"RS256","kid":"1e9gdk7"}`
 
@@ -308,13 +308,13 @@ Decoding the second element gives you the JSON object containing the claims abou
 
 Values |	Returned |	Description
 :-- | :-- | :--
-**iss**	| Always | Identifier of the issuer of the ID token.
+**iss**	| Always | Identifier of the issuer of the ID Token.
 **sub** |	Always | An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.
-**aud**	| Always |	Audience of the ID token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
+**aud**	| Always |	Audience of the ID Token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
 **exp**	| Always |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
-**iat** |	Always	| The time the ID token was issued, represented in Unix time (integer seconds).
+**iat** |	Always	| The time the ID Token was issued, represented in Unix time (integer seconds).
 **auth_time** | Always | The time the User authentication occurred, represented in Unix time (integer seconds). 
-**nonce** | If provided | String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.
+**nonce** | If provided | String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID Token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.
 **acr** | Always | Possible values: `tag:sixdots.be,2016-06:acr_basic` and `tag:sixdots.be,2016-06:acr_advanced`
 **amr** | Never |
 **azp** | Never |
@@ -323,9 +323,9 @@ The third element is the signature over the JSON object. Details on how this sig
 
 In short, this Base64URL encoding is called a JSON Web Token (JWT). It makes sure that the data you received has not been modified. 
 
-### Handling Token Error Response 
+### Handling token error response 
 
-If the Token request is invalid or unauthorized an HTTP 400 response will be returned as in the example:
+If the token request is invalid or unauthorized an HTTP 400 response will be returned as in the example:
 
 ```http--inline
 HTTP/1.1 400 Bad Request
@@ -366,7 +366,7 @@ OpenID Connect Core specifications also allow your application to obtain basic p
 
 Following the OpenID Connect Core specifications, there are 2 ways to obtain ID claims/User attributes for a specific User:
 <ul>
-  <il>using the `id_token` returned in the Token response</il>
+  <il>using the `id_token` returned in the token response</il>
   <il>capturing the claims from the itsme® userInfo Endpoint</il>
 </ul>
 
@@ -388,13 +388,13 @@ As the `id_token` is comprised of three Base64URL encoded elements, you MUST dec
 
 Values |	Returned |	Description
 :-- | :-- | :--
-**iss**	| Always | Identifier of the issuer of the ID token.
+**iss**	| Always | Identifier of the issuer of the ID Token.
 **sub** |	Always | An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.
-**aud**	| Always |	Audience of the ID token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
+**aud**	| Always |	Audience of the ID Token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
 **exp**	| Always |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
-**iat** |	Always	| The time the ID token was issued, represented in Unix time (integer seconds).
+**iat** |	Always	| The time the ID Token was issued, represented in Unix time (integer seconds).
 **auth_time** | Always | The time the User authentication occurred, represented in Unix time (integer seconds). 
-**nonce** | If provided | String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.
+**nonce** | If provided | String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID Token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.
 **acr** | Always | Possible values: `tag:sixdots.be,2016-06:acr_basic` and `tag:sixdots.be,2016-06:acr_advanced`
 **amr** | Never |
 **azp** | Never |
@@ -429,7 +429,7 @@ Parameter | Description
 **transaction Info** | This MUST be set to `tag:sixdots.be,2017-05:claim_transaction_info`. 
 **e-ID Picture** | This MUST be set to `tag:sixdots.be,2017-05:2017-05:claim_photo`.
 
-You can obtain these additional claims - and those defined by using the `scope` parameter - by presenting the `access_token` to the itsme® userInfo endpoint. This is achieved by sending a HTTPS GET request over TLS to the userInfo endpoint URI, passing the access token value in the Authorization header using the Bearer authentication scheme.
+You can obtain these additional claims - and those defined by using the `scope` parameter - by presenting the `access_token` to the itsme® userInfo endpoint. This is achieved by sending a HTTPS GET request over TLS to the userInfo endpoint URI, passing the Access Token value in the Authorization header using the Bearer authentication scheme.
 
 The itsme® UserInfo endpoint is: `https://e2emerchant.itsme.be/oidc/userinfo`. This URI can be retrieved from the itsme® <a href=https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key `userinfo_endpoint`.
 
@@ -489,7 +489,7 @@ Values | Description
 **mcc**  | The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country.
 **e-ID Picture** | 
 
-<aside class="notice">The `sub` claim will always be included in the response and this should be verified by you to mitigate against token substitution attacks. The `sub` claim in the userInfo response MUST be verified to exactly match the `sub` Claim in the `id_token`; if they do not match, the userInfo response values MUST NOT be used.</aside>
+<aside class="notice">The `sub` claim will always be included in the response and this should be verified by you to mitigate against token substitution attacks. The `sub` claim in the userInfo response MUST be verified to exactly match the `sub` Claim in the <code>id_token</code>; if they do not match, the userInfo response values MUST NOT be used.</aside>
 
 <aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
 
