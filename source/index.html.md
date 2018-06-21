@@ -105,8 +105,7 @@ First, you will form a HTTPS GET request that MUST be sent to the itsme® author
 The OpenID Connect Core Specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:
 
 ```http--inline
- HTTP/1.1
- GET /authorize?response_type=code
+ GET /authorize?response_type=code HTTP/1.1
  &scope=openid%20profile%20email%20service%3Aclient.registration
  &client_id=s6BhdRkqt3
  &state=af0ifjsldkj
@@ -144,10 +143,10 @@ Parameter | Required | Description
 If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an authorisation code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the `redirect_uri` specified previously in the authentication request.
  
 ```http--inline
- HTTP/1.1 302 Found
- Location: https://client.example.org/cb?
- code=SplxlOBeZQQYbYS6WxSbIA&
- state=af0ifjsldkj
+HTTP/1.1 302 Found
+Location: https://client.example.org/cb?
+code=SplxlOBeZQQYbYS6WxSbIA&
+state=af0ifjsldkj
  ```
 The response will contain:
 
