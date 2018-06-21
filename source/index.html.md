@@ -355,7 +355,7 @@ If the `sub` returned in the ID Token is unknown to you, one of the following sc
     </aside>
   </li>
   <li>
-    If you did not requested User attributes in the Authentication request or if you can't match with certainty the provided data's with the one from your database, you could ask the User to either authenticate with his usual credentials (e.g. User name / password) or to create a new account on your side. You may be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required in the registration form (under the condition you requested the User attributes in the Authentication request):
+    If you did not request User attributes in the Authentication request or if you can't match with certainty the provided data's with the one from your database, you could ask the User to either authenticate with his usual credentials (e.g. User name / password) or to create a new account on your side. You may be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required in the registration form (under the condition you requested the User attributes in the Authentication request):
     <img src="LinkUser.png" alt="Picture illustrates possibilities for linking user accounts">  
   </li>
 </ul>
