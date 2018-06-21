@@ -213,14 +213,32 @@ Your server makes this exchange by sending an HTTPS POST request to the itsme® 
 The request MUST include the following parameters in the `POST` body:
 
 ```http--inline
-GET /oidc/authorization?response_type=code HTTP/1.1
+GET /oidc/authorization HTTP/1.1
+?response_type=code
 &client_id=yourpartnercode
-&yourredirecturl
-&scope=openid+service%3Ayourservicecode+profile+
-&claims={"userinfo":{" tag:sixdots.be,2016-06:claim_nationality": null},
-"id_token":{"auth_time": {"essential": true},"acr_values
-{"value":["tag:sixdots.be,2016-06:acr_advanced"]
-}}}&state=anystate&nonce=anonce&prompt=login&max_age=1
+&redirect_uri=yourredirecturl
+&scope=openid+service%3Ayourservicecode+profile
+&claims={
+  "userinfo":
+  {
+    " tag:sixdots.be,2016-06:claim_nationality": null
+  },
+  "id_token":
+  {
+    "auth_time":
+    {
+      "essential": true
+    },
+    "acr_values":
+    {
+      "value":["tag:sixdots.be,2016-06:acr_advanced"]
+    }
+  }
+}
+&state=anystate
+&nonce=anonce
+&prompt=login
+&max_age=1
 ```
 Parameter | Required | Description
 :-- | :-- | :--
