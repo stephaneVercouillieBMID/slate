@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;json&quot;,&quot;http&quot;]">
+  <body class="index" data-languages="[&quot;http&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,7 +211,6 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="json">JSON</a>
               <a href="#" data-language-name="http">HTTP</a>
         </div>
         <div class="search">
@@ -247,7 +246,7 @@
                     <a href="#3-6-managing-token-response" class="toc-h2 toc-link" data-title="3-6-managing-token-response">3.6. Managing Token Response</a>
                   </li>
                   <li>
-                    <a href="#3-7-authenticating-the-user" class="toc-h2 toc-link" data-title="3-7-authenticating-the-user">3.7. Authenticating the User</a>
+                    <a href="#3-7-identifying-the-user" class="toc-h2 toc-link" data-title="3-7-identifying-the-user">3.7. Identifying the User</a>
                   </li>
                   <li>
                     <a href="#3-8-obtaining-id-claims-user-attibutes" class="toc-h2 toc-link" data-title="3-8-obtaining-id-claims-user-attibutes">3.8. Obtaining ID claims/user attibutes</a>
@@ -338,7 +337,7 @@
 
 <p>This flow is described in much more detail in the following sections.</p>
 <h2 id='3-1-checking-itsme-openid-configuration'>3.1. Checking itsme® OpenID Configuration</h2>
-<p>To simplify implementations and increase flexibility, OpenID Connect allows the use of a <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a>, a JSON document containing key-value pairs which provide details about itsme® system configuration, such as 
+<p>To simplify implementations and increase flexibility, OpenID Connect allows the use of a <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery Document</a>, a JSON document containing key-value pairs which provide details about itsme® system configuration, such as 
 <ul>
   <li>URIs of the authorization</li>
   <li>token</li>
@@ -347,11 +346,27 @@
   <li>JWKSet URL</li>
 </ul></p>
 
-<p>The Discovery document for itsme® services may be retrieved from: <code>https://merchant.itsme.be/oidc/.well-known/openid-configuration</code>.</p>
+<p>The Discovery Document for itsme® services may be retrieved from:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Environment</th>
+<th style="text-align: left">URI</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Sandbox</td>
+<td style="text-align: left"><code>https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</code></td>
+</tr>
+<tr>
+<td style="text-align: left">Production</td>
+<td style="text-align: left"><code>https://merchant.itsme.be/oidc/.well-known/openid-configuration</code></td>
+</tr>
+</tbody></table>
 
 <p><a name="AuthNRequest"></a></p>
 <h2 id='3-2-forming-an-authentication-request'>3.2. Forming an authentication request</h2>
-<p>First, you will form a HTTPS GET request that MUST be sent to the itsme® authorization endpoint. The itsme® authorization endpoint is <code>https://merchant.itsme.be/oidc/authorize</code>. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a>, using the key <code>authorization_endpoint</code>.</p>
+<p>First, you will form a HTTPS GET request that MUST be sent to the itsme® authorization endpoint. The itsme® authorization endpoint is <code>https://e2emerchant.itsme.be/oidc/authorize</code>. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a>, using the key <code>authorization_endpoint</code>.</p>
 
 <aside class="notice">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in <a href="#UniversalLinks">section 3.4</a>.</aside>
 
@@ -571,7 +586,7 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 
 <aside class="notice">You might also read in the OpenID Connect Core specification about the Refresh token, but we don't support them (we don't implement any session mechanism).</aside>
 
-<p>Your server makes this exchange by sending an HTTPS POST request to the itsme® token endpoint URI <code>https://merchant.itsme.be/oidc/token</code>. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a> using the key <code>token_endpoint</code>.</p>
+<p>Your server makes this exchange by sending an HTTPS POST request to the itsme® token endpoint URI <code>https://e2emerchant.itsme.be/oidc/token</code>. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a> using the key <code>token_endpoint</code>.</p>
 
 <aside class="notice"> An authorization code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling Token Error Response. </aside>
 
@@ -674,23 +689,21 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 <span class="s">  Content-Type: application/json</span>
 <span class="s">  Cache-Control: no-store</span>
 <span class="s">  Pragma: no-cache</span>
-
-  {
-   "access_token": "SlAV32hkKG",
-   "token_type": "Bearer",
-   "expires_in": 3600,
-   "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjFlOWdkazcifQ.ewogImlzc
-     yI6ICJodHRwOi8vc2VydmVyLmV4YW1wbGUuY29tIiwKICJzdWIiOiAiMjQ4Mjg5
-     NzYxMDAxIiwKICJhdWQiOiAiczZCaGRSa3F0MyIsCiAibm9uY2UiOiAibi0wUzZ
-     fV3pBMk1qIiwKICJleHAiOiAxMzExMjgxOTcwLAogImlhdCI6IDEzMTEyODA5Nz
-     AKfQ.ggW8hZ1EuVLuxNuuIJKX_V8a_OMXzR0EHR9R6jgdqrOOF4daGU96Sr_P6q
-     Jp6IcmD3HP99Obi1PRs-cwh3LO-p146waJ8IhehcwL7F09JdijmBqkvPeB2T9CJ
-     NqeGpe-gccMg4vfKjkM8FcGvnzZUN4_KSP0aAp1tOJ1zZwgjxqGByKHiOtX7Tpd
-     QyHE5lcMiKPXfEIQILVq0pc_E2DzL7emopWoaoZTF_m0_N0YzFC6g6EJbOEoRoS
-     K5hoDalrcvRYLSrQAZZKflyuVCyixEoV9GfNQC3_osjzw2PAithfubEEBLuVVk4
-     XUVrWOLrLl0nx7RkKU8NXNHq-rvKMzqg"
-  }
-
+<span class="s">  {</span>
+<span class="s">   "access_token": "SlAV32hkKG",</span>
+<span class="s">   "token_type": "Bearer",</span>
+<span class="s">   "expires_in": 3600,</span>
+<span class="s">   "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjFlOWdkazcifQ.ewogImlzc</span>
+<span class="s">     yI6ICJodHRwOi8vc2VydmVyLmV4YW1wbGUuY29tIiwKICJzdWIiOiAiMjQ4Mjg5</span>
+<span class="s">     NzYxMDAxIiwKICJhdWQiOiAiczZCaGRSa3F0MyIsCiAibm9uY2UiOiAibi0wUzZ</span>
+<span class="s">     fV3pBMk1qIiwKICJleHAiOiAxMzExMjgxOTcwLAogImlhdCI6IDEzMTEyODA5Nz</span>
+<span class="s">     AKfQ.ggW8hZ1EuVLuxNuuIJKX_V8a_OMXzR0EHR9R6jgdqrOOF4daGU96Sr_P6q</span>
+<span class="s">     Jp6IcmD3HP99Obi1PRs-cwh3LO-p146waJ8IhehcwL7F09JdijmBqkvPeB2T9CJ</span>
+<span class="s">     NqeGpe-gccMg4vfKjkM8FcGvnzZUN4_KSP0aAp1tOJ1zZwgjxqGByKHiOtX7Tpd</span>
+<span class="s">     QyHE5lcMiKPXfEIQILVq0pc_E2DzL7emopWoaoZTF_m0_N0YzFC6g6EJbOEoRoS</span>
+<span class="s">     K5hoDalrcvRYLSrQAZZKflyuVCyixEoV9GfNQC3_osjzw2PAithfubEEBLuVVk4</span>
+<span class="s">     XUVrWOLrLl0nx7RkKU8NXNHq-rvKMzqg"</span>
+<span class="s">  }</span>
 </code></pre>
 <p>The response body will include the following parameters:</p>
 
@@ -751,7 +764,7 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 <tr>
 <td style="text-align: left"><strong>sub</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">An identifier for the User (e.g.: UserCode), unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.</td>
+<td style="text-align: left">An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>aud</strong></td>
@@ -799,32 +812,34 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 
 <p>In short, this Base64URL encoding is called a JSON Web Token (JWT). It makes sure that the data you received has not been modified. </p>
 <h3 id='handling-token-error-response'>Handling Token Error Response</h3>
-<p>If the Token request is invalid or unauthorized an HTTP 400 response will be returned as in the example:
-<code>http--inline
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-Cache-Control: no-store
-Pragma: no-cache
-{
-  &quot;error&quot;: &quot;invalid_request&quot;
-}
-</code>
-The response will contain an error parameter and optionally <code>error_description</code> and <code>error_uri</code> parameters. The <code>error_uri</code> parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.</p>
-<h2 id='3-7-authenticating-the-user'>3.7. Authenticating the User</h2>
-<p>After obtaining the user ID and Access token, you should query your database to check if you know the User, or not. If the User already exists in your database, you should start an application session for that User.</p>
+<p>If the Token request is invalid or unauthorized an HTTP 400 response will be returned as in the example:</p>
+<pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">no-store</span>
+<span class="na">Pragma</span><span class="p">:</span> <span class="s">no-cache</span>
+<span class="s">{</span>
+<span class="s">  "error": "invalid_request"</span>
+<span class="s">}</span>
+</code></pre>
+<p>The response will contain an error parameter and optionally <code>error_description</code> and <code>error_uri</code> parameters. The <code>error_uri</code> parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.</p>
+<h2 id='3-7-identifying-the-user'>3.7. Identifying the User</h2>
+<p>After obtaining the User ID Token, you should query your database to check if you know the <code>sub</code>, or not. If you already linked this <code>sub</code> to an account in your database, you should start an application session for that User.</p>
 
-<p>If the User does not exist in the your database, one of the following scenario should be implemented to link the UserCode to the correct user account:
+<p>If the <code>sub</code> returned in the ID Token is unknown to you, one of the following scenarios should be implemented to link the userCode to the correct user account:</p>
+
 <ul>
-  <il>If you requested user attributes in the Authentication request, you can check if these data&#39;s match those you have in your database and automatically link User&#39;s UserCode to the correct User account on your side.</il>
-  <il>If you requested user attributes in the Authentication request but you can&#39;t match with certainty the provided data&#39;s with the one from your database, you could  redirect the User to the new-user sign-up flow. You may be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required on the registration form (under the condition you requested the user attributes in the Authentication request).</il>
-  <il>If you didn&#39;t request user attributes in the Authentication request, simply ask the user to authenticate with his usual credentials and link the UserCode to his account on your side.</il>
-</ul></p>
-
-<p>All these scenario&#39;s are depicted in the diagrams below:</p>
-
-<p><img src="LinkUserAuto.png" alt="Automatically linking user accounts"></p>
-
-<p><img src="LinkUser.png" alt="Picture illustrates possibilities for linking user accounts"></p>
+  <li>
+    If you requested User attributes in the Authentication request, you can check if these data match a User account in your database and automatically link the provided `sub` to this account:
+    <img src="LinkUserAuto.png" alt="Automatically linking user accounts">
+    <aside class="success">
+      This approach requires a sanity check with us, to check how we can guarantee on both sides the unicity of the User identified with the data and the consistency of these data's lifecycle. If you opt for this approach, please contact us. 
+    </aside>
+  </li>
+  <li>
+    If you did not requested User attributes in the Authentication request or if you can't match with certainty the provided data's with the one from your database, you could ask the User to either authenticate with his usual credentials (e.g. User name / password) or to create a new account on your side. You may be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required in the registration form (under the condition you requested the User attributes in the Authentication request):
+    <img src="LinkUser.png" alt="Picture illustrates possibilities for linking user accounts">  
+  </li>
+</ul>
 
 <p><a name="Data"></a></p>
 <h2 id='3-8-obtaining-id-claims-user-attibutes'>3.8. Obtaining ID claims/user attibutes</h2>
@@ -883,7 +898,7 @@ The response will contain an error parameter and optionally <code>error_descript
 <tr>
 <td style="text-align: left"><strong>sub</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">An identifier for the User (e.g.: UserCode), unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.</td>
+<td style="text-align: left">An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>aud</strong></td>
@@ -953,12 +968,12 @@ The response will contain an error parameter and optionally <code>error_descript
 <tr>
 <td style="text-align: left"><strong>email</strong></td>
 <td style="text-align: left">If requested</td>
-<td style="text-align: left">The user&#39;s email address. This may not be unique and is not suitable for use as a primary key. Provided only if your scope included the string &quot;email&quot;.</td>
+<td style="text-align: left">The User&#39;s email address. This may not be unique and is not suitable for use as a primary key. Provided only if your scope included the string &quot;email&quot;.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>email_verified</strong></td>
 <td style="text-align: left">If requested</td>
-<td style="text-align: left"><code>True</code> if the user&#39;s e-mail address has been verified; otherwise <code>false</code>.</td>
+<td style="text-align: left"><code>true</code> if the user&#39;s e-mail address has been verified; otherwise <code>false</code>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>phone_number</strong></td>
@@ -1038,7 +1053,7 @@ The response will contain an error parameter and optionally <code>error_descript
 
 <p>You can obtain these additional claims - and those defined by using the <code>scope</code> parameter - by presenting the <code>access_token</code> to the itsme® UserInfo endpoint. This is achieved by sending a HTTPS GET request over TLS to the UserInfo endpoint URI, passing the access token value in the Authorization header using the Bearer authentication scheme.</p>
 
-<p>The itsme® UserInfo endpoint is: <code>https://merchant.itsme.be/oidc/userinfo</code>. This URI can be retrieved from the itsme® <a href=https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>userinfo_endpoint</code>.</p>
+<p>The itsme® UserInfo endpoint is: <code>https://e2emerchant.itsme.be/oidc/userinfo</code>. This URI can be retrieved from the itsme® <a href=https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>userinfo_endpoint</code>.</p>
 <pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/userinfo</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">server.example.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer SlAV32hkKG</span>
@@ -1418,7 +1433,6 @@ MzNTI3OTgsMTM1NzAwMDU4Nl19
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="json">JSON</a>
                 <a href="#" data-language-name="http">HTTP</a>
           </div>
       </div>
