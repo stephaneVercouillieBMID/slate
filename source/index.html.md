@@ -96,7 +96,7 @@ The Discovery Document for itsme® services may be retrieved from:
 Environment | URI
 -- | --
 Sandbox | <code>https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</code>
-Prod | <code>https://merchant.itsme.be/oidc/.well-known/openid-configuration<</code>
+Prod | <code>https://merchant.itsme.be/oidc/.well-known/openid-configuration</code>
 
 Further in this document, the examples will use the production Discovery Document. 
 
