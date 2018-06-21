@@ -213,7 +213,7 @@ Your server makes this exchange by sending an HTTPS POST request to the itsme® 
 The request MUST include the following parameters in the `POST` body:
 
 ```http--inline
-GET /oidc/authorization?response_type=code
+GET /oidc/authorization?response_type=code HTTP/1.1
 &client_id=yourpartnercode
 &yourredirecturl
 &scope=openid+service%3Ayourservicecode+profile+
@@ -411,10 +411,10 @@ You can obtain these additional claims - and those defined by using the `scope` 
 The itsme® UserInfo endpoint is: `https://merchant.itsme.be/oidc/userinfo`. This URI can be retrieved from the itsme® <a href=https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key `userinfo_endpoint`.
 
 ```http--inline
-GET /userinfo HTTP/1.1 
-Host: server.example.com 
+GET /userinfo HTTP/1.1
+Host: server.example.com
 Authorization: Bearer SlAV32hkKG
-``` 
+```
 
 The UserInfo claims will be returned in a HTTP 200 OK response. The non-exhaustive fields returned via the UserInfo endpoint are those below:
 
