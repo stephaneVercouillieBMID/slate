@@ -356,14 +356,13 @@
 <aside class="notice">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in <a href="#UniversalLinks">section 3.4</a>.</aside>
 
 <p>The OpenID Connect Core Specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:</p>
-<pre class="highlight http tab-http--inline"><code><span class="err"> HTTP/1.1
- GET /authorize?response_type=code
- &amp;scope=openid%20profile%20email%20service%3Aclient.registration
- &amp;client_id=s6BhdRkqt3
- &amp;state=af0ifjsldkj
- &amp;redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb HTTP/1.1
- Host: server.itsme.be
-</span></code></pre>
+<pre class="highlight http tab-http--inline"><code><span class="err"> </span><span class="nf">GET</span> <span class="nn">/authorize?response_type=code</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="s"> &amp;scope=openid%20profile%20email%20service%3Aclient.registration</span>
+<span class="s"> &amp;client_id=s6BhdRkqt3</span>
+<span class="s"> &amp;state=af0ifjsldkj</span>
+<span class="s"> &amp;redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb HTTP/1.1</span>
+<span class="s"> Host: server.itsme.be</span>
+</code></pre>
 <table><thead>
 <tr>
 <th style="text-align: left">Parameter</th>
@@ -471,10 +470,10 @@
 <p><a name="AuthNResponse"></a></p>
 <h2 id='3-3-capturing-an-authorization-code'>3.3. Capturing an Authorization Code</h2><h3 id='capturing-a-successful-authorisation-code'>Capturing a successful Authorisation Code</h3>
 <p>If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an authorisation code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the <code>redirect_uri</code> specified previously in the authentication request.</p>
-<pre class="highlight http tab-http--inline"><code><span class="err"> </span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
-<span class="s"> Location: https://client.example.org/cb?</span>
-<span class="s"> code=SplxlOBeZQQYbYS6WxSbIA&amp;</span>
-<span class="s"> state=af0ifjsldkj</span>
+<pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
+<span class="na">Location</span><span class="p">:</span> <span class="s">https://client.example.org/cb?</span>
+<span class="s">code=SplxlOBeZQQYbYS6WxSbIA&amp;</span>
+<span class="s">state=af0ifjsldkj</span>
 </code></pre>
 <p>The response will contain:</p>
 
