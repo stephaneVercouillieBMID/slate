@@ -82,7 +82,7 @@ This flow is described in much more detail in the following sections.
 
 ## 3.1. Checking itsme® OpenID Configuration
 
-To simplify implementations and increase flexibility, OpenID Connect allows the use of a <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a>, a JSON document containing key-value pairs which provide details about itsme® system configuration, such as 
+To simplify implementations and increase flexibility, OpenID Connect allows the use of a <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery Document</a>, a JSON document containing key-value pairs which provide details about itsme® system configuration, such as 
 <ul>
   <li>URIs of the authorization</li>
   <li>token</li>
@@ -91,8 +91,14 @@ To simplify implementations and increase flexibility, OpenID Connect allows the 
   <li>JWKSet URL</li>
 </ul>
 
-The Discovery document for itsme® services may be retrieved from: `https://merchant.itsme.be/oidc/.well-known/openid-configuration`.
+The Discovery Document for itsme® services may be retrieved from:
 
+Environment | URI
+-- | --
+Sandbox | <code>https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</code>
+Prod | <code>https://merchant.itsme.be/oidc/.well-known/openid-configuration<</code>
+
+Further in this document, the examples will use the production Discovery Document. 
 
 <a name="AuthNRequest"></a>
 ## 3.2. Forming an authentication request
