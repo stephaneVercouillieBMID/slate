@@ -366,8 +366,8 @@ OpenID Connect Core specifications also allow your application to obtain basic p
 
 Following the OpenID Connect Core specifications, there are 2 ways to obtain ID claims/User attributes for a specific User:
 <ul>
-  <il>using the `id_token` returned in the token response</il>
-  <il>capturing the claims from the itsme® userInfo Endpoint</il>
+  <li>using the `id_token` returned in the token response</li>
+  <li>capturing the claims from the itsme® userInfo Endpoint</li>
 </ul>
 
 ###  Using `id_token` to obtain claims
