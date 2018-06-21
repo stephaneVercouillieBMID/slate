@@ -96,14 +96,12 @@ The Discovery Document for itsme® services may be retrieved from:
 Environment | URI
 :-- | :--
 Sandbox | <code>https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</code>
-Prod | <code>https://merchant.itsme.be/oidc/.well-known/openid-configuration</code>
-
-Further in this document, the examples will use the production Discovery Document. 
+Production | <code>https://merchant.itsme.be/oidc/.well-known/openid-configuration</code>
 
 <a name="AuthNRequest"></a>
 ## 3.2. Forming an authentication request
 
-First, you will form a HTTPS GET request that MUST be sent to the itsme® authorization endpoint. The itsme® authorization endpoint is `https://merchant.itsme.be/oidc/authorize`. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a>, using the key `authorization_endpoint`.
+First, you will form a HTTPS GET request that MUST be sent to the itsme® authorization endpoint. The itsme® authorization endpoint is `https://e2emerchant.itsme.be/oidc/authorize`. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a>, using the key `authorization_endpoint`.
 
 <aside class="notice">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in <a href="#UniversalLinks">section 3.4</a>.</aside>
 
@@ -211,7 +209,7 @@ Once your server component has received an [authorization code](#AuthNResponse),
 
 <aside class="notice">You might also read in the OpenID Connect Core specification about the Refresh token, but we don't support them (we don't implement any session mechanism).</aside>
 
-Your server makes this exchange by sending an HTTPS POST request to the itsme® token endpoint URI `https://merchant.itsme.be/oidc/token`. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a> using the key `token_endpoint`.
+Your server makes this exchange by sending an HTTPS POST request to the itsme® token endpoint URI `https://e2emerchant.itsme.be/oidc/token`. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a> using the key `token_endpoint`.
 
 <aside class="notice"> An authorization code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling Token Error Response. </aside>
 
@@ -342,7 +340,7 @@ Pragma: no-cache
 
 The response will contain an error parameter and optionally `error_description` and `error_uri` parameters. The `error_uri` parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.
 
-## 3.7. Authenticating the User
+## 3.7. Identifying the User
 
 After obtaining the user ID and Access token, you should query your database to check if you know the User, or not. If the User already exists in your database, you should start an application session for that User.
 
@@ -431,7 +429,7 @@ Parameter | Description
 
 You can obtain these additional claims - and those defined by using the `scope` parameter - by presenting the `access_token` to the itsme® UserInfo endpoint. This is achieved by sending a HTTPS GET request over TLS to the UserInfo endpoint URI, passing the access token value in the Authorization header using the Bearer authentication scheme.
 
-The itsme® UserInfo endpoint is: `https://merchant.itsme.be/oidc/userinfo`. This URI can be retrieved from the itsme® <a href=https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key `userinfo_endpoint`.
+The itsme® UserInfo endpoint is: `https://e2emerchant.itsme.be/oidc/userinfo`. This URI can be retrieved from the itsme® <a href=https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key `userinfo_endpoint`.
 
 ```http--inline
 GET /userinfo HTTP/1.1
