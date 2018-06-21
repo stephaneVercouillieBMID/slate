@@ -2,7 +2,6 @@
 title: itsme® OpenID Connect documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
- - json: JSON
  - http: HTTP
 
 toc_footers:
@@ -270,7 +269,6 @@ HTTP/1.1 200 OK
   Content-Type: application/json
   Cache-Control: no-store
   Pragma: no-cache
-
   {
    "access_token": "SlAV32hkKG",
    "token_type": "Bearer",
@@ -286,7 +284,6 @@ HTTP/1.1 200 OK
      K5hoDalrcvRYLSrQAZZKflyuVCyixEoV9GfNQC3_osjzw2PAithfubEEBLuVVk4
      XUVrWOLrLl0nx7RkKU8NXNHq-rvKMzqg"
   }
-
 ```
 The response body will include the following parameters:
 
@@ -326,6 +323,7 @@ In short, this Base64URL encoding is called a JSON Web Token (JWT). It makes sur
 ### Handling Token Error Response 
 
 If the Token request is invalid or unauthorized an HTTP 400 response will be returned as in the example:
+
 ```http--inline
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
@@ -335,6 +333,7 @@ Pragma: no-cache
   "error": "invalid_request"
 }
 ```
+
 The response will contain an error parameter and optionally `error_description` and `error_uri` parameters. The `error_uri` parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.
 
 ## 3.7. Authenticating the User
