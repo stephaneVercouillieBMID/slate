@@ -576,15 +576,15 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 <aside class="notice"> An authorization code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling Token Error Response. </aside>
 
 <p>The request MUST include the following parameters in the <code>POST</code> body:</p>
-<pre class="highlight http tab-http--inline"><code><span class="err">GET /oidc/authorization?response_type=code
-&amp;client_id=yourpartnercode
-&amp;yourredirecturl
-&amp;scope=openid+service%3Ayourservicecode+profile+
-&amp;claims={"userinfo":{" tag:sixdots.be,2016-06:claim_nationality": null},
-"id_token":{"auth_time": {"essential": true},"acr_values
-{"value":["tag:sixdots.be,2016-06:acr_advanced"]
-}}}&amp;state=anystate&amp;nonce=anonce&amp;prompt=login&amp;max_age=1
-</span></code></pre>
+<pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/oidc/authorization?response_type=code</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="s">&amp;client_id=yourpartnercode</span>
+<span class="s">&amp;yourredirecturl</span>
+<span class="s">&amp;scope=openid+service%3Ayourservicecode+profile+</span>
+<span class="na">&amp;claims={"userinfo"</span><span class="p">:</span><span class="s">{" tag:sixdots.be,2016-06:claim_nationality": null},</span>
+<span class="na">"id_token"</span><span class="p">:</span><span class="s">{"auth_time": {"essential": true},"acr_values</span>
+<span class="na">{"value"</span><span class="p">:</span><span class="s">["tag:sixdots.be,2016-06:acr_advanced"]</span>
+<span class="s">}}}&amp;state=anystate&amp;nonce=anonce&amp;prompt=login&amp;max_age=1</span>
+</code></pre>
 <table><thead>
 <tr>
 <th style="text-align: left">Parameter</th>
@@ -1021,10 +1021,10 @@ The response will contain an error parameter and optionally <code>error_descript
 <p>You can obtain these additional claims - and those defined by using the <code>scope</code> parameter - by presenting the <code>access_token</code> to the itsme® UserInfo endpoint. This is achieved by sending a HTTPS GET request over TLS to the UserInfo endpoint URI, passing the access token value in the Authorization header using the Bearer authentication scheme.</p>
 
 <p>The itsme® UserInfo endpoint is: <code>https://merchant.itsme.be/oidc/userinfo</code>. This URI can be retrieved from the itsme® <a href=https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>userinfo_endpoint</code>.</p>
-<pre class="highlight http tab-http--inline"><code><span class="err">GET /userinfo HTTP/1.1 
-Host: server.example.com 
-Authorization: Bearer SlAV32hkKG
-</span></code></pre>
+<pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/userinfo</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">server.example.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer SlAV32hkKG</span>
+</code></pre>
 <p>The UserInfo claims will be returned in a HTTP 200 OK response. The non-exhaustive fields returned via the UserInfo endpoint are those below:</p>
 <pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="s">  Content-Type: application/json</span>
