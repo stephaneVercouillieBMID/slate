@@ -576,14 +576,32 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 <aside class="notice"> An authorization code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling Token Error Response. </aside>
 
 <p>The request MUST include the following parameters in the <code>POST</code> body:</p>
-<pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/oidc/authorization?response_type=code</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/oidc/authorization</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="s">?response_type=code</span>
 <span class="s">&amp;client_id=yourpartnercode</span>
-<span class="s">&amp;yourredirecturl</span>
-<span class="s">&amp;scope=openid+service%3Ayourservicecode+profile+</span>
-<span class="na">&amp;claims={"userinfo"</span><span class="p">:</span><span class="s">{" tag:sixdots.be,2016-06:claim_nationality": null},</span>
-<span class="na">"id_token"</span><span class="p">:</span><span class="s">{"auth_time": {"essential": true},"acr_values</span>
-<span class="na">{"value"</span><span class="p">:</span><span class="s">["tag:sixdots.be,2016-06:acr_advanced"]</span>
-<span class="s">}}}&amp;state=anystate&amp;nonce=anonce&amp;prompt=login&amp;max_age=1</span>
+<span class="s">&amp;redirect_uri=yourredirecturl</span>
+<span class="s">&amp;scope=openid+service%3Ayourservicecode+profile</span>
+<span class="s">&amp;claims={</span>
+<span class="s">  "userinfo":</span>
+<span class="s">  {</span>
+<span class="s">    " tag:sixdots.be,2016-06:claim_nationality": null</span>
+<span class="s">  },</span>
+<span class="s">  "id_token":</span>
+<span class="s">  {</span>
+<span class="s">    "auth_time":</span>
+<span class="s">    {</span>
+<span class="s">      "essential": true</span>
+<span class="s">    },</span>
+<span class="s">    "acr_values":</span>
+<span class="s">    {</span>
+<span class="s">      "value":["tag:sixdots.be,2016-06:acr_advanced"]</span>
+<span class="s">    }</span>
+<span class="s">  }</span>
+<span class="s">}</span>
+<span class="s">&amp;state=anystate</span>
+<span class="s">&amp;nonce=anonce</span>
+<span class="s">&amp;prompt=login</span>
+<span class="s">&amp;max_age=1</span>
 </code></pre>
 <table><thead>
 <tr>
