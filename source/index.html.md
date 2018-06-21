@@ -310,12 +310,12 @@ Decoding the second element gives you the JSON object containing the claims abou
 Values |	Returned |	Description
 :-- | :-- | :--
 **iss**	| Always | Identifier of the issuer of the ID token.
-**sub** |	Always | An identifier for the User (e.g.: UserCode), unique among all itsme® accounts and never reused. Use `sub` in the application as the unique-identifier key for the User.
-**aud**	| Always |	Audience of the ID token. This will contain the `client_id`. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
+**sub** |	Always | An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.
+**aud**	| Always |	Audience of the ID token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
 **exp**	| Always |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 **iat** |	Always	| The time the ID token was issued, represented in Unix time (integer seconds).
 **auth_time** | Always | The time the User authentication occurred, represented in Unix time (integer seconds). 
-**nonce** | If provided | String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID token. Sufficient entropy MUST be present in the `nonce` values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.
+**nonce** | If provided | String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.
 **acr** | Always | Possible values: `tag:sixdots.be,2016-06:acr_basic` and `tag:sixdots.be,2016-06:acr_advanced`
 **amr** | Never |
 **azp** | Never |
@@ -342,20 +342,23 @@ The response will contain an error parameter and optionally `error_description` 
 
 ## 3.7. Identifying the User
 
-After obtaining the user ID and Access token, you should query your database to check if you know the User, or not. If the User already exists in your database, you should start an application session for that User.
+After obtaining the User ID Token, you should query your database to check if you know the `sub`, or not. If you already linked this `sub` to an account in your database, you should start an application session for that User.
 
-If the User does not exist in the your database, one of the following scenario should be implemented to link the UserCode to the correct user account:
+If the `sub` returned in the ID Token is unknown to you, one of the following scenarios should be implemented to link the userCode to the correct user account:
+
 <ul>
-  <il>If you requested user attributes in the Authentication request, you can check if these data's match those you have in your database and automatically link User's UserCode to the correct User account on your side.</il>
-  <il>If you requested user attributes in the Authentication request but you can't match with certainty the provided data's with the one from your database, you could  redirect the User to the new-user sign-up flow. You may be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required on the registration form (under the condition you requested the user attributes in the Authentication request).</il>
-  <il>If you didn't request user attributes in the Authentication request, simply ask the user to authenticate with his usual credentials and link the UserCode to his account on your side.</il>
+  <li>
+    If you requested User attributes in the Authentication request, you can check if these data match a User account in your database and automatically link the provided `sub` to this account:
+    <img src="LinkUserAuto.png" alt="Automatically linking user accounts">
+    <aside class="success">
+      This approach requires a sanity check with us, to check how we can guarantee on both sides the unicity of the User identified with the data and the consistency of these data's lifecycle. If you opt for this approach, please contact us. 
+    </aside>
+  </li>
+  <li>
+    If you did not requested User attributes in the Authentication request or if you can't match with certainty the provided data's with the one from your database, you could ask the User to either authenticate with his usual credentials (e.g. User name / password) or to create a new account on your side. You may be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required in the registration form (under the condition you requested the User attributes in the Authentication request):
+    <img src="LinkUser.png" alt="Picture illustrates possibilities for linking user accounts">  
+  </li>
 </ul>
-    
-All these scenario's are depicted in the diagrams below:
-
-<img src="LinkUserAuto.png" alt="Automatically linking user accounts">
-
-<img src="LinkUser.png" alt="Picture illustrates possibilities for linking user accounts">
 
 <a name="Data"></a>
 ## 3.8. Obtaining ID claims/user attibutes
@@ -387,12 +390,12 @@ As the `id_token` is comprised of three Base64URL encoded elements, you MUST dec
 Values |	Returned |	Description
 :-- | :-- | :--
 **iss**	| Always | Identifier of the issuer of the ID token.
-**sub** |	Always | An identifier for the User (e.g.: UserCode), unique among all itsme® accounts and never reused. Use `sub` in the application as the unique-identifier key for the User.
-**aud**	| Always |	Audience of the ID token. This will contain the `client_id`. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
+**sub** |	Always | An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.
+**aud**	| Always |	Audience of the ID token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
 **exp**	| Always |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 **iat** |	Always	| The time the ID token was issued, represented in Unix time (integer seconds).
 **auth_time** | Always | The time the User authentication occurred, represented in Unix time (integer seconds). 
-**nonce** | If provided | String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID token. Sufficient entropy MUST be present in the `nonce` values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.
+**nonce** | If provided | String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.
 **acr** | Always | Possible values: `tag:sixdots.be,2016-06:acr_basic` and `tag:sixdots.be,2016-06:acr_advanced`
 **amr** | Never |
 **azp** | Never |
@@ -401,8 +404,8 @@ Values |	Returned |	Description
 **gender** | If requested | 
 **birthdate** | If requested | 
 **locale** | If requested | 
-**email** | If requested | The user's email address. This may not be unique and is not suitable for use as a primary key. Provided only if your scope included the string "email".
-**email_verified** | If requested | `True` if the user's e-mail address has been verified; otherwise `false`.
+**email** | If requested | The User's email address. This may not be unique and is not suitable for use as a primary key. Provided only if your scope included the string "email".
+**email_verified** | If requested | <code>true</code> if the user's e-mail address has been verified; otherwise <code>false</code>.
 **phone_number** | If requested | 
 **phone_number_verified** | If requested | 
 **street_address** | If requested | 
