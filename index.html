@@ -249,7 +249,7 @@
                     <a href="#3-7-identifying-the-user" class="toc-h2 toc-link" data-title="3-7-identifying-the-user">3.7. Identifying the User</a>
                   </li>
                   <li>
-                    <a href="#3-8-obtaining-id-claims-user-attibutes" class="toc-h2 toc-link" data-title="3-8-obtaining-id-claims-user-attibutes">3.8. Obtaining ID claims/user attibutes</a>
+                    <a href="#3-8-obtaining-id-claims-user-attibutes" class="toc-h2 toc-link" data-title="3-8-obtaining-id-claims-user-attibutes">3.8. Obtaining ID claims/User attibutes</a>
                   </li>
               </ul>
           </li>
@@ -329,9 +329,9 @@
     </ul>
   
   If you are building a mobile web or in-app mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links and App links.</li>
-  <li>Once the User has has authorized the request and has been authenticated the request itsme® will return an authorization code to your server component.</li>
-  <li>Your server component contacts the token endpoint and exchanges the authorization code for an id token identifying the User and an access token, redirecting the user to your mobile or web application.</li>
-  <li>You may request the additional user information from the UserInfo endpoint by presenting the access token obtained in the previous step.</li>
+  <li>Once the User has has authorized the request and has been authenticated the request itsme® will return an Authorization Code to your server component.</li>
+  <li>Your server component contacts the Token Endpoint and exchanges the Authorization Code for an ID Token identifying the User and an Access Token, redirecting the user to your mobile or web application.</li>
+  <li>You may request the additional user information from the userInfo Endpoint by presenting the Access Token obtained in the previous step.</li>
   <li>At this stage you are able to confirm the success of the operation and display a success error message.</li>
 </ol>
 
@@ -346,27 +346,14 @@
   <li>JWKSet URL</li>
 </ul></p>
 
-<p>The Discovery Document for itsme® services may be retrieved from:</p>
+<p>The sandox Discovery Document for itsme® services may be retrieved from:<code>https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</code></p>
 
-<table><thead>
-<tr>
-<th style="text-align: left">Environment</th>
-<th style="text-align: left">URI</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">Sandbox</td>
-<td style="text-align: left"><code>https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Production</td>
-<td style="text-align: left"><code>https://merchant.itsme.be/oidc/.well-known/openid-configuration</code></td>
-</tr>
-</tbody></table>
+<aside class="notice">The key-value pairs that MUST be used to integrate itsme® in production can be redeemed from <code>https://merchant.itsme.be/oidc/.well-known/openid-configuration</code>
+</aside>
 
 <p><a name="AuthNRequest"></a></p>
 <h2 id='3-2-forming-an-authentication-request'>3.2. Forming an authentication request</h2>
-<p>First, you will form a HTTPS GET request that MUST be sent to the itsme® authorization endpoint. The itsme® authorization endpoint is <code>https://e2emerchant.itsme.be/oidc/authorize</code>. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a>, using the key <code>authorization_endpoint</code>.</p>
+<p>First, you will form a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint is <code>https://e2emerchant.itsme.be/oidc/authorize</code>. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a>, using the key <code>authorization_endpoint</code>.</p>
 
 <aside class="notice">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in <a href="#UniversalLinks">section 3.4</a>.</aside>
 
@@ -398,7 +385,7 @@
 <tr>
 <td style="text-align: left"><strong>scope</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <code>openid</code> and <code>service: service_code</code>, the itsme® service you want to use as defined for your application in the <a href="#Onboarding">itsme® B2B portal</a>. <br>The <code>openid</code> scope can return standard user attributes (these claims are:<code>iss</code>, <code>aud</code>, <code>exp</code>, <code>iat</code> and <code>at_hash</code>) in the id_token and/or in the response from the /userinfo endpoint.</br><br>Applications can ask for additional scopes, separated by spaces, to request more information about the user. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are <code>family_name</code>, <code>given_name</code>, <code>gender</code>, <code>birthdate</code> and <code>locale</code>.</li><li>email: will request the <code>email</code> and <code>email_verified</code> claims.</li></ul>For more information on user attributes or claims, please consult the <a href="#Data">ID claims</a> section.</br><br>An HTTP ERROR <code>not_implemented</code> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br><br>Note: you&#39;ll need to define one scope for each itsme® service you want to use.</br></td>
+<td style="text-align: left">The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <code>openid</code> and <code>service: service_code</code>, the itsme® service you want to use as defined for your application in the <a href="#Onboarding">itsme® B2B portal</a>. <br>The <code>openid</code> scope can return standard User attributes (these claims are:<code>iss</code>, <code>aud</code>, <code>exp</code>, <code>iat</code> and <code>at_hash</code>) in the <code>id_token</code> and/or in the response from the userInfo Endpoint.</br><br>Applications can ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are <code>family_name</code>, <code>given_name</code>, <code>gender</code>, <code>birthdate</code> and <code>locale</code>.</li><li>email: will request the <code>email</code> and <code>email_verified</code> claims.</li></ul>For more information on User attributes or claims, please consult the <a href="#Data">ID claims</a> section.</br><br>An HTTP ERROR <code>not_implemented</code> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br><br>Note: you&#39;ll need to define one scope for each itsme® service you want to use.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>redirect_uri</strong></td>
@@ -413,7 +400,7 @@
 <tr>
 <td style="text-align: left"><strong>nonce</strong></td>
 <td style="text-align: left">An appropriate value is strongly RECOMMENDED</td>
-<td style="text-align: left">String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the authentication request to the id token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">OpenID Connect Core specifications</a> for more information.</td>
+<td style="text-align: left">String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the authentication request to the ID Token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">OpenID Connect Core specifications</a> for more information.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>login_hint</strong></td>
@@ -423,7 +410,7 @@
 <tr>
 <td style="text-align: left"><strong>display</strong></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">ASCII string value that specifies how the Authorization Server displays the authentication and consent user interface pages to the User. MUST be <code>page</code> if provided.<br>Other values will yield an HTTP ERROR <code>not_implemented</code>.</br></td>
+<td style="text-align: left">ASCII string value that specifies how the Authorization Server displays the authentication and consent User interface pages to the User. MUST be <code>page</code> if provided.<br>Other values will yield an HTTP ERROR <code>not_implemented</code>.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>prompt</strong></td>
@@ -433,12 +420,12 @@
 <tr>
 <td style="text-align: left"><strong>ui_locales</strong></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">User&#39;s preferred languages and scripts for the user interface (e.g.: OpenID web page). Supported values are: {“fr”, “nl”, “en”, “de”}. Any other value will be ignored.</td>
+<td style="text-align: left">User&#39;s preferred languages and scripts for the User interface (e.g.: OpenID web page). Supported values are: {“fr”, “nl”, “en”, “de”}. Any other value will be ignored.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>max_age</strong></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">Specifies the allowable elapsed time in seconds since the last time the user was actively authenticated by itsme®. If the elapsed time is greater than this value, the authentication system MUST attempt to actively re-authenticate the User. As itsme® does not maintain a session mechanism, an active authentication is always required.</td>
+<td style="text-align: left">Specifies the allowable elapsed time in seconds since the last time the User was actively authenticated by itsme®. If the elapsed time is greater than this value, the authentication system MUST attempt to actively re-authenticate the User. As itsme® does not maintain a session mechanism, an active authentication is always required.</td>
 </tr>
 <tr>
 <td style="text-align: left"><a name="acrvalues"><strong>acr_values</strong></a></td>
@@ -502,7 +489,7 @@
 <tr>
 <td style="text-align: center"><strong>code</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">The code parameter holds the authorization code which is a string value. The content of authorization code is opaque for you. This code has a lifetime of 3 minutes.</td>
+<td style="text-align: left">The code parameter holds the Authorization Code which is a string value. The content of Authorization Code is opaque for you. This code has a lifetime of 3 minutes.</td>
 </tr>
 <tr>
 <td style="text-align: center"><strong>state</strong></td>
@@ -511,7 +498,7 @@
 </tr>
 </tbody></table>
 <h3 id='handling-authentication-error-response'>Handling Authentication Error Response</h3>
-<p>If the request fails due to a missing, invalid, or mismatching redirection URI, or if the client identifier is missing or invalid, the authorization server SHOULD inform the User of the error and MUST NOT automatically redirect him to the invalid redirection URI. </p>
+<p>If the request fails due to a missing, invalid, or mismatching redirection URI, or if the client identifier is missing or invalid, the Authorization Server SHOULD inform the User of the error and MUST NOT automatically redirect him to the invalid redirection URI. </p>
 
 <p>If the User denies the authentication request or if the request fails for reasons other than a missing or invalid redirection URI, itsme® will return an error response to your application. As for a successful response this is achieved by returning a HTTPS 302 redirect request to the redirection_uri specified in the authentication request. Following parameters could be added to the query component of the redirection_uri:</p>
 <pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
@@ -582,13 +569,13 @@
 <p>The specifications for the implementation of Universal links and App links can be found in the <a href="#Appendix">Appendix</a>.</p>
 <h2 id='3-5-exchanging-the-authorisation-code'>3.5. Exchanging the authorisation code</h2>
 <p><a name="tokenEndpoint"></a> 
-Once your server component has received an <a href="#AuthNResponse">authorization code</a>, your server can exchange it for an Access token and an ID token.</p>
+Once your server component has received an <a href="#AuthNResponse">Authorization Code</a>, your server can exchange it for an Access Token and an ID Token.</p>
 
-<aside class="notice">You might also read in the OpenID Connect Core specification about the Refresh token, but we don't support them (we don't implement any session mechanism).</aside>
+<aside class="notice">You might also read in the OpenID Connect Core specification about the Refresh Token, but we don't support them (we don't implement any session mechanism).</aside>
 
-<p>Your server makes this exchange by sending an HTTPS POST request to the itsme® token endpoint URI <code>https://e2emerchant.itsme.be/oidc/token</code>. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a> using the key <code>token_endpoint</code>.</p>
+<p>Your server makes this exchange by sending an HTTPS POST request to the itsme® Token Endpoint URI <code>https://e2emerchant.itsme.be/oidc/token</code>. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a> using the key <code>token_endpoint</code>.</p>
 
-<aside class="notice"> An authorization code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling Token Error Response. </aside>
+<aside class="notice"> An Authorization Code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling token error response. </aside>
 
 <p>The request MUST include the following parameters in the <code>POST</code> body:</p>
 <pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/oidc/authorization</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -670,7 +657,7 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 </tr>
 <tr>
 <td style="text-align: left"><strong>aud</strong></td>
-<td style="text-align: left">Value that identifies the Authorization Server as an intended audience. This MUST be the itsme® token endpoint URL : <code>https://merchant.itsme.be/oidc/token</code></td>
+<td style="text-align: left">Value that identifies the Authorization Server as an intended audience. This MUST be the itsme® Token Endpoint URL : <code>https://e2emerchant.itsme.be/oidc/token</code></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>jti</strong></td>
@@ -684,26 +671,26 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 
 <p><a name="TokenResponse"></a></p>
 <h2 id='3-6-managing-token-response'>3.6. Managing Token Response</h2><h3 id='extracting-a-successful-token-response'>Extracting a successful Token response</h3>
-<p>If the Token request has been sucessfully validated we will return an HTTP 200 OK response including ID and Access tokens as in the example aside:</p>
+<p>If the token request has been sucessfully validated we will return an HTTP 200 OK response including ID and Access Tokens as in the example aside:</p>
 <pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="s">  Content-Type: application/json</span>
-<span class="s">  Cache-Control: no-store</span>
-<span class="s">  Pragma: no-cache</span>
-<span class="s">  {</span>
-<span class="s">   "access_token": "SlAV32hkKG",</span>
-<span class="s">   "token_type": "Bearer",</span>
-<span class="s">   "expires_in": 3600,</span>
-<span class="s">   "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjFlOWdkazcifQ.ewogImlzc</span>
-<span class="s">     yI6ICJodHRwOi8vc2VydmVyLmV4YW1wbGUuY29tIiwKICJzdWIiOiAiMjQ4Mjg5</span>
-<span class="s">     NzYxMDAxIiwKICJhdWQiOiAiczZCaGRSa3F0MyIsCiAibm9uY2UiOiAibi0wUzZ</span>
-<span class="s">     fV3pBMk1qIiwKICJleHAiOiAxMzExMjgxOTcwLAogImlhdCI6IDEzMTEyODA5Nz</span>
-<span class="s">     AKfQ.ggW8hZ1EuVLuxNuuIJKX_V8a_OMXzR0EHR9R6jgdqrOOF4daGU96Sr_P6q</span>
-<span class="s">     Jp6IcmD3HP99Obi1PRs-cwh3LO-p146waJ8IhehcwL7F09JdijmBqkvPeB2T9CJ</span>
-<span class="s">     NqeGpe-gccMg4vfKjkM8FcGvnzZUN4_KSP0aAp1tOJ1zZwgjxqGByKHiOtX7Tpd</span>
-<span class="s">     QyHE5lcMiKPXfEIQILVq0pc_E2DzL7emopWoaoZTF_m0_N0YzFC6g6EJbOEoRoS</span>
-<span class="s">     K5hoDalrcvRYLSrQAZZKflyuVCyixEoV9GfNQC3_osjzw2PAithfubEEBLuVVk4</span>
-<span class="s">     XUVrWOLrLl0nx7RkKU8NXNHq-rvKMzqg"</span>
-<span class="s">  }</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">no-store</span>
+<span class="na">Pragma</span><span class="p">:</span> <span class="s">no-cache</span>
+<span class="s">{</span>
+<span class="s">  "access_token": "SlAV32hkKG",</span>
+<span class="s">  "token_type": "Bearer",</span>
+<span class="s">  "expires_in": 3600,</span>
+<span class="s">  "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjFlOWdkazcifQ.ewogImlzc</span>
+<span class="s">  yI6ICJodHRwOi8vc2VydmVyLmV4YW1wbGUuY29tIiwKICJzdWIiOiAiMjQ4Mjg5</span>
+<span class="s">  NzYxMDAxIiwKICJhdWQiOiAiczZCaGRSa3F0MyIsCiAibm9uY2UiOiAibi0wUzZ</span>
+<span class="s">  fV3pBMk1qIiwKICJleHAiOiAxMzExMjgxOTcwLAogImlhdCI6IDEzMTEyODA5Nz</span>
+<span class="s">  AKfQ.ggW8hZ1EuVLuxNuuIJKX_V8a_OMXzR0EHR9R6jgdqrOOF4daGU96Sr_P6q</span>
+<span class="s">  Jp6IcmD3HP99Obi1PRs-cwh3LO-p146waJ8IhehcwL7F09JdijmBqkvPeB2T9CJ</span>
+<span class="s">  NqeGpe-gccMg4vfKjkM8FcGvnzZUN4_KSP0aAp1tOJ1zZwgjxqGByKHiOtX7Tpd</span>
+<span class="s">  QyHE5lcMiKPXfEIQILVq0pc_E2DzL7emopWoaoZTF_m0_N0YzFC6g6EJbOEoRoS</span>
+<span class="s">  K5hoDalrcvRYLSrQAZZKflyuVCyixEoV9GfNQC3_osjzw2PAithfubEEBLuVVk4</span>
+<span class="s">  XUVrWOLrLl0nx7RkKU8NXNHq-rvKMzqg"</span>
+<span class="s">}</span>
 </code></pre>
 <p>The response body will include the following parameters:</p>
 
@@ -717,7 +704,7 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 <tr>
 <td style="text-align: left"><strong><code>access_token</code></strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">The Access token which may be used to access the UserInfo endpoint.</td>
+<td style="text-align: left">The Access Token which may be used to access the userInfo Endpoint.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong><code>token_type</code></strong></td>
@@ -727,7 +714,7 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 <tr>
 <td style="text-align: left"><strong><code>id_token</code></strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">The Base64URL encoded id token corresponding to the Authentication Request.</td>
+<td style="text-align: left">The Base64URL encoded ID Token corresponding to the Authentication Request.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong><code>at_hash</code></strong></td>
@@ -741,13 +728,13 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 </tr>
 </tbody></table>
 
-<p>The <code>id_token</code> parameter is comprised of three Base64URL encoded elements. The first element is the id token header. If you decode the value you should get a string similar to the one below:</p>
+<p>The <code>id_token</code> parameter is comprised of three Base64URL encoded elements. The first element is the ID Token header. If you decode the value you should get a string similar to the one below:</p>
 
 <p><code>{&quot;alg&quot;:&quot;RS256&quot;,&quot;kid&quot;:&quot;1e9gdk7&quot;}</code></p>
 
 <p>This specifies that the token has been signed with an RSA Signature utilising the SHA-256 hashing algorithm and the key identified by the string “1e9gdk7”. </p>
 
-<p>Decoding the second element gives you the JSON object containing the claims about the user. Following fields could be returned: For example decoding the value from the example above gives:</p>
+<p>Decoding the second element gives you the JSON object containing the claims about the User. Following fields could be returned: For example decoding the value from the example above gives:</p>
 
 <table><thead>
 <tr>
@@ -759,7 +746,7 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 <tr>
 <td style="text-align: left"><strong>iss</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">Identifier of the issuer of the ID token.</td>
+<td style="text-align: left">Identifier of the issuer of the ID Token.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>sub</strong></td>
@@ -769,7 +756,7 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 <tr>
 <td style="text-align: left"><strong>aud</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">Audience of the ID token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+<td style="text-align: left">Audience of the ID Token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>exp</strong></td>
@@ -779,7 +766,7 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 <tr>
 <td style="text-align: left"><strong>iat</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">The time the ID token was issued, represented in Unix time (integer seconds).</td>
+<td style="text-align: left">The time the ID Token was issued, represented in Unix time (integer seconds).</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>auth_time</strong></td>
@@ -789,7 +776,7 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 <tr>
 <td style="text-align: left"><strong>nonce</strong></td>
 <td style="text-align: left">If provided</td>
-<td style="text-align: left">String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.</td>
+<td style="text-align: left">String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID Token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>acr</strong></td>
@@ -811,8 +798,8 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 <p>The third element is the signature over the JSON object. Details on how this signature is created and on how to validate it can be found in the <a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON Web Signature specification</a>.</p>
 
 <p>In short, this Base64URL encoding is called a JSON Web Token (JWT). It makes sure that the data you received has not been modified. </p>
-<h3 id='handling-token-error-response'>Handling Token Error Response</h3>
-<p>If the Token request is invalid or unauthorized an HTTP 400 response will be returned as in the example:</p>
+<h3 id='handling-token-error-response'>Handling token error response</h3>
+<p>If the token request is invalid or unauthorized an HTTP 400 response will be returned as in the example:</p>
 <pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Cache-Control</span><span class="p">:</span> <span class="s">no-store</span>
@@ -825,13 +812,13 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 <h2 id='3-7-identifying-the-user'>3.7. Identifying the User</h2>
 <p>After obtaining the User ID Token, you should query your database to check if you know the <code>sub</code>, or not. If you already linked this <code>sub</code> to an account in your database, you should start an application session for that User.</p>
 
-<p>If the <code>sub</code> returned in the ID Token is unknown to you, one of the following scenarios should be implemented to link the userCode to the correct user account:</p>
+<p>If the <code>sub</code> returned in the ID Token is unknown to you, one of the following scenarios should be implemented to link the userCode to the correct User account:</p>
 
 <ul>
   <li>
     If you requested User attributes in the Authentication request, you can check if these data match a User account in your database and automatically link the provided `sub` to this account:
     <img src="LinkUserAuto.png" alt="Automatically linking user accounts">
-    <aside class="success">
+    <aside class="notice">
       This approach requires a sanity check with us, to check how we can guarantee on both sides the unicity of the User identified with the data and the consistency of these data's lifecycle. If you opt for this approach, please contact us. 
     </aside>
   </li>
@@ -842,13 +829,13 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 </ul>
 
 <p><a name="Data"></a></p>
-<h2 id='3-8-obtaining-id-claims-user-attibutes'>3.8. Obtaining ID claims/user attibutes</h2>
+<h2 id='3-8-obtaining-id-claims-user-attibutes'>3.8. Obtaining ID claims/User attibutes</h2>
 <p>OpenID Connect Core specifications also allow your application to obtain basic profile information about them in a interoperable way. </p>
 
-<p>Following the OpenID Connect Core specifications, there are 2 ways to obtain ID claims/user attributes for a specific User:
+<p>Following the OpenID Connect Core specifications, there are 2 ways to obtain ID claims/User attributes for a specific User:
 <ul>
-  <il>using the <code>id_token</code> returned in the Token response</il>
-  <il>capturing the claims from the itsme® UserInfo Endpoint</il>
+  <li>using the <code>id_token</code> returned in the token response</li>
+  <li>capturing the claims from the itsme® userInfo Endpoint</li>
 </ul></p>
 <h3 id='using-id_token-to-obtain-claims'>Using <code>id_token</code> to obtain claims</h3>
 <p><a name id="decClaim"></a></p>
@@ -893,7 +880,7 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 <tr>
 <td style="text-align: left"><strong>iss</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">Identifier of the issuer of the ID token.</td>
+<td style="text-align: left">Identifier of the issuer of the ID Token.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>sub</strong></td>
@@ -903,7 +890,7 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 <tr>
 <td style="text-align: left"><strong>aud</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">Audience of the ID token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+<td style="text-align: left">Audience of the ID Token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>exp</strong></td>
@@ -913,7 +900,7 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 <tr>
 <td style="text-align: left"><strong>iat</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">The time the ID token was issued, represented in Unix time (integer seconds).</td>
+<td style="text-align: left">The time the ID Token was issued, represented in Unix time (integer seconds).</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>auth_time</strong></td>
@@ -923,7 +910,7 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 <tr>
 <td style="text-align: left"><strong>nonce</strong></td>
 <td style="text-align: left">If provided</td>
-<td style="text-align: left">String value used to associate a session with an ID token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.</td>
+<td style="text-align: left">String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID Token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>acr</strong></td>
@@ -973,7 +960,7 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 <tr>
 <td style="text-align: left"><strong>email_verified</strong></td>
 <td style="text-align: left">If requested</td>
-<td style="text-align: left"><code>true</code> if the user&#39;s e-mail address has been verified; otherwise <code>false</code>.</td>
+<td style="text-align: left"><code>true</code> if the User&#39;s e-mail address has been verified; otherwise <code>false</code>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>phone_number</strong></td>
@@ -1006,7 +993,7 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
-<h3 id='capturing-claims-from-the-userinfo-endpoint'>Capturing claims from the UserInfo Endpoint</h3>
+<h3 id='capturing-claims-from-the-userinfo-endpoint'>Capturing claims from the userInfo Endpoint</h3>
 <p>Typically the <code>id_token</code> only contains claims about the authentication event and the identity of the User. Other information about the User can be requested by including additional scopes in the authentication request as mentionned above (e.g.: phone, address, profile and email scopes). </p>
 
 <p>If the required claims are not returned in the <code>id_token</code> you can still add custom claims in the <code>claims</code> parameter as specified below:</p>
@@ -1051,14 +1038,14 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 </tr>
 </tbody></table>
 
-<p>You can obtain these additional claims - and those defined by using the <code>scope</code> parameter - by presenting the <code>access_token</code> to the itsme® UserInfo endpoint. This is achieved by sending a HTTPS GET request over TLS to the UserInfo endpoint URI, passing the access token value in the Authorization header using the Bearer authentication scheme.</p>
+<p>You can obtain these additional claims - and those defined by using the <code>scope</code> parameter - by presenting the <code>access_token</code> to the itsme® userInfo Endpoint. This is achieved by sending a HTTPS GET request over TLS to the userInfo Endpoint URI, passing the Access Token value in the Authorization header using the Bearer authentication scheme.</p>
 
-<p>The itsme® UserInfo endpoint is: <code>https://e2emerchant.itsme.be/oidc/userinfo</code>. This URI can be retrieved from the itsme® <a href=https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>userinfo_endpoint</code>.</p>
+<p>The itsme® userInfo Endpoint is: <code>https://e2emerchant.itsme.be/oidc/userinfo</code>. This URI can be retrieved from the itsme® <a href=https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>userinfo_endpoint</code>.</p>
 <pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/userinfo</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">server.example.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer SlAV32hkKG</span>
 </code></pre>
-<p>The UserInfo claims will be returned in a HTTP 200 OK response. The non-exhaustive fields returned via the UserInfo endpoint are those below:</p>
+<p>The userInfo claims will be returned in a HTTP 200 OK response. The non-exhaustive fields returned via the userInfo Endpoint are those below:</p>
 <pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="s">  Content-Type: application/json</span>
 
@@ -1116,7 +1103,7 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 </tr>
 <tr>
 <td style="text-align: left"><strong>passport Number</strong></td>
-<td style="text-align: left">Simple string containing the user’s Passport Serial Number.</td>
+<td style="text-align: left">Simple string containing the User’s Passport Serial Number.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>os</strong></td>
@@ -1188,7 +1175,7 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 </tr>
 <tr>
 <td style="text-align: left"><strong>bindLevel</strong></td>
-<td style="text-align: left">It tells you if the user account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <code>SOFT_ONLY</code>, <code>SIM_ONLY</code> or <code>SIM_AND_SOFT</code>.</td>
+<td style="text-align: left">It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <code>SOFT_ONLY</code>, <code>SIM_ONLY</code> or <code>SIM_AND_SOFT</code>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>mcc</strong></td>
@@ -1200,11 +1187,11 @@ Once your server component has received an <a href="#AuthNResponse">authorizatio
 </tr>
 </tbody></table>
 
-<aside class="notice">The `sub` claim will always be included in the response and this should be verified by you to mitigate against token substitution attacks. The `sub` claim in the UserInfo response MUST be verified to exactly match the `sub` Claim in the `id_token`; if they do not match, the UserInfo response values MUST NOT be used.</aside>
+<aside class="notice">The `sub` claim will always be included in the response and this should be verified by you to mitigate against token substitution attacks. The `sub` claim in the userInfo response MUST be verified to exactly match the `sub` Claim in the <code>id_token</code>; if they do not match, the userInfo response values MUST NOT be used.</aside>
 
 <aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
 
-<aside class="notice">itsme® will ensure that the UserInfo response is signed or encrypted, meaning that the content type will be set to application/jwt. If signed the UserInfo response will contain the `iss` and `aud` claims. You should validate that the `iss` value matches itsme® issuer identifier and the `aud` value contains the your `client_id`.</aside>
+<aside class="notice">itsme® will ensure that the userInfo response is signed or encrypted, meaning that the content type will be set to application/jwt. If signed the userInfo response will contain the `iss` and `aud` claims. You should validate that the `iss` value matches itsme® issuer identifier and the `aud` value contains the your `client_id`.</aside>
 
 <aside class="notice">You should authenticate the OpenID Provider either by checking the TLS certificate or by validating the signature of the JWT if provided.</aside>
 
@@ -1341,13 +1328,13 @@ print(queryParameters(from: url!))
 <ul>
 <li>Entering your redirect URI in the <code>host</code> field </li>
 <li>Add a <code>path</code>, <code>pathPrefix</code>, or <code>pathPattern</code> for the redirect URIs you want to map. For example, if you have a recipe-sharing app, with all the recipes available in the same activity, and your corresponding website&#39;s recipes are all in the same <code>/recipe directory</code>, use <code>pathPrefix</code> and enter <code>/recipe</code>. This way, the redirect URI http://www.recipe-app.com/recipe/grilled-potato-salad maps to the activity you select in the following step.</li>
-<li>Select the Activity the redirect URI should take users to.</li>
+<li>Select the Activity the redirect URI should take Users to.</li>
 <li>Click OK.</li>
 </ul></li>
 <li>The App Links Assistant adds intent filters based on your URL mapping to the <code>AndroidManifest.xml</code> file, and highlights it in the <code>Preview</code> field. If the you would like to make any changes, click Open <code>AndroidManifest.xml</code> to edit the intent filter.</li>
 </ol>
 
-<aside class="notice">To support more links without updating the app, you should define a URL mapping that supports redirect URIs that he will add in the future. </aside>
+<aside class="notice">To support more links without updating the app, you should define a URL mapping that supports future redirect URIs. </aside>
 
 <ol>
 <li>To verify the URL mapping works properly, enter a URL in the Check URL Mapping field and click Check Mapping. If it&#39;s working correctly, the success message shows that the URL entered maps to the activity you selected.</li>
