@@ -86,7 +86,7 @@ This flow is described in much more detail in the following sections.
 
 ## 3.1. Checking itsme® OpenID Configuration
 
-To simplify implementations and increase flexibility, OpenID Connect allows the use of a <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery Document</a>, a JSON document containing key-value pairs which provide details about itsme® system configuration, such as 
+To simplify implementations and increase flexibility, <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID Connect allows the use of a Discovery Document</a>, a JSON document containing key-value pairs which provide details about itsme® system configuration, such as 
 <ul>
   <li>URIs of the authorization</li>
   <li>token</li>
@@ -104,7 +104,7 @@ The sandox Discovery Document for itsme® services may be retrieved from:<code>h
 <a name="AuthNRequest"></a>
 ## 3.2. Forming an authentication request
 
-First, you will form a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint is `https://e2emerchant.itsme.be/oidc/authorize`. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a>, using the key `authorization_endpoint`.
+First, you will form a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint is `https://e2emerchant.itsme.be/oidc/authorize`. This URI can be retrieved from the itsme® <a href="https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key `authorization_endpoint`.
 
 <aside class="notice">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in <a href="#UniversalLinks">section 3.4</a>.</aside>
 
@@ -212,7 +212,7 @@ Once your server component has received an [Authorization Code](#AuthNResponse),
 
 <aside class="notice">You might also read in the OpenID Connect Core specification about the Refresh Token, but we don't support them (we don't implement any session mechanism).</aside>
 
-Your server makes this exchange by sending an HTTPS POST request to the itsme® Token Endpoint URI `https://e2emerchant.itsme.be/oidc/token`. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a> using the key `token_endpoint`.
+Your server makes this exchange by sending an HTTPS POST request to the itsme® Token Endpoint URI `https://e2emerchant.itsme.be/oidc/token`. This URI can be retrieved from the itsme® <a href="https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a> using the key `token_endpoint`.
 
 <aside class="notice"> An Authorization Code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling token error response. </aside>
 
@@ -435,7 +435,7 @@ Parameter | Description
 
 You can obtain these additional claims - and those defined by using the `scope` parameter - by presenting the `access_token` to the itsme® userInfo Endpoint. This is achieved by sending a HTTPS GET request over TLS to the userInfo Endpoint URI, passing the Access Token value in the Authorization header using the Bearer authentication scheme.
 
-The itsme® userInfo Endpoint is: `https://e2emerchant.itsme.be/oidc/userinfo`. This URI can be retrieved from the itsme® <a href=https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key `userinfo_endpoint`.
+The itsme® userInfo Endpoint is: `https://e2emerchant.itsme.be/oidc/userinfo`. This URI can be retrieved from the itsme® <a href="https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key `userinfo_endpoint`.
 
 ```http--inline
 GET /userinfo HTTP/1.1
