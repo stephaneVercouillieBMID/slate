@@ -91,9 +91,9 @@ To simplify implementations and increase flexibility, OpenID Connect allows the 
   <li>JWKSet URL</li>
 </ul>
 
-The sandox Discovery Document for itsme® services may be retrieved from:<code>https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</code>
+The sandox Discovery Document for itsme® services may be retrieved from:<code>https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</code>.
 
-<aside class="notice">The key-value pairs that MUST be used to integrate itsme® in production can be redeemed from <code>https://merchant.itsme.be/oidc/.well-known/openid-configuration</code>
+<aside class="notice">The key-value pairs that MUST be used to integrate itsme® in production can be redeemed from <code>https://merchant.itsme.be/oidc/.well-known/openid-configuration</code>.
 </aside>
 
 
