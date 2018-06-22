@@ -40,6 +40,7 @@ Before your application can use itsme® OpenID Login and Share Data services, yo
 </aside>
 
 <aside class="warning">If not explicitely set, a default JWKSet will be used during Sandbox creation. The public keys are exposed on <a href="https://belgianmobileid.github.io/slate/jwks.json">https://belgianmobileid.github.io/slate/jwks.json</a> while the corresponding private keys are exposed on <a href="https://belgianmobileid.github.io/slate/jwks.json">https://belgianmobileid.github.io/slate/private_jwks.json</a>
+
 </aside>
 
 <aside class="notice">You can find our JWKSet URL in the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID configuration file</a>, using the key <code>jwks_uri</code>
