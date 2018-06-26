@@ -152,7 +152,7 @@ state=af0ifjsldkj
 The response will contain:
 
 Values | Returned | Description
-:--:|:---- |:--
+:--:|:------ |:--
 **code** | Always |The code parameter holds the Authorization Code which is a string value. The content of Authorization Code is opaque for you. This code has a lifetime of 3 minutes.
 **state** | If provided |The state parameter will be returned if you provided a value in the Authentication request. You should validate that the value returned matches the one supplied in the authentication request. The state value can additionally be used to mitigate against XSRF attacks by cryptographically binding the value of this parameter with a browser cookie.
  
