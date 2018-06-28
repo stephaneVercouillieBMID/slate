@@ -297,16 +297,12 @@
  <li>Belgian Mobile ID MUST be notified on time if the certificate or the URL is changed.</li>
  <li>There is no need for your client certificate. Currently the certificate is also used to protect the JWKSet and it is not directly linked to the SSL certificate.</li>
 </li>
-
 </aside>
 
-<aside class="warning">If not explicitely set, a default JWKSet will be used during Sandbox creation. The public keys are exposed on <a href="https://belgianmobileid.github.io/slate/jwks.json">https://belgianmobileid.github.io/slate/jwks.json</a> while the corresponding private keys are exposed on <a href="https://belgianmobileid.github.io/slate/jwks.json">https://belgianmobileid.github.io/slate/private_jwks.json</a>
-
+<aside class="notice">If not explicitely set, a default JWKSet will be used during Sandbox creation. The public keys are exposed on <a href="https://belgianmobileid.github.io/slate/jwks.json" target="blank">https://belgianmobileid.github.io/slate/jwks.json</a> while the corresponding private keys are exposed on <a href="https://belgianmobileid.github.io/slate/jwks.json" target="blank">https://belgianmobileid.github.io/slate/private_jwks.json</a>.
 </aside>
 
-<aside class="notice">You can find our JWKSet URL in the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID configuration file</a>, using the key <code>jwks_uri</code>
-  .
-
+<aside class="notice">You can find our JWKSet URL in the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">OpenID configuration file</a>, using the key <code>jwks_uri</code>.
 </aside>
 
 <aside class="notice">Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our Back-End.
@@ -315,7 +311,6 @@
   <li>Only one redirect_uri MUST be specified for each service.</li>
   <li>Belgian Mobile ID MUST be notified on time if the URLs are changed.</li>
 </ul>
-
 </aside>
 <h1 id='3-integrating-itsme-services'>3. Integrating itsme services</h1>
 <p>The itsme® Login and Share Data service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following diagram</p>
@@ -341,7 +336,7 @@
 
 <p>This flow is described in much more detail in the following sections.</p>
 <h2 id='3-1-checking-itsme-openid-configuration'>3.1. Checking itsme® OpenID Configuration</h2>
-<p>To simplify implementations and increase flexibility, OpenID Connect allows the use of a <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery Document</a>, a JSON document containing key-value pairs which provide details about itsme® system configuration, such as 
+<p>To simplify implementations and increase flexibility, <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID Connect allows the use of a Discovery Document</a>, a JSON document containing key-value pairs which provide details about itsme® system configuration, such as 
 <ul>
   <li>URIs of the authorization</li>
   <li>token</li>
@@ -350,14 +345,14 @@
   <li>JWKSet URL</li>
 </ul></p>
 
-<p>The sandox Discovery Document for itsme® services may be retrieved from:<code>https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</code>.</p>
+<p>The sandox Discovery Document for itsme® services may be retrieved from:<a href="https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration">https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</a>.</p>
 
-<aside class="notice">The key-value pairs that MUST be used to integrate itsme® in production can be redeemed from <code>https://merchant.itsme.be/oidc/.well-known/openid-configuration</code>.
+<aside class="notice">The key-value pairs that MUST be used to integrate itsme® in production can be redeemed from <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a>.
 </aside>
 
 <p><a name="AuthNRequest"></a></p>
 <h2 id='3-2-forming-an-authentication-request'>3.2. Forming an authentication request</h2>
-<p>First, you will form a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint is <code>https://e2emerchant.itsme.be/oidc/authorize</code>. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a>, using the key <code>authorization_endpoint</code>.</p>
+<p>First, you will form a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint is <code>https://e2emerchant.itsme.be/oidc/authorize</code>. This URI can be retrieved from the itsme® <a href="https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>authorization_endpoint</code>.</p>
 
 <aside class="notice">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in <a href="#UniversalLinks">section 3.4</a>.</aside>
 
@@ -485,18 +480,18 @@
 
 <table><thead>
 <tr>
-<th style="text-align: center">Values</th>
+<th style="text-align: left">Values</th>
 <th style="text-align: left">Returned</th>
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: center"><strong>code</strong></td>
+<td style="text-align: left"><strong>code</strong></td>
 <td style="text-align: left">Always</td>
 <td style="text-align: left">The code parameter holds the Authorization Code which is a string value. The content of Authorization Code is opaque for you. This code has a lifetime of 3 minutes.</td>
 </tr>
 <tr>
-<td style="text-align: center"><strong>state</strong></td>
+<td style="text-align: left"><strong>state</strong></td>
 <td style="text-align: left">If provided</td>
 <td style="text-align: left">The state parameter will be returned if you provided a value in the Authentication request. You should validate that the value returned matches the one supplied in the authentication request. The state value can additionally be used to mitigate against XSRF attacks by cryptographically binding the value of this parameter with a browser cookie.</td>
 </tr>
@@ -577,7 +572,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 
 <aside class="notice">You might also read in the OpenID Connect Core specification about the Refresh Token, but we don't support them (we don't implement any session mechanism).</aside>
 
-<p>Your server makes this exchange by sending an HTTPS POST request to the itsme® Token Endpoint URI <code>https://e2emerchant.itsme.be/oidc/token</code>. This URI can be retrieved from the itsme® <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">Discovery document</a> using the key <code>token_endpoint</code>.</p>
+<p>Your server makes this exchange by sending an HTTPS POST request to the itsme® Token Endpoint URI <code>https://e2emerchant.itsme.be/oidc/token</code>. This URI can be retrieved from the itsme® <a href="https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a> using the key <code>token_endpoint</code>.</p>
 
 <aside class="notice"> An Authorization Code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling token error response. </aside>
 
@@ -1044,7 +1039,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 
 <p>You can obtain these additional claims - and those defined by using the <code>scope</code> parameter - by presenting the <code>access_token</code> to the itsme® userInfo Endpoint. This is achieved by sending a HTTPS GET request over TLS to the userInfo Endpoint URI, passing the Access Token value in the Authorization header using the Bearer authentication scheme.</p>
 
-<p>The itsme® userInfo Endpoint is: <code>https://e2emerchant.itsme.be/oidc/userinfo</code>. This URI can be retrieved from the itsme® <a href=https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>userinfo_endpoint</code>.</p>
+<p>The itsme® userInfo Endpoint is: <code>https://e2emerchant.itsme.be/oidc/userinfo</code>. This URI can be retrieved from the itsme® <a href="https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>userinfo_endpoint</code>.</p>
 <pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/userinfo</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">server.example.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer SlAV32hkKG</span>
