@@ -27,15 +27,14 @@ The objective of this document is to provide all the information needed to integ
  
 Before your application can use itsme® OpenID Login and Share Data services, you must set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain credentials (`client_id`, ServiceCode, JWKSet URL and associated certificates,...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. 
 
-<aside class="notice">When creating your sandbox, you have to provide us one JWKSet URL and the associated certificate. It will be used by our Back-End for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Following requirements MUST be met:
+<aside class="notice">When creating your sandbox, you have to provide us one JWKSet URL. This URL must be an HTTPS one and the corresponding certificates chain must also be provided. It will be used by our Back-End for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Following requirements MUST be met:
 <ul>
  <li>Only one JWKSet URL MUST be specified.</li>
- <li>The JWKSet URL certificate MUST contain the root, the intermediate Certificate Authority and the final public certifiate.</li>
+ <li>The certificate chain MUST contain the root, the intermediate Certificate Authority and the final public certificate.</li>
  <li>On the HTTPS protocol level, connections MUST be secured using trusted Root CA.</li>
  <li>A self-signed certificate MAY be used (it MUST NOT be self-signed in production)</li>
  <li>Belgian Mobile ID MUST be notified on time if the certificate or the URL is changed.</li>
- <li>There is no need for your client certificate. Currently the certificate is also used to protect the JWKSet and it is not directly linked to the SSL certificate.</li>
-</li>
+</ul>
 </aside>
 
 <aside class="notice">If not explicitely set, a default JWKSet will be used during Sandbox creation. The public keys are exposed on <a href="https://belgianmobileid.github.io/slate/jwks.json" target="blank">https://belgianmobileid.github.io/slate/jwks.json</a> while the corresponding private keys are exposed on <a href="https://belgianmobileid.github.io/slate/jwks.json" target="blank">https://belgianmobileid.github.io/slate/private_jwks.json</a>.
@@ -70,7 +69,7 @@ The itsme® Login and Share Data service integration is based on the <a href="ht
     </ul>
   
   If you are building a mobile web or in-app mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links and App links.</li>
-  <li>Once the User has has authorized the request and has been authenticated the request itsme® will return an Authorization Code to your server component.</li>
+  <li>Once the User has authorized the request and has been authenticated the request itsme® will return an Authorization Code to your server component.</li>
   <li>Your server component contacts the Token Endpoint and exchanges the Authorization Code for an ID Token identifying the User and an Access Token, redirecting the user to your mobile or web application.</li>
   <li>You may request the additional user information from the userInfo Endpoint by presenting the Access Token obtained in the previous step.</li>
   <li>At this stage you are able to confirm the success of the operation and display a success error message.</li>
@@ -118,9 +117,9 @@ Parameter | Required | Description
 :-------- | :--------| :----- 
 **client_id** | Required |This MUST be the client identifier (e.g. : PartnerCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
 **response_type** | Required | This defines the processing flow to be used when forming the response. Because itsme® uses the Authorization Code Flow as described above, this value MUST be `code`.
-**scope** | Required | The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value `openid` and `service: service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding). <br>The `openid` scope can return standard User attributes (these claims are:`iss`, `aud`, `exp`, `iat` and `at_hash`) in the `id_token` and/or in the response from the userInfo Endpoint.</br><br>Applications can ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are `family_name`, `given_name`, `gender`, `birthdate` and `locale`.</li><li>email: will request the `email` and `email_verified` claims.</li></ul>For more information on User attributes or claims, please consult the [ID claims](#Data) section.</br><br>An HTTP ERROR `not_implemented` will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br><br>Note: you'll need to define one scope for each itsme® service you want to use.</br>
-**redirect_uri** | Required | This is the URI to which the authentication response should be sent. This must exactly match one of the redirection URIs defined when registering your application in the [itsme® B2B portal](#Onboarding).
-**state** | An appropriate value is strongly RECOMMENDED | It is recommended that you use this parameter to maintain state between the request and the callback. Typically, Cross-Site Request Forgery (CSRF, XSRF) mitigation is done by cryptographically binding the value of this parameter with a browser cookie.
+**scope** | Required | The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value `openid` and `service:service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding). <br>The `openid` scope can return standard User attributes (these claims are:`iss`, `aud`, `exp`, `iat` and `at_hash`) in the `id_token` and/or in the response from the userInfo Endpoint.</br><br>Applications can ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are `family_name`, `given_name`, `gender`, `birthdate` and `locale`.</li><li>email: will request the `email` and `email_verified` claims.</li></ul>For more information on User attributes or claims, please consult the [ID claims](#Data) section.</br><br>An HTTP ERROR `not_implemented` will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br><br>Note: you'll need to define one scope for each itsme® service you want to use.</br>
+**redirect_uri** | Required | This is the URI to which the authentication response should be sent. This MUST exactly match the redirect URI of the specified service defined when registering your application in the [itsme® B2B portal](#Onboarding).
+**state** | Required | This `state` object is the only way to bind the original Authorization Request with the Authorization Response (holding the `code` and the `state`). In other terms, this parameter is used to restore the user context on your side.
 **nonce** | An appropriate value is strongly RECOMMENDED | String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the authentication request to the ID Token. Sufficient entropy MUST be present in the `nonce` values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">OpenID Connect Core specifications</a> for more information.
 **login_hint** | Optional | Hint to the Authorization Server about the login identifier the User might use to log in (if necessary).<br>If provided, this value MUST be a phone number in the format specified for the `phone_number` claim: `<countrycode>+<phonenumber>`. E.g. `login_hint=32+123456789`.</br><br>`login_hint` with invalid syntax will be ignored.</br>
 **display** | Optional | ASCII string value that specifies how the Authorization Server displays the authentication and consent User interface pages to the User. MUST be `page` if provided.<br>Other values will yield an HTTP ERROR `not_implemented`.</br>
@@ -139,9 +138,9 @@ Parameter | Required | Description
 <a name="AuthNResponse"></a>
 ## 3.3. Capturing an Authorization Code
 
-### Capturing a successful Authorisation Code
+### Capturing a successful Authorization Code
 
-If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an authorisation code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the `redirect_uri` specified previously in the authentication request.
+If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an Authorization Code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the `redirect_uri` specified previously in the authentication request.
  
 ```http--inline
 HTTP/1.1 302 Found
@@ -201,7 +200,7 @@ Functionally, it will allow you to have a single link that will either open your
 
 The specifications for the implementation of Universal links and App links can be found in the [Appendix](#Appendix).
 
-## 3.5. Exchanging the authorisation code 
+## 3.5. Exchanging the Authorization Code 
 <a name="tokenEndpoint"></a> 
 Once your server component has received an [Authorization Code](#AuthNResponse), your server can exchange it for an Access Token and an ID Token.
 
