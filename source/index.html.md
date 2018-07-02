@@ -198,8 +198,6 @@ How do Universal Links work in iOS and Android ? Before Universal Links, the pri
 
 iOS Universal Links and Android App Links were intended to fix this. Instead of opening up the web browser first when a link is clicked, the OS will check if a Universal Link has been registered (a file should be there in the domain which contains the bundle id of the app and the paths the app should open) for the domain associated with the link, then check if the corresponding app is installed. If the app is currently installed, it will be opened. If it’s not, the web browser will open and the HTTPS link will load.
 
-Functionally, it will allow you to have a single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.
-
 The specifications for the implementation of Universal links and App links can be found in the [Appendix](#Appendix).
 
 ## 3.5. Exchanging the Authorization Code 
