@@ -32,7 +32,7 @@ Before your application can use itsme® OpenID Login and Share Data services, yo
  <li>Only one JWKSet URL MUST be specified.</li>
  <li>The certificate chain MUST contain the root, the intermediate Certificate Authority and the final public certificate.</li>
  <li>On the HTTPS protocol level, connections MUST be secured using trusted Root CA.</li>
- <li>A self-signed certificate MAY be used (it MUST NOT be self-signed in production).</li>
+ <li>A self-signed certificate MUST NOT be used.</li>
  <li>Belgian Mobile ID MUST be notified on time if the certificate or the URL is changed.</li>
 </ul>
 </aside>
