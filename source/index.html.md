@@ -337,23 +337,37 @@ Pragma: no-cache
 
 The response will contain an error parameter and optionally `error_description` and `error_uri` parameters. The `error_uri` parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.
 
-## 3.7. Identifying the User
+## 3.7. Mapping the User
 
-After obtaining the User ID Token, you should query your database to check if you know the `sub`, or not. If you already linked this `sub` to an account in your database, you should start an application session for that User.
+To sign in successfully in your web desktop, mobile web or in-app mobile application, a given user must be provisioned in OpenID Connect and then mapped to a user account in your database. By default, your application Server will use the subject identifier, or sub, claim in the ID Token to identify and verify a user account. Typically, the sub claim is a unique string that identifies a given user account. The benefit of using a sub claim is that it will not change, even if other user attributes (email, phone number, etc) associated with that account are updated. 
 
-If the `sub` returned in the ID Token is unknown to you, one of the following scenarios should be implemented to link the userCode to the correct User account:
+The sub claim value must be mapped to the corresponding user in your application Server. If you already mapped this sub to an account in your application repository, you should start an application session for that User.
+
+If no user record is storing the sub claim value, then you should implement one of the following scenarios to map the sub to the corresponding User account:
 
 <ul>
-  <li>
-    If you requested User attributes in the Authentication request, you can check if these data match a User account in your database and automatically link the provided `sub` to this account:
-    <img src="LinkUserAuto.png" alt="Automatically linking user accounts">
-    <aside class="notice">
-      This approach requires a sanity check with us, to check how we can guarantee on both sides the unicity of the User identified with the data and the consistency of these data's lifecycle. If you opt for this approach, please contact us. 
-    </aside>
+  <li>If you requested User attributes in the Authentication request, a different claim (e.g.: email address, phone number, …) can be used to automatically associate an existing account during the first sign-in session. You will then update that User's record with the sub claim:
+
+<img src="LinkUserAuto.png" alt="Automatically linking user accounts">
+
+Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.
+
+This is the most optimal flow from UX point of view as it will be easier for Users to start interacting with your application. Providing the information as part of the OpenID Authentication Request will reduce the number of round trips that need to be made. In turn, this should reduce the amount of time it takes for a User to sign up.
+
+<aside class="notice">This approach requires a sanity check on our side to guarantee that the claim used to map the user account is reliable and consistent with your data’s lifecycle. Please inform us via  itsme® B2B portal if you opt for this approach. </aside>
+
   </li>
-  <li>
-    If you did not request User attributes in the Authentication request or if you can't match with certainty the provided data's with the one from your database, you could ask the User to either authenticate with his usual credentials (e.g. User name / password) or to create a new account on your side. You may be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required in the registration form (under the condition you requested the User attributes in the Authentication request):
-    <img src="LinkUser.png" alt="Picture illustrates possibilities for linking user accounts">  
+  <li>If you did not request User attributes in the Authentication request or if you can't match with certainty the existing User account with the provided data's, then you could ask the User to authenticate with his usual credentials (e.g. User name / password). The User credentials will be used by your application to match the sub claim to the corresponding user account in your repository:
+  
+<img src="LinkUser.png" alt="Picture illustrates possibilities for linking user accounts">  
+
+Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.
+  </li>
+  <li>If you requested User attributes in the Authentication request, but the User isn’t register in your application, then you should be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required in the registration form. A new User's record will be created in your repository, containing the sub claim specific to that User. 
+  
+<img src="LinkUser.png" alt="Picture illustrates possibilities for linking user accounts">  
+  
+Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.
   </li>
 </ul>
 
