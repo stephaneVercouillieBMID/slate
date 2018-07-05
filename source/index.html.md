@@ -263,7 +263,7 @@ Parameter | Description
 
 ### Extracting a successful Token response
 
-If the token request has been sucessfully validated we will return an HTTP 200 OK response including ID and Access Tokens as in the example aside:
+If the token request has been sucessfully validated we will return an HTTP 200 OK response including ID and Access Tokens as in the example aside.
 
 ```http--inline
 HTTP/1.1 200 OK
