@@ -367,7 +367,7 @@ This is the most optimal flow from UX point of view as it will be easier for Use
 
 Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.
   </li>
-  <li>If you requested User attributes in the Authentication request, but the User isn’t register in your application, then you should be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required in the registration form. A new User's record will be created in your repository, containing the sub claim specific to that User. 
+  <li>If you requested User attributes in the Authentication request, but the User isn’t registered in your application, then you should be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required in the registration form. A new User's record will be created in your repository, containing the sub claim specific to that User. 
   
   
 <img src="MappingUserAutoReg.png" alt="Auto-register the User">  
