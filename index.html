@@ -240,13 +240,13 @@
                     <a href="#3-4-supporting-universal-links-and-app-links-mechanism" class="toc-h2 toc-link" data-title="3-4-supporting-universal-links-and-app-links-mechanism">3.4. Supporting Universal Links and App Links mechanism</a>
                   </li>
                   <li>
-                    <a href="#3-5-exchanging-the-authorisation-code" class="toc-h2 toc-link" data-title="3-5-exchanging-the-authorisation-code">3.5. Exchanging the authorisation code</a>
+                    <a href="#3-5-exchanging-the-authorization-code" class="toc-h2 toc-link" data-title="3-5-exchanging-the-authorization-code">3.5. Exchanging the Authorization Code</a>
                   </li>
                   <li>
                     <a href="#3-6-managing-token-response" class="toc-h2 toc-link" data-title="3-6-managing-token-response">3.6. Managing Token Response</a>
                   </li>
                   <li>
-                    <a href="#3-7-identifying-the-user" class="toc-h2 toc-link" data-title="3-7-identifying-the-user">3.7. Identifying the User</a>
+                    <a href="#3-7-mapping-the-user" class="toc-h2 toc-link" data-title="3-7-mapping-the-user">3.7. Mapping the User</a>
                   </li>
                   <li>
                     <a href="#3-8-obtaining-id-claims-user-attibutes" class="toc-h2 toc-link" data-title="3-8-obtaining-id-claims-user-attibutes">3.8. Obtaining ID claims/User attibutes</a>
@@ -288,21 +288,20 @@
 <h1 id='2-creating-sandbox'>2. Creating sandbox</h1>
 <p>Before your application can use itsme® OpenID Login and Share Data services, you must set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain credentials (<code>client_id</code>, ServiceCode, JWKSet URL and associated certificates,...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. </p>
 
-<aside class="notice">When creating your sandbox, you have to provide us one JWKSet URL and the associated certificate. It will be used by our Back-End for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Following requirements MUST be met:
+<aside class="notice">When creating your sandbox, you have to provide us one JWKSet URL. This URL must be an HTTPS one and the corresponding certificates chain must also be provided. It will be used by our Back-End for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Following requirements MUST be met:
 <ul>
  <li>Only one JWKSet URL MUST be specified.</li>
- <li>The JWKSet URL certificate MUST contain the root, the intermediate Certificate Authority and the final public certifiate.</li>
+ <li>The certificate chain MUST contain the root, the intermediate Certificate Authority and the final public certificate.</li>
  <li>On the HTTPS protocol level, connections MUST be secured using trusted Root CA.</li>
- <li>A self-signed certificate MAY be used (it MUST NOT be self-signed in production)</li>
+ <li>A self-signed certificate MUST NOT be used.</li>
  <li>Belgian Mobile ID MUST be notified on time if the certificate or the URL is changed.</li>
- <li>There is no need for your client certificate. Currently the certificate is also used to protect the JWKSet and it is not directly linked to the SSL certificate.</li>
-</li>
+</ul>
 </aside>
 
 <aside class="notice">If not explicitely set, a default JWKSet will be used during Sandbox creation. The public keys are exposed on <a href="https://belgianmobileid.github.io/slate/jwks.json" target="blank">https://belgianmobileid.github.io/slate/jwks.json</a> while the corresponding private keys are exposed on <a href="https://belgianmobileid.github.io/slate/jwks.json" target="blank">https://belgianmobileid.github.io/slate/private_jwks.json</a>.
 </aside>
 
-<aside class="notice">You can find our JWKSet URL in the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">OpenID configuration file</a>, using the key <code>jwks_uri</code>.
+<aside class="notice">You can find our JWKSet URL in the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>jwks_uri</code>.
 </aside>
 
 <aside class="notice">Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our Back-End.
@@ -328,7 +327,7 @@
     </ul>
   
   If you are building a mobile web or in-app mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links and App links.</li>
-  <li>Once the User has has authorized the request and has been authenticated the request itsme® will return an Authorization Code to your server component.</li>
+  <li>Once the User has authorized the request and has been authenticated the request itsme® will return an Authorization Code to your server component.</li>
   <li>Your server component contacts the Token Endpoint and exchanges the Authorization Code for an ID Token identifying the User and an Access Token, redirecting the user to your mobile or web application.</li>
   <li>You may request the additional user information from the userInfo Endpoint by presenting the Access Token obtained in the previous step.</li>
   <li>At this stage you are able to confirm the success of the operation and display a success error message.</li>
@@ -345,14 +344,14 @@
   <li>JWKSet URL</li>
 </ul></p>
 
-<p>The sandox Discovery Document for itsme® services may be retrieved from:<a href="https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration">https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</a>.</p>
+<p>The Discovery document for itsme® services may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a>.</p>
 
-<aside class="notice">The key-value pairs that MUST be used to integrate itsme® in production can be redeemed from <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a>.
+<aside class="notice">The key-value pairs that MUST be used to integrate itsme® with our test environment can be redeemed from <a href="https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</a>.
 </aside>
 
 <p><a name="AuthNRequest"></a></p>
 <h2 id='3-2-forming-an-authentication-request'>3.2. Forming an authentication request</h2>
-<p>First, you will form a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint is <code>https://e2emerchant.itsme.be/oidc/authorize</code>. This URI can be retrieved from the itsme® <a href="https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>authorization_endpoint</code>.</p>
+<p>First, you will form a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint is <code>https://merchant.itsme.be/oidc/authorization</code>. This URI can be retrieved from the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>authorization_endpoint</code>.</p>
 
 <aside class="notice">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in <a href="#UniversalLinks">section 3.4</a>.</aside>
 
@@ -384,17 +383,17 @@
 <tr>
 <td style="text-align: left"><strong>scope</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <code>openid</code> and <code>service: service_code</code>, the itsme® service you want to use as defined for your application in the <a href="#Onboarding">itsme® B2B portal</a>. <br>The <code>openid</code> scope can return standard User attributes (these claims are:<code>iss</code>, <code>aud</code>, <code>exp</code>, <code>iat</code> and <code>at_hash</code>) in the <code>id_token</code> and/or in the response from the userInfo Endpoint.</br><br>Applications can ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are <code>family_name</code>, <code>given_name</code>, <code>gender</code>, <code>birthdate</code> and <code>locale</code>.</li><li>email: will request the <code>email</code> and <code>email_verified</code> claims.</li></ul>For more information on User attributes or claims, please consult the <a href="#Data">ID claims</a> section.</br><br>An HTTP ERROR <code>not_implemented</code> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br><br>Note: you&#39;ll need to define one scope for each itsme® service you want to use.</br></td>
+<td style="text-align: left">The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <code>openid</code> and <code>service:service_code</code>, the itsme® service you want to use as defined for your application in the <a href="#Onboarding">itsme® B2B portal</a>. <br>The <code>openid</code> scope can return standard User attributes (these claims are:<code>iss</code>, <code>aud</code>, <code>exp</code>, <code>iat</code> and <code>at_hash</code>) in the <code>id_token</code> and/or in the response from the userInfo Endpoint.</br><br>Applications can ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are <code>family_name</code>, <code>given_name</code>, <code>gender</code>, <code>birthdate</code> and <code>locale</code>.</li><li>email: will request the <code>email</code> and <code>email_verified</code> claims.</li></ul>For more information on User attributes or claims, please consult the <a href="#Data">ID claims</a> section.</br><br>An HTTP ERROR <code>not_implemented</code> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br><br>Note: you&#39;ll need to define one scope for each itsme® service you want to use.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>redirect_uri</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This is the URI to which the authentication response should be sent. This must exactly match one of the redirection URIs defined when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+<td style="text-align: left">This is the URI to which the authentication response should be sent. This MUST exactly match the redirect URI of the specified service defined when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>state</strong></td>
-<td style="text-align: left">An appropriate value is strongly RECOMMENDED</td>
-<td style="text-align: left">It is recommended that you use this parameter to maintain state between the request and the callback. Typically, Cross-Site Request Forgery (CSRF, XSRF) mitigation is done by cryptographically binding the value of this parameter with a browser cookie.</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This <code>state</code> object is the only way to bind the original Authorization Request with the Authorization Response (holding the <code>code</code> and the <code>state</code>). In other terms, this parameter is used to restore the user context on your side.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>nonce</strong></td>
@@ -469,8 +468,8 @@
 </tbody></table>
 
 <p><a name="AuthNResponse"></a></p>
-<h2 id='3-3-capturing-an-authorization-code'>3.3. Capturing an Authorization Code</h2><h3 id='capturing-a-successful-authorisation-code'>Capturing a successful Authorisation Code</h3>
-<p>If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an authorisation code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the <code>redirect_uri</code> specified previously in the authentication request.</p>
+<h2 id='3-3-capturing-an-authorization-code'>3.3. Capturing an Authorization Code</h2><h3 id='capturing-a-successful-authorization-code'>Capturing a successful Authorization Code</h3>
+<p>If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an Authorization Code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the <code>redirect_uri</code> specified previously in the authentication request.</p>
 <pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
 <span class="na">Location</span><span class="p">:</span> <span class="s">https://client.example.org/cb?</span>
 <span class="s">code=SplxlOBeZQQYbYS6WxSbIA&amp;</span>
@@ -555,7 +554,9 @@
 
 <p><a name="UniversalLinks"></a> </p>
 <h2 id='3-4-supporting-universal-links-and-app-links-mechanism'>3.4. Supporting Universal Links and App Links mechanism</h2>
-<p><a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal links</a> and <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App links</a> are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.</p>
+<p>Regardless of the application you are building you should make sure that your redirect URIs support the <a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal links</a> and <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App links</a> mechanism. Functionally, it will allow you to have only one single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.</p>
+
+<p>Universal links and App links are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.</p>
 
 <p>An App link is the Android version of the Universal link.</p>
 
@@ -563,16 +564,14 @@
 
 <p>iOS Universal Links and Android App Links were intended to fix this. Instead of opening up the web browser first when a link is clicked, the OS will check if a Universal Link has been registered (a file should be there in the domain which contains the bundle id of the app and the paths the app should open) for the domain associated with the link, then check if the corresponding app is installed. If the app is currently installed, it will be opened. If it’s not, the web browser will open and the HTTPS link will load.</p>
 
-<p>Functionally, it will allow you to have a single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.</p>
-
 <p>The specifications for the implementation of Universal links and App links can be found in the <a href="#Appendix">Appendix</a>.</p>
-<h2 id='3-5-exchanging-the-authorisation-code'>3.5. Exchanging the authorisation code</h2>
+<h2 id='3-5-exchanging-the-authorization-code'>3.5. Exchanging the Authorization Code</h2>
 <p><a name="tokenEndpoint"></a> 
 Once your server component has received an <a href="#AuthNResponse">Authorization Code</a>, your server can exchange it for an Access Token and an ID Token.</p>
 
 <aside class="notice">You might also read in the OpenID Connect Core specification about the Refresh Token, but we don't support them (we don't implement any session mechanism).</aside>
 
-<p>Your server makes this exchange by sending an HTTPS POST request to the itsme® Token Endpoint URI <code>https://e2emerchant.itsme.be/oidc/token</code>. This URI can be retrieved from the itsme® <a href="https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a> using the key <code>token_endpoint</code>.</p>
+<p>Your server makes this exchange by sending an HTTPS POST request to the itsme® Token Endpoint URI <code>https://merchant.itsme.be/oidc/token</code>. This URI can be retrieved from the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a> using the key <code>token_endpoint</code>.</p>
 
 <aside class="notice"> An Authorization Code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling token error response. </aside>
 
@@ -656,7 +655,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 </tr>
 <tr>
 <td style="text-align: left"><strong>aud</strong></td>
-<td style="text-align: left">Value that identifies the Authorization Server as an intended audience. This MUST be the itsme® Token Endpoint URL : <code>https://e2emerchant.itsme.be/oidc/token</code></td>
+<td style="text-align: left">Value that identifies the Authorization Server as an intended audience. This MUST be the itsme® Token Endpoint URL : <code>https://merchant.itsme.be/oidc/token</code></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>jti</strong></td>
@@ -670,7 +669,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 
 <p><a name="TokenResponse"></a></p>
 <h2 id='3-6-managing-token-response'>3.6. Managing Token Response</h2><h3 id='extracting-a-successful-token-response'>Extracting a successful Token response</h3>
-<p>If the token request has been sucessfully validated we will return an HTTP 200 OK response including ID and Access Tokens as in the example aside:</p>
+<p>If the token request has been sucessfully validated we will return an HTTP 200 OK response including ID and Access Tokens as in the example aside.</p>
 <pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Cache-Control</span><span class="p">:</span> <span class="s">no-store</span>
@@ -808,22 +807,42 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 <span class="s">}</span>
 </code></pre>
 <p>The response will contain an error parameter and optionally <code>error_description</code> and <code>error_uri</code> parameters. The <code>error_uri</code> parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.</p>
-<h2 id='3-7-identifying-the-user'>3.7. Identifying the User</h2>
-<p>After obtaining the User ID Token, you should query your database to check if you know the <code>sub</code>, or not. If you already linked this <code>sub</code> to an account in your database, you should start an application session for that User.</p>
+<h2 id='3-7-mapping-the-user'>3.7. Mapping the User</h2>
+<p>To sign in successfully in your web desktop, mobile web or in-app mobile application, a given user must be provisioned in OpenID Connect and then mapped to a user account in your database. By default, your application Server will use the subject identifier, or sub, claim in the ID Token to identify and verify a user account. Typically, the sub claim is a unique string that identifies a given user account. The benefit of using a sub claim is that it will not change, even if other user attributes (email, phone number, etc) associated with that account are updated. </p>
 
-<p>If the <code>sub</code> returned in the ID Token is unknown to you, one of the following scenarios should be implemented to link the userCode to the correct User account:</p>
+<p>The sub claim value must be mapped to the corresponding user in your application Server. If you already mapped this sub to an account in your application repository, you should start an application session for that User.</p>
+
+<p>If no user record is storing the sub claim value, then you should implement one of the following scenarios to map the sub to the corresponding User account:</p>
 
 <ul>
-  <li>
-    If you requested User attributes in the Authentication request, you can check if these data match a User account in your database and automatically link the provided `sub` to this account:
-    <img src="LinkUserAuto.png" alt="Automatically linking user accounts">
-    <aside class="notice">
-      This approach requires a sanity check with us, to check how we can guarantee on both sides the unicity of the User identified with the data and the consistency of these data's lifecycle. If you opt for this approach, please contact us. 
-    </aside>
+  <li>If you requested User attributes in the Authentication request, a different claim (e.g.: email address, phone number, …) can be used to automatically associate an existing account during the first sign-in session. You will then update that User's record with the sub claim:
+    
+
+<img src="MappingUserAuto.png" alt="Automatically mapping user accounts">
+
+
+Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.
+
+This is the most optimal flow from UX point of view as it will be easier for Users to start interacting with your application. Providing the information as part of the OpenID Authentication Request will reduce the number of round trips that need to be made. In turn, this should reduce the amount of time it takes for a User to sign up.</li>
+
+<aside class="notice">This approach requires a sanity check on our side to guarantee that the claim used to map the user account is reliable and consistent with your data’s lifecycle. Please inform us via  itsme® B2B portal if you opt for this approach. </aside>
+
+  
+  <li>If you did not request User attributes in the Authentication request or if you can't match with certainty the existing User account with the provided data's, then you could ask the User to authenticate with his usual credentials (e.g. User name / password). The User credentials will be used by your application to match the sub claim to the corresponding user account in your repository:
+  
+  
+<img src="MappingUserCredentials.png" alt="User provides his credentials to map the accounts">  
+
+
+Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.
   </li>
-  <li>
-    If you did not request User attributes in the Authentication request or if you can't match with certainty the provided data's with the one from your database, you could ask the User to either authenticate with his usual credentials (e.g. User name / password) or to create a new account on your side. You may be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required in the registration form (under the condition you requested the User attributes in the Authentication request):
-    <img src="LinkUser.png" alt="Picture illustrates possibilities for linking user accounts">  
+  <li>If you requested User attributes in the Authentication request, but the User isn’t registered in your application, then you should be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required in the registration form. A new User's record will be created in your repository, containing the sub claim specific to that User. 
+  
+  
+<img src="MappingUserAutoReg.png" alt="Auto-register the User">  
+
+  
+Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.
   </li>
 </ul>
 
@@ -1039,7 +1058,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 
 <p>You can obtain these additional claims - and those defined by using the <code>scope</code> parameter - by presenting the <code>access_token</code> to the itsme® userInfo Endpoint. This is achieved by sending a HTTPS GET request over TLS to the userInfo Endpoint URI, passing the Access Token value in the Authorization header using the Bearer authentication scheme.</p>
 
-<p>The itsme® userInfo Endpoint is: <code>https://e2emerchant.itsme.be/oidc/userinfo</code>. This URI can be retrieved from the itsme® <a href="https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>userinfo_endpoint</code>.</p>
+<p>The itsme® userInfo Endpoint is: <code>https://merchant.itsme.be/oidc/userinfo</code>. This URI can be retrieved from the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>userinfo_endpoint</code>.</p>
 <pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/userinfo</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">server.example.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer SlAV32hkKG</span>
@@ -1200,14 +1219,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 <span class="s">    error_description="The Access Token expired"</span>
 </code></pre><h1 id='4-appendixes'>4. Appendixes</h1>
 <p><a name="Appendix"></a> </p>
-<h2 id='4-1-universal-links-on-ios'>4.1. Universal Links on iOS</h2>
-<p>Integration is going to be pretty straightforward, all details can be found in below steps (as documented on <a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal Links official documentation</a>):
-1. Register your app at developer.apple.com
-2. Enable ‘Associated Domains’ on your app identifier
-3. Enable ‘Associated Domain’ on in your Xcode project
-4. Add the proper domain entitlement and make sure the entitlements file is included at build: Xcode will do it automatically by itself.
-5. Create the ‘apple-app-site-association’ file (AASA). The AASA file contains a JSON object with a list of apps and the URL paths on the domain that should be included or excluded as Universal Links. Here is a sample AASA file:</p>
-<pre class="highlight plaintext"><code>{
+<h2 id='4-1-universal-links-on-ios'>4.1. Universal Links on iOS</h2><pre class="highlight plaintext"><code>{
   "applinks": {
     "apps": [],
     "details": [
@@ -1221,27 +1233,23 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
   }
 } 
 </code></pre>
-<p>The JSON object will contain:</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">appID</td>
-<td style="text-align: left">Built by combining your app’s Team ID (it should be retrieved from https://developer.apple.com/account/#/membership/) and the Bundle Identifier. In the example attached, JHGFJHHYX is the Team ID and com.facebook.ios is the Bundle ID.</td>
-</tr>
-<tr>
-<td style="text-align: left">paths</td>
-<td style="text-align: left">Array of strings that specify which paths are included or excluded from association. Note: these strings are case sensitive and that query strings and fragment identifiers are ignored.</td>
-</tr>
-</tbody></table>
+<p>Integration is going to be pretty straightforward, all details can be found in below steps (as documented on <a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal Links official documentation</a>):</p>
 
 <ol>
-<li>Upload the ‘apple-app-site-association’ file to your HTTPS web server for the redirection URI communicated in the Authentication request. The file can be placed at the root of your server or in the .well-known subdirectory.</li>
-</ol>
+  <li>Register your app at developer.apple.com.</li>
+  <li>Enable ‘Associated Domains’ on your app identifier.</li>
+  <li>Enable ‘Associated Domain’ on in your Xcode project.</li>
+  <li>Add the proper domain entitlement and make sure the entitlements file is included at build: Xcode will do it automatically by itself.</li>
+  <li>Create the ‘apple-app-site-association’ file (AASA). The AASA file contains a JSON object with a list of apps and the URL paths on the domain that should be included or excluded as Universal Links.</li>
+
+The JSON object will contain:
+
+Parameter | Description
+:-- | :--
+appID   | Built by combining your app’s Team ID (it should be retrieved from https://developer.apple.com/account/#/membership/) and the Bundle Identifier. In the example attached, JHGFJHHYX is the Team ID and com.facebook.ios is the Bundle ID.
+paths   | Array of strings that specify which paths are included or excluded from association. Note: these strings are case sensitive and that query strings and fragment identifiers are ignored.
+
+  <li>Upload the ‘apple-app-site-association’ file to your HTTPS web server for the redirection URI communicated in the Authentication request. The file can be placed at the root of your server or in the .well-known subdirectory.</li>
 
 <aside class="notice"> While hosting the AASA file, please ensure that the AASA file:
 <ul>
@@ -1259,18 +1267,17 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
   </li>
 </aside>
 
-<ol>
-<li>Check if the AASA file is valid and is accessible by using the <a href="https://branch.io/resources/aasa-validator/#resultsbox" target="blank">following link</a>.</li>
-<li>Add an entitlement to all redirect URI that the your app need to supports. In Xcode, open the Associated Domains section in the Capabilities tab and add an entry for each Redirect URI that your app supports, prefixed with <code>applinks</code>.
-<aside class="notice">Apple doc says to limit this list to no more than about 20 to 30 domains<aside></li>
-</ol>
+  <li>Check if the AASA file is valid and is accessible by using the <a href="https://branch.io/resources/aasa-validator/#resultsbox" target="blank">following link</a>.</li>
+  <li>Add an entitlement to all redirect URI that the your app need to supports. In Xcode, open the Associated Domains section in the Capabilities tab and add an entry for each Redirect URI that your app supports, prefixed with `applinks`.
+  
+To match all subdomains of an associated redirect URI, you can specify a wildcard by prefixing `*.` before the beginning of a specific Redirect URI (the period is required). Redirect URI matching is based on the longest substring in the `applinks` entries. For example, if you specify the entries `applinks:*.mywebsite.com` and `applinks:*.users.mywebsite.com`, matching for the redirect URI `emily.users.mywebsite.com` is performed against the longer `*.users.mywebsite.com` entry. Note that an entry for `*.mywebsite.com` does not match `mywebsite.com` because of the period after the asterisk. To enable matching for both `*.mywebsite.com` and `mywebsite.com`, you need to provide a separate `applinks` entry for each.</li>
+  
+<aside class="notice">Apple doc says to limit this list to no more than about 20 to 30 domains<aside>
+  
+  <li>Update the app delegate to respond appropriately when it receives the `NSUserActivity` object. After all above steps are completed perfectly, when the User click a universal link, the app will open up and the method <code>application:continueUserActivity:restorationHandler</code> will get called in <code>Appdelegate</code>. When iOS launches the the app after a User taps a universal link, you receive an <code>NSUserActivity</code> object with an <code>activityType</code> value of <code>NSUserActivityTypeBrowsingWeb</code>. The activity object’s <code>webpageURL</code> property contains the redirect URI that the user is accessing. The webpage URL property always contains an HTTPS URL, and you can use <code>NSURLComponents</code> APIs to manipulate the components of the URL.
 
-<p>To match all subdomains of an associated redirect URI, you can specify a wildcard by prefixing <code>*.</code> before the beginning of a specific Redirect URI (the period is required). Redirect URI matching is based on the longest substring in the <code>applinks</code> entries. For example, if you specify the entries <code>applinks:*.mywebsite.com</code> and <code>applinks:*.users.mywebsite.com</code>, matching for the redirect URI <code>emily.users.mywebsite.com</code> is performed against the longer <code>*.users.mywebsite.com</code> entry. Note that an entry for <code>*.mywebsite.com</code> does not match <code>mywebsite.com</code> because of the period after the asterisk. To enable matching for both <code>*.mywebsite.com</code> and <code>mywebsite.com</code>, you need to provide a separate <code>applinks</code> entry for each.</p>
-
-<ol>
-<li>Update the app delegate to respond appropriately when it receives the <code>NSUserActivity</code> object. After all above steps are completed perfectly, when the User click a universal link, the app will open up and the method <code>application:continueUserActivity:restorationHandler</code> will get called in <code>Appdelegate</code>. When iOS launches the the app after a User taps a universal link, you receive an <code>NSUserActivity</code> object with an <code>activityType</code> value of <code>NSUserActivityTypeBrowsingWeb</code>. The activity object’s <code>webpageURL</code> property contains the redirect URI that the user is accessing. The webpage URL property always contains an HTTPS URL, and you can use <code>NSURLComponents</code> APIs to manipulate the components of the URL.</li>
-</ol>
-<pre class="highlight http tab-http--inline"><code><span class="err">func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -&gt; Void) -&gt; Bool {
+```http--inline
+func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
     print("Continue User Activity called: ")
     if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
         let url = userActivity.webpageURL!
@@ -1279,12 +1286,15 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
     }
     return true
 }
-</span></code></pre>
-<p>For getting the URL parameters, use the following function:</p>
-<pre class="highlight http tab-http--inline"><code><span class="err">//playground code..
-var str = “https://google.com/contents/someotherpath?category=series&amp;contentid=1562167825"
+```
+
+For getting the URL parameters, use the function aside.
+
+```http--inline
+//playground code..
+var str = “https://google.com/contents/someotherpath?category=series&contentid=1562167825"
 let url = URL(string: str)
-func queryParameters(from url: URL) -&gt; [String: String] {
+func queryParameters(from url: URL) -> [String: String] {
 let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
 var queryParams = [String: String]()
 for queryItem: URLQueryItem in (urlComponents?.queryItems)! {
@@ -1299,9 +1309,12 @@ return queryParams
 print(queryParameters(from: url!))
 
 //It will print [“category”: “series”, “contentid”: “1562167825”]
-</span></code></pre>
-<p>Also if you want to check if the app had opened by clicking a universal link or not in the <code>didFinishLaunchingWithOptions</code> method:</p>
-<pre class="highlight http tab-http--inline"><code><span class="err">func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -&gt; Bool {
+```
+
+Also if you want to check if the app had opened by clicking a universal link or not in the `didFinishLaunchingWithOptions` method aside.
+
+```http--inline
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
  var isUniversalLinkClick: Bool = false
  if launchOptions[UIApplicationLaunchOptionsUserActivityDictionaryKey] {
  let activityDictionary = launchOptions[UIApplicationLaunchOptionsUserActivityDictionaryKey] as? [AnyHashable: Any] ?? [AnyHashable: Any]()
@@ -1317,42 +1330,44 @@ print(queryParameters(from: url!))
  }
  return true
 }
-</span></code></pre><h2 id='4-2-app-links-on-android'>4.2. App Links on Android</h2>
+```
+  </li>
+</ol>
+<h2 id='4-2-app-links-on-android'>4.2. App Links on Android</h2>
 <p>The App Links Assistant in Android Studio can help you create intent filters in your manifest and map existing URLs from your website to activities in your app. Follow below steps to configure the App links (as documented on <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App Links official documentation</a>):</p>
 
 <ol>
-<li>Add the intent filters to your manifest. Go through the your manifest and select Tools &gt; App Links Assistant. Click Open URL Mapping Editor and then click Add  at the bottom of the URL Mapping list to add a new URL mapping.</li>
-<li>Add details for the new URL mapping:
-
-<ul>
-<li>Entering your redirect URI in the <code>host</code> field </li>
-<li>Add a <code>path</code>, <code>pathPrefix</code>, or <code>pathPattern</code> for the redirect URIs you want to map. For example, if you have a recipe-sharing app, with all the recipes available in the same activity, and your corresponding website&#39;s recipes are all in the same <code>/recipe directory</code>, use <code>pathPrefix</code> and enter <code>/recipe</code>. This way, the redirect URI http://www.recipe-app.com/recipe/grilled-potato-salad maps to the activity you select in the following step.</li>
-<li>Select the Activity the redirect URI should take Users to.</li>
-<li>Click OK.</li>
-</ul></li>
-<li>The App Links Assistant adds intent filters based on your URL mapping to the <code>AndroidManifest.xml</code> file, and highlights it in the <code>Preview</code> field. If the you would like to make any changes, click Open <code>AndroidManifest.xml</code> to edit the intent filter.</li>
-</ol>
+  <li>Add the intent filters to your manifest. Go through the your manifest and select Tools > App Links Assistant. Click Open URL Mapping Editor and then click Add  at the bottom of the URL Mapping list to add a new URL mapping.</li>
+  <li>Add details for the new URL mapping:
+    <ul>
+      <li>Entering your redirect URI in the `host` field.</li>
+      <li>Add a `path`, `pathPrefix`, or `pathPattern` for the redirect URIs you want to map. For example, if you have a recipe-sharing app, with all the recipes available in the same activity, and your corresponding website's recipes are all in the same `/recipe directory`, use `pathPrefix` and enter `/recipe`. This way, the redirect URI http://www.recipe-app.com/recipe/grilled-potato-salad maps to the activity you select in the following step.</li>
+      <li>Select the Activity the redirect URI should take Users to.</li>
+      <li>Click OK.</li>
+    </ul>
+  <li>The App Links Assistant adds intent filters based on your URL mapping to the `AndroidManifest.xml` file, and highlights it in the `Preview` field. If the you would like to make any changes, click Open `AndroidManifest.xml` to edit the intent filter.
 
 <aside class="notice">To support more links without updating the app, you should define a URL mapping that supports future redirect URIs. </aside>
+  </li>
+  <li>To verify the URL mapping works properly, enter a URL in the Check URL Mapping field and click Check Mapping. If it's working correctly, the success message shows that the URL entered maps to the activity you selected.</li>
+  <li>Handle incoming links. Once you have verified that the URL mapping is working correctly, you MUST add the logic to handle the intent he created.
+    <ul>
+      <li>Click Select Activity from the App Links Assistant.</li>
+      <li>Select an activity from the list and click Insert Code.</li>
+  </ul>
+  
+The App Links Assistant adds code to the activity's Java file, similar to the one aside:
 
-<ol>
-<li>To verify the URL mapping works properly, enter a URL in the Check URL Mapping field and click Check Mapping. If it&#39;s working correctly, the success message shows that the URL entered maps to the activity you selected.</li>
-<li>Handle incoming links. Once you have verified that the URL mapping is working correctly, you MUST add the logic to handle the intent he created.
-
-<ul>
-<li>Click Select Activity from the App Links Assistant.</li>
-<li>Select an activity from the list and click Insert Code.
-The App Links Assistant adds code to the activity&#39;s Java file, similar to the following:
-<code>
+```
 // ATTENTION: This was auto-generated to handle app links.
 Intent appLinkIntent = getIntent();
 String appLinkAction = appLinkIntent.getAction();
 Uri appLinkData = appLinkIntent.getData();
-</code>
-However, this code isn&#39;t complete on its own. You MUST now take an action based on the URI in <appLinkData>, such as display the corresponding content. For example, for the recipe-sharing app, the code might look like the following sample:</li>
-</ul></li>
-</ol>
-<pre class="highlight plaintext"><code>  protected void onCreate(Bundle savedInstanceState) {
+```
+However, this code isn't complete on its own. You MUST now take an action based on the URI in <appLinkData>, such as display the corresponding content. For example, for the recipe-sharing app, the code might look like the following sample:
+
+```
+  protected void onCreate(Bundle savedInstanceState) {
   super.onCreate(savedInstanceState);
   ...
   handleIntent(getIntent());
@@ -1366,32 +1381,30 @@ protected void onNewIntent(Intent intent) {
 private void handleIntent(Intent intent) {
     String appLinkAction = intent.getAction();
     Uri appLinkData = intent.getData();
-    if (Intent.ACTION_VIEW.equals(appLinkAction) &amp;&amp; appLinkData != null){
+    if (Intent.ACTION_VIEW.equals(appLinkAction) && appLinkData != null){
         String recipeId = appLinkData.getLastPathSegment();
         Uri appData = Uri.parse("content://com.recipe_app/recipe/").buildUpon()
             .appendPath(recipeId).build();
         showRecipe(appData);
     }
 }
-</code></pre>
-<ol>
-<li>Associate the app with the redirect URI. After setting up URL support for your app, the App Links Assistant generates a Digital Asset Links file you can use to associate his website with your app. As an alternative to using the Digital Asset Links file, you can associate your site and app in Search Console. To associate the app and the website using the App Links Assistant, click Open the Digital Asset Links File Generator from the App Links Assistant and follow these steps:
-
-<ul>
-<li>Enter your Site domain and Application ID.</li>
-<li>To include support in your Digital Asset Links file for Smart Lock for Passwords, select Support sharing credentials between the app and the website and enter your site&#39;s login URL. This adds the following string to your Digital Asset Links file declaring that your app and website share sign-in credentials: <code>delegate_permission/common.get_login_creds</code>.</li>
-<li>Specify the signing config or select a keystore file. Make sure to select the right config or keystore file for either the release build or debug build of your app. If you want to set up his production build, use the release config. If you want to test his build, use the debug config.</li>
-<li>Click <code>Generate Digital Asset Links</code> file.</li>
-<li>Once Android Studio generates the file, click <code>Save file</code> to download it.</li>
-<li>Upload the <code>assetlinks.json</code> file to redirect URI site, with read-access for everyone, at <code>https://&lt;yoursite&gt;/.well-known/assetlinks.json</code>.</li>
-</ul></li>
-</ol>
+```
+  </li>
+  <li>Associate the app with the redirect URI. After setting up URL support for your app, the App Links Assistant generates a Digital Asset Links file you can use to associate his website with your app. As an alternative to using the Digital Asset Links file, you can associate your site and app in Search Console. To associate the app and the website using the App Links Assistant, click Open the Digital Asset Links File Generator from the App Links Assistant and follow these steps:
+    <ul>
+      <li>Enter your Site domain and Application ID.</li>
+      <li>To include support in your Digital Asset Links file for Smart Lock for Passwords, select Support sharing credentials between the app and the website and enter your site's login URL. This adds the following string to your Digital Asset Links file declaring that your app and website share sign-in credentials: `delegate_permission/common.get_login_creds`.</li>
+      <li>Specify the signing config or select a keystore file. Make sure to select the right config or keystore file for either the release build or debug build of your app. If you want to set up his production build, use the release config. If you want to test his build, use the debug config.</li>
+      <li>Click `Generate Digital Asset Links` file.</li>
+      <li>Once Android Studio generates the file, click `Save file` to download it.</li>
+      <li>Upload the `assetlinks.json` file to redirect URI site, with read-access for everyone, at `https://<yoursite>/.well-known/assetlinks.json`.</li>
 
 <aside class="notice">The system verifies the Digital Asset Links file via the encrypted HTTPS protocol. Make sure that the assetlinks.json file is accessible over an HTTPS connection, regardless of whether your app's intent filter includes https</aside>
 
-<ul>
-<li>Click <Link and Verify> to confirm that you&#39;ve uploaded the correct Digital Asset Links file to the correct location.</li>
-</ul>
+  <li>Click <Link and Verify> to confirm that you've uploaded the correct Digital Asset Links file to the correct location.</li>
+  </ul>
+</li>
+</ol>
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTkyNDAxNDExNywxMzc4MTU5MDU1LDUzND
