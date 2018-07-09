@@ -40,7 +40,7 @@ Before your application can use itsme® OpenID Login and Share Data services, yo
 <aside class="notice">If not explicitely set, a default JWKSet will be used during Sandbox creation. The public keys are exposed on <a href="https://belgianmobileid.github.io/slate/jwks.json" target="blank">https://belgianmobileid.github.io/slate/jwks.json</a> while the corresponding private keys are exposed on <a href="https://belgianmobileid.github.io/slate/jwks.json" target="blank">https://belgianmobileid.github.io/slate/private_jwks.json</a>.
 </aside>
 
-<aside class="notice">You can find our JWKSet URL in the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">OpenID configuration file</a>, using the key <code>jwks_uri</code>.
+<aside class="notice">You can find our JWKSet URL in the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>jwks_uri</code>.
 </aside>
 
 <aside class="notice">Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our Back-End.
@@ -89,9 +89,9 @@ To simplify implementations and increase flexibility, <a href="https://openid.ne
   <li>JWKSet URL</li>
 </ul>
 
-The sandox Discovery Document for itsme® services may be retrieved from:[https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration](https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration).
+The Discovery document for itsme® services may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a>.
 
-<aside class="notice">The key-value pairs that MUST be used to integrate itsme® in production can be redeemed from <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a>.
+<aside class="notice">The key-value pairs that MUST be used to integrate itsme® with our test environment can be redeemed from <a href="https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</a>.
 </aside>
 
 
