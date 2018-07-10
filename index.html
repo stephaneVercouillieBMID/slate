@@ -259,6 +259,9 @@
                   <li>
                     <a href="#4-1-universal-links-on-ios" class="toc-h2 toc-link" data-title="4-1-universal-links-on-ios">4.1. Universal Links on iOS</a>
                   </li>
+                  <li>
+                    <a href="#4-2-app-links-on-android" class="toc-h2 toc-link" data-title="4-2-app-links-on-android">4.2. App Links on Android</a>
+                  </li>
               </ul>
           </li>
       </div>
@@ -1276,15 +1279,14 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 </ol>
   
 
-<aside class="notice">Apple doc says to limit this list to no more than about 20 to 30 domains<aside>
+<aside class="notice">Apple doc says to limit this list to no more than about 20 to 30 domains</aside>
  
+
 <ol>
   <li>Update the app delegate to respond appropriately when it receives the `NSUserActivity` object. After all above steps are completed perfectly, when the User click a universal link, the app will open up and the method <code>application:continueUserActivity:restorationHandler</code> will get called in <code>Appdelegate</code>. When iOS launches the the app after a User taps a universal link, you receive an <code>NSUserActivity</code> object with an <code>activityType</code> value of <code>NSUserActivityTypeBrowsingWeb</code>. The activity object’s <code>webpageURL</code> property contains the redirect URI that the user is accessing. The webpage URL property always contains an HTTPS URL, and you can use <code>NSURLComponents</code> APIs to manipulate the components of the URL.<br>For getting the URL parameters, use the function aside.</br><br>Also if you want to check if the app had opened by clicking a universal link or not in the `didFinishLaunchingWithOptions` method aside.</br>
   </li>
 </ol>
-
-```http--inline
-func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+<pre class="highlight http tab-http--inline"><code><span class="err">func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -&gt; Void) -&gt; Bool {
     print("Continue User Activity called: ")
     if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
         let url = userActivity.webpageURL!
@@ -1293,13 +1295,10 @@ func application(_ application: UIApplication, continue userActivity: NSUserActi
     }
     return true
 }
-```
-
-```http--inline
-//playground code..
-var str = “https://google.com/contents/someotherpath?category=series&contentid=1562167825"
+</span></code></pre><pre class="highlight http tab-http--inline"><code><span class="err">//playground code..
+var str = “https://google.com/contents/someotherpath?category=series&amp;contentid=1562167825"
 let url = URL(string: str)
-func queryParameters(from url: URL) -> [String: String] {
+func queryParameters(from url: URL) -&gt; [String: String] {
 let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
 var queryParams = [String: String]()
 for queryItem: URLQueryItem in (urlComponents?.queryItems)! {
@@ -1314,10 +1313,7 @@ return queryParams
 print(queryParameters(from: url!))
 
 //It will print [“category”: “series”, “contentid”: “1562167825”]
-```
-
-```http--inline
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+</span></code></pre><pre class="highlight http tab-http--inline"><code><span class="err">func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -&gt; Bool {
  var isUniversalLinkClick: Bool = false
  if launchOptions[UIApplicationLaunchOptionsUserActivityDictionaryKey] {
  let activityDictionary = launchOptions[UIApplicationLaunchOptionsUserActivityDictionaryKey] as? [AnyHashable: Any] ?? [AnyHashable: Any]()
@@ -1333,11 +1329,8 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
  }
  return true
 }
-```
-
-## 4.2. App Links on Android
-
-The App Links Assistant in Android Studio can help you create intent filters in your manifest and map existing URLs from your website to activities in your app. Follow below steps to configure the App links (as documented on <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App Links official documentation</a>):
+</span></code></pre><h2 id='4-2-app-links-on-android'>4.2. App Links on Android</h2>
+<p>The App Links Assistant in Android Studio can help you create intent filters in your manifest and map existing URLs from your website to activities in your app. Follow below steps to configure the App links (as documented on <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App Links official documentation</a>):</p>
 
 <ol>
   <li>Add the intent filters to your manifest. Go through the your manifest and select Tools > App Links Assistant. Click Open URL Mapping Editor and then click Add  at the bottom of the URL Mapping list to add a new URL mapping.</li>
@@ -1351,23 +1344,26 @@ The App Links Assistant in Android Studio can help you create intent filters in 
   <li>The App Links Assistant adds intent filters based on your URL mapping to the `AndroidManifest.xml` file, and highlights it in the `Preview` field. If the you would like to make any changes, click Open `AndroidManifest.xml` to edit the intent filter.
 
 <aside class="notice">To support more links without updating the app, you should define a URL mapping that supports future redirect URIs. </aside>
-
-<p></li>
-  <li>To verify the URL mapping works properly, enter a URL in the Check URL Mapping field and click Check Mapping. If it&#39;s working correctly, the success message shows that the URL entered maps to the activity you selected.</li>
+  </li>
+  <li>To verify the URL mapping works properly, enter a URL in the Check URL Mapping field and click Check Mapping. If it's working correctly, the success message shows that the URL entered maps to the activity you selected.</li>
   <li>Handle incoming links. Once you have verified that the URL mapping is working correctly, you MUST add the logic to handle the intent he created.
     <ul>
       <li>Click Select Activity from the App Links Assistant.</li>
       <li>Select an activity from the list and click Insert Code.</li>
-  </ul></p>
+  </ul>
+  
+The App Links Assistant adds code to the activity's Java file, similar to the one aside:
 
-<p>The App Links Assistant adds code to the activity&#39;s Java file, similar to the one aside:</p>
-<pre class="highlight plaintext"><code>// ATTENTION: This was auto-generated to handle app links.
+```
+// ATTENTION: This was auto-generated to handle app links.
 Intent appLinkIntent = getIntent();
 String appLinkAction = appLinkIntent.getAction();
 Uri appLinkData = appLinkIntent.getData();
-</code></pre>
-<p>However, this code isn&#39;t complete on its own. You MUST now take an action based on the URI in <appLinkData>, such as display the corresponding content. For example, for the recipe-sharing app, the code might look like the following sample:</p>
-<pre class="highlight plaintext"><code>  protected void onCreate(Bundle savedInstanceState) {
+```
+However, this code isn't complete on its own. You MUST now take an action based on the URI in <appLinkData>, such as display the corresponding content. For example, for the recipe-sharing app, the code might look like the following sample:
+
+```
+  protected void onCreate(Bundle savedInstanceState) {
   super.onCreate(savedInstanceState);
   ...
   handleIntent(getIntent());
@@ -1381,30 +1377,30 @@ protected void onNewIntent(Intent intent) {
 private void handleIntent(Intent intent) {
     String appLinkAction = intent.getAction();
     Uri appLinkData = intent.getData();
-    if (Intent.ACTION_VIEW.equals(appLinkAction) &amp;&amp; appLinkData != null){
+    if (Intent.ACTION_VIEW.equals(appLinkAction) && appLinkData != null){
         String recipeId = appLinkData.getLastPathSegment();
         Uri appData = Uri.parse("content://com.recipe_app/recipe/").buildUpon()
             .appendPath(recipeId).build();
         showRecipe(appData);
     }
 }
-</code></pre>
-<p></li>
+```
+  </li>
   <li>Associate the app with the redirect URI. After setting up URL support for your app, the App Links Assistant generates a Digital Asset Links file you can use to associate his website with your app. As an alternative to using the Digital Asset Links file, you can associate your site and app in Search Console. To associate the app and the website using the App Links Assistant, click Open the Digital Asset Links File Generator from the App Links Assistant and follow these steps:
     <ul>
       <li>Enter your Site domain and Application ID.</li>
-      <li>To include support in your Digital Asset Links file for Smart Lock for Passwords, select Support sharing credentials between the app and the website and enter your site&#39;s login URL. This adds the following string to your Digital Asset Links file declaring that your app and website share sign-in credentials: <code>delegate_permission/common.get_login_creds</code>.</li>
+      <li>To include support in your Digital Asset Links file for Smart Lock for Passwords, select Support sharing credentials between the app and the website and enter your site's login URL. This adds the following string to your Digital Asset Links file declaring that your app and website share sign-in credentials: `delegate_permission/common.get_login_creds`.</li>
       <li>Specify the signing config or select a keystore file. Make sure to select the right config or keystore file for either the release build or debug build of your app. If you want to set up his production build, use the release config. If you want to test his build, use the debug config.</li>
-      <li>Click <code>Generate Digital Asset Links</code> file.</li>
-      <li>Once Android Studio generates the file, click <code>Save file</code> to download it.</li>
-      <li>Upload the <code>assetlinks.json</code> file to redirect URI site, with read-access for everyone, at <code>https://&lt;yoursite&gt;/.well-known/assetlinks.json</code>.</li></p>
+      <li>Click `Generate Digital Asset Links` file.</li>
+      <li>Once Android Studio generates the file, click `Save file` to download it.</li>
+      <li>Upload the `assetlinks.json` file to redirect URI site, with read-access for everyone, at `https://<yoursite>/.well-known/assetlinks.json`.</li>
 
 <aside class="notice">The system verifies the Digital Asset Links file via the encrypted HTTPS protocol. Make sure that the assetlinks.json file is accessible over an HTTPS connection, regardless of whether your app's intent filter includes https</aside>
 
-<p><li>Click <Link and Verify> to confirm that you&#39;ve uploaded the correct Digital Asset Links file to the correct location.</li>
+  <li>Click <Link and Verify> to confirm that you've uploaded the correct Digital Asset Links file to the correct location.</li>
   </ul>
 </li>
-</ol></p>
+</ol>
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTkyNDAxNDExNywxMzc4MTU5MDU1LDUzND
