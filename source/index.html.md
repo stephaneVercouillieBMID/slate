@@ -346,43 +346,35 @@ The sub claim value must be mapped to the corresponding user in your application
 If no user record is storing the sub claim value, then you should implement one of the following scenarios to map the sub to the corresponding User account:
 
 <ul>
-  <li>If you requested User attributes in the Authentication request, a different claim (e.g.: email address, phone number, …) can be used to automatically associate an existing account during the first sign-in session. You will then update that User's record with the sub claim:
+  <li>If you requested User attributes in the Authentication request, a different claim (e.g.: email address, phone number, …) can be used to automatically associate an existing account during the first sign-in session. You will then update that User's record with the sub claim.
+    
+Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.
+
+This is the most optimal flow from UX point of view as it will be easier for Users to start interacting with your application. Providing the information as part of the OpenID Authentication Request will reduce the number of round trips that need to be made. In turn, this should reduce the amount of time it takes for a User to sign up.
   </li>
 </ul>
   
 <img src="MappingUserAuto.png" alt="Automatically mapping user accounts">
 
-<pre>
-  Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.
-</pre>
-
-<pre>
-  This is the most optimal flow from UX point of view as it will be easier for Users to start interacting with your application. Providing the information as part of the OpenID Authentication Request will reduce the number of round trips that need to be made. In turn, this should reduce the amount of time it takes for a User to sign up.
-</pre>
-
 <aside class="notice">This approach requires a sanity check on our side to guarantee that the claim used to map the user account is reliable and consistent with your data’s lifecycle. Please inform us via  itsme® B2B portal if you opt for this approach. </aside>
 
 <ul>  
-  <li>If you did not request User attributes in the Authentication request or if you can't match with certainty the existing User account with the provided data's, then you could ask the User to authenticate with his usual credentials (e.g. User name / password). The User credentials will be used by your application to match the sub claim to the corresponding user account in your repository:
+  <li>If you did not request User attributes in the Authentication request or if you can't match with certainty the existing User account with the provided data's, then you could ask the User to authenticate with his usual credentials (e.g. User name / password). The User credentials will be used by your application to match the sub claim to the corresponding user account in your repository.
+
+Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.
   </li>
 </ul>
   
 <img src="MappingUserCredentials.png" alt="User provides his credentials to map the accounts">  
 
-<pre>
-  Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.
-</pre>
-
 <ul>  
   <li>If you requested User attributes in the Authentication request, but the User isn’t registered in your application, then you should be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required in the registration form. A new User's record will be created in your repository, containing the sub claim specific to that User.
+
+Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.
   </li>
 </ul>
   
 <img src="MappingUserAutoReg.png" alt="Auto-register the User">  
-
-<pre>
-  Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.
-</pre>
 
 
 <a name="Data"></a>
