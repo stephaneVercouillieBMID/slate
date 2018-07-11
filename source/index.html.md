@@ -401,7 +401,7 @@ Parameter | Description
 As the `id_token` is comprised of three Base64URL encoded elements, you MUST decode this JWT to get a JSON object containing the claims about the User. The fields returned via the `id_token` are those below:
 
 Values |	Returned |	Description
-:-- | :-- | :--
+:--- | :--- | :---
 **iss**	| Always | Identifier of the issuer of the ID Token.
 **sub** |	Always | An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.
 **aud**	| Always |	Audience of the ID Token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
@@ -471,6 +471,7 @@ HTTP/1.1 200 OK
 ```
 
 <a name id="SecurityDataElements"></a>
+
 Values | Description
 :-- | :-- 
 **nationality** | 
