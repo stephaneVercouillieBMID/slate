@@ -1161,25 +1161,16 @@ Values | Description
 
 <ol>  
   <li>Upload the ‘apple-app-site-association’ file to your HTTPS web server for the redirection URI communicated in the Authentication request. The file can be placed at the root of your server or in the .well-known subdirectory.</li>
-</ol>
-
-<aside class="notice"> While hosting the AASA file, please ensure that the AASA file:
-<ul>
-  <li>
-    is served over HTTPS.
-  </li>
-  <li>
-    uses application/json MIME type.
-  </li>
-  <li>
-    don’t append .json to the apple-app-site-association filename.
-  </li>
-  <li>
-    has a size not exceeding 128 Kb (requirement in iOS 9.3.1 onwards)
-  </li>
-</aside>
-
-<ol> 
+<span>
+  <aside class="notice"> While hosting the AASA file, please ensure that the AASA file:
+    <ul>
+      <li>is served over HTTPS.</li>
+      <li>uses application/json MIME type.</li>
+      <li>don’t append .json to the apple-app-site-association filename.</li>
+      <li>has a size not exceeding 128 Kb (requirement in iOS 9.3.1 onwards)</li>
+    </ul>  
+  </aside>
+</span>
   <li>Check if the AASA file is valid and is accessible by using the <a href="https://branch.io/resources/aasa-validator/#resultsbox" target="blank">following link</a>.</li>
   <li>Add an entitlement to all redirect URI that the your app need to supports. In Xcode, open the Associated Domains section in the Capabilities tab and add an entry for each Redirect URI that your app supports, prefixed with `applinks`.<br>To match all subdomains of an associated redirect URI, you can specify a wildcard by prefixing `*.` before the beginning of a specific Redirect URI (the period is required). Redirect URI matching is based on the longest substring in the `applinks` entries. For example, if you specify the entries `applinks:*.mywebsite.com` and `applinks:*.users.mywebsite.com`, matching for the redirect URI `emily.users.mywebsite.com` is performed against the longer `*.users.mywebsite.com` entry. Note that an entry for `*.mywebsite.com` does not match `mywebsite.com` because of the period after the asterisk. To enable matching for both `*.mywebsite.com` and `mywebsite.com`, you need to provide a separate `applinks` entry for each.</br></li>
 </ol>
