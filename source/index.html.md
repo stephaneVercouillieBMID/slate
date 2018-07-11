@@ -648,12 +648,13 @@ The App Links Assistant in Android Studio can help you create intent filters in 
 
 <aside class="notice">To support more links without updating the app, you should define a URL mapping that supports future redirect URIs. </aside>
 
-```
+```http--inline
 // ATTENTION: This was auto-generated to handle app links.
 Intent appLinkIntent = getIntent();
 String appLinkAction = appLinkIntent.getAction();
 Uri appLinkData = appLinkIntent.getData();
 ```
+
 <ol>
   <li value="4">To verify the URL mapping works properly, enter a URL in the Check URL Mapping field and click Check Mapping. If it's working correctly, the success message shows that the URL entered maps to the activity you selected.</li>
   <li>Handle incoming links. Once you have verified that the URL mapping is working correctly, you MUST add the logic to handle the intent he created.
