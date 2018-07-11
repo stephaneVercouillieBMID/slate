@@ -339,11 +339,11 @@ The response will contain an error parameter and optionally `error_description` 
 
 ## 3.7. Mapping the User
 
-To sign in successfully in your web desktop, mobile web or in-app mobile application, a given user must be provisioned in OpenID Connect and then mapped to a user account in your database. By default, your application Server will use the subject identifier, or sub, claim in the ID Token to identify and verify a user account. Typically, the sub claim is a unique string that identifies a given user account. The benefit of using a sub claim is that it will not change, even if other user attributes (email, phone number, etc) associated with that account are updated. 
+To sign in successfully in your web desktop, mobile web or in-app mobile application, a given user must be provisioned in OpenID Connect and then mapped to a user account in your database. By default, your application Server will use the subject identifier, or `sub`, claim in the ID Token to identify and verify a user account. Typically, the `sub` claim is a unique string that identifies a given user account. The benefit of using a `sub` claim is that it will not change, even if other user attributes (email, phone number, etc) associated with that account are updated. 
 
-The sub claim value must be mapped to the corresponding user in your application Server. If you already mapped this sub to an account in your application repository, you should start an application session for that User.
+The `sub` claim value must be mapped to the corresponding user in your application Server. If you already mapped this `sub` to an account in your application repository, you should start an application session for that User.
 
-If no user record is storing the sub claim value, then you should implement one of the following scenarios to map the sub to the corresponding User account:
+If no user record is storing the `sub` claim value, then you should implement one of the following scenarios to map the `sub` to the corresponding User account:
 
 <ul>
   <li>If you requested User attributes in the Authentication request, a different claim (e.g.: email address, phone number, …) can be used to automatically associate an existing account during the first sign-in session. You will then update that User's record with the sub claim.<br>Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.</br><br>This is the most optimal flow from UX point of view as it will be easier for Users to start interacting with your application. Providing the information as part of the OpenID Authentication Request will reduce the number of round trips that need to be made. In turn, this should reduce the amount of time it takes for a User to sign up.</br>
