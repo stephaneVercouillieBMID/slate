@@ -653,7 +653,7 @@ The App Links Assistant in Android Studio can help you create intent filters in 
 <aside class="notice">To support more links without updating the app, you should define a URL mapping that supports future redirect URIs. </aside>
 
 ```http--inline
-// ATTENTION: This was auto-generated to handle app links.
+ATTENTION: This was auto-generated to handle app links.
 Intent appLinkIntent = getIntent();
 String appLinkAction = appLinkIntent.getAction();
 Uri appLinkData = appLinkIntent.getData();
