@@ -643,18 +643,10 @@ The App Links Assistant in Android Studio can help you create intent filters in 
       <li>Select the Activity the redirect URI should take Users to.</li>
       <li>Click OK.</li>
     </ul>
-  <li>The App Links Assistant adds intent filters based on your URL mapping to the `AndroidManifest.xml` file, and highlights it in the `Preview` field. If the you would like to make any changes, click Open `AndroidManifest.xml` to edit the intent filter.
+  <li>The App Links Assistant adds intent filters based on your URL mapping to the `AndroidManifest.xml` file, and highlights it in the `Preview` field. If the you would like to make any changes, click Open `AndroidManifest.xml` to edit the intent filter.</li>
+ </ol>
 
 <aside class="notice">To support more links without updating the app, you should define a URL mapping that supports future redirect URIs. </aside>
-  </li>
-  <li>To verify the URL mapping works properly, enter a URL in the Check URL Mapping field and click Check Mapping. If it's working correctly, the success message shows that the URL entered maps to the activity you selected.</li>
-  <li>Handle incoming links. Once you have verified that the URL mapping is working correctly, you MUST add the logic to handle the intent he created.
-    <ul>
-      <li>Click Select Activity from the App Links Assistant.</li>
-      <li>Select an activity from the list and click Insert Code.</li>
-  </ul>
-  
-The App Links Assistant adds code to the activity's Java file, similar to the one aside:
 
 ```
 // ATTENTION: This was auto-generated to handle app links.
@@ -662,7 +654,17 @@ Intent appLinkIntent = getIntent();
 String appLinkAction = appLinkIntent.getAction();
 Uri appLinkData = appLinkIntent.getData();
 ```
-However, this code isn't complete on its own. You MUST now take an action based on the URI in <appLinkData>, such as display the corresponding content. For example, for the recipe-sharing app, the code might look like the following sample:
+<ol>
+  <li value="4">To verify the URL mapping works properly, enter a URL in the Check URL Mapping field and click Check Mapping. If it's working correctly, the success message shows that the URL entered maps to the activity you selected.</li>
+  <li>Handle incoming links. Once you have verified that the URL mapping is working correctly, you MUST add the logic to handle the intent he created.
+    <ul>
+      <li>Click Select Activity from the App Links Assistant.</li>
+      <li>Select an activity from the list and click Insert Code.</li>
+    </ul>
+    <br>The App Links Assistant adds code to the activity's Java file, similar to the one aside.</br>
+    <br>However, this code isn't complete on its own. You MUST now take an action based on the URI in <appLinkData>, such as display the corresponding content. For example, for the recipe-sharing app, the code might look like the sample aside.</br>
+  </li>
+</ol>
 
 ```
   protected void onCreate(Bundle savedInstanceState) {
@@ -687,8 +689,9 @@ private void handleIntent(Intent intent) {
     }
 }
 ```
-  </li>
-  <li>Associate the app with the redirect URI. After setting up URL support for your app, the App Links Assistant generates a Digital Asset Links file you can use to associate his website with your app. As an alternative to using the Digital Asset Links file, you can associate your site and app in Search Console. To associate the app and the website using the App Links Assistant, click Open the Digital Asset Links File Generator from the App Links Assistant and follow these steps:
+
+<ol>
+  <li value="6">Associate the app with the redirect URI. After setting up URL support for your app, the App Links Assistant generates a Digital Asset Links file you can use to associate his website with your app. As an alternative to using the Digital Asset Links file, you can associate your site and app in Search Console. To associate the app and the website using the App Links Assistant, click Open the Digital Asset Links File Generator from the App Links Assistant and follow these steps:
     <ul>
       <li>Enter your Site domain and Application ID.</li>
       <li>To include support in your Digital Asset Links file for Smart Lock for Passwords, select Support sharing credentials between the app and the website and enter your site's login URL. This adds the following string to your Digital Asset Links file declaring that your app and website share sign-in credentials: `delegate_permission/common.get_login_creds`.</li>
@@ -696,14 +699,12 @@ private void handleIntent(Intent intent) {
       <li>Click `Generate Digital Asset Links` file.</li>
       <li>Once Android Studio generates the file, click `Save file` to download it.</li>
       <li>Upload the `assetlinks.json` file to redirect URI site, with read-access for everyone, at `https://<yoursite>/.well-known/assetlinks.json`.</li>
+      <li>Click <Link and Verify> to confirm that you've uploaded the correct Digital Asset Links file to the correct location.</li>
+    </ul>
+  </li>
+ </ol>
 
 <aside class="notice">The system verifies the Digital Asset Links file via the encrypted HTTPS protocol. Make sure that the assetlinks.json file is accessible over an HTTPS connection, regardless of whether your app's intent filter includes https</aside>
-
-  <li>Click <Link and Verify> to confirm that you've uploaded the correct Digital Asset Links file to the correct location.</li>
-  </ul>
-</li>
-</ol>
-
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTkyNDAxNDExNywxMzc4MTU5MDU1LDUzND
