@@ -1078,39 +1078,135 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
    "picture": "http://example.com/janedoe/me.jpg"
   }  
 </code></pre>
-<p><a name id="SecurityDataElements"></a>
-Values | Description
-:-- | :-- 
-<strong>nationality</strong> | 
-<strong>place of Birth - city</strong> | This MUST be set to <code>tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth</code>.
-<strong>place of Birth - country</strong> | This MUST be set to<code>tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth</code>.
-<strong>eid</strong>  | The eID card serial number.
-<strong>issuance_locality</strong>  | The eID card issuance locality.
-<strong>validity_from</strong>  | The eID card validity “from” date.
-<strong>validity_to</strong>  | The eID card validity “to” date.
-<strong>certificate_validity</strong>  | The eID card certificate validity.
-<strong>read_date</strong>  | The data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000).
-<strong>passport Number</strong> | Simple string containing the User’s Passport Serial Number. 
-<strong>os</strong> | The device operating system. The returned values will be <code>ANDROID</code>or <code>iOS</code>
-<strong>appName</strong>  | The application name.
-<strong>appRelease</strong>  | The application current release.
-<strong>deviceLabel</strong>  | The name of the device.
-<strong>debugEnabled</strong>  | <code>True</code> if debug mode has been activated; otherwise <code>false</code>.
-<strong>deviceId</strong>  | The device identifier.
-<strong>osRelease</strong>  | The version of the OS running on your device.
-<strong>manufacturer</strong>  | The brand of the device manufacturer.
-<strong>hasSimEnabled</strong>  | It tells you if a SIM card is installed in the device, or not. The returned value is always <code>true</code> as long as itsme® can&#39;t be installed on tablets.
-<strong>deviceLockLevel</strong>  |
-<strong>smsEnabled</strong>  |
-<strong>rooted</strong>  | The returned value is always <code>false</code> as long as itsme® can&#39;t be used on a jailbreaked/rooted device.
-<strong>imei</strong>  | The device IMEI value.
-<strong>deviceModel</strong>  | The model of the device.
-<strong>msisdn</strong>  | The User’s phone number.
-<strong>sdkRelease</strong>  |
-<strong>securityLevel</strong> | The security level used during transaction. The returned values could be <code>SOFT_ONLY</code>, <code>SIM_ONLY</code> or <code>SIM_AND_SOFT</code>.
-<strong>bindLevel</strong>  | It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <code>SOFT_ONLY</code>, <code>SIM_ONLY</code> or <code>SIM_AND_SOFT</code>.
-<strong>mcc</strong>  | The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country.
-<strong>e-ID Picture</strong> | </p>
+<p><a name id="SecurityDataElements"></a></p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Values</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>nationality</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>place of Birth - city</strong></td>
+<td style="text-align: left">This MUST be set to <code>tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>place of Birth - country</strong></td>
+<td style="text-align: left">This MUST be set to<code>tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>eid</strong></td>
+<td style="text-align: left">The eID card serial number.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>issuance_locality</strong></td>
+<td style="text-align: left">The eID card issuance locality.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>validity_from</strong></td>
+<td style="text-align: left">The eID card validity “from” date.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>validity_to</strong></td>
+<td style="text-align: left">The eID card validity “to” date.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>certificate_validity</strong></td>
+<td style="text-align: left">The eID card certificate validity.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>read_date</strong></td>
+<td style="text-align: left">The data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000).</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>passport Number</strong></td>
+<td style="text-align: left">Simple string containing the User’s Passport Serial Number.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>os</strong></td>
+<td style="text-align: left">The device operating system. The returned values will be <code>ANDROID</code>or <code>iOS</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>appName</strong></td>
+<td style="text-align: left">The application name.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>appRelease</strong></td>
+<td style="text-align: left">The application current release.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>deviceLabel</strong></td>
+<td style="text-align: left">The name of the device.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>debugEnabled</strong></td>
+<td style="text-align: left"><code>True</code> if debug mode has been activated; otherwise <code>false</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>deviceId</strong></td>
+<td style="text-align: left">The device identifier.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>osRelease</strong></td>
+<td style="text-align: left">The version of the OS running on your device.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>manufacturer</strong></td>
+<td style="text-align: left">The brand of the device manufacturer.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>hasSimEnabled</strong></td>
+<td style="text-align: left">It tells you if a SIM card is installed in the device, or not. The returned value is always <code>true</code> as long as itsme® can&#39;t be installed on tablets.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>deviceLockLevel</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>smsEnabled</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>rooted</strong></td>
+<td style="text-align: left">The returned value is always <code>false</code> as long as itsme® can&#39;t be used on a jailbreaked/rooted device.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>imei</strong></td>
+<td style="text-align: left">The device IMEI value.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>deviceModel</strong></td>
+<td style="text-align: left">The model of the device.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>msisdn</strong></td>
+<td style="text-align: left">The User’s phone number.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>sdkRelease</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>securityLevel</strong></td>
+<td style="text-align: left">The security level used during transaction. The returned values could be <code>SOFT_ONLY</code>, <code>SIM_ONLY</code> or <code>SIM_AND_SOFT</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>bindLevel</strong></td>
+<td style="text-align: left">It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <code>SOFT_ONLY</code>, <code>SIM_ONLY</code> or <code>SIM_AND_SOFT</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>mcc</strong></td>
+<td style="text-align: left">The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>e-ID Picture</strong></td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
 
 <aside class="notice">The `sub` claim will always be included in the response and this should be verified by you to mitigate against token substitution attacks. The `sub` claim in the userInfo response MUST be verified to exactly match the `sub` Claim in the <code>id_token</code>; if they do not match, the userInfo response values MUST NOT be used.</aside>
 
