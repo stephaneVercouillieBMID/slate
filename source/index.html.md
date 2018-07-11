@@ -368,6 +368,10 @@ If no user record is storing the `sub` claim value, then you should implement on
   
 <img src="MappingUserAutoReg.png" alt="Auto-register the User">  
 
+In a limited number of cases (e.g. change phone number, technical issue,…) a user could ask itsme® to ‘delete’ his account. As a result the specific account will be ‘archived’ (for compliancy reasons) and thus also the unique identifier(s) (e.g. <code>sub</code>), used to interact with the different partners the specific users is active with, will be automatically deleted in our database.
+
+If the same user would opt to (re)create an itsme® afterwards, he will need to re-bind his itsme® account with your application server (as the initial identifier is no longer valid as explained before). To re-bind his itsme® account one of the above scenario should be used. After successful (re)binding you will need to overwrite the initial reference with the new ‘sub’ claim value in your database.
+
 
 <a name="Data"></a>
 ## 3.8. Obtaining ID claims/User attibutes
