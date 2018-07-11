@@ -262,6 +262,9 @@
                   <li>
                     <a href="#4-2-app-links-on-android" class="toc-h2 toc-link" data-title="4-2-app-links-on-android">4.2. App Links on Android</a>
                   </li>
+                  <li>
+                    <a href="#4-3-security-levels-and-context-data" class="toc-h2 toc-link" data-title="4-3-security-levels-and-context-data">4.3. Security levels and context data</a>
+                  </li>
               </ul>
           </li>
       </div>
@@ -428,7 +431,7 @@
 <tr>
 <td style="text-align: left"><a name="acrvalues"><strong>acr_values</strong></a></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference.<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br><code>tag:itsmetag:sixdots.be,2016-06:acr_basic</code></br></li><li>Advanced level - force the User to use PIN<br><code>tag:itsmetag:sixdots.be,2016-06:acr_advanced</code></br></li></ul>When multiple values are provided only the most constraining will be used (advanced &gt; basic). If not provided basic level will be used.</br></td>
+<td style="text-align: left">Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference.<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br><code>tag:itsmetag:sixdots.be,2016-06:acr_basic</code></br></li><li>Advanced level - force the User to use PIN<br><code>tag:itsmetag:sixdots.be,2016-06:acr_advanced</code></br></li></ul>When multiple values are provided only the most constraining will be used (advanced &gt; basic). If not provided basic level will be used.</br><br>More information on security levels and context data can be found in the <a href="#SecurityLevels">appendixes</a>.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>claims</strong></td>
@@ -1320,6 +1323,33 @@ g5MjExLDIxMTQ4ODY5NCwtMTM3MjIzNjE0NSw3OTI2NzA0NzMs
 LTE5NDA2NDc3MjIsMTM3OTI2ODA2OSw2NTYwOTIwMjgsLTIwOT
 MzNTI3OTgsMTM1NzAwMDU4Nl19
 -->
+
+<p><a name="SecurityLevels"></a></p>
+<h2 id='4-3-security-levels-and-context-data'>4.3. Security levels and context data</h2>
+<p>Depending on the required level of assurance your application MUST ensure the correct ‘security level’ is requested. Two ‘security levels’ are supported – ‘basic’ and ‘advanced’. Opting for ‘advanced’ will result in an itsme code entry being enforced to validate the specific transaction (even if the user has activated touch ID/fingerprint). With the ‘basic’ level also touch ID/fingerprint next to the itsme code are supported to validate the specific transaction.</p>
+
+<p>The following table defines the different possible scenarios:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Security level</th>
+<th style="text-align: left">Login</th>
+<th style="text-align: left">Share Data</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>basic</strong></td>
+<td style="text-align: left">Allowed</td>
+<td style="text-align: left">Allowed</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>advanced</strong></td>
+<td style="text-align: left">Allowed</td>
+<td style="text-align: left">Allowed</td>
+</tr>
+</tbody></table>
+
+<p>Next to the security levels, your application can also request additional security data to determine the context in which the transactions have been executed. The security data elements can, alone or in combination with each other, indicate a given risk exposure. By providing these elements, itsme® allows you to detect fraud attempts or effective fraudulent transactions. The security data elements that can be used to associate a risk exposure to a specific transaction are available in the section <a href="#SecurityDataElements">Capturing claims from the userInfo Endpoint</a>.</p>
 
       </div>
       <div class="dark-box">
