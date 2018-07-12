@@ -126,7 +126,7 @@ Parameter | Required | Description
 **prompt** | Optional | Space delimited, case sensitive list of ASCII string values that specifies whether the Authorization Server prompts the User for reauthentication and consent. MUST be `consent` if provided. 
 **ui_locales** | Optional | User's preferred languages and scripts for the User interface (e.g.: OpenID web page). Supported values are: {“fr”, “nl”, “en”, “de”}. Any other value will be ignored.
 **max_age** | Optional | Specifies the allowable elapsed time in seconds since the last time the User was actively authenticated by itsme®. If the elapsed time is greater than this value, the authentication system MUST attempt to actively re-authenticate the User. As itsme® does not maintain a session mechanism, an active authentication is always required.
-<a name="acrvalues">**acr_values**</a> | Optional | Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference.<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br>`tag:itsmetag:sixdots.be,2016-06:acr_basic`</br></li><li>Advanced level - force the User to use PIN<br>`tag:itsmetag:sixdots.be,2016-06:acr_advanced`</br></li></ul>When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used.</br><br>More information on security levels and context data can be found in the [appendixes](#SecurityLevels).</br>
+<a name="acrvalues">**acr_values**</a> | Optional | Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference.<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br>`tag:sixdots.be,2016-06:acr_basic`</br></li><li>Advanced level - force the User to use PIN<br>`tag:sixdots.be,2016-06:acr_advanced`</br></li></ul>When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used.</br><br>More information on security levels and context data can be found in the [appendixes](#SecurityLevels).</br>
 **claims** | Optional | This parameter is used to request that specific claims be returned. The value is a JSON object listing the requested claims.<br>Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the returned data will be encrypted.</br><br>See [User Data](#Data) for more information.</br>
 **request** | Optional | This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. The parameter value is a Request Object value.<br>See <a href="https://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core specifications</a> for more information.</br>
 **response_mode** | Not supported | Any supplied value will be ignored.
@@ -434,10 +434,10 @@ If the required claims are not returned in the `id_token` you can still add cust
 
 Parameter | Description
 :-- | :-- 
-**nationality** | This MUST be set to `tag:itsmetag:sixdots.be,2016-06:claim_nationality`.
-**place of Birth - city** | This MUST be set to `tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`.
-**place of Birth - country** | This MUST be set to`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`.
-**e-ID Metadata**  | This MUST be set to`tag:itsmetag:sixdots.be,2016-06:claim_eid`. 
+**nationality** | This MUST be set to `tag:sixdots.be,2016-06:claim_nationality`.
+**place of Birth - city** | This MUST be set to `tag:sixdots.be,2016-06:claim_city_of_birth`.
+**place of Birth - country** | This MUST be set to`tag:sixdots.be,2016-06:claim_country_of_birth`.
+**e-ID Metadata**  | This MUST be set to`tag:sixdots.be,2016-06:claim_eid`. 
 **passport Number** | This MUST be set to `tag:sixdots.be,2017-05:claim_passport_sn`.
 **device** | This MUST be set to `tag:sixdots.be,2017-05:claim_device`. 
 **transaction Info** | This MUST be set to `tag:sixdots.be,2017-05:claim_transaction_info`. 
@@ -475,8 +475,8 @@ HTTP/1.1 200 OK
 Values | Description
 :-- | :-- 
 **nationality** | 
-**place of Birth - city** | This MUST be set to `tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth`.
-**place of Birth - country** | This MUST be set to`tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth`.
+**place of Birth - city** | This MUST be set to `tag:sixdots.be,2016-06:claim_city_of_birth`.
+**place of Birth - country** | This MUST be set to`tag:sixdots.be,2016-06:claim_country_of_birth`.
 **eid**  | The eID card serial number.
 **issuance_locality**  | The eID card issuance locality.
 **validity_from**  | The eID card validity “from” date.
