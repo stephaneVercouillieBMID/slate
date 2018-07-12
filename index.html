@@ -431,7 +431,7 @@
 <tr>
 <td style="text-align: left"><a name="acrvalues"><strong>acr_values</strong></a></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference.<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br><code>tag:itsmetag:sixdots.be,2016-06:acr_basic</code></br></li><li>Advanced level - force the User to use PIN<br><code>tag:itsmetag:sixdots.be,2016-06:acr_advanced</code></br></li></ul>When multiple values are provided only the most constraining will be used (advanced &gt; basic). If not provided basic level will be used.</br><br>More information on security levels and context data can be found in the <a href="#SecurityLevels">appendixes</a>.</br></td>
+<td style="text-align: left">Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference.<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br><code>tag:sixdots.be,2016-06:acr_basic</code></br></li><li>Advanced level - force the User to use PIN<br><code>tag:sixdots.be,2016-06:acr_advanced</code></br></li></ul>When multiple values are provided only the most constraining will be used (advanced &gt; basic). If not provided basic level will be used.</br><br>More information on security levels and context data can be found in the <a href="#SecurityLevels">appendixes</a>.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>claims</strong></td>
@@ -1025,19 +1025,19 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>nationality</strong></td>
-<td style="text-align: left">This MUST be set to <code>tag:itsmetag:sixdots.be,2016-06:claim_nationality</code>.</td>
+<td style="text-align: left">This MUST be set to <code>tag:sixdots.be,2016-06:claim_nationality</code>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>place of Birth - city</strong></td>
-<td style="text-align: left">This MUST be set to <code>tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth</code>.</td>
+<td style="text-align: left">This MUST be set to <code>tag:sixdots.be,2016-06:claim_city_of_birth</code>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>place of Birth - country</strong></td>
-<td style="text-align: left">This MUST be set to<code>tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth</code>.</td>
+<td style="text-align: left">This MUST be set to<code>tag:sixdots.be,2016-06:claim_country_of_birth</code>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>e-ID Metadata</strong></td>
-<td style="text-align: left">This MUST be set to<code>tag:itsmetag:sixdots.be,2016-06:claim_eid</code>.</td>
+<td style="text-align: left">This MUST be set to<code>tag:sixdots.be,2016-06:claim_eid</code>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>passport Number</strong></td>
@@ -1092,11 +1092,11 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 </tr>
 <tr>
 <td style="text-align: left"><strong>place of Birth - city</strong></td>
-<td style="text-align: left">This MUST be set to <code>tag:itsmetag:sixdots.be,2016-06:claim_city_of_birth</code>.</td>
+<td style="text-align: left">This MUST be set to <code>tag:sixdots.be,2016-06:claim_city_of_birth</code>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>place of Birth - country</strong></td>
-<td style="text-align: left">This MUST be set to<code>tag:itsmetag:sixdots.be,2016-06:claim_country_of_birth</code>.</td>
+<td style="text-align: left">This MUST be set to<code>tag:sixdots.be,2016-06:claim_country_of_birth</code>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>eid</strong></td>
