@@ -115,7 +115,7 @@ The OpenID Connect Core Specification defines a number of mandatory and recommen
 
 Parameter | Required | Description
 :-------- | :--------| :----- 
-**client_id** | Required |This MUST be the client identifier (e.g. : PartnerCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
+**client_id** | Required |This MUST be the client identifier (e.g. : Project ID) you received when registering your application in the [itsme® B2B portal](#Onboarding).
 **response_type** | Required | This defines the processing flow to be used when forming the response. Because itsme® uses the Authorization Code Flow as described above, this value MUST be `code`.
 **scope** | Required | The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value `openid` and `service:service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding). <br>The `openid` scope can return standard User attributes (these claims are:`iss`, `aud`, `exp`, `iat` and `at_hash`) in the `id_token` and/or in the response from the userInfo Endpoint.</br><br>Applications can ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are `family_name`, `given_name`, `gender`, `birthdate` and `locale`.</li><li>email: will request the `email` and `email_verified` claims.</li></ul>For more information on User attributes or claims, please consult the [ID claims](#Data) section.</br><br>An HTTP ERROR `not_implemented` will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br><br>Note: you'll need to define one scope for each itsme® service you want to use.</br>
 **redirect_uri** | Required | This is the URI to which the authentication response should be sent. This MUST exactly match the redirect URI of the specified service defined when registering your application in the [itsme® B2B portal](#Onboarding).
@@ -215,7 +215,7 @@ The request MUST include the following parameters in the `POST` body:
 ```http--inline
 GET /oidc/authorization HTTP/1.1
 ?response_type=code
-&client_id=yourpartnercode
+&client_id=yourprojectid
 &redirect_uri=yourredirecturl
 &scope=openid+service%3Ayourservicecode+profile
 &claims={
@@ -252,8 +252,8 @@ According to the `private_key_jwt` client authentication method, the `client_ass
 
 Parameter | Description
 :-- | :-- 
-**iss** | The issuer of the `private_key_jwt`. This MUST contain the `client_id`. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
-**sub** | The subject of the `private_key_jwt`. This MUST contain the `client_id`. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
+**iss** | The issuer of the `private_key_jwt`. This MUST contain the `client_id`. This is the client identifier (e.g. : Project ID) you received when registering your application in the [itsme® B2B portal](#Onboarding).
+**sub** | The subject of the `private_key_jwt`. This MUST contain the `client_id`. This is the client identifier (e.g. : Project ID) you received when registering your application in the [itsme® B2B portal](#Onboarding).
 **aud** | Value that identifies the Authorization Server as an intended audience. This MUST be the itsme® Token Endpoint URL : `https://merchant.itsme.be/oidc/token`
 **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
 **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
@@ -308,7 +308,7 @@ Values |	Returned |	Description
 :-- | :-- | :--
 **iss**	| Always | Identifier of the issuer of the ID Token.
 **sub** |	Always | An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.
-**aud**	| Always |	Audience of the ID Token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
+**aud**	| Always |	Audience of the ID Token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : Project ID) you received when registering your application in the [itsme® B2B portal](#Onboarding).
 **exp**	| Always |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 **iat** |	Always	| The time the ID Token was issued, represented in Unix time (integer seconds).
 **auth_time** | Always | The time the User authentication occurred, represented in Unix time (integer seconds). 
@@ -368,7 +368,7 @@ If no user record is storing the `sub` claim value, then you should implement on
   
 <img src="MappingUserAutoReg.png" alt="Auto-register the User">  
 
-In a limited number of cases (e.g. change phone number, technical issue,…) a user could ask itsme® to ‘delete’ his account. As a result the specific account will be ‘archived’ (for compliancy reasons) and thus also the unique identifier(s) (e.g. <code>sub</code>), used to interact with the different partners the specific users is active with, will be automatically deleted in our database.
+In a limited number of cases (e.g. change phone number, technical issue,…) a user could ask itsme® to ‘delete’ his account. As a result the specific account will be ‘archived’ (for compliancy reasons) and thus also the unique identifier(s) (e.g. <code>sub</code>), used to interact with the different Service Providers the specific users is active with, will be automatically deleted in our database.
 
 If the same user would opt to (re)create an itsme® afterwards, he will need to re-bind his itsme® account with your application server (as the initial identifier is no longer valid as explained before). To re-bind his itsme® account one of the above scenario should be used. After successful (re)binding you will need to overwrite the initial reference with the new ‘sub’ claim value in your database.
 
@@ -404,7 +404,7 @@ Values |	Returned |	Description
 :--- | :--- | :---
 **iss**	| Always | Identifier of the issuer of the ID Token.
 **sub** |	Always | An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.
-**aud**	| Always |	Audience of the ID Token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the [itsme® B2B portal](#Onboarding).
+**aud**	| Always |	Audience of the ID Token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : Project ID) you received when registering your application in the [itsme® B2B portal](#Onboarding).
 **exp**	| Always |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 **iat** |	Always	| The time the ID Token was issued, represented in Unix time (integer seconds).
 **auth_time** | Always | The time the User authentication occurred, represented in Unix time (integer seconds). 
