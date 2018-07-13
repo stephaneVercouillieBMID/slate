@@ -376,7 +376,7 @@
 <tr>
 <td style="text-align: left"><strong>client_id</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This MUST be the client identifier (e.g. : PartnerCode) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+<td style="text-align: left">This MUST be the client identifier (e.g. : Project ID) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>response_type</strong></td>
@@ -431,7 +431,7 @@
 <tr>
 <td style="text-align: left"><a name="acrvalues"><strong>acr_values</strong></a></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference.<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br><code>tag:sixdots.be,2016-06:acr_basic</code></br></li><li>Advanced level - force the User to use PIN<br><code>tag:sixdots.be,2016-06:acr_advanced</code></br></li></ul>When multiple values are provided only the most constraining will be used (advanced &gt; basic). If not provided basic level will be used.</br><br>More information on security levels and context data can be found in the <a href="#SecurityLevels">appendixes</a>.</br></td>
+<td style="text-align: left">Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference.<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br><code>tag:sixdots.be,2016-06:acr_basic</code></br></li><li>Advanced level - force the User to use PIN<br><code>tag:sixdots.be,2016-06:acr_advanced</code></br></li></ul>When multiple values are provided only the most constraining will be used (advanced &gt; basic). If not provided basic level will be used.</br><br>More information on security levels and context data can be found in the <a href="#SecurityLevels">Appendixes</a>.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>claims</strong></td>
@@ -567,7 +567,7 @@
 
 <p>iOS Universal Links and Android App Links were intended to fix this. Instead of opening up the web browser first when a link is clicked, the OS will check if a Universal Link has been registered (a file should be there in the domain which contains the bundle id of the app and the paths the app should open) for the domain associated with the link, then check if the corresponding app is installed. If the app is currently installed, it will be opened. If it’s not, the web browser will open and the HTTPS link will load.</p>
 
-<p>The specifications for the implementation of Universal links and App links can be found in the <a href="#Appendix">Appendix</a>.</p>
+<p>The specifications for the implementation of Universal links and App links can be found in the <a href="#Appendixes">Appendix</a>.</p>
 <h2 id='3-5-exchanging-the-authorization-code'>3.5. Exchanging the Authorization Code</h2>
 <p><a name="tokenEndpoint"></a> 
 Once your server component has received an <a href="#AuthNResponse">Authorization Code</a>, your server can exchange it for an Access Token and an ID Token.</p>
@@ -581,7 +581,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 <p>The request MUST include the following parameters in the <code>POST</code> body:</p>
 <pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/oidc/authorization</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="s">?response_type=code</span>
-<span class="s">&amp;client_id=yourpartnercode</span>
+<span class="s">&amp;client_id=yourprojectid</span>
 <span class="s">&amp;redirect_uri=yourredirecturl</span>
 <span class="s">&amp;scope=openid+service%3Ayourservicecode+profile</span>
 <span class="s">&amp;claims={</span>
@@ -650,11 +650,11 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>iss</strong></td>
-<td style="text-align: left">The issuer of the <code>private_key_jwt</code>. This MUST contain the <code>client_id</code>. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+<td style="text-align: left">The issuer of the <code>private_key_jwt</code>. This MUST contain the <code>client_id</code>. This is the client identifier (e.g. : Project ID) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>sub</strong></td>
-<td style="text-align: left">The subject of the <code>private_key_jwt</code>. This MUST contain the <code>client_id</code>. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+<td style="text-align: left">The subject of the <code>private_key_jwt</code>. This MUST contain the <code>client_id</code>. This is the client identifier (e.g. : Project ID) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>aud</strong></td>
@@ -757,7 +757,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 <tr>
 <td style="text-align: left"><strong>aud</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">Audience of the ID Token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+<td style="text-align: left">Audience of the ID Token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : Project ID) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>exp</strong></td>
@@ -843,7 +843,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 
 <p><img src="MappingUserAutoReg.png" alt="Auto-register the User">  </p>
 
-<p>In a limited number of cases (e.g. change phone number, technical issue,…) a user could ask itsme® to ‘delete’ his account. As a result the specific account will be ‘archived’ (for compliancy reasons) and thus also the unique identifier(s) (e.g. <code>sub</code>), used to interact with the different partners the specific users is active with, will be automatically deleted in our database.</p>
+<p>In a limited number of cases (e.g. change phone number, technical issue,…) a user could ask itsme® to ‘delete’ his account. As a result the specific account will be ‘archived’ (for compliancy reasons) and thus also the unique identifier(s) (e.g. <code>sub</code>), used to interact with the different Service Providers the specific users is active with, will be automatically deleted in our database.</p>
 
 <p>If the same user would opt to (re)create an itsme® afterwards, he will need to re-bind his itsme® account with your application server (as the initial identifier is no longer valid as explained before). To re-bind his itsme® account one of the above scenario should be used. After successful (re)binding you will need to overwrite the initial reference with the new ‘sub’ claim value in your database.</p>
 
@@ -909,7 +909,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 <tr>
 <td style="text-align: left"><strong>aud</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">Audience of the ID Token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : PartnerCode) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+<td style="text-align: left">Audience of the ID Token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : Project ID) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>exp</strong></td>
