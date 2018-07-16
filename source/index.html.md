@@ -37,7 +37,7 @@ Before your application can use itsme® OpenID Login and Share Data services, yo
 </ul>
 </aside>
 
-<aside class="notice">If not explicitely set, a default JWKSet will be used during Sandbox creation. The public keys are exposed on <a href="https://belgianmobileid.github.io/slate/jwks.json" target="blank">https://belgianmobileid.github.io/slate/jwks.json</a> while the corresponding private keys are exposed on <a href="https://belgianmobileid.github.io/slate/jwks.json" target="blank">https://belgianmobileid.github.io/slate/private_jwks.json</a>.
+<aside class="notice">If not explicitely set, a default JWKSet will be used during Sandbox creation. The public keys are exposed on <a href="https://belgianmobileid.github.io/slate/jwks.json" target="blank">https://belgianmobileid.github.io/slate/jwks.json</a> while the corresponding private keys are exposed on <a href="https://belgianmobileid.github.io/slate/private_jwks.json" target="blank">https://belgianmobileid.github.io/slate/private_jwks.json</a>.
 </aside>
 
 <aside class="notice">You can find our JWKSet URL in the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>jwks_uri</code>.
