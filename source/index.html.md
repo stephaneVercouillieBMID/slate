@@ -33,7 +33,7 @@ Before your application can use itsme® OpenID Login and Share Data services, yo
  <li>The certificate chain MUST contain the root, the intermediate Certificate Authority and the final public certificate.</li>
  <li>On the HTTPS protocol level, connections MUST be secured using trusted Root CA.</li>
  <li>A self-signed certificate MUST NOT be used.</li>
- <li>Belgian Mobile ID MUST be notified on time if the certificate or the URL is changed.</li>
+ <li>Belgian Mobile ID MUST be notified on time if the certificate or the URL is changed, and be provided with the new certificate or URL.</li>
 </ul>
 </aside>
 
@@ -47,7 +47,7 @@ Before your application can use itsme® OpenID Login and Share Data services, yo
 <ul>
   <li>Additional URL parameters are not allowed and entire redirect_uri MUST match the one provided in the B2B portal.</li>
   <li>Only one redirect_uri MUST be specified for each service.</li>
-  <li>Belgian Mobile ID MUST be notified on time if the URLs are changed.</li>
+  <li>Belgian Mobile ID MUST be notified on time if the URLs are changed, and be provided with the new URL.</li>
 </ul>
 </aside>
 
