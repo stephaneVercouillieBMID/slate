@@ -105,7 +105,7 @@ First, you will form a HTTPS GET request that MUST be sent to the itsme® Author
 The OpenID Connect Core Specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:
 
 ```http--inline
- GET /authorize?response_type=code HTTP/1.1
+ GET /authorization?response_type=code HTTP/1.1
  &scope=openid%20profile%20email%20service%3Aclient.registration
  &client_id=s6BhdRkqt3
  &state=af0ifjsldkj
