@@ -297,7 +297,7 @@
  <li>The certificate chain MUST contain the root, the intermediate Certificate Authority and the final public certificate.</li>
  <li>On the HTTPS protocol level, connections MUST be secured using trusted Root CA.</li>
  <li>A self-signed certificate MUST NOT be used.</li>
- <li>Belgian Mobile ID MUST be notified on time if the certificate or the URL is changed.</li>
+ <li>Belgian Mobile ID MUST be notified on time if the certificate or the URL is changed, and be provided with the new certificate or URL.</li>
 </ul>
 </aside>
 
@@ -311,7 +311,7 @@
 <ul>
   <li>Additional URL parameters are not allowed and entire redirect_uri MUST match the one provided in the B2B portal.</li>
   <li>Only one redirect_uri MUST be specified for each service.</li>
-  <li>Belgian Mobile ID MUST be notified on time if the URLs are changed.</li>
+  <li>Belgian Mobile ID MUST be notified on time if the URLs are changed, and be provided with the new URL.</li>
 </ul>
 </aside>
 <h1 id='3-integrating-itsme-services'>3. Integrating itsme services</h1>
@@ -359,7 +359,7 @@
 <aside class="notice">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in <a href="#UniversalLinks">section 3.4</a>.</aside>
 
 <p>The OpenID Connect Core Specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:</p>
-<pre class="highlight http tab-http--inline"><code><span class="err"> </span><span class="nf">GET</span> <span class="nn">/authorize?response_type=code</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http--inline"><code><span class="err"> </span><span class="nf">GET</span> <span class="nn">/authorization?response_type=code</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="s"> &amp;scope=openid%20profile%20email%20service%3Aclient.registration</span>
 <span class="s"> &amp;client_id=s6BhdRkqt3</span>
 <span class="s"> &amp;state=af0ifjsldkj</span>
