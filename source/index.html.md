@@ -56,14 +56,14 @@ Before your application can use itsme® OpenID Login and Share Data services, yo
 
 The itsme® Login and Share Data service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following diagram:
   
- ![enter image description here](OpenID_High_level.png)
+ ![Sequence diagram describing the OpenID flow](OpenID_High_level.png)
  
 <ol>
   <li>The user indicates on your end he wishes to authenticate with itsme</li>
   <li>Your web desktop, mobile web or in-app mobile application (e.g.: The Relying Party) sends a request to itsme® (e.g.: OpenID Provider) to authenticate the User. This request will redirect the user to our Front-End.
   itsme® then authenticates the User by asking him
     <ul type>
-      <li>to enter his MSISDN on the itsme® OpenID web page</li>
+      <li>to enter his phone number on the itsme® OpenID web page</li>
       <li>authorize the release of some information’s to your application</li>
       <li>to provide his credentials (itsme® code or fingerprint or FaceID)</li>
     </ul>
@@ -100,7 +100,7 @@ The Discovery document for itsme® services may be retrieved from: <a href="http
 
 First, you will form a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint is `https://merchant.itsme.be/oidc/authorization`. This URI can be retrieved from the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key `authorization_endpoint`.
 
-<aside class="notice">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in <a href="#UniversalLinks">section 3.4</a>.</aside>
+<aside class="notice">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in <a href="#UniversalLinks">section 3.4</a>.</aside> When using encrypted JWT in the Authorization Request, this will yield very long requests. To avoid any problem and still use the 'GET' method, please use <a href="#RequestUri"></a>.
 
 The OpenID Connect Core Specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:
 
@@ -129,11 +129,42 @@ Parameter | Required | Description
 <a name="acrvalues">**acr_values**</a> | Optional | Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference.<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br>`tag:sixdots.be,2016-06:acr_basic`</br></li><li>Advanced level - force the User to use PIN<br>`tag:sixdots.be,2016-06:acr_advanced`</br></li></ul>When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used.</br><br>More information on security levels and context data can be found in the [Appendixes](#SecurityLevels).</br>
 **claims** | Optional | This parameter is used to request that specific claims be returned. The value is a JSON object listing the requested claims.<br>Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the returned data will be encrypted.</br><br>See [User Data](#Data) for more information.</br>
 **request** | Optional | This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed with your private key and/or encrypted with the itsme® public key. The parameter value is a Request Object value.<br>See <a href="https://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core specifications</a> for more information.</br>
+**request_uri** | Optional | This parameter enables OpenID Connect requests to be passed by reference. Provide here the URI where our BE will fetch the request, specified as a JWT. See <a href="RequestUri">Using request_uri parameter</a> for more details.
 **response_mode** | Not supported | Any supplied value will be ignored.
 **id\_token\_hint** | Not supported | Any supplied value will be ignored.
 **claims_locales** | Not supported | Any supplied value will be ignored.
-**request_uri** | Not supported | Any supplied value will be ignored.
 **registration** | Not supported | Any supplied value will be ignored.
+
+<a name="RequestUri"></a>
+### Using request_uri parameter
+Using the request_uri parameter in the Authentication Request enables requests to be passed by reference. The following diagram depicts it:
+
+![Sequence diagram describing the use of request_uri parameter](images/Request_uri_SD.png)
+
+<ol>
+  <li>The user indicates on your end he wishes to authenticate with itsme</li>
+  <li>Your Front-End sends a request to our Front-End. This request specifies a <code>request_uri</code> parameter.</li>
+  <li>Our Front-End transmits the request to our Back-End</li>
+  <li>Our Back-End fetches the request JWT at your Back-End, at the URI specified in the request_uri.</li>
+  <li>At your URI you expose the needed request JWT. The flow can then continue normally.</li>
+</ol>
+
+The request JWT exposed at your Back-End MUST be a JWT, and is used identically as the `request` object, according to the <a href="http://openid.net/specs/openid-connect-core-1_0.html#rfc.section.6.2"> section 6.2 of the OpenID specification</a>.
+
+<aside class="success">
+To start using request uri, please note the following must be fulfilled: 
+<ul>
+  <li>Communicate the subdomain you will use so that we can whitelist it.</li>
+    <ul>
+      <li>If we whitelist ‘my.partner.be’, it means that the following is also valid ‘john.doe.my.partner.be/anything’.</li>
+    </ul>
+  <li>Provide us the issuer of the root certificate associated to the subdomain, so that we can verify whether it is already trusted on our end.</li>
+    <ul>
+      <li>Please note we won't trust Let’s Encrypt certificates.</li>
+      <li>We use one way SSL, so you don't need to trust our server certificate.</li>
+    </ul>
+  <li>Ensure the URI mentioned by request_uri is publicly available.</li>
+</ul>
 
 <a name="AuthNResponse"></a>
 ## 3.3. Capturing an Authorization Code
@@ -464,9 +495,7 @@ HTTP/1.1 200 OK
    "name": "Jane Doe",
    "given_name": "Jane",
    "family_name": "Doe",
-   "preferred_username": "j.doe",
-   "email": "janedoe@example.com",
-   "picture": "http://example.com/janedoe/me.jpg"
+   "email": "janedoe@example.com"
   }  
 ```
 
