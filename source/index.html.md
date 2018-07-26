@@ -129,7 +129,7 @@ Parameter | Required | Description
 <a name="acrvalues">**acr_values**</a> | Optional | Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference.<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br>`tag:sixdots.be,2016-06:acr_basic`</br></li><li>Advanced level - force the User to use PIN<br>`tag:sixdots.be,2016-06:acr_advanced`</br></li></ul>When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used.</br><br>More information on security levels and context data can be found in the [Appendixes](#SecurityLevels).</br>
 **claims** | Optional | This parameter is used to request that specific claims be returned. The value is a JSON object listing the requested claims.<br>Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the returned data will be encrypted.</br><br>See [User Data](#Data) for more information.</br>
 **request** | Optional | This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed with your private key and/or encrypted with the itsme® public key. The parameter value is a Request Object value.<br>See <a href="https://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core specifications</a> for more information.</br>
-**request_uri** | Optional | This parameter enables OpenID Connect requests to be passed by reference. Provide here the URI where our BE will fetch the request, specified as a JWT. See <a href="RequestUri">Using request_uri parameter</a> for more details.
+**request_uri** | Optional | This parameter enables OpenID Connect requests to be passed by reference. Provide here the URI where our BE will fetch the request, specified as a JWT. See <a href="#RequestUri">Using request_uri parameter</a> for more details.
 **response_mode** | Not supported | Any supplied value will be ignored.
 **id\_token\_hint** | Not supported | Any supplied value will be ignored.
 **claims_locales** | Not supported | Any supplied value will be ignored.
@@ -149,7 +149,7 @@ Using the request_uri parameter in the Authentication Request enables requests t
   <li>At your URI you expose the needed request JWT. The flow can then continue normally.</li>
 </ol>
 
-The request JWT exposed at your Back-End MUST be a JWT, and is used identically as the `request` object, according to the <a href="http://openid.net/specs/openid-connect-core-1_0.html#rfc.section.6.2"> section 6.2 of the OpenID specification</a>.
+The request JWT exposed at your Back-End MUST be a JWT, and is used identically as the `request` object, according to the <a href="http://openid.net/specs/openid-connect-core-1_0.html#rfc.section.6.2" target="_blank"> section 6.2 of the OpenID specification</a>.
 
 <aside class="success">
 To start using request uri, please note the following must be fulfilled: 
