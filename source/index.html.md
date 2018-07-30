@@ -168,6 +168,7 @@ To start using request uri, please note the following must be fulfilled:
     </ul>
   <li>Ensure the URI mentioned by request_uri is publicly available.</li>
 </ul>
+</aside>
 
 <a name="AuthNResponse"></a>
 ## 3.3. Capturing an Authorization Code
