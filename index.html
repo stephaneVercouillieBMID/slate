@@ -330,7 +330,7 @@
 <h2 id='3-2-forming-an-authentication-request'>3.2. Forming an authentication request</h2>
 <p>First, you will form a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint is <code>https://merchant.itsme.be/oidc/authorization</code>. This URI can be retrieved from the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>authorization_endpoint</code>.</p>
 
-<aside class="notice">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in <a href="#UniversalLinks">section 3.4</a>.</aside> When using encrypted JWT in the Authorization Request, this will yield very long requests. To avoid any problem and still use the 'GET' method, please use <a href="#RequestUri"></a>.
+<aside class="notice">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism (more informations about Universal links and App links can be found in <a href="#UniversalLinks">section 3.4</a>.</aside> When using encrypted JWT in the Authorization Request, this will yield very long requests. To avoid any problem and still use the 'GET' method, please use <a href="#RequestUri">the <code>request_uri</code> parameter </a> instead of the <code>request</code> parameter.
 
 The OpenID Connect Core Specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:
 
