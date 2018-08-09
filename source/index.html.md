@@ -729,8 +729,8 @@ MzNTI3OTgsMTM1NzAwMDU4Nl19
 -->
 
 
-<a name="SecurityLevels"></a>
 ## 4.3. Security levels and context data
+<a name="SecurityLevels"></a>
 
 Depending on the required level of assurance your application MUST ensure the correct ‘security level’ is requested. Two ‘security levels’ are supported – ‘basic’ and ‘advanced’. Opting for ‘advanced’ will result in an itsme® code entry being enforced to validate the specific transaction (even if the user has activated touch ID/fingerprint). With the ‘basic’ level also touch ID/fingerprint next to the itsme® code are supported to validate the specific transaction.
 
@@ -744,8 +744,8 @@ Security level | Login | Share Data
 Next to the security levels, your application can also request additional security data to determine the context in which the transactions have been executed. The security data elements can, alone or in combination with each other, indicate a given risk exposure. By providing these elements, itsme® allows you to detect fraud attempts or effective fraudulent transactions. The security data elements that can be used to associate a risk exposure to a specific transaction are available in the section [Capturing claims from the userInfo Endpoint](#SecurityDataElements).
 
 
-<a name="RequestObjectByValue"></a>
 ## 4.4. Using the ‘request’ parameter
+<a name="RequestObjectByValue"></a>
 
 The `request` parameter enables the Authentication Requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. It represents the request as a JWT whose claims are the parameters specified in section 3.2. This JWT is called a Request Object by value.
 
@@ -861,6 +861,7 @@ Following lists out the encryption process of a JWE under the compact serializat
 
 <a name="RequestUri"></a>
 ## 4.5.  Using request_uri parameter
+
 Using the request_uri parameter in the Authentication Request enables requests to be passed by reference. The following diagram depicts it:
 
 ![Sequence diagram describing the use of request_uri parameter](images/Request_uri_SD.png)
