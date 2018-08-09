@@ -707,6 +707,7 @@ private void handleIntent(Intent intent) {
 
 <aside class="notice">The system verifies the Digital Asset Links file via the encrypted HTTPS protocol. Make sure that the assetlinks.json file is accessible over an HTTPS connection, regardless of whether your app's intent filter includes https</aside>
 
+
 <a name="SecurityLevels"></a>
 ## 4.3. Security levels and context data
 
@@ -838,7 +839,7 @@ Following lists out the encryption process of a JWE under the compact serializat
 
 
 <a name="RequestUri"></a>
-## 4.5.  Using request_uri parameter
+## 4.5. Using request_uri parameter
 
 Using the request_uri parameter in the Authentication Request enables requests to be passed by reference. The following diagram depicts it:
 
