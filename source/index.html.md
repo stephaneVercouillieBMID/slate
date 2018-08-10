@@ -706,16 +706,6 @@ private void handleIntent(Intent intent) {
  </ol>
 
 <aside class="notice">The system verifies the Digital Asset Links file via the encrypted HTTPS protocol. Make sure that the assetlinks.json file is accessible over an HTTPS connection, regardless of whether your app's intent filter includes https</aside>
-# 1. XXX
-<ol>
-  <li>The values for the `response_type` and `client_id` parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li>
-  <li>Even if a `scope` parameter is present in the Request Object value, a `scope` parameter – containing the `openid` scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li>
-  <li>The Request Object MAY be signed or unsigned (plaintext) using the JSON Web Signature (JWS). When it is plaintext, the value of the `alg` element is set to `none` in JOSE header. If signed, the Request Object SHOULD contain the claims `iss` (issuer) and `aud` (audience) as members. The `iss` value SHOULD be your Client ID. The `aud` value SHOULD be or include the itsme®'s Issuer Identifier URL: https://merchant.itsme.be/oidc.</li>
-  <li>The Request Object MAY also be encrypted using JSON Web Encryption (JWE). In this case, it MUST be signed then encrypted, with the result being a Nested JWT, as defined in the <a href=" https://tools.ietf.org/html/rfc7519" target="blank"> JSON Web Token (JWT) specification</a>.</li>
-  <li>The `request` and `request_uri` query parameters MUST NOT be included at the same time in Request Objects.</li>
-</ol>
-
-Enclosed you will find a non-normative example of an Authorization Request using the `request` parameter.
  
 ### Signing a Request Object
  
