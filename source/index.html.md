@@ -708,40 +708,6 @@ private void handleIntent(Intent intent) {
 <aside class="notice">The system verifies the Digital Asset Links file via the encrypted HTTPS protocol. Make sure that the assetlinks.json file is accessible over an HTTPS connection, regardless of whether your app's intent filter includes https</aside>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-The following validations should be done when using the `request` parameter:
- 
 <a name="SecurityLevels"></a>
 ## 4.3. Security levels and context data
 
@@ -793,6 +759,8 @@ https://server.example.com/authorize?
     jT_cMnNIznW9E7CDyWXTsO70xnB4SkG6pXfLSjLLlxmPGiyon_-Te111V8uE83Il
     zCYIb_NMXvtTIVc1jpspnTSD7xMbpL-2QgwUsAlMGzw
 ```
+
+The following validations should be done when using the `request` parameter:
 
 <ol>
   <li>The values for the `response_type` and `client_id` parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li>
