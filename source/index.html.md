@@ -641,9 +641,6 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 The App Links Assistant in Android Studio can help you create intent filters in your manifest and map existing URLs from your website to activities in your app. Follow below steps to configure the App links (as documented on <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App Links official documentation</a>):
 
-
-## 4.3. Test
-
 <ol>
   <li>Add the intent filters to your manifest. Go through the your manifest and select Tools > App Links Assistant. Click Open URL Mapping Editor and then click Add  at the bottom of the URL Mapping list to add a new URL mapping.</li>
   <li>Add details for the new URL mapping:
@@ -655,6 +652,10 @@ The App Links Assistant in Android Studio can help you create intent filters in 
     </ul>
   <li>The App Links Assistant adds intent filters based on your URL mapping to the `AndroidManifest.xml` file, and highlights it in the `Preview` field. If the you would like to make any changes, click Open `AndroidManifest.xml` to edit the intent filter.</li>
  </ol>
+
+## 4.3. Test
+
+
 
 <aside class="notice">To support more links without updating the app, you should define a URL mapping that supports future redirect URIs. </aside>
 
