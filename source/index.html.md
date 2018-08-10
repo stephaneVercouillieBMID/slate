@@ -653,7 +653,7 @@ The App Links Assistant in Android Studio can help you create intent filters in 
   <li>The App Links Assistant adds intent filters based on your URL mapping to the <code>AndroidManifest.xml</code> file, and highlights it in the <code>Preview</code> field. If the you would like to make any changes, click Open <code>AndroidManifest.xml</code> to edit the intent filter.</li>
 </ol>
  
- ## Test
+## Test
  
 <aside class="notice">To support more links without updating the app, you should define a URL mapping that supports future redirect URIs.</aside>
 
