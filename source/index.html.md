@@ -695,11 +695,11 @@ private void handleIntent(Intent intent) {
   <li value="6">Associate the app with the redirect URI. After setting up URL support for your app, the App Links Assistant generates a Digital Asset Links file you can use to associate his website with your app. As an alternative to using the Digital Asset Links file, you can associate your site and app in Search Console. To associate the app and the website using the App Links Assistant, click Open the Digital Asset Links File Generator from the App Links Assistant and follow these steps:
     <ul>
       <li>Enter your Site domain and Application ID.</li>
-      <li>To include support in your Digital Asset Links file for Smart Lock for Passwords, select Support sharing credentials between the app and the website and enter your site's login URL. This adds the following string to your Digital Asset Links file declaring that your app and website share sign-in credentials: `delegate_permission/common.get_login_creds`.</li>
+      <li>To include support in your Digital Asset Links file for Smart Lock for Passwords, select Support sharing credentials between the app and the website and enter your site's login URL. This adds the following string to your Digital Asset Links file declaring that your app and website share sign-in credentials: <code>delegate_permission/common.get_login_creds</code>.</li>
       <li>Specify the signing config or select a keystore file. Make sure to select the right config or keystore file for either the release build or debug build of your app. If you want to set up his production build, use the release config. If you want to test his build, use the debug config.</li>
-      <li>Click `Generate Digital Asset Links` file.</li>
-      <li>Once Android Studio generates the file, click `Save file` to download it.</li>
-      <li>Upload the `assetlinks.json` file to redirect URI site, with read-access for everyone, at `https://<yoursite>/.well-known/assetlinks.json`.</li>
+      <li>Click <code>Generate Digital Asset Links</code> file.</li>
+      <li>Once Android Studio generates the file, click <code>Save file</code> to download it.</li>
+      <li>Upload the <code>assetlinks.json</code> file to redirect URI site, with read-access for everyone, at <code>https://<yoursite>/.well-known/assetlinks.json</code>.</li>
       <li>Click <Link and Verify> to confirm that you've uploaded the correct Digital Asset Links file to the correct location.</li>
     </ul>
   </li>
