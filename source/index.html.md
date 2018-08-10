@@ -698,7 +698,7 @@ private void handleIntent(Intent intent) {
 ## TEst 3
 
 <ol>
-  <li value="6">Associate the app with the redirect URI. After setting up URL support for your app, the App Links Assistant generates a Digital Asset Links file you can use to associate his website with your app. As an alternative to using the Digital Asset Links file, you can associate your site and app in Search Console. To associate the app and the website using the App Links Assistant, click Open the Digital Asset Links File Generator from the App Links Assistant and follow these steps:
+  <li value="6">Associate the app with the redirect URI. After setting up URL support for your app, the App Links Assistant generates a Digital Asset Links file you can use to associate his website with your app. As an alternative to using the Digital Asset Links file, you can associate your site and app in Search Console. To associate the app and the website using the App Links Assistant, click Open the Digital Asset Links File Generator from the App Links Assistant and follow these steps:</li>
     <ul>
       <li>Enter your Site domain and Application ID.</li>
       <li>To include support in your Digital Asset Links file for Smart Lock for Passwords, select Support sharing credentials between the app and the website and enter your site's login URL. This adds the following string to your Digital Asset Links file declaring that your app and website share sign-in credentials: <code>delegate_permission/common.get_login_creds</code>.</li>
@@ -708,7 +708,6 @@ private void handleIntent(Intent intent) {
       <li>Upload the <code>assetlinks.json</code> file to redirect URI site, with read-access for everyone, at <code>https://<yoursite>/.well-known/assetlinks.json</code>.</li>
       <li>Click <code>Link and Verify</code> to confirm that you've uploaded the correct Digital Asset Links file to the correct location.</li>
     </ul>
-  </li>
  </ol>
 
 ## TEst 4
