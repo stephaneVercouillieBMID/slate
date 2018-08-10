@@ -645,13 +645,15 @@ The App Links Assistant in Android Studio can help you create intent filters in 
   <li>Add the intent filters to your manifest. Go through the your manifest and select Tools &gt; App Links Assistant. Click Open URL Mapping Editor and then click Add  at the bottom of the URL Mapping list to add a new URL mapping.</li>
   <li>Add details for the new URL mapping:
     <ul>
-      <li>Entering your redirect URI in the `host` field.</li>
-      <li>Add a `path`, `pathPrefix`, or `pathPattern` for the redirect URIs you want to map. For example, if you have a recipe-sharing app, with all the recipes available in the same activity, and your corresponding website's recipes are all in the same `/recipe directory`, use `pathPrefix` and enter `/recipe`. This way, the redirect URI http://www.recipe-app.com/recipe/grilled-potato-salad maps to the activity you select in the following step.</li>
+      <li>Entering your redirect URI in the <code>host</code> field.</li>
+      <li>Add a <code>path</code>, <code>pathPrefix</code>, or <code>pathPattern</code> for the redirect URIs you want to map. For example, if you have a recipe-sharing app, with all the recipes available in the same activity, and your corresponding website's recipes are all in the same <code>/recipe directory</code>, use <code>pathPrefix</code> and enter <code>/recipe</code>. This way, the redirect URI http://www.recipe-app.com/recipe/grilled-potato-salad maps to the activity you select in the following step.</li>
       <li>Select the Activity the redirect URI should take Users to.</li>
       <li>Click OK.</li>
     </ul>
-  <li>The App Links Assistant adds intent filters based on your URL mapping to the `AndroidManifest.xml` file, and highlights it in the `Preview` field. If the you would like to make any changes, click Open `AndroidManifest.xml` to edit the intent filter.</li>
- </ol>
+  <li>The App Links Assistant adds intent filters based on your URL mapping to the <code>AndroidManifest.xml</code> file, and highlights it in the <code>Preview` field. If the you would like to make any changes, click Open <code>AndroidManifest.xml</code> to edit the intent filter.</li>
+</ol>
+ 
+ ## Test
  
 <aside class="notice">To support more links without updating the app, you should define a URL mapping that supports future redirect URIs.</aside>
 
