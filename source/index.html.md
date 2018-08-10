@@ -655,8 +655,6 @@ The App Links Assistant in Android Studio can help you create intent filters in 
  
 <aside class="notice">To support more links without updating the app, you should define a URL mapping that supports future redirect URIs.</aside>
 
-## TEst 1
-
 <ol>
   <li value="4">To verify the URL mapping works properly, enter a URL in the Check URL Mapping field and click Check Mapping. If it's working correctly, the success message shows that the URL entered maps to the activity you selected.</li>
   <li>Handle incoming links. Once you have verified that the URL mapping is working correctly, you MUST add the logic to handle the intent he created.
@@ -668,8 +666,6 @@ The App Links Assistant in Android Studio can help you create intent filters in 
     <br>However, this code isn't complete on its own. You MUST now take an action based on the URI in <appLinkData>, such as display the corresponding content. For example, for the recipe-sharing app, the code might look like the sample aside.</br>
   </li>
 </ol>
-
-## TEst 2
 
 ```
   protected void onCreate(Bundle savedInstanceState) {
@@ -695,8 +691,6 @@ private void handleIntent(Intent intent) {
 }
 ```
 
-## TEst 3
-
 <ol>
   <li value="6">Associate the app with the redirect URI. After setting up URL support for your app, the App Links Assistant generates a Digital Asset Links file you can use to associate his website with your app. As an alternative to using the Digital Asset Links file, you can associate your site and app in Search Console. To associate the app and the website using the App Links Assistant, click Open the Digital Asset Links File Generator from the App Links Assistant and follow these steps:</li>
   <li>Enter your Site domain and Application ID.</li>
@@ -708,11 +702,7 @@ private void handleIntent(Intent intent) {
   <li>Click <code>Link and Verify</code> to confirm that you've uploaded the correct Digital Asset Links file to the correct location.
 </ol>
 
-## TEst 4
-
 <aside class="notice">The system verifies the Digital Asset Links file via the encrypted HTTPS protocol. Make sure that the assetlinks.json file is accessible over an HTTPS connection, regardless of whether your app's intent filter includes https.</aside>
-
-## TEst 5
 
 <a name="SecurityLevels"></a>
 ## 4.3. Security levels and context data
