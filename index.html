@@ -272,6 +272,18 @@
                     <a href="#test-3" class="toc-h2 toc-link" data-title="test-3">TEst 3</a>
                   </li>
                   <li>
+                    <a href="#test-4" class="toc-h2 toc-link" data-title="test-4">TEst 4</a>
+                  </li>
+                  <li>
+                    <a href="#test-5" class="toc-h2 toc-link" data-title="test-5">TEst 5</a>
+                  </li>
+                  <li>
+                    <a href="#4-3-security-levels-and-context-data" class="toc-h2 toc-link" data-title="4-3-security-levels-and-context-data">4.3. Security levels and context data</a>
+                  </li>
+                  <li>
+                    <a href="#4-4-using-the-request-parameter" class="toc-h2 toc-link" data-title="4-4-using-the-request-parameter">4.4. Using the ‘request’ parameter</a>
+                  </li>
+                  <li>
                     <a href="#test" class="toc-h2 toc-link" data-title="test">Test</a>
                   </li>
                   <li>
@@ -1397,54 +1409,57 @@ private void handleIntent(Intent intent) {
 </code></pre><h2 id='test-3'>TEst 3</h2>
 <ol>
   <li value="6">Associate the app with the redirect URI. After setting up URL support for your app, the App Links Assistant generates a Digital Asset Links file you can use to associate his website with your app. As an alternative to using the Digital Asset Links file, you can associate your site and app in Search Console. To associate the app and the website using the App Links Assistant, click Open the Digital Asset Links File Generator from the App Links Assistant and follow these steps:</li>
-    <ul>
-      <li>Enter your Site domain and Application ID.</li>
-      <li>To include support in your Digital Asset Links file for Smart Lock for Passwords, select Support sharing credentials between the app and the website and enter your site's login URL. This adds the following string to your Digital Asset Links file declaring that your app and website share sign-in credentials: <code>delegate_permission/common.get_login_creds</code>.</li>
-      <li>Specify the signing config or select a keystore file. Make sure to select the right config or keystore file for either the release build or debug build of your app. If you want to set up his production build, use the release config. If you want to test his build, use the debug config.</li>
-      <li>Click <code>Generate Digital Asset Links</code> file.</li>
-      <li>Once Android Studio generates the file, click <code>Save file</code> to download it.</li>
-      <li>Upload the <code>assetlinks.json</code> file to redirect URI site, with read-access for everyone, at <code>https://<yoursite>/.well-known/assetlinks.json</code>.</li>
-      <li>Click <code>Link and Verify</code> to confirm that you've uploaded the correct Digital Asset Links file to the correct location.</li>
-    </ul>
- </ol>
-
-## TEst 4
-
+  <li>Enter your Site domain and Application ID.</li>
+  <li>To include support in your Digital Asset Links file for Smart Lock for Passwords, select Support sharing credentials between the app and the website and enter your site's login URL. This adds the following string to your Digital Asset Links file declaring that your app and website share sign-in credentials: <code>delegate_permission/common.get_login_creds</code>.</li>
+  <li>Specify the signing config or select a keystore file. Make sure to select the right config or keystore file for either the release build or debug build of your app. If you want to set up his production build, use the release config. If you want to test his build, use the debug config.</li>
+  <li>Click <code>Generate Digital Asset Links</code> file.</li>
+  <li>Once Android Studio generates the file, click <code>Save file</code> to download it.</li>
+  <li>Upload the <code>assetlinks.json</code> file to redirect URI site, with read-access for everyone, at <code>https://<yoursite>/.well-known/assetlinks.json</code>.</li>
+  <li>Click <code>Link and Verify</code> to confirm that you've uploaded the correct Digital Asset Links file to the correct location.
+</ol>
+<h2 id='test-4'>TEst 4</h2>
 <aside class="notice">The system verifies the Digital Asset Links file via the encrypted HTTPS protocol. Make sure that the assetlinks.json file is accessible over an HTTPS connection, regardless of whether your app's intent filter includes https.</aside>
+<h2 id='test-5'>TEst 5</h2>
+<p><a name="SecurityLevels"></a></p>
+<h2 id='4-3-security-levels-and-context-data'>4.3. Security levels and context data</h2>
+<p>Depending on the required level of assurance your application MUST ensure the correct ‘security level’ is requested. Two ‘security levels’ are supported – ‘basic’ and ‘advanced’. Opting for ‘advanced’ will result in an itsme® code entry being enforced to validate the specific transaction (even if the user has activated touch ID/fingerprint). With the ‘basic’ level also touch ID/fingerprint next to the itsme® code are supported to validate the specific transaction.</p>
 
-## TEst 5
+<p>The following table defines the different possible scenarios:</p>
 
-<a name="SecurityLevels"></a>
-## 4.3. Security levels and context data
+<table><thead>
+<tr>
+<th style="text-align: left">Security level</th>
+<th style="text-align: left">Login</th>
+<th style="text-align: left">Share Data</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>basic</strong></td>
+<td style="text-align: left">Allowed</td>
+<td style="text-align: left">Allowed</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>advanced</strong></td>
+<td style="text-align: left">Allowed</td>
+<td style="text-align: left">Allowed</td>
+</tr>
+</tbody></table>
 
-Depending on the required level of assurance your application MUST ensure the correct ‘security level’ is requested. Two ‘security levels’ are supported – ‘basic’ and ‘advanced’. Opting for ‘advanced’ will result in an itsme® code entry being enforced to validate the specific transaction (even if the user has activated touch ID/fingerprint). With the ‘basic’ level also touch ID/fingerprint next to the itsme® code are supported to validate the specific transaction.
+<p>Next to the security levels, your application can also request additional security data to determine the context in which the transactions have been executed. The security data elements can, alone or in combination with each other, indicate a given risk exposure. By providing these elements, itsme® allows you to detect fraud attempts or effective fraudulent transactions. The security data elements that can be used to associate a risk exposure to a specific transaction are available in the section <a href="#SecurityDataElements">Capturing claims from the userInfo Endpoint</a>.</p>
 
-The following table defines the different possible scenarios:
+<p><a name="RequestObjectByValue"></a></p>
+<h2 id='4-4-using-the-request-parameter'>4.4. Using the ‘request’ parameter</h2>
+<p>The <code>request</code> parameter enables the Authentication Requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. It represents the request as a JWT whose claims are the parameters specified in section 3.2. This JWT is called a Request Object by value.</p>
 
-Security level | Login | Share Data
-:--- | :--- | :---
-**basic** | Allowed | Allowed
-**advanced** | Allowed | Allowed
-
-Next to the security levels, your application can also request additional security data to determine the context in which the transactions have been executed. The security data elements can, alone or in combination with each other, indicate a given risk exposure. By providing these elements, itsme® allows you to detect fraud attempts or effective fraudulent transactions. The security data elements that can be used to associate a risk exposure to a specific transaction are available in the section [Capturing claims from the userInfo Endpoint](#SecurityDataElements).
-
-
-<a name="RequestObjectByValue"></a>
-## 4.4. Using the ‘request’ parameter
-
-The `request` parameter enables the Authentication Requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. It represents the request as a JWT whose claims are the parameters specified in section 3.2. This JWT is called a Request Object by value.
-
-When `request` parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax.
-
-```http--inline
-https://server.example.com/authorize?
+<p>When <code>request</code> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax.</p>
+<pre class="highlight http tab-http--inline"><code><span class="err">https://server.example.com/authorize?
     response_type=code%20id_token
-    &client_id=s6BhdRkqt3
-    &redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
-    &scope=openid
-    &state=af0ifjsldkj
-    &nonce=n-0S6_WzA2Mj
-    &request=eyJhbGciOiJSUzI1NiIsImtpZCI6ImsyYmRjIn0.ew0KICJpc3MiOiA
+    &amp;client_id=s6BhdRkqt3
+    &amp;redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
+    &amp;scope=openid
+    &amp;state=af0ifjsldkj
+    &amp;nonce=n-0S6_WzA2Mj
+    &amp;request=eyJhbGciOiJSUzI1NiIsImtpZCI6ImsyYmRjIn0.ew0KICJpc3MiOiA
     iczZCaGRSa3F0MyIsDQogImF1ZCI6ICJodHRwczovL3NlcnZlci5leGFtcGxlLmN
     vbSIsDQogInJlc3BvbnNlX3R5cGUiOiAiY29kZSBpZF90b2tlbiIsDQogImNsaWV
     udF9pZCI6ICJzNkJoZFJrcXQzIiwNCiAicmVkaXJlY3RfdXJpIjogImh0dHBzOi8
@@ -1464,9 +1479,8 @@ https://server.example.com/authorize?
     UR6IEOXKYr7iGOCRB3btfJhM0_AKQUfqKnRlrRscc8Kol-cSLWoYE9l5QqholImz
     jT_cMnNIznW9E7CDyWXTsO70xnB4SkG6pXfLSjLLlxmPGiyon_-Te111V8uE83Il
     zCYIb_NMXvtTIVc1jpspnTSD7xMbpL-2QgwUsAlMGzw
-```
-
-The following validations should be done when using the `request` parameter:
+</span></code></pre>
+<p>The following validations should be done when using the <code>request</code> parameter:</p>
 
 <ol>
   <li>The values for the <code>response_type</code> and <code>client_id</code> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li>
