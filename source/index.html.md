@@ -692,7 +692,7 @@ private void handleIntent(Intent intent) {
 ```
 
 <ol>
-  <li value="6">Associate the app with the redirect URI. After setting up URL support for your app, the App Links Assistant generates a Digital Asset Links file you can use to associate his website with your app. As an alternative to using the Digital Asset Links file, you can associate your site and app in Search Console. To associate the app and the website using the App Links Assistant, click Open the Digital Asset Links File Generator from the App Links Assistant and follow these steps:</li>
+  <li value="6">Associate the app with the redirect URI. After setting up URL support for your app, the App Links Assistant generates a Digital Asset Links file you can use to associate his website with your app. As an alternative to using the Digital Asset Links file, you can associate your site and app in Search Console. To associate the app and the website using the App Links Assistant, click Open the Digital Asset Links File Generator from the App Links Assistant:</li>
   <li>Enter your Site domain and Application ID.</li>
   <li>To include support in your Digital Asset Links file for Smart Lock for Passwords, select Support sharing credentials between the app and the website and enter your site's login URL. This adds the following string to your Digital Asset Links file declaring that your app and website share sign-in credentials: <code>delegate_permission/common.get_login_creds</code>.</li>
   <li>Specify the signing config or select a keystore file. Make sure to select the right config or keystore file for either the release build or debug build of your app. If you want to set up his production build, use the release config. If you want to test his build, use the debug config.</li>
@@ -720,7 +720,7 @@ Next to the security levels, your application can also request additional securi
 
 
 <a name="RequestObjectByValue"></a>
-## 4.4. Using the ‘request’ parameter
+## 4.4. Using the request parameter
 
 The `request` parameter enables the Authentication Requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. It represents the request as a JWT whose claims are the parameters specified in section 3.2. This JWT is called a Request Object by value.
 
@@ -772,18 +772,13 @@ Enclosed you will find a non-normative example of an Authorization Request using
 
 The JSON Web Signature (JWS) represents signed content using JSON data structures and base64url encoding as defined in the <a href=" https://tools.ietf.org/html/rfc7515" target="blank">specifications</a>. The representation consists of three parts: the JOSE Header, the JWS Payload, and the JWS Signature. The three parts are base64url-encoded for transmission, and typically represented as the concatenation of the encoded strings in that order, with the three strings being separated by period ('.') characters.
 
-
-## Test
-
 <ol>
   <li>The JOSE Header describes the signature method and parameters related to the Encoded JWS Payload and optionally additional properties of the JWS. The Header Parameter Names within this object MUST be unique. The JOSE Header MUST contain an <code>alg</code> parameter, the value of which is a string that unambiguously identifies the algorithm used to sign the JOSE Header and the JWS Payload to produce the JWS Signature.</li>
   <li>The JWS Payload is the message content to be secured.</li>
   <li>The JWS Signature ensures the integrity of both the JWS Header and the JWS Payload.</li>
 </ol>
 
-A signed Request Object can be serialized using the JWS compact serialization. 
-
-Following lists out the signing process of a JWS Request Object under the **compact serialization**:
+A signed Request Object can be serialized using the JWS compact serialization. Following lists out the signing process of a JWS Request Object under the **compact serialization**:
 
 <ul>
    <li>Build a JOSE header containing the `alg` parameter – value MUST be set to ` RS256`  as defined in the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a> and a reference to the signing key using the `kid`. This value SHOULD BE retrieved from your own JWKSet.</li>
@@ -821,8 +816,6 @@ The base64url-encoded value of the JWE Authenticated Tag is the final element of
 
 Following lists out the encryption process of a JWE under the compact serialization:
 
-Following lists out the encryption process of a JWE under the compact serialization.
- 
 <ul>
   <li>Fill in the algorithm used to determine the Content Encryption Key (CEK) value: `RSA-OAEP` as defined in the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>. This algorithm is defined by the `alg` element in the JOSE header. There is only one `alg` element per JWE Request Object.</li>
   <li>Compute the CEK and calculate the JWE Encrypted Key based on the key management mode, picked in the previous. The CEK is later used to encrypt the JSON payload. There is only one JWE Encrypted Key element in the JWE Request Object.</li>
