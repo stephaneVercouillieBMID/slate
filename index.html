@@ -263,6 +263,15 @@
                     <a href="#4-2-app-links-on-android" class="toc-h2 toc-link" data-title="4-2-app-links-on-android">4.2. App Links on Android</a>
                   </li>
                   <li>
+                    <a href="#test-1" class="toc-h2 toc-link" data-title="test-1">TEst 1</a>
+                  </li>
+                  <li>
+                    <a href="#test-2" class="toc-h2 toc-link" data-title="test-2">TEst 2</a>
+                  </li>
+                  <li>
+                    <a href="#test-3" class="toc-h2 toc-link" data-title="test-3">TEst 3</a>
+                  </li>
+                  <li>
                     <a href="#test" class="toc-h2 toc-link" data-title="test">Test</a>
                   </li>
                   <li>
@@ -1352,7 +1361,7 @@ print(queryParameters(from: url!))
  
 
 <aside class="notice">To support more links without updating the app, you should define a URL mapping that supports future redirect URIs.</aside>
-
+<h2 id='test-1'>TEst 1</h2>
 <ol>
   <li value="4">To verify the URL mapping works properly, enter a URL in the Check URL Mapping field and click Check Mapping. If it's working correctly, the success message shows that the URL entered maps to the activity you selected.</li>
   <li>Handle incoming links. Once you have verified that the URL mapping is working correctly, you MUST add the logic to handle the intent he created.
@@ -1364,7 +1373,7 @@ print(queryParameters(from: url!))
     <br>However, this code isn't complete on its own. You MUST now take an action based on the URI in <appLinkData>, such as display the corresponding content. For example, for the recipe-sharing app, the code might look like the sample aside.</br>
   </li>
 </ol>
-<pre class="highlight plaintext"><code>  protected void onCreate(Bundle savedInstanceState) {
+<h2 id='test-2'>TEst 2</h2><pre class="highlight plaintext"><code>  protected void onCreate(Bundle savedInstanceState) {
   super.onCreate(savedInstanceState);
   ...
   handleIntent(getIntent());
@@ -1385,7 +1394,7 @@ private void handleIntent(Intent intent) {
         showRecipe(appData);
     }
 }
-</code></pre>
+</code></pre><h2 id='test-3'>TEst 3</h2>
 <ol>
   <li value="6">Associate the app with the redirect URI. After setting up URL support for your app, the App Links Assistant generates a Digital Asset Links file you can use to associate his website with your app. As an alternative to using the Digital Asset Links file, you can associate your site and app in Search Console. To associate the app and the website using the App Links Assistant, click Open the Digital Asset Links File Generator from the App Links Assistant and follow these steps:
     <ul>
@@ -1400,7 +1409,11 @@ private void handleIntent(Intent intent) {
   </li>
  </ol>
 
-<aside class="notice">The system verifies the Digital Asset Links file via the encrypted HTTPS protocol. Make sure that the assetlinks.json file is accessible over an HTTPS connection, regardless of whether your app's intent filter includes https</aside>
+## TEst 4
+
+<aside class="notice">The system verifies the Digital Asset Links file via the encrypted HTTPS protocol. Make sure that the assetlinks.json file is accessible over an HTTPS connection, regardless of whether your app's intent filter includes https.</aside>
+
+## TEst 5
 
 <a name="SecurityLevels"></a>
 ## 4.3. Security levels and context data
