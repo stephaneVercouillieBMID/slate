@@ -1457,11 +1457,11 @@ https://server.example.com/authorize?
 The following validations should be done when using the `request` parameter:
 
 <ol>
-  <li>The values for the `response_type` and `client_id` parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li>
-  <li>Even if a `scope` parameter is present in the Request Object value, a `scope` parameter – containing the `openid` scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li>
-  <li>The Request Object MAY be signed or unsigned (plaintext) using the JSON Web Signature (JWS). When it is plaintext, the value of the `alg` element is set to `none` in JOSE header. If signed, the Request Object SHOULD contain the claims `iss` (issuer) and `aud` (audience) as members. The `iss` value SHOULD be your Client ID. The `aud` value SHOULD be or include the itsme®'s Issuer Identifier URL: https://merchant.itsme.be/oidc.</li>
+  <li>The values for the <code>response_type</code> and <code>client_id</code> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li>
+  <li>Even if a <code>scope</code> parameter is present in the Request Object value, a <code>scope</code> parameter – containing the <code>openid</code> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li>
+  <li>The Request Object MAY be signed or unsigned (plaintext) using the JSON Web Signature (JWS). When it is plaintext, the value of the <code>alg</code> element is set to <code>none</code> in JOSE header. If signed, the Request Object SHOULD contain the claims <code>iss</code> (issuer) and <code>aud</code> (audience) as members. The <code>iss</code> value SHOULD be your Client ID. The <code>aud</code> value SHOULD be or include the itsme®'s Issuer Identifier URL: https://merchant.itsme.be/oidc.</li>
   <li>The Request Object MAY also be encrypted using JSON Web Encryption (JWE). In this case, it MUST be signed then encrypted, with the result being a Nested JWT, as defined in the <a href=" https://tools.ietf.org/html/rfc7519" target="blank"> JSON Web Token (JWT) specification</a>.</li>
-  <li>The `request` and `request_uri` query parameters MUST NOT be included at the same time in Request Objects.</li>
+  <li>The <code>request</code> and <code>request_uri</code> query parameters MUST NOT be included at the same time in Request Objects.</li>
 </ol>
 
 <p>Enclosed you will find a non-normative example of an Authorization Request using the <code>request</code> parameter.</p>
@@ -1469,7 +1469,7 @@ The following validations should be done when using the `request` parameter:
 <p>The JSON Web Signature (JWS) represents signed content using JSON data structures and base64url encoding as defined in the <a href=" https://tools.ietf.org/html/rfc7515" target="blank">specifications</a>. The representation consists of three parts: the JOSE Header, the JWS Payload, and the JWS Signature. The three parts are base64url-encoded for transmission, and typically represented as the concatenation of the encoded strings in that order, with the three strings being separated by period (&#39;.&#39;) characters.</p>
 <h2 id='test'>Test</h2>
 <ol>
-  <li>The JOSE Header describes the signature method and parameters related to the Encoded JWS Payload and optionally additional properties of the JWS. The Header Parameter Names within this object MUST be unique. The JOSE Header MUST contain an `alg` parameter, the value of which is a string that unambiguously identifies the algorithm used to sign the JOSE Header and the JWS Payload to produce the JWS Signature.</li>
+  <li>The JOSE Header describes the signature method and parameters related to the Encoded JWS Payload and optionally additional properties of the JWS. The Header Parameter Names within this object MUST be unique. The JOSE Header MUST contain an <code>alg</code> parameter, the value of which is a string that unambiguously identifies the algorithm used to sign the JOSE Header and the JWS Payload to produce the JWS Signature.</li>
   <li>The JWS Payload is the message content to be secured.</li>
   <li>The JWS Signature ensures the integrity of both the JWS Header and the JWS Payload.</li>
 </ol>
