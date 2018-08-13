@@ -1,6 +1,5 @@
-
-{ "public" : 
- {
+{ 
+  "public" : {
     "keys": [
       {
         "kty": "RSA",
