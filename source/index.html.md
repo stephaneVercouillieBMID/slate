@@ -19,7 +19,7 @@ itsme® is an identity checking system allowing Service Providers to use verifie
   <li>Sign</li>
 </ul>
 
-The objective of this document is to provide all the information needed to integrate the Login and Share Data services using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.
+The objective of this document is to provide all the information needed to integrate the **Login** and **Share Data** services using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.
 
   
 <a name="Onboarding"></a>
