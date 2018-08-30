@@ -291,7 +291,7 @@
   <li>Sign</li>
 </ul></p>
 
-<p>The objective of this document is to provide all the information needed to integrate the Login and Share Data services using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.</p>
+<p>The objective of this document is to provide all the information needed to integrate the <strong>Login</strong> and <strong>Share Data</strong> services using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.</p>
 
 <p><a name="Onboarding"></a></p>
 <h1 id='2-creating-sandbox'>2. Creating sandbox</h1>
@@ -365,7 +365,7 @@
 <aside class="notice">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism more information about Universal links and App links can be found in <a href="#UniversalLinks">section3.4</a>.
 </aside>
 
-<p>When using encrypted JWT in the Authorization Request, this will yield very long requests. To avoid any problem and still use the &#39;GET&#39; method, please use <a href="#RequestUri">the <code>request_uri</code> parameter </a> instead of the <code>request</code> parameter.</p>
+<aside class="notice">In order to avoid tampering, you can use the <code>request</code> or <code>request_URI</code> parameter in the authentication request. This enables sending authentication request parameters in a self-contained JWT instead of plain request parameters.</aside>
 
 <p>The OpenID Connect Core Specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:</p>
 <pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/authorization?response_type=code</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -450,7 +450,7 @@
 <tr>
 <td style="text-align: left"><strong>request</strong></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed with your private key and/or encrypted with the itsme® public key. The parameter value is a Request Object value. It represents the request as a JWT whose claims are the request parameters.<br></br><br>See <a href="#RequestObjectByValue">Appendixes</a> for more information.</br></td>
+<td style="text-align: left">This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed with your private key and/or encrypted with the itsme® public key. The parameter value is a Request Object value. It represents the request as a JWT whose claims are the request parameters.<br></br><br>See <a href="#RequestObjectByValue">Appendixes</a> for more information.</br><br></br><br>Note: when using encrypted JWT in the Authorization Request, this will yield very long requests. To avoid any problem and still use the GET method, please use the <code>request_uri</code> parameter instead.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>request_uri</strong></td>
