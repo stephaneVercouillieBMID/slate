@@ -96,14 +96,14 @@ The Discovery document for itsme® services may be retrieved from: <a href="http
 
 
 <a name="AuthNRequest"></a>
-## 3.2. Forming an authentication request
+## 3.2. Forming an Authentication Request
 
 First, you will form a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint is `https://merchant.itsme.be/oidc/authorization`. This URI can be retrieved from the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key `authorization_endpoint`.
 
 <aside class="notice">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism more information about Universal links and App links can be found in <a href="#UniversalLinks">section3.4</a>.
 </aside>
 
-<aside class="notice">In order to avoid tampering, you can use the <code>request</code> or <code>request_URI</code> parameter in the authentication request. This enables sending authentication request parameters in a self-contained JWT instead of plain request parameters.</aside>
+<aside class="notice">In order to avoid tampering, you can use the <code>request</code> or <code>request_URI</code> parameter in the Authentication Request. This enables sending Authentication Request parameters in a self-contained JWT instead of plain request parameters.</aside>
 
 The OpenID Connect Core Specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:
 
@@ -122,8 +122,8 @@ Parameter | Required | Description
 **response_type** | Required | This defines the processing flow to be used when forming the response. Because itsme® uses the Authorization Code Flow as described above, this value MUST be `code`.
 **scope** | Required | The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value `openid` and `service:service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding). <br>The `openid` scope can return standard User attributes (these claims are:`iss`, `aud`, `exp`, `iat` and `at_hash`) in the `id_token` and/or in the response from the userInfo Endpoint.</br><br>Applications can ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are `family_name`, `given_name`, `gender`, `birthdate` and `locale`.</li><li>email: will request the `email` and `email_verified` claims.</li></ul>For more information on User attributes or claims, please consult the [ID claims](#Data) section.</br><br>An HTTP ERROR `not_implemented` will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br><br>Note: you'll need to define one scope for each itsme® service you want to use.</br>
 **redirect_uri** | Required | This is the URI to which the authentication response should be sent. This MUST exactly match the redirect URI of the specified service defined when registering your application in the [itsme® B2B portal](#Onboarding).
-**state** | Required | This `state` object is the only way to bind the original Authorization Request with the Authorization Response (holding the `code` and the `state`). In other terms, this parameter is used to restore the user context on your side.
-**nonce** | An appropriate value is strongly RECOMMENDED | String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the authentication request to the ID Token. Sufficient entropy MUST be present in the `nonce` values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">OpenID Connect Core specifications</a> for more information.
+**state** | Required | This `state` object is the only way to bind the original Authentication Request with the Authorization Response (holding the `code` and the `state`). In other terms, this parameter is used to restore the user context on your side.
+**nonce** | An appropriate value is strongly RECOMMENDED | String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. Sufficient entropy MUST be present in the `nonce` values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">OpenID Connect Core specifications</a> for more information.
 **login_hint** | Optional | Hint to the Authorization Server about the login identifier the User might use to log in (if necessary).<br>If provided, this value MUST be a phone number in the format specified for the `phone_number` claim: `<countrycode>+<phonenumber>`. E.g. `login_hint=32+123456789`.</br><br>`login_hint` with invalid syntax will be ignored.</br>
 **display** | Optional | ASCII string value that specifies how the Authorization Server displays the authentication and consent User interface pages to the User. MUST be `page` if provided.<br>Other values will yield an HTTP ERROR `not_implemented`.</br>
 **prompt** | Optional | Space delimited, case sensitive list of ASCII string values that specifies whether the Authorization Server prompts the User for reauthentication and consent. MUST be `consent` if provided. 
@@ -131,7 +131,7 @@ Parameter | Required | Description
 **max_age** | Optional | Specifies the allowable elapsed time in seconds since the last time the User was actively authenticated by itsme®. If the elapsed time is greater than this value, the authentication system MUST attempt to actively re-authenticate the User. As itsme® does not maintain a session mechanism, an active authentication is always required.
 <a name="acrvalues">**acr_values**</a> | Optional | Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference.<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br>`tag:sixdots.be,2016-06:acr_basic`</br></li><li>Advanced level - force the User to use PIN<br>`tag:sixdots.be,2016-06:acr_advanced`</br></li></ul>When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used.</br><br>More information on security levels and context data can be found in the [Appendixes](#SecurityLevels).</br>
 **claims** | Optional | This parameter is used to request that specific claims be returned. The value is a JSON object listing the requested claims.<br>Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the returned data will be encrypted.</br><br>See [User Data](#Data) for more information.</br>
-**request** | Optional | This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed with your private key and/or encrypted with the itsme® public key. The parameter value is a Request Object value. It represents the request as a JWT whose claims are the request parameters.<br></br><br>See [Appendixes](#RequestObjectByValue) for more information.</br><br></br><br>Note: when using encrypted JWT in the Authorization Request, this will yield very long requests. To avoid any problem and still use the GET method, please use the <code>request_uri</code> parameter instead.</br>
+**request** | Optional | This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed with your private key and/or encrypted with the itsme® public key. The parameter value is a Request Object value. It represents the request as a JWT whose claims are the request parameters.<br></br><br>See [Appendixes](#RequestObjectByValue) for more information.</br><br></br><br>Note: when using encrypted JWT in the Authentication Request, this will yield very long requests. To avoid any problem and still use the GET method, please use the <code>request_uri</code> parameter instead.</br>
 **request_uri** | Optional | This parameter enables OpenID Connect requests to be passed by reference, rather than by value. The request_uri value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters.<br>See <a href="#RequestUri">Using request_uri parameter</a> for more details.</br>
 **response_mode** | Not supported | Any supplied value will be ignored.
 **id\_token\_hint** | Not supported | Any supplied value will be ignored.
@@ -144,7 +144,7 @@ Parameter | Required | Description
 
 ### Capturing a successful Authorization Code
 
-If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an Authorization Code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the `redirect_uri` specified previously in the authentication request.
+If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an Authorization Code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the `redirect_uri` specified previously in the Authentication Request.
  
 ```http--inline
 HTTP/1.1 302 Found
@@ -157,13 +157,13 @@ The response will contain:
 Values | Returned | Description
 :----- |:-------- |:---
 **code** | Always |The code parameter holds the Authorization Code which is a string value. The content of Authorization Code is opaque for you. This code has a lifetime of 3 minutes.
-**state** | If provided |The state parameter will be returned if you provided a value in the Authentication request. You should validate that the value returned matches the one supplied in the authentication request. The state value can additionally be used to mitigate against XSRF attacks by cryptographically binding the value of this parameter with a browser cookie.
+**state** | If provided |The state parameter will be returned if you provided a value in the Authentication Request. You should validate that the value returned matches the one supplied in the Authentication Request. The state value can additionally be used to mitigate against XSRF attacks by cryptographically binding the value of this parameter with a browser cookie.
  
 ### Handling Authentication Error Response
 
 If the request fails due to a missing, invalid, or mismatching redirection URI, or if the client identifier is missing or invalid, the Authorization Server SHOULD inform the User of the error and MUST NOT automatically redirect him to the invalid redirection URI. 
 
-If the User denies the authentication request or if the request fails for reasons other than a missing or invalid redirection URI, itsme® will return an error response to your application. As for a successful response this is achieved by returning a HTTPS 302 redirect request to the redirection_uri specified in the authentication request. Following parameters could be added to the query component of the redirection_uri:
+If the User denies the Authentication Request or if the request fails for reasons other than a missing or invalid redirection URI, itsme® will return an error response to your application. As for a successful response this is achieved by returning a HTTPS 302 redirect request to the redirection_uri specified in the Authentication Request. Following parameters could be added to the query component of the redirection_uri:
 
 
 ```http--inline
@@ -249,7 +249,7 @@ Parameter | Required | Description
 **grant_type** | Required | This MUST be set to `authorization_code`.
 **code** | Required | The Authorization Code received in response to the Authentication Request.
 **redirect_uri** | Required | The redirection URI supplied in the original Authentication Request. This is the URL to which you want the User to be redirected after the authorization is complete.
-**client_assertion** | Required | To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the token request.<br>The OpenID Connect Core Specification support multiple authentication methods, but itsme® only supports `private_key_jwt`. This authentication method uses a JWT signed with a public key you have registered. The JWT MUST be sent as the value of a client_assertion parameter.</br><br>See <a href="http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication" target="blank">section 9</a> of the OpenID Connect Core specification for more information.</br>
+**client_assertion** | Required | To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the Token request.<br>The OpenID Connect Core Specification support multiple authentication methods, but itsme® only supports `private_key_jwt`. This authentication method uses a JWT signed with a public key you have registered. The JWT MUST be sent as the value of a client_assertion parameter.</br><br>See <a href="http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication" target="blank">section 9</a> of the OpenID Connect Core specification for more information.</br>
 **client\_assertion\_type** | Required | This MUST be set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. 
 
 According to the `private_key_jwt` client authentication method, the `client_assertion` JWT must contain the following parameters:
@@ -267,7 +267,7 @@ Parameter | Description
 
 ### Extracting a successful Token response
 
-If the token request has been sucessfully validated we will return an HTTP 200 OK response including ID and Access Tokens as in the example aside.
+If the Token request has been sucessfully validated we will return an HTTP 200 OK response including ID and Access Tokens as in the example aside.
 
 ```http--inline
 HTTP/1.1 200 OK
@@ -316,7 +316,7 @@ Values |	Returned |	Description
 **exp**	| Always |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 **iat** |	Always	| The time the ID Token was issued, represented in Unix time (integer seconds).
 **auth_time** | Always | The time the User authentication occurred, represented in Unix time (integer seconds). 
-**nonce** | If provided | String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID Token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.
+**nonce** | If provided | String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.
 **acr** | Always | Possible values: `tag:sixdots.be,2016-06:acr_basic` and `tag:sixdots.be,2016-06:acr_advanced`
 **amr** | Never |
 **azp** | Never |
@@ -327,7 +327,7 @@ In short, this Base64URL encoding is called a JSON Web Token (JWT). It makes sur
 
 ### Handling token error response 
 
-If the token request is invalid or unauthorized an HTTP 400 response will be returned as in the example:
+If the Token Request is invalid or unauthorized an HTTP 400 response will be returned as in the example:
 
 ```http--inline
 HTTP/1.1 400 Bad Request
@@ -350,7 +350,7 @@ The `sub` claim value must be mapped to the corresponding user in your applicati
 If no user record is storing the `sub` claim value, then you should implement one of the following scenarios to map the `sub` to the corresponding User account:
 
 <ul>
-  <li>If you requested User attributes in the Authentication request, a different claim (e.g.: email address, phone number, …) can be used to automatically associate an existing account during the first sign-in session. You will then update that User's record with the sub claim.<br>Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.</br><br>This is the most optimal flow from UX point of view as it will be easier for Users to start interacting with your application. Providing the information as part of the OpenID Authentication Request will reduce the number of round trips that need to be made. In turn, this should reduce the amount of time it takes for a User to sign up.</br>
+  <li>If you requested User attributes in the Authentication Request, a different claim (e.g.: email address, phone number, …) can be used to automatically associate an existing account during the first sign-in session. You will then update that User's record with the sub claim.<br>Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.</br><br>This is the most optimal flow from UX point of view as it will be easier for Users to start interacting with your application. Providing the information as part of the OpenID Authentication Request will reduce the number of round trips that need to be made. In turn, this should reduce the amount of time it takes for a User to sign up.</br>
   </li>
 </ul>
   
@@ -359,14 +359,14 @@ If no user record is storing the `sub` claim value, then you should implement on
 <aside class="notice">This approach requires a sanity check on our side to guarantee that the claim used to map the user account is reliable and consistent with your data’s lifecycle. Please inform us via  itsme® B2B portal if you opt for this approach. </aside>
 
 <ul>  
-  <li>If you did not request User attributes in the Authentication request or if you can't match with certainty the existing User account with the provided data's, then you could ask the User to authenticate with his usual credentials (e.g. User name / password). The User credentials will be used by your application to match the sub claim to the corresponding user account in your repository.<br>Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.</br>
+  <li>If you did not request User attributes in the Authentication Request or if you can't match with certainty the existing User account with the provided data's, then you could ask the User to authenticate with his usual credentials (e.g. User name / password). The User credentials will be used by your application to match the sub claim to the corresponding user account in your repository.<br>Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.</br>
   </li>
 </ul>
   
 <img src="MappingUserCredentials.png" alt="User provides his credentials to map the accounts">  
 
 <ul>  
-  <li>If you requested User attributes in the Authentication request, but the User isn’t registered in your application, then you should be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required in the registration form. A new User's record will be created in your repository, containing the sub claim specific to that User.<br>Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.</br>
+  <li>If you requested User attributes in the Authentication Request, but the User isn’t registered in your application, then you should be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required in the registration form. A new User's record will be created in your repository, containing the sub claim specific to that User.<br>Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.</br>
   </li>
 </ul>
   
@@ -412,7 +412,7 @@ Values |	Returned |	Description
 **exp**	| Always |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 **iat** |	Always	| The time the ID Token was issued, represented in Unix time (integer seconds).
 **auth_time** | Always | The time the User authentication occurred, represented in Unix time (integer seconds). 
-**nonce** | If provided | String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID Token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.
+**nonce** | If provided | String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.
 **acr** | Always | Possible values: `tag:sixdots.be,2016-06:acr_basic` and `tag:sixdots.be,2016-06:acr_advanced`
 **amr** | Never |
 **azp** | Never |
@@ -432,7 +432,7 @@ Values |	Returned |	Description
 
 ###  Capturing claims from the userInfo Endpoint
 
-Typically the `id_token` only contains claims about the authentication event and the identity of the User. Other information about the User can be requested by including additional scopes in the authentication request as mentionned above (e.g.: phone, address, profile and email scopes). 
+Typically the `id_token` only contains claims about the authentication event and the identity of the User. Other information about the User can be requested by including additional scopes in the Authentication Request as mentionned above (e.g.: phone, address, profile and email scopes). 
 
 If the required claims are not returned in the `id_token` you can still add custom claims in the `claims` parameter as specified below:
 
@@ -561,7 +561,7 @@ appID	| Built by combining your app’s Team ID (it should be retrieved from htt
 paths	| Array of strings that specify which paths are included or excluded from association. Note: these strings are case sensitive and that query strings and fragment identifiers are ignored.
 
 <ol>  
-  <li value="6">Upload the ‘apple-app-site-association’ file to your HTTPS web server for the redirection URI communicated in the Authentication request. The file can be placed at the root of your server or in the .well-known subdirectory.</li>
+  <li value="6">Upload the ‘apple-app-site-association’ file to your HTTPS web server for the redirection URI communicated in the Authentication Request. The file can be placed at the root of your server or in the .well-known subdirectory.</li>
 </ol>
 
 <aside class="notice"> While hosting the AASA file, please ensure that the AASA file:
