@@ -221,6 +221,9 @@
           <li>
             <a href="#1-introduction" class="toc-h1 toc-link" data-title="1-introduction">1. Introduction</a>
           </li>
+          <li>
+            <a href="#2-integrating-confirm-service" class="toc-h1 toc-link" data-title="2-integrating-confirm-service">2. Integrating Confirm service</a>
+          </li>
       </div>
         <ul class="toc-footer">
             <li><a href='#'>Sign Up for a Developer Key</a> --></li>
@@ -240,6 +243,74 @@
 </ul></p>
 
 <p>The objective of this document is to provide all the information needed to integrate the <strong>Confirm</strong> service using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.</p>
+
+<aside class="notice">The <a href="https://belgianmobileid.github.io/slate/" target="blank">itsme® OpenID Login and Share Data</a> specifications MUST be understood first, before going further into the next paragraphs.</aside>
+  
+<h1 id='2-integrating-confirm-service'>2. Integrating Confirm service</h1>
+<p>The itsme® Confirm service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. However, there are some specific rules you MUST take into account during the implementation:</p>
+<pre class="highlight http tab-http--inline"><code><span class="err">POST /oidc/authorization
+response_type=code
+client_id=MY_PARTNER_CODE
+scope=openid service:MY_APPROVAL_SERVICE_CODE
+redirect_uri=https:\/\/service-provider.be\/my_call_back_url nonce=A_VALID_NONCE state=A_VALID_STATE request={
+"response_type":"code",
+"client_id":"MY_PARTNER_CODE",
+"redirect_uri":" https:\/\/service-provider.be\/my_call_back_url",
+"aud":"https:\/\/merchant.itsme.be\/oidc",
+"scope":"openid service: MY_APPROVAL_SERVICE_CODE",
+"acr_values":"tag:sixdots.be,2016-06:acr_advanced",
+"iss":"MY_PARTNER_CODE",
+"nonce":"A_VALID_NONCE",
+"state":"A_VALID_STATE",
+"claims":{
+"userinfo":{
+"sub":{
+"value":"THE_END_USER_ALREADY_KNOWN_USER_CODE"
+},
+"tag:sixdots.be,2016-08:claim_approval_template_name":{
+"value":"adv_payment",
+"essential":true
+},
+"tag:sixdots.be,2016-08:claim_approval_amount_key":{
+"value":"100",
+"essential":true
+},
+"tag:sixdots.be,2016-08:claim_approval_currency_key":{
+"value":"EUR",
+"essential":true
+},
+"tag:sixdots.be,2016-08:claim_approval_iban_key":{
+"value":"BE00793774892029",
+"essential":true
+}
+}
+}
+}
+</span></code></pre>
+<ul>
+  <li>The Authentication Request MUST be communicated using HTTPS POST protocol and the <code>application/x-www-form-urlencoded</code> media type. HTTPS GET calls will be refused by the Authorization Server because the Authorization Request MIGHT contain sensitive data.</li>
+  <li>Using the <code>request</code> or <code>request_uri</code> parameter is mandatory when forming the Authentication Request. This parameter MUST be signed with your private key and/or encrypted with the itsme® public key.</li>
+  <li>The <code>prompt</code> parameter can be <code>login</code> and/or <login>consent</code>.</li>
+  <li>The Token Endpoint MUST ALWAYS be called to validate that the Authorization Code is valid and corresponds effectively to the Confirm transaction initiated by your application.</li>
+  </li>The OpenID Connect Core Specification specifies the validation you MUST perform on the ID Token. This includes but is not limited to the the following:
+    <ul>
+      <li>The issuer identifier of itsme® must exactly match the value of the <code>iss</code> claim</li>
+      <li>The <code>aud</code> claim must contain the <code>client_id</code> value provided during the registration of your application in the itsme® B2B portal.</li>
+      <li>The transaction is effectively signed by itsme®.</li>
+      <li>The current time MUST be before the time represented by the <code>exp</code> claim.</li>
+      <li>It is correctly unencrypted using your private key.</li>
+      <li>The <code>nonce</code> value is similar to the one provided in the Authentication Request (if specified).</li>
+      <li>If the User is already logged in your application, the <code>sub</code> value MUST match the one provided during the log in of the User.</li>
+    </ul>
+
+<p></li>
+ </ul></p>
+
+<p>Aside you will  </p>
+
+<p>For example, the Confirm Authentication Request using the <code>sub</code> identifier might look like the sample aside. The value <code>THE_END_USER_ALREADY_KNOWN_USER_CODE</code> MUST be replaced with a valid <code>sub</code> (e.g.: an identifier for the User, unique among all itsme® accounts and never reused).</p>
+
+<aside class="notice">In the example aside, the <code>request</code> parameter is represented as a regular JSON formatted object for clarity only. Indeed, it MUST be correctly encoded, signed and then encrypted as explained in the official OpenID Connect Core specification.</aside>
 
       </div>
       <div class="dark-box">

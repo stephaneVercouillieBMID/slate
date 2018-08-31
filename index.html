@@ -225,13 +225,13 @@
             <a href="#2-creating-sandbox" class="toc-h1 toc-link" data-title="2-creating-sandbox">2. Creating sandbox</a>
           </li>
           <li>
-            <a href="#3-integrating-itsme-services" class="toc-h1 toc-link" data-title="3-integrating-itsme-services">3. Integrating itsme services</a>
+            <a href="#3-integrating-login-and-share-data-services" class="toc-h1 toc-link" data-title="3-integrating-login-and-share-data-services">3. Integrating Login and Share Data services</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#3-1-checking-itsme-openid-configuration" class="toc-h2 toc-link" data-title="3-1-checking-itsme-openid-configuration">3.1. Checking itsme® OpenID Configuration</a>
                   </li>
                   <li>
-                    <a href="#3-2-forming-an-authentication-request" class="toc-h2 toc-link" data-title="3-2-forming-an-authentication-request">3.2. Forming an authentication request</a>
+                    <a href="#3-2-forming-an-authentication-request" class="toc-h2 toc-link" data-title="3-2-forming-an-authentication-request">3.2. Forming an Authentication Request</a>
                   </li>
                   <li>
                     <a href="#3-3-capturing-an-authorization-code" class="toc-h2 toc-link" data-title="3-3-capturing-an-authorization-code">3.3. Capturing an Authorization Code</a>
@@ -295,7 +295,7 @@
 
 <p><a name="Onboarding"></a></p>
 <h1 id='2-creating-sandbox'>2. Creating sandbox</h1>
-<p>Before your application can use itsme® OpenID Login and Share Data services, you must set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain credentials (<code>client_id</code>, ServiceCode, JWKSet URL and associated certificates,...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. </p>
+<p>Before your application can use itsme® Login and Share Data services, you must set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain credentials (<code>client_id</code>, ServiceCode, JWKSet URL and associated certificates,...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. </p>
 
 <aside class="notice">When creating your sandbox, you have to provide us one JWKSet URL. This URL must be an HTTPS one and the corresponding certificates chain must also be provided. It will be used by our Back-End for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Following requirements MUST be met:
 <ul>
@@ -320,7 +320,7 @@
   <li>Belgian Mobile ID MUST be notified on time if the URLs are changed, and be provided with the new URL.</li>
 </ul>
 </aside>
-<h1 id='3-integrating-itsme-services'>3. Integrating itsme services</h1>
+<h1 id='3-integrating-login-and-share-data-services'>3. Integrating Login and Share Data services</h1>
 <p>The itsme® Login and Share Data service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following diagram:</p>
 
 <p><img src="OpenID_High_level.png" alt="Sequence diagram describing the OpenID flow" /></p>
@@ -359,13 +359,13 @@
 </aside>
 
 <p><a name="AuthNRequest"></a></p>
-<h2 id='3-2-forming-an-authentication-request'>3.2. Forming an authentication request</h2>
+<h2 id='3-2-forming-an-authentication-request'>3.2. Forming an Authentication Request</h2>
 <p>First, you will form a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint is <code>https://merchant.itsme.be/oidc/authorization</code>. This URI can be retrieved from the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>authorization_endpoint</code>.</p>
 
-<aside class="notice">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism more information about Universal links and App links can be found in <a href="#UniversalLinks">section3.4</a>.
+<aside class="notice">We strongly recommend to use only the HTTPS GET method, since POST method will not be authorized when triggering the itsme App through the Universal Link mechanism more information about Universal links and App links can be found in <a href="#UniversalLinks">section3.4</a>.
 </aside>
 
-<aside class="notice">In order to avoid tampering, you can use the <code>request</code> or <code>request_URI</code> parameter in the authentication request. This enables sending authentication request parameters in a self-contained JWT instead of plain request parameters.</aside>
+<aside class="notice">In order to avoid tampering, you can use the <code>request</code> or <code>request_URI</code> parameter in the Authentication Request. This enables sending Authentication Request parameters in a self-contained JWT instead of plain request parameters.</aside>
 
 <p>The OpenID Connect Core Specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:</p>
 <pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/authorization?response_type=code</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -405,12 +405,12 @@
 <tr>
 <td style="text-align: left"><strong>state</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This <code>state</code> object is the only way to bind the original Authorization Request with the Authorization Response (holding the <code>code</code> and the <code>state</code>). In other terms, this parameter is used to restore the user context on your side.</td>
+<td style="text-align: left">This <code>state</code> object is the only way to bind the original Authentication Request with the Authorization Response (holding the <code>code</code> and the <code>state</code>). In other terms, this parameter is used to restore the user context on your side.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>nonce</strong></td>
 <td style="text-align: left">An appropriate value is strongly RECOMMENDED</td>
-<td style="text-align: left">String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the authentication request to the ID Token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">OpenID Connect Core specifications</a> for more information.</td>
+<td style="text-align: left">String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">OpenID Connect Core specifications</a> for more information.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>login_hint</strong></td>
@@ -445,12 +445,12 @@
 <tr>
 <td style="text-align: left"><strong>claims</strong></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">This parameter is used to request that specific claims be returned. The value is a JSON object listing the requested claims.<br>Usage of claims parameter in the request object is recommended over this parameter as it will be signed in the JWT token, and the returned data will be encrypted.</br><br>See <a href="#Data">User Data</a> for more information.</br></td>
+<td style="text-align: left">This parameter is used to request that specific claims be returned. The value is a JSON object listing the requested claims.<br>Usage of claims parameter in the Request Object is recommended over this parameter as it will be signed in the JWT token, and the returned data will be encrypted.</br><br>See <a href="#Data">User Data</a> for more information.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>request</strong></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed with your private key and/or encrypted with the itsme® public key. The parameter value is a Request Object value. It represents the request as a JWT whose claims are the request parameters.<br></br><br>See <a href="#RequestObjectByValue">Appendixes</a> for more information.</br><br></br><br>Note: when using encrypted JWT in the Authorization Request, this will yield very long requests. To avoid any problem and still use the GET method, please use the <code>request_uri</code> parameter instead.</br></td>
+<td style="text-align: left">This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be optionally signed with your private key and/or encrypted with the itsme® public key. The parameter value is a Request Object value. It represents the request as a JWT whose claims are the request parameters.<br>See <a href="#RequestObjectByValue">Appendixes</a> for more information.</br><br>Note: when using encrypted JWT in the Authentication Request, this will yield very long requests. To avoid any problem and still use the GET method, please use the <code>request_uri</code> parameter instead.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>request_uri</strong></td>
@@ -481,7 +481,7 @@
 
 <p><a name="AuthNResponse"></a></p>
 <h2 id='3-3-capturing-an-authorization-code'>3.3. Capturing an Authorization Code</h2><h3 id='capturing-a-successful-authorization-code'>Capturing a successful Authorization Code</h3>
-<p>If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an Authorization Code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the <code>redirect_uri</code> specified previously in the authentication request.</p>
+<p>If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an Authorization Code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the <code>redirect_uri</code> specified previously in the Authentication Request.</p>
 <pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
 <span class="na">Location</span><span class="p">:</span> <span class="s">https://client.example.org/cb?</span>
 <span class="s">code=SplxlOBeZQQYbYS6WxSbIA&amp;</span>
@@ -504,13 +504,13 @@
 <tr>
 <td style="text-align: left"><strong>state</strong></td>
 <td style="text-align: left">If provided</td>
-<td style="text-align: left">The state parameter will be returned if you provided a value in the Authentication request. You should validate that the value returned matches the one supplied in the authentication request. The state value can additionally be used to mitigate against XSRF attacks by cryptographically binding the value of this parameter with a browser cookie.</td>
+<td style="text-align: left">The state parameter will be returned if you provided a value in the Authentication Request. You should validate that the value returned matches the one supplied in the Authentication Request. The state value can additionally be used to mitigate against XSRF attacks by cryptographically binding the value of this parameter with a browser cookie.</td>
 </tr>
 </tbody></table>
 <h3 id='handling-authentication-error-response'>Handling Authentication Error Response</h3>
 <p>If the request fails due to a missing, invalid, or mismatching redirection URI, or if the client identifier is missing or invalid, the Authorization Server SHOULD inform the User of the error and MUST NOT automatically redirect him to the invalid redirection URI. </p>
 
-<p>If the User denies the authentication request or if the request fails for reasons other than a missing or invalid redirection URI, itsme® will return an error response to your application. As for a successful response this is achieved by returning a HTTPS 302 redirect request to the redirection_uri specified in the authentication request. Following parameters could be added to the query component of the redirection_uri:</p>
+<p>If the User denies the Authentication Request or if the request fails for reasons other than a missing or invalid redirection URI, itsme® will return an error response to your application. As for a successful response this is achieved by returning a HTTPS 302 redirect request to the redirection_uri specified in the Authentication Request. Following parameters could be added to the query component of the redirection_uri:</p>
 <pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
 <span class="na">Location</span><span class="p">:</span> <span class="s">https://client.example.org/cb?</span>
 <span class="s">error=invalid_request</span>
@@ -640,7 +640,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 <tr>
 <td style="text-align: left"><strong>client_assertion</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the token request.<br>The OpenID Connect Core Specification support multiple authentication methods, but itsme® only supports <code>private_key_jwt</code>. This authentication method uses a JWT signed with a public key you have registered. The JWT MUST be sent as the value of a client_assertion parameter.</br><br>See <a href="http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication" target="blank">section 9</a> of the OpenID Connect Core specification for more information.</br></td>
+<td style="text-align: left">To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the Token request.<br>The OpenID Connect Core Specification support multiple authentication methods, but itsme® only supports <code>private_key_jwt</code>. This authentication method uses a JWT signed with a public key you have registered. The JWT MUST be sent as the value of a client_assertion parameter.</br><br>See <a href="http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication" target="blank">section 9</a> of the OpenID Connect Core specification for more information.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>client_assertion_type</strong></td>
@@ -681,7 +681,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 
 <p><a name="TokenResponse"></a></p>
 <h2 id='3-6-managing-token-response'>3.6. Managing Token Response</h2><h3 id='extracting-a-successful-token-response'>Extracting a successful Token response</h3>
-<p>If the token request has been sucessfully validated we will return an HTTP 200 OK response including ID and Access Tokens as in the example aside.</p>
+<p>If the Token request has been sucessfully validated we will return an HTTP 200 OK response including ID and Access Tokens as in the example aside.</p>
 <pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Cache-Control</span><span class="p">:</span> <span class="s">no-store</span>
@@ -786,7 +786,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 <tr>
 <td style="text-align: left"><strong>nonce</strong></td>
 <td style="text-align: left">If provided</td>
-<td style="text-align: left">String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID Token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.</td>
+<td style="text-align: left">String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>acr</strong></td>
@@ -809,7 +809,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 
 <p>In short, this Base64URL encoding is called a JSON Web Token (JWT). It makes sure that the data you received has not been modified. </p>
 <h3 id='handling-token-error-response'>Handling token error response</h3>
-<p>If the token request is invalid or unauthorized an HTTP 400 response will be returned as in the example:</p>
+<p>If the Token Request is invalid or unauthorized an HTTP 400 response will be returned as in the example:</p>
 <pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Cache-Control</span><span class="p">:</span> <span class="s">no-store</span>
@@ -827,7 +827,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 <p>If no user record is storing the <code>sub</code> claim value, then you should implement one of the following scenarios to map the <code>sub</code> to the corresponding User account:</p>
 
 <ul>
-  <li>If you requested User attributes in the Authentication request, a different claim (e.g.: email address, phone number, …) can be used to automatically associate an existing account during the first sign-in session. You will then update that User's record with the sub claim.<br>Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.</br><br>This is the most optimal flow from UX point of view as it will be easier for Users to start interacting with your application. Providing the information as part of the OpenID Authentication Request will reduce the number of round trips that need to be made. In turn, this should reduce the amount of time it takes for a User to sign up.</br>
+  <li>If you requested User attributes in the Authentication Request, a different claim (e.g.: email address, phone number, …) can be used to automatically associate an existing account during the first sign-in session. You will then update that User's record with the sub claim.<br>Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.</br><br>This is the most optimal flow from UX point of view as it will be easier for Users to start interacting with your application. Providing the information as part of the OpenID Authentication Request will reduce the number of round trips that need to be made. In turn, this should reduce the amount of time it takes for a User to sign up.</br>
   </li>
 </ul>
   
@@ -837,7 +837,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 <aside class="notice">This approach requires a sanity check on our side to guarantee that the claim used to map the user account is reliable and consistent with your data’s lifecycle. Please inform us via  itsme® B2B portal if you opt for this approach. </aside>
 
 <ul>  
-  <li>If you did not request User attributes in the Authentication request or if you can't match with certainty the existing User account with the provided data's, then you could ask the User to authenticate with his usual credentials (e.g. User name / password). The User credentials will be used by your application to match the sub claim to the corresponding user account in your repository.<br>Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.</br>
+  <li>If you did not request User attributes in the Authentication Request or if you can't match with certainty the existing User account with the provided data's, then you could ask the User to authenticate with his usual credentials (e.g. User name / password). The User credentials will be used by your application to match the sub claim to the corresponding user account in your repository.<br>Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.</br>
   </li>
 </ul>
   
@@ -845,7 +845,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 <p><img src="MappingUserCredentials.png" alt="User provides his credentials to map the accounts">  </p>
 
 <ul>  
-  <li>If you requested User attributes in the Authentication request, but the User isn’t registered in your application, then you should be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required in the registration form. A new User's record will be created in your repository, containing the sub claim specific to that User.<br>Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.</br>
+  <li>If you requested User attributes in the Authentication Request, but the User isn’t registered in your application, then you should be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required in the registration form. A new User's record will be created in your repository, containing the sub claim specific to that User.<br>Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.</br>
   </li>
 </ul>
   
@@ -938,7 +938,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 <tr>
 <td style="text-align: left"><strong>nonce</strong></td>
 <td style="text-align: left">If provided</td>
-<td style="text-align: left">String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication request to the ID Token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.</td>
+<td style="text-align: left">String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>acr</strong></td>
@@ -1022,7 +1022,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 </tr>
 </tbody></table>
 <h3 id='capturing-claims-from-the-userinfo-endpoint'>Capturing claims from the userInfo Endpoint</h3>
-<p>Typically the <code>id_token</code> only contains claims about the authentication event and the identity of the User. Other information about the User can be requested by including additional scopes in the authentication request as mentionned above (e.g.: phone, address, profile and email scopes). </p>
+<p>Typically the <code>id_token</code> only contains claims about the authentication event and the identity of the User. Other information about the User can be requested by including additional scopes in the Authentication Request as mentionned above (e.g.: phone, address, profile and email scopes). </p>
 
 <p>If the required claims are not returned in the <code>id_token</code> you can still add custom claims in the <code>claims</code> parameter as specified below:</p>
 
@@ -1270,7 +1270,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 </tbody></table>
 
 <ol>  
-  <li value="6">Upload the ‘apple-app-site-association’ file to your HTTPS web server for the redirection URI communicated in the Authentication request. The file can be placed at the root of your server or in the .well-known subdirectory.</li>
+  <li value="6">Upload the ‘apple-app-site-association’ file to your HTTPS web server for the redirection URI communicated in the Authentication Request. The file can be placed at the root of your server or in the .well-known subdirectory.</li>
 </ol>
 
 <aside class="notice"> While hosting the AASA file, please ensure that the AASA file:
