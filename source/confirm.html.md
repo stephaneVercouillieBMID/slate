@@ -87,8 +87,6 @@ redirect_uri=https:\/\/service-provider.be\/my_call_back_url nonce=A_VALID_NONCE
    </li>
  </ul>
   
-Aside you will  
-
 For example, the Confirm Authentication Request using the `sub` identifier might look like the sample aside. The value `THE_END_USER_ALREADY_KNOWN_USER_CODE` MUST be replaced with a valid `sub` (e.g.: an identifier for the User, unique among all itsme® accounts and never reused).
 
 <aside class="notice">In the example aside, the <code>request</code> parameter is represented as a regular JSON formatted object for clarity only. Indeed, it MUST be correctly encoded, signed and then encrypted as explained in the official OpenID Connect Core specification.</aside>
