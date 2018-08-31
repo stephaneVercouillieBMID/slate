@@ -100,7 +100,7 @@ The Discovery document for itsme® services may be retrieved from: <a href="http
 
 First, you will form a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint is `https://merchant.itsme.be/oidc/authorization`. This URI can be retrieved from the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key `authorization_endpoint`.
 
-<aside class="notice">We strongly recommend to use only the HTTP `GET` method, since `POST` method will not be authorized when triggering the itsme App through the Universal Link mechanism more information about Universal links and App links can be found in <a href="#UniversalLinks">section3.4</a>.
+<aside class="notice">We strongly recommend to use only the HTTPS GET method, since POST method will not be authorized when triggering the itsme App through the Universal Link mechanism more information about Universal links and App links can be found in <a href="#UniversalLinks">section3.4</a>.
 </aside>
 
 <aside class="notice">In order to avoid tampering, you can use the <code>request</code> or <code>request_URI</code> parameter in the Authentication Request. This enables sending Authentication Request parameters in a self-contained JWT instead of plain request parameters.</aside>
