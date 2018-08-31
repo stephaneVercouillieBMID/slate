@@ -28,29 +28,70 @@ The objective of this document is to provide all the information needed to integ
 
 The itsme® Confirm service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. However, there are some specific rules you MUST take into account during the implementation:
 
+```http--inline
+POST /oidc/authorization
+response_type=code
+client_id=MY_PARTNER_CODE
+scope=openid service:MY_APPROVAL_SERVICE_CODE
+redirect_uri=https:\/\/service-provider.be\/my_call_back_url nonce=A_VALID_NONCE state=A_VALID_STATE request={
+"response_type":"code",
+"client_id":"MY_PARTNER_CODE",
+"redirect_uri":" https:\/\/service-provider.be\/my_call_back_url",
+"aud":"https:\/\/merchant.itsme.be\/oidc",
+"scope":"openid service: MY_APPROVAL_SERVICE_CODE",
+"acr_values":"tag:sixdots.be,2016-06:acr_advanced",
+"iss":"MY_PARTNER_CODE",
+"nonce":"A_VALID_NONCE",
+"state":"A_VALID_STATE",
+"claims":{
+"userinfo":{
+"sub":{
+"value":"THE_END_USER_ALREADY_KNOWN_USER_CODE"
+},
+"tag:sixdots.be,2016-08:claim_approval_template_name":{
+"value":"adv_payment",
+"essential":true
+},
+"tag:sixdots.be,2016-08:claim_approval_amount_key":{
+"value":"100",
+"essential":true
+},
+"tag:sixdots.be,2016-08:claim_approval_currency_key":{
+"value":"EUR",
+"essential":true
+},
+"tag:sixdots.be,2016-08:claim_approval_iban_key":{
+"value":"BE00793774892029",
+"essential":true
+}
+}
+}
+}
+```
+
 <ul>
-  <li>The Authentication Request MUST be communicated using HTTPS POST protocol and the <code>application/x-www-form-urlencoded</code> media type. HTTPS GET calls will be refused by the Authorization Server because the Authorization Request MIGHT contain sensitive data.
-  </li>
-  <li>Using the <code>request</code> parameter is mandatory when forming the Authentication Request.
-  </li>
+  <li>The Authentication Request MUST be communicated using HTTPS POST protocol and the <code>application/x-www-form-urlencoded</code> media type. HTTPS GET calls will be refused by the Authorization Server because the Authorization Request MIGHT contain sensitive data.</li>
+  <li>Using the <code>request</code> or <code>request_uri</code> parameter is mandatory when forming the Authentication Request. This parameter MUST be signed with your private key and/or encrypted with the itsme® public key.</li>
+  <li>The <code>prompt</code> parameter can be <code>login</code> and/or <login>consent</code>.</li>
+  <li>The Token Endpoint MUST ALWAYS be called to validate that the Authorization Code is valid and corresponds effectively to the Confirm transaction initiated by your application.</li>
+  </li>The OpenID Connect Core Specification specifies the validation you MUST perform on the ID Token. This includes but is not limited to the the following:
+    <ul>
+      <li>The issuer identifier of itsme® must exactly match the value of the <code>iss</code> claim</li>
+      <li>The <code>aud</code> claim must contain the <code>client_id</code> value provided during the registration of your application in the itsme® B2B portal.</li>
+      <li>The transaction is effectively signed by itsme®.</li>
+      <li>The current time MUST be before the time represented by the <code>exp</code> claim.</li>
+      <li>It is correctly unencrypted using your private key.</li>
+      <li>The <code>nonce</code> value is similar to the one provided in the Authentication Request (if specified).</li>
+      <li>If the User is already logged in your application, the <code>sub</code> value MUST match the one provided during the log in of the User.</li>
+    </ul>
+   </li>
+ </ul>
   
-3. The “request object” MUST be signed and encrypted by the service provider. Signed, using his private signing key and, encrypted using the itsme OP public encryption key. The later can be found, of course, in the OP JwkSet JSON file.
-4. Parameters encoded in the “request object” have priority over the same parameters put as a GET query parameter. If not explicitly required by the OIDC protocol, it is mandatory to put the corresponding parameter inside the “request object” instead of putting it as a simple form parameter (because the request object is signed and encrypted).
-5. Each form parameter that is eligible to be present in the request object MUST also be encoded in the request object itself (because signed and encrypted).
-6. Only service codes corresponding to a pre-registered “Approval” kind of service MUST be used in the ‘service’ scope parameter. Be sure this service was already created in the system during partner onboarding.
-7. The “prompt” parameter can be “login” and/or “consent”.
-    
-    
-    
-    
-    
-    
-  <li>Confirm</li>
-  <li>Share Data</li>
-  <li>Sign</li>
-</ul>
+Aside you will  
 
+For example, the Confirm Authentication Request using the `sub` identifier might look like the sample aside. The value `THE_END_USER_ALREADY_KNOWN_USER_CODE` MUST be replaced with a valid `sub` (e.g.: an identifier for the User, unique among all itsme® accounts and never reused).
 
+<aside class="notice">In the example aside, the <code>request</code> parameter is represented as a regular JSON formatted object for clarity only. Indeed, it MUST be correctly encoded, signed and then encrypted as explained in the official OpenID Connect Core specification.</aside>
 
 
 
