@@ -45,7 +45,7 @@ Before your application can use itsme® Login and Share Data services, you must 
 
 <aside class="notice">Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our Back-End.
 <ul>
-  <li>Additional URL parameters are not allowed and entire redirect_uri MUST match the one provided in the B2B portal.</li>
+  <li>Additional URL parameters are not allowed and entire redirect_uri MUST match the one provided in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>.</li>
   <li>Only one redirect_uri MUST be specified for each service.</li>
   <li>Belgian Mobile ID MUST be notified on time if the URLs are changed, and be provided with the new URL.</li>
 </ul>
@@ -343,34 +343,13 @@ The response will contain an error parameter and optionally `error_description` 
 
 ## 3.7. Mapping the User
 
-To sign in successfully in your web desktop, mobile web or in-app mobile application, a given user must be provisioned in OpenID Connect and then mapped to a user account in your database. By default, your application Server will use the subject identifier, or `sub`, claim in the ID Token to identify and verify a user account. Typically, the `sub` claim is a unique string that identifies a given user account. The benefit of using a `sub` claim is that it will not change, even if other user attributes (email, phone number, etc) associated with that account are updated. 
+To sign in successfully in your web desktop, mobile web or in-app mobile application, a given user must be provisioned in OpenID Connect and then mapped to a user account in your database. By default, your application Server will use the subject identifier, or `sub` claim, in the ID Token to identify and verify a user account. Typically, the `sub` claim is a unique string that identifies a given user account. The benefit of using a `sub` claim is that it will not change, even if other user attributes (email, phone number, etc) associated with that account are updated. 
 
 The `sub` claim value must be mapped to the corresponding user in your application Server. If you already mapped this `sub` to an account in your application repository, you should start an application session for that User.
 
-If no user record is storing the `sub` claim value, then you should implement one of the following scenarios to map the `sub` to the corresponding User account:
+If no user record is storing the `sub` claim value, then you should allow the User to associate his new or existing account during the first sign-in session.
 
-<ul>
-  <li>If you requested User attributes in the Authentication Request, a different claim (e.g.: email address, phone number, …) can be used to automatically associate an existing account during the first sign-in session. You will then update that User's record with the sub claim.<br>Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.</br><br>This is the most optimal flow from UX point of view as it will be easier for Users to start interacting with your application. Providing the information as part of the OpenID Authentication Request will reduce the number of round trips that need to be made. In turn, this should reduce the amount of time it takes for a User to sign up.</br>
-  </li>
-</ul>
-  
-<img src="MappingUserAuto.png" alt="Automatically mapping user accounts">
-
-<aside class="notice">This approach requires a sanity check on our side to guarantee that the claim used to map the user account is reliable and consistent with your data’s lifecycle. Please inform us via  itsme® B2B portal if you opt for this approach. </aside>
-
-<ul>  
-  <li>If you did not request User attributes in the Authentication Request or if you can't match with certainty the existing User account with the provided data's, then you could ask the User to authenticate with his usual credentials (e.g. User name / password). The User credentials will be used by your application to match the sub claim to the corresponding user account in your repository.<br>Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.</br>
-  </li>
-</ul>
-  
-<img src="MappingUserCredentials.png" alt="User provides his credentials to map the accounts">  
-
-<ul>  
-  <li>If you requested User attributes in the Authentication Request, but the User isn’t registered in your application, then you should be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required in the registration form. A new User's record will be created in your repository, containing the sub claim specific to that User.<br>Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.</br>
-  </li>
-</ul>
-  
-<img src="MappingUserAutoReg.png" alt="Auto-register the User">  
+All these flows are depicted in the <a href="https://brand.belgianmobileid.be/document/39#/ux/ux-flows" target="blank">itsme® B2B portal</a>.
 
 In a limited number of cases (e.g. change phone number, technical issue,…) a user could ask itsme® to ‘delete’ his account. As a result the specific account will be ‘archived’ (for compliancy reasons) and thus also the unique identifier(s) (e.g. <code>sub</code>), used to interact with the different Service Providers the specific users is active with, will be automatically deleted in our database.
 
