@@ -90,10 +90,12 @@ To simplify implementations and increase flexibility, <a href="https://openid.ne
   <li>JWKSet URL</li>
 </ul>
 
-The Discovery document for itsme® services may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a>.
+The Discovery document for itsme® services may be retrieved from: 
 
-<aside class="notice">The key-value pairs that MUST be used to integrate itsme® with our test environment can be redeemed from <a href="https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</a>.
-</aside>
+System configuration | URL
+:-------- | :--------
+**SANDBOX** | <a href="https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</a>
+**PRODUCTION** | <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a>
 
 
 <a name="AuthNRequest"></a>
