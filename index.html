@@ -315,7 +315,7 @@
 
 <aside class="notice">Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our Back-End.
 <ul>
-  <li>Additional URL parameters are not allowed and entire redirect_uri MUST match the one provided in the B2B portal.</li>
+  <li>Additional URL parameters are not allowed and entire redirect_uri MUST match the one provided in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>.</li>
   <li>Only one redirect_uri MUST be specified for each service.</li>
   <li>Belgian Mobile ID MUST be notified on time if the URLs are changed, and be provided with the new URL.</li>
 </ul>
@@ -343,6 +343,8 @@
 </ol>
 
 <p>This flow is described in much more detail in the following sections.</p>
+
+<p><a name="OpenIDConfig"></a></p>
 <h2 id='3-1-checking-itsme-openid-configuration'>3.1. Checking itsme® OpenID Configuration</h2>
 <p>To simplify implementations and increase flexibility, <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID Connect allows the use of a Discovery Document</a>, a JSON document containing key-value pairs which provide details about itsme® system configuration, such as 
 <ul>
@@ -353,14 +355,27 @@
   <li>JWKSet URL</li>
 </ul></p>
 
-<p>The Discovery document for itsme® services may be retrieved from: <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a>.</p>
+<p>The Discovery document for itsme® services may be retrieved from: </p>
 
-<aside class="notice">The key-value pairs that MUST be used to integrate itsme® with our test environment can be redeemed from <a href="https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</a>.
-</aside>
+<table><thead>
+<tr>
+<th style="text-align: left">System configuration</th>
+<th style="text-align: left">URL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>SANDBOX</strong></td>
+<td style="text-align: left"><a href="https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</a></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>PRODUCTION</strong></td>
+<td style="text-align: left"><a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></td>
+</tr>
+</tbody></table>
 
 <p><a name="AuthNRequest"></a></p>
 <h2 id='3-2-forming-an-authentication-request'>3.2. Forming an Authentication Request</h2>
-<p>First, you will form a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint is <code>https://merchant.itsme.be/oidc/authorization</code>. This URI can be retrieved from the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>authorization_endpoint</code>.</p>
+<p>First, you will form a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <code>authorization_endpoint</code>.</p>
 
 <aside class="notice">We strongly recommend to use only the HTTPS GET method, since POST method will not be authorized when triggering the itsme App through the Universal Link mechanism more information about Universal links and App links can be found in <a href="#UniversalLinks">section3.4</a>.
 </aside>
@@ -450,7 +465,7 @@
 <tr>
 <td style="text-align: left"><strong>request</strong></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter and to be signed with your private key and encrypted with the itsme® public key. The parameter value is a Request Object value. It represents the request as a JWT whose claims are the request parameters.<br>See <a href="#RequestObjectByValue">Appendixes</a> for more information.</br><br>Note: when using encrypted JWT in the Authentication Request, this will yield very long requests. To avoid any problem and still use the GET method, please use the <code>request_uri</code> parameter instead.</br></td>
+<td style="text-align: left">This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter, and to be optionally signed with your private key and/or encrypted with the itsme® public key. The parameter value is a Request Object value. It represents the request as a JWT whose claims are the request parameters.<br>See <a href="#RequestObjectByValue">Appendixes</a> for more information.</br><br>Note: when using encrypted JWT in the Authentication Request, this will yield very long requests. To avoid any problem and still use the GET method, please use the <code>request_uri</code> parameter instead.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>request_uri</strong></td>
@@ -583,9 +598,9 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 
 <aside class="notice">You might also read in the OpenID Connect Core specification about the Refresh Token, but we don't support them (we don't implement any session mechanism).</aside>
 
-<p>Your server makes this exchange by sending an HTTPS POST request to the itsme® Token Endpoint URI <code>https://merchant.itsme.be/oidc/token</code>. This URI can be retrieved from the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a> using the key <code>token_endpoint</code>.</p>
+<p>Your server makes this exchange by sending an HTTPS POST request to the itsme® Token Endpoint URI. This URI can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <code>token_endpoint</code>.</p>
 
-<aside class="notice"> An Authorization Code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling token error response. </aside>
+<aside class="notice">An Authorization Code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling token error response.</aside>
 
 <p>The request MUST include the following parameters in the <code>POST</code> body:</p>
 <pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/oidc/authorization</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -820,37 +835,13 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 </code></pre>
 <p>The response will contain an error parameter and optionally <code>error_description</code> and <code>error_uri</code> parameters. The <code>error_uri</code> parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.</p>
 <h2 id='3-7-mapping-the-user'>3.7. Mapping the User</h2>
-<p>To sign in successfully in your web desktop, mobile web or in-app mobile application, a given user must be provisioned in OpenID Connect and then mapped to a user account in your database. By default, your application Server will use the subject identifier, or <code>sub</code>, claim in the ID Token to identify and verify a user account. Typically, the <code>sub</code> claim is a unique string that identifies a given user account. The benefit of using a <code>sub</code> claim is that it will not change, even if other user attributes (email, phone number, etc) associated with that account are updated. </p>
+<p>To sign in successfully in your web desktop, mobile web or in-app mobile application, a given user must be provisioned in OpenID Connect and then mapped to a user account in your database. By default, your application Server will use the subject identifier, or <code>sub</code> claim, in the ID Token to identify and verify a user account. Typically, the <code>sub</code> claim is a unique string that identifies a given user account. The benefit of using a <code>sub</code> claim is that it will not change, even if other user attributes (email, phone number, etc) associated with that account are updated. </p>
 
 <p>The <code>sub</code> claim value must be mapped to the corresponding user in your application Server. If you already mapped this <code>sub</code> to an account in your application repository, you should start an application session for that User.</p>
 
-<p>If no user record is storing the <code>sub</code> claim value, then you should implement one of the following scenarios to map the <code>sub</code> to the corresponding User account:</p>
+<p>If no user record is storing the <code>sub</code> claim value, then you should allow the User to associate his new or existing account during the first sign-in session.</p>
 
-<ul>
-  <li>If you requested User attributes in the Authentication Request, a different claim (e.g.: email address, phone number, …) can be used to automatically associate an existing account during the first sign-in session. You will then update that User's record with the sub claim.<br>Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.</br><br>This is the most optimal flow from UX point of view as it will be easier for Users to start interacting with your application. Providing the information as part of the OpenID Authentication Request will reduce the number of round trips that need to be made. In turn, this should reduce the amount of time it takes for a User to sign up.</br>
-  </li>
-</ul>
-  
-
-<p><img src="MappingUserAuto.png" alt="Automatically mapping user accounts"></p>
-
-<aside class="notice">This approach requires a sanity check on our side to guarantee that the claim used to map the user account is reliable and consistent with your data’s lifecycle. Please inform us via  itsme® B2B portal if you opt for this approach. </aside>
-
-<ul>  
-  <li>If you did not request User attributes in the Authentication Request or if you can't match with certainty the existing User account with the provided data's, then you could ask the User to authenticate with his usual credentials (e.g. User name / password). The User credentials will be used by your application to match the sub claim to the corresponding user account in your repository.<br>Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.</br>
-  </li>
-</ul>
-  
-
-<p><img src="MappingUserCredentials.png" alt="User provides his credentials to map the accounts">  </p>
-
-<ul>  
-  <li>If you requested User attributes in the Authentication Request, but the User isn’t registered in your application, then you should be able to auto-register the User based on the information received from itsme®, or at the very least you may be able to pre-populate many of the fields that are required in the registration form. A new User's record will be created in your repository, containing the sub claim specific to that User.<br>Since the ID Token always includes the sub claim along with other claims, on subsequent sessions, your application will identify that User with the sub claim only.</br>
-  </li>
-</ul>
-  
-
-<p><img src="MappingUserAutoReg.png" alt="Auto-register the User">  </p>
+<p>All these flows are depicted in the <a href="https://brand.belgianmobileid.be/document/39#/ux/ux-flows" target="blank">itsme® B2B portal</a>.</p>
 
 <p>In a limited number of cases (e.g. change phone number, technical issue,…) a user could ask itsme® to ‘delete’ his account. As a result the specific account will be ‘archived’ (for compliancy reasons) and thus also the unique identifier(s) (e.g. <code>sub</code>), used to interact with the different Service Providers the specific users is active with, will be automatically deleted in our database.</p>
 
@@ -1068,7 +1059,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 
 <p>You can obtain these additional claims - and those defined by using the <code>scope</code> parameter - by presenting the <code>access_token</code> to the itsme® userInfo Endpoint. This is achieved by sending a HTTPS GET request over TLS to the userInfo Endpoint URI, passing the Access Token value in the Authorization header using the Bearer authentication scheme.</p>
 
-<p>The itsme® userInfo Endpoint is: <code>https://merchant.itsme.be/oidc/userinfo</code>. This URI can be retrieved from the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>userinfo_endpoint</code>.</p>
+<p>The itsme® userInfo Endpoint can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <code>userinfo_endpoint</code>.</p>
 <pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/userinfo</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">server.example.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer SlAV32hkKG</span>
@@ -1431,7 +1422,7 @@ private void handleIntent(Intent intent) {
 
 <p><a name="RequestObjectByValue"></a></p>
 <h2 id='4-4-using-the-request-parameter'>4.4. Using the request parameter</h2>
-<p>The <code>request</code> parameter enables the Authentication Requests to be passed in a single, self-contained parameter and to be signed and encrypted. It represents the request as a JWT whose claims are the parameters specified in section 3.2. This JWT is called a Request Object by value.</p>
+<p>The <code>request</code> parameter enables the Authentication Requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. It represents the request as a JWT whose claims are the parameters specified in section 3.2. This JWT is called a Request Object by value.</p>
 
 <p>When <code>request</code> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax.</p>
 <pre class="highlight http tab-http--inline"><code><span class="err">https://server.example.com/authorize?
@@ -1467,8 +1458,8 @@ private void handleIntent(Intent intent) {
 <ol>
   <li>The values for the <code>response_type</code> and <code>client_id</code> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li>
   <li>Even if a <code>scope</code> parameter is present in the Request Object value, a <code>scope</code> parameter – containing the <code>openid</code> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li>
-  <li>The Request Object MUST be signed using the JSON Web Signature (JWS). The Request Object SHOULD contain the claims <code>iss</code> (issuer) and <code>aud</code> (audience) as members. The <code>iss</code> value SHOULD be your Client ID. The <code>aud</code> value SHOULD be or include the itsme®'s Issuer Identifier URL: https://merchant.itsme.be/oidc.</li>
-  <li>The Request Object MUST also be encrypted using JSON Web Encryption (JWE). It MUST be signed then encrypted, with the result being a Nested JWT, as defined in the <a href=" https://tools.ietf.org/html/rfc7519" target="blank"> JSON Web Token (JWT) specification</a>.</li>
+  <li>The Request Object MAY be signed or unsigned (plaintext) using the JSON Web Signature (JWS). When it is plaintext, the value of the <code>alg</code> element is set to <code>none</code> in JOSE header. If signed, the Request Object SHOULD contain the claims <code>iss</code> (issuer) and <code>aud</code> (audience) as members. The <code>iss</code> value SHOULD be your Client ID. The <code>aud</code> value SHOULD be or include the itsme®'s Issuer Identifier URL: https://merchant.itsme.be/oidc.</li>
+  <li>The Request Object MAY also be encrypted using JSON Web Encryption (JWE). In this case, it MUST be signed then encrypted, with the result being a Nested JWT, as defined in the <a href=" https://tools.ietf.org/html/rfc7519" target="blank"> JSON Web Token (JWT) specification</a>.</li>
   <li>The <code>request</code> and <code>request_uri</code> query parameters MUST NOT be included at the same time in Request Objects.</li>
 </ol>
 
