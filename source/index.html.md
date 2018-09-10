@@ -81,14 +81,7 @@ This flow is described in much more detail in the following sections.
 <a name="OpenIDConfig"></a>
 ## 3.1. Checking itsme® OpenID Configuration
 
-To simplify implementations and increase flexibility, <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID Connect allows the use of a Discovery Document</a>, a JSON document containing key-value pairs which provide details about itsme® system configuration, such as 
-<ul>
-  <li>URIs of the authorization</li>
-  <li>token</li>
-  <li>UserInfo</li>
-  <li>supported claims</li>
-  <li>JWKSet URL</li>
-</ul>
+To simplify implementations and increase flexibility, <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID Connect allows the use of a Discovery Document</a>, a JSON document containing key-value pairs which provide details about itsme® system configuration, such as the URIs of the authorization, token, UserInfo, supported claims and JWKSet URL.
 
 The Discovery document for itsme® services may be retrieved from: 
 
