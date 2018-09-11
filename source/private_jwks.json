@@ -6,7 +6,7 @@
       "e": "AQAB",
       "use": "sig",
       "kid": "s1",
-      "alg": "RSA-OAEP",
+      "alg": "RS256",
       "n": "pJADu0nyhCrh9XIRTO42V6YQqAeNABGGo006hknHw86wYByjHMhpYYwHuxuyx44mO8iQIcJkh5NPlkcaDN90RH0JOxyEE1pES5C3LqntC0mAP6BWoqMhY8g4PT2EJyPjVYZcpaZw0VUp6E5kx847dbvhMe8KWy0geuCwrCgXVhWDRoIyV7r2k948zlmRJjbdjkNosYEFI43nicZ_jckTbs_8nzlxDQo8GtstdhR_oUbXyyBJM66SUA8KxWV6NG0zubNIYWxHIwlU938gdpTNfUMKm78f78iPyfuoPz2dTb6Z7OP7WZb06eRv41i_dS0Zh-sKKHrpUYXRf6VrOoU96w"
     },
     {
