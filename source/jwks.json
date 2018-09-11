@@ -13,7 +13,7 @@
       "e": "AQAB",
       "use": "enc",
       "kid": "e1",
-      "alg": "RS256",
+      "alg": "RSA-OAEP",
       "n": "jpEyL3uCZ1Grkg4sFTtAup0TxpZRiNbB2qyyVJQsXE8QZGfEFSKE847KF2o7TtafORyidfGI7bvBrh34zA1EzR0FqCpLk0z9yGnAmG-dMslpViwO7Ob-WT472KAdtpkQPIgxnkxT7LCR0HyjR_3yxCe3UzcsLg35b-xlrln7Hw9B8Zy8p4Q1lBsnKo-TiHY6C4poSCZTOMeEKn3zuWXvYD33F9ZAqlvtXKKvuSbWrt-34e1lN9TqFWr4GUuuVS_iBjntaNt56Kj9w0aoSuhN7MrHAM0O-FfqJc_BBtJwILr1JcaM_mklwyHJ0eXRvqh3G24bBcXhHYa1yvkAoI8Nnw"
     }
   ]
