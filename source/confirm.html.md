@@ -74,7 +74,7 @@ redirect_uri=https:\/\/service-provider.be\/my_call_back_url nonce=A_VALID_NONCE
   <li>Using the <code>request</code> or <code>request_uri</code> parameter is mandatory when forming the Authentication Request. This parameter MUST be signed with your private key and/or encrypted with the itsme® public key.</li>
   <li>The <code>prompt</code> parameter can be <code>login</code> and/or <login>consent</code>.</li>
   <li>The Token Endpoint MUST ALWAYS be called to validate that the Authorization Code is valid and corresponds effectively to the Confirm transaction initiated by your application.</li>
-  </li>The OpenID Connect Core Specification specifies the validation you MUST perform on the ID Token. This includes but is not limited to the the following:
+  <li>The OpenID Connect Core Specification specifies the validation you MUST perform on the ID Token. This includes but is not limited to the the following:
     <ul>
       <li>The issuer identifier of itsme® must exactly match the value of the <code>iss</code> claim</li>
       <li>The <code>aud</code> claim must contain the <code>client_id</code> value provided during the registration of your application in the itsme® B2B portal.</li>
