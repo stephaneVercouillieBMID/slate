@@ -72,7 +72,7 @@ The itsme® Login and Share Data service integration is based on the <a href="ht
   <li>Once the User has authorized the request and has been authenticated the request itsme® will return an Authorization Code to your server component.</li>
   <li>Your server component contacts the Token Endpoint and exchanges the Authorization Code for an ID Token identifying the User and an Access Token, redirecting the user to your mobile or web application.</li>
   <li>You may request the additional user information from the userInfo Endpoint by presenting the Access Token obtained in the previous step.</li>
-  <li>At this stage you are able to confirm the success of the operation and display a success error message.</li>
+  <li>At this stage you are able to confirm the success of the operation and display a success message.</li>
 </ol>
 
 This flow is described in much more detail in the following sections.
