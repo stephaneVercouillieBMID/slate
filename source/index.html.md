@@ -363,7 +363,7 @@ Following the OpenID Connect Core specifications, there are 2 ways to obtain ID 
   <li>capturing the claims from the itsme® userInfo Endpoint</li>
 </ul>
 
-###  Using `id_token` to obtain claims
+###  Using ID Token to obtain claims
 <a name id="decClaim"></a>
 
 The `id_token` will return specific claims, depending on the values you requested in the `scope` parameter. As stated before, `scope` MUST contain the value `openid` and `service: service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding). 
