@@ -339,7 +339,7 @@
   <li>Once the User has authorized the request and has been authenticated the request itsme® will return an Authorization Code to your server component.</li>
   <li>Your server component contacts the Token Endpoint and exchanges the Authorization Code for an ID Token identifying the User and an Access Token, redirecting the user to your mobile or web application.</li>
   <li>You may request the additional user information from the userInfo Endpoint by presenting the Access Token obtained in the previous step.</li>
-  <li>At this stage you are able to confirm the success of the operation and display a success error message.</li>
+  <li>At this stage you are able to confirm the success of the operation and display a success message.</li>
 </ol>
 
 <p>This flow is described in much more detail in the following sections.</p>
@@ -849,7 +849,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
   <li>using the <code>id_token</code> returned in the token response</li>
   <li>capturing the claims from the itsme® userInfo Endpoint</li>
 </ul></p>
-<h3 id='using-id_token-to-obtain-claims'>Using <code>id_token</code> to obtain claims</h3>
+<h3 id='using-id-token-to-obtain-claims'>Using ID Token to obtain claims</h3>
 <p><a name id="decClaim"></a></p>
 
 <p>The <code>id_token</code> will return specific claims, depending on the values you requested in the <code>scope</code> parameter. As stated before, <code>scope</code> MUST contain the value <code>openid</code> and <code>service: service_code</code>, the itsme® service you want to use as defined for your application in the <a href="#Onboarding">itsme® B2B portal</a>. </p>
