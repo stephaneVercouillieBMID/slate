@@ -248,7 +248,7 @@ Parameter | Required | Description
 **client_assertion** | Required | To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the Token request.<br>The OpenID Connect Core Specification support multiple authentication methods, but itsme® only supports `private_key_jwt`. This authentication method uses a JWT signed with a public key you have registered. The JWT MUST be sent as the value of a client_assertion parameter.</br><br>See <a href="http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication" target="blank">section 9</a> of the OpenID Connect Core specification for more information.</br>
 **client\_assertion\_type** | Required | This MUST be set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. 
 
-According to the `private_key_jwt` client authentication method, the `client_assertion` JWT must contain the following parameters:
+According to the `private_key_jwt` client authentication method, the `client_assertion` JWT MUST contain the following parameters:
 
 Parameter | Description
 :-- | :-- 
@@ -290,11 +290,11 @@ The response body will include the following parameters:
 
 Values | Returned | Description
 :-- | :-- | :--
-**`access_token`** | Always | The Access Token which may be used to access the userInfo Endpoint.
-**`token_type`** | Always | Set to `Bearer`.
-**`id_token`** | Always | The Base64URL encoded token encrypted with your public key and signed with the itsme® private key.
-**`at_hash`** | Not supported | itsme® does not provide any value for this parameter.
-**`refresh_token`** | Not supported | itsme® does not provide any value for this parameter as it only maintains short-lived session to enforce re-authentication.
+**access_token** | Always | The Access Token which may be used to access the userInfo Endpoint.
+**token_type** | Always | Set to `Bearer`.
+**id_token** | Always | The Base64URL encoded token encrypted with your public key and signed with the itsme® private key.
+**at_hash** | Not supported | itsme® does not provide any value for this parameter.
+**refresh_token** | Not supported | itsme® does not provide any value for this parameter as it only maintains short-lived session to enforce re-authentication.
 
 The `id_token` parameter is comprised of three Base64URL encoded elements. The first element is the ID Token header. If you decode the value you should get a string similar to the one below:
 
