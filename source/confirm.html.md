@@ -29,43 +29,47 @@ The objective of this document is to provide all the information needed to integ
 The itsme® Confirm service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. However, there are some specific rules you MUST take into account during the implementation:
 
 ```http--inline
-POST /oidc/authorization
-response_type=code
-client_id=MY_PARTNER_CODE
-scope=openid service:MY_APPROVAL_SERVICE_CODE
-redirect_uri=https:\/\/service-provider.be\/my_call_back_url nonce=A_VALID_NONCE state=A_VALID_STATE request={
-"response_type":"code",
-"client_id":"MY_PARTNER_CODE",
-"redirect_uri":" https:\/\/service-provider.be\/my_call_back_url",
-"aud":"https:\/\/merchant.itsme.be\/oidc",
-"scope":"openid service: MY_APPROVAL_SERVICE_CODE",
-"acr_values":"tag:sixdots.be,2016-06:acr_advanced",
-"iss":"MY_PARTNER_CODE",
-"nonce":"A_VALID_NONCE",
-"state":"A_VALID_STATE",
-"claims":{
-"userinfo":{
-"sub":{
-"value":"THE_END_USER_ALREADY_KNOWN_USER_CODE"
-},
-"tag:sixdots.be,2016-08:claim_approval_template_name":{
-"value":"adv_payment",
-"essential":true
-},
-"tag:sixdots.be,2016-08:claim_approval_amount_key":{
-"value":"100",
-"essential":true
-},
-"tag:sixdots.be,2016-08:claim_approval_currency_key":{
-"value":"EUR",
-"essential":true
-},
-"tag:sixdots.be,2016-08:claim_approval_iban_key":{
-"value":"BE00793774892029",
-"essential":true
-}
-}
-}
+POST /oidc/authorization HTTP/1.1
+?response_type=code
+&client_id=yourprojectid
+&redirect_uri=yourredirecturl
+&scope=openid+service%3Ayourservicecode+profile
+&redirect_uri=https:\/\/service-provider.be\/my_call_back_url 
+&nonce=A_VALID_NONCE 
+&state=A_VALID_STATE 
+&request={
+  "response_type":"code",
+  "client_id":"MY_PARTNER_CODE",
+  "redirect_uri":" https:\/\/service-provider.be\/my_call_back_url",
+  "aud":"https:\/\/merchant.itsme.be\/oidc",
+  "scope":"openid service: MY_APPROVAL_SERVICE_CODE",
+  "acr_values":"tag:sixdots.be,2016-06:acr_advanced",
+  "iss":"MY_PARTNER_CODE",
+  "nonce":"A_VALID_NONCE",
+  "state":"A_VALID_STATE",
+  "claims":{
+    "userinfo":{
+    "sub":{
+      "value":"THE_END_USER_ALREADY_KNOWN_USER_CODE"
+     },
+    "tag:sixdots.be,2016-08:claim_approval_template_name":{
+      "value":"adv_payment",
+      "essential":true
+    },
+    "tag:sixdots.be,2016-08:claim_approval_amount_key":{
+      "value":"100",
+      "essential":true
+    },
+    "tag:sixdots.be,2016-08:claim_approval_currency_key":{
+      "value":"EUR",
+      "essential":true
+    },
+    "tag:sixdots.be,2016-08:claim_approval_iban_key":{
+      "value":"BE00793774892029",
+      "essential":true
+    }
+   }
+  }
 }
 ```
 
