@@ -246,15 +246,15 @@
                     <a href="#3-6-managing-token-response" class="toc-h2 toc-link" data-title="3-6-managing-token-response">3.6. Managing Token Response</a>
                   </li>
                   <li>
-                    <a href="#3-7-mapping-the-user" class="toc-h2 toc-link" data-title="3-7-mapping-the-user">3.7. Mapping the User</a>
-                  </li>
-                  <li>
-                    <a href="#3-8-obtaining-id-claims-user-attibutes" class="toc-h2 toc-link" data-title="3-8-obtaining-id-claims-user-attibutes">3.8. Obtaining ID claims/User attibutes</a>
+                    <a href="#3-7-obtaining-id-claims-user-attibutes" class="toc-h2 toc-link" data-title="3-7-obtaining-id-claims-user-attibutes">3.7. Obtaining ID claims/User attibutes</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#4-appendixes" class="toc-h1 toc-link" data-title="4-appendixes">4. Appendixes</a>
+            <a href="#4-mapping-the-user" class="toc-h1 toc-link" data-title="4-mapping-the-user">4. Mapping the User</a>
+          </li>
+          <li>
+            <a href="#5-appendixes" class="toc-h1 toc-link" data-title="5-appendixes">5. Appendixes</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#4-1-universal-links-on-ios" class="toc-h2 toc-link" data-title="4-1-universal-links-on-ios">4.1. Universal Links on iOS</a>
@@ -827,21 +827,9 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 <span class="s">}</span>
 </code></pre>
 <p>The response will contain an error parameter and optionally <code>error_description</code> and <code>error_uri</code> parameters. The <code>error_uri</code> parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.</p>
-<h2 id='3-7-mapping-the-user'>3.7. Mapping the User</h2>
-<p>To sign in successfully in your web desktop, mobile web or in-app mobile application, a given user must be provisioned in OpenID Connect and then mapped to a user account in your database. By default, your application Server will use the subject identifier, or <code>sub</code> claim, in the ID Token to identify and verify a user account. Typically, the <code>sub</code> claim is a unique string that identifies a given user account. The benefit of using a <code>sub</code> claim is that it will not change, even if other user attributes (email, phone number, etc) associated with that account are updated. </p>
-
-<p>The <code>sub</code> claim value must be mapped to the corresponding user in your application Server. If you already mapped this <code>sub</code> to an account in your application repository, you should start an application session for that User.</p>
-
-<p>If no user record is storing the <code>sub</code> claim value, then you should allow the User to associate his new or existing account during the first sign-in session.</p>
-
-<p>All these flows are depicted in the <a href="https://brand.belgianmobileid.be/document/39#/ux/ux-flows" target="blank">itsme® B2B portal</a>.</p>
-
-<p>In a limited number of cases (e.g. change phone number, technical issue,…) a user could ask itsme® to ‘delete’ his account. As a result the specific account will be ‘archived’ (for compliancy reasons) and thus also the unique identifier(s) (e.g. <code>sub</code>), used to interact with the different Service Providers the specific users is active with, will be automatically deleted in our database.</p>
-
-<p>If the same user would opt to (re)create an itsme® afterwards, he will need to re-bind his itsme® account with your application server (as the initial identifier is no longer valid as explained before). To re-bind his itsme® account one of the above scenario should be used. After successful (re)binding you will need to overwrite the initial reference with the new ‘sub’ claim value in your database.</p>
 
 <p><a name="Data"></a></p>
-<h2 id='3-8-obtaining-id-claims-user-attibutes'>3.8. Obtaining ID claims/User attibutes</h2>
+<h2 id='3-7-obtaining-id-claims-user-attibutes'>3.7. Obtaining ID claims/User attibutes</h2>
 <p>OpenID Connect Core specifications also allow your application to obtain basic profile information about them in a interoperable way. </p>
 
 <p>Following the OpenID Connect Core specifications, there are 2 ways to obtain ID claims/User attributes for a specific User:
@@ -1211,7 +1199,19 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 <pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">401</span> <span class="ne">Unauthorized</span>
 <span class="s">  WWW-Authenticate: error="invalid_token",</span>
 <span class="s">    error_description="The Access Token expired"</span>
-</code></pre><h1 id='4-appendixes'>4. Appendixes</h1>
+</code></pre><h1 id='4-mapping-the-user'>4. Mapping the User</h1>
+<p>To sign in successfully in your web desktop, mobile web or in-app mobile application, a given user must be provisioned in OpenID Connect and then mapped to a user account in your database. By default, your application Server will use the subject identifier, or <code>sub</code> claim, in the ID Token to identify and verify a user account. Typically, the <code>sub</code> claim is a unique string that identifies a given user account. The benefit of using a <code>sub</code> claim is that it will not change, even if other user attributes (email, phone number, etc) associated with that account are updated. </p>
+
+<p>The <code>sub</code> claim value must be mapped to the corresponding user in your application Server. If you already mapped this <code>sub</code> to an account in your application repository, you should start an application session for that User.</p>
+
+<p>If no user record is storing the <code>sub</code> claim value, then you should allow the User to associate his new or existing account during the first sign-in session.</p>
+
+<p>All these flows are depicted in the <a href="https://brand.belgianmobileid.be/document/39#/ux/ux-flows" target="blank">itsme® B2B portal</a>.</p>
+
+<p>In a limited number of cases (e.g. change phone number, technical issue,…) a user could ask itsme® to ‘delete’ his account. As a result the specific account will be ‘archived’ (for compliancy reasons) and thus also the unique identifier(s) (e.g. <code>sub</code>), used to interact with the different Service Providers the specific users is active with, will be automatically deleted in our database.</p>
+
+<p>If the same user would opt to (re)create an itsme® afterwards, he will need to re-bind his itsme® account with your application server (as the initial identifier is no longer valid as explained before). To re-bind his itsme® account one of the above scenario should be used. After successful (re)binding you will need to overwrite the initial reference with the new ‘sub’ claim value in your database.</p>
+<h1 id='5-appendixes'>5. Appendixes</h1>
 <p><a name="Appendix"></a> </p>
 <h2 id='4-1-universal-links-on-ios'>4.1. Universal Links on iOS</h2><pre class="highlight plaintext"><code>{
   "applinks": {
