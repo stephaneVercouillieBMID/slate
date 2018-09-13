@@ -91,11 +91,3 @@ For example, the Confirm Authentication Request using the `sub` identifier might
 
 <aside class="notice">In the example aside, the <code>request</code> parameter is represented as a regular JSON formatted object for clarity only. Indeed, it MUST be correctly encoded, signed and then encrypted as explained in the official OpenID Connect Core specification.</aside>
 
-
-
-
-
-
-
-
-
