@@ -104,8 +104,8 @@ Depending on the template used, the Authentication Request MUST include the foll
 Template | Parameters |  Description
 :-------- | :-------- | :--------
 **adv_payment** | Amount | A string holding an integer value inside. This MUST be set to <code>tag:sixdots.be,2016-08:claim_approval_amount_key</code>.
-<code></code> | Currency | A string holding a valid currency code (e.g. “EUR”). This MUST be set to <code>tag:sixdots.be,2016-08:claim_approval_currency_key</code>.
-<code></code> | IBAN | A string holding a valid IBAN account number. This MUST be set to <code>tag:sixdots.be,2016-08:claim_approval_iban_key</code>.
+<label></label> | Currency | A string holding a valid currency code (e.g. “EUR”). This MUST be set to <code>tag:sixdots.be,2016-08:claim_approval_currency_key</code>.
+<label></label> | IBAN | A string holding a valid IBAN account number. This MUST be set to <code>tag:sixdots.be,2016-08:claim_approval_iban_key</code>.
  **free_text** | Text | A string holding any text to be displayed in the itsme® app. This MUST be set to <code>tag:sixdots.be,2016-08:claim_approval_text_key</code>.
 
 
