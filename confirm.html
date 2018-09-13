@@ -256,45 +256,49 @@
   
 <h1 id='2-integrating-confirm-service'>2. Integrating Confirm service</h1>
 <p>The itsme® Confirm service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. However, there are some specific rules you MUST take into account during the implementation:</p>
-<pre class="highlight http tab-http--inline"><code><span class="err">POST /oidc/authorization
-response_type=code
-client_id=MY_PARTNER_CODE
-scope=openid service:MY_APPROVAL_SERVICE_CODE
-redirect_uri=https:\/\/service-provider.be\/my_call_back_url nonce=A_VALID_NONCE state=A_VALID_STATE request={
-"response_type":"code",
-"client_id":"MY_PARTNER_CODE",
-"redirect_uri":" https:\/\/service-provider.be\/my_call_back_url",
-"aud":"https:\/\/merchant.itsme.be\/oidc",
-"scope":"openid service: MY_APPROVAL_SERVICE_CODE",
-"acr_values":"tag:sixdots.be,2016-06:acr_advanced",
-"iss":"MY_PARTNER_CODE",
-"nonce":"A_VALID_NONCE",
-"state":"A_VALID_STATE",
-"claims":{
-"userinfo":{
-"sub":{
-"value":"THE_END_USER_ALREADY_KNOWN_USER_CODE"
-},
-"tag:sixdots.be,2016-08:claim_approval_template_name":{
-"value":"adv_payment",
-"essential":true
-},
-"tag:sixdots.be,2016-08:claim_approval_amount_key":{
-"value":"100",
-"essential":true
-},
-"tag:sixdots.be,2016-08:claim_approval_currency_key":{
-"value":"EUR",
-"essential":true
-},
-"tag:sixdots.be,2016-08:claim_approval_iban_key":{
-"value":"BE00793774892029",
-"essential":true
-}
-}
-}
-}
-</span></code></pre>
+<pre class="highlight http tab-http--inline"><code><span class="nf">POST</span> <span class="nn">/oidc/authorization</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="s">?response_type=code</span>
+<span class="s">&amp;client_id=yourprojectid</span>
+<span class="s">&amp;redirect_uri=yourredirecturl</span>
+<span class="s">&amp;scope=openid+service%3Ayourservicecode+profile</span>
+<span class="na">&amp;redirect_uri=https</span><span class="p">:</span><span class="s">\/\/service-provider.be\/my_call_back_url </span>
+<span class="s">&amp;nonce=A_VALID_NONCE </span>
+<span class="s">&amp;state=A_VALID_STATE </span>
+<span class="s">&amp;request={</span>
+<span class="s">  "response_type":"code",</span>
+<span class="s">  "client_id":"MY_PARTNER_CODE",</span>
+<span class="s">  "redirect_uri":" https:\/\/service-provider.be\/my_call_back_url",</span>
+<span class="s">  "aud":"https:\/\/merchant.itsme.be\/oidc",</span>
+<span class="s">  "scope":"openid service: MY_APPROVAL_SERVICE_CODE",</span>
+<span class="s">  "acr_values":"tag:sixdots.be,2016-06:acr_advanced",</span>
+<span class="s">  "iss":"MY_PARTNER_CODE",</span>
+<span class="s">  "nonce":"A_VALID_NONCE",</span>
+<span class="s">  "state":"A_VALID_STATE",</span>
+<span class="s">  "claims":{</span>
+<span class="s">    "userinfo":{</span>
+<span class="s">    "sub":{</span>
+<span class="s">      "value":"THE_END_USER_ALREADY_KNOWN_USER_CODE"</span>
+<span class="s">     },</span>
+<span class="s">    "tag:sixdots.be,2016-08:claim_approval_template_name":{</span>
+<span class="s">      "value":"adv_payment",</span>
+<span class="s">      "essential":true</span>
+<span class="s">    },</span>
+<span class="s">    "tag:sixdots.be,2016-08:claim_approval_amount_key":{</span>
+<span class="s">      "value":"100",</span>
+<span class="s">      "essential":true</span>
+<span class="s">    },</span>
+<span class="s">    "tag:sixdots.be,2016-08:claim_approval_currency_key":{</span>
+<span class="s">      "value":"EUR",</span>
+<span class="s">      "essential":true</span>
+<span class="s">    },</span>
+<span class="s">    "tag:sixdots.be,2016-08:claim_approval_iban_key":{</span>
+<span class="s">      "value":"BE00793774892029",</span>
+<span class="s">      "essential":true</span>
+<span class="s">    }</span>
+<span class="s">   }</span>
+<span class="s">  }</span>
+<span class="s">}</span>
+</code></pre>
 <ul>
   <li>The Authentication Request MUST be communicated using HTTPS POST protocol and the <code>application/x-www-form-urlencoded</code> media type. HTTPS GET calls will be refused by the Authorization Server because the Authorization Request MIGHT contain sensitive data.   </li>
   <li>You CAN also specify the type of info you want to have visualized in the itsme® app. This will be done by using the key <code>tag:sixdots.be,2016-08:claim_approval_template_name</code> in the </code>claim</code> parameter when forming the Authentication Request. More information on the available templates can be found in the Appendixes.</li>    
