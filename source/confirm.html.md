@@ -97,13 +97,15 @@ For example, the Confirm Authentication Request using the `sub` identifier might
 
 ## 3.1 Templates
 
-There are currently two templates that can be used when forming a Confirm Authentication Request. Depending on the template used, the Authentication Request MUST include the following parameters in the body:
+There are currently two templates that can be used when forming a Confirm Authentication Request. 
+
+Depending on the template used, the Authentication Request MUST include the following parameters in the body:
 
 Template | Parameters |  Description
 :-------- | :-------- | :--------
 **adv_payment** | Amount | A string holding an integer value inside. This MUST be set to <code>tag:sixdots.be,2016-08:claim_approval_amount_key</code>.
- | Currency | A string holding a valid currency code (e.g. “EUR”). This MUST be set to <code>tag:sixdots.be,2016-08:claim_approval_currency_key</code>.
- | IBAN | A string holding a valid IBAN account number. This MUST be set to <code>tag:sixdots.be,2016-08:claim_approval_iban_key</code>.
+<code></code> | Currency | A string holding a valid currency code (e.g. “EUR”). This MUST be set to <code>tag:sixdots.be,2016-08:claim_approval_currency_key</code>.
+<code></code> | IBAN | A string holding a valid IBAN account number. This MUST be set to <code>tag:sixdots.be,2016-08:claim_approval_iban_key</code>.
  **free_text** | Text | A string holding any text to be displayed in the itsme® app. This MUST be set to <code>tag:sixdots.be,2016-08:claim_approval_text_key</code>.
 
 
