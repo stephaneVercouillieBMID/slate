@@ -657,7 +657,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 </tr>
 </tbody></table>
 
-<p>According to the <code>private_key_jwt</code> client authentication method, the <code>client_assertion</code> JWT must contain the following parameters:</p>
+<p>According to the <code>private_key_jwt</code> client authentication method, the <code>client_assertion</code> JWT MUST contain the following parameters:</p>
 
 <table><thead>
 <tr>
@@ -720,27 +720,27 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left"><strong><code>access_token</code></strong></td>
+<td style="text-align: left"><strong>access_token</strong></td>
 <td style="text-align: left">Always</td>
 <td style="text-align: left">The Access Token which may be used to access the userInfo Endpoint.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong><code>token_type</code></strong></td>
+<td style="text-align: left"><strong>token_type</strong></td>
 <td style="text-align: left">Always</td>
 <td style="text-align: left">Set to <code>Bearer</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong><code>id_token</code></strong></td>
+<td style="text-align: left"><strong>id_token</strong></td>
 <td style="text-align: left">Always</td>
 <td style="text-align: left">The Base64URL encoded token encrypted with your public key and signed with the itsme® private key.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong><code>at_hash</code></strong></td>
+<td style="text-align: left"><strong>at_hash</strong></td>
 <td style="text-align: left">Not supported</td>
 <td style="text-align: left">itsme® does not provide any value for this parameter.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong><code>refresh_token</code></strong></td>
+<td style="text-align: left"><strong>refresh_token</strong></td>
 <td style="text-align: left">Not supported</td>
 <td style="text-align: left">itsme® does not provide any value for this parameter as it only maintains short-lived session to enforce re-authentication.</td>
 </tr>
