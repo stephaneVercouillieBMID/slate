@@ -70,7 +70,8 @@ redirect_uri=https:\/\/service-provider.be\/my_call_back_url nonce=A_VALID_NONCE
 ```
 
 <ul>
-  <li>The Authentication Request MUST be communicated using HTTPS POST protocol and the <code>application/x-www-form-urlencoded</code> media type. HTTPS GET calls will be refused by the Authorization Server because the Authorization Request MIGHT contain sensitive data.</li>
+  <li>The Authentication Request MUST be communicated using HTTPS POST protocol and the <code>application/x-www-form-urlencoded</code> media type. HTTPS GET calls will be refused by the Authorization Server because the Authorization Request MIGHT contain sensitive data.   </li>
+  <li>You CAN also specify the type of info you want to have visualized in the itsme® app. This will be done by using the key <code>tag:sixdots.be,2016-08:claim_approval_template_name</code> in the </code>claim</code> parameter when forming the Authentication Request. More information on the available templates can be found in the Appendixes.</li>    
   <li>Using the <code>request</code> or <code>request_uri</code> parameter is mandatory when forming the Authentication Request. This parameter MUST be signed with your private key and/or encrypted with the itsme® public key.</li>
   <li>The <code>prompt</code> parameter can be <code>login</code> and/or <login>consent</code>.</li>
   <li>The Token Endpoint MUST ALWAYS be called to validate that the Authorization Code is valid and corresponds effectively to the Confirm transaction initiated by your application.</li>
@@ -90,4 +91,25 @@ redirect_uri=https:\/\/service-provider.be\/my_call_back_url nonce=A_VALID_NONCE
 For example, the Confirm Authentication Request using the `sub` identifier might look like the sample aside. The value `THE_END_USER_ALREADY_KNOWN_USER_CODE` MUST be replaced with a valid `sub` (e.g.: an identifier for the User, unique among all itsme® accounts and never reused).
 
 <aside class="notice">In the example aside, the <code>request</code> parameter is represented as a regular JSON formatted object for clarity only. Indeed, it MUST be correctly encoded, signed and then encrypted as explained in the official OpenID Connect Core specification.</aside>
+
+
+# 3. Appendixes
+
+## 3.1 Templates
+
+There are currently two templates that can be used when forming a Confirm Authentication Request. Depending on the template used, the Authentication Request MUST include the following parameters in the body:
+
+Template | Parameters |  Description
+:-------- | :-------- | :--------
+**adv_payment** | Amount | A string holding an integer value inside. This MUST be set to <code>tag:sixdots.be,2016-08:claim_approval_amount_key</code>.
+ | Currency | A string holding a valid currency code (e.g. “EUR”). This MUST be set to <code>tag:sixdots.be,2016-08:claim_approval_currency_key</code>.
+ | IBAN | A string holding a valid IBAN account number. This MUST be set to <code>tag:sixdots.be,2016-08:claim_approval_iban_key</code>.
+ **free_text** | Text | A string holding any text to be displayed in the itsme® app. This MUST be set to <code>tag:sixdots.be,2016-08:claim_approval_text_key</code>.
+
+
+
+
+
+
+
 
