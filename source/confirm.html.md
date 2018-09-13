@@ -97,9 +97,7 @@ For example, the Confirm Authentication Request using the `sub` identifier might
 
 ## 3.1 Templates
 
-There are currently two templates that can be used when forming a Confirm Authentication Request. 
-
-Depending on the template used, the Authentication Request MUST include the following parameters in the body:
+There are currently two templates that can be used when forming a Confirm Authentication Request. Depending on the template used, the Authentication Request MUST include the following parameters in the body:
 
 Template | Parameters |  Description
 :-------- | :-------- | :--------
