@@ -11,7 +11,7 @@ toc_footers:
 search: true
 ---
 # 1. Introduction
-itsme® is an identity checking system allowing Service Providers to use verified identities – through 4 services – for authentication and authorization on their web desktop, mobile web and in-app mobile applications:
+itsme® is a trusted identity provider allowing partners to use verified identities for authentication and authorization on their web desktop, mobile web and mobile applications. To do so, itsme® provides 4 services:
 <ul>
   <li>Login</li>
   <li>Confirm</li>
@@ -23,33 +23,9 @@ The objective of this document is to provide all the information needed to integ
 
   
 <a name="Onboarding"></a>
-# 2. Creating sandbox
+# 2. Prerequisites
  
-Before your application can use itsme® Login and Share Data services, you must set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain credentials (`client_id`, ServiceCode, JWKSet URL and associated certificates,...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. 
-
-<aside class="notice">When creating your sandbox, you have to provide us one JWKSet URL. This URL must be an HTTPS one and the corresponding certificates chain must also be provided. It will be used by our Back-End for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Following requirements MUST be met:
-<ul>
- <li>Only one JWKSet URL MUST be specified.</li>
- <li>The certificate chain MUST contain the root, the intermediate Certificate Authority and the final public certificate.</li>
- <li>On the HTTPS protocol level, connections MUST be secured using trusted Root CA.</li>
- <li>A self-signed certificate MUST NOT be used.</li>
- <li>Belgian Mobile ID MUST be notified on time if the certificate or the URL is changed, and be provided with the new certificate or URL.</li>
-</ul>
-</aside>
-
-<aside class="notice">If not explicitely set, a default JWKSet will be used during Sandbox creation. The public keys are exposed on <a href="https://belgianmobileid.github.io/slate/jwks.json" target="blank">https://belgianmobileid.github.io/slate/jwks.json</a> while the corresponding private keys are exposed on <a href="https://belgianmobileid.github.io/slate/private_jwks.json" target="blank">https://belgianmobileid.github.io/slate/private_jwks.json</a>.
-</aside>
-
-<aside class="notice">You can find our JWKSet URL in the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>jwks_uri</code>.
-</aside>
-
-<aside class="notice">Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our Back-End.
-<ul>
-  <li>Additional URL parameters are not allowed and entire redirect_uri MUST match the one provided in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>.</li>
-  <li>Only one redirect_uri MUST be specified for each service.</li>
-  <li>Belgian Mobile ID MUST be notified on time if the URLs are changed, and be provided with the new URL.</li>
-</ul>
-</aside>
+Before you can integrate your application with itsme® Login and Share Data services, you must set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.
 
 
 # 3. Integrating Login and Share Data services
@@ -60,7 +36,7 @@ The itsme® Login and Share Data service integration is based on the <a href="ht
  
 <ol>
   <li>The user indicates on your end he wishes to authenticate with itsme</li>
-  <li>Your web desktop, mobile web or in-app mobile application (e.g.: The Relying Party) sends a request to itsme® (e.g.: OpenID Provider) to authenticate the User. This request will redirect the user to our Front-End.
+  <li>Your web desktop, mobile web or mobile application (e.g.: The Relying Party) sends a request to itsme® (e.g.: OpenID Provider) to authenticate the User. This request will redirect the user to our Front-End.
   itsme® then authenticates the User by asking him
     <ul type>
       <li>to enter his phone number on the itsme® OpenID web page</li>
@@ -68,7 +44,7 @@ The itsme® Login and Share Data service integration is based on the <a href="ht
       <li>to provide his credentials (itsme® code or fingerprint or FaceID)</li>
     </ul>
   
-  If you are building a mobile web or in-app mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links and App links.</li>
+  If you are building a mobile web or mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links and App links.</li>
   <li>Once the User has authorized the request and has been authenticated the request itsme® will return an Authorization Code to your server component.</li>
   <li>Your server component contacts the Token Endpoint and exchanges the Authorization Code for an ID Token identifying the User and an Access Token, redirecting the user to your mobile or web application.</li>
   <li>You may request the additional user information from the userInfo Endpoint by presenting the Access Token obtained in the previous step.</li>
@@ -487,7 +463,7 @@ HTTP/1.1 401 Unauthorized
 
 # 4. Mapping the User
 
-To sign in successfully in your web desktop, mobile web or in-app mobile application, a given user must be provisioned in OpenID Connect and then mapped to a user account in your database. By default, your application Server will use the subject identifier, or `sub` claim, in the ID Token to identify and verify a user account. Typically, the `sub` claim is a unique string that identifies a given user account. The benefit of using a `sub` claim is that it will not change, even if other user attributes (email, phone number, etc) associated with that account are updated. 
+To sign in successfully in your web desktop, mobile web or mobile application, a given user must be provisioned in OpenID Connect and then mapped to a user account in your database. By default, your application Server will use the subject identifier, or `sub` claim, in the ID Token to identify and verify a user account. Typically, the `sub` claim is a unique string that identifies a given user account. The benefit of using a `sub` claim is that it will not change, even if other user attributes (email, phone number, etc) associated with that account are updated. 
 
 The `sub` claim value must be mapped to the corresponding user in your application Server. If you already mapped this `sub` to an account in your application repository, you should start an application session for that User.
 
