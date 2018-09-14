@@ -36,7 +36,7 @@ The itsme® Login and Share Data service integration is based on the <a href="ht
  
 <ol>
   <li>The user indicates on your end he wishes to authenticate with itsme</li>
-  <li>Your web desktop, mobile web or mobile application (e.g.: The Relying Party) sends a request to itsme® (e.g.: OpenID Provider) to authenticate the User. This request will redirect the user to our Front-End.
+  <li>Your web desktop, mobile web or mobile application (aka 'Relying Party' in the OpenID Connect specification) sends a request to itsme® (aka 'OpenID Provider' in the OpenID Connect specification) to authenticate the User. This request will redirect the user to the itsme® Front-End.
   itsme® then authenticates the User by asking him
     <ul type>
       <li>to enter his phone number on the itsme® OpenID web page</li>
@@ -44,10 +44,10 @@ The itsme® Login and Share Data service integration is based on the <a href="ht
       <li>to provide his credentials (itsme® code or fingerprint or FaceID)</li>
     </ul>
   
-  If you are building a mobile web or mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links and App links.</li>
-  <li>Once the User has authorized the request and has been authenticated the request itsme® will return an Authorization Code to your server component.</li>
-  <li>Your server component contacts the Token Endpoint and exchanges the Authorization Code for an ID Token identifying the User and an Access Token, redirecting the user to your mobile or web application.</li>
-  <li>You may request the additional user information from the userInfo Endpoint by presenting the Access Token obtained in the previous step.</li>
+  If you are building a mobile web or mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links or App links mechanism.</li>
+  <li>Once the User has authorized the request and has been authenticated, itsme® will return an Authorization Code to the Service Provider Front-End, redirecting the user to your mobile or web application.</li>
+  <li>The Service Provider Back-End calls the itsme® Token Endpoint and exchanges the Authorization Code for an ID Token identifying the User and an Access Token.</li>
+  <li>The Service Provider Back-End requests the additional user information from the itsme® userInfo Endpoint by presenting the Access Token obtained in the previous step.</li>
   <li>At this stage you are able to confirm the success of the operation and display a success message.</li>
 </ol>
 
