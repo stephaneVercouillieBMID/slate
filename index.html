@@ -222,16 +222,16 @@
             <a href="#1-introduction" class="toc-h1 toc-link" data-title="1-introduction">1. Introduction</a>
           </li>
           <li>
-            <a href="#2-creating-sandbox" class="toc-h1 toc-link" data-title="2-creating-sandbox">2. Creating sandbox</a>
+            <a href="#2-prerequisites" class="toc-h1 toc-link" data-title="2-prerequisites">2. Prerequisites</a>
           </li>
           <li>
             <a href="#3-integrating-login-and-share-data-services" class="toc-h1 toc-link" data-title="3-integrating-login-and-share-data-services">3. Integrating Login and Share Data services</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#3-1-checking-itsme-openid-configuration" class="toc-h2 toc-link" data-title="3-1-checking-itsme-openid-configuration">3.1. Checking itsme® OpenID Configuration</a>
+                    <a href="#3-1-checking-itsme-openid-provider-configuration" class="toc-h2 toc-link" data-title="3-1-checking-itsme-openid-provider-configuration">3.1. Checking itsme® OpenID Provider configuration</a>
                   </li>
                   <li>
-                    <a href="#3-2-forming-an-authentication-request" class="toc-h2 toc-link" data-title="3-2-forming-an-authentication-request">3.2. Forming an Authentication Request</a>
+                    <a href="#3-2-forging-an-authentication-request" class="toc-h2 toc-link" data-title="3-2-forging-an-authentication-request">3.2. Forging an Authentication Request</a>
                   </li>
                   <li>
                     <a href="#3-3-capturing-an-authorization-code" class="toc-h2 toc-link" data-title="3-3-capturing-an-authorization-code">3.3. Capturing an Authorization Code</a>
@@ -283,7 +283,7 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='1-introduction'>1. Introduction</h1>
-<p>itsme® is an identity checking system allowing Service Providers to use verified identities – through 4 services – for authentication and authorization on their web desktop, mobile web and in-app mobile applications:
+<p>itsme® is a trusted identity provider allowing partners to use verified identities for authentication and authorization on their web desktop, mobile web and mobile applications. To do so, itsme® provides 4 services:
 <ul>
   <li>Login</li>
   <li>Confirm</li>
@@ -294,32 +294,8 @@
 <p>The objective of this document is to provide all the information needed to integrate the <strong>Login</strong> and <strong>Share Data</strong> services using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.</p>
 
 <p><a name="Onboarding"></a></p>
-<h1 id='2-creating-sandbox'>2. Creating sandbox</h1>
-<p>Before your application can use itsme® Login and Share Data services, you must set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain credentials (<code>client_id</code>, ServiceCode, JWKSet URL and associated certificates,...), set a redirect URI, and customize the branding information that the Users see on the user-consent screen (e.g.: WYSIWYS screen) in the itsme® app. </p>
-
-<aside class="notice">When creating your sandbox, you have to provide us one JWKSet URL. This URL must be an HTTPS one and the corresponding certificates chain must also be provided. It will be used by our Back-End for the decryption and signature verification of the JWTokens present in the OpenID Connect flow. Following requirements MUST be met:
-<ul>
- <li>Only one JWKSet URL MUST be specified.</li>
- <li>The certificate chain MUST contain the root, the intermediate Certificate Authority and the final public certificate.</li>
- <li>On the HTTPS protocol level, connections MUST be secured using trusted Root CA.</li>
- <li>A self-signed certificate MUST NOT be used.</li>
- <li>Belgian Mobile ID MUST be notified on time if the certificate or the URL is changed, and be provided with the new certificate or URL.</li>
-</ul>
-</aside>
-
-<aside class="notice">If not explicitely set, a default JWKSet will be used during Sandbox creation. The public keys are exposed on <a href="https://belgianmobileid.github.io/slate/jwks.json" target="blank">https://belgianmobileid.github.io/slate/jwks.json</a> while the corresponding private keys are exposed on <a href="https://belgianmobileid.github.io/slate/private_jwks.json" target="blank">https://belgianmobileid.github.io/slate/private_jwks.json</a>.
-</aside>
-
-<aside class="notice">You can find our JWKSet URL in the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>, using the key <code>jwks_uri</code>.
-</aside>
-
-<aside class="notice">Redirect URIs (to which the User will be redirected after authentication in the itsme App) need to be whitelisted by our Back-End.
-<ul>
-  <li>Additional URL parameters are not allowed and entire redirect_uri MUST match the one provided in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>.</li>
-  <li>Only one redirect_uri MUST be specified for each service.</li>
-  <li>Belgian Mobile ID MUST be notified on time if the URLs are changed, and be provided with the new URL.</li>
-</ul>
-</aside>
+<h1 id='2-prerequisites'>2. Prerequisites</h1>
+<p>Before you can integrate your application with itsme® Login and Share Data services, you must set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.</p>
 <h1 id='3-integrating-login-and-share-data-services'>3. Integrating Login and Share Data services</h1>
 <p>The itsme® Login and Share Data service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following diagram:</p>
 
@@ -327,7 +303,7 @@
 
 <ol>
   <li>The user indicates on your end he wishes to authenticate with itsme</li>
-  <li>Your web desktop, mobile web or in-app mobile application (e.g.: The Relying Party) sends a request to itsme® (e.g.: OpenID Provider) to authenticate the User. This request will redirect the user to our Front-End.
+  <li>Your web desktop, mobile web or mobile application (aka 'Relying Party' in the OpenID Connect specification) sends a request to itsme® (aka 'OpenID Provider' in the OpenID Connect specification) to authenticate the User. This request will redirect the user to the itsme® Front-End.
   itsme® then authenticates the User by asking him
     <ul type>
       <li>to enter his phone number on the itsme® OpenID web page</li>
@@ -335,24 +311,31 @@
       <li>to provide his credentials (itsme® code or fingerprint or FaceID)</li>
     </ul>
   
-  If you are building a mobile web or in-app mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links and App links.</li>
-  <li>Once the User has authorized the request and has been authenticated the request itsme® will return an Authorization Code to your server component.</li>
-  <li>Your server component contacts the Token Endpoint and exchanges the Authorization Code for an ID Token identifying the User and an Access Token, redirecting the user to your mobile or web application.</li>
-  <li>You may request the additional user information from the userInfo Endpoint by presenting the Access Token obtained in the previous step.</li>
+  If you are building a mobile web or mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links or App links mechanism.</li>
+  <li>Once the User has authorized the request and has been authenticated, itsme® will return an Authorization Code to the Service Provider Front-End, redirecting the user to your mobile or web application.</li>
+  <li>The Service Provider Back-End calls the itsme® Token Endpoint and exchanges the Authorization Code for an ID Token identifying the User and an Access Token.</li>
+  <li>The Service Provider Back-End requests the additional user information from the itsme® userInfo Endpoint by presenting the Access Token obtained in the previous step.</li>
   <li>At this stage you are able to confirm the success of the operation and display a success message.</li>
 </ol>
 
 <p>This flow is described in much more detail in the following sections.</p>
 
 <p><a name="OpenIDConfig"></a></p>
-<h2 id='3-1-checking-itsme-openid-configuration'>3.1. Checking itsme® OpenID Configuration</h2>
-<p>To simplify implementations and increase flexibility, <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID Connect allows the use of a Discovery Document</a>, a JSON document containing key-value pairs which provide details about itsme® system configuration, such as the URIs of the authorization, token, UserInfo, supported claims and JWKSet URL.</p>
+<h2 id='3-1-checking-itsme-openid-provider-configuration'>3.1. Checking itsme® OpenID Provider configuration</h2>
+<p>To simplify implementations and increase flexibility, <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID Connect allows the use of a Discovery Document</a>, a JSON document containing key-value pairs which provide details about itsme® configuration, such as the URIs of the </p>
+
+<ul>
+  <li>Authorization, Token and userInfo Endpoints</li>
+  <li>supported claims</li>
+  <li>JWKSet URL</li>
+  <li>...</li>
+</ul>
 
 <p>The Discovery document for itsme® services may be retrieved from: </p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">System configuration</th>
+<th style="text-align: left">Environment</th>
 <th style="text-align: left">URL</th>
 </tr>
 </thead><tbody>
@@ -367,13 +350,11 @@
 </tbody></table>
 
 <p><a name="AuthNRequest"></a></p>
-<h2 id='3-2-forming-an-authentication-request'>3.2. Forming an Authentication Request</h2>
-<p>First, you will form a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <code>authorization_endpoint</code>.</p>
+<h2 id='3-2-forging-an-authentication-request'>3.2. Forging an Authentication Request</h2>
+<p>First, you will forg a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <code>authorization_endpoint</code>.</p>
 
-<aside class="notice">We strongly recommend to use only the HTTPS GET method, since POST method will not be authorized when triggering the itsme App through the Universal Link mechanism more information about Universal links and App links can be found in <a href="#UniversalLinks">section3.4</a>.
+<aside class="alert">Since POST method will not be authorized when triggering the itsme® App through the Universal/App Link mechanism only HTTP GET method is supported on the Authorisation Endpoint. More information about Universal links and App links can be found in <a href="#UniversalLinks">section3.4</a>.
 </aside>
-
-<aside class="notice">In order to avoid tampering, you can use the <code>request</code> or <code>request_URI</code> parameter in the Authentication Request. This enables sending Authentication Request parameters in a self-contained JWT instead of plain request parameters.</aside>
 
 <p>The OpenID Connect Core Specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:</p>
 <pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/authorization?response_type=code</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -1200,7 +1181,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 <span class="s">  WWW-Authenticate: error="invalid_token",</span>
 <span class="s">    error_description="The Access Token expired"</span>
 </code></pre><h1 id='4-mapping-the-user'>4. Mapping the User</h1>
-<p>To sign in successfully in your web desktop, mobile web or in-app mobile application, a given user must be provisioned in OpenID Connect and then mapped to a user account in your database. By default, your application Server will use the subject identifier, or <code>sub</code> claim, in the ID Token to identify and verify a user account. Typically, the <code>sub</code> claim is a unique string that identifies a given user account. The benefit of using a <code>sub</code> claim is that it will not change, even if other user attributes (email, phone number, etc) associated with that account are updated. </p>
+<p>To sign in successfully in your web desktop, mobile web or mobile application, a given user must be provisioned in OpenID Connect and then mapped to a user account in your database. By default, your application Server will use the subject identifier, or <code>sub</code> claim, in the ID Token to identify and verify a user account. Typically, the <code>sub</code> claim is a unique string that identifies a given user account. The benefit of using a <code>sub</code> claim is that it will not change, even if other user attributes (email, phone number, etc) associated with that account are updated. </p>
 
 <p>The <code>sub</code> claim value must be mapped to the corresponding user in your application Server. If you already mapped this <code>sub</code> to an account in your application repository, you should start an application session for that User.</p>
 
