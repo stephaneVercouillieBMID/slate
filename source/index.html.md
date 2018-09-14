@@ -29,9 +29,8 @@ The itsme® Login and Share Data service integration is based on the <a href="ht
  ![Sequence diagram describing the OpenID flow](OpenID_Login_SeqDiag.png)
  
 <ol>
-  <li>The user indicates on your end he wishes to authenticate with itsme</li>
-  <li>Your web desktop, mobile web or mobile application (aka 'Relying Party' in the OpenID Connect specification) sends a request to itsme® (aka 'OpenID Provider' in the OpenID Connect specification) to authenticate the User. This request will redirect the user to the itsme® Front-End.
-  itsme® then authenticates the User by asking him
+  <li>The User indicates on your end he wishes to authenticate with itsme®</li>
+  <li>Your web desktop, mobile web or mobile application (aka 'Relying Party' in the OpenID Connect specification) sends a request to itsme® (aka 'OpenID Provider' in the OpenID Connect specification) to authenticate the User. This request will redirect the user to the itsme® Front-End. itsme® then authenticates the User by asking him
     <ul type>
       <li>to enter his phone number on the itsme® OpenID web page</li>
       <li>authorize the release of some information’s to your application</li>
