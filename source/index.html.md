@@ -11,13 +11,7 @@ toc_footers:
 search: true
 ---
 # 1. Introduction
-itsme® is a trusted identity provider allowing partners to use verified identities for authentication and authorization on their web desktop, mobile web and mobile applications. To do so, itsme® provides 4 services:
-<ul>
-  <li>Login</li>
-  <li>Confirm</li>
-  <li>Share Data</li>
-  <li>Sign</li>
-</ul>
+itsme® is a trusted identity provider allowing partners to use verified identities for authentication and authorization on web desktop, mobile web and mobile applications. 
 
 The objective of this document is to provide all the information needed to integrate the **Login** and **Share Data** services using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.
 
