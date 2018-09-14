@@ -26,7 +26,7 @@ Before you can integrate your application with itsme® Login and Share Data serv
 
 The itsme® Login and Share Data service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following diagram:
   
- ![Sequence diagram describing the OpenID flow](OpenID_High_level.png)
+ ![Sequence diagram describing the OpenID flow](OpenID_Login_SeqDiag.png)
  
 <ol>
   <li>The user indicates on your end he wishes to authenticate with itsme</li>
