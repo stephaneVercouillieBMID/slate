@@ -19,7 +19,7 @@ The objective of this document is to provide all the information needed to integ
 <a name="Onboarding"></a>
 # 2. Prerequisites
  
-Before you can integrate your application with itsme® Login and Share Data services, you must set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.
+Before you can integrate your application with itsme® Login and Share Data services, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.
 
 
 # 3. Integrating Login and Share Data services
