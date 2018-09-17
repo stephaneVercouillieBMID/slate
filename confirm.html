@@ -222,6 +222,9 @@
             <a href="#1-introduction" class="toc-h1 toc-link" data-title="1-introduction">1. Introduction</a>
           </li>
           <li>
+            <a href="#2-prerequisites" class="toc-h1 toc-link" data-title="2-prerequisites">2. Prerequisites</a>
+          </li>
+          <li>
             <a href="#2-integrating-confirm-service" class="toc-h1 toc-link" data-title="2-integrating-confirm-service">2. Integrating Confirm service</a>
           </li>
           <li>
@@ -242,18 +245,15 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='1-introduction'>1. Introduction</h1>
-<p>itsme® is an identity checking system allowing Service Providers to use verified identities – through 4 services – for authentication and authorization on their web desktop, mobile web and in-app mobile applications:
-<ul>
-  <li>Login</li>
-  <li>Confirm</li>
-  <li>Share Data</li>
-  <li>Sign</li>
-</ul></p>
+<p>itsme® is a trusted identity provider allowing partners to use verified identities for authentication and authorization on web desktop, mobile web and mobile applications. </p>
 
 <p>The objective of this document is to provide all the information needed to integrate the <strong>Confirm</strong> service using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.</p>
 
-<aside class="notice">The <a href="https://belgianmobileid.github.io/slate/" target="blank">itsme® OpenID Login and Share Data</a> specifications MUST be understood first, before going further into the next paragraphs.</aside>
-  
+<p><a name="Onboarding"></a></p>
+<h1 id='2-prerequisites'>2. Prerequisites</h1>
+<p>Before you can integrate your application with itsme® Confirm service, you must set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.</p>
+
+<p>Moreover, the <a href="https://belgianmobileid.github.io/slate/" target="blank">itsme® OpenID Login and Share Data</a> specifications MUST be understood first, before going further into the next paragraphs.</p>
 <h1 id='2-integrating-confirm-service'>2. Integrating Confirm service</h1>
 <p>The itsme® Confirm service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. However, there are some specific rules you MUST take into account during the implementation:</p>
 <pre class="highlight http tab-http--inline"><code><span class="nf">POST</span> <span class="nn">/oidc/authorization</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>

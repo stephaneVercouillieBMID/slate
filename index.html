@@ -283,28 +283,21 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='1-introduction'>1. Introduction</h1>
-<p>itsme® is a trusted identity provider allowing partners to use verified identities for authentication and authorization on their web desktop, mobile web and mobile applications. To do so, itsme® provides 4 services:
-<ul>
-  <li>Login</li>
-  <li>Confirm</li>
-  <li>Share Data</li>
-  <li>Sign</li>
-</ul></p>
+<p>itsme® is a trusted identity provider allowing partners to use verified identities for authentication and authorization on web desktop, mobile web and mobile applications. </p>
 
 <p>The objective of this document is to provide all the information needed to integrate the <strong>Login</strong> and <strong>Share Data</strong> services using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.</p>
 
 <p><a name="Onboarding"></a></p>
 <h1 id='2-prerequisites'>2. Prerequisites</h1>
-<p>Before you can integrate your application with itsme® Login and Share Data services, you must set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.</p>
+<p>Before you can integrate your application with itsme® Login and Share Data services, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.</p>
 <h1 id='3-integrating-login-and-share-data-services'>3. Integrating Login and Share Data services</h1>
 <p>The itsme® Login and Share Data service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following diagram:</p>
 
-<p><img src="OpenID_High_level.png" alt="Sequence diagram describing the OpenID flow" /></p>
+<p><img src="OpenID_Login_SeqDiag.png" alt="Sequence diagram describing the OpenID flow" /></p>
 
 <ol>
-  <li>The user indicates on your end he wishes to authenticate with itsme</li>
-  <li>Your web desktop, mobile web or mobile application (aka 'Relying Party' in the OpenID Connect specification) sends a request to itsme® (aka 'OpenID Provider' in the OpenID Connect specification) to authenticate the User. This request will redirect the user to the itsme® Front-End.
-  itsme® then authenticates the User by asking him
+  <li>The User indicates on your end he wishes to authenticate with itsme®</li>
+  <li>Your web desktop, mobile web or mobile application (aka 'Relying Party' in the OpenID Connect specification) sends a request to itsme® (aka 'OpenID Provider' in the OpenID Connect specification) to authenticate the User. This request will redirect the user to the itsme® Front-End. itsme® then authenticates the User by asking him
     <ul type>
       <li>to enter his phone number on the itsme® OpenID web page</li>
       <li>authorize the release of some information’s to your application</li>
