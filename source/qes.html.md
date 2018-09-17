@@ -51,6 +51,8 @@ The itsme® Sign flow goes through the steps shown in the sequence diagram below
   <li>At this stage, your SCA is able to confirm the success of the operation and display a success message.</li>
 </ol>
 
+
+<a name="OpenIDQES"></a>
 ## 3.1. Checking itsme® Sign configuration
 
 To simplify implementations and increase flexibility, all needed key-value pairs about itsme® configuration can be retrieved from a JSON document, such as 
@@ -69,5 +71,73 @@ Environment | URL
 **SANDBOX** | 
 **PRODUCTION** | 
  
+
+## 3.2. Starting a new User identification session
+
+First, you will forg a HTTPS POST request that MUST be sent to the itsme® User Identification Endpoint. The itsme® User Identification Endpoint can be retrieved from the [itsme® JSON document](#OpenIDQES), using the key `user_identification`.
+
+Below you will find a number of mandatory and recommended parameters to integrate in the HTTPS POST query string:
+
+```http--inline
+POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/user_identification HTTP/1.1
+{
+	"client_id":"myClientID", 
+	"serviceCode":"myServiceCode", 
+	"redirectUrl":"myServiceRedirectUrl",
+	"lang":"FR"
+}
+```
+
+Parameter | Type | Required | Description
+:-------- | :-------- | :--------| :----- 
+**client_id** | String | Required | This MUST be the client identifier (e.g. : Project ID) you received when registering your application in the [itsme® B2B portal](#Onboarding)
+**sub** | String | Optional | An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.
+**serviceCode** | String | Required | This parameter allows the application to express the desired scope. It MUST contain the value `service:service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
+**lang** | String | Optional | This parameters defines the recommended language to be used for GUI interaction. If the parameter is not defined in the request, then the language that will be used is the one of the cookie. This defaults to the language used in the browser if there is no cookie. 
+**redirect_uri** | String | Required | This is the URI to which the Identification Response should be sent. This MUST exactly match the redirect URI of the specified service defined when registering your application in the [itsme® B2B portal](#Onboarding).
+
+
+## 3.3. Capturing the Identification Response
+
+If the User is successfully authenticated and authorizes access to the Identification Request, itsme® will return a response to your server component. This is achieved by returning an Identification Response to the `redirect_uri` specified previously in the Identification Request.
+ 
+```http--inline
+{
+    "status": "OK",
+    "asyncRespId": "4kpr55zdi2mk9ns27awgngkltoenfy04gi9b",
+    "identificationUrl": "https://uatmerchant.itsme.be/qes/identify_yourself?language=FR&q=ss4liz8kjk1xxz8taj3nbxae7zqty6eq"
+}
+ ```
+The response will contain:
+
+Values | Type | Returned | Description
+:----- |:-------- |:-------- |:---
+**status** | String | Always | It is the status of User Identification Request.
+**statusReason** | String | Always | It explains the reason of a failure. No reason is given in case the request status is pending or success. 
+**asyncRespId** | String | Always | This parameter is the identifier of a User identification session. 
+**identificationUrl** | String | Always | This is the itsme® URL of the signature welcome page. On this webpage the User will identify himself by entering his mobile phone number. 
+
+The following table describes the various error codes that will be returned to the User using the appropriate HTTPS status code:
+
+Status code | Description
+:-- | :-- 
+**400**  | Returned in case of invalid Request Object.
+**409** | Returned in case of error.
+**500** | Internal Server Error.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
    
