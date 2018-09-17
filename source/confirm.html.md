@@ -15,7 +15,12 @@ itsme® is a trusted identity provider allowing partners to use verified identit
 
 The objective of this document is to provide all the information needed to integrate the **Confirm** service using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.
 
-<aside class="notice">The <a href="https://belgianmobileid.github.io/slate/" target="blank">itsme® OpenID Login and Share Data</a> specifications MUST be understood first, before going further into the next paragraphs.</aside>
+<a name="Onboarding"></a>
+# 2. Prerequisites
+ 
+Before you can integrate your application with itsme® Confirm service, you must set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.
+
+Moreover, the <a href="https://belgianmobileid.github.io/slate/" target="blank">itsme® OpenID Login and Share Data</a> specifications MUST be understood first, before going further into the next paragraphs.
   
   
 # 2. Integrating Confirm service
