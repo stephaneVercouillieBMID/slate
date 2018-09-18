@@ -99,6 +99,8 @@ Parameter | Type | Required | Description
 
 ## 3.3. Capturing the Identification Response
 
+### Capturing a successful Identification Code
+
 If the User is successfully authenticated and authorizes access to the Identification Request, itsme® will return a response to your server component. This is achieved by returning an Identification Response to the `redirect_uri` specified previously in the Identification Request.
  
 ```http--inline
@@ -117,13 +119,9 @@ Values | Type | Returned | Description
 **asyncRespId** | String | Always | This parameter is the identifier of a User identification session. 
 **identificationUrl** | String | Always | This is the itsme® URL of the signature welcome page. On this webpage the User will identify himself by entering his mobile phone number. 
 
-The following table describes the various error codes that will be returned to the User using the appropriate HTTPS status code:
+### Handling Error Response
 
-Status code | Description
-:-- | :-- 
-**400**  | Returned in case of invalid Request Object.
-**409** | Returned in case of error.
-**500** | Internal Server Error.
+See [Appendixes](#RequestObjectByValue) to get more information on the error codes.
 
 
 ## 3.4. Requesting the User certificate  
@@ -328,19 +326,29 @@ Status code | Description
 
 
 
+# 4. Appendixes
+
+## 4.1. Handling Error Response
+
+If one of the above request is invalid or unauthorized an error code will be returned to the User using the appropriate HTTPS status code, as listed in the table below:
+
+Status code | Description
+:-- | :-- 
+**400**  | Returned in case of invalid Request Object.
+**409** | Returned in case of error.
+**500** | Internal Server Error.
+
+The response will contain the request `status` and the `statusReason` value. The following table describes the various error codes that can be returned in the `statusReason` value of the error response:
 
 
 
 
-
-
-
-
-
-
-
-
-
+Error	Description
+interaction_required	The Authorization Server requires User interaction of some form to proceed.
+invalid_request_object	The request parameter contains an invalid Request Object.
+request_uri_not_supported	This error is returned because itsme® does not support use of the request_uri parameter defined in the JWTs.
+registration_not_supported	This error is returned because itsme® does not support use of the registration parameter.
+All other HTTPS errors unrelated to OpenID Connect Core will be returned to the User using the appropriate HTTPS status code.
 
 
 
