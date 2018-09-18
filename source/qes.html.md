@@ -340,6 +340,29 @@ Status code | Description
 
 The response will contain the request `status` and the `statusReason` value. The following table describes the various error codes that can be returned in the `statusReason` value of the error response:
 
+Error | Description
+:-- | :-- 
+
+NO_REQUEST	user_identification is a POST service. A body should be inserted into the request.
+For more information on the structure of this request, you can go to the section related to /user_identification.
+MISSING_PARTNER_CODE	In this case, the body request does not contain the field "partnerCode".
+This field corresponds to the "Partner Code/Client ID" referenced in your onboarding file.
+MISSING_SERVICE_CODE	The body request does not contain the field "serviceCode".
+This field corresponds to the "Service Code" referenced in your onboarding file.
+INVALID_URL	The field "redirectUrl" is null or its syntax is not correct, URL is invalid.
+This field corresponds to the "Redirect URL" referenced in your onboarding file.
+INVALID_REQUESTOR	The "partnerCode" and/or "serviceCode" referenced into the body do not reference an existing partner and/or service.
+The "partnerCode" corresponds to the "Partner Code/Client ID" referenced in your onboarding file.
+The "serviceCode" corresponds to the "Service Code" referenced in your onboarding file for a SIGN service.
+UNAUTHORIZED_URL	The partner and its service have been correctly found by itsme® following referenced "partnerCode" and "serviceCode", but the given "redirectUrl" is not authorized for the partner and/or service mentioned. You did not provide a valid redirectUrl. 
+The "redirectUrl" used here corresponds to the "Redirect URL" referenced in your onboarding file.
+INVALID_LANG	The "lang" field does not reference a language supported by itsme®.
+You can consult "BMID Well-Known Configuration" to check which are the languages supported by  itsme®, /well-known/configuration.
+
+UNEXPECTED_ERROR	An error occurred during the validation of partner information.
+You should try again later. If the error persists, then you should contact itsme® support team for investigation. 
+UNKNOWN	An unknown error occurred during the request.
+You should contact itsme® support team for investigation.
 
 
 
