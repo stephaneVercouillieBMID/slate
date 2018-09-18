@@ -236,6 +236,15 @@
                   <li>
                     <a href="#3-3-capturing-the-identification-response" class="toc-h2 toc-link" data-title="3-3-capturing-the-identification-response">3.3. Capturing the Identification Response</a>
                   </li>
+                  <li>
+                    <a href="#3-4-requesting-the-user-certificate" class="toc-h2 toc-link" data-title="3-4-requesting-the-user-certificate">3.4. Requesting the User certificate</a>
+                  </li>
+                  <li>
+                    <a href="#3-5-getting-the-user-certificate-info" class="toc-h2 toc-link" data-title="3-5-getting-the-user-certificate-info">3.5. Getting the User certificate info</a>
+                  </li>
+                  <li>
+                    <a href="#3-6-processing-a-sign-request" class="toc-h2 toc-link" data-title="3-6-processing-a-sign-request">3.6. Processing a Sign Request</a>
+                  </li>
               </ul>
           </li>
       </div>
@@ -337,7 +346,7 @@
 <td style="text-align: left"><strong>client_id</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This MUST be the client identifier (e.g. : Project ID) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a></td>
+<td style="text-align: left">This MUST be the client identifier (e.g. : Project ID) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>sub</strong></td>
@@ -429,6 +438,199 @@
 <td style="text-align: left">Internal Server Error.</td>
 </tr>
 </tbody></table>
+<h2 id='3-4-requesting-the-user-certificate'>3.4. Requesting the User certificate</h2>
+<p>By calling the Certificate Endpoint, you are checking the status of the User certificate. </p>
+
+<p>Below you will find a number of mandatory and recommended parameters to integrate in the HTTPS POST query string:</p>
+<pre class="highlight http tab-http--inline"><code><span class="nf">POST</span> <span class="nn">/https://uatb2b.sixdots.be/qes-partners/1.0.0/user_identification/status</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="s">{</span>
+<span class="s">    "partnerCode":"myPartnerCode", </span>
+<span class="s">    "serviceCode":"myServiceCode", </span>
+<span class="s">    "asyncRespID":"4kpr55zdi2mk9ns27awgngkltoenfy04gi9b"</span>
+<span class="s">}</span>
+</code></pre>
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>client_id</strong></td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This MUST be the client identifier (e.g. : Project ID) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>serviceCode</strong></td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This parameter allows the application to express the desired scope. It MUST contain the value <code>service:service_code</code>, the itsme® service you want to use as defined for your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>asyncRespId</strong></td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Identification Response.</td>
+</tr>
+</tbody></table>
+<h2 id='3-5-getting-the-user-certificate-info'>3.5. Getting the User certificate info</h2>
+<p>If the Certificate Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside.</p>
+
+<p>The response body will include the following values:</p>
+<pre class="highlight http tab-http--inline"><code><span class="err">{
+    "status": "OK",
+    "userCode": "9o8f04wm1g0bdc8gmgcuxp2ehgn7txh0x2kq",
+    "certificate": "user-certificate"
+}
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: left">Values</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Returned</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>status</strong></td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">It is the status of User Identification Request.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>sub</strong></td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>certificate</strong></td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h2 id='3-6-processing-a-sign-request'>3.6. Processing a Sign Request</h2>
+<p>This request has to be created in order to get the information about the Sign session. </p>
+
+<p>Below you will find the minimal set of parameters required for processing the HTTPS POST query string:</p>
+<pre class="highlight http tab-http--inline"><code><span class="nf">POST</span> <span class="nn">/https://uatb2b.sixdots.be/qes-partners/1.0.0/sign_document</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="s">{</span>
+<span class="s">    "inDocs": {</span>
+<span class="s">        "docHash":[</span>
+<span class="s">            {</span>
+<span class="s">                "di":[</span>
+<span class="s">                    {</span>
+<span class="s">                        "alg":"http://www.w3.org/2001/04/xmlenc#sha256",</span>
+<span class="s">                        "value":"f4OxZX/x/FO5LcGBSKHWXfwtSx+j1ncoSt3SABJtkGk="</span>
+<span class="s">                    }</span>
+<span class="s">                ],</span>
+<span class="s">                "id":"ContractCar20180914u89236456.pdf"</span>
+<span class="s">            }</span>
+<span class="s">        ]</span>
+<span class="s">    },</span>
+<span class="s">    "reqID": "ReqID4va0acsef3mv5ft1dp71",</span>
+<span class="s">    "asyncRespID": null,</span>
+<span class="s">    "optInp": {</span>
+<span class="s">        "profile": [</span>
+<span class="s">            "urn:be:itsme:dss:1.0",</span>
+<span class="s">            "urn:oasis:names:tc:dss:1.0:profiles:asynchronousprocessing",</span>
+
+        ],
+    "policy": [],
+    "lang": "FR",
+    "nonce": null,
+    "sigAlgo": null,
+    "itsme": {
+      "signer": {
+        "userCode": "9o8f04wm1g0bdc8gmgcuxp2ehgn7txh0x2kq"
+      },
+      "partnerCode": "myPartnerCode",
+      "serviceCode": "myServiceCode",
+      "description": [
+        {
+          "lang": "EN",
+          "value": "Car insurance contract"
+        },
+        {
+          "lang": "FR",
+          "value": "Contrat d’assurance voiture"
+        },
+        {
+          "lang": "NL",
+          "value": "Contract verzekering auto"
+        },
+        {
+          "lang": "DE",
+          "value": "Kfz-Versicherungsvertrag"
+        }
+      ],
+      "callbackUrl": null,
+      "redirectUrl": "myServiceRedirectUrl",
+      "expiryTimestamp": null,
+      "legalNotice": null,
+      "signPolicy": {
+        "signPolicyRef": "ITSME_DEFAULT",
+        "commitmentTypeRef":"1.2.840.113549.1.9.16.6.5",
+        "signerRole": [
+          {
+            "lang": "EN",
+            "value": "General Manager"
+          },
+          {
+            "lang": "FR",
+            "value": "Gestionnaire"
+          },
+          {
+            "lang": "NL",
+            "value": "Zaakvoerder"
+          },
+          {
+            "lang": "DE",
+            "value": "Manager"
+          }
+        ]
+      }
+    }
+  }
+}
+</code></pre>
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>inDocs</strong></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This contains the element to be signed.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>docHash</strong></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This parameter defines the list of hashes to be signed by itsme®, one item per hash.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>id</strong></td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This is the ID of the hash(es) to be signed. You should provide us this information when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>. Currently, only single hash signing is allowed.</td>
+</tr>
+</tbody></table>
+
+<p><strong>docHash</strong> |  | Required | This parameter defines the list of hashes to be signed by itsme®, one item per hash. </p>
+
+<p><strong>reqID</strong> | String | Required | This is the ID of the request that you transfer.
+<strong>asyncRespId</strong> | String | Optional | This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Identification Response.
+<strong>optInp</strong> | String | Required | Those are additional information needed for the signature request. </p>
 
       </div>
       <div class="dark-box">

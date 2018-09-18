@@ -257,19 +257,19 @@
             <a href="#5-appendixes" class="toc-h1 toc-link" data-title="5-appendixes">5. Appendixes</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#4-1-universal-links-on-ios" class="toc-h2 toc-link" data-title="4-1-universal-links-on-ios">4.1. Universal Links on iOS</a>
+                    <a href="#5-1-universal-links-on-ios" class="toc-h2 toc-link" data-title="5-1-universal-links-on-ios">5.1. Universal Links on iOS</a>
                   </li>
                   <li>
-                    <a href="#4-2-app-links-on-android" class="toc-h2 toc-link" data-title="4-2-app-links-on-android">4.2. App Links on Android</a>
+                    <a href="#5-2-app-links-on-android" class="toc-h2 toc-link" data-title="5-2-app-links-on-android">5.2. App Links on Android</a>
                   </li>
                   <li>
-                    <a href="#4-3-security-levels-and-context-data" class="toc-h2 toc-link" data-title="4-3-security-levels-and-context-data">4.3. Security levels and context data</a>
+                    <a href="#5-3-security-levels-and-context-data" class="toc-h2 toc-link" data-title="5-3-security-levels-and-context-data">5.3. Security levels and context data</a>
                   </li>
                   <li>
-                    <a href="#4-4-using-the-request-parameter" class="toc-h2 toc-link" data-title="4-4-using-the-request-parameter">4.4. Using the request parameter</a>
+                    <a href="#5-4-using-the-request-parameter" class="toc-h2 toc-link" data-title="5-4-using-the-request-parameter">5.4. Using the request parameter</a>
                   </li>
                   <li>
-                    <a href="#4-5-using-request_uri-parameter" class="toc-h2 toc-link" data-title="4-5-using-request_uri-parameter">4.5. Using request_uri parameter</a>
+                    <a href="#5-5-using-request_uri-parameter" class="toc-h2 toc-link" data-title="5-5-using-request_uri-parameter">5.5. Using request_uri parameter</a>
                   </li>
               </ul>
           </li>
@@ -684,7 +684,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 <span class="s">  XUVrWOLrLl0nx7RkKU8NXNHq-rvKMzqg"</span>
 <span class="s">}</span>
 </code></pre>
-<p>The response body will include the following parameters:</p>
+<p>The response body will include the following values:</p>
 
 <table><thead>
 <tr>
@@ -1187,7 +1187,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 <p>If the same user would opt to (re)create an itsme® afterwards, he will need to re-bind his itsme® account with your application server (as the initial identifier is no longer valid as explained before). To re-bind his itsme® account one of the above scenario should be used. After successful (re)binding you will need to overwrite the initial reference with the new ‘sub’ claim value in your database.</p>
 <h1 id='5-appendixes'>5. Appendixes</h1>
 <p><a name="Appendix"></a> </p>
-<h2 id='4-1-universal-links-on-ios'>4.1. Universal Links on iOS</h2><pre class="highlight plaintext"><code>{
+<h2 id='5-1-universal-links-on-ios'>5.1. Universal Links on iOS</h2><pre class="highlight plaintext"><code>{
   "applinks": {
     "apps": [],
     "details": [
@@ -1296,7 +1296,7 @@ print(queryParameters(from: url!))
  }
  return true
 }
-</span></code></pre><h2 id='4-2-app-links-on-android'>4.2. App Links on Android</h2>
+</span></code></pre><h2 id='5-2-app-links-on-android'>5.2. App Links on Android</h2>
 <p>The App Links Assistant in Android Studio can help you create intent filters in your manifest and map existing URLs from your website to activities in your app. Follow below steps to configure the App links (as documented on <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App Links official documentation</a>):</p>
 
 <ol>
@@ -1361,7 +1361,7 @@ private void handleIntent(Intent intent) {
 <aside class="notice">The system verifies the Digital Asset Links file via the encrypted HTTPS protocol. Make sure that the assetlinks.json file is accessible over an HTTPS connection, regardless of whether your app's intent filter includes https.</aside>
 
 <p><a name="SecurityLevels"></a></p>
-<h2 id='4-3-security-levels-and-context-data'>4.3. Security levels and context data</h2>
+<h2 id='5-3-security-levels-and-context-data'>5.3. Security levels and context data</h2>
 <p>Depending on the required level of assurance your application MUST ensure the correct ‘security level’ is requested. Two ‘security levels’ are supported – ‘basic’ and ‘advanced’. Opting for ‘advanced’ will result in an itsme® code entry being enforced to validate the specific transaction (even if the user has activated touch ID/fingerprint). With the ‘basic’ level also touch ID/fingerprint next to the itsme® code are supported to validate the specific transaction.</p>
 
 <p>The following table defines the different possible scenarios:</p>
@@ -1388,7 +1388,7 @@ private void handleIntent(Intent intent) {
 <p>Next to the security levels, your application can also request additional security data to determine the context in which the transactions have been executed. The security data elements can, alone or in combination with each other, indicate a given risk exposure. By providing these elements, itsme® allows you to detect fraud attempts or effective fraudulent transactions. The security data elements that can be used to associate a risk exposure to a specific transaction are available in the section <a href="#SecurityDataElements">Capturing claims from the userInfo Endpoint</a>.</p>
 
 <p><a name="RequestObjectByValue"></a></p>
-<h2 id='4-4-using-the-request-parameter'>4.4. Using the request parameter</h2>
+<h2 id='5-4-using-the-request-parameter'>5.4. Using the request parameter</h2>
 <p>The <code>request</code> parameter enables the Authentication Requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. It represents the request as a JWT whose claims are the parameters specified in section 3.2. This JWT is called a Request Object by value.</p>
 
 <p>When <code>request</code> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax.</p>
@@ -1490,7 +1490,7 @@ private void handleIntent(Intent intent) {
 </ul>
 
 <p><a name="RequestUri"></a></p>
-<h2 id='4-5-using-request_uri-parameter'>4.5. Using request_uri parameter</h2>
+<h2 id='5-5-using-request_uri-parameter'>5.5. Using request_uri parameter</h2>
 <p>Using the request_uri parameter in the Authentication Request enables requests to be passed by reference. The following diagram depicts it:</p>
 
 <p><img src="images/Request_uri_SD.png" alt="Sequence diagram describing the use of request_uri parameter" /></p>
