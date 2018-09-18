@@ -282,6 +282,48 @@ Parameter | Type | Required | Description
 This parameter is optional and freely defined in a free text of maximum 50 characters by yourself. You should provide this free text in all supported languages. The characters used to define the Signer Role MUST be ISO-8859-1 compatible.  
 
 
+## 3.7. Managing the Sign Response 
+
+If the Sign Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside.
+
+The response body will include the following values:
+
+```http--inline
+{
+    "result": {
+        "maj": "urn:oasis:names:tc:dss:1.0:profiles:asynchronousprocessing:resultmajor:Pending"
+    },
+    "reqID": "ReqID4va0acsef3mv5ft1dp71",
+    "respID": "hjg3ngu3tvvv71k9qg1vyokc2mwmqgqk43iv",
+    "optOutp": {
+        "itsme": {
+            "signingUrl": "https://uatmerchant.itsme.be/qes/prove_its_you_poka?q=34u5jh2dltb1xhsu0g4bshnlziycdhow&language=FR"
+        }
+    }
+}
+```
+
+Values | Type | Returned | Description
+:----- |:-------- |:-------- |:---
+**result** |  | Always | This is the status of the request (pending, success or failure).
+**maj** | String | Always | This is a general message that will give the status of the request, pending, success or error. In case of failure, the root cause is given.  
+**min** | String | Always | This is a specific message that, in case of failure, identifies the root cause of the failure.
+**msg** | String | Always | This indicates the origin of the error. 
+**reqID** | String | Always | This is the ID of the request that you transfer. 
+**asyncRespId** | String |  | This parameter is the identifier of a User identification session. 
+**optOutp** | String |  | Those are additional information needed for the signature request.
+**itsme** | String |  | This value contains all the information related to itsme® context.
+**signingUrl** | String |  | This signing URL is the link to redirect the User from the SCA frontend  to the itsme® Signing Page. 
+**sub** | String |  | An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.
+**sigObj** | Array |  | This is the signature object. Currently this is the hash to be signed.
+
+The following table describes the various error codes that will be returned to the User using the appropriate HTTPS status code:
+
+Status code | Description
+:-- | :-- 
+**400**  | Returned in case of invalid Request Object.
+**409** | Returned in case of error.
+
 
 
 
