@@ -90,7 +90,7 @@ POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/user_identification HTTP/1.1
 
 Parameter | Type | Required | Description
 :-------- | :-------- | :--------| :----- 
-**client_id** | String | Required | This MUST be the client identifier (e.g. : Project ID) you received when registering your application in the [itsme® B2B portal](#Onboarding)
+**client_id** | String | Required | This MUST be the client identifier (e.g. : Project ID) you received when registering your application in the [itsme® B2B portal](#Onboarding).
 **sub** | String | Optional | An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.
 **serviceCode** | String | Required | This parameter allows the application to express the desired scope. It MUST contain the value `service:service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
 **lang** | String | Optional | This parameters defines the recommended language to be used for GUI interaction. If the parameter is not defined in the request, then the language that will be used is the one of the cookie. This defaults to the language used in the browser if there is no cookie. 
@@ -126,14 +126,150 @@ Status code | Description
 **500** | Internal Server Error.
 
 
+## 3.4. Requesting the User certificate  
+
+By calling the Certificate Endpoint, you are checking the status of the User certificate. 
+
+Below you will find a number of mandatory and recommended parameters to integrate in the HTTPS POST query string:
+
+```http--inline
+POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/user_identification/status HTTP/1.1
+{
+	"partnerCode":"myPartnerCode", 
+	"serviceCode":"myServiceCode", 
+	"asyncRespID":"4kpr55zdi2mk9ns27awgngkltoenfy04gi9b"
+}
+```
+
+Parameter | Type | Required | Description
+:-------- | :-------- | :--------| :----- 
+**client_id** | String | Required | This MUST be the client identifier (e.g. : Project ID) you received when registering your application in the [itsme® B2B portal](#Onboarding)
+**serviceCode** | String | Required | This parameter allows the application to express the desired scope. It MUST contain the value `service:service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
+**asyncRespId** | String | Required | This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Identification Response.
 
 
+## 3.5. Getting the User certificate info
+
+If the Certificate Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside.
+
+The response body will include the following values:
+
+```http--inline
+{
+    "status": "OK",
+    "userCode": "9o8f04wm1g0bdc8gmgcuxp2ehgn7txh0x2kq",
+    "certificate": "user-certificate"
+}
+ ```
+
+Values | Type | Returned | Description
+:----- |:-------- |:-------- |:---
+**status** | String | Always | It is the status of User Identification Request.
+**sub** | String | Optional | An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.
+**certificate** | String | Always | 
 
 
+## 3.6. Processing a Sign Request 
+
+This request has to be created in order to get the information about the Sign session. 
+
+Below you will find the minimal set of parameters required for processing the HTTPS POST query string:
+
+```http--inline
+POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/sign_document HTTP/1.1
+{
+	"inDocs": {
+		"docHash":[
+			{
+				"di":[
+					{
+						"alg":"http://www.w3.org/2001/04/xmlenc#sha256",
+						"value":"f4OxZX/x/FO5LcGBSKHWXfwtSx+j1ncoSt3SABJtkGk="
+					}
+				],
+				"id":"ContractCar20180914u89236456.pdf"
+			}
+		]
+	},
+	"reqID": "ReqID4va0acsef3mv5ft1dp71",
+	"asyncRespID": null,
+	"optInp": {
+    	"profile": [
+    		"urn:be:itsme:dss:1.0",
+    		"urn:oasis:names:tc:dss:1.0:profiles:asynchronousprocessing",
+    		
+    	],
+    "policy": [],
+    "lang": "FR",
+    "nonce": null,
+    "sigAlgo": null,
+    "itsme": {
+      "signer": {
+        "userCode": "9o8f04wm1g0bdc8gmgcuxp2ehgn7txh0x2kq"
+      },
+      "partnerCode": "myPartnerCode",
+      "serviceCode": "myServiceCode",
+      "description": [
+        {
+          "lang": "EN",
+          "value": "Car insurance contract"
+        },
+        {
+          "lang": "FR",
+          "value": "Contrat d’assurance voiture"
+        },
+        {
+          "lang": "NL",
+          "value": "Contract verzekering auto"
+        },
+        {
+          "lang": "DE",
+          "value": "Kfz-Versicherungsvertrag"
+        }
+      ],
+      "callbackUrl": null,
+      "redirectUrl": "myServiceRedirectUrl",
+      "expiryTimestamp": null,
+      "legalNotice": null,
+      "signPolicy": {
+        "signPolicyRef": "ITSME_DEFAULT",
+        "commitmentTypeRef":"1.2.840.113549.1.9.16.6.5",
+        "signerRole": [
+          {
+            "lang": "EN",
+            "value": "General Manager"
+          },
+          {
+            "lang": "FR",
+            "value": "Gestionnaire"
+          },
+          {
+            "lang": "NL",
+            "value": "Zaakvoerder"
+          },
+          {
+            "lang": "DE",
+            "value": "Manager"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+Parameter | Type | Required | Description
+:-------- | :-------- | :--------| :----- 
+**inDocs** |  | Required | This contains the element to be signed. 
+**docHash** |  | Required | This parameter defines the list of hashes to be signed by itsme®, one item per hash. 
+**id** | String | Required | This is the ID of the hash(es) to be signed. You should provide us this information when registering your application in the [itsme® B2B portal](#Onboarding). Currently, only single hash signing is allowed.   
+ 
+**docHash** |  | Required | This parameter defines the list of hashes to be signed by itsme®, one item per hash. 
 
 
-
-
+**reqID** | String | Required | This is the ID of the request that you transfer.
+**asyncRespId** | String | Optional | This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Identification Response.
+**optInp** | String | Required | Those are additional information needed for the signature request. 
 
 
 
