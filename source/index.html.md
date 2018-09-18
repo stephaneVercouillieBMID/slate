@@ -260,7 +260,7 @@ Pragma: no-cache
   XUVrWOLrLl0nx7RkKU8NXNHq-rvKMzqg"
 }
 ```
-The response body will include the following parameters:
+The response body will include the following values:
 
 Values | Returned | Description
 :-- | :-- | :--
