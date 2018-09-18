@@ -477,7 +477,7 @@ If the same user would opt to (re)create an itsme® afterwards, he will need to 
 # 5. Appendixes
 <a name="Appendix"></a> 
 
-## 4.1. Universal Links on iOS
+## 5.1. Universal Links on iOS
 
 ```
 {
@@ -587,7 +587,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 }
 ```
 
-## 4.2. App Links on Android
+## 5.2. App Links on Android
 
 The App Links Assistant in Android Studio can help you create intent filters in your manifest and map existing URLs from your website to activities in your app. Follow below steps to configure the App links (as documented on <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App Links official documentation</a>):
 
@@ -655,7 +655,7 @@ private void handleIntent(Intent intent) {
 <aside class="notice">The system verifies the Digital Asset Links file via the encrypted HTTPS protocol. Make sure that the assetlinks.json file is accessible over an HTTPS connection, regardless of whether your app's intent filter includes https.</aside>
 
 <a name="SecurityLevels"></a>
-## 4.3. Security levels and context data
+## 5.3. Security levels and context data
 
 Depending on the required level of assurance your application MUST ensure the correct ‘security level’ is requested. Two ‘security levels’ are supported – ‘basic’ and ‘advanced’. Opting for ‘advanced’ will result in an itsme® code entry being enforced to validate the specific transaction (even if the user has activated touch ID/fingerprint). With the ‘basic’ level also touch ID/fingerprint next to the itsme® code are supported to validate the specific transaction.
 
@@ -670,7 +670,7 @@ Next to the security levels, your application can also request additional securi
 
 
 <a name="RequestObjectByValue"></a>
-## 4.4. Using the request parameter
+## 5.4. Using the request parameter
 
 The `request` parameter enables the Authentication Requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. It represents the request as a JWT whose claims are the parameters specified in section 3.2. This JWT is called a Request Object by value.
 
@@ -781,7 +781,7 @@ Following lists out the encryption process of a JWE under the compact serializat
 
 
 <a name="RequestUri"></a>
-## 4.5. Using request_uri parameter
+## 5.5. Using request_uri parameter
 
 Using the request_uri parameter in the Authentication Request enables requests to be passed by reference. The following diagram depicts it:
 
