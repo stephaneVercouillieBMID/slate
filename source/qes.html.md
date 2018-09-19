@@ -338,10 +338,14 @@ Status code | Description
 **409** | Returned in case of error.
 **500** | Internal Server Error.
 
-The response will contain the request `status` and the `statusReason` value. The following table describes the various error codes that can be returned in the `statusReason` value of the error response:
+The Error Response will contain the `status` and the `statusReason` value. The following table describes the various error types that can be returned in the `statusReason` value of the error response:
 
-Error | Description
+St code | Description
 :-- | :-- 
+**NO_REQUEST**  | Returned in case of invalid Request Object.
+
+
+
 
 NO_REQUEST	user_identification is a POST service. A body should be inserted into the request.
 For more information on the structure of this request, you can go to the section related to /user_identification.
