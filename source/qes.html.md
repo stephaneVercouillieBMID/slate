@@ -68,8 +68,8 @@ The JSON document for itsme® Sign service may be retrieved from:
 
 Environment | URL
 :-------- | :--------
-**SANDBOX** | 
-**PRODUCTION** | 
+**SANDBOX** | https://uatb2b.sixdots.be/qes-partners/1.0.0/.well-known/configuration
+**PRODUCTION** | https://b2b.sixdots.be/qes-partners/1.0.0/.well-known/configuration
  
 
 ## 3.2. Starting a new User identification session
@@ -340,43 +340,18 @@ Status code | Description
 
 The Error Response will contain the `status` and the `statusReason` value. The following table describes the various error types that can be returned in the `statusReason` value of the error response:
 
-St code | Description
-:-- | :-- 
-**NO_REQUEST**  | Returned in case of invalid Request Object.
-
-
-
-
-NO_REQUEST	user_identification is a POST service. A body should be inserted into the request.
-For more information on the structure of this request, you can go to the section related to /user_identification.
-MISSING_PARTNER_CODE	In this case, the body request does not contain the field "partnerCode".
-This field corresponds to the "Partner Code/Client ID" referenced in your onboarding file.
-MISSING_SERVICE_CODE	The body request does not contain the field "serviceCode".
-This field corresponds to the "Service Code" referenced in your onboarding file.
-INVALID_URL	The field "redirectUrl" is null or its syntax is not correct, URL is invalid.
-This field corresponds to the "Redirect URL" referenced in your onboarding file.
-INVALID_REQUESTOR	The "partnerCode" and/or "serviceCode" referenced into the body do not reference an existing partner and/or service.
-The "partnerCode" corresponds to the "Partner Code/Client ID" referenced in your onboarding file.
-The "serviceCode" corresponds to the "Service Code" referenced in your onboarding file for a SIGN service.
-UNAUTHORIZED_URL	The partner and its service have been correctly found by itsme® following referenced "partnerCode" and "serviceCode", but the given "redirectUrl" is not authorized for the partner and/or service mentioned. You did not provide a valid redirectUrl. 
-The "redirectUrl" used here corresponds to the "Redirect URL" referenced in your onboarding file.
-INVALID_LANG	The "lang" field does not reference a language supported by itsme®.
-You can consult "BMID Well-Known Configuration" to check which are the languages supported by  itsme®, /well-known/configuration.
-
-UNEXPECTED_ERROR	An error occurred during the validation of partner information.
-You should try again later. If the error persists, then you should contact itsme® support team for investigation. 
-UNKNOWN	An unknown error occurred during the request.
-You should contact itsme® support team for investigation.
-
-
-
-Error	Description
-interaction_required	The Authorization Server requires User interaction of some form to proceed.
-invalid_request_object	The request parameter contains an invalid Request Object.
-request_uri_not_supported	This error is returned because itsme® does not support use of the request_uri parameter defined in the JWTs.
-registration_not_supported	This error is returned because itsme® does not support use of the registration parameter.
-All other HTTPS errors unrelated to OpenID Connect Core will be returned to the User using the appropriate HTTPS status code.
-
-
-
-   
+Status code | Error |  Description
+:-------- | :-------- | :--------
+**400** | NO_REQUEST | user_identification is a POST service. A body should be inserted into the request. For more information on the structure of this request, you can go to the section related to /user_identification.
+<label></label> | MISSING_PARTNER_CODE | In this case, the body request does not contain the field "partnerCode". This field corresponds to the "Partner Code/Client ID" referenced in your onboarding file.
+<label></label> | MISSING_SERVICE_CODE | The body request does not contain the field "serviceCode". This field corresponds to the "Service Code" referenced in your onboarding file.
+<label></label> | INVALID_URL | The field "redirectUrl" is null or its syntax is not correct, URL is invalid. This field corresponds to the "Redirect URL" referenced in your onboarding file.
+<label></label> | INVALID_REQUESTOR | The "partnerCode" and/or "serviceCode" referenced into the body do not reference an existing partner and/or service. The "partnerCode" corresponds to the "Partner Code/Client ID" referenced in your onboarding file. The "serviceCode" corresponds to the "Service Code" referenced in your onboarding file for a SIGN service.
+<label></label> | UNAUTHORIZED_URL | The partner and its service have been correctly found by itsme® following referenced "partnerCode" and "serviceCode", but the given "redirectUrl" is not authorized for the partner and/or service mentioned. You did not provide a valid redirectUrl. The "redirectUrl" used here corresponds to the "Redirect URL" referenced in your onboarding file.
+<label></label> | INVALID_LANG | The "lang" field does not reference a language supported by itsme®. You can consult "BMID Well-Known Configuration" to check which are the languages supported by  itsme®, /well-known/configuration.
+<label></label> | UNEXPECTED_ERROR | An error occurred during the validation of partner information. You should try again later. If the error persists, then you should contact itsme® support team for investigation. 
+<label></label> | UNKNOWN | An unknown error occurred during the request. You should contact itsme® support team for investigation.
+**409** | PENDING | The User Identification Session you created is  pending. The User is currently following the User Identification flow at itsme® side (web and mobile).
+<label></label> | REJECTED | The User had to create a certificate in order to make a signature. However, he rejected his CREATE_CERT action in the itsme® App. A new User Identification session must be initialized. During that session, User has to confirm the CREATE_CERT action.
+<label></label> | EXPIRED | The User had to create a certificate in order to make a signature. However, he waited too long (more than three minutes) before confirming his CREATE_CERT action in the itsme® App and his action expired. A new User Identification Session must be initialized. During that session, User has to confirm the CREATE_CERT action in time.
+<label></label> | UNEXPECTED_ERROR | An unexpected error occurred during User’s Identification flow. You should try again later. If the error persists, then you should contact itsme® support team for investigation.
