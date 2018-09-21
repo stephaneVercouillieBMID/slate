@@ -226,8 +226,8 @@ According to the `private_key_jwt` client authentication method, the `client_ass
 
 Parameter | Description
 :-- | :-- 
-**iss** | The issuer of the `private_key_jwt`. This MUST contain the `client_id`. This is the client identifier (e.g. : Project ID) you received when registering your application in the [itsme® B2B portal](#Onboarding).
-**sub** | The subject of the `private_key_jwt`. This MUST contain the `client_id`. This is the client identifier (e.g. : Project ID) you received when registering your application in the [itsme® B2B portal](#Onboarding).
+**iss** | The issuer of the `private_key_jwt`. This MUST contain the `client_id`. This is the client identifier (e.g. : Project ID) you received when registering your project in the [itsme® B2B portal](#Onboarding).
+**sub** | The subject of the `private_key_jwt`. This MUST contain the `client_id`. This is the client identifier (e.g. : Project ID) you received when registering your project in the [itsme® B2B portal](#Onboarding).
 **aud** | Value that identifies the Authorization Server as an intended audience. This MUST be the itsme® Token Endpoint URL : `https://merchant.itsme.be/oidc/token`
 **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
 **exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
@@ -282,7 +282,7 @@ Values |	Returned |	Description
 :-- | :-- | :--
 **iss**	| Always | Identifier of the issuer of the ID Token.
 **sub** |	Always | An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.
-**aud**	| Always |	Audience of the ID Token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : Project ID) you received when registering your application in the [itsme® B2B portal](#Onboarding).
+**aud**	| Always |	Audience of the ID Token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : Project ID) you received when registering your project in the [itsme® B2B portal](#Onboarding).
 **exp**	| Always |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 **iat** |	Always	| The time the ID Token was issued, represented in Unix time (integer seconds).
 **auth_time** | Always | The time the User authentication occurred, represented in Unix time (integer seconds). 
@@ -343,7 +343,7 @@ Values |	Returned |	Description
 :--- | :--- | :---
 **iss**	| Always | Identifier of the issuer of the ID Token.
 **sub** |	Always | An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.
-**aud**	| Always |	Audience of the ID Token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : Project ID) you received when registering your application in the [itsme® B2B portal](#Onboarding).
+**aud**	| Always |	Audience of the ID Token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : Project ID) you received when registering your project in the [itsme® B2B portal](#Onboarding).
 **exp**	| Always |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 **iat** |	Always	| The time the ID Token was issued, represented in Unix time (integer seconds).
 **auth_time** | Always | The time the User authentication occurred, represented in Unix time (integer seconds). 
