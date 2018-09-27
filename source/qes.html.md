@@ -55,7 +55,7 @@ The itsme® Sign flow goes through the steps shown in the sequence diagram below
 <a name="OpenIDQES"></a>
 ## 3.1. Checking itsme® Sign configuration
 
-To simplify implementations and increase flexibility, all needed key-value pairs about itsme® configuration can be retrieved by creating a HTTPS request, such as 
+To simplify implementations and increase flexibility, all needed key-value pairs about itsme® configuration can be retrieved from a JSON document, such as
 
 <ul>
   <li>the signature policies</li>
