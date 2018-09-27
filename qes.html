@@ -237,10 +237,10 @@
                     <a href="#3-3-capturing-the-identification-response" class="toc-h2 toc-link" data-title="3-3-capturing-the-identification-response">3.3. Capturing the Identification Response</a>
                   </li>
                   <li>
-                    <a href="#3-4-requesting-the-user-certificate" class="toc-h2 toc-link" data-title="3-4-requesting-the-user-certificate">3.4. Requesting the User certificate</a>
+                    <a href="#3-4-requesting-the-user-identification-session-status" class="toc-h2 toc-link" data-title="3-4-requesting-the-user-identification-session-status">3.4. Requesting the User identification session status</a>
                   </li>
                   <li>
-                    <a href="#3-5-getting-the-user-certificate-info" class="toc-h2 toc-link" data-title="3-5-getting-the-user-certificate-info">3.5. Getting the User certificate info</a>
+                    <a href="#3-5-getting-the-user-identification-status-info" class="toc-h2 toc-link" data-title="3-5-getting-the-user-identification-status-info">3.5. Getting the User identification status info</a>
                   </li>
                   <li>
                     <a href="#3-6-processing-a-sign-request" class="toc-h2 toc-link" data-title="3-6-processing-a-sign-request">3.6. Processing a Sign Request</a>
@@ -307,10 +307,10 @@
 
 <p><a name="OpenIDQES"></a></p>
 <h2 id='3-1-checking-itsme-sign-configuration'>3.1. Checking itsme® Sign configuration</h2>
-<p>To simplify implementations and increase flexibility, all needed key-value pairs about itsme® configuration can be retrieved from a JSON document, such as </p>
+<p>To simplify implementations and increase flexibility, all needed key-value pairs about itsme® configuration can be retrieved from a JSON document, such as</p>
 
 <ul>
-  <li>the policies</li>
+  <li>the signature policies</li>
   <li>commitment types</li>
   <li>supported languages</li>
   <li>...</li>
@@ -339,7 +339,7 @@
 <p>Below you will find a number of mandatory and recommended parameters to integrate in the HTTPS POST query string:</p>
 <pre class="highlight http tab-http--inline"><code><span class="nf">POST</span> <span class="nn">/https://uatb2b.sixdots.be/qes-partners/1.0.0/user_identification</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="s">{</span>
-<span class="s">    "client_id":"myClientID", </span>
+<span class="s">    "partnerCode":"myClientID", </span>
 <span class="s">    "serviceCode":"myServiceCode", </span>
 <span class="s">    "redirectUrl":"myServiceRedirectUrl",</span>
 <span class="s">    "lang":"FR"</span>
@@ -354,16 +354,16 @@
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left"><strong>client_id</strong></td>
+<td style="text-align: left"><strong>partnerCode</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This MUST be the client identifier (e.g. : Project ID) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+<td style="text-align: left">This MUST be the client identifier you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>sub</strong></td>
+<td style="text-align: left"><strong>userCode</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.</td>
+<td style="text-align: left">An identifier for the User, unique among all itsme® accounts and never reused. Use <code>userCode</code> in the application as the unique-identifier key for the User.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>serviceCode</strong></td>
@@ -429,8 +429,8 @@
 </tbody></table>
 <h3 id='handling-error-response'>Handling Error Response</h3>
 <p>See <a href="#RequestObjectByValue">Appendixes</a> to get more information on the error codes.</p>
-<h2 id='3-4-requesting-the-user-certificate'>3.4. Requesting the User certificate</h2>
-<p>By calling the Certificate Endpoint, you are checking the status of the User certificate. </p>
+<h2 id='3-4-requesting-the-user-identification-session-status'>3.4. Requesting the User identification session status</h2>
+<p>By calling the Identification Session Status Endpoint, you are checking the status of the User identification session. </p>
 
 <p>Below you will find a number of mandatory and recommended parameters to integrate in the HTTPS POST query string:</p>
 <pre class="highlight http tab-http--inline"><code><span class="nf">POST</span> <span class="nn">/https://uatb2b.sixdots.be/qes-partners/1.0.0/user_identification/status</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -449,10 +449,10 @@
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left"><strong>client_id</strong></td>
+<td style="text-align: left"><strong>partnerCode</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This MUST be the client identifier (e.g. : Project ID) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+<td style="text-align: left">This MUST be the client identifier you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>serviceCode</strong></td>
@@ -467,8 +467,8 @@
 <td style="text-align: left">This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Identification Response.</td>
 </tr>
 </tbody></table>
-<h2 id='3-5-getting-the-user-certificate-info'>3.5. Getting the User certificate info</h2>
-<p>If the Certificate Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside.</p>
+<h2 id='3-5-getting-the-user-identification-status-info'>3.5. Getting the User identification status info</h2>
+<p>If the Identification Session Status Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside. In other words, you will get the confirmation that the User can perform a Sign transaction with itsme® and retrieve the User certificate reference value.</p>
 
 <p>The response body will include the following values:</p>
 <pre class="highlight http tab-http--inline"><code><span class="err">{
@@ -492,10 +492,10 @@
 <td style="text-align: left">It is the status of User Identification Request.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>sub</strong></td>
+<td style="text-align: left"><strong>userCode</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.</td>
+<td style="text-align: left">An identifier for the User, unique among all itsme® accounts and never reused. Use <code>userCode</code> in the application as the unique-identifier key for the User.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>certificate</strong></td>
@@ -643,7 +643,7 @@
 <td style="text-align: left"><strong>asyncRespId</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Identification Response.</td>
+<td style="text-align: left">This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Identification Response. In case no <code>asyncRespID</code> is given in the request, a new session is created.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>optInp</strong></td>
@@ -670,10 +670,10 @@
 <td style="text-align: left">This is all the information that allows identification of the User in itsme®.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>client_id</strong></td>
+<td style="text-align: left"><strong>partnerCode</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This MUST be the client identifier (e.g. : Project ID) you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+<td style="text-align: left">This MUST be the client identifier you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>serviceCode</strong></td>
@@ -714,7 +714,7 @@
 </tbody></table>
 
 <p>This parameter is optional and freely defined in a free text of maximum 50 characters by yourself. You should provide this free text in all supported languages. The characters used to define the Signer Role MUST be ISO-8859-1 compatible.  </p>
-<h2 id='3-7-managing-the-sign-response'>3.7. Managing the Sign Response</h2>
+<h2 id='3-7-managing-the-sign-response'>3.7. Managing the Sign Response</h2><h3 id='getting-a-successful-sign-response'>Getting a successful Sign Response</h3>
 <p>If the Sign Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside.</p>
 
 <p>The response body will include the following values:</p>
@@ -794,10 +794,10 @@
 <td style="text-align: left">This signing URL is the link to redirect the User from the SCA frontend  to the itsme® Signing Page.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>sub</strong></td>
+<td style="text-align: left"><strong>userCode</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left"></td>
-<td style="text-align: left">An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.</td>
+<td style="text-align: left">An identifier for the User, unique among all itsme® accounts and never reused. Use <code>userCode</code> in the application as the unique-identifier key for the User.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>sigObj</strong></td>
@@ -806,24 +806,8 @@
 <td style="text-align: left">This is the signature object. Currently this is the hash to be signed.</td>
 </tr>
 </tbody></table>
-
-<p>The following table describes the various error codes that will be returned to the User using the appropriate HTTPS status code:</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Status code</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><strong>400</strong></td>
-<td style="text-align: left">Returned in case of invalid Request Object.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>409</strong></td>
-<td style="text-align: left">Returned in case of error.</td>
-</tr>
-</tbody></table>
+<h3 id='handling-error-response-2'>Handling Error Response</h3>
+<p>See <a href="#RequestObjectByValue">Appendixes</a> to get more information on the error codes.</p>
 <h1 id='4-appendixes'>4. Appendixes</h1><h2 id='4-1-handling-error-response'>4.1. Handling Error Response</h2>
 <p>If one of the above request is invalid or unauthorized an error code will be returned to the User using the appropriate HTTPS status code, as listed in the table below:</p>
 
@@ -839,7 +823,7 @@
 </tr>
 <tr>
 <td style="text-align: left"><strong>409</strong></td>
-<td style="text-align: left">Returned in case of error.</td>
+<td style="text-align: left">Returned in case the User identification flow has been interrupted.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>500</strong></td>
