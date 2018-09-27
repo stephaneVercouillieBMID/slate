@@ -64,9 +64,6 @@ To simplify implementations and increase flexibility, all needed key-value pairs
   <li>...</li>
 </ul>
 
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-
 The JSON document for itsme® Sign service may be retrieved from: 
 
 Environment | URL
