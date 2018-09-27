@@ -148,12 +148,7 @@ Parameter | Type | Required | Description
 
 ## 3.5. Getting the User identification status info
 
-If the Identification Session Status Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside. Meaning that the User can perform a Sign transaction with itsme®. 
-
-
-XXXXXXXXXXXXXXXXXXXXXXXXX Reference of the certificate can also be retrieved in the response
-
-
+If the Identification Session Status Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside. In other words, you will get the confirmation that the User can perform a Sign transaction with itsme® and retrieve the User certificate reference value.
 
 The response body will include the following values:
 
@@ -287,7 +282,7 @@ This parameter is optional and freely defined in a free text of maximum 50 chara
 
 ## 3.7. Managing the Sign Response 
 
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX Add subtitle
+### Getting a successful Sign Response
 
 If the Sign Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside.
 
