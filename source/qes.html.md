@@ -290,6 +290,8 @@ This parameter is optional and freely defined in a free text of maximum 50 chara
 
 ## 3.7. Managing the Sign Response 
 
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX Add subtitle
+
 If the Sign Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside.
 
 The response body will include the following values:
@@ -323,15 +325,9 @@ Values | Type | Returned | Description
 **userCode** | String |  | An identifier for the User, unique among all itsme® accounts and never reused. Use <code>userCode</code> in the application as the unique-identifier key for the User.
 **sigObj** | Array |  | This is the signature object. Currently this is the hash to be signed.
 
-The following table describes the various error codes that will be returned to the User using the appropriate HTTPS status code:
+### Handling Error Response
 
-Status code | Description
-:-- | :-- 
-**400**  | Returned in case of invalid Request Object.
-**409** | Returned in case of error.
-
-
-
+See [Appendixes](#RequestObjectByValue) to get more information on the error codes.
 
 
 # 4. Appendixes
@@ -342,8 +338,8 @@ If one of the above request is invalid or unauthorized an error code will be ret
 
 Status code | Description
 :-- | :-- 
-**400**  | Returned in case of invalid Request Object.
-**409** | Returned in case of error.
+**400** | Returned in case of invalid Request Object.
+**409** | Returned in case the User identification flow has been interrupted.
 **500** | Internal Server Error.
 
 The Error Response will contain the `status` and the `statusReason` value. The following table describes the various error types that can be returned in the `statusReason` value of the error response:
