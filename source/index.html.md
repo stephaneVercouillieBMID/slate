@@ -355,7 +355,7 @@ Values |	Returned |	Description
 **given_name** | If requested | 
 **gender** | If requested | 
 **birthdate** | If requested | 
-**locale** | If requested | 
+**locale** | If requested | The language of the end user
 **email** | If requested | The User's email address. This may not be unique and is not suitable for use as a primary key. Provided only if your scope included the string "email".
 **email_verified** | If requested | <code>true</code> if the User's e-mail address has been verified; otherwise <code>false</code>.
 **phone_number** | If requested | 
