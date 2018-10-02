@@ -230,7 +230,7 @@ Parameter | Description
 **sub** | The subject of the `private_key_jwt`. This MUST contain the `client_id`. This is the client identifier (e.g. : Project ID) you received when registering your project in the [itsme® B2B portal](#Onboarding).
 **aud** | Value that identifies the Authorization Server as an intended audience. This MUST be the itsme® Token Endpoint URL : `https://merchant.itsme.be/oidc/token`
 **jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once.
-**exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing.
+**exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing. The format of ‘exp’ is unix epoch time, in Universal time zone (e.g. 1538507868 for Tuesday, March 22, 2011 6:43:00 PM)
 
 <a name="TokenResponse"></a>
 ## 3.6. Managing Token Response
