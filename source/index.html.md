@@ -315,7 +315,7 @@ The response will contain an error parameter and optionally `error_description` 
 <a name="Data"></a>
 ## 3.7. Obtaining ID claims/User attibutes
 
-OpenID Connect Core specifications also allow your application to obtain basic profile information about them in a interoperable way. 
+OpenID Connect Core specifications also allow your application to obtain basic profile information about a specific User in a interoperable way. 
 
 Following the OpenID Connect Core specifications, there are 2 ways to obtain ID claims/User attributes for a specific User:
 <ul>
