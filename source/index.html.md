@@ -90,7 +90,7 @@ Parameter | Required | Description
 :-------- | :--------| :----- 
 **client_id** | Required |This is the client ID you received when registering your project in the [itsme® B2B portal](#Onboarding).
 **response_type** | Required | This defines the processing flow to be used when forming the response. Because itsme® uses the Authorization Code Flow as described above, this value MUST be `code`.
-**scope** | Required | The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value `openid` and `service:service_code`, the itsme® service you want to use as defined for your project in the [itsme® B2B portal](#Onboarding).<br>Applications can ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are `family_name`, `given_name`, `gender`, `birthdate` and `locale`.</li><li>email: will request the `email` and `email_verified` claims.</li></ul>For more information on User attributes or claims, please consult the [ID claims](#Data) section.</br><br>An HTTP ERROR `not_implemented` will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br>
+**scope** | Required | The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value `openid` and `service:service_code`, the itsme® service you want to use as defined for your project in the [itsme® B2B portal](#Onboarding).<br>You can also specify additional scopes, separated by spaces, to request more information about the User. The following additional scopes apply:<ul><li>profile: will request the claims representing basic profile information. These are `family_name`, `given_name`, `gender`, `birthdate` and `locale`.</li><li>email: will request the `email` and `email_verified` claims.</li><li>phone: will request the `phone_number` and `phone_number_verified` claims.</li><li>address: will request the `street_address`, `locality`, `postal_code` and `country` claims.</li></ul>For more information on User attributes or claims, please consult the [ID claims](#Data) section.</br><br>An HTTP ERROR `not_implemented` will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br>
 **redirect_uri** | Required | This is the URI to which the authentication response should be sent. This MUST exactly match the redirect URI of the specified service defined when registering your project in the [itsme® B2B portal](#Onboarding).
 **state** | Required | This `state` object is the only way to bind the original Authentication Request with the Authorization Response (holding the `code` and the `state`). In other terms, this parameter is used to restore the user context on your side.
 **nonce** | Strongly RECOMMENDED | String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. Sufficient entropy MUST be present in the `nonce` values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">OpenID Connect Core specifications</a> for more information.
@@ -313,44 +313,16 @@ The response will contain an error parameter and optionally `error_description` 
 
 
 <a name="Data"></a>
-## 3.7. Obtaining ID claims/User attibutes
+## 3.7. Obtaining User attributes or claims
 
-OpenID Connect Core specifications also allow your application to obtain basic profile information about a specific User in a interoperable way. 
+OpenID Connect Core specifications also allow your application to obtain basic profile information about a specific User in a interoperable way. These User attributes or claims can be obtained by presenting the `access_token` to the itsme® userInfo Endpoint, which can be retrieved from the [itsme® Discovery document](#OpenIDConfig), using the key `userinfo_endpoint`. This is achieved by sending a HTTPS GET request over TLS to the userInfo Endpoint URI, passing the Access Token value in the Authorization header using the Bearer authentication scheme.
 
-Following the OpenID Connect Core specifications, there are 2 ways to obtain ID claims/User attributes for a specific User:
-<ul>
-  <li>using the `id_token` returned in the token response</li>
-  <li>capturing the claims from the itsme® userInfo Endpoint</li>
-</ul>
+The itsme® userInfo Endpoint will return specific claims, depending on the values you requested in the `scope` and/or `claims` parameter.
 
-###  Using ID Token to obtain claims
-<a name id="decClaim"></a>
-
-The `id_token` will return specific claims, depending on the values you requested in the `scope` parameter. As stated before, `scope` MUST contain the value `openid` and `service: service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding). 
-
-Your applications can ask for additional scopes to request more information about the User. The following additional scopes apply:
-
-Parameter | Description
-:-- | :-- 
-**profile** | This MUST be set to `profile`. 
-**email** | This MUST be set to `email`. 
-**phone** | This MUST be set to `phone`. 
-**address**  | This MUST be set to `address`. 
-
-As the `id_token` is comprised of three Base64URL encoded elements, you MUST decode this JWT to get a JSON object containing the claims about the User. The fields returned via the `id_token` are those below:
+Following fields are returned if additionnal scopes are requested in the `scope` Authentication Request parameter:
 
 Values |	Returned |	Description
 :--- | :--- | :---
-**iss**	| Always | Identifier of the issuer of the ID Token.
-**sub** |	Always | An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.
-**aud**	| Always |	Audience of the ID Token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : Project ID) you received when registering your project in the [itsme® B2B portal](#Onboarding).
-**exp**	| Always |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
-**iat** |	Always	| The time the ID Token was issued, represented in Unix time (integer seconds).
-**auth_time** | Always | The time the User authentication occurred, represented in Unix time (integer seconds). 
-**nonce** | If provided | String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. Sufficient entropy MUST be present in the <code>nonce</code> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.
-**acr** | Always | Possible values: `tag:sixdots.be,2016-06:acr_basic` and `tag:sixdots.be,2016-06:acr_advanced`
-**amr** | Never |
-**azp** | Never |
 **family_name** | If requested | 
 **given_name** | If requested | 
 **gender** | If requested | 
