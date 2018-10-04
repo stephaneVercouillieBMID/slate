@@ -317,23 +317,49 @@ The response will contain an error parameter and optionally `error_description` 
 
 OpenID Connect Core specifications also allow your application to obtain basic profile information about a specific User in a interoperable way. These User attributes or claims can be obtained by presenting the `access_token` to the itsme® userInfo Endpoint, which can be retrieved from the [itsme® Discovery document](#OpenIDConfig), using the key `userinfo_endpoint`. This is achieved by sending a HTTPS GET request over TLS to the userInfo Endpoint URI, passing the Access Token value in the Authorization header using the Bearer authentication scheme.
 
+```http--inline
+HTTP/1.1 200 OK
+  Content-Type: application/json
+
+  {
+   "sub": "248289761001",
+   "name": "Jane Doe",
+   "given_name": "Jane",
+   "family_name": "Doe",
+   "email": "janedoe@example.com"
+  }  
+```
+
 The itsme® userInfo Endpoint will return specific claims in a HTTP 200 OK response, depending on the values you requested in the `scope` and/or `claims` parameter.
+
+<aside class="notice">The `sub` claim will always be included in the response and this should be verified by you to mitigate against token substitution attacks. The `sub` claim in the userInfo response MUST be verified to exactly match the `sub` Claim in the <code>id_token</code>; if they do not match, the userInfo response values MUST NOT be used.</aside>
+
+<aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
+
+<aside class="notice">itsme® will ensure that the userInfo response is signed and encrypted, meaning that the content type will be set to application/jwt. The userInfo response will contain the `iss` and `aud` claims. You should validate that the `iss` value matches itsme® issuer identifier and the `aud` value contains the your `client_id`.</aside>
+
+<aside class="notice">You should authenticate the OpenID Provider either by checking the TLS certificate or by validating the signature of the JWT if provided.</aside>
+
+When an error condition occurs an error response as defined in the <a href="https://tools.ietf.org/html/rfc6750" target="blank">OAuth 2.0 Bearer Token Usage specification</a> will be returned.
+
+```http--inline
+HTTP/1.1 401 Unauthorized
+  WWW-Authenticate: error="invalid_token",
+    error_description="The Access Token expired"
+```
 
 ###  Capturing claims from the 'scope' parameter
 
+On top of the `openid` and `service:service_code` parameters specified in the Authentication Request, you can also ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes apply:
 
+Parameter | Description
+:-- | :-- 
+**profile** | It will request the claims representing basic profile information. These are `family_name`, `given_name`, `gender`, `birthdate` and `locale`
+**email** | It will request the `email` and `email_verified` claims.
+**phone** | It will request the `phone_number` and `phone_number_verified` claims
+**address**  | It will request the `street_address`, `locality`, `postal_code` and `country` claims.
 
-
-
-
-
-## 3.7. Obtaining User attributes or claims
-
-OpenID Connect Core specifications also allow your application to obtain basic profile information about a specific User in a interoperable way. These User attributes or claims can be obtained by presenting the `access_token` to the itsme® userInfo Endpoint, which can be retrieved from the [itsme® Discovery document](#OpenIDConfig), using the key `userinfo_endpoint`. This is achieved by sending a HTTPS GET request over TLS to the userInfo Endpoint URI, passing the Access Token value in the Authorization header using the Bearer authentication scheme.
-
-The itsme® userInfo Endpoint will return specific claims, depending on the values you requested in the `scope` and/or `claims` parameter.
-
-Following fields are returned if additionnal scopes are requested in the `scope` Authentication Request parameter:
+The values returned via the itsme® userInfo Endpoint are those below:
 
 Values |	Returned |	Description
 :--- | :--- | :---
@@ -351,55 +377,31 @@ Values |	Returned |	Description
 **postal_code** | If requested | 
 **country** | If requested | 
 
-###  Capturing claims from the userInfo Endpoint
 
-Typically the `id_token` only contains claims about the authentication event and the identity of the User. Other information about the User can be requested by including additional scopes in the Authentication Request as mentionned above (e.g.: phone, address, profile and email scopes). 
+###  Capturing claims from the 'claims' parameter
 
-If the required claims are not returned in the `id_token` you can still add custom claims in the `claims` parameter as specified below:
+Typically, the values returned via the `scope` parameter only contain claims about the identity of the User. More information about the User can be requested by including additional parameters in the `claims` parameter as specified below:
 
 Parameter | Description
 :-- | :-- 
-**nationality** | This MUST be set to `tag:sixdots.be,2016-06:claim_nationality`.
-**place of Birth - city** | This MUST be set to `tag:sixdots.be,2016-06:claim_city_of_birth`.
-**place of Birth - country** | This MUST be set to`tag:sixdots.be,2016-06:claim_country_of_birth`.
-**e-ID Metadata**  | This MUST be set to`tag:sixdots.be,2016-06:claim_eid`. 
-**passport Number** | This MUST be set to `tag:sixdots.be,2017-05:claim_passport_sn`.
-**device** | This MUST be set to `tag:sixdots.be,2017-05:claim_device`. 
-**transaction Info** | This MUST be set to `tag:sixdots.be,2017-05:claim_transaction_info`. 
-**e-ID Picture** | This MUST be set to `tag:sixdots.be,2017-05:2017-05:claim_photo`.
+**tag:sixdots.be,2016-06:claim_nationality** | It will request the `nationality` claim.
+**tag:sixdots.be,2016-06:claim_city_of_birth** | It will request the `place of Birth - city` claim.
+**tag:sixdots.be,2016-06:claim_country_of_birth** | It will request the `place of Birth - country` claim.
+**tag:sixdots.be,2016-06:claim_eid**  | It will request the `eid` claim.
+**tag:sixdots.be,2017-05:claim_passport_sn** | It will request the `issuance_locality`, `validity_from`, `validity_to`, `certificate_validity`, `read_date`, `passport Number` claims.
+**tag:sixdots.be,2017-05:claim_device** | It will request the `os`, `appName`, `appRelease`, `deviceLabel`, `debugEnabled`, `deviceID`, `osRelease`, `manufacturer`, `hasSimEnabled`, `deviceLockLevel`, `smsEnabled`, `rooted`, `imei`, `deviceModel`, `msisdn` and `sdkRelease` claims.
+**tag:sixdots.be,2017-05:claim_transaction_info** | It will request the `securityLevel`, `bindLevel` and `mcc` claims.
+**tag:sixdots.be,2017-05:2017-05:claim_photo** | It will request the `e-ID Picture` claim.
 
-You can obtain these additional claims - and those defined by using the `scope` parameter - by presenting the `access_token` to the itsme® userInfo Endpoint. This is achieved by sending a HTTPS GET request over TLS to the userInfo Endpoint URI, passing the Access Token value in the Authorization header using the Bearer authentication scheme.
-
-The itsme® userInfo Endpoint can be retrieved from the [itsme® Discovery document](#OpenIDConfig), using the key `userinfo_endpoint`.
-
-```http--inline
-GET /userinfo HTTP/1.1
-Host: server.example.com
-Authorization: Bearer SlAV32hkKG
-```
-
-The userInfo claims will be returned in a HTTP 200 OK response. The non-exhaustive fields returned via the userInfo Endpoint are those below:
-
-```http--inline
-HTTP/1.1 200 OK
-  Content-Type: application/json
-
-  {
-   "sub": "248289761001",
-   "name": "Jane Doe",
-   "given_name": "Jane",
-   "family_name": "Doe",
-   "email": "janedoe@example.com"
-  }  
-```
+The values returned via the itsme® userInfo Endpoint are those below:
 
 <a name id="SecurityDataElements"></a>
 
 Values | Description
 :-- | :-- 
 **nationality** | 
-**place of Birth - city** | This MUST be set to `tag:sixdots.be,2016-06:claim_city_of_birth`.
-**place of Birth - country** | This MUST be set to`tag:sixdots.be,2016-06:claim_country_of_birth`.
+**place of Birth - city** | 
+**place of Birth - country** | 
 **eid**  | The eID card serial number.
 **issuance_locality**  | The eID card issuance locality.
 **validity_from**  | The eID card validity “from” date.
@@ -427,22 +429,6 @@ Values | Description
 **bindLevel**  | It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be `SOFT_ONLY`, `SIM_ONLY` or `SIM_AND_SOFT`.
 **mcc**  | The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country.
 **e-ID Picture** | 
-
-<aside class="notice">The `sub` claim will always be included in the response and this should be verified by you to mitigate against token substitution attacks. The `sub` claim in the userInfo response MUST be verified to exactly match the `sub` Claim in the <code>id_token</code>; if they do not match, the userInfo response values MUST NOT be used.</aside>
-
-<aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
-
-<aside class="notice">itsme® will ensure that the userInfo response is signed and encrypted, meaning that the content type will be set to application/jwt. The userInfo response will contain the `iss` and `aud` claims. You should validate that the `iss` value matches itsme® issuer identifier and the `aud` value contains the your `client_id`.</aside>
-
-<aside class="notice">You should authenticate the OpenID Provider either by checking the TLS certificate or by validating the signature of the JWT if provided.</aside>
-
-When an error condition occurs an error response as defined in the <a href="https://tools.ietf.org/html/rfc6750" target="blank">OAuth 2.0 Bearer Token Usage specification</a> will be returned.
-
-```http--inline
-HTTP/1.1 401 Unauthorized
-  WWW-Authenticate: error="invalid_token",
-    error_description="The Access Token expired"
-```
 
 
 # 4. Mapping the User
