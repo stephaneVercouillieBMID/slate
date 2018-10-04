@@ -317,6 +317,20 @@ The response will contain an error parameter and optionally `error_description` 
 
 OpenID Connect Core specifications also allow your application to obtain basic profile information about a specific User in a interoperable way. These User attributes or claims can be obtained by presenting the `access_token` to the itsme® userInfo Endpoint, which can be retrieved from the [itsme® Discovery document](#OpenIDConfig), using the key `userinfo_endpoint`. This is achieved by sending a HTTPS GET request over TLS to the userInfo Endpoint URI, passing the Access Token value in the Authorization header using the Bearer authentication scheme.
 
+The itsme® userInfo Endpoint will return specific claims in a HTTP 200 OK response, depending on the values you requested in the `scope` and/or `claims` parameter.
+
+###  Capturing claims from the 'scope' parameter
+
+
+
+
+
+
+
+## 3.7. Obtaining User attributes or claims
+
+OpenID Connect Core specifications also allow your application to obtain basic profile information about a specific User in a interoperable way. These User attributes or claims can be obtained by presenting the `access_token` to the itsme® userInfo Endpoint, which can be retrieved from the [itsme® Discovery document](#OpenIDConfig), using the key `userinfo_endpoint`. This is achieved by sending a HTTPS GET request over TLS to the userInfo Endpoint URI, passing the Access Token value in the Authorization header using the Bearer authentication scheme.
+
 The itsme® userInfo Endpoint will return specific claims, depending on the values you requested in the `scope` and/or `claims` parameter.
 
 Following fields are returned if additionnal scopes are requested in the `scope` Authentication Request parameter:
