@@ -73,7 +73,8 @@ POST /oidc/authorization HTTP/1.1
 ```
 
 <ul>
-  <li>The Authentication Request MUST be communicated using HTTPS POST protocol and the <code>application/x-www-form-urlencoded</code> media type. HTTPS GET calls will be refused by the Authorization Server because the Authorization Request MIGHT contain sensitive data.   </li>
+  <li>The Authentication Request MUST be communicated using HTTPS GET protocol and the <code>application/x-www-form-urlencoded</code> media type. Since POST method will not be authorized when triggering the itsme® App through the Universal/App Link mechanism only HTTP GET method is supported on the Authorisation Endpoint.
+  </li>
   <li>You CAN also specify the type of info you want to have visualized in the itsme® app. This will be done by using the key <code>tag:sixdots.be,2016-08:claim_approval_template_name</code> in the </code>claim</code> parameter when forming the Authentication Request. More information on the available templates can be found in the Appendixes.</li>    
   <li>Using the <code>request</code> or <code>request_uri</code> parameter is mandatory when forming the Authentication Request. This parameter MUST be signed with your private key and/or encrypted with the itsme® public key.</li>
   <li>The <code>prompt</code> parameter can be <code>login</code> and/or <login>consent</code>.</li>
