@@ -229,8 +229,8 @@ Parameter | Description
 **iss** | The issuer of the `private_key_jwt`. This MUST contain the `client_id`. This is the client identifier (e.g. : Project ID) you received when registering your project in the [itsme® B2B portal](#Onboarding).
 **sub** | The subject of the `private_key_jwt`. This MUST contain the `client_id`. This is the client identifier (e.g. : Project ID) you received when registering your project in the [itsme® B2B portal](#Onboarding).
 **aud** | Value that identifies the Authorization Server as an intended audience. This MUST be the itsme® Token Endpoint URL : `https://merchant.itsme.be/oidc/token`
-**jti** | A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once. It is a case-sensitive string.
-**exp** | Expiration time on or after which the ID Token MUST NOT be accepted for processing. The format of ‘exp’ is unix epoch time, in Universal time zone (e.g. 1538507868 for Tuesday, March 22, 2011 6:43:00 PM)
+**jti** | The <code>jti</code> (JWT ID) claim provides a unique identifier for the JWT. The identifier value MUST be assigned by the you in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object; if the application uses multiple issuers, collisions MUST be prevented among values produced by different issuers as well.  The <code>jti</code> claim can be used  to prevent the JWT from being replayed. The <code>jti</code> value is a case-sensitive string. 
+**exp** | The <code>exp</code> (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing.  The processing of the <code>exp</code> claim requires that the current date/time MUST be before the expiration date/time listed in the <code>exp</code> claim. Implementers MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew.  Its value MUST be a number containing a NumericDate value (e.g. 1538507868 for Tuesday, March 22, 2011 6:43:00 PM).
 
 <a name="TokenResponse"></a>
 ## 3.6. Managing Token Response
@@ -281,7 +281,7 @@ Decoding the second element gives you the JSON object containing the claims abou
 Values |	Returned |	Description
 :-- | :-- | :--
 **iss**	| Always | Identifier of the issuer of the ID Token.
-**sub** |	Always | An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.
+**sub** |	Always | An for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User. It has 32 characters.
 **aud**	| Always |	Audience of the ID Token. This will contain the <code>client_id</code>. This is the client identifier (e.g. : Project ID) you received when registering your project in the [itsme® B2B portal](#Onboarding).
 **exp**	| Always |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 **iat** |	Always	| The time the ID Token was issued, represented in Unix time (integer seconds).
