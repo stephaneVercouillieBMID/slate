@@ -286,7 +286,7 @@
   <li>The User indicates on your end he wishes to sign a document with itsme®</li>
   <li>Your web desktop, mobile web or mobile SCA application sends a request to itsme® Integration Layer Back-End in order to create the User’s Identification session and obtain the User’s signing certificate to be include in the data to be signed.</li>
   <li>itsme® returns the session id and the redirect URL specific to the User to your SCA Back-End.</li>
-  <li>Your SCA Front-End redirect the User to the Integration Layer Front-End of itsme®, meaning that the Iser will be authenticated in the meanwhile. If the User has no signature certificate yet, the certificate creation process will be initiated automatically.</li>
+  <li>Your SCA Front-End redirects the User to the Integration Layer Front-End of itsme®, meaning that the User will be identified in the meanwhile (in case the <code>userCode</code> is transmitted by the SCA, this step can be skipped as the user will already be identified). If the User has no signature certificate yet, the certificate creation process will be initiated automatically.</li>
   <li>Finally, when the User is authenticated and has a signature certificate, he is redirected to the your SCA Front-End. The redirection to your SCA Front-End should be (almost) transparent to the User (aka possible displaying of a spinner) as the laps of time between step 5 and step 11 of this diagram should be extremely short.</li>
   <li>Your SCA Back-End contacts the itsme® Integration Layer Back-End to get the signature certificate of the User.</li>
 </ol>
