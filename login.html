@@ -653,11 +653,11 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 </tr>
 <tr>
 <td style="text-align: left"><strong>jti</strong></td>
-<td style="text-align: left">A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once. It is a case-sensitive string.</td>
+<td style="text-align: left">The <code>jti</code> (JWT ID) claim provides a unique identifier for the JWT. The identifier value MUST be assigned by the you in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object; if the application uses multiple issuers, collisions MUST be prevented among values produced by different issuers as well.  The <code>jti</code> claim can be used  to prevent the JWT from being replayed. The <code>jti</code> value is a case-sensitive string.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>exp</strong></td>
-<td style="text-align: left">Expiration time on or after which the ID Token MUST NOT be accepted for processing. The format of ‘exp’ is unix epoch time, in Universal time zone (e.g. 1538507868 for Tuesday, March 22, 2011 6:43:00 PM)</td>
+<td style="text-align: left">The <code>exp</code> (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing.  The processing of the <code>exp</code> claim requires that the current date/time MUST be before the expiration date/time listed in the <code>exp</code> claim. Implementers MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew.  Its value MUST be a number containing a NumericDate value (e.g. 1538507868 for Tuesday, March 22, 2011 6:43:00 PM).</td>
 </tr>
 </tbody></table>
 
@@ -743,7 +743,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 <tr>
 <td style="text-align: left"><strong>sub</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">An identifier for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User.</td>
+<td style="text-align: left">An for the User, unique among all itsme® accounts and never reused. Use <code>sub</code> in the application as the unique-identifier key for the User. It has 32 characters.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>aud</strong></td>
@@ -955,11 +955,11 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2016-06:claim_eid</strong></td>
-<td style="text-align: left">It will request the <code>eid</code> claim.</td>
+<td style="text-align: left">It will request the  <code>eid</code>, <code>issuance_locality</code>, <code>validity_from</code>, <code>validity_to</code>, <code>certificate_validity</code> and <code>read_date</code> claims</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2017-05:claim_passport_sn</strong></td>
-<td style="text-align: left">It will request the <code>issuance_locality</code>, <code>validity_from</code>, <code>validity_to</code>, <code>certificate_validity</code>, <code>read_date</code>, <code>passport Number</code> claims.</td>
+<td style="text-align: left">It will request the <code>passport Number</code> claim.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2017-05:claim_device</strong></td>
