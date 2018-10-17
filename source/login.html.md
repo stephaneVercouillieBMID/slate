@@ -387,8 +387,8 @@ Parameter | Description
 **tag:sixdots.be,2016-06:claim_nationality** | It will request the `nationality` claim.
 **tag:sixdots.be,2016-06:claim_city_of_birth** | It will request the `place of Birth - city` claim.
 **tag:sixdots.be,2016-06:claim_country_of_birth** | It will request the `place of Birth - country` claim.
-**tag:sixdots.be,2016-06:claim_eid**  | It will request the `eid` claim.
-**tag:sixdots.be,2017-05:claim_passport_sn** | It will request the `issuance_locality`, `validity_from`, `validity_to`, `certificate_validity`, `read_date`, `passport Number` claims.
+**tag:sixdots.be,2016-06:claim_eid**  | It will request the  `eid`, `issuance_locality`, `validity_from`, `validity_to`, `certificate_validity` and `read_date` claims
+**tag:sixdots.be,2017-05:claim_passport_sn** | It will request the `passport Number` claim.
 **tag:sixdots.be,2017-05:claim_device** | It will request the `os`, `appName`, `appRelease`, `deviceLabel`, `debugEnabled`, `deviceID`, `osRelease`, `manufacturer`, `hasSimEnabled`, `deviceLockLevel`, `smsEnabled`, `rooted`, `imei`, `deviceModel`, `msisdn` and `sdkRelease` claims.
 **tag:sixdots.be,2017-05:claim_transaction_info** | It will request the `securityLevel`, `bindLevel` and `mcc` claims.
 **tag:sixdots.be,2017-05:2017-05:claim_photo** | It will request the `e-ID Picture` claim.
