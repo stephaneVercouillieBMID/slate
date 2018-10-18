@@ -300,7 +300,7 @@
 <span class="s">}</span>
 </code></pre>
 <ul>
-  <li>The Authentication Request MUST be communicated using HTTPS GET protocol and the <code>application/x-www-form-urlencoded</code> media type. Since POST method will not be authorized when triggering the itsme® App through the Universal/App Link mechanism only HTTP GET method is supported on the Authorisation Endpoint.
+  <li>The Authentication Request MUST be communicated using HTTPS GET protocol and the <code>application/x-www-form-urlencoded</code> media type. By opposition to the OpenID Connect specifications, POST method is not authorized when triggering the itsme® App through the Universal/App Link mechanism only support the HTTP GET method on the Authorisation Endpoint.
   </li>
   <li>You CAN also specify the type of info you want to have visualized in the itsme® app. This will be done by using the key <code>tag:sixdots.be,2016-08:claim_approval_template_name</code> in the </code>claim</code> parameter when forming the Authentication Request. More information on the available templates can be found in the Appendixes.</li>    
   <li>Using the <code>request</code> or <code>request_uri</code> parameter is mandatory when forming the Authentication Request. This parameter MUST be signed with your private key and/or encrypted with the itsme® public key.</li>
