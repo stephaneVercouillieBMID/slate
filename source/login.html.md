@@ -72,7 +72,7 @@ Environment | URL
 
 First, you will forg a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint can be retrieved from the [itsme® Discovery document](#OpenIDConfig), using the key `authorization_endpoint`.
 
-<aside class="alert">Since POST method will not be authorized when triggering the itsme® App through the Universal/App Link mechanism only HTTP GET method is supported on the Authorisation Endpoint. More information about Universal links and App links can be found in the <a href="#UniversalLinks">Appendixes</a>.
+<aside class="alert">By opposition to the OpenID Connect specifications, POST method is not authorized when triggering the itsme® App through the Universal/App Link mechanism only support the HTTP GET method on the Authorisation Endpoint. More information about Universal links and App links can be found in the <a href="#UniversalLinks">Appendixes</a>.
 </aside>
 
 The OpenID Connect Core specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:
