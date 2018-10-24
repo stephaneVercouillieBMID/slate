@@ -187,33 +187,15 @@ Your server makes this exchange by sending an HTTPS POST request to the itsme® 
 The request MUST include the following parameters in the `POST` body:
 
 ```http--inline
-GET /oidc/authorization HTTP/1.1
-?response_type=code
-&client_id=yourprojectid
-&redirect_uri=yourredirecturl
-&scope=openid+service%3Ayourservicecode+profile
-&claims={
-  "userinfo":
-  {
-    " tag:sixdots.be,2016-06:claim_nationality": null
-  },
-  "id_token":
-  {
-    "auth_time":
-    {
-      "essential": true
-    },
-    "acr_values":
-    {
-      "value":["tag:sixdots.be,2016-06:acr_advanced"]
-    }
-  }
-}
-&state=anystate
-&nonce=anonce
-&prompt=login
-&max_age=1
+POST /token HTTP/1.1
+Host: server.example.com
+Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=authorization_code&code=SplxlOBeZQQYbYS6WxSbIA
+&redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb
 ```
+
 Parameter | Required | Description
 :-- | :-- | :--
 **grant_type** | Required | This MUST be set to `authorization_code`.
