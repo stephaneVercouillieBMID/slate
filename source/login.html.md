@@ -735,35 +735,27 @@ Following lists out the encryption process of a JWE under the compact serializat
 <a name="RequestUri"></a>
 ## 5.5. Using request_uri parameter
 
-Using the request_uri parameter in the Authentication Request enables requests to be passed by reference. The following diagram depicts it:
+The ‘request_uri‘  parameter enables the Authentication Requests to be passed by reference, rather than by value. This parameter is used identically to the ‘request’ parameter, except that the Request Object value is retrieved from the resource at the specified URL.
 
-![Sequence diagram describing the use of request_uri parameter](images/Request_uri_SD.png)
+When the `request_uri` parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OpenID Connect Authorization Request syntax. However, parameters MAY also be passed using the OpenID Connect Authorization Request syntax even when a `request_uri` is used; this would typically be done to enable a cached, pre-signed (and possibly pre-encrypted) Request Object value to be used containing the fixed request parameters, while parameters that can vary with each request, such as `state` and  `nonce `, are passed as OpenID Connect parameters.
 
-<ol>
-  <li>The user indicates on your end he wishes to authenticate with itsme®</li>
-  <li>Your Front-End sends a request to our Front-End. This request specifies a <code>request_uri</code> parameter.</li>
-  <li>Our Front-End transmits the request to our Back-End</li>
-  <li>Our Back-End fetches the request JWT at your Back-End, at the URI specified in the request_uri.</li>
-  <li>At your URI you expose the needed request JWT. The flow can then continue normally.</li>
-</ol>
+To be a valid OpenID Connect Authorization Request, it MUST include the `response_type` and `client_id` parameters, since they are REQUIRED by OpenID Connect Core 1.0 specifications. The values for these parameters MUST match those in the Request Object.
 
-The request JWT exposed at your Back-End MUST be a JWT, and is used identically as the `request` object, according to the <a href="http://openid.net/specs/openid-connect-core-1_0.html#rfc.section.6.2" target="_blank"> section 6.2 of the OpenID specification</a>.
+You need to store the Request Object resource either locally or remotely at a URL the the Authorization Server can access. This URL is the Request URI, `request_uri`.
 
-<aside class="notice">
-To start using request uri, please note the following must be fulfilled: 
-<ul>
-  <li>Communicate the subdomain you will use so that we can whitelist it.</li>
-    <ul>
-      <li>If we whitelist ‘my.partner.be’, it means that the following is also valid ‘john.doe.my.partner.be/anything’.</li>
-    </ul>
-  <li>Provide us the issuer of the root certificate associated to the subdomain, so that we can verify whether it is already trusted on our end.</li>
-    <ul>
-      <li>Please note we won't trust Let’s Encrypt certificates.</li>
-      <li>We use one way SSL, so you don't need to trust our server certificate.</li>
-    </ul>
-  <li>Ensure the URI mentioned by request_uri is publicly available.</li>
-</ul>
-</aside>
+Enclosed you will find a non-normative example of an Authorization Request using the `request_uri `parameter;
+
+```http—inline
+GET /oidc/authorization HTTP/1.1
+    response_type=code%20id_token
+    &client_id=s6BhdRkqt3
+    &request_uri=https%3A%2F%2Fclient.example.org%2Frequest.jwt
+    %23GkurKxf5T0Y-mnPFCHqWOMiZi4VS138cQO_V7PZHAdM
+    &state=af0ifjsldkj&nonce=n-0S6_WzA2Mj
+    &scope=openid
+```
+
+For more details on Authorization request parameters using JWTs, refer to the OpenID Connect Core specifications <a href=" http://openid.net/specs/openid-connect-core-1_0.html#JWTRequests" target="blank">OpenID Connect Core specifications</a>.
 
 
 
