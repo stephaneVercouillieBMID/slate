@@ -570,32 +570,13 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 <aside class="notice">An Authorization Code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling token error response.</aside>
 
 <p>The request MUST include the following parameters in the <code>POST</code> body:</p>
-<pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/oidc/authorization</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="s">?response_type=code</span>
-<span class="s">&amp;client_id=yourprojectid</span>
-<span class="s">&amp;redirect_uri=yourredirecturl</span>
-<span class="s">&amp;scope=openid+service%3Ayourservicecode+profile</span>
-<span class="s">&amp;claims={</span>
-<span class="s">  "userinfo":</span>
-<span class="s">  {</span>
-<span class="s">    " tag:sixdots.be,2016-06:claim_nationality": null</span>
-<span class="s">  },</span>
-<span class="s">  "id_token":</span>
-<span class="s">  {</span>
-<span class="s">    "auth_time":</span>
-<span class="s">    {</span>
-<span class="s">      "essential": true</span>
-<span class="s">    },</span>
-<span class="s">    "acr_values":</span>
-<span class="s">    {</span>
-<span class="s">      "value":["tag:sixdots.be,2016-06:acr_advanced"]</span>
-<span class="s">    }</span>
-<span class="s">  }</span>
-<span class="s">}</span>
-<span class="s">&amp;state=anystate</span>
-<span class="s">&amp;nonce=anonce</span>
-<span class="s">&amp;prompt=login</span>
-<span class="s">&amp;max_age=1</span>
+<pre class="highlight http tab-http--inline"><code><span class="nf">POST</span> <span class="nn">/token</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">server.example.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA
+&amp;redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb
 </code></pre>
 <table><thead>
 <tr>
@@ -889,7 +870,7 @@ Once your server component has received an <a href="#AuthNResponse">Authorizatio
 <tr>
 <td style="text-align: left"><strong>locale</strong></td>
 <td style="text-align: left">If requested</td>
-<td style="text-align: left">The language of the end user</td>
+<td style="text-align: left">The language of the User</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>email</strong></td>
@@ -1317,34 +1298,34 @@ private void handleIntent(Intent intent) {
 <p>The <code>request</code> parameter enables the Authentication Requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. It represents the request as a JWT whose claims are the parameters specified in section 3.2. This JWT is called a Request Object by value.</p>
 
 <p>When <code>request</code> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax.</p>
-<pre class="highlight http tab-http--inline"><code><span class="err">https://server.example.com/authorize?
-    response_type=code%20id_token
-    &amp;client_id=s6BhdRkqt3
-    &amp;redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
-    &amp;scope=openid
-    &amp;state=af0ifjsldkj
-    &amp;nonce=n-0S6_WzA2Mj
-    &amp;request=eyJhbGciOiJSUzI1NiIsImtpZCI6ImsyYmRjIn0.ew0KICJpc3MiOiA
-    iczZCaGRSa3F0MyIsDQogImF1ZCI6ICJodHRwczovL3NlcnZlci5leGFtcGxlLmN
-    vbSIsDQogInJlc3BvbnNlX3R5cGUiOiAiY29kZSBpZF90b2tlbiIsDQogImNsaWV
-    udF9pZCI6ICJzNkJoZFJrcXQzIiwNCiAicmVkaXJlY3RfdXJpIjogImh0dHBzOi8
-    vY2xpZW50LmV4YW1wbGUub3JnL2NiIiwNCiAic2NvcGUiOiAib3BlbmlkIiwNCiA
-    ic3RhdGUiOiAiYWYwaWZqc2xka2oiLA0KICJub25jZSI6ICJuLTBTNl9XekEyTWo
-    iLA0KICJtYXhfYWdlIjogODY0MDAsDQogImNsYWltcyI6IA0KICB7DQogICAidXN
-    lcmluZm8iOiANCiAgICB7DQogICAgICJnaXZlbl9uYW1lIjogeyJlc3NlbnRpYWw
-    iOiB0cnVlfSwNCiAgICAgIm5pY2tuYW1lIjogbnVsbCwNCiAgICAgImVtYWlsIjo
-    geyJlc3NlbnRpYWwiOiB0cnVlfSwNCiAgICAgImVtYWlsX3ZlcmlmaWVkIjogeyJ
-    lc3NlbnRpYWwiOiB0cnVlfSwNCiAgICAgInBpY3R1cmUiOiBudWxsDQogICAgfSw
-    NCiAgICJpZF90b2tlbiI6IA0KICAgIHsNCiAgICAgImdlbmRlciI6IG51bGwsDQo
-    gICAgICJiaXJ0aGRhdGUiOiB7ImVzc2VudGlhbCI6IHRydWV9LA0KICAgICAiYWN
-    yIjogeyJ2YWx1ZXMiOiBbInVybjptYWNlOmluY29tbW9uOmlhcDpzaWx2ZXIiXX0
-    NCiAgICB9DQogIH0NCn0.nwwnNsk1-ZkbmnvsF6zTHm8CHERFMGQPhos-EJcaH4H
-    h-sMgk8ePrGhw_trPYs8KQxsn6R9Emo_wHwajyFKzuMXZFSZ3p6Mb8dkxtVyjoy2
-    GIzvuJT_u7PkY2t8QU9hjBcHs68PkgjDVTrG1uRTx0GxFbuPbj96tVuj11pTnmFC
-    UR6IEOXKYr7iGOCRB3btfJhM0_AKQUfqKnRlrRscc8Kol-cSLWoYE9l5QqholImz
-    jT_cMnNIznW9E7CDyWXTsO70xnB4SkG6pXfLSjLLlxmPGiyon_-Te111V8uE83Il
-    zCYIb_NMXvtTIVc1jpspnTSD7xMbpL-2QgwUsAlMGzw
-</span></code></pre>
+<pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/oidc/authorization</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="s">    ?response_type=code%20id_token</span>
+<span class="s">    &amp;client_id=s6BhdRkqt3</span>
+<span class="s">    &amp;redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb</span>
+<span class="s">    &amp;scope=openid</span>
+<span class="s">    &amp;state=af0ifjsldkj</span>
+<span class="s">    &amp;nonce=n-0S6_WzA2Mj</span>
+<span class="s">    &amp;request=eyJhbGciOiJSUzI1NiIsImtpZCI6ImsyYmRjIn0.ew0KICJpc3MiOiA</span>
+<span class="s">    iczZCaGRSa3F0MyIsDQogImF1ZCI6ICJodHRwczovL3NlcnZlci5leGFtcGxlLmN</span>
+<span class="s">    vbSIsDQogInJlc3BvbnNlX3R5cGUiOiAiY29kZSBpZF90b2tlbiIsDQogImNsaWV</span>
+<span class="s">    udF9pZCI6ICJzNkJoZFJrcXQzIiwNCiAicmVkaXJlY3RfdXJpIjogImh0dHBzOi8</span>
+<span class="s">    vY2xpZW50LmV4YW1wbGUub3JnL2NiIiwNCiAic2NvcGUiOiAib3BlbmlkIiwNCiA</span>
+<span class="s">    ic3RhdGUiOiAiYWYwaWZqc2xka2oiLA0KICJub25jZSI6ICJuLTBTNl9XekEyTWo</span>
+<span class="s">    iLA0KICJtYXhfYWdlIjogODY0MDAsDQogImNsYWltcyI6IA0KICB7DQogICAidXN</span>
+<span class="s">    lcmluZm8iOiANCiAgICB7DQogICAgICJnaXZlbl9uYW1lIjogeyJlc3NlbnRpYWw</span>
+<span class="s">    iOiB0cnVlfSwNCiAgICAgIm5pY2tuYW1lIjogbnVsbCwNCiAgICAgImVtYWlsIjo</span>
+<span class="s">    geyJlc3NlbnRpYWwiOiB0cnVlfSwNCiAgICAgImVtYWlsX3ZlcmlmaWVkIjogeyJ</span>
+<span class="s">    lc3NlbnRpYWwiOiB0cnVlfSwNCiAgICAgInBpY3R1cmUiOiBudWxsDQogICAgfSw</span>
+<span class="s">    NCiAgICJpZF90b2tlbiI6IA0KICAgIHsNCiAgICAgImdlbmRlciI6IG51bGwsDQo</span>
+<span class="s">    gICAgICJiaXJ0aGRhdGUiOiB7ImVzc2VudGlhbCI6IHRydWV9LA0KICAgICAiYWN</span>
+<span class="s">    yIjogeyJ2YWx1ZXMiOiBbInVybjptYWNlOmluY29tbW9uOmlhcDpzaWx2ZXIiXX0</span>
+<span class="s">    NCiAgICB9DQogIH0NCn0.nwwnNsk1-ZkbmnvsF6zTHm8CHERFMGQPhos-EJcaH4H</span>
+<span class="s">    h-sMgk8ePrGhw_trPYs8KQxsn6R9Emo_wHwajyFKzuMXZFSZ3p6Mb8dkxtVyjoy2</span>
+<span class="s">    GIzvuJT_u7PkY2t8QU9hjBcHs68PkgjDVTrG1uRTx0GxFbuPbj96tVuj11pTnmFC</span>
+<span class="s">    UR6IEOXKYr7iGOCRB3btfJhM0_AKQUfqKnRlrRscc8Kol-cSLWoYE9l5QqholImz</span>
+<span class="s">    jT_cMnNIznW9E7CDyWXTsO70xnB4SkG6pXfLSjLLlxmPGiyon_-Te111V8uE83Il</span>
+<span class="s">    zCYIb_NMXvtTIVc1jpspnTSD7xMbpL-2QgwUsAlMGzw</span>
+</code></pre>
 <p>The following validations should be done when using the <code>request</code> parameter:</p>
 
 <ol>
@@ -1416,35 +1397,24 @@ private void handleIntent(Intent intent) {
 
 <p><a name="RequestUri"></a></p>
 <h2 id='5-5-using-request_uri-parameter'>5.5. Using request_uri parameter</h2>
-<p>Using the request_uri parameter in the Authentication Request enables requests to be passed by reference. The following diagram depicts it:</p>
+<p>The ‘request_uri‘  parameter enables the Authentication Requests to be passed by reference, rather than by value. This parameter is used identically to the ‘request’ parameter, except that the Request Object value is retrieved from the resource at the specified URL.</p>
 
-<p><img src="images/Request_uri_SD.png" alt="Sequence diagram describing the use of request_uri parameter" /></p>
+<p>When the <code>request_uri</code> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OpenID Connect Authorization Request syntax. However, parameters MAY also be passed using the OpenID Connect Authorization Request syntax even when a <code>request_uri</code> is used; this would typically be done to enable a cached, pre-signed (and possibly pre-encrypted) Request Object value to be used containing the fixed request parameters, while parameters that can vary with each request, such as <code>state</code> and  <code>nonce</code>, are passed as OpenID Connect parameters.</p>
 
-<ol>
-  <li>The user indicates on your end he wishes to authenticate with itsme®</li>
-  <li>Your Front-End sends a request to our Front-End. This request specifies a <code>request_uri</code> parameter.</li>
-  <li>Our Front-End transmits the request to our Back-End</li>
-  <li>Our Back-End fetches the request JWT at your Back-End, at the URI specified in the request_uri.</li>
-  <li>At your URI you expose the needed request JWT. The flow can then continue normally.</li>
-</ol>
+<p>To be a valid OpenID Connect Authorization Request, it MUST include the <code>response_type</code> and <code>client_id</code> parameters, since they are REQUIRED by OpenID Connect Core 1.0 specifications. The values for these parameters MUST match those in the Request Object.</p>
 
-<p>The request JWT exposed at your Back-End MUST be a JWT, and is used identically as the <code>request</code> object, according to the <a href="http://openid.net/specs/openid-connect-core-1_0.html#rfc.section.6.2" target="_blank"> section 6.2 of the OpenID specification</a>.</p>
+<p>You need to store the Request Object resource either locally or remotely at a URL the the Authorization Server can access. This URL is the Request URI, <code>request_uri</code>.</p>
 
-<aside class="notice">
-To start using request uri, please note the following must be fulfilled: 
-<ul>
-  <li>Communicate the subdomain you will use so that we can whitelist it.</li>
-    <ul>
-      <li>If we whitelist ‘my.partner.be’, it means that the following is also valid ‘john.doe.my.partner.be/anything’.</li>
-    </ul>
-  <li>Provide us the issuer of the root certificate associated to the subdomain, so that we can verify whether it is already trusted on our end.</li>
-    <ul>
-      <li>Please note we won't trust Let’s Encrypt certificates.</li>
-      <li>We use one way SSL, so you don't need to trust our server certificate.</li>
-    </ul>
-  <li>Ensure the URI mentioned by request_uri is publicly available.</li>
-</ul>
-</aside>
+<p>Enclosed you will find a non-normative example of an Authorization Request using the <code>request_uri</code>parameter;</p>
+<pre class="highlight plaintext"><code>GET /oidc/authorization HTTP/1.1
+    response_type=code%20id_token
+    &amp;client_id=s6BhdRkqt3
+    &amp;request_uri=https%3A%2F%2Fclient.example.org%2Frequest.jwt
+    %23GkurKxf5T0Y-mnPFCHqWOMiZi4VS138cQO_V7PZHAdM
+    &amp;state=af0ifjsldkj&amp;nonce=n-0S6_WzA2Mj
+    &amp;scope=openid
+</code></pre>
+<p>For more details on Authorization request parameters using JWTs, refer to the OpenID Connect Core specifications <a href=" http://openid.net/specs/openid-connect-core-1_0.html#JWTRequests" target="blank">OpenID Connect Core specifications</a>.</p>
 
       </div>
       <div class="dark-box">
