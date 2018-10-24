@@ -629,8 +629,8 @@ The `request` parameter enables the Authentication Requests to be passed in a si
 When `request` parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax.
 
 ```http--inline
-https://server.example.com/authorize?
-    response_type=code%20id_token
+GET /oidc/authorization HTTP/1.1
+    ?response_type=code%20id_token
     &client_id=s6BhdRkqt3
     &redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
     &scope=openid
