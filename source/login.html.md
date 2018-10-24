@@ -386,7 +386,6 @@ Parameter | Description
 :-- | :-- 
 **tag:sixdots.be,2016-06:claim_nationality** | It will request the `nationality` claim.
 **tag:sixdots.be,2016-06:claim_city_of_birth** | It will request the `place of Birth - city` claim.
-**tag:sixdots.be,2016-06:claim_country_of_birth** | It will request the `place of Birth - country` claim.
 **tag:sixdots.be,2016-06:claim_eid**  | It will request the  `eid`, `issuance_locality`, `validity_from`, `validity_to`, `certificate_validity` and `read_date` claims
 **tag:sixdots.be,2017-05:claim_passport_sn** | It will request the `passport Number` claim.
 **tag:sixdots.be,2017-05:claim_device** | It will request the `os`, `appName`, `appRelease`, `deviceLabel`, `debugEnabled`, `deviceID`, `osRelease`, `manufacturer`, `hasSimEnabled`, `deviceLockLevel`, `smsEnabled`, `rooted`, `imei`, `deviceModel`, `msisdn` and `sdkRelease` claims.
@@ -401,7 +400,6 @@ Values | Description
 :-- | :-- 
 **nationality** | 
 **place of Birth - city** | 
-**place of Birth - country** | 
 **eid**  | The eID card serial number.
 **issuance_locality**  | The eID card issuance locality.
 **validity_from**  | The eID card validity “from” date.
