@@ -28,7 +28,7 @@ Moreover, the <a href="https://belgianmobileid.github.io/slate/" target="blank">
 The itsme® Confirm service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. However, there are some specific rules you MUST take into account during the implementation:
 
 ```http--inline
-POST /oidc/authorization HTTP/1.1
+GET /oidc/authorization HTTP/1.1
 ?response_type=code
 &client_id=yourprojectid
 &redirect_uri=yourredirecturl
