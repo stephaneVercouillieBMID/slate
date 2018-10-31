@@ -603,7 +603,7 @@ grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA
 <tr>
 <td style="text-align: left"><strong>client_assertion</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the Token request.<br>The OpenID Connect Core Specification support multiple authentication methods, but itsme® only supports <code>private_key_jwt</code>. This authentication method uses a JWT signed with a public key you have registered. The JWT MUST be sent as the value of a client_assertion parameter.</br><br>See <a href="http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication" target="blank">section 9</a> of the OpenID Connect Core specification for more information.</br></td>
+<td style="text-align: left">To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the Token request.<br>The OpenID Connect Core Specification support multiple authentication methods, but itsme® only supports <code>private_key_jwt</code>. This authentication method uses a JWT signed with a private key you have registered. The JWT MUST be sent as the value of a client_assertion parameter.</br><br>See <a href="http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication" target="blank">section 9</a> of the OpenID Connect Core specification for more information.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>client_assertion_type</strong></td>
