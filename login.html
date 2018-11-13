@@ -387,7 +387,7 @@
 <tr>
 <td style="text-align: left"><strong>state</strong></td>
 <td style="text-align: left">Strongly RECOMMENDED</td>
-<td style="text-align: left">An opaque value used in the Authentication Request, which will be returned unchanged in the Authorization Code. This parameter SHOULD be used for preventing cross-site request forgery (XRSF).</td>
+<td style="text-align: left">An opaque value used in the Authentication Request, which will be returned unchanged in the Authorization Code. This parameter SHOULD be used for preventing cross-site request forgery (XRSF). <br>When deciding how to implement this, one suggestion is to use a private key together with some easily verifiable variables, for example, your client ID and a session cookie, to compute a hashed value. This will result in a byte value that will be infeasibility difficult to guess without the private key. After computing such an HMAC, base-64 encode it and pass it to the Authorization  Server as <code>state</code> parameter. Another suggestion is to hash the current date and time. This requires your application to save the time of transmission in order to verify it or to allow a sliding period of validity.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>nonce</strong></td>
@@ -481,12 +481,12 @@
 <tr>
 <td style="text-align: left"><strong>code</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">The code parameter holds the Authorization Code which is a string value. The content of Authorization Code is opaque for you. This code has a lifetime of 3 minutes.</td>
+<td style="text-align: left">The <code>code</code> parameter holds the Authorization Code which is a string value. The content of Authorization Code is opaque for you. This code has a lifetime of 3 minutes.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>state</strong></td>
 <td style="text-align: left">If provided</td>
-<td style="text-align: left">The state parameter will be returned if you provided a value in the Authentication Request. You should validate that the value returned matches the one supplied in the Authentication Request. The state value can additionally be used to mitigate against XSRF attacks by cryptographically binding the value of this parameter with a browser cookie.</td>
+<td style="text-align: left">The <code>state</code> parameter will be returned if you provided a value in the Authentication Request. You should validate that the value returned matches the one supplied in the Authentication Request. The state value can additionally be used to mitigate against XSRF attacks by cryptographically binding the value of this parameter with a browser cookie.<br>If a wrong/unknown <code>state</code> is received, you should take it into account and refuse the related <code>code</code> or from a security detection/prevention point of view, monitor if it is a recurring pattern or not.</br></td>
 </tr>
 </tbody></table>
 <h3 id='handling-authentication-error-response'>Handling Authentication Error Response</h3>
