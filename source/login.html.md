@@ -177,6 +177,7 @@ The specifications for the implementation of Universal links and App links can b
 
 ## 3.5. Exchanging the Authorization Code 
 <a name="tokenEndpoint"></a> 
+
 Once your server component has received an [Authorization Code](#AuthNResponse), your server can exchange it for an Access Token and an ID Token.
 
 <aside class="notice">You might also read in the OpenID Connect Core specification about the Refresh Token, but we don't support them (we don't implement any session mechanism).</aside>
