@@ -288,10 +288,36 @@ rT99rwrBTbTI7IJM8fU3Eli7226HEB7IchCxNuh7lCiud48LxeolRdtFF4nzQibeYOl5S_PJsAXZwSXt
    Jx9paBpnNmOOKH35j_QlrQhDWUN6A2Gg8iFayJ69xDEdHAVCGRzN3woEI2ozDRs
 ```  
 
+### Encrypting the content
+
+```http--inline
+   {
+     "alg": "RSA-OAEP",
+     "kid": "samwise.gamgee@hobbiton.example",
+     "enc": "A128CBC-HS256"
+   }
+```
+First, you need to generate JWE Protected Header. It contains the <code>alg</code> parameter, a reference to the signing key (aka. <code>kid</code>) and the <code>enc</code>. An example can be visualized enclosed.
+
+The JWE Protected Header will then be encoded using base64url to produce the string aside.
+```http--inline
+eyJhbGciOiJSU0EtT0FFUCIsImtpZCI6InNhbXdpc2UuZ2FtZ2VlQGhvYmJpdG9uLmV4YW1wbGUiLCJlbmMiOiJBMjU2R0NNIn0
+```
+
+Then, you can perform the content encryption operation over the plaintext - with the CEK; the Initialization Vector; and  JWE Protected Header as authenticated data - to produce the Ciphertext and the Authentication Tag as you see enclosed.
+
+```http--inline
+o4k2cnGN8rSSw3IDo1YuySkqeS_t2m1GXklSgqBdpACm6UJuJowOHC5ytjqYgRL-I-soPlwqMUf4UgRWWeaOGNw6vGW-xyM01lTYxrXfVzIIaRdhYtEMRBvBWbEw P7ua1DRfvaOjgZv6Ifa3brcAM64d8p5lhhNcizPersuhw5f-pGYzseva-TUaL8iWnctc-sSwy7SQmRkfhDjwbz0fz6kFovEgj64X1I5s7E6GLp5fnbYGLa1QUiML   7Cc2GxgvI7zqWo0YIEc7aCflLG1-8BboVWFdZKLK9vNoycrYHumwzKluLWEbSVmaPpOslY2n525DxDfWaVFUfKQxMF56vn4B9QMpWAbnypNimbM8zVOw
+```
+
+```http--inline
+UCGiqJxhBI3IFVdPalHHvA
+```
 
 
 
 
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
   
@@ -299,27 +325,6 @@ rT99rwrBTbTI7IJM8fU3Eli7226HEB7IchCxNuh7lCiud48LxeolRdtFF4nzQibeYOl5S_PJsAXZwSXt
   <li>The <code>enc</code> parameter – value MUST be set to <code>A128CBC-HS256</code> as defined in the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a></li>
 </ul>
 
-AES symmetric key as the Content Encryption Key (CEK); this
-      example uses the key from Figure 85.
-
-   o  Initialization Vector; this example uses the Initialization Vector
-      from Figure 86.
-
-
-
-
-Miller                        Informational                    [Page 47]
- 
-RFC 7520                      JOSE Cookbook                     May 2015
-
-
-   mYMfsggkTAm0TbvtlFh2hyoXnbEzJQjMxmgLN3d8xXA
-
-           Figure 85: Content Encryption Key, base64url-encoded
-
-   -nBoKLH0YkLZPSI9
-
-            Figure 86: Initialization Vector, base64url-encoded
 
 
 
