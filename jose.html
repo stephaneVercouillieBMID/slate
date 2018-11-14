@@ -230,6 +230,29 @@
                   <li>
                     <a href="#input-factors" class="toc-h2 toc-link" data-title="input-factors">Input factors</a>
                   </li>
+                  <li>
+                    <a href="#signing-operation" class="toc-h2 toc-link" data-title="signing-operation">Signing Operation</a>
+                  </li>
+                  <li>
+                    <a href="#output-results" class="toc-h2 toc-link" data-title="output-results">Output results</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#4-using-a-jwe" class="toc-h1 toc-link" data-title="4-using-a-jwe">4. Using a JWE</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#input-factors-2" class="toc-h2 toc-link" data-title="input-factors">Input factors</a>
+                  </li>
+                  <li>
+                    <a href="#generated-factors" class="toc-h2 toc-link" data-title="generated-factors">Generated factors</a>
+                  </li>
+                  <li>
+                    <a href="#encrypting-the-key" class="toc-h2 toc-link" data-title="encrypting-the-key">Encrypting the key</a>
+                  </li>
+                  <li>
+                    <a href="#encrypting-the-content" class="toc-h2 toc-link" data-title="encrypting-the-content">Encrypting the content</a>
+                  </li>
               </ul>
           </li>
       </div>
@@ -266,73 +289,250 @@
 <h1 id='3-using-a-jws'>3. Using a JWS</h1>
 <p>The JSON Web Signature (JWS) represents signed content using JSON data structures and base64url encoding as defined in the <a href=" https://tools.ietf.org/html/rfc7515" target="blank">specifications</a>. The representation consists of three parts: the JOSE Header, the JWS Payload, and the JWS Signature. The three parts are base64url-encoded for transmission, and typically represented as the concatenation of the encoded strings in that order, with the three strings being separated by period (&#39;.&#39;) characters.</p>
 
-<p>Following sections will show you how to generate a JWS object using the <code>RS256</code> (RSASSA-PKCS1-v1_5 with SHA-256) algorithm, as defined in the <a href="#OpenIDConfig">itsme® Discovery document</a>. For the demonstration we will use the following quotation:</p>
-
-<blockquote>
-<p>It&#39;s a dangerous business, Frodo, going out your door. You step onto the road, and if you don&#39;t keep your feet, there&#39;s no knowing where you might be swept off to.</p>
-</blockquote>
+<p>Following sections will show you how to generate a JWS object using the <code>RS256</code> (RSASSA-PKCS1-v1_5 with SHA-256) algorithm, as defined in the <a href="#OpenIDConfig">itsme® Discovery document</a>. For the demonstration we will use the following quotation:<q>It&#39;s a dangerous business, Frodo, going out your door. You step onto the road, and if you don&#39;t keep your feet, there&#39;s no knowing where you might be swept off to.</q></p>
 <h3 id='input-factors'>Input factors</h3>
 <p>The following are supplied before beginning the signing operation:</p>
 
 <ul>
-  <il>A payload content serialized as UTF-8, and then encoded using base64url to produce the string enclosed</li>
+  <il>A payload content serialized as UTF-8, and then encoded using base64url to produce JWS Payload enclosed</li>
 </ul>
-  
-
-<blockquote>
-<p>SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4</p>
-</blockquote>
-
+<pre class="highlight http tab-http--inline"><code><span class="err">SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4
+</span></code></pre>
 <ul>
-  <li>The RSA private key illustrated enclosed.</li>
+  <li>The RSA 2048-Bit private key illustrated enclosed.</li>
 </ul>
-
-<blockquote>
-<p>{
-     &quot;kty&quot;: &quot;RSA&quot;,
-     &quot;kid&quot;: &quot;bilbo.baggins@hobbiton.example&quot;,
-     &quot;use&quot;: &quot;sig&quot;,
-     &quot;n&quot;: &quot;n4EPtAOCc9AlkeQHPzHStgAbgs7bTZLwUBZdR8_KuKPEHLd4rHVTeT
+<pre class="highlight http tab-http--inline"><code><span class="err">{
+     "kty": "RSA",
+     "kid": "bilbo.baggins@hobbiton.example",
+     "use": "sig",
+     "n": "n4EPtAOCc9AlkeQHPzHStgAbgs7bTZLwUBZdR8_KuKPEHLd4rHVTeT
          -O-XV2jRojdNhxJWTDvNd7nqQ0VEiZQHz_AJmSCpMaJMRBSFKrKb2wqV
          wGU_NsYOYL-QtiWN2lbzcEe6XC0dApr5ydQLrHqkHHig3RBordaZ6Aj-
          oBHqFEHYpPe7Tpe-OfVfHd1E6cS6M1FZcD1NNLYD5lFHpPI9bTwJlsde
          3uhGqC0ZCuEHg8lhzwOHrtIQbS0FVbb9k3-tVTU4fg_3L_vniUFAKwuC
-         LqKnS2BYwdq_mzSnbLY7h_qixoR7jig3_<em>kRhuaxwUkRz5iaiQkqgc5g
-         HdrNP5zw&quot;,
-     &quot;e&quot;: &quot;AQAB&quot;,
-     &quot;d&quot;: &quot;bWUC9B-EFRIo8kpGfh0ZuyGPvMNKvYWNtB_ikiH9k20eT-O1q_I78e
+         LqKnS2BYwdq_mzSnbLY7h_qixoR7jig3__kRhuaxwUkRz5iaiQkqgc5g
+         HdrNP5zw",
+     "e": "AQAB",
+     "d": "bWUC9B-EFRIo8kpGfh0ZuyGPvMNKvYWNtB_ikiH9k20eT-O1q_I78e
          iZkpXxXQ0UTEs2LsNRS-8uJbvQ-A1irkwMSMkK1J3XTGgdrhCku9gRld
          Y7sNA_AKZGh-Q661_42rINLRCe8W-nZ34ui_qOfkLnK9QWDDqpaIsA-b
          MwWWSDFu2MUBYwkHTMEzLYGqOe04noqeq1hExBTHBOBdkMXiuFhUq1BU
          6l-DqEiWxqg82sXt2h-LMnT3046AOYJoRioz75tSUQfGCshWTBnP5uDj
          d18kKhyv07lhfSJdrPdM5Plyl21hsFf4L_mHCuoFau7gdsPfHPxxjVOc
-         OpBrQzwQ&quot;,
-     &quot;p&quot;: &quot;3Slxg_DwTXJcb6095RoXygQCAZ5RnAvZlno1yhHtnUex_fp7AZ_9nR
-         aO7HX</em>-SFfGQeutao2TDjDAWU4Vupk8rw9JR0AzZ0N2fvuIAmr_WCsmG
+         OpBrQzwQ",
+     "p": "3Slxg_DwTXJcb6095RoXygQCAZ5RnAvZlno1yhHtnUex_fp7AZ_9nR
+         aO7HX_-SFfGQeutao2TDjDAWU4Vupk8rw9JR0AzZ0N2fvuIAmr_WCsmG
          peNqQnev1T7IyEsnh8UMt-n5CafhkikzhEsrmndH6LxOrvRJlsPp6Zv8
-         bUq0k&quot;,
-     &quot;q&quot;: &quot;uKE2dh-cTf6ERF4k4e_jy78GfPYUIaUyoSSJuBzp3Cubk3OCqs6grT
+         bUq0k",
+     "q": "uKE2dh-cTf6ERF4k4e_jy78GfPYUIaUyoSSJuBzp3Cubk3OCqs6grT
          8bR_cu0Dm1MZwWmtdqDyI95HrUeq3MP15vMMON8lHTeZu2lmKvwqW7an
          V5UzhM1iZ7z4yMkuUwFWoBvyY898EXvRD-hdqRxHlSqAZ192zB3pVFJ0
-         s7pFc&quot;,
-     &quot;dp&quot;: &quot;B8PVvXkvJrj2L-GYQ7v3y9r6Kw5g9SahXBwsWUzp19TVlgI-YV85q
+         s7pFc",
+     "dp": "B8PVvXkvJrj2L-GYQ7v3y9r6Kw5g9SahXBwsWUzp19TVlgI-YV85q
          1NIb1rxQtD-IsXXR3-TanevuRPRt5OBOdiMGQp8pbt26gljYfKU_E9xn
          -RULHz0-ed9E9gXLKD4VGngpz-PfQ_q29pk5xWHoJp009Qf1HvChixRX
-         59ehik&quot;,
-     &quot;dq&quot;: &quot;CLDmDGduhylc9o7r84rEUVn7pzQ6PF83Y-iBZx5NT-TpnOZKF1pEr
+         59ehik",
+     "dq": "CLDmDGduhylc9o7r84rEUVn7pzQ6PF83Y-iBZx5NT-TpnOZKF1pEr
          AMVeKzFEl41DlHHqqBLSM0W1sOFbwTxYWZDm6sI6og5iTbwQGIC3gnJK
          bi_7k_vJgGHwHxgPaX2PnvP-zyEkDERuf-ry4c_Z11Cq9AqC2yeL6kdK
-         T1cYF8&quot;,
-     &quot;qi&quot;: &quot;3PiqvXQN0zwMeE-sBvZgi289XP9XCQF3VWqPzMKnIgQp7_Tugo6-N
+         T1cYF8",
+     "qi": "3PiqvXQN0zwMeE-sBvZgi289XP9XCQF3VWqPzMKnIgQp7_Tugo6-N
          ZBKCQsMf3HaEGBjTVJs_jcK8-TRXvaKe-7ZMaQj8VfBdYkssbu0NKDDh
          jJ-GtiseaDVWt7dcH0cfwxgFUHpQh7FoCrjFJ6h6ZEpMF6xmujs4qMpP
-         z8aaI4&quot;
-   }</p>
-</blockquote>
+         z8aaI4"
+   }
+</span></code></pre>
+<ul>
+  <li>The <code>alg</code> parameter – value MUST be set to <code>RS256</code> as defined in the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a></li>
+</ul>
+<h3 id='signing-operation'>Signing Operation</h3><pre class="highlight http tab-http--inline"><code><span class="err">{
+     "alg": "RS256",
+     "kid": "bilbo.baggins@hobbiton.example"
+}
+</span></code></pre>
+<p>A JWS Protected Header is generated to complete the signing operation. It contains the <code>alg</code> parameter and a reference to the signing key (aka. <code>kid</code>). An example can be visualized enclosed.</p>
+
+<p>The JWS Protected Header will then be encoded using base64url to produce the string enclosed.
+<code>http--inline
+SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4
+</code></p>
+
+<p>The JWS Protected Header and JWS Payload are combined to produce the JWS Signing Input.
+<code>http--inline
+eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2dpbnNAaG9iYml0b24uZXhhbXBsZSJ9
+.
+SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4
+</code></p>
+
+<p>Performing the signature operation over the JWS Signing Input, following the signature algorithm defined by the JOSE header element <code>alg</code>, produces the enclosed JWS Signature.
+<code>http--inline
+MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx996ivp83xuglII7PNDi84wnB-BDkoBwA78185hX-Es4JIwmDLJK3lfWRa-XtL0RnltuYv746iYTh_qHRD68BNt1uSNCrUCTJDt5aAE6x8wW1Kt9eRo4QPocSadnHXFxnt8Is9UzpERV0ePPQdLuW3IS_de3xyIrDaLGdjluPxUAhb6L2aXic1U12podGU0KLUQSE_oI-ZnmKJ3F4uOZDnd6QZWJushZ41Axf_fcIe8u9ipH84ogoree7vjbU5y18kDquDg
+</code></p>
+<h3 id='output-results'>Output results</h3>
+<p>The resulting JWS object using the JWS Compact Serialization can be visualized aside. 
+<code>http--inline
+eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2dpbnNAaG9iYml0b24uZXhhbXBsZSJ9
+.
+SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4
+.
+MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx996ivp83xuglII7PNDi84wnB-BDkoBwA78185hX-Es4JIwmDLJK3lfWRa-XtL0RnltuYv746iYTh_qHRD68BNt1uSNCrUCTJDt5aAE6x8wW1Kt9eRo4QPocSadnHXFxnt8Is9UzpERV0ePPQdLuW3IS_de3xyIrDaLGdjluPxUAhb6L2aXic1U12podGU0KLUQSE_oI-ZnmKJ3F4uOZDnd6QZWJushZ41Axf_fcIe8u9ipH84ogoree7vjbU5y18kDquDg
+</code></p>
+
+<p>The resulting JWS object using the general JWS JSON Serialization is slightly different as you can see enclosed.
+<code>http--inline
+   {
+     &quot;payload&quot;: &quot;SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywg
+         Z29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9h
+         ZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXi
+         gJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9m
+         ZiB0by4&quot;,
+     &quot;signatures&quot;: [
+       {
+         &quot;protected&quot;: &quot;eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2
+             dpbnNAaG9iYml0b24uZXhhbXBsZSJ9&quot;,
+         &quot;signature&quot;: &quot;MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHo
+             xnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx996ivp83xuglII
+             7PNDi84wnB-BDkoBwA78185hX-Es4JIwmDLJK3lfWRa-XtL0Rnlt
+             uYv746iYTh_qHRD68BNt1uSNCrUCTJDt5aAE6x8wW1Kt9eRo4QPo
+             cSadnHXFxnt8Is9UzpERV0ePPQdLuW3IS_de3xyIrDaLGdjluPxU
+             Ahb6L2aXic1U12podGU0KLUQSE_oI-ZnmKJ3F4uOZDnd6QZWJush
+             Z41Axf_fcIe8u9ipH84ogoree7vjbU5y18kDquDg&quot;
+       }
+     ]
+   }
+</code></p>
+<h1 id='4-using-a-jwe'>4. Using a JWE</h1>
+<p>The JSON Web Encryption (JWE) specification standardizes the way to represent an encrypted content in a JSON-based data structure. Like in JWS, the message to be encrypted using JWE standard needs not to be a JSON payload, it can be any content.</p>
+
+<p>Following sections will show you how to generate a JWE object using the <code>RSA-OAEP</code> (RSAES-OAEP) key encryption algorithm and the <code>A128CBC-HS256</code> (AES-128-CBC-HMAC-SHA-256) content encryption algorithm, as defined in the <a href="#OpenIDConfig">itsme® Discovery document</a>. Note that RSAES-OAEP uses random data to generate the ciphertext; it might not be possible to exactly replicate the results in the sections below. Moreover, only the RSA public key is necessary to perform the encryption. However, for the demonstration we will use the RSA private key to allow you to validate the output.</p>
+
+<p>In our example below we will use the following quotation:<q>You can trust us to stick with you through thick and to the bitter end. And you can trust us to keep any secret of yours closer than you keep it yourself. But you cannot trust us to let you face trouble alone, and go off without a word. We are your friends, Frodo.</q></p>
+<h3 id='input-factors-2'>Input factors</h3>
+<p>The following are supplied before beginning the encryption process:</p>
 
 <ul>
-  <li>The <code>alg</code> parameter – value MUST be set to <code>RS256</code> as defined in the [itsme® Discovery document](#OpenIDConfig)</li>
+  <il>The plaintext content</li>
 </ul>
+<pre class="highlight http tab-http--inline"><code><span class="err">SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4
+</span></code></pre>
+<ul>
+  <li>The RSA public key</li>
+</ul>
+<pre class="highlight http tab-http--inline"><code><span class="err">{
+     "kty": "RSA",
+     "kid": "samwise.gamgee@hobbiton.example",
+     "use": "enc",
+     "n": "wbdxI55VaanZXPY29Lg5hdmv2XhvqAhoxUkanfzf2-5zVUxa6prHRr
+         I4pP1AhoqJRlZfYtWWd5mmHRG2pAHIlh0ySJ9wi0BioZBl1XP2e-C-Fy
+         XJGcTy0HdKQWlrfhTm42EW7Vv04r4gfao6uxjLGwfpGrZLarohiWCPnk
+         Nrg71S2CuNZSQBIPGjXfkmIy2tl_VWgGnL22GplyXj5YlBLdxXp3XeSt
+         sqo571utNfoUTU8E4qdzJ3U1DItoVkPGsMwlmmnJiwA7sXRItBCivR4M
+         5qnZtdw-7v4WuR4779ubDuJ5nalMv2S66-RPcnFAzWSKxtBDnFJJDGIU
+         e7Tzizjg1nms0Xq_yPub_UOlWn0ec85FCft1hACpWG8schrOBeNqHBOD
+         FskYpUc2LC5JA2TaPF2dA67dg1TTsC_FupfQ2kNGcE1LgprxKHcVWYQb
+         86B-HozjHZcqtauBzFNV5tbTuB-TpkcvJfNcFLlH3b8mb-H_ox35FjqB
+         SAjLKyoeqfKTpVjvXhd09knwgJf6VKq6UC418_TOljMVfFTWXUxlnfhO
+         OnzW6HSSzD1c9WrCuVzsUMv54szidQ9wf1cYWf3g5qFDxDQKis99gcDa
+         iCAwM3yEBIzuNeeCa5dartHDb1xEB_HcHSeYbghbMjGfasvKn0aZRsnT
+         yC0xhWBlsolZE",
+     "e": "AQAB",
+     "alg": "RSA-OAEP",
+     "d": "n7fzJc3_WG59VEOBTkayzuSMM780OJQuZjN_KbH8lOZG25ZoA7T4Bx
+         cc0xQn5oZE5uSCIwg91oCt0JvxPcpmqzaJZg1nirjcWZ-oBtVk7gCAWq
+         -B3qhfF3izlbkosrzjHajIcY33HBhsy4_WerrXg4MDNE4HYojy68TcxT
+         2LYQRxUOCf5TtJXvM8olexlSGtVnQnDRutxEUCwiewfmmrfveEogLx9E
+         A-KMgAjTiISXxqIXQhWUQX1G7v_mV_Hr2YuImYcNcHkRvp9E7ook0876
+         DhkO8v4UOZLwA1OlUX98mkoqwc58A_Y2lBYbVx1_s5lpPsEqbbH-nqIj
+         h1fL0gdNfihLxnclWtW7pCztLnImZAyeCWAG7ZIfv-Rn9fLIv9jZ6r7r
+         -MSH9sqbuziHN2grGjD_jfRluMHa0l84fFKl6bcqN1JWxPVhzNZo01yD
+         F-1LiQnqUYSepPf6X3a2SOdkqBRiquE6EvLuSYIDpJq3jDIsgoL8Mo1L
+         oomgiJxUwL_GWEOGu28gplyzm-9Q0U0nyhEf1uhSR8aJAQWAiFImWH5W
+         _IQT9I7-yrindr_2fWQ_i1UgMsGzA7aOGzZfPljRy6z-tY_KuBG00-28
+         S_aWvjyUc-Alp8AUyKjBZ-7CWH32fGWK48j1t-zomrwjL_mnhsPbGs0c
+         9WsWgRzI-K8gE",
+     "p": "7_2v3OQZzlPFcHyYfLABQ3XP85Es4hCdwCkbDeltaUXgVy9l9etKgh
+         vM4hRkOvbb01kYVuLFmxIkCDtpi-zLCYAdXKrAK3PtSbtzld_XZ9nlsY
+         a_QZWpXB_IrtFjVfdKUdMz94pHUhFGFj7nr6NNxfpiHSHWFE1zD_AC3m
+         Y46J961Y2LRnreVwAGNw53p07Db8yD_92pDa97vqcZOdgtybH9q6uma-
+         RFNhO1AoiJhYZj69hjmMRXx-x56HO9cnXNbmzNSCFCKnQmn4GQLmRj9s
+         fbZRqL94bbtE4_e0Zrpo8RNo8vxRLqQNwIy85fc6BRgBJomt8QdQvIgP
+         gWCv5HoQ",
+     "q": "zqOHk1P6WN_rHuM7ZF1cXH0x6RuOHq67WuHiSknqQeefGBA9PWs6Zy
+         KQCO-O6mKXtcgE8_Q_hA2kMRcKOcvHil1hqMCNSXlflM7WPRPZu2qCDc
+         qssd_uMbP-DqYthH_EzwL9KnYoH7JQFxxmcv5An8oXUtTwk4knKjkIYG
+         RuUwfQTus0w1NfjFAyxOOiAQ37ussIcE6C6ZSsM3n41UlbJ7TCqewzVJ
+         aPJN5cxjySPZPD3Vp01a9YgAD6a3IIaKJdIxJS1ImnfPevSJQBE79-EX
+         e2kSwVgOzvt-gsmM29QQ8veHy4uAqca5dZzMs7hkkHtw1z0jHV90epQJ
+         JlXXnH8Q",
+     "dp": "19oDkBh1AXelMIxQFm2zZTqUhAzCIr4xNIGEPNoDt1jK83_FJA-xn
+         x5kA7-1erdHdms_Ef67HsONNv5A60JaR7w8LHnDiBGnjdaUmmuO8XAxQ
+         J_ia5mxjxNjS6E2yD44USo2JmHvzeeNczq25elqbTPLhUpGo1IZuG72F
+         ZQ5gTjXoTXC2-xtCDEUZfaUNh4IeAipfLugbpe0JAFlFfrTDAMUFpC3i
+         XjxqzbEanflwPvj6V9iDSgjj8SozSM0dLtxvu0LIeIQAeEgT_yXcrKGm
+         pKdSO08kLBx8VUjkbv_3Pn20Gyu2YEuwpFlM_H1NikuxJNKFGmnAq9Lc
+         nwwT0jvoQ",
+     "dq": "S6p59KrlmzGzaQYQM3o0XfHCGvfqHLYjCO557HYQf72O9kLMCfd_1
+         VBEqeD-1jjwELKDjck8kOBl5UvohK1oDfSP1DleAy-cnmL29DqWmhgwM
+         1ip0CCNmkmsmDSlqkUXDi6sAaZuntyukyflI-qSQ3C_BafPyFaKrt1fg
+         dyEwYa08pESKwwWisy7KnmoUvaJ3SaHmohFS78TJ25cfc10wZ9hQNOrI
+         ChZlkiOdFCtxDqdmCqNacnhgE3bZQjGp3n83ODSz9zwJcSUvODlXBPc2
+         AycH6Ci5yjbxt4Ppox_5pjm6xnQkiPgj01GpsUssMmBN7iHVsrE7N2iz
+         nBNCeOUIQ",
+     "qi": "FZhClBMywVVjnuUud-05qd5CYU0dK79akAgy9oX6RX6I3IIIPckCc
+         iRrokxglZn-omAY5CnCe4KdrnjFOT5YUZE7G_Pg44XgCXaarLQf4hl80
+         oPEf6-jJ5Iy6wPRx7G2e8qLxnh9cOdf-kRqgOS3F48Ucvw3ma5V6KGMw
+         QqWFeV31XtZ8l5cVI-I3NzBS7qltpUVgz2Ju021eyc7IlqgzR98qKONl
+         27DuEES0aK0WE97jnsyO27Yp88Wa2RiBrEocM89QZI1seJiGDizHRUP4
+         UZxw9zsXww46wy0P6f9grnYp7t8LkyDDk8eoI4KX6SNMNVcyVS9IWjlq
+         8EzqZEKIA"
+   }
+</span></code></pre>
+<ul>
+  <li>The <code>alg</code> parameter – value MUST be set to <code>RSA-OAEP</code> as defined in the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a></li>
+  <li>The <code>enc</code> parameter – value MUST be set to <code>A128CBC-HS256</code> as defined in the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a></li>
+</ul>
+<h3 id='generated-factors'>Generated factors</h3>
+<p>The following are generated before encrypting:</p>
+
+<ul>
+  <li>AES symmetric key as the Content Encryption Key (CEK); in our example it will be the one enclosed.</li>
+</ul>
+<pre class="highlight http tab-http--inline"><code><span class="err">mYMfsggkTAm0TbvtlFh2hyoXnbEzJQjMxmgLN3d8xXA
+</span></code></pre>
+<ul>
+  <li>Initialization Vector; in our example it will be the one enclosed.</li>
+</ul>
+<pre class="highlight http tab-http--inline"><code><span class="err">-nBoKLH0YkLZPSI9
+</span></code></pre><h3 id='encrypting-the-key'>Encrypting the key</h3>
+<p>Performing the key encryption operation over the CEK with the RSA key produces the Encrypted Key aside.
+<code>http--inline
+rT99rwrBTbTI7IJM8fU3Eli7226HEB7IchCxNuh7lCiud48LxeolRdtFF4nzQibeYOl5S_PJsAXZwSXtDePz9hk-BbtsTBqC2UsPOdwjC9NhNupNNu9uHIVftDyu  cvI6hvALeZ6OGnhNV4v1zx2k7O1D89mAzfw-_kT3tkuorpDU-CpBENfIHX1Q58-Aad3FzMuo3Fn9buEP2yXakLXYa15BUXQsupM4A1GD4_H4Bd7V3u9h8Gkg8Bpx   KdUV9ScfJQTcYm6eJEBz3aSwIaK4T3-dwWpuBOhROQXBosJzS1asnuHtVMt2pKIIfux5BC6huIvmY7kzV7W7aIUrpYm_3H4zYvyMeq5pGqFmW2k8zpO878TRlZx7
+   pZfPYDSXZyS0CfKKkMozT_qiCwZTSz4duYnt8hS4Z9sGthXn9uDqd6wycMagnQfOTs_lycTWmY-aqWVDKhjYNRf03NiwRtb5BE-tOdFwCASQj3uuAgPGrO2AWBe3
+   8UjQb0lvXn1SpyvYZ3WFc7WOJYaTa7A8DRn6MC6T-xDmMuxC0G7S2rscw5lQQU06MvZTlFOt0UvfuKBa03cxA_nIBIhLMjY2kOTxQMmpDPTr6Cbo8aKaOnx6ASE5
+   Jx9paBpnNmOOKH35j_QlrQhDWUN6A2Gg8iFayJ69xDEdHAVCGRzN3woEI2ozDRs
+</code>  </p>
+<h3 id='encrypting-the-content'>Encrypting the content</h3><pre class="highlight http tab-http--inline"><code><span class="err">   {
+     "alg": "RSA-OAEP",
+     "kid": "samwise.gamgee@hobbiton.example",
+     "enc": "A128CBC-HS256"
+   }
+</span></code></pre>
+<p>First, you need to generate JWE Protected Header. It contains the <code>alg</code> parameter, a reference to the signing key (aka. <code>kid</code>) and the <code>enc</code>. An example can be visualized enclosed.</p>
+
+<p>The JWE Protected Header will then be encoded using base64url to produce the string aside.
+<code>http--inline
+eyJhbGciOiJSU0EtT0FFUCIsImtpZCI6InNhbXdpc2UuZ2FtZ2VlQGhvYmJpdG9uLmV4YW1wbGUiLCJlbmMiOiJBMjU2R0NNIn0
+</code></p>
+
+<p>Then, you can perform the content encryption operation over the plaintext - with the CEK; the Initialization Vector; and  JWE Protected Header as authenticated data - to produce the Ciphertext and the Authentication Tag as you see enclosed.</p>
+<pre class="highlight http tab-http--inline"><code><span class="err">o4k2cnGN8rSSw3IDo1YuySkqeS_t2m1GXklSgqBdpACm6UJuJowOHC5ytjqYgRL-I-soPlwqMUf4UgRWWeaOGNw6vGW-xyM01lTYxrXfVzIIaRdhYtEMRBvBWbEw P7ua1DRfvaOjgZv6Ifa3brcAM64d8p5lhhNcizPersuhw5f-pGYzseva-TUaL8iWnctc-sSwy7SQmRkfhDjwbz0fz6kFovEgj64X1I5s7E6GLp5fnbYGLa1QUiML   7Cc2GxgvI7zqWo0YIEc7aCflLG1-8BboVWFdZKLK9vNoycrYHumwzKluLWEbSVmaPpOslY2n525DxDfWaVFUfKQxMF56vn4B9QMpWAbnypNimbM8zVOw
+</span></code></pre><pre class="highlight http tab-http--inline"><code><span class="err">UCGiqJxhBI3IFVdPalHHvA
+</span></code></pre>
+<p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+
+<p></li>
+  <li>The <code>enc</code> parameter – value MUST be set to <code>A128CBC-HS256</code> as defined in the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a></li>
+</ul></p>
 
 <p>Cryptographic algorithms and identifiers when using</p>
 
