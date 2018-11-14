@@ -39,9 +39,7 @@ itsme® use above technologies for the following purposes:
 
 The JSON Web Signature (JWS) represents signed content using JSON data structures and base64url encoding as defined in the <a href=" https://tools.ietf.org/html/rfc7515" target="blank">specifications</a>. The representation consists of three parts: the JOSE Header, the JWS Payload, and the JWS Signature. The three parts are base64url-encoded for transmission, and typically represented as the concatenation of the encoded strings in that order, with the three strings being separated by period ('.') characters.
 
-Following sections will show you how to generate a JWS object using the <code>RS256</code> (RSASSA-PKCS1-v1_5 with SHA-256) algorithm, as defined in the [itsme® Discovery document](#OpenIDConfig). For the demonstration we will use the following quotation:
-
-> It's a dangerous business, Frodo, going out your door. You step onto the road, and if you don't keep your feet, there's no knowing where you might be swept off to.
+Following sections will show you how to generate a JWS object using the <code>RS256</code> (RSASSA-PKCS1-v1_5 with SHA-256) algorithm, as defined in the [itsme® Discovery document](#OpenIDConfig). For the demonstration we will use the following quotation:<q>It's a dangerous business, Frodo, going out your door. You step onto the road, and if you don't keep your feet, there's no knowing where you might be swept off to.</q>
 
 
 ### Input factors
@@ -49,16 +47,16 @@ Following sections will show you how to generate a JWS object using the <code>RS
 The following are supplied before beginning the signing operation:
 
 <ul>
-  <il>A payload content serialized as UTF-8, and then encoded using base64url to produce the string enclosed</li>
+  <il>A payload content serialized as UTF-8, and then encoded using base64url to produce JWS Payload enclosed</li>
 </ul>
-  
-> SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4
-
+```http--inline
+SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4
+```
 <ul>
-  <li>The RSA private key illustrated enclosed.</li>
+  <li>The RSA 2048-Bit private key illustrated enclosed.</li>
 </ul>
-
-> {
+```http--inline
+{
      "kty": "RSA",
      "kid": "bilbo.baggins@hobbiton.example",
      "use": "sig",
@@ -98,16 +96,73 @@ The following are supplied before beginning the signing operation:
          jJ-GtiseaDVWt7dcH0cfwxgFUHpQh7FoCrjFJ6h6ZEpMF6xmujs4qMpP
          z8aaI4"
    }
-
+```
 <ul>
-  <li>The <code>alg</code> parameter – value MUST be set to <code>RS256</code> as defined in the [itsme® Discovery document](#OpenIDConfig)</li>
+  <li>The <code>alg</code> parameter – value MUST be set to <code>RS256</code> as defined in the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a></li>
 </ul>
 
 
+### Signing Operation
 
+```http--inline
+{
+     "alg": "RS256",
+     "kid": "bilbo.baggins@hobbiton.example"
+}
+```
+A JWS Protected Header is generated to complete the signing operation. It contains the <code>alg</code> parameter and a reference to the signing key (aka. <code>kid</code>). An example can be visualized enclosed.
 
+The JWS Protected Header will then be encoded using base64url to produce the string enclosed.
+```http--inline
+SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4
+```
 
+The JWS Protected Header and JWS Payload are combined to produce the JWS Signing Input.
+```http--inline
+eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2dpbnNAaG9iYml0b24uZXhhbXBsZSJ9
+.
+SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4
+```
 
+Performing the signature operation over the JWS Signing Input, following the signature algorithm defined by the JOSE header element <code>alg</code>, produces the enclosed JWS Signature.
+```http--inline
+MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx996ivp83xuglII7PNDi84wnB-BDkoBwA78185hX-Es4JIwmDLJK3lfWRa-XtL0RnltuYv746iYTh_qHRD68BNt1uSNCrUCTJDt5aAE6x8wW1Kt9eRo4QPocSadnHXFxnt8Is9UzpERV0ePPQdLuW3IS_de3xyIrDaLGdjluPxUAhb6L2aXic1U12podGU0KLUQSE_oI-ZnmKJ3F4uOZDnd6QZWJushZ41Axf_fcIe8u9ipH84ogoree7vjbU5y18kDquDg
+```
+
+### Output results
+
+The resulting JWS object using the JWS Compact Serialization can be visualized aside. 
+```http--inline
+eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2dpbnNAaG9iYml0b24uZXhhbXBsZSJ9
+.
+SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4
+.
+MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx996ivp83xuglII7PNDi84wnB-BDkoBwA78185hX-Es4JIwmDLJK3lfWRa-XtL0RnltuYv746iYTh_qHRD68BNt1uSNCrUCTJDt5aAE6x8wW1Kt9eRo4QPocSadnHXFxnt8Is9UzpERV0ePPQdLuW3IS_de3xyIrDaLGdjluPxUAhb6L2aXic1U12podGU0KLUQSE_oI-ZnmKJ3F4uOZDnd6QZWJushZ41Axf_fcIe8u9ipH84ogoree7vjbU5y18kDquDg
+```
+
+The resulting JWS object using the general JWS JSON Serialization is slightly different as you can see enclosed.
+```http--inline
+   {
+     "payload": "SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywg
+         Z29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9h
+         ZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXi
+         gJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9m
+         ZiB0by4",
+     "signatures": [
+       {
+         "protected": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2
+             dpbnNAaG9iYml0b24uZXhhbXBsZSJ9",
+         "signature": "MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHo
+             xnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx996ivp83xuglII
+             7PNDi84wnB-BDkoBwA78185hX-Es4JIwmDLJK3lfWRa-XtL0Rnlt
+             uYv746iYTh_qHRD68BNt1uSNCrUCTJDt5aAE6x8wW1Kt9eRo4QPo
+             cSadnHXFxnt8Is9UzpERV0ePPQdLuW3IS_de3xyIrDaLGdjluPxU
+             Ahb6L2aXic1U12podGU0KLUQSE_oI-ZnmKJ3F4uOZDnd6QZWJush
+             Z41Axf_fcIe8u9ipH84ogoree7vjbU5y18kDquDg"
+       }
+     ]
+   }
+```
 
 
 Cryptographic algorithms and identifiers when using
