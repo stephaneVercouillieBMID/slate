@@ -21,11 +21,13 @@ The JSON Object Signing and Encryption (JOSE) is a framework intended to provide
   <li><a href="https://tools.ietf.org/html/rfc7519" target="blank">JSON Web Token</a> (JWT), defines a way of representing claims such as "Bob was born on November 15th, 1984". These claims are digitally signed and/or encrypted using either the JSON Web Signature (JWS) or JSON Web Encryption (JWE) specifications.</li>
   </ul>
   
-  
-  
+  All these technologies can be used collectively to encrypt and/or sign content using a variety of algorithms. While the full set of permutations is extremely large, and might be daunting to some, it is expected that most applications will only use a small set of algorithms to meet their needs.
 
-  
-<a name="Onboarding"></a>
-# 2. Prerequisites
- 
-Before you can integrate your application with itsme® Login and Share Data services, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.
+
+
+
+
+
+
+
+
