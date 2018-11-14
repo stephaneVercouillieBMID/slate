@@ -122,6 +122,7 @@ Location: https://client.example.org/cb?
 code=SplxlOBeZQQYbYS6WxSbIA&
 state=af0ifjsldkj
  ```
+
 The response will contain:
 
 Values | Returned | Description
