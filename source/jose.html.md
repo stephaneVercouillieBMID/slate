@@ -33,7 +33,39 @@ itsme® use above technologies for the following purposes:
   <li>To enable your servers and itsme® endpoints to ensure confidentiality and integrity when exchanging information. ADD REFERENCE</li>
   <li>To enable the itsme® Token Endpoint to verify your credentials when exchanging the Authorization Code for an ID Token. ADD REFERENCE</li>
 </ul>
-    
+
+
+# 3. Using a JWS
+
+The JSON Web Signature (JWS) represents signed content using JSON data structures and base64url encoding as defined in the <a href=" https://tools.ietf.org/html/rfc7515" target="blank">specifications</a>. The representation consists of three parts: the JOSE Header, the JWS Payload, and the JWS Signature. The three parts are base64url-encoded for transmission, and typically represented as the concatenation of the encoded strings in that order, with the three strings being separated by period ('.') characters.
+
+More information on how to generate JWS objects can be found <a href="https://tools.ietf.org/html/rfc7520#section-4." target="blank">here</a>.
+
+
+
+<ol>
+  <li>The JOSE Header describes the signature method and parameters related to the Encoded JWS Payload and optionally additional properties of the JWS. The Header Parameter Names within this object MUST be unique. The JOSE Header MUST contain an <code>alg</code> parameter, the value of which is a string that unambiguously identifies the algorithm used to sign the JOSE Header and the JWS Payload to produce the JWS Signature.</li>
+  <li>The JWS Payload is the message content to be secured.</li>
+  <li>The JWS Signature ensures the integrity of both the JWS Header and the JWS Payload.</li>
+</ol>
+
+A signed Request Object can be serialized using the JWS compact serialization. Following lists out the signing process of a JWS Request Object under the **compact serialization**:
+
+<ul>
+   <li>Build a JOSE header containing the `alg` parameter – value MUST be set to ` RS256`  as defined in the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a> and a reference to the signing key using the `kid`. This value SHOULD BE retrieved from your own JWKSet.</li>
+   <li>Compute the base64url-encoded value against the UTF-8 encoded JOSE header from the 1st step, to produce the 1st element of the JWS token.</li>
+   <li>Construct the payload or the content to be signed. This is known as the JWS payload.</li>
+   <li>Compute the base64url-encoded value of the JWS payload from the previous step to produce the 2nd element of the JWS token.</li>
+   <li>Build the message to compute the digital signature or the Mac. The message is constructed as ASCII(BASE64URL-ENCODE(UTF8(JOSE Header)) ‘.’ BASE64URL-ENCODE(JWS Payload)).</li>
+   <li>Compute the signature over the message constructed in the previous step, following the signature algorithm defined by the JOSE header element `alg`.</li>
+   <li>Compute the base64url encoded value of the JWS signature produced in the previous step, which is the 3rd element of the serialized JWS Request Object.</li>
+</ul>
+
+
+
+
+
+Cryptographic algorithms and identifiers when using
 
 
 
