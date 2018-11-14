@@ -18,7 +18,7 @@ The JSON Object Signing and Encryption (JOSE) is a framework intended to provide
   <li><a href="https://tools.ietf.org/html/rfc7516" target="blank">JSON Web Encryption </a> (JWE), defines a way to express encrypted content using JSON-based data structures. Basically, if you want to encrypt JSON data so that only the intended receiver can read the data, this specification tells you how to do it in an interoperable way.</li>
   <li><a href="https://tools.ietf.org/html/rfc7517" target="blank">JSON Web Key</a> (JWK), details a data structure that represents one or more cryptographic keys. If you need to express one of the many types of cryptographic key types in use today, this specification details how you do that in a standard way.</li>
   <li><a href="https://tools.ietf.org/html/rfc7518" target="blank">JSON Web Algorithms</a> (JWA), details the cryptographic algorithms and identifiers that are meant to be used with the JSON Web Signature (JWS), JSON Web Encryption (JWE), JSON Web Token (JWT), and JSON Web Key (JWK) specifications. For example, when specifying an encryption algorithm, a JSON key/value pair that has <code>alg</code> as the key may have HS256 as the value, which means HMAC using the SHA-256 hash algorithm.</li>
-  <li><a href="https://tools.ietf.org/html/rfc7519" target="blank">JSON Web Token</a> (JWT), defines a way of representing claims such as "Bob was born on November 15th, 1984". These claims are digitally signed and/or encrypted using either the JSON Web Signature (JWS) or JSON Web Encryption (JWE) specifications.</li>
+  <li><a href="https://tools.ietf.org/html/rfc7519" target="blank">JSON Web Token</a> (JWT), defines a way of representing claims. These claims are digitally signed and/or encrypted using either the JSON Web Signature (JWS) or JSON Web Encryption (JWE) specifications.</li>
   </ul>
   
 All these technologies can be used collectively to encrypt and/or sign content using a variety of algorithms. While the full set of permutations is extremely large, and might be daunting to some, it is expected that most applications will only use a small set of algorithms to meet their needs.
@@ -49,13 +49,16 @@ Following sections will show you how to generate a JWS object using the `RS256` 
 The following are supplied before beginning the signing operation:
 <ul>
   <il>A payload content serialized as UTF-8, and then encoded using base64url to produce the string enclosed</li>
- <ul>
+<ul>
+  
 ```http--inline
 SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4
 ```
+
 <ul>
   <li>The RSA private key illustrated enclosed.</li>
 </ul>
+
 ```http--inline
  {
      "kty": "RSA",
@@ -98,9 +101,10 @@ SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91
          z8aaI4"
    }
 ```
+
 <ul>
   <li>The <code>alg</code> parameter – value MUST be set to <code>RS256</code> as defined in the [itsme® Discovery document](#OpenIDConfig)</li>
- </ul>
+</ul>
 
 
 
