@@ -165,6 +165,167 @@ The resulting JWS object using the general JWS JSON Serialization is slightly di
 ```
 
 
+# 4. Using a JWE
+
+The JSON Web Encryption (JWE) specification standardizes the way to represent an encrypted content in a JSON-based data structure. Like in JWS, the message to be encrypted using JWE standard needs not to be a JSON payload, it can be any content.
+
+Following sections will show you how to generate a JWE object using the <code>RSA-OAEP</code> (RSAES-OAEP) key encryption algorithm and the <code>A128CBC-HS256</code> (AES-128-CBC-HMAC-SHA-256) content encryption algorithm, as defined in the [itsme® Discovery document](#OpenIDConfig). Note that RSAES-OAEP uses random data to generate the ciphertext; it might not be possible to exactly replicate the results in the sections below. Moreover, only the RSA public key is necessary to perform the encryption. However, for the demonstration we will use the RSA private key to allow you to validate the output.
+
+In our example below we will use the following quotation:<q>You can trust us to stick with you through thick and to the bitter end. And you can trust us to keep any secret of yours closer than you keep it yourself. But you cannot trust us to let you face trouble alone, and go off without a word. We are your friends, Frodo.</q>
+
+### Input factors
+
+The following are supplied before beginning the encryption process:
+
+<ul>
+  <il>The plaintext content</li>
+</ul>
+```http--inline
+SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4
+```
+<ul>
+  <li>The RSA public key</li>
+</ul>
+```http--inline
+{
+     "kty": "RSA",
+     "kid": "samwise.gamgee@hobbiton.example",
+     "use": "enc",
+     "n": "wbdxI55VaanZXPY29Lg5hdmv2XhvqAhoxUkanfzf2-5zVUxa6prHRr
+         I4pP1AhoqJRlZfYtWWd5mmHRG2pAHIlh0ySJ9wi0BioZBl1XP2e-C-Fy
+         XJGcTy0HdKQWlrfhTm42EW7Vv04r4gfao6uxjLGwfpGrZLarohiWCPnk
+         Nrg71S2CuNZSQBIPGjXfkmIy2tl_VWgGnL22GplyXj5YlBLdxXp3XeSt
+         sqo571utNfoUTU8E4qdzJ3U1DItoVkPGsMwlmmnJiwA7sXRItBCivR4M
+         5qnZtdw-7v4WuR4779ubDuJ5nalMv2S66-RPcnFAzWSKxtBDnFJJDGIU
+         e7Tzizjg1nms0Xq_yPub_UOlWn0ec85FCft1hACpWG8schrOBeNqHBOD
+         FskYpUc2LC5JA2TaPF2dA67dg1TTsC_FupfQ2kNGcE1LgprxKHcVWYQb
+         86B-HozjHZcqtauBzFNV5tbTuB-TpkcvJfNcFLlH3b8mb-H_ox35FjqB
+         SAjLKyoeqfKTpVjvXhd09knwgJf6VKq6UC418_TOljMVfFTWXUxlnfhO
+         OnzW6HSSzD1c9WrCuVzsUMv54szidQ9wf1cYWf3g5qFDxDQKis99gcDa
+         iCAwM3yEBIzuNeeCa5dartHDb1xEB_HcHSeYbghbMjGfasvKn0aZRsnT
+         yC0xhWBlsolZE",
+     "e": "AQAB",
+     "alg": "RSA-OAEP",
+     "d": "n7fzJc3_WG59VEOBTkayzuSMM780OJQuZjN_KbH8lOZG25ZoA7T4Bx
+         cc0xQn5oZE5uSCIwg91oCt0JvxPcpmqzaJZg1nirjcWZ-oBtVk7gCAWq
+         -B3qhfF3izlbkosrzjHajIcY33HBhsy4_WerrXg4MDNE4HYojy68TcxT
+         2LYQRxUOCf5TtJXvM8olexlSGtVnQnDRutxEUCwiewfmmrfveEogLx9E
+         A-KMgAjTiISXxqIXQhWUQX1G7v_mV_Hr2YuImYcNcHkRvp9E7ook0876
+         DhkO8v4UOZLwA1OlUX98mkoqwc58A_Y2lBYbVx1_s5lpPsEqbbH-nqIj
+         h1fL0gdNfihLxnclWtW7pCztLnImZAyeCWAG7ZIfv-Rn9fLIv9jZ6r7r
+         -MSH9sqbuziHN2grGjD_jfRluMHa0l84fFKl6bcqN1JWxPVhzNZo01yD
+         F-1LiQnqUYSepPf6X3a2SOdkqBRiquE6EvLuSYIDpJq3jDIsgoL8Mo1L
+         oomgiJxUwL_GWEOGu28gplyzm-9Q0U0nyhEf1uhSR8aJAQWAiFImWH5W
+         _IQT9I7-yrindr_2fWQ_i1UgMsGzA7aOGzZfPljRy6z-tY_KuBG00-28
+         S_aWvjyUc-Alp8AUyKjBZ-7CWH32fGWK48j1t-zomrwjL_mnhsPbGs0c
+         9WsWgRzI-K8gE",
+     "p": "7_2v3OQZzlPFcHyYfLABQ3XP85Es4hCdwCkbDeltaUXgVy9l9etKgh
+         vM4hRkOvbb01kYVuLFmxIkCDtpi-zLCYAdXKrAK3PtSbtzld_XZ9nlsY
+         a_QZWpXB_IrtFjVfdKUdMz94pHUhFGFj7nr6NNxfpiHSHWFE1zD_AC3m
+         Y46J961Y2LRnreVwAGNw53p07Db8yD_92pDa97vqcZOdgtybH9q6uma-
+         RFNhO1AoiJhYZj69hjmMRXx-x56HO9cnXNbmzNSCFCKnQmn4GQLmRj9s
+         fbZRqL94bbtE4_e0Zrpo8RNo8vxRLqQNwIy85fc6BRgBJomt8QdQvIgP
+         gWCv5HoQ",
+     "q": "zqOHk1P6WN_rHuM7ZF1cXH0x6RuOHq67WuHiSknqQeefGBA9PWs6Zy
+         KQCO-O6mKXtcgE8_Q_hA2kMRcKOcvHil1hqMCNSXlflM7WPRPZu2qCDc
+         qssd_uMbP-DqYthH_EzwL9KnYoH7JQFxxmcv5An8oXUtTwk4knKjkIYG
+         RuUwfQTus0w1NfjFAyxOOiAQ37ussIcE6C6ZSsM3n41UlbJ7TCqewzVJ
+         aPJN5cxjySPZPD3Vp01a9YgAD6a3IIaKJdIxJS1ImnfPevSJQBE79-EX
+         e2kSwVgOzvt-gsmM29QQ8veHy4uAqca5dZzMs7hkkHtw1z0jHV90epQJ
+         JlXXnH8Q",
+     "dp": "19oDkBh1AXelMIxQFm2zZTqUhAzCIr4xNIGEPNoDt1jK83_FJA-xn
+         x5kA7-1erdHdms_Ef67HsONNv5A60JaR7w8LHnDiBGnjdaUmmuO8XAxQ
+         J_ia5mxjxNjS6E2yD44USo2JmHvzeeNczq25elqbTPLhUpGo1IZuG72F
+         ZQ5gTjXoTXC2-xtCDEUZfaUNh4IeAipfLugbpe0JAFlFfrTDAMUFpC3i
+         XjxqzbEanflwPvj6V9iDSgjj8SozSM0dLtxvu0LIeIQAeEgT_yXcrKGm
+         pKdSO08kLBx8VUjkbv_3Pn20Gyu2YEuwpFlM_H1NikuxJNKFGmnAq9Lc
+         nwwT0jvoQ",
+     "dq": "S6p59KrlmzGzaQYQM3o0XfHCGvfqHLYjCO557HYQf72O9kLMCfd_1
+         VBEqeD-1jjwELKDjck8kOBl5UvohK1oDfSP1DleAy-cnmL29DqWmhgwM
+         1ip0CCNmkmsmDSlqkUXDi6sAaZuntyukyflI-qSQ3C_BafPyFaKrt1fg
+         dyEwYa08pESKwwWisy7KnmoUvaJ3SaHmohFS78TJ25cfc10wZ9hQNOrI
+         ChZlkiOdFCtxDqdmCqNacnhgE3bZQjGp3n83ODSz9zwJcSUvODlXBPc2
+         AycH6Ci5yjbxt4Ppox_5pjm6xnQkiPgj01GpsUssMmBN7iHVsrE7N2iz
+         nBNCeOUIQ",
+     "qi": "FZhClBMywVVjnuUud-05qd5CYU0dK79akAgy9oX6RX6I3IIIPckCc
+         iRrokxglZn-omAY5CnCe4KdrnjFOT5YUZE7G_Pg44XgCXaarLQf4hl80
+         oPEf6-jJ5Iy6wPRx7G2e8qLxnh9cOdf-kRqgOS3F48Ucvw3ma5V6KGMw
+         QqWFeV31XtZ8l5cVI-I3NzBS7qltpUVgz2Ju021eyc7IlqgzR98qKONl
+         27DuEES0aK0WE97jnsyO27Yp88Wa2RiBrEocM89QZI1seJiGDizHRUP4
+         UZxw9zsXww46wy0P6f9grnYp7t8LkyDDk8eoI4KX6SNMNVcyVS9IWjlq
+         8EzqZEKIA"
+   }
+```
+<ul>
+  <li>The <code>alg</code> parameter – value MUST be set to <code>RSA-OAEP</code> as defined in the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a></li>
+  <li>The <code>enc</code> parameter – value MUST be set to <code>A128CBC-HS256</code> as defined in the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a></li>
+</ul>
+
+### Generated factors
+
+The following are generated before encrypting:
+
+<ul>
+  <li>AES symmetric key as the Content Encryption Key (CEK); in our example it will be the one enclosed.</li>
+</ul>
+```http--inline
+mYMfsggkTAm0TbvtlFh2hyoXnbEzJQjMxmgLN3d8xXA
+```
+<ul>
+  <li>Initialization Vector; in our example it will be the one enclosed.</li>
+</ul>
+```http--inline
+-nBoKLH0YkLZPSI9
+```
+
+### Encrypting the key
+
+Performing the key encryption operation over the CEK with the RSA key produces the Encrypted Key aside.
+```http--inline
+rT99rwrBTbTI7IJM8fU3Eli7226HEB7IchCxNuh7lCiud48LxeolRdtFF4nzQibeYOl5S_PJsAXZwSXtDePz9hk-BbtsTBqC2UsPOdwjC9NhNupNNu9uHIVftDyu  cvI6hvALeZ6OGnhNV4v1zx2k7O1D89mAzfw-_kT3tkuorpDU-CpBENfIHX1Q58-Aad3FzMuo3Fn9buEP2yXakLXYa15BUXQsupM4A1GD4_H4Bd7V3u9h8Gkg8Bpx   KdUV9ScfJQTcYm6eJEBz3aSwIaK4T3-dwWpuBOhROQXBosJzS1asnuHtVMt2pKIIfux5BC6huIvmY7kzV7W7aIUrpYm_3H4zYvyMeq5pGqFmW2k8zpO878TRlZx7
+   pZfPYDSXZyS0CfKKkMozT_qiCwZTSz4duYnt8hS4Z9sGthXn9uDqd6wycMagnQfOTs_lycTWmY-aqWVDKhjYNRf03NiwRtb5BE-tOdFwCASQj3uuAgPGrO2AWBe3
+   8UjQb0lvXn1SpyvYZ3WFc7WOJYaTa7A8DRn6MC6T-xDmMuxC0G7S2rscw5lQQU06MvZTlFOt0UvfuKBa03cxA_nIBIhLMjY2kOTxQMmpDPTr6Cbo8aKaOnx6ASE5
+   Jx9paBpnNmOOKH35j_QlrQhDWUN6A2Gg8iFayJ69xDEdHAVCGRzN3woEI2ozDRs
+```  
+
+
+
+
+
+
+
+  
+  </li>
+  <li>The <code>enc</code> parameter – value MUST be set to <code>A128CBC-HS256</code> as defined in the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a></li>
+</ul>
+
+AES symmetric key as the Content Encryption Key (CEK); this
+      example uses the key from Figure 85.
+
+   o  Initialization Vector; this example uses the Initialization Vector
+      from Figure 86.
+
+
+
+
+Miller                        Informational                    [Page 47]
+ 
+RFC 7520                      JOSE Cookbook                     May 2015
+
+
+   mYMfsggkTAm0TbvtlFh2hyoXnbEzJQjMxmgLN3d8xXA
+
+           Figure 85: Content Encryption Key, base64url-encoded
+
+   -nBoKLH0YkLZPSI9
+
+            Figure 86: Initialization Vector, base64url-encoded
+
+
+
+
+
+
 Cryptographic algorithms and identifiers when using
 
 
