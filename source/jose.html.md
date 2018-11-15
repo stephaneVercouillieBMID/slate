@@ -48,7 +48,8 @@ Following steps will show you how to generate a JWS Compact Serialization object
 </ol>
 
 ```http--inline
-{"alg":"RS256",
+{
+      "alg":"RS256",
       "crit":["exp"],
       "exp":1363284000
 }
@@ -123,36 +124,51 @@ With the JWE compact serialization, a JWE object is built with five key componen
 </ol>
 
 ```http--inline
-{"alg":"RS256",
-      "crit":["exp"],
-      "exp":1363284000
+{
+     "alg": "RSA-OAEP",
+     "kid": "samwise.gamgee@hobbiton.example",
+     "enc": "A128CBC-HS256"
 }
 ```
 
 Parameter | Required | Description
 :-------- | :--------| :----- 
-**alg** | Required | It identifies the cryptographic algorithm used to secure the JWS. The <code>alg</code> value for this use can be found in the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a>, using one of these keys: <code>request_object_signing_alg_values_supported</code>, <code>id_token_signing_alg_values_supported</code>, <code>token_endpoint_auth_signing_alg_values_supported</code> or <code>userinfo_signing_alg_values_supported</code>. 
-**enc** | Required | It identifies the content encryption algorithm used to perform authenticated encryption on the plaintext to produce the ciphertext and the Authentication Tag.  
+**alg** | Required | This parameter has the same meaning, syntax, and processing rules as the <code>alg</code> defined in the JWS section, except that it defines the cryptographic algorithm used to encrypt the CEK. The <code>alg</code> value for this use can be found in the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a>, using one of these keys: <code>request_object_encryption_alg_values_supported</code>, <code>id_token_encryption_alg_values_supported</code>, or <code>userinfo_encryption_alg_values_supported</code>. 
+**enc** | Required | It identifies the content encryption algorithm used to perform authenticated encryption on the plaintext to produce the ciphertext and the Authentication Tag. The <code>enc</code> value can be retrieved from the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a>, using one of these keys: <code>request_object_encryption_enc_values_supported</code>, <code>id_token_encryption_enc_values_supported</code>, or <code>userinfo_encryption_enc_values_supported</code>. 
 **zip** | Optionnal | 
-**jku** | Optionnal | This is a URI that refers to a resource for a set of JSON-encoded public keys, one of which corresponds to the key used to digitally sign the JWS.  The keys MUST be encoded as a JWK Set (JWK).
-**jwk** | Optionnal | This is the public key that corresponds to the key used to digitally sign the JWS.  This key is represented as a JSON Web Key (JWK).
-**kid** | Optionnal | It is a hint indicating which key was used to secure the JWS.  This parameter allows you to explicitly signal a change of key to recipients.  The structure of the <code>kid</code> value is unspecified.  Its value MUST be a case-sensitive string.
-**x5u** | Optionnal | It is a URI that refers to a resource for the X.509 public key certificate or certificate chain corresponding to the key used to digitally sign the JWS.
-**x5c** | Optionnal | This parameter contains the X.509 public key certificate or certificate chain corresponding to the key used to digitally sign the JWS.
-**x5t** | Optionnal | It is a base64url-encoded SHA-1 thumbprint (a.k.a. digest) of the DER encoding of the X.509 certificate corresponding to the key used to digitally sign the JWS. 
-**x5t#S256** | Optionnal | It is a base64url-encoded SHA-256 thumbprint (a.k.a. digest) of the DER encoding of the X.509 certificate corresponding to the key used to digitally sign the JWS.
-**typ** | Optionnal | It is used by JWS applications to declare the media type of this complete JWS.
-**cty** | Optionnal | It is used by JWS applications to declare the media type of the payload.
-**crit** | Optionnal | It indicates that extensions to this specification and/or JWA are being used that MUST be  understood and processed.
+**jku** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <code>jku</codes parameter defined in the JWS section, except that the JWK Set resource contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
+**jwk** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <code>jwk</code> parameter defined in the JWS section, except that the key is the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
+**kid** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <code>kid</code> parameter defined in the JWS section, except that the key hint references the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
+**x5u** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <code>x5u</code> parameter defined in the JWS section, except that the X.509 public key certificate or certificate chain contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
+**x5c** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <code>x5c</code> parameter defined in the JWS section, except that the X.509 public key certificate or certificate chain contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
+**x5t** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <code>x5t</code> parameter defined in the JWS section, except that the certificate referenced by the thumbprint contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
+**x5t#S256** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <code>x5t#S256</code> parameter defined in the JWS section, except that the certificate referenced by the thumbprint contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
+**typ** | Optionnal | It is used by JWS applications to declare the media type of this complete JWE.
+**cty** | Optionnal | It is used by JWS applications to declare the media type of the secured content (the plaintext).
+**crit** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the </code>crit</code> parameter defined in the JWS section, except that parameters for a JWE are being referred to, rather than parameters for a JWS.
 
+<ol>  
+  <li value="2">The JOSE Header will then be encoded using base64url to produce the enclosed string.</li>
+</ol>
 
-    
-    
-    
-  
+```http--inline
+eyJhbGciOiJSU0EtT0FFUCIsImtpZCI6InNhbXdpc2UuZ2FtZ2VlQGhvYmJpdG9uLmV4YW1wbGUiLCJlbmMiOiJBMjU2R0NNIn0
+```
 
+<ol>
+  <li value="3">Generate a random Content Encryption Key (CEK).</li>
+  <li>Encrypt the CEK with the itsme® RSA public key, using the algorithm defined in the <code>alg</code> parameter, to produce the JWE Encrypted Key.</li>
+  <li>The JWE Encrypted Key will then be encoded using base64url to produce the enclosed string.</li>
+</ol>
 
-
+```http--inline
+rT99rwrBTbTI7IJM8fU3Eli7226HEB7IchCxNuh7lCiud48LxeolRdtFF4nzQibeYOl5S_PJsAXZwSXtDePz9hk-BbtsTBqC2UsPOdwjC9NhNupNNu9uHIVftDyu
+   cvI6hvALeZ6OGnhNV4v1zx2k7O1D89mAzfw-_kT3tkuorpDU-CpBENfIHX1Q58-Aad3FzMuo3Fn9buEP2yXakLXYa15BUXQsupM4A1GD4_H4Bd7V3u9h8Gkg8Bpx
+   KdUV9ScfJQTcYm6eJEBz3aSwIaK4T3-dwWpuBOhROQXBosJzS1asnuHtVMt2pKIIfux5BC6huIvmY7kzV7W7aIUrpYm_3H4zYvyMeq5pGqFmW2k8zpO878TRlZx7
+   pZfPYDSXZyS0CfKKkMozT_qiCwZTSz4duYnt8hS4Z9sGthXn9uDqd6wycMagnQfOTs_lycTWmY-aqWVDKhjYNRf03NiwRtb5BE-tOdFwCASQj3uuAgPGrO2AWBe3
+   8UjQb0lvXn1SpyvYZ3WFc7WOJYaTa7A8DRn6MC6T-xDmMuxC0G7S2rscw5lQQU06MvZTlFOt0UvfuKBa03cxA_nIBIhLMjY2kOTxQMmpDPTr6Cbo8aKaOnx6ASE5
+   Jx9paBpnNmOOKH35j_QlrQhDWUN6A2Gg8iFayJ69xDEdHAVCGRzN3woEI2ozDRs
+```
 
 
 
