@@ -57,7 +57,7 @@ Following steps will show you how to generate a JWS Compact Serialization object
 
 Parameter | Required | Description
 :-------- | :--------| :----- 
-**alg** | Required | This parameter identifies the cryptographic algorithm used to secure the JWS. The <code>alg</code> value for this use can be found in the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a>, using one of these keys: <code>request_object_signing_alg_values_supported</code>, <code>id_token_signing_alg_values_supported</code>, <code>token_endpoint_auth_signing_alg_values_supported</code> or <code>userinfo_signing_alg_values_supported</code>. 
+**alg** | Required | This parameter identifies the cryptographic algorithm used to secure the JWS. The <code>alg</code> value for this use can be found in the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using one of these keys: <code>request_object_signing_alg_values_supported</code>, <code>id_token_signing_alg_values_supported</code>, <code>token_endpoint_auth_signing_alg_values_supported</code> or <code>userinfo_signing_alg_values_supported</code>. 
 **jku** | Optionnal | This is a URI that refers to a resource for a set of JSON-encoded public keys, one of which corresponds to the key used to digitally sign the JWS.  The keys MUST be encoded as a JWK Set (JWK).
 **jwk** | Optionnal | This is the public key that corresponds to the key used to digitally sign the JWS.  This key is represented as a JSON Web Key (JWK).
 **kid** | Optionnal | It is a hint indicating which key was used to secure the JWS.  This parameter allows you to explicitly signal a change of key to recipients.  The structure of the <code>kid</code> value is unspecified.  Its value MUST be a case-sensitive string.
@@ -133,8 +133,8 @@ With the JWE compact serialization, a JWE object is built with five key componen
 
 Parameter | Required | Description
 :-------- | :--------| :----- 
-**alg** | Required | This parameter has the same meaning, syntax, and processing rules as the <code>alg</code> defined in the JWS section, except that it defines the cryptographic algorithm used to encrypt the CEK. The <code>alg</code> value for this use can be found in the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a>, using one of these keys: <code>request_object_encryption_alg_values_supported</code>, <code>id_token_encryption_alg_values_supported</code>, or <code>userinfo_encryption_alg_values_supported</code>. 
-**enc** | Required | It identifies the content encryption algorithm used to perform authenticated encryption on the plaintext to produce the ciphertext and the Authentication Tag. The <code>enc</code> value can be retrieved from the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a>, using one of these keys: <code>request_object_encryption_enc_values_supported</code>, <code>id_token_encryption_enc_values_supported</code>, or <code>userinfo_encryption_enc_values_supported</code>. 
+**alg** | Required | This parameter has the same meaning, syntax, and processing rules as the <code>alg</code> defined in the JWS section, except that it defines the cryptographic algorithm used to encrypt the CEK. The <code>alg</code> value for this use can be found in the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using one of these keys: <code>request_object_encryption_alg_values_supported</code>, <code>id_token_encryption_alg_values_supported</code>, or <code>userinfo_encryption_alg_values_supported</code>. 
+**enc** | Required | It identifies the content encryption algorithm used to perform authenticated encryption on the plaintext to produce the ciphertext and the Authentication Tag. The <code>enc</code> value can be retrieved from the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using one of these keys: <code>request_object_encryption_enc_values_supported</code>, <code>id_token_encryption_enc_values_supported</code>, or <code>userinfo_encryption_enc_values_supported</code>. 
 **zip** | Optionnal | 
 **jku** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <code>jku</codes parameter defined in the JWS section, except that the JWK Set resource contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
 **jwk** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <code>jwk</code> parameter defined in the JWS section, except that the key is the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
@@ -195,30 +195,5 @@ An example illustrating the signing process is available at <a href="https://too
 JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.  The claims in a JWT   are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure, as the plaintext of a JSON Web  Encryption (JWE) structure or enclosed in another JWE or JWS structure to create a Nested JWT, enabling nested signing and encryption to be performed. In fact a JWT does not exist itself — either it has to be a JWS and/or a JWE. Its like an abstract class — the JWS and JWE are the concrete implementations.
 
 <aside class="notice">While syntactically the signing and encryption operations for Nested JWTs may be applied in any order, if both signing and encryption are necessary, normally you should sign the message and then encrypt the result (thus encrypting the signature).  This prevents attacks in which the signature is stripped, leaving just an encrypted message.</aside>
-
-
-
-
-
-
-
-
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-
-
-
-
-
-
-
-
-
-Cryptographic algorithms and identifiers when using
-
-
-
-
-
 
 
