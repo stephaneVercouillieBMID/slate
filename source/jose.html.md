@@ -37,9 +37,68 @@ itsme® use above technologies for the following purposes:
 
 # 3. Using a JWS
 
-The JSON Web Signature (JWS) represents signed content using JSON data structures and base64url encoding as defined in the <a href=" https://tools.ietf.org/html/rfc7515" target="blank">specifications</a>. The representation consists of three parts: the JOSE Header, the JWS Payload, and the JWS Signature. The three parts are base64url-encoded for transmission, and typically represented as the concatenation of the encoded strings in that order, with the three strings being separated by period ('.') characters.
+The JSON Web Signature (JWS) represents signed content using JSON data structures and base64url encoding as defined in the <a href=" https://tools.ietf.org/html/rfc7515" target="blank">specifications</a>. 
 
-Following sections will show you how to generate a JWS object using the <code>RS256</code> (RSASSA-PKCS1-v1_5 with SHA-256) algorithm, as defined in the [itsme® Discovery document](#OpenIDConfig). For the demonstration we will use the following quotation:<q>It's a dangerous business, Frodo, going out your door. You step onto the road, and if you don't keep your feet, there's no knowing where you might be swept off to.</q>
+Following steps will show you how to generate a JWS Compact Serialization object:
+
+<ol>
+  <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JOSE Header. Don't forget to advertise in the JOSE header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements: <code>jku</code>, <code>jwk</code>, <code>kid</code>, <code>x5u</code>, <code>x5c</code>, <code>x5t</code> and <code>x5t#s256</code>.</li>
+</ol>
+
+Parameter | Required | Description
+:-------- | :--------| :----- 
+**alg** | Required | This parameter identifies the cryptographic algorithm used to secure the JWS. The value can be retrieved from the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a>, using one of these keys: <code>request_object_signing_alg_values_supported</code>, <code>id_token_signing_alg_values_supported</code>, <code>token_endpoint_auth_signing_alg_values_supported</code> or <code>userinfo_signing_alg_values_supported</code>.
+**jku** |  | This parameter 
+**jwk** |  | This parameter 
+**kid** |  | This parameter 
+**x5u** |  | This parameter 
+**x5c** |  | This parameter 
+**x5t** |  | This parameter 
+**x5t#S256** |  | This parameter 
+**typ** |  | This parameter 
+**cty** |  | This parameter 
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    Firstly, serialize your payload content as UTF-8, and then encode it using base64url to produce the JWS Payload</li>
+  <li>Retrieve your RSA private key corresponding to the public key</li>
+  <li>Get the value corresponding to the <code>alg</code> parameter in the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a>, using one of these keys: <code>request_object_signing_alg_values_supported</code>, <code>id_token_signing_alg_values_supported</code>, <code>token_endpoint_auth_signing_alg_values_supported</code> or <code>userinfo_signing_alg_values_supported</code>.</li>
+  <li>Complete the signing operation by
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+using the <code>RS256</code> (RSASSA-PKCS1-v1_5 with SHA-256) algorithm, as defined in the [itsme® Discovery document](#OpenIDConfig).
+
+
+
+for below keys in the [itsme® Discovery document](#OpenIDConfig) :
+
+
+ -
+
+
+
+. For the demonstration we will use the following quotation:<q>It's a dangerous business, Frodo, going out your door. You step onto the road, and if you don't keep your feet, there's no knowing where you might be swept off to.</q>
 
 
 ### Input factors
