@@ -44,7 +44,7 @@ The JSON Web Signature (JWS) represents signed content using JSON data structure
 Following steps will show you how to generate a JWS Compact Serialization object:
 
 <ol>
-  <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JOSE Header. Don't forget to advertise in the JOSE Header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements: <code>jku</code>, <code>jwk</code>, <code>kid</code>, <code>x5u</code>, <code>x5c</code>, <code>x5t</code> and <code>x5t#s256</code>.<br>An example use can be found enclosed</br></li>
+  <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JOSE Header. Don't forget to advertise in the JOSE Header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements: <code>jku</code>, <code>jwk</code>, <code>kid</code>, <code>x5u</code>, <code>x5c</code>, <code>x5t</code> and <code>x5t#s256</code>.<br>An example use can be found enclosed.</br></li>
 </ol>
 
 ```http--inline
@@ -118,7 +118,38 @@ The <a href=" https://tools.ietf.org/html/rfc7516" target="blank">JSON Web Encry
   
 With the JWE compact serialization, a JWE object is built with five key components, each separated by a period (.): JOSE Header, JWE Encrypted Key, JWE Initialization Vector, JWE Additional Authentication Data (AAD), JWE Ciphertext and JWE Authentication Tag. The following steps will show you how to generate a JWE Compact Serialization object: 
 
+<ol>
+  <li>Build a JSON object including all the header elements. The structure of the JOSE Header is the same, as we discussed under JWS other than couple of exceptions. The JWE specification introduces two new elements (<code>enc</code> and <code>zip</code>), which are included in the JOSE Header of the JWE object, in addition to what’s defined by the JSON Web Signature (JWS) specification.<br>An example use can be found enclosed.</br></li>
+</ol>
 
+```http--inline
+{"alg":"RS256",
+      "crit":["exp"],
+      "exp":1363284000
+}
+```
+
+Parameter | Required | Description
+:-------- | :--------| :----- 
+**alg** | Required | It identifies the cryptographic algorithm used to secure the JWS. The <code>alg</code> value for this use can be found in the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a>, using one of these keys: <code>request_object_signing_alg_values_supported</code>, <code>id_token_signing_alg_values_supported</code>, <code>token_endpoint_auth_signing_alg_values_supported</code> or <code>userinfo_signing_alg_values_supported</code>. 
+**enc** | Required | It identifies the content encryption algorithm used to perform authenticated encryption on the plaintext to produce the ciphertext and the Authentication Tag.  
+**zip** | Optionnal | 
+**jku** | Optionnal | This is a URI that refers to a resource for a set of JSON-encoded public keys, one of which corresponds to the key used to digitally sign the JWS.  The keys MUST be encoded as a JWK Set (JWK).
+**jwk** | Optionnal | This is the public key that corresponds to the key used to digitally sign the JWS.  This key is represented as a JSON Web Key (JWK).
+**kid** | Optionnal | It is a hint indicating which key was used to secure the JWS.  This parameter allows you to explicitly signal a change of key to recipients.  The structure of the <code>kid</code> value is unspecified.  Its value MUST be a case-sensitive string.
+**x5u** | Optionnal | It is a URI that refers to a resource for the X.509 public key certificate or certificate chain corresponding to the key used to digitally sign the JWS.
+**x5c** | Optionnal | This parameter contains the X.509 public key certificate or certificate chain corresponding to the key used to digitally sign the JWS.
+**x5t** | Optionnal | It is a base64url-encoded SHA-1 thumbprint (a.k.a. digest) of the DER encoding of the X.509 certificate corresponding to the key used to digitally sign the JWS. 
+**x5t#S256** | Optionnal | It is a base64url-encoded SHA-256 thumbprint (a.k.a. digest) of the DER encoding of the X.509 certificate corresponding to the key used to digitally sign the JWS.
+**typ** | Optionnal | It is used by JWS applications to declare the media type of this complete JWS.
+**cty** | Optionnal | It is used by JWS applications to declare the media type of the payload.
+**crit** | Optionnal | It indicates that extensions to this specification and/or JWA are being used that MUST be  understood and processed.
+
+
+    
+    
+    
+  
 
 
 
