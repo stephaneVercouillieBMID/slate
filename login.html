@@ -1138,7 +1138,7 @@ grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA
   <li value="6">Upload the ‘apple-app-site-association’ file to your HTTPS web server for the redirection URI communicated in the Authentication Request. The file can be placed at the root of your server or in the .well-known subdirectory.</li>
 </ol>
 
-<aside class="notice"> While hosting the AASA file, please ensure that the AASA file:
+<aside class="notice">While hosting the AASA file, please ensure that the AASA file:
     <ul>
       <li>is served over HTTPS.</li>
       <li>uses application/json MIME type.</li>
@@ -1332,7 +1332,7 @@ private void handleIntent(Intent intent) {
 <ol>
   <li>The values for the <code>response_type</code> and <code>client_id</code> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li>
   <li>Even if a <code>scope</code> parameter is present in the Request Object value, a <code>scope</code> parameter – containing the <code>openid</code> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li>
-  <li>The Request Object MAY be signed or unsigned (plaintext) using the JSON Web Signature (JWS). When it is plaintext, the value of the <code>alg</code> element is set to <code>none</code> in JOSE header. If signed, the Request Object SHOULD contain the claims <code>iss</code> (issuer) and <code>aud</code> (audience) as members. The <code>iss</code> value SHOULD be your Client ID. The <code>aud</code> value SHOULD be or include the itsme®'s Issuer Identifier URL: https://merchant.itsme.be/oidc.</li>
+  <li>The Request Object MAY be signed or unsigned (plaintext) using the <a href=" https://tools.ietf.org/html/rfc7519" target="blank"> JSON Web Signature</a> (JWS). When it is plaintext, the value of the <code>alg</code> element is set to <code>none</code> in JOSE header. If signed, the Request Object SHOULD contain the claims <code>iss</code> (issuer) and <code>aud</code> (audience) as members. The <code>iss</code> value SHOULD be your Client ID. The <code>aud</code> value SHOULD be or include the itsme®'s Issuer Identifier URL: https://merchant.itsme.be/oidc.</li>
   <li>The Request Object MAY also be encrypted using JSON Web Encryption (JWE). In this case, it MUST be signed then encrypted, with the result being a Nested JWT, as defined in the <a href=" https://tools.ietf.org/html/rfc7519" target="blank"> JSON Web Token (JWT) specification</a>.</li>
   <li>The <code>request</code> and <code>request_uri</code> query parameters MUST NOT be included at the same time in Request Objects.</li>
 </ol>
