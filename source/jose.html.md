@@ -88,7 +88,7 @@ SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91
 
 <ol>
   <li value="5">Combine the JOSE Header and JWS Payload, and separate them with period ('.') characters, to produce the JWS Signing Input.</li>
-  <li>Complete the signing operation over the JWS Signing Input constructed in the previous step, following the signature algorithm defined by the JOSE Header element <code>alg</code>. The JWS Signing Input is signed using the private key corresponding to the public key advertised in the JOSE Header. Performing the signature operation over the JWS Signing Input produces the JWS Signature.</li>
+  <li>Complete the signing operation over the JWS Signing Input constructed in the previous step, following the signature algorithm defined by the JOSE Header element <code>alg</code>. The JWS Signing Input is signed using the sender's RSA private key corresponding to the it's public key advertised in the JOSE Header. Performing the signature operation over the JWS Signing Input produces the JWS Signature.</li>
   <li>The JWS Signature will then be encoded using base64url to produce the enclosed string.</li>
 </ol>
 
@@ -157,7 +157,7 @@ eyJhbGciOiJSU0EtT0FFUCIsImtpZCI6InNhbXdpc2UuZ2FtZ2VlQGhvYmJpdG9uLmV4YW1wbGUiLCJl
 
 <ol>
   <li value="3">Generate a random Content Encryption Key (CEK).</li>
-  <li>Encrypt the CEK with the itsme® RSA public key, using the algorithm defined in the <code>alg</code> parameter, to produce the JWE Encrypted Key.</li>
+  <li>Encrypt the CEK with the recipient's RSA public key, using the algorithm defined in the <code>alg</code> parameter, to produce the JWE Encrypted Key.</li>
   <li>The JWE Encrypted Key will then be encoded using base64url to produce the enclosed string.</li>
 </ol>
 
@@ -194,7 +194,7 @@ An example illustrating the signing process is available at <a href="https://too
 
 JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.  The claims in a JWT   are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure, as the plaintext of a JSON Web  Encryption (JWE) structure or enclosed in another JWE or JWS structure to create a Nested JWT, enabling nested signing and encryption to be performed. In fact a JWT does not exist itself — either it has to be a JWS and/or a JWE. Its like an abstract class — the JWS and JWE are the concrete implementations.
 
-
+<aside class="notice">While syntactically the signing and encryption operations for Nested JWTs may be applied in any order, if both signing and encryption are necessary, normally you should sign the message and then encrypt the result (thus encrypting the signature).  This prevents attacks in which the signature is stripped, leaving just an encrypted message.</aside>
 
 
 
