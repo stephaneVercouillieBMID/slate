@@ -204,7 +204,7 @@ Parameter | Required | Description
 **grant_type** | Required | This MUST be set to `authorization_code`.
 **code** | Required | The Authorization Code received in response to the Authentication Request.
 **redirect_uri** | Required | The redirection URI supplied in the original Authentication Request. This is the URL to which you want the User to be redirected after the authorization is complete.
-**client_assertion** | Required | To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the Token request.<br>The OpenID Connect Core Specification support multiple authentication methods, but itsme® only supports `private_key_jwt`. This authentication method uses a JWT signed with a private key you have registered. The JWT MUST be sent as the value of a client_assertion parameter.</br><br>See <a href="http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication" target="blank">section 9</a> of the OpenID Connect Core specification for more information.</br>
+**client_assertion** | Required | To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the Token request.<br>The OpenID Connect Core Specification support multiple authentication methods, but itsme® only supports `private_key_jwt`. This authentication method uses a JWT signed using your private key. The JWT MUST be sent as the value of the <code>client_assertion</code> parameter.</br><br>See the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Object Signing and Encryption</a> specifications for more information.</br>
 **client\_assertion\_type** | Required | This MUST be set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. 
 
 According to the `private_key_jwt` client authentication method, the `client_assertion` JWT MUST contain the following parameters:
@@ -667,81 +667,20 @@ The following validations should be done when using the `request` parameter:
 <ol>
   <li>The values for the <code>response_type</code> and <code>client_id</code> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li>
   <li>Even if a <code>scope</code> parameter is present in the Request Object value, a <code>scope</code> parameter – containing the <code>openid</code> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li>
-  <li>The Request Object MAY be signed or unsigned (plaintext) using the <a href=" https://tools.ietf.org/html/rfc7519" target="blank"> JSON Web Signature</a> (JWS). When it is plaintext, the value of the <code>alg</code> element is set to <code>none</code> in JOSE header. If signed, the Request Object SHOULD contain the claims <code>iss</code> (issuer) and <code>aud</code> (audience) as members. The <code>iss</code> value SHOULD be your Client ID. The <code>aud</code> value SHOULD be or include the itsme®'s Issuer Identifier URL: https://merchant.itsme.be/oidc.</li>
-  <li>The Request Object MAY also be encrypted using JSON Web Encryption (JWE). In this case, it MUST be signed then encrypted, with the result being a Nested JWT, as defined in the <a href=" https://tools.ietf.org/html/rfc7519" target="blank"> JSON Web Token (JWT) specification</a>.</li>
+  <li>The Request Object MAY be signed or unsigned (plaintext) using the <a href="https://belgianmobileid.github.io/slate/jose.html#3-using-a-jws" target="blank">JSON Web Signature</a> (JWS). If signed, the Request Object SHOULD contain the claims <code>iss</code> (issuer) and <code>aud</code> (audience) as members. The <code>iss</code> value SHOULD be your Client ID. The <code>aud</code> value SHOULD be <code>https://merchant.itsme.be/oidc</code>.</li>
+  <li>The Request Object MAY also be encrypted using <a href="https://belgianmobileid.github.io/slate/jose.html#4-using-a-jwe" target="blank">JSON Web Encryption</a> (JWE). In this case, it MUST be signed then encrypted, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html#5-using-a-jwt" target="blank">JSON Web Token</a> (JWT) section.</li>
   <li>The <code>request</code> and <code>request_uri</code> query parameters MUST NOT be included at the same time in Request Objects.</li>
 </ol>
 
 Enclosed you will find a non-normative example of an Authorization Request using the `request` parameter.
 
-### Signing a Request Object
-
-The JSON Web Signature (JWS) represents signed content using JSON data structures and base64url encoding as defined in the <a href=" https://tools.ietf.org/html/rfc7515" target="blank">specifications</a>. The representation consists of three parts: the JOSE Header, the JWS Payload, and the JWS Signature. The three parts are base64url-encoded for transmission, and typically represented as the concatenation of the encoded strings in that order, with the three strings being separated by period ('.') characters.
-
-<ol>
-  <li>The JOSE Header describes the signature method and parameters related to the Encoded JWS Payload and optionally additional properties of the JWS. The Header Parameter Names within this object MUST be unique. The JOSE Header MUST contain an <code>alg</code> parameter, the value of which is a string that unambiguously identifies the algorithm used to sign the JOSE Header and the JWS Payload to produce the JWS Signature.</li>
-  <li>The JWS Payload is the message content to be secured.</li>
-  <li>The JWS Signature ensures the integrity of both the JWS Header and the JWS Payload.</li>
-</ol>
-
-A signed Request Object can be serialized using the JWS compact serialization. Following lists out the signing process of a JWS Request Object under the **compact serialization**:
-
-<ul>
-   <li>Build a JOSE header containing the `alg` parameter – value MUST be set to ` RS256`  as defined in the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a> and a reference to the signing key using the `kid`. This value SHOULD BE retrieved from your own JWKSet.</li>
-   <li>Compute the base64url-encoded value against the UTF-8 encoded JOSE header from the 1st step, to produce the 1st element of the JWS token.</li>
-   <li>Construct the payload or the content to be signed. This is known as the JWS payload.</li>
-   <li>Compute the base64url-encoded value of the JWS payload from the previous step to produce the 2nd element of the JWS token.</li>
-   <li>Build the message to compute the digital signature or the Mac. The message is constructed as ASCII(BASE64URL-ENCODE(UTF8(JOSE Header)) ‘.’ BASE64URL-ENCODE(JWS Payload)).</li>
-   <li>Compute the signature over the message constructed in the previous step, following the signature algorithm defined by the JOSE header element `alg`.</li>
-   <li>Compute the base64url encoded value of the JWS signature produced in the previous step, which is the 3rd element of the serialized JWS Request Object.</li>
-</ul>
-
-### Encrypting a Request Object
- 
-The <a href=" https://tools.ietf.org/html/rfc7516" target="blank"> JSON Web Encryption (JWE) specification</a> standardizes the way to represent an encrypted content in a JSON-based data structure. It defines two serialized forms to represent the encrypted payload: the JWE compact serialization and JWE JSON serialization. Both of these two serialization techniques are discussed in detail below. Like in JWS, the message to be encrypted using JWE standard needs not to be a JSON payload, it can be any content.
- 
-With the JWE compact serialization, a JWE token is built with five key components, each separated by a period (.): JOSE header, JWE Encrypted Key, JWE initialization vector, JWE Additional Authentication Data (AAD), JWE Ciphertext and JWE Authentication Tag.
- 
-The JOSE header is the very first element of the JWE token produced under compact serialization. The structure of the JOSE header is the same, as we discussed under JWS other than couple of exceptions. The JWE specification introduces a new elements `enc`, which is included in the JOSE header of the JWE Request Object, in addition to what’s defined by the JSON Web Signature (JWS) specification.
- 
-To understand JWE Encrypted Key section of the JWE, we first need to understand how a JSON payload gets encrypted. The `enc` element of the JOSE header defines the content encryption algorithm and it should be a symmetric Authenticated Encryption with Associated Data (AEAD) algorithm. The `alg` element of the JOSE header defines the encryption algorithm to encrypt the Content Encryption Key (CEK). This algorithm can also be defined as the key wrapping algorithm, as it wraps the CEK.
- 
-Let’s look at the following JOSE header. For content encryption, it uses `A128CBC` algorithm; and for key wrapping, `RSA-OAEP`:
- 
-{“alg”:”RSA-OAEP”,”enc”:” A128CBC”}
- 
-`A128CBC` is defined in the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>. It uses the Advanced Encryption Standard (AES) in Cipher Blocker Chaining (CBC) algorithm with a 128-bit long key, and it’s a symmetric key algorithm used for AEAD. Symmetric keys are mostly used for content encryption and it is much faster than asymmetric-key encryption. At the same time, asymmetric-key encryption can’t be used to encrypt large messages.
- 
-`RSA-OAEP` is also defined in the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>. During the encryption process, you generatea a random key, which is 128 bits in size and encrypts the message using that key following the AES CBC algorithm. Next, the key used to encrypt the message is encrypted using RSA-OAEP, which is an asymmetric encryption scheme. The RSA-OAEP encryption scheme uses RSA algorithm with the Optimal Asymmetric Encryption Padding (OAEP) method. Finally the encrypted symmetric key is placed in the JWE Encrypted Header section of the JWE.
- 
-Some encryption algorithms, which are used for content encryption require an initialization vector, during the encryption process. Initialization vector is a randomly generated number, which is used along with a secret key to encrypt data. This will add randomness to the encrypted data, which will prevent repetition even the same data gets encrypted using the same secret key again and again. To decrypt the message at the token recipient end, it has to know the initialization vector, hence it is included in the JWE token, under the JWE Initialization Vector element. If the content encryption algorithm does not require an initialization vector, then the value of this element should be kept empty.
- 
-The fourth element of the JWE token is the base64url-encoded value of the JWE ciphertext. The JWE ciphertext is computed by encrypting the plaintext JSON payload using the Content Encryption Key (CEK), the JWE initialization vector and the Additional Authentication Data (AAD) value, with the encryption algorithm defined by the header element `enc`. The algorithm defined by the `enc` header element should be a symmetric Authenticated Encryption with Associated Data (AEAD) algorithm. The AEAD algorithm, which is used to encrypt the plaintext payload, also allows specifying Additional Authenticated Data (AAD).
- 
-The base64url-encoded value of the JWE Authenticated Tag is the final element of the JWE Request Object. As discussed before the value of the authentication tag is produced during the AEAD encryption process, along with the ciphertext. The authentication tag ensures the integrity of the ciphertext and the Additional Authenticated Data (AAD).
-
-Following lists out the encryption process of a JWE under the compact serialization:
-
-<ul>
-  <li>Fill in the algorithm used to determine the Content Encryption Key (CEK) value: `RSA-OAEP` as defined in the itsme® <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">Discovery document</a>. This algorithm is defined by the `alg` element in the JOSE header. There is only one `alg` element per JWE Request Object.</li>
-  <li>Compute the CEK and calculate the JWE Encrypted Key based on the key management mode, picked in the previous. The CEK is later used to encrypt the JSON payload. There is only one JWE Encrypted Key element in the JWE Request Object.</li>
-  <li>Compute the base64url-encoded value of the JWE Encrypted Key, which is produced in the previous step. This is the 2nd element of the JWE Request Object.</li>
-  <li>Generate a random value for the JWE Initialization Vector. Irrespective of the serialization technique, the JWE Request Object will carry the value of the base64url-encoded value of the JWE Initialization Vector. This is the 3rd element of the JWE Request Object.</li>
-  <li>Construct the JSON representation of the JOSE header and find the base64url-encoded value of the JOSE header with UTF8 encoding. This is the 1st element of the JWE Request Object.</li>
-  <li>To encrypt the JSON payload, we need the CEK (which we already have), the JWE Initialization Vector (which we already have), and the Additional Authenticated Data (AAD). Compute ASCII value of the encoded JOSE header from the previous step and use it as the AAD.
-  <li>Encrypt the compressed JSON payload (from the previous step) using the CEK, the JWE Initialization Vector and the Additional Authenticated Data (AAD), following the content encryption algorithm defined by the `enc` header element.</li>
-  <li>The algorithm defined by the `enc` header element is a AEAD algorithm and after the encryption process, it produce the ciphertext and the Authentication Tag.</li>
-  <li>Compute the base64url-encoded value of the ciphertext, which is produced by the step one before the previous. This is the 4th element of the JWE Request Object.</li>
-  <li>Compute the base64url-encoded value of the Authentication Tag, which is produced by the step one before the previous. This is the 5th element of the JWE Request Object.</li>
-</ul>
-
 
 <a name="RequestUri"></a>
 ## 5.5. Using request_uri parameter
 
-The ‘request_uri‘  parameter enables the Authentication Requests to be passed by reference, rather than by value. This parameter is used identically to the ‘request’ parameter, except that the Request Object value is retrieved from the resource at the specified URL.
+The <code>request_uri</code> parameter enables the Authentication Requests to be passed by reference, rather than by value. This parameter is used identically to the <code>request</code> parameter, except that the Request Object value is retrieved from the resource at the specified URL.
 
-When the `request_uri` parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OpenID Connect Authorization Request syntax. However, parameters MAY also be passed using the OpenID Connect Authorization Request syntax even when a `request_uri` is used; this would typically be done to enable a cached, pre-signed (and possibly pre-encrypted) Request Object value to be used containing the fixed request parameters, while parameters that can vary with each request, such as `state` and  `nonce `, are passed as OpenID Connect parameters.
+When the `request_uri` parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OpenID Connect Authorization Request syntax. However, parameters MAY also be passed using the OpenID Connect Authorization Request syntax even when a `request_uri` is used; this would typically be done to enable a cached, pre-signed (and possibly pre-encrypted) Request Object value to be used containing the fixed request parameters, while parameters that can vary with each request, such as `state` and  `nonce`, are passed as OpenID Connect parameters.
 
 To be a valid OpenID Connect Authorization Request, it MUST include the `response_type` and `client_id` parameters, since they are REQUIRED by OpenID Connect Core 1.0 specifications. The values for these parameters MUST match those in the Request Object.
 
@@ -759,7 +698,6 @@ GET /oidc/authorization HTTP/1.1
     &scope=openid
 ```
 
-For more details on Authorization request parameters using JWTs, refer to the OpenID Connect Core specifications <a href=" http://openid.net/specs/openid-connect-core-1_0.html#JWTRequests" target="blank">OpenID Connect Core specifications</a>.
 
 
 
