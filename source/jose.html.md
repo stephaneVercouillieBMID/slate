@@ -42,56 +42,79 @@ The JSON Web Signature (JWS) represents signed content using JSON data structure
 Following steps will show you how to generate a JWS Compact Serialization object:
 
 <ol>
-  <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JOSE Header. Don't forget to advertise in the JOSE header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements: <code>jku</code>, <code>jwk</code>, <code>kid</code>, <code>x5u</code>, <code>x5c</code>, <code>x5t</code> and <code>x5t#s256</code>.</li>
+  <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JOSE Header. Don't forget to advertise in the JOSE Header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements: <code>jku</code>, <code>jwk</code>, <code>kid</code>, <code>x5u</code>, <code>x5c</code>, <code>x5t</code> and <code>x5t#s256</code>.<br>An example use can be found enclosed</br></li>
 </ol>
+
+```http--inline
+{"alg":"RS256",
+      "crit":["exp"],
+      "exp":1363284000
+}
+```
 
 Parameter | Required | Description
 :-------- | :--------| :----- 
-**alg** | Required | This parameter identifies the cryptographic algorithm used to secure the JWS. The value can be retrieved from the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a>, using one of these keys: <code>request_object_signing_alg_values_supported</code>, <code>id_token_signing_alg_values_supported</code>, <code>token_endpoint_auth_signing_alg_values_supported</code> or <code>userinfo_signing_alg_values_supported</code>.
-**jku** |  | This parameter 
-**jwk** |  | This parameter 
-**kid** |  | This parameter 
-**x5u** |  | This parameter 
-**x5c** |  | This parameter 
-**x5t** |  | This parameter 
-**x5t#S256** |  | This parameter 
-**typ** |  | This parameter 
-**cty** |  | This parameter 
+**alg** | Required | This parameter identifies the cryptographic algorithm used to secure the JWS. The <code>alg</code> value for this use can be found in the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a>, using one of these keys: <code>request_object_signing_alg_values_supported</code>, <code>id_token_signing_alg_values_supported</code>, <code>token_endpoint_auth_signing_alg_values_supported</code> or <code>userinfo_signing_alg_values_supported</code>. 
+**jku** | Optionnal | This is a URI that refers to a resource for a set of JSON-encoded public keys, one of which corresponds to the key used to digitally sign the JWS.  The keys MUST be encoded as a JWK Set (JWK).
+**jwk** | Optionnal | This is the public key that corresponds to the key used to digitally sign the JWS.  This key is represented as a JSON Web Key (JWK).
+**kid** | Optionnal | It is a hint indicating which key was used to secure the JWS.  This parameter allows you to explicitly signal a change of key to recipients.  The structure of the <code>kid</code> value is unspecified.  Its value MUST be a case-sensitive string.
+**x5u** | Optionnal | It is a URI that refers to a resource for the X.509 public key certificate or certificate chain corresponding to the key used to digitally sign the JWS.
+**x5c** | Optionnal | This parameter contains the X.509 public key certificate or certificate chain corresponding to the key used to digitally sign the JWS.
+**x5t** | Optionnal | It is a base64url-encoded SHA-1 thumbprint (a.k.a. digest) of the DER encoding of the X.509 certificate corresponding to the key used to digitally sign the JWS. 
+**x5t#S256** | Optionnal | It is a base64url-encoded SHA-256 thumbprint (a.k.a. digest) of the DER encoding of the X.509 certificate corresponding to the key used to digitally sign the JWS.
+**typ** | Optionnal | It is used by JWS applications to declare the media type of this complete JWS.
+**cty** | Optionnal | It is used by JWS applications to declare the media type of the payload.
+**crit** | Optionnal | It indicates that extensions to this specification and/or JWA are being used that MUST be  understood and processed.
+
+<ol>  
+  <li value="2">The JOSE Header will then be encoded using base64url to produce the enclosed string.</li>
+</ol>
+
+```http--inline
+eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2dpbnNAaG9iYml0b24uZXhhbXBsZSJ9
+```
+
+<ol>
+  <li value="3">Construct the payload or the content to be signed as UTF-8 — this is known as the JWS Payload.</li>
+  <li>The JWS Payload will then be encoded using base64url to produce the enclosed string.</li>
+</ol>
+
+```http--inline
+SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4
+```
+
+<ol>
+  <li value="5">Combine the JOSE Header and JWS Payload to produce the JWS Signing Input.</li>
+  <li>Complete the signing operation over the JWS Signing Input constructed in the previous step, following the signature algorithm defined by the JOSE Header element <code>alg</code>. The JWS Signing Input is signed using the private key corresponding to the public key advertised in the JOSE Header. Performing the signature operation over the JWS Signing Input produces the JWS Signature.</li>
+  <li>The JWS Signature will then be encoded using base64url to produce the enclosed string.</li>
+</ol>
+
+```http--inline
+MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx996ivp83xuglII7PNDi84wnB-BDkoBwA78185hX-Es4J   IwmDLJK3lfWRa-XtL0RnltuYv746iYTh_qHRD68BNt1uSNCrUCTJDt5aAE6x8wW1Kt9eRo4QPocSadnHXFxnt8Is9UzpERV0ePPQdLuW3IS_de3xyIrDaLGdjluP  xUAhb6L2aXic1U12podGU0KLUQSE_oI-ZnmKJ3F4uOZDnd6QZWJushZ41Axf_fcIe8u9ipH84ogoree7vjbU5y18kDquDg
+```
+
+<ol>
+  <li value="8">Finally, you are now be able to build the JWS object by concatenating the three strings, and separate them with period ('.') characters. An example of a JWS object is given aside.</li>
+</ol>
+
+```http--inline
+eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2dpbnNAaG9iYml0b24uZXhhbXBsZSJ9
+.
+SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4
+.
+MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx996ivp83xuglII7PNDi84wnB-BDkoBwA78185hX-Es4JIwmDLJK3lfWRa-XtL0RnltuYv746iYTh_qHRD68BNt1uSNCrUCTJDt5aAE6x8wW1Kt9eRo4QPocSadnHXFxnt8Is9UzpERV0ePPQdLuW3IS_de3xyIrDaLGdjluPxUAhb6L2aXic1U12podGU0KLUQSE_oI-ZnmKJ3F4uOZDnd6QZWJushZ41Axf_fcIe8u9ipH84ogoree7vjbU5y18kDquDg
+```
+
+An example illustrating the signing process is available at <a href="https://tools.ietf.org/html/rfc7520#section-4.1" target="blank">https://tools.ietf.org/html/rfc7520#section-4.1</a>.
 
 
 
 
 
 
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
-
-
-    
-    
-    
-    Firstly, serialize your payload content as UTF-8, and then encode it using base64url to produce the JWS Payload</li>
-  <li>Retrieve your RSA private key corresponding to the public key</li>
-  <li>Get the value corresponding to the <code>alg</code> parameter in the <a href=" #OpenIDConfig" target="blank">itsme® Discovery document</a>, using one of these keys: <code>request_object_signing_alg_values_supported</code>, <code>id_token_signing_alg_values_supported</code>, <code>token_endpoint_auth_signing_alg_values_supported</code> or <code>userinfo_signing_alg_values_supported</code>.</li>
-  <li>Complete the signing operation by
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-using the <code>RS256</code> (RSASSA-PKCS1-v1_5 with SHA-256) algorithm, as defined in the [itsme® Discovery document](#OpenIDConfig).
-
-
-
-for below keys in the [itsme® Discovery document](#OpenIDConfig) :
 
 
  -
