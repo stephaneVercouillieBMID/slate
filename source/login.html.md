@@ -204,10 +204,10 @@ Parameter | Required | Description
 **grant_type** | Required | This MUST be set to `authorization_code`.
 **code** | Required | The Authorization Code received in response to the Authentication Request.
 **redirect_uri** | Required | The redirection URI supplied in the original Authentication Request. This is the URL to which you want the User to be redirected after the authorization is complete.
-**client_assertion** | Required | To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the Token request.<br>The OpenID Connect Core Specification support multiple authentication methods, but itsme® only supports `private_key_jwt`. This authentication method uses a JWT signed using your private key. The JWT MUST be sent as the value of the <code>client_assertion</code> parameter.</br><br>See the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Object Signing and Encryption</a> specifications for more information.</br>
+**client_assertion** | Required | To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the Token request.<br>The OpenID Connect Core specifications support multiple authentication methods, but itsme® only supports `private_key_jwt`. This authentication method uses a JWT signed using the private key corresponding to the public key you have registered when setting up your project in the [itsme® B2B portal](#Onboarding). The JWT MUST be sent as the value of the <code>client_assertion</code> parameter.</br><br>See the <a href="https://belgianmobileid.github.io/slate/jose.html#5-using-a-jwt" target="blank">Using a JWT</a> specifications for more information.</br>
 **client\_assertion\_type** | Required | This MUST be set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. 
 
-According to the `private_key_jwt` client authentication method, the `client_assertion` JWT MUST contain the following parameters:
+According to the `private_key_jwt` client authentication method, the `client_assertion` JWT MUST contain the following parameters in the JWT Payload:
 
 Parameter | Description
 :-- | :-- 
