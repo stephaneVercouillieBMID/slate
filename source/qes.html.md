@@ -83,7 +83,7 @@ POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/user_identification HTTP/1.1
 {
 	"partnerCode":"myClientID", 
 	"serviceCode":"myServiceCode", 
-	"redirectUrl":"myServiceRedirectUrl",
+	"redirect_uri":"myServiceRedirectUri",
 	"lang":"FR"
 }
 ```
