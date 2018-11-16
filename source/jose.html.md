@@ -2,7 +2,7 @@
 title: itsme® OpenID Connect documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
- - http: HTTP
+ - http: 
 
 toc_footers:
  - <a href='#'>Sign Up for a Developer Key</a> -->
@@ -11,33 +11,24 @@ toc_footers:
 search: true
 ---
 # 1. Introduction
-The JSON Object Signing and Encryption (JOSE) is a framework intended to provide a method to securely transfer claims between parties. The JOSE framework provides a collection of specifications to serve this purpose:
+The concepts of JWT, JWS and JWE are part of the JSON Object Signing and Encryption (JOSE) framework that intends to provide a method to securely transfer claims between parties.
 
-<ul>
-  <li><a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON Web Signature</a> (JWS), defines a way to digitally sign JSON data structures. If your application needs to be able to verify the creator of a JSON data structure, you can use this specification to do so.</li>
-  <li><a href="https://tools.ietf.org/html/rfc7516" target="blank">JSON Web Encryption </a> (JWE), defines a way to express encrypted content using JSON-based data structures. Basically, if you want to encrypt JSON data so that only the intended receiver can read the data, this specification tells you how to do it in an interoperable way.</li>
-  <li><a href="https://tools.ietf.org/html/rfc7517" target="blank">JSON Web Key</a> (JWK), details a data structure that represents one or more cryptographic keys. If you need to express one of the many types of cryptographic key types in use today, this specification details how you do that in a standard way.</li>
-  <li><a href="https://tools.ietf.org/html/rfc7518" target="blank">JSON Web Algorithms</a> (JWA), details the cryptographic algorithms and identifiers that are meant to be used with the JSON Web Signature (JWS), JSON Web Encryption (JWE), JSON Web Token (JWT), and JSON Web Key (JWK) specifications. For example, when specifying an encryption algorithm, a JSON key/value pair that has <code>alg</code> as the key may have HS256 as the value, which means HMAC using the SHA-256 hash algorithm.</li>
-  <li><a href="https://tools.ietf.org/html/rfc7519" target="blank">JSON Web Token</a> (JWT), defines a way of representing claims. These claims are digitally signed and/or encrypted using either the JSON Web Signature (JWS) or JSON Web Encryption (JWE) specifications.</li>
-</ul>
-  
 All these technologies can be used collectively to encrypt and/or sign content using a variety of algorithms. While the full set of permutations is extremely large, and might be daunting to some, it is expected that most applications will only use a small set of algorithms to meet their needs.
 
 
-# 2. Practical cases
-itsme® use above technologies for the following purposes:
+# 2. JWT as an abstract class
 
-<ul>
-  <li>To enable you to verify the authenticity of ID Tokens issued by the itsme® Token Endpoint. ADD REFERENCE</li>
-  <li>To enable you to verify the authenticity of claims returned at the userInfo Endpoint. ADD REFERENCE</li>
-  <li>To enable your servers and itsme® endpoints to ensure confidentiality and integrity when exchanging information. ADD REFERENCE</li>
-  <li>To enable the itsme® Token Endpoint to verify your credentials when exchanging the Authorization Code for an ID Token. ADD REFERENCE</li>
-</ul>
+JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.  The claims in a JWT   are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure, as the plaintext of a JSON Web  Encryption (JWE) structure or enclosed in another JWE or JWS structure to create a Nested JWT, enabling nested signing and encryption to be performed. In fact a JWT does not exist itself — either it has to be a JWS and/or a JWE. Its like an abstract class — the JWS and JWE are the concrete implementations.
+
+<aside class="notice">While syntactically the signing and encryption operations for Nested JWTs may be applied in any order, if both signing and encryption are necessary, normally you should sign the message and then encrypt the result (thus encrypting the signature).  This prevents attacks in which the signature is stripped, leaving just an encrypted message.</aside>
 
 
-# 3. Using a JWS
+# 3. JWS
 
 The JSON Web Signature (JWS) represents signed content using JSON data structures and base64url encoding as defined in the <a href=" https://tools.ietf.org/html/rfc7515" target="blank">specifications</a>. 
+
+
+## 3.1. Generating a JWS
 
 <aside class="notice">A signed content can be serialized in two ways: the JWS compact serialization and the JWS JSON serialization. Because the OpenID Connect specification mandates to use JWS compact serialization whenever necessary, we will not explain the JWS JSON serialization signing process in this document.</aside>
   
@@ -111,9 +102,16 @@ MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx
 An example illustrating the signing process is available at <a href="https://tools.ietf.org/html/rfc7520#section-4.1" target="blank">https://tools.ietf.org/html/rfc7520#section-4.1</a>.
 
 
-# 4. Using a JWE
+## 3.2. Extracting the signed JWS
+
+
+
+# 4. JWE
 
 The <a href=" https://tools.ietf.org/html/rfc7516" target="blank">JSON Web Encryption</a> (JWE) specification standardizes the way to represent an encrypted content in a JSON-based data structure.
+
+
+## 4.1. Producing a JWE
 
 <aside class="notice">An encrypted content can be serialized in two ways: the JWE compact serialization and the JWE JSON serialization. Because the OpenID Connect specification mandates to use JWE compact serialization whenever necessary, we will not explain the JWE JSON serialization signing process in this document.</aside>
   
@@ -190,10 +188,10 @@ UCGiqJxhBI3IFVdPalHHvA
 An example illustrating the signing process is available at <a href="https://tools.ietf.org/html/rfc7520#section-5.2" target="blank">https://tools.ietf.org/html/rfc7520#section-5.2</a>.
 
 
-# 5. Using a JWT
+## 4.2. Decrypting the JWE object
 
-JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.  The claims in a JWT   are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure, as the plaintext of a JSON Web  Encryption (JWE) structure or enclosed in another JWE or JWS structure to create a Nested JWT, enabling nested signing and encryption to be performed. In fact a JWT does not exist itself — either it has to be a JWS and/or a JWE. Its like an abstract class — the JWS and JWE are the concrete implementations.
 
-<aside class="notice">While syntactically the signing and encryption operations for Nested JWTs may be applied in any order, if both signing and encryption are necessary, normally you should sign the message and then encrypt the result (thus encrypting the signature).  This prevents attacks in which the signature is stripped, leaving just an encrypted message.</aside>
+
+
 
 
