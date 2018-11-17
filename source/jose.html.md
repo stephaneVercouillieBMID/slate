@@ -117,6 +117,10 @@ The <a href=" https://tools.ietf.org/html/rfc7516" target="blank">JSON Web Encry
   
 With the JWE compact serialization, a JWE object is built with five key components, each separated by a period (.): JOSE Header, JWE Encrypted Key, JWE Initialization Vector, JWE Additional Authentication Data (AAD), JWE Ciphertext and JWE Authentication Tag. The following steps will show you how to generate a JWE Compact Serialization object: 
 
+<ol>
+  <li>Build a JSON object including all the header elements. The structure of the JOSE Header is the same, as we discussed under JWS other than couple of exceptions. The JWE specification introduces two new elements (<code>enc</code> and <code>zip</code>), which are included in the JOSE Header of the JWE object, in addition to what’s defined by the JSON Web Signature (JWS) specification.<br>An example use can be found enclosed.</br></li>
+</ol>
+
 ```http--inline
 {
      "alg": "RSA-OAEP",
@@ -125,16 +129,12 @@ With the JWE compact serialization, a JWE object is built with five key componen
 }
 ```
 
-<ol>
-  <li>Build a JSON object including all the header elements. The structure of the JOSE Header is the same, as we discussed under JWS other than couple of exceptions. The JWE specification introduces two new elements (<code>enc</code> and <code>zip</code>), which are included in the JOSE Header of the JWE object, in addition to what’s defined by the JSON Web Signature (JWS) specification.<br>An example use can be found enclosed.</br></li>
-</ol>
-
 Parameter | Required | Description
 :-------- | :--------| :----- 
 **alg** | Required | This parameter has the same meaning, syntax, and processing rules as the <code>alg</code> defined in the JWS section, except that it defines the cryptographic algorithm used to encrypt the CEK. The <code>alg</code> value for this use can be found in the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using one of these keys: <code>request_object_encryption_alg_values_supported</code>, <code>id_token_encryption_alg_values_supported</code>, or <code>userinfo_encryption_alg_values_supported</code>. 
 **enc** | Required | It identifies the content encryption algorithm used to perform authenticated encryption on the plaintext to produce the ciphertext and the Authentication Tag. The <code>enc</code> value can be retrieved from the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using one of these keys: <code>request_object_encryption_enc_values_supported</code>, <code>id_token_encryption_enc_values_supported</code>, or <code>userinfo_encryption_enc_values_supported</code>. 
 **zip** | Optionnal | 
-**jku** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <code>jku</codes parameter defined in the JWS section, except that the JWK Set resource contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
+**jku** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <code>jku</code> parameter defined in the JWS section, except that the JWK Set resource contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
 **jwk** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <code>jwk</code> parameter defined in the JWS section, except that the key is the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
 **kid** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <code>kid</code> parameter defined in the JWS section, except that the key hint references the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
 **x5u** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <code>x5u</code> parameter defined in the JWS section, except that the X.509 public key certificate or certificate chain contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
