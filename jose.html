@@ -379,16 +379,16 @@ MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx
   
 
 <p>With the JWE compact serialization, a JWE object is built with five key components, each separated by a period (.): JOSE Header, JWE Encrypted Key, JWE Initialization Vector, JWE Additional Authentication Data (AAD), JWE Ciphertext and JWE Authentication Tag. The following steps will show you how to generate a JWE Compact Serialization object: </p>
+
+<ol>
+  <li>Build a JSON object including all the header elements. The structure of the JOSE Header is the same, as we discussed under JWS other than couple of exceptions. The JWE specification introduces two new elements (<code>enc</code> and <code>zip</code>), which are included in the JOSE Header of the JWE object, in addition to what’s defined by the JSON Web Signature (JWS) specification.<br>An example use can be found enclosed.</br></li>
+</ol>
 <pre class="highlight http tab-http--inline"><code><span class="err">{
      "alg": "RSA-OAEP",
      "kid": "samwise.gamgee@hobbiton.example",
      "enc": "A128CBC-HS256"
 }
 </span></code></pre>
-<ol>
-  <li>Build a JSON object including all the header elements. The structure of the JOSE Header is the same, as we discussed under JWS other than couple of exceptions. The JWE specification introduces two new elements (<code>enc</code> and <code>zip</code>), which are included in the JOSE Header of the JWE object, in addition to what’s defined by the JSON Web Signature (JWS) specification.<br>An example use can be found enclosed.</br></li>
-</ol>
-
 <table><thead>
 <tr>
 <th style="text-align: left">Parameter</th>
@@ -414,7 +414,7 @@ MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx
 <tr>
 <td style="text-align: left"><strong>jku</strong></td>
 <td style="text-align: left">Optionnal</td>
-<td style="text-align: left">This parameter has the same meaning, syntax, and processing rules as the <code>jku&lt;/codes parameter defined in the JWS section, except that the JWK Set resource contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.</td>
+<td style="text-align: left">This parameter has the same meaning, syntax, and processing rules as the <code>jku</code> parameter defined in the JWS section, except that the JWK Set resource contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>jwk</strong></td>
