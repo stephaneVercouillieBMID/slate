@@ -251,7 +251,7 @@ Values | Returned | Description
 :-- | :-- | :--
 **access_token** | Always | The Access Token which may be used to access the userInfo Endpoint.
 **token_type** | Always | Set to `Bearer`.
-**id_token** | Always | The Base64URL encoded token encrypted with your public key and signed with the itsme® private key.
+**id_token** | Always | The ID Token is a JSON Web Token (JWT) that contains User profile information (like the User's name, email, and so forth), represented in the form of claims. 
 **at_hash** | Not supported | itsme® does not provide any value for this parameter.
 **refresh_token** | Not supported | itsme® does not provide any value for this parameter as it only maintains short-lived session to enforce re-authentication.
 
