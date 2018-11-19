@@ -268,12 +268,9 @@
 <p>A signed content can be serialized in two ways: the JWS compact serialization and the JWS JSON serialization. Because the OpenID Connect specification mandates to use JWS compact serialization whenever necessary, we will not explain the JWS JSON serialization signing process in this document.</p>
 
 <p>Following steps will show you how to generate a JWS Compact Serialization object:</p>
-<pre class="highlight http tab-http--inline"><code><span class="err">{
+<pre class="highlight http tab-http--inline"><code><span class="err">var json = {
    "alg": "RS256",
-   "crit": 
-   [
-      "exp"
-   ],
+   "crit": ["exp"],
    "exp": 1363284000
 }
 </span></code></pre>
