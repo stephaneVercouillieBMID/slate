@@ -614,7 +614,7 @@ html, body {
   background-color: $code-bg;
 }
 
-# added to allow inline content
+// added to allow inline content
 .content {
   .center-column + pre {    
     position: static;
