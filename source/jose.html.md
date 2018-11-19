@@ -35,12 +35,9 @@ A signed content can be serialized in two ways: the JWS compact serialization an
 Following steps will show you how to generate a JWS Compact Serialization object:
 
 ```http--inline
-{
+var json = {
    "alg": "RS256",
-   "crit": 
-   [
-      "exp"
-   ],
+   "crit": ["exp"],
    "exp": 1363284000
 }
 ```
