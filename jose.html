@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="jose" data-languages="[&quot;http&quot;]">
+  <body class="jose" data-languages="[&quot;json&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,7 +211,7 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="http"></a>
+              <a href="#" data-language-name="json">JSON</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -268,14 +268,14 @@
 <p>A signed content can be serialized in two ways: the JWS compact serialization and the JWS JSON serialization. Because the OpenID Connect specification mandates to use JWS compact serialization whenever necessary, we will not explain the JWS JSON serialization signing process in this document.</p>
 
 <p>Following steps will show you how to generate a JWS Compact Serialization object:</p>
-<pre class="highlight http tab-http--inline"><code><span class="err">var json = {
-   "alg": "RS256",
-   "crit": ["exp"],
-   "exp": 1363284000
-}
+<pre class="highlight json tab-json--inline"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RS256"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"crit"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"exp"</span><span class="p">],</span><span class="w">
+   </span><span class="s2">"exp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1363284000</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <ol>
-  <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JOSE Header. Don't forget to advertise in the JOSE Header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements: <code>jku</code>, <code>jwk</code>, <code>kid</code>, <code>x5u</code>, <code>x5c</code>, <code>x5t</code> and <code>x5t#s256</code>.<br>An example use can be found enclosed.</br></li>
+  <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JWS Header. Don't forget to advertise in the JWS Header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements:  <code>jku</code>, <code>jwk</code>, <code>kid</code>, <code>x5u</code>, <code>x5c</code>, <code>x5t</code> and <code>x5t#s256</code>.<br>An example use can be found enclosed.</br></li>
 </ol>
 
 <table><thead>
@@ -343,9 +343,9 @@
 </tbody></table>
 
 <ol>  
-  <li value="2">The JOSE Header will then be encoded using UTF-8 and base64url to produce the enclosed string.</li>
+  <li value="2">The JWS Header will then be encoded using UTF-8 and base64url to produce the enclosed string.</li>
 </ol>
-<pre class="highlight http tab-http--inline"><code><span class="err">eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2dpbnNAaG9iYml0b24uZXhhbXBsZSJ9
+<pre class="highlight json tab-json--inline"><code><span class="err">eyJhbGciOiJSUzI</span><span class="mi">1</span><span class="err">NiIsImtpZCI</span><span class="mi">6</span><span class="err">ImJpbGJvLmJhZ</span><span class="mi">2</span><span class="err">dpbnNAaG</span><span class="mi">9</span><span class="err">iYml</span><span class="mi">0</span><span class="err">b</span><span class="mi">24</span><span class="err">uZXhhbXBsZSJ</span><span class="mi">9</span><span class="w">
 </span></code></pre>
 <ol>
   <li value="3">Construct the payload or the content to be signed as UTF-8 — this is known as the JWS Payload.</li>
@@ -497,7 +497,7 @@ UCGiqJxhBI3IFVdPalHHvA
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="http"></a>
+                <a href="#" data-language-name="json">JSON</a>
           </div>
       </div>
     </div>
