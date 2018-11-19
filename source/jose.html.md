@@ -2,7 +2,6 @@
 title: itsme® OpenID Connect documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
- - json: JSON
  - http: HTTP
 
 toc_footers:
@@ -28,20 +27,16 @@ The JSON Object Signing and Encryption (JOSE) framework consists of several tech
   <li>JSON Web Encryption (<a href=" https://tools.ietf.org/html/rfc7516" target="blank">JWE</a>) specification standardizes the way to represent an encrypted content in a JSON-based data structure.</li>
 </ul>
 
-```http
-{
-   "alg": "RS256",
-   "crit": ["exp"],
-   "exp": 1363284000
-}
-```
-
 
 # 3. Generating a JWS object
 
 A signed content can be serialized in two ways: the JWS compact serialization and the JWS JSON serialization. Because the OpenID Connect specification mandates to use JWS compact serialization whenever necessary, we will not explain the JWS JSON serialization signing process in this document.
 
 Following steps will show you how to generate a JWS Compact Serialization object:
+
+<ol>
+  <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JWS Header. Don't forget to advertise in the JWS Header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements:  <code>jku</code>, <code>jwk</code>, <code>kid</code>, <code>x5u</code>, <code>x5c</code>, <code>x5t</code> and <code>x5t#s256</code>.<br>An example use can be found below.</br></li>
+</ol>
 
 <div class="center-column"></div>
 ```json--inline
@@ -51,10 +46,6 @@ Following steps will show you how to generate a JWS Compact Serialization object
    "exp": 1363284000
 }
 ```
-
-<ol>
-  <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JWS Header. Don't forget to advertise in the JWS Header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements:  <code>jku</code>, <code>jwk</code>, <code>kid</code>, <code>x5u</code>, <code>x5c</code>, <code>x5t</code> and <code>x5t#s256</code>.<br>An example use can be found enclosed.</br></li>
-</ol>
 
 Parameter | Required | Description
 :-------- | :--------| :----- 
@@ -71,37 +62,41 @@ Parameter | Required | Description
 **crit** | Optionnal | It indicates that extensions to this specification and/or JWA are being used that MUST be  understood and processed.
 
 <ol>  
-  <li value="2">The JWS Header will then be encoded using UTF-8 and base64url to produce the enclosed string.</li>
+  <li value="2">The JWS Header will then be encoded using UTF-8 and base64url to produce the string below.</li>
 </ol>
 
-```json--inline
+<div class="center-column"></div>
+```plaintext--inline
 eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2dpbnNAaG9iYml0b24uZXhhbXBsZSJ9
 ```
 
 <ol>
   <li value="3">Construct the payload or the content to be signed as UTF-8 — this is known as the JWS Payload.</li>
-  <li>The JWS Payload will then be encoded using base64url to produce the enclosed string.</li>
+  <li>The JWS Payload will then be encoded using base64url to produce the string below.</li>
 </ol>
 
-```json--inline
+<div class="center-column"></div>
+```plaintext--inline
 SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4
 ```
 
 <ol>
   <li value="5">Combine the JWS Header and JWS Payload, and separate them with period ('.') characters, to produce the JWS Signing Input.</li>
   <li>Complete the signing operation over the JWS Signing Input constructed in the previous step, following the signature algorithm defined by the JWS Header element <code>alg</code>. The JWS Signing Input is signed using the private key corresponding to the public key advertised in the JOSE Header. Performing the signature operation over the JWS Signing Input produces the JWS Signature.</li>
-  <li>The JWS Signature will then be encoded using base64url to produce the enclosed string.</li>
+  <li>The JWS Signature will then be encoded using base64url to produce the string below.</li>
 </ol>
 
-```json--inline
+<div class="center-column"></div>
+```plaintext--inline
 MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx996ivp83xuglII7PNDi84wnB-BDkoBwA78185hX-Es4J   IwmDLJK3lfWRa-XtL0RnltuYv746iYTh_qHRD68BNt1uSNCrUCTJDt5aAE6x8wW1Kt9eRo4QPocSadnHXFxnt8Is9UzpERV0ePPQdLuW3IS_de3xyIrDaLGdjluP  xUAhb6L2aXic1U12podGU0KLUQSE_oI-ZnmKJ3F4uOZDnd6QZWJushZ41Axf_fcIe8u9ipH84ogoree7vjbU5y18kDquDg
 ```
 
 <ol>
-  <li value="8">Finally, you are now be able to build the JWS object by concatenating the three strings, and separate them with period ('.') characters. An example of a JWS object is given aside.</li>
+  <li value="8">Finally, you are now be able to build the JWS object by concatenating the three strings, and separate them with period ('.') characters. An example of a JWS object is given below.</li>
 </ol>
 
-```json--inline
+<div class="center-column"></div>
+```plaintext--inline
 eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2dpbnNAaG9iYml0b24uZXhhbXBsZSJ9
 .
 SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4
@@ -119,9 +114,10 @@ An encrypted content can be serialized in two ways: the JWE compact serializatio
 With the JWE compact serialization, a JWE object is built with five key components, each separated by a period (.): JWE Header, JWE Encrypted Key, JWE Initialization Vector, JWE Additional Authentication Data (AAD), JWE Ciphertext and JWE Authentication Tag. The following steps will show you how to generate a JWE Compact Serialization object:
 
 <ol>
-  <li>Build a JSON object including all the header elements. The structure of the JWE Header is the same, as we discussed under JWS other than couple of exceptions. The JWE specification introduces two new elements (<code>enc</code> and <code>zip</code>), which are included in the JWE Header of the JWE object, in addition to what’s defined by the JSON Web Signature (JWS) specification.<br>An example use can be found enclosed.</br></li>
+  <li>Build a JSON object including all the header elements. The structure of the JWE Header is the same, as we discussed under JWS other than couple of exceptions. The JWE specification introduces two new elements (<code>enc</code> and <code>zip</code>), which are included in the JWE Header of the JWE object, in addition to what’s defined by the JSON Web Signature (JWS) specification.<br>An example use can be found below.</br></li>
 </ol>
 
+<div class="center-column"></div>
 ```json--inline
 {
      "alg": "RSA-OAEP",
@@ -147,34 +143,45 @@ Parameter | Required | Description
 **crit** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the </code>crit</code> parameter defined in the JWS section, except that parameters for a JWE are being referred to, rather than parameters for a JWS.
 
 <ol>  
-  <li value="2">The JOSE Header will then be encoded using using UTF-8 and base64url to produce the enclosed string.</li>
+  <li value="2">The JWE Header will then be encoded using using UTF-8 and base64url to produce the string below.</li>
 </ol>
 
-```http--inline
+<div class="center-column"></div>
+```plaintext--inline
 eyJhbGciOiJSU0EtT0FFUCIsImtpZCI6InNhbXdpc2UuZ2FtZ2VlQGhvYmJpdG9uLmV4YW1wbGUiLCJlbmMiOiJBMjU2R0NNIn0
 ```
 
 <ol>
   <li value="3">Generate a random Content Encryption Key (CEK).</li>
-  <li>Encrypt the CEK with the public key, using the algorithm defined in the <code>alg</code> parameter, to produce the JWE Encrypted Key.</li>
-  <li>The JWE Encrypted Key will then be encoded using base64url to produce the enclosed string.</li>
+  <li>Compute the CEK with the algorithm defined in the <code>alg</code> parameter, to produce the JWE Encrypted Key.</li>
+  <li>The JWE Encrypted Key will then be encoded using base64url to produce the string below.</li>
 </ol>
 
-```http--inline
+<div class="center-column"></div>
+```plaintext--inline
 rT99rwrBTbTI7IJM8fU3Eli7226HEB7IchCxNuh7lCiud48LxeolRdtFF4nzQibeYOl5S_PJsAXZwSXtDePz9hk-BbtsTBqC2UsPOdwjC9NhNupNNu9uHIVftDyucvI6hvALeZ6OGnhNV4v1zx2k7O1D89mAzfw-_kT3tkuorpDU-CpBENfIHX1Q58-Aad3FzMuo3Fn9buEP2yXakLXYa15BUXQsupM4A1GD4_H4Bd7V3u9h8Gkg8BpxKdUV9ScfJQTcYm6eJEBz3aSwIaK4T3-dwWpuBOhROQXBosJzS1asnuHtVMt2pKIIfux5BC6huIvmY7kzV7W7aIUrpYm_3H4zYvyMeq5pGqFmW2k8zpO878TRlZx7  pZfPYDSXZyS0CfKKkMozT_qiCwZTSz4duYnt8hS4Z9sGthXn9uDqd6wycMagnQfOTs_lycTWmY-aqWVDKhjYNRf03NiwRtb5BE-tOdFwCASQj3uuAgPGrO2AWBe3   8UjQb0lvXn1SpyvYZ3WFc7WOJYaTa7A8DRn6MC6T-xDmMuxC0G7S2rscw5lQQU06MvZTlFOt0UvfuKBa03cxA_nIBIhLMjY2kOTxQMmpDPTr6Cbo8aKaOnx6ASE5   Jx9paBpnNmOOKH35j_QlrQhDWUN6A2Gg8iFayJ69xDEdHAVCGRzN3woEI2ozDRs
 ```
 
 <ol>
   <li value="6">Generate a random JWE Initialization Vector.</li>
-  <li>The JWE Initialization Vector will then be encoded using base64url to produce the enclosed string.</li>
-  <li>Compute the ASCII value of the encoded JOSE header to get the Additional Authenticated Data (AAD).</li>
-  <li>Encrypt the JSON payload using the CEK, the JWE Initialization Vector and the Additional Authenticated Data (AAD), following the content encryption algorithm defined by the <code>enc</code> parameter. It will produce the ciphertext and the Authentication Tag.</li>
-  <li>Base64url-encode the ciphertext.</li>
-  <li>Base64url-encode the Authentication Tag.</li>
-  <li>Assemble the final representation by by concatenating the five strings, and separate them with period ('.') characters. An example of a JWE object is given aside.</li>
+  <li>The JWE Initialization Vector will then be encoded using base64url to produce the string below.</li>
 </ol>
 
-```http--inline
+<div class="center-column"></div>
+```plaintext--inline
+bbd5sTkYwhAIqfHsx8DayA
+```
+
+<ol>
+  <li>Compute the ASCII value of the encoded JWE Header to get the Additional Authenticated Data (AAD).</li>
+  <li>Encrypt the JSON payload using the Content Encryption Key (CEK), the JWE initialization vector and the Additional Authentication Data (AAD) value, with the encryption algorithm defined by the <code>enc</code> parameter. It will produce the JWE Ciphertext and Authentication Tag.</li>
+  <li>Base64url-encode the JWE Ciphertext.</li>
+  <li>Base64url-encode the JWE Authentication Tag.</li>
+  <li>Assemble the final representation by concatenating the five strings, and separate them with period ('.') characters. An example of a JWE object is given below.</li>
+</ol>
+
+<div class="center-column"></div>
+```plaintext--inline
 eyJhbGciOiJSU0EtT0FFUCIsImtpZCI6InNhbXdpc2UuZ2FtZ2VlQGhvYmJpdG9uLmV4YW1wbGUiLCJlbmMiOiJBMjU2R0NNIn0
 .
 rT99rwrBTbTI7IJM8fU3Eli7226HEB7IchCxNuh7lCiud48LxeolRdtFF4nzQibeYOl5S_PJsAXZwSXtDePz9hk-BbtsTBqC2UsPOdwjC9NhNupNNu9uHIVftDyu   cvI6hvALeZ6OGnhNV4v1zx2k7O1D89mAzfw-_kT3tkuorpDU-CpBENfIHX1Q58-Aad3FzMuo3Fn9buEP2yXakLXYa15BUXQsupM4A1GD4_H4Bd7V3u9h8Gkg8Bpx   KdUV9ScfJQTcYm6eJEBz3aSwIaK4T3-dwWpuBOhROQXBosJzS1asnuHtVMt2pKIIfux5BC6huIvmY7kzV7W7aIUrpYm_3H4zYvyMeq5pGqFmW2k8zpO878TRlZx7   pZfPYDSXZyS0CfKKkMozT_qiCwZTSz4duYnt8hS4Z9sGthXn9uDqd6wycMagnQfOTs_lycTWmY-aqWVDKhjYNRf03NiwRtb5BE-tOdFwCASQj3uuAgPGrO2AWBe3   8UjQb0lvXn1SpyvYZ3WFc7WOJYaTa7A8DRn6MC6T-xDmMuxC0G7S2rscw5lQQU06MvZTlFOt0UvfuKBa03cxA_nIBIhLMjY2kOTxQMmpDPTr6Cbo8aKaOnx6ASE5   Jx9paBpnNmOOKH35j_QlrQhDWUN6A2Gg8iFayJ69xDEdHAVCGRzN3woEI2ozDRs
@@ -189,7 +196,91 @@ UCGiqJxhBI3IFVdPalHHvA
 An example illustrating the signing process is available at <a href="https://tools.ietf.org/html/rfc7520#section-5.2" target="blank">https://tools.ietf.org/html/rfc7520#section-5.2</a>.
 
 
-## 4.2. Decrypting the JWE object
+# 4. Validating a Nested JWT object
+
+To validate a Nested JWT object, you will first need to decrypt the JWE object, then extract the signed JWS Payload and verify the JWS Signature. 
+
+**Decrypting the JWE object**
+
+The decryption process is the reverse of the encryption process:
+
+<ol>
+  <li>Parse the JWE object to extract the serialized values of the base64url-encoded JWE Header, the base64url-encoded JWE Encrypted Key, the base64url-encoded JWE  Initialization Vector, the base64url-encoded JWE Ciphertext, and the base64url-encoded JWE Authentication Tag.</li>
+  <li>Base64url decode the encoded representations of the JWE Header, the JWE Encrypted Key, the JWE Initialization  Vector, the JWE Ciphertext, the JWE Authentication Tag, and the JWE Additional Authenticated Data (AAD).</li>
+  <li>Verify that the octet sequence resulting from decoding the encoded JWE Header is a UTF-8-encoded representation of a completely valid JSON object.</li>
+  <li>Determine the algorithm specified by the <code>alg</code> parameter.</li>
+  <li>Decrypt the JWE Encrypted Key with the algorithm defined in the <code>alg</code> parameter, to produce the Content Encryption Key (CEK).</li>
+  <li>Let the Additional Authenticated Data (AAD) encryption parameter be the octets of the ASCII representation of the encoded JWE Header value.</li>
+  <li>Decrypt the JWE Ciphertext using the Content Encryption Key (CEK), the JWE initialization vector and the Additional Authentication Data (AAD) value, with the encryption algorithm defined by the <code>enc</code> parameter. It will return the decrypted JWS object.</li>
+
+**Extracting the payload**
+
+<ol>
+  <li>Parse the JWS object to extract the JWS components serialized values, such as in the example below.</li>
+</ol>
+
+<div class="center-column"></div>
+```plaintext--inline
+jws_header = 
+"eyJhbGciOiJFUzI1NiIsImtpZCI6IjM0NjZkNTFmN2RkMGM3ODA1NjU2ODhjMTgzOTIxODE2YzQ1ODg5YWQifQ"
+payload = "eyJhdWQiOiJkajB5Sm1rOWJrMTVhM0ZYVjJ0NWNEbHRKbVE5V1Zkck9WbFZNWFJrYmtJMVRsUkJiV05IYnpsTlFTMHRKbk05WTI5dWMzVnRaWEp6WldOeVpYUW1lRDA0TUEtLSIsInN1YiI6IlVRSURXSk5XVk5RRDRHWFo1TkdNWlVTVFE0IiwiaXNzIjoiaHR0cHM6Ly9sb2dpbi55YWhvby5jb20iLCJleHAiOjE0NDQ2OTcwNDUsIm5vbmNlIjoiWWloc0Z3R0tndDNLSlVoNnRQczIiLCJpYXQiOjE0NDQ2OTM0NDV9"
+signature = 
+"XiyNdHHHoYqarDZGkhln5sF_SQNNVvV67SZsFAk7yo8NreJjzVw7LmtkwpiUQe87-Km39PeIwf1W_PqEH9RqjA"
+```
+
+<ol>
+  <li>Base64url-decode the encoded representation of the JWS Header.</li>
+</ol>
+
+<div class="center-column"></div>
+```javascript--inline
+{
+   "alg":"RS256",
+   "kid":"3466d51f7dd0c780565688c183921816c45889ad"
+}
+```
+
+<ol>
+  <li>Verify that the resulting octet sequence is a UTF-8-encoded representation of a completely valid JSON object.</li>
+  <li>Base64url-decode the encoded representation of the JWS Payload.</li>
+</ol>
+
+<div class="center-column"></div>
+```javascript--inline
+{
+   "sub":"joe",
+   "aud":"im_oic_client",
+   "jti":"uf90SK4wscFhctUT6Dtvb2",
+   "iss":"https:\/\/localhost:9031",
+   "iat":1394060853,
+   "exp":1394061153,
+   "nonce":"e957ffba-9a78-4ea9-8eca-ae8c4ef9c856",
+   "at_hash":"wfgvmE9VxjAudsl9lc6TqA"
+} 
+```
+
+<ol>
+  <li>Base64url-decode the encoded representation of the JWS Signature.</li>
+</ol>
+
+<div class="center-column"></div>
+```plaintext--inline
+XiyNdHHHoYqarDZGkhln5sF_SQNNVvV67SZsFAk7yo8NreJjzVw7LmtkwpiUQe87-Km39PeIwf1W_PqEH9RqjA
+```
+
+You have decoded the JWS object. The next step is to validate the JWS Signature.
+
+
+**Checking the JWS Signature**
+
+<ol>
+  <li>Determine the signing algorithm <code>alg<code> and the key identifier <code>kid</code> from the JWS Header.</li>
+  <li>Retrieve the value of the <code>jwks_uri</code> key in the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>. As the returned JSON Web Key (JWK) contains an array of keys, you MUST use the one corresponding to the value given by the <code>kid</code> parameter from the JWS Header.</li>
+  <li>Use one of the available <a href="https://jwt.io/" target="blank">cryptographic libraries</a> to validate the the JWS Signature in the manner defined for the algorithm being used, which MUST be accurately represented by the value of the <code>alg</code> parameter.</li>
+</ol>
+    
+
+
 
 
 
