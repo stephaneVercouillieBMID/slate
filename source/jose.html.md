@@ -2,7 +2,7 @@
 title: itsme® OpenID Connect documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
- - http: 
+ - json: JSON
 
 toc_footers:
  - <a href='#'>Sign Up for a Developer Key</a> -->
@@ -34,8 +34,8 @@ A signed content can be serialized in two ways: the JWS compact serialization an
 
 Following steps will show you how to generate a JWS Compact Serialization object:
 
-```http--inline
-var json = {
+```json--inline
+{
    "alg": "RS256",
    "crit": ["exp"],
    "exp": 1363284000
@@ -43,7 +43,7 @@ var json = {
 ```
 
 <ol>
-  <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JOSE Header. Don't forget to advertise in the JOSE Header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements: <code>jku</code>, <code>jwk</code>, <code>kid</code>, <code>x5u</code>, <code>x5c</code>, <code>x5t</code> and <code>x5t#s256</code>.<br>An example use can be found enclosed.</br></li>
+  <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JWS Header. Don't forget to advertise in the JWS Header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements:  <code>jku</code>, <code>jwk</code>, <code>kid</code>, <code>x5u</code>, <code>x5c</code>, <code>x5t</code> and <code>x5t#s256</code>.<br>An example use can be found enclosed.</br></li>
 </ol>
 
 Parameter | Required | Description
@@ -61,10 +61,10 @@ Parameter | Required | Description
 **crit** | Optionnal | It indicates that extensions to this specification and/or JWA are being used that MUST be  understood and processed.
 
 <ol>  
-  <li value="2">The JOSE Header will then be encoded using UTF-8 and base64url to produce the enclosed string.</li>
+  <li value="2">The JWS Header will then be encoded using UTF-8 and base64url to produce the enclosed string.</li>
 </ol>
 
-```http--inline
+```json--inline
 eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2dpbnNAaG9iYml0b24uZXhhbXBsZSJ9
 ```
 
