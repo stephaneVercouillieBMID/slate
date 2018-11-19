@@ -300,30 +300,18 @@ The response will contain an error parameter and optionally `error_description` 
 <a name="Data"></a>
 ## 3.7. Obtaining User attributes or claims
 
-OpenID Connect Core specifications also allow your application to obtain basic profile information about a specific User in a interoperable way. These User attributes or claims can be obtained by presenting the `access_token` to the itsme® userInfo Endpoint, which can be retrieved from the [itsme® Discovery document](#OpenIDConfig), using the key `userinfo_endpoint`. This is achieved by sending a HTTPS GET request over TLS to the userInfo Endpoint URI, passing the Access Token value in the Authorization header using the Bearer authentication scheme.
+OpenID Connect Core specifications also allow your application to obtain basic profile information about a specific User in a interoperable way. This is achieved by sending a HTTPS GET request to the itsme® userInfo Endpoint, passing the Access Token value in the Authorization header using the Bearer authentication scheme. The itsme userInfo Endpoint URI can be retrieved from the [itsme® Discovery document](#OpenIDConfig), using the key `userinfo_endpoint`.
 
 ```http--inline
-HTTP/1.1 200 OK
-  Content-Type: application/json
-
-  {
-   "sub": "248289761001",
-   "name": "Jane Doe",
-   "given_name": "Jane",
-   "family_name": "Doe",
-   "email": "janedoe@example.com"
-  }  
+GET https://merchant.itsme.be/oidc/userinfo HTTP/1.1
+Authorization: Bearer <access token>
 ```
 
-The itsme® userInfo Endpoint will return specific claims in a HTTP 200 OK response, depending on the values you requested in the `scope` and/or `claims` parameter.
+The itsme® userInfo Endpoint will return a HTTP 200 OK response and the User claims in a Nested JWT format. However, before being able to store and use the claims, you will first need to decrypt the JWE object, then extract the signed JWT from its payload and verify the signature. This process is described in the section X of the JOSE document.
 
 <aside class="notice">The `sub` claim will always be included in the response and this should be verified by you to mitigate against token substitution attacks. The `sub` claim in the userInfo response MUST be verified to exactly match the `sub` Claim in the <code>id_token</code>; if they do not match, the userInfo response values MUST NOT be used.</aside>
 
 <aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
-
-<aside class="notice">itsme® will ensure that the userInfo response is signed and encrypted, meaning that the content type will be set to application/jwt. The userInfo response will contain the `iss` and `aud` claims. You should validate that the `iss` value matches itsme® issuer identifier and the `aud` value contains the your `client_id`.</aside>
-
-<aside class="notice">You should authenticate the OpenID Provider either by checking the TLS certificate or by validating the signature of the JWT if provided.</aside>
 
 When an error condition occurs an error response as defined in the <a href="https://tools.ietf.org/html/rfc6750" target="blank">OAuth 2.0 Bearer Token Usage specification</a> will be returned.
 
