@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="jose" data-languages="[&quot;json&quot;]">
+  <body class="jose" data-languages="[&quot;json&quot;,&quot;http&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -212,6 +212,7 @@
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="json">JSON</a>
+              <a href="#" data-language-name="http">HTTP</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -256,7 +257,12 @@
   <li>JSON Web Signature (<a href=" https://tools.ietf.org/html/rfc7515" target="blank">JWS</a>) represents signed content using JSON data structures and base64url encoding as defined in the specifications.</li>
   <li>JSON Web Encryption (<a href=" https://tools.ietf.org/html/rfc7516" target="blank">JWE</a>) specification standardizes the way to represent an encrypted content in a JSON-based data structure.</li>
 </ul>
-<h1 id='3-generating-a-jws-object'>3. Generating a JWS object</h1>
+<pre class="highlight http tab-http"><code><span class="err">{
+   "alg": "RS256",
+   "crit": ["exp"],
+   "exp": 1363284000
+}
+</span></code></pre><h1 id='3-generating-a-jws-object'>3. Generating a JWS object</h1>
 <p>A signed content can be serialized in two ways: the JWS compact serialization and the JWS JSON serialization. Because the OpenID Connect specification mandates to use JWS compact serialization whenever necessary, we will not explain the JWS JSON serialization signing process in this document.</p>
 
 <p>Following steps will show you how to generate a JWS Compact Serialization object:</p>
@@ -489,6 +495,7 @@ UCGiqJxhBI3IFVdPalHHvA
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="json">JSON</a>
+                <a href="#" data-language-name="http">HTTP</a>
           </div>
       </div>
     </div>
