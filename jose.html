@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="jose" data-languages="[&quot;json&quot;,&quot;http&quot;]">
+  <body class="jose" data-languages="[&quot;http&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,7 +211,6 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="json">JSON</a>
               <a href="#" data-language-name="http">HTTP</a>
         </div>
         <div class="search">
@@ -230,11 +229,9 @@
           </li>
           <li>
             <a href="#4-producing-a-jwe-object" class="toc-h1 toc-link" data-title="4-producing-a-jwe-object">4. Producing a JWE object</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#4-2-decrypting-the-jwe-object" class="toc-h2 toc-link" data-title="4-2-decrypting-the-jwe-object">4.2. Decrypting the JWE object</a>
-                  </li>
-              </ul>
+          </li>
+          <li>
+            <a href="#4-validating-a-nested-jwt-object" class="toc-h1 toc-link" data-title="4-validating-a-nested-jwt-object">4. Validating a Nested JWT object</a>
           </li>
       </div>
         <ul class="toc-footer">
@@ -257,15 +254,14 @@
   <li>JSON Web Signature (<a href=" https://tools.ietf.org/html/rfc7515" target="blank">JWS</a>) represents signed content using JSON data structures and base64url encoding as defined in the specifications.</li>
   <li>JSON Web Encryption (<a href=" https://tools.ietf.org/html/rfc7516" target="blank">JWE</a>) specification standardizes the way to represent an encrypted content in a JSON-based data structure.</li>
 </ul>
-<pre class="highlight http tab-http"><code><span class="err">{
-   "alg": "RS256",
-   "crit": ["exp"],
-   "exp": 1363284000
-}
-</span></code></pre><h1 id='3-generating-a-jws-object'>3. Generating a JWS object</h1>
+<h1 id='3-generating-a-jws-object'>3. Generating a JWS object</h1>
 <p>A signed content can be serialized in two ways: the JWS compact serialization and the JWS JSON serialization. Because the OpenID Connect specification mandates to use JWS compact serialization whenever necessary, we will not explain the JWS JSON serialization signing process in this document.</p>
 
 <p>Following steps will show you how to generate a JWS Compact Serialization object:</p>
+
+<ol>
+  <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JWS Header. Don't forget to advertise in the JWS Header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements:  <code>jku</code>, <code>jwk</code>, <code>kid</code>, <code>x5u</code>, <code>x5c</code>, <code>x5t</code> and <code>x5t#s256</code>.<br>An example use can be found below.</br></li>
+</ol>
 
 <div class="center-column"></div>
 <pre class="highlight json tab-json--inline"><code><span class="p">{</span><span class="w">
@@ -274,10 +270,6 @@
    </span><span class="s2">"exp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1363284000</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<ol>
-  <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JWS Header. Don't forget to advertise in the JWS Header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements:  <code>jku</code>, <code>jwk</code>, <code>kid</code>, <code>x5u</code>, <code>x5c</code>, <code>x5t</code> and <code>x5t#s256</code>.<br>An example use can be found enclosed.</br></li>
-</ol>
-
 <table><thead>
 <tr>
 <th style="text-align: left">Parameter</th>
@@ -343,32 +335,40 @@
 </tbody></table>
 
 <ol>  
-  <li value="2">The JWS Header will then be encoded using UTF-8 and base64url to produce the enclosed string.</li>
+  <li value="2">The JWS Header will then be encoded using UTF-8 and base64url to produce the string below.</li>
 </ol>
-<pre class="highlight json tab-json--inline"><code><span class="err">eyJhbGciOiJSUzI</span><span class="mi">1</span><span class="err">NiIsImtpZCI</span><span class="mi">6</span><span class="err">ImJpbGJvLmJhZ</span><span class="mi">2</span><span class="err">dpbnNAaG</span><span class="mi">9</span><span class="err">iYml</span><span class="mi">0</span><span class="err">b</span><span class="mi">24</span><span class="err">uZXhhbXBsZSJ</span><span class="mi">9</span><span class="w">
-</span></code></pre>
+
+<div class="center-column"></div>
+<pre class="highlight plaintext tab-plaintext--inline"><code>eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2dpbnNAaG9iYml0b24uZXhhbXBsZSJ9
+</code></pre>
 <ol>
   <li value="3">Construct the payload or the content to be signed as UTF-8 — this is known as the JWS Payload.</li>
-  <li>The JWS Payload will then be encoded using base64url to produce the enclosed string.</li>
+  <li>The JWS Payload will then be encoded using base64url to produce the string below.</li>
 </ol>
-<pre class="highlight json tab-json--inline"><code><span class="err">SXTigJlzIGEgZGFuZ</span><span class="mi">2</span><span class="err">Vyb</span><span class="mi">3</span><span class="err">VzIGJ</span><span class="mi">1</span><span class="err">c</span><span class="mi">2</span><span class="err">luZXNzLCBGcm</span><span class="mi">9</span><span class="err">kbywgZ</span><span class="mi">29</span><span class="err">pbmcgb</span><span class="mi">3</span><span class="err">V</span><span class="mi">0</span><span class="err">IHlvdXIgZG</span><span class="mi">9</span><span class="err">vci</span><span class="mi">4</span><span class="err">gWW</span><span class="mi">91</span><span class="err">IHN</span><span class="mi">0</span><span class="err">ZXAgb</span><span class="mi">250</span><span class="err">byB</span><span class="mi">0</span><span class="err">aGUgcm</span><span class="mi">9</span><span class="err">hZCwgYW</span><span class="mi">5</span><span class="err">kIGlmIHlvdSBkb</span><span class="mi">24</span><span class="err">ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG</span><span class="mi">5</span><span class="err">vIGtub</span><span class="mi">3</span><span class="err">dpbmcgd</span><span class="mi">2</span><span class="err">hlcmUgeW</span><span class="mi">91</span><span class="err">IG</span><span class="mi">1</span><span class="err">pZ</span><span class="mi">2</span><span class="err">h</span><span class="mi">0</span><span class="err">IGJlIHN</span><span class="mi">3</span><span class="err">ZXB</span><span class="mi">0</span><span class="err">IG</span><span class="mi">9</span><span class="err">mZiB</span><span class="mi">0</span><span class="err">by</span><span class="mi">4</span><span class="w">
-</span></code></pre>
+
+<div class="center-column"></div>
+<pre class="highlight plaintext tab-plaintext--inline"><code>SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4
+</code></pre>
 <ol>
   <li value="5">Combine the JWS Header and JWS Payload, and separate them with period ('.') characters, to produce the JWS Signing Input.</li>
   <li>Complete the signing operation over the JWS Signing Input constructed in the previous step, following the signature algorithm defined by the JWS Header element <code>alg</code>. The JWS Signing Input is signed using the private key corresponding to the public key advertised in the JOSE Header. Performing the signature operation over the JWS Signing Input produces the JWS Signature.</li>
-  <li>The JWS Signature will then be encoded using base64url to produce the enclosed string.</li>
+  <li>The JWS Signature will then be encoded using base64url to produce the string below.</li>
 </ol>
-<pre class="highlight json tab-json--inline"><code><span class="err">MRjdkly</span><span class="mi">7</span><span class="err">_-oTPTS</span><span class="mi">3</span><span class="err">AXP</span><span class="mi">41</span><span class="err">iQIGKa</span><span class="mi">80</span><span class="err">A</span><span class="mi">0</span><span class="err">ZmTuV</span><span class="mi">5</span><span class="err">MEaHoxnW</span><span class="mi">2</span><span class="err">e</span><span class="mi">5</span><span class="err">CZ</span><span class="mi">5</span><span class="err">NlKtainoFmKZopdHM</span><span class="mi">1</span><span class="err">O</span><span class="mi">2</span><span class="err">U</span><span class="mi">4</span><span class="err">mwzJdQx</span><span class="mi">996</span><span class="err">ivp</span><span class="mi">83</span><span class="err">xuglII</span><span class="mi">7</span><span class="err">PNDi</span><span class="mi">84</span><span class="err">wnB-BDkoBwA</span><span class="mi">78185</span><span class="err">hX-Es</span><span class="mi">4</span><span class="err">J</span><span class="w">   </span><span class="err">IwmDLJK</span><span class="mi">3</span><span class="err">lfWRa-XtL</span><span class="mi">0</span><span class="err">RnltuYv</span><span class="mi">746</span><span class="err">iYTh_qHRD</span><span class="mi">68</span><span class="err">BNt</span><span class="mi">1</span><span class="err">uSNCrUCTJDt</span><span class="mi">5</span><span class="err">aAE</span><span class="mi">6</span><span class="err">x</span><span class="mi">8</span><span class="err">wW</span><span class="mi">1</span><span class="err">Kt</span><span class="mi">9</span><span class="err">eRo</span><span class="mi">4</span><span class="err">QPocSadnHXFxnt</span><span class="mi">8</span><span class="err">Is</span><span class="mi">9</span><span class="err">UzpERV</span><span class="mi">0</span><span class="err">ePPQdLuW</span><span class="mi">3</span><span class="err">IS_de</span><span class="mi">3</span><span class="err">xyIrDaLGdjluP</span><span class="w">  </span><span class="err">xUAhb</span><span class="mi">6</span><span class="err">L</span><span class="mi">2</span><span class="err">aXic</span><span class="mi">1</span><span class="err">U</span><span class="mi">12</span><span class="err">podGU</span><span class="mi">0</span><span class="err">KLUQSE_oI-ZnmKJ</span><span class="mi">3</span><span class="err">F</span><span class="mi">4</span><span class="err">uOZDnd</span><span class="mi">6</span><span class="err">QZWJushZ</span><span class="mi">41</span><span class="err">Axf_fcIe</span><span class="mi">8</span><span class="err">u</span><span class="mi">9</span><span class="err">ipH</span><span class="mi">84</span><span class="err">ogoree</span><span class="mi">7</span><span class="err">vjbU</span><span class="mi">5</span><span class="err">y</span><span class="mi">18</span><span class="err">kDquDg</span><span class="w">
-</span></code></pre>
+
+<div class="center-column"></div>
+<pre class="highlight plaintext tab-plaintext--inline"><code>MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx996ivp83xuglII7PNDi84wnB-BDkoBwA78185hX-Es4J   IwmDLJK3lfWRa-XtL0RnltuYv746iYTh_qHRD68BNt1uSNCrUCTJDt5aAE6x8wW1Kt9eRo4QPocSadnHXFxnt8Is9UzpERV0ePPQdLuW3IS_de3xyIrDaLGdjluP  xUAhb6L2aXic1U12podGU0KLUQSE_oI-ZnmKJ3F4uOZDnd6QZWJushZ41Axf_fcIe8u9ipH84ogoree7vjbU5y18kDquDg
+</code></pre>
 <ol>
-  <li value="8">Finally, you are now be able to build the JWS object by concatenating the three strings, and separate them with period ('.') characters. An example of a JWS object is given aside.</li>
+  <li value="8">Finally, you are now be able to build the JWS object by concatenating the three strings, and separate them with period ('.') characters. An example of a JWS object is given below.</li>
 </ol>
-<pre class="highlight json tab-json--inline"><code><span class="err">eyJhbGciOiJSUzI</span><span class="mi">1</span><span class="err">NiIsImtpZCI</span><span class="mi">6</span><span class="err">ImJpbGJvLmJhZ</span><span class="mi">2</span><span class="err">dpbnNAaG</span><span class="mi">9</span><span class="err">iYml</span><span class="mi">0</span><span class="err">b</span><span class="mi">24</span><span class="err">uZXhhbXBsZSJ</span><span class="mi">9</span><span class="w">
-</span><span class="err">.</span><span class="w">
-</span><span class="err">SXTigJlzIGEgZGFuZ</span><span class="mi">2</span><span class="err">Vyb</span><span class="mi">3</span><span class="err">VzIGJ</span><span class="mi">1</span><span class="err">c</span><span class="mi">2</span><span class="err">luZXNzLCBGcm</span><span class="mi">9</span><span class="err">kbywgZ</span><span class="mi">29</span><span class="err">pbmcgb</span><span class="mi">3</span><span class="err">V</span><span class="mi">0</span><span class="err">IHlvdXIgZG</span><span class="mi">9</span><span class="err">vci</span><span class="mi">4</span><span class="err">gWW</span><span class="mi">91</span><span class="err">IHN</span><span class="mi">0</span><span class="err">ZXAgb</span><span class="mi">250</span><span class="err">byB</span><span class="mi">0</span><span class="err">aGUgcm</span><span class="mi">9</span><span class="err">hZCwgYW</span><span class="mi">5</span><span class="err">kIGlmIHlvdSBkb</span><span class="mi">24</span><span class="err">ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG</span><span class="mi">5</span><span class="err">vIGtub</span><span class="mi">3</span><span class="err">dpbmcgd</span><span class="mi">2</span><span class="err">hlcmUgeW</span><span class="mi">91</span><span class="err">IG</span><span class="mi">1</span><span class="err">pZ</span><span class="mi">2</span><span class="err">h</span><span class="mi">0</span><span class="err">IGJlIHN</span><span class="mi">3</span><span class="err">ZXB</span><span class="mi">0</span><span class="err">IG</span><span class="mi">9</span><span class="err">mZiB</span><span class="mi">0</span><span class="err">by</span><span class="mi">4</span><span class="w">
-</span><span class="err">.</span><span class="w">
-</span><span class="err">MRjdkly</span><span class="mi">7</span><span class="err">_-oTPTS</span><span class="mi">3</span><span class="err">AXP</span><span class="mi">41</span><span class="err">iQIGKa</span><span class="mi">80</span><span class="err">A</span><span class="mi">0</span><span class="err">ZmTuV</span><span class="mi">5</span><span class="err">MEaHoxnW</span><span class="mi">2</span><span class="err">e</span><span class="mi">5</span><span class="err">CZ</span><span class="mi">5</span><span class="err">NlKtainoFmKZopdHM</span><span class="mi">1</span><span class="err">O</span><span class="mi">2</span><span class="err">U</span><span class="mi">4</span><span class="err">mwzJdQx</span><span class="mi">996</span><span class="err">ivp</span><span class="mi">83</span><span class="err">xuglII</span><span class="mi">7</span><span class="err">PNDi</span><span class="mi">84</span><span class="err">wnB-BDkoBwA</span><span class="mi">78185</span><span class="err">hX-Es</span><span class="mi">4</span><span class="err">JIwmDLJK</span><span class="mi">3</span><span class="err">lfWRa-XtL</span><span class="mi">0</span><span class="err">RnltuYv</span><span class="mi">746</span><span class="err">iYTh_qHRD</span><span class="mi">68</span><span class="err">BNt</span><span class="mi">1</span><span class="err">uSNCrUCTJDt</span><span class="mi">5</span><span class="err">aAE</span><span class="mi">6</span><span class="err">x</span><span class="mi">8</span><span class="err">wW</span><span class="mi">1</span><span class="err">Kt</span><span class="mi">9</span><span class="err">eRo</span><span class="mi">4</span><span class="err">QPocSadnHXFxnt</span><span class="mi">8</span><span class="err">Is</span><span class="mi">9</span><span class="err">UzpERV</span><span class="mi">0</span><span class="err">ePPQdLuW</span><span class="mi">3</span><span class="err">IS_de</span><span class="mi">3</span><span class="err">xyIrDaLGdjluPxUAhb</span><span class="mi">6</span><span class="err">L</span><span class="mi">2</span><span class="err">aXic</span><span class="mi">1</span><span class="err">U</span><span class="mi">12</span><span class="err">podGU</span><span class="mi">0</span><span class="err">KLUQSE_oI-ZnmKJ</span><span class="mi">3</span><span class="err">F</span><span class="mi">4</span><span class="err">uOZDnd</span><span class="mi">6</span><span class="err">QZWJushZ</span><span class="mi">41</span><span class="err">Axf_fcIe</span><span class="mi">8</span><span class="err">u</span><span class="mi">9</span><span class="err">ipH</span><span class="mi">84</span><span class="err">ogoree</span><span class="mi">7</span><span class="err">vjbU</span><span class="mi">5</span><span class="err">y</span><span class="mi">18</span><span class="err">kDquDg</span><span class="w">
-</span></code></pre>
+
+<div class="center-column"></div>
+<pre class="highlight plaintext tab-plaintext--inline"><code>eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2dpbnNAaG9iYml0b24uZXhhbXBsZSJ9
+.
+SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4
+.
+MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx996ivp83xuglII7PNDi84wnB-BDkoBwA78185hX-Es4JIwmDLJK3lfWRa-XtL0RnltuYv746iYTh_qHRD68BNt1uSNCrUCTJDt5aAE6x8wW1Kt9eRo4QPocSadnHXFxnt8Is9UzpERV0ePPQdLuW3IS_de3xyIrDaLGdjluPxUAhb6L2aXic1U12podGU0KLUQSE_oI-ZnmKJ3F4uOZDnd6QZWJushZ41Axf_fcIe8u9ipH84ogoree7vjbU5y18kDquDg
+</code></pre>
 <p>An example illustrating the signing process is available at <a href="https://tools.ietf.org/html/rfc7520#section-4.1" target="blank">https://tools.ietf.org/html/rfc7520#section-4.1</a>.</p>
 <h1 id='4-producing-a-jwe-object'>4. Producing a JWE object</h1>
 <p>An encrypted content can be serialized in two ways: the JWE compact serialization and the JWE JSON serialization. Because the OpenID Connect specification mandates to use JWE compact serialization whenever necessary, we will not explain the JWE JSON serialization signing process in this document.</p>
@@ -376,8 +376,10 @@
 <p>With the JWE compact serialization, a JWE object is built with five key components, each separated by a period (.): JWE Header, JWE Encrypted Key, JWE Initialization Vector, JWE Additional Authentication Data (AAD), JWE Ciphertext and JWE Authentication Tag. The following steps will show you how to generate a JWE Compact Serialization object:</p>
 
 <ol>
-  <li>Build a JSON object including all the header elements. The structure of the JWE Header is the same, as we discussed under JWS other than couple of exceptions. The JWE specification introduces two new elements (<code>enc</code> and <code>zip</code>), which are included in the JWE Header of the JWE object, in addition to what’s defined by the JSON Web Signature (JWS) specification.<br>An example use can be found enclosed.</br></li>
+  <li>Build a JSON object including all the header elements. The structure of the JWE Header is the same, as we discussed under JWS other than couple of exceptions. The JWE specification introduces two new elements (<code>enc</code> and <code>zip</code>), which are included in the JWE Header of the JWE object, in addition to what’s defined by the JSON Web Signature (JWS) specification.<br>An example use can be found below.</br></li>
 </ol>
+
+<div class="center-column"></div>
 <pre class="highlight json tab-json--inline"><code><span class="p">{</span><span class="w">
      </span><span class="s2">"alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSA-OAEP"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"kid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"samwise.gamgee@hobbiton.example"</span><span class="p">,</span><span class="w">
@@ -459,27 +461,39 @@
 </tbody></table>
 
 <ol>  
-  <li value="2">The JOSE Header will then be encoded using using UTF-8 and base64url to produce the enclosed string.</li>
+  <li value="2">The JWE Header will then be encoded using using UTF-8 and base64url to produce the string below.</li>
 </ol>
-<pre class="highlight http tab-http--inline"><code><span class="err">eyJhbGciOiJSU0EtT0FFUCIsImtpZCI6InNhbXdpc2UuZ2FtZ2VlQGhvYmJpdG9uLmV4YW1wbGUiLCJlbmMiOiJBMjU2R0NNIn0
-</span></code></pre>
+
+<div class="center-column"></div>
+<pre class="highlight plaintext tab-plaintext--inline"><code>eyJhbGciOiJSU0EtT0FFUCIsImtpZCI6InNhbXdpc2UuZ2FtZ2VlQGhvYmJpdG9uLmV4YW1wbGUiLCJlbmMiOiJBMjU2R0NNIn0
+</code></pre>
 <ol>
   <li value="3">Generate a random Content Encryption Key (CEK).</li>
-  <li>Encrypt the CEK with the public key, using the algorithm defined in the <code>alg</code> parameter, to produce the JWE Encrypted Key.</li>
-  <li>The JWE Encrypted Key will then be encoded using base64url to produce the enclosed string.</li>
+  <li>Compute the CEK with the algorithm defined in the <code>alg</code> parameter, to produce the JWE Encrypted Key.</li>
+  <li>The JWE Encrypted Key will then be encoded using base64url to produce the string below.</li>
 </ol>
-<pre class="highlight http tab-http--inline"><code><span class="err">rT99rwrBTbTI7IJM8fU3Eli7226HEB7IchCxNuh7lCiud48LxeolRdtFF4nzQibeYOl5S_PJsAXZwSXtDePz9hk-BbtsTBqC2UsPOdwjC9NhNupNNu9uHIVftDyucvI6hvALeZ6OGnhNV4v1zx2k7O1D89mAzfw-_kT3tkuorpDU-CpBENfIHX1Q58-Aad3FzMuo3Fn9buEP2yXakLXYa15BUXQsupM4A1GD4_H4Bd7V3u9h8Gkg8BpxKdUV9ScfJQTcYm6eJEBz3aSwIaK4T3-dwWpuBOhROQXBosJzS1asnuHtVMt2pKIIfux5BC6huIvmY7kzV7W7aIUrpYm_3H4zYvyMeq5pGqFmW2k8zpO878TRlZx7  pZfPYDSXZyS0CfKKkMozT_qiCwZTSz4duYnt8hS4Z9sGthXn9uDqd6wycMagnQfOTs_lycTWmY-aqWVDKhjYNRf03NiwRtb5BE-tOdFwCASQj3uuAgPGrO2AWBe3   8UjQb0lvXn1SpyvYZ3WFc7WOJYaTa7A8DRn6MC6T-xDmMuxC0G7S2rscw5lQQU06MvZTlFOt0UvfuKBa03cxA_nIBIhLMjY2kOTxQMmpDPTr6Cbo8aKaOnx6ASE5   Jx9paBpnNmOOKH35j_QlrQhDWUN6A2Gg8iFayJ69xDEdHAVCGRzN3woEI2ozDRs
-</span></code></pre>
+
+<div class="center-column"></div>
+<pre class="highlight plaintext tab-plaintext--inline"><code>rT99rwrBTbTI7IJM8fU3Eli7226HEB7IchCxNuh7lCiud48LxeolRdtFF4nzQibeYOl5S_PJsAXZwSXtDePz9hk-BbtsTBqC2UsPOdwjC9NhNupNNu9uHIVftDyucvI6hvALeZ6OGnhNV4v1zx2k7O1D89mAzfw-_kT3tkuorpDU-CpBENfIHX1Q58-Aad3FzMuo3Fn9buEP2yXakLXYa15BUXQsupM4A1GD4_H4Bd7V3u9h8Gkg8BpxKdUV9ScfJQTcYm6eJEBz3aSwIaK4T3-dwWpuBOhROQXBosJzS1asnuHtVMt2pKIIfux5BC6huIvmY7kzV7W7aIUrpYm_3H4zYvyMeq5pGqFmW2k8zpO878TRlZx7  pZfPYDSXZyS0CfKKkMozT_qiCwZTSz4duYnt8hS4Z9sGthXn9uDqd6wycMagnQfOTs_lycTWmY-aqWVDKhjYNRf03NiwRtb5BE-tOdFwCASQj3uuAgPGrO2AWBe3   8UjQb0lvXn1SpyvYZ3WFc7WOJYaTa7A8DRn6MC6T-xDmMuxC0G7S2rscw5lQQU06MvZTlFOt0UvfuKBa03cxA_nIBIhLMjY2kOTxQMmpDPTr6Cbo8aKaOnx6ASE5   Jx9paBpnNmOOKH35j_QlrQhDWUN6A2Gg8iFayJ69xDEdHAVCGRzN3woEI2ozDRs
+</code></pre>
 <ol>
   <li value="6">Generate a random JWE Initialization Vector.</li>
-  <li>The JWE Initialization Vector will then be encoded using base64url to produce the enclosed string.</li>
-  <li>Compute the ASCII value of the encoded JOSE header to get the Additional Authenticated Data (AAD).</li>
-  <li>Encrypt the JSON payload using the CEK, the JWE Initialization Vector and the Additional Authenticated Data (AAD), following the content encryption algorithm defined by the <code>enc</code> parameter. It will produce the ciphertext and the Authentication Tag.</li>
-  <li>Base64url-encode the ciphertext.</li>
-  <li>Base64url-encode the Authentication Tag.</li>
-  <li>Assemble the final representation by by concatenating the five strings, and separate them with period ('.') characters. An example of a JWE object is given aside.</li>
+  <li>The JWE Initialization Vector will then be encoded using base64url to produce the string below.</li>
 </ol>
-<pre class="highlight http tab-http--inline"><code><span class="err">eyJhbGciOiJSU0EtT0FFUCIsImtpZCI6InNhbXdpc2UuZ2FtZ2VlQGhvYmJpdG9uLmV4YW1wbGUiLCJlbmMiOiJBMjU2R0NNIn0
+
+<div class="center-column"></div>
+<pre class="highlight plaintext tab-plaintext--inline"><code>bbd5sTkYwhAIqfHsx8DayA
+</code></pre>
+<ol>
+  <li>Compute the ASCII value of the encoded JWE Header to get the Additional Authenticated Data (AAD).</li>
+  <li>Encrypt the JSON payload using the Content Encryption Key (CEK), the JWE initialization vector and the Additional Authentication Data (AAD) value, with the encryption algorithm defined by the <code>enc</code> parameter. It will produce the JWE Ciphertext and Authentication Tag.</li>
+  <li>Base64url-encode the JWE Ciphertext.</li>
+  <li>Base64url-encode the JWE Authentication Tag.</li>
+  <li>Assemble the final representation by concatenating the five strings, and separate them with period ('.') characters. An example of a JWE object is given below.</li>
+</ol>
+
+<div class="center-column"></div>
+<pre class="highlight plaintext tab-plaintext--inline"><code>eyJhbGciOiJSU0EtT0FFUCIsImtpZCI6InNhbXdpc2UuZ2FtZ2VlQGhvYmJpdG9uLmV4YW1wbGUiLCJlbmMiOiJBMjU2R0NNIn0
 .
 rT99rwrBTbTI7IJM8fU3Eli7226HEB7IchCxNuh7lCiud48LxeolRdtFF4nzQibeYOl5S_PJsAXZwSXtDePz9hk-BbtsTBqC2UsPOdwjC9NhNupNNu9uHIVftDyu   cvI6hvALeZ6OGnhNV4v1zx2k7O1D89mAzfw-_kT3tkuorpDU-CpBENfIHX1Q58-Aad3FzMuo3Fn9buEP2yXakLXYa15BUXQsupM4A1GD4_H4Bd7V3u9h8Gkg8Bpx   KdUV9ScfJQTcYm6eJEBz3aSwIaK4T3-dwWpuBOhROQXBosJzS1asnuHtVMt2pKIIfux5BC6huIvmY7kzV7W7aIUrpYm_3H4zYvyMeq5pGqFmW2k8zpO878TRlZx7   pZfPYDSXZyS0CfKKkMozT_qiCwZTSz4duYnt8hS4Z9sGthXn9uDqd6wycMagnQfOTs_lycTWmY-aqWVDKhjYNRf03NiwRtb5BE-tOdFwCASQj3uuAgPGrO2AWBe3   8UjQb0lvXn1SpyvYZ3WFc7WOJYaTa7A8DRn6MC6T-xDmMuxC0G7S2rscw5lQQU06MvZTlFOt0UvfuKBa03cxA_nIBIhLMjY2kOTxQMmpDPTr6Cbo8aKaOnx6ASE5   Jx9paBpnNmOOKH35j_QlrQhDWUN6A2Gg8iFayJ69xDEdHAVCGRzN3woEI2ozDRs
 .
@@ -488,13 +502,85 @@ rT99rwrBTbTI7IJM8fU3Eli7226HEB7IchCxNuh7lCiud48LxeolRdtFF4nzQibeYOl5S_PJsAXZwSXt
 o4k2cnGN8rSSw3IDo1YuySkqeS_t2m1GXklSgqBdpACm6UJuJowOHC5ytjqYgRL-I-soPlwqMUf4UgRWWeaOGNw6vGW-xyM01lTYxrXfVzIIaRdhYtEMRBvBWbEw   P7ua1DRfvaOjgZv6Ifa3brcAM64d8p5lhhNcizPersuhw5f-pGYzseva-TUaL8iWnctc-sSwy7SQmRkfhDjwbz0fz6kFovEgj64X1I5s7E6GLp5fnbYGLa1QUiML   7Cc2GxgvI7zqWo0YIEc7aCflLG1-8BboVWFdZKLK9vNoycrYHumwzKluLWEbSVmaPpOslY2n525DxDfWaVFUfKQxMF56vn4B9QMpWAbnypNimbM8zVOw
 .
 UCGiqJxhBI3IFVdPalHHvA
-</span></code></pre>
+</code></pre>
 <p>An example illustrating the signing process is available at <a href="https://tools.ietf.org/html/rfc7520#section-5.2" target="blank">https://tools.ietf.org/html/rfc7520#section-5.2</a>.</p>
-<h2 id='4-2-decrypting-the-jwe-object'>4.2. Decrypting the JWE object</h2>
+<h1 id='4-validating-a-nested-jwt-object'>4. Validating a Nested JWT object</h1>
+<p>To validate a Nested JWT object, you will first need to decrypt the JWE object, then extract the signed JWS Payload and verify the JWS Signature. </p>
+
+<p><strong>Decrypting the JWE object</strong></p>
+
+<p>The decryption process is the reverse of the encryption process:</p>
+
+<ol>
+  <li>Parse the JWE object to extract the serialized values of the base64url-encoded JWE Header, the base64url-encoded JWE Encrypted Key, the base64url-encoded JWE  Initialization Vector, the base64url-encoded JWE Ciphertext, and the base64url-encoded JWE Authentication Tag.</li>
+  <li>Base64url decode the encoded representations of the JWE Header, the JWE Encrypted Key, the JWE Initialization  Vector, the JWE Ciphertext, the JWE Authentication Tag, and the JWE Additional Authenticated Data (AAD).</li>
+  <li>Verify that the octet sequence resulting from decoding the encoded JWE Header is a UTF-8-encoded representation of a completely valid JSON object.</li>
+  <li>Determine the algorithm specified by the <code>alg</code> parameter.</li>
+  <li>Decrypt the JWE Encrypted Key with the algorithm defined in the <code>alg</code> parameter, to produce the Content Encryption Key (CEK).</li>
+  <li>Let the Additional Authenticated Data (AAD) encryption parameter be the octets of the ASCII representation of the encoded JWE Header value.</li>
+  <li>Decrypt the JWE Ciphertext using the Content Encryption Key (CEK), the JWE initialization vector and the Additional Authentication Data (AAD) value, with the encryption algorithm defined by the <code>enc</code> parameter. It will return the decrypted JWS object.</li>
+
+**Extracting the payload**
+
+<ol>
+  <li>Parse the JWS object to extract the JWS components serialized values, such as in the example below.</li>
+</ol>
+
+<div class="center-column"></div>
+<pre class="highlight plaintext tab-plaintext--inline"><code>jws_header = 
+"eyJhbGciOiJFUzI1NiIsImtpZCI6IjM0NjZkNTFmN2RkMGM3ODA1NjU2ODhjMTgzOTIxODE2YzQ1ODg5YWQifQ"
+payload = "eyJhdWQiOiJkajB5Sm1rOWJrMTVhM0ZYVjJ0NWNEbHRKbVE5V1Zkck9WbFZNWFJrYmtJMVRsUkJiV05IYnpsTlFTMHRKbk05WTI5dWMzVnRaWEp6WldOeVpYUW1lRDA0TUEtLSIsInN1YiI6IlVRSURXSk5XVk5RRDRHWFo1TkdNWlVTVFE0IiwiaXNzIjoiaHR0cHM6Ly9sb2dpbi55YWhvby5jb20iLCJleHAiOjE0NDQ2OTcwNDUsIm5vbmNlIjoiWWloc0Z3R0tndDNLSlVoNnRQczIiLCJpYXQiOjE0NDQ2OTM0NDV9"
+signature = 
+"XiyNdHHHoYqarDZGkhln5sF_SQNNVvV67SZsFAk7yo8NreJjzVw7LmtkwpiUQe87-Km39PeIwf1W_PqEH9RqjA"
+</code></pre>
+<ol>
+  <li>Base64url-decode the encoded representation of the JWS Header.</li>
+</ol>
+
+<div class="center-column"></div>
+<pre class="highlight javascript tab-javascript--inline"><code><span class="p">{</span>
+   <span class="s2">"alg"</span><span class="p">:</span><span class="s2">"RS256"</span><span class="p">,</span>
+   <span class="s2">"kid"</span><span class="p">:</span><span class="s2">"3466d51f7dd0c780565688c183921816c45889ad"</span>
+<span class="p">}</span>
+</code></pre>
+<ol>
+  <li>Verify that the resulting octet sequence is a UTF-8-encoded representation of a completely valid JSON object.</li>
+  <li>Base64url-decode the encoded representation of the JWS Payload.</li>
+</ol>
+
+<div class="center-column"></div>
+<pre class="highlight javascript tab-javascript--inline"><code><span class="p">{</span>
+   <span class="s2">"sub"</span><span class="p">:</span><span class="s2">"joe"</span><span class="p">,</span>
+   <span class="s2">"aud"</span><span class="p">:</span><span class="s2">"im_oic_client"</span><span class="p">,</span>
+   <span class="s2">"jti"</span><span class="p">:</span><span class="s2">"uf90SK4wscFhctUT6Dtvb2"</span><span class="p">,</span>
+   <span class="s2">"iss"</span><span class="p">:</span><span class="s2">"https:\/\/localhost:9031"</span><span class="p">,</span>
+   <span class="s2">"iat"</span><span class="p">:</span><span class="mi">1394060853</span><span class="p">,</span>
+   <span class="s2">"exp"</span><span class="p">:</span><span class="mi">1394061153</span><span class="p">,</span>
+   <span class="s2">"nonce"</span><span class="p">:</span><span class="s2">"e957ffba-9a78-4ea9-8eca-ae8c4ef9c856"</span><span class="p">,</span>
+   <span class="s2">"at_hash"</span><span class="p">:</span><span class="s2">"wfgvmE9VxjAudsl9lc6TqA"</span>
+<span class="p">}</span> 
+</code></pre>
+<ol>
+  <li>Base64url-decode the encoded representation of the JWS Signature.</li>
+</ol>
+
+<div class="center-column"></div>
+<pre class="highlight plaintext tab-plaintext--inline"><code>XiyNdHHHoYqarDZGkhln5sF_SQNNVvV67SZsFAk7yo8NreJjzVw7LmtkwpiUQe87-Km39PeIwf1W_PqEH9RqjA
+</code></pre>
+<p>You have decoded the JWS object. The next step is to validate the JWS Signature.</p>
+
+<p><strong>Checking the JWS Signature</strong></p>
+
+<ol>
+  <li>Determine the signing algorithm <code>alg<code> and the key identifier <code>kid</code> from the JWS Header.</li>
+  <li>Retrieve the value of the <code>jwks_uri</code> key in the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>. As the returned JSON Web Key (JWK) contains an array of keys, you MUST use the one corresponding to the value given by the <code>kid</code> parameter from the JWS Header.</li>
+  <li>Use one of the available <a href="https://jwt.io/" target="blank">cryptographic libraries</a> to validate the the JWS Signature in the manner defined for the algorithm being used, which MUST be accurately represented by the value of the <code>alg</code> parameter.</li>
+</ol>
+    
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="json">JSON</a>
                 <a href="#" data-language-name="http">HTTP</a>
           </div>
       </div>
