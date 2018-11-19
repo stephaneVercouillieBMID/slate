@@ -34,11 +34,16 @@ A signed content can be serialized in two ways: the JWS compact serialization an
 
 Following steps will show you how to generate a JWS Compact Serialization object:
 
-<q> {
-     "alg":"RS256",
-     "crit":["exp"],
-     "exp":1363284000
-</q> }
+```http--inline
+{
+   "alg": "RS256",
+   "crit": 
+   [
+      "exp"
+   ],
+   "exp": 1363284000
+}
+```
 
 <ol>
   <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JOSE Header. Don't forget to advertise in the JOSE Header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements: <code>jku</code>, <code>jwk</code>, <code>kid</code>, <code>x5u</code>, <code>x5c</code>, <code>x5t</code> and <code>x5t#s256</code>.<br>An example use can be found enclosed.</br></li>
