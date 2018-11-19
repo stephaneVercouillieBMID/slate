@@ -28,6 +28,14 @@ The JSON Object Signing and Encryption (JOSE) framework consists of several tech
   <li>JSON Web Encryption (<a href=" https://tools.ietf.org/html/rfc7516" target="blank">JWE</a>) specification standardizes the way to represent an encrypted content in a JSON-based data structure.</li>
 </ul>
 
+```http
+{
+   "alg": "RS256",
+   "crit": ["exp"],
+   "exp": 1363284000
+}
+```
+
 
 # 3. Generating a JWS object
 
