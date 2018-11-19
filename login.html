@@ -688,7 +688,7 @@ grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA
 <tr>
 <td style="text-align: left"><strong>id_token</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">The Base64URL encoded token encrypted with your public key and signed with the itsme® private key.</td>
+<td style="text-align: left">The ID Token is a JSON Web Token (JWT) that contains User profile information (like the User&#39;s name, email, and so forth), represented in the form of claims. However, before being able to store and use it, you MUST validate the ID Token.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>at_hash</strong></td>
@@ -786,27 +786,15 @@ grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA
 
 <p><a name="Data"></a></p>
 <h2 id='3-7-obtaining-user-attributes-or-claims'>3.7. Obtaining User attributes or claims</h2>
-<p>OpenID Connect Core specifications also allow your application to obtain basic profile information about a specific User in a interoperable way. These User attributes or claims can be obtained by presenting the <code>access_token</code> to the itsme® userInfo Endpoint, which can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <code>userinfo_endpoint</code>. This is achieved by sending a HTTPS GET request over TLS to the userInfo Endpoint URI, passing the Access Token value in the Authorization header using the Bearer authentication scheme.</p>
-<pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="s">  Content-Type: application/json</span>
-
-  {
-   "sub": "248289761001",
-   "name": "Jane Doe",
-   "given_name": "Jane",
-   "family_name": "Doe",
-   "email": "janedoe@example.com"
-  }  
+<p>OpenID Connect Core specifications also allow your application to obtain basic profile information about a specific User in a interoperable way. This is achieved by sending a HTTPS GET request to the itsme® userInfo Endpoint, passing the Access Token value in the Authorization header using the Bearer authentication scheme. The itsme userInfo Endpoint URI can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <code>userinfo_endpoint</code>.</p>
+<pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">https://merchant.itsme.be/oidc/userinfo</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer &lt;access token&gt;</span>
 </code></pre>
-<p>The itsme® userInfo Endpoint will return specific claims in a HTTP 200 OK response, depending on the values you requested in the <code>scope</code> and/or <code>claims</code> parameter.</p>
+<p>The itsme® userInfo Endpoint will return a HTTP 200 OK response and the User claims in a Nested JWT format. However, before being able to store and use the claims, you will first need to decrypt the JWE object, then extract the signed JWT from its payload and verify the signature. This process is described in the section X of the JOSE document.</p>
 
 <aside class="notice">The `sub` claim will always be included in the response and this should be verified by you to mitigate against token substitution attacks. The `sub` claim in the userInfo response MUST be verified to exactly match the `sub` Claim in the <code>id_token</code>; if they do not match, the userInfo response values MUST NOT be used.</aside>
 
 <aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
-
-<aside class="notice">itsme® will ensure that the userInfo response is signed and encrypted, meaning that the content type will be set to application/jwt. The userInfo response will contain the `iss` and `aud` claims. You should validate that the `iss` value matches itsme® issuer identifier and the `aud` value contains the your `client_id`.</aside>
-
-<aside class="notice">You should authenticate the OpenID Provider either by checking the TLS certificate or by validating the signature of the JWT if provided.</aside>
 
 <p>When an error condition occurs an error response as defined in the <a href="https://tools.ietf.org/html/rfc6750" target="blank">OAuth 2.0 Bearer Token Usage specification</a> will be returned.</p>
 <pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">401</span> <span class="ne">Unauthorized</span>
