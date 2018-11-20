@@ -42,8 +42,7 @@ Following steps will show you how to generate a JWS Compact Serialization object
   "alg": "RS256",
   "crit": ["exp"],
   "exp": 1363284000
-}
-</code>
+}</code>
 
 Parameter | Required | Description
 :-------- | :--------| :----- 
@@ -63,24 +62,19 @@ Parameter | Required | Description
   <li value="2">The JWS Header will then be encoded using UTF-8 and base64url to produce the string below.</li>
 </ol>
 
-<div class="center-column"></div>
-```plaintext--inline
-eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2dpbnNAaG9iYml0b24uZX
-hhbXBsZSJ9
-```
+<code style=display:block;white-space:pre-wrap>eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2dpbnNAaG9iYml0b24uZXhhbXBsZSJ9</code>
 
 <ol>
   <li value="3">Construct the payload or the content to be signed as UTF-8 — this is known as the JWS Payload.</li>
   <li>The JWS Payload will then be encoded using base64url to produce the string below.</li>
 </ol>
 
-<div class="center-column"></div>
-```plaintext--inline
-SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IH
+<code style=display:block;white-space:pre-wrap>SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IH
 lvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBk
 b24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcm
-UgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by
-```
+UgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by</code>
+
+<code style=display:block;white-space:pre-wrap>SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by</code>
 
 <ol>
   <li value="5">Combine the JWS Header and JWS Payload, and separate them with period ('.') characters, to produce the JWS Signing Input.</li>
