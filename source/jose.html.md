@@ -39,15 +39,13 @@ Following steps will show you how to generate a JWS Compact Serialization object
 </ol>
 
 <div class="center-column"></div>
-```json--inline
+```plaintext--inline
 {
    "alg": "RS256",
    "crit": ["exp"],
    "exp": 1363284000
 }
 ```
-
-<br></br>
 
 Parameter | Required | Description
 :-------- | :--------| :----- 
