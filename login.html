@@ -795,12 +795,12 @@ grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA
 <aside class="notice">The `sub` claim will always be included in the response and this should be verified by you to mitigate against token substitution attacks. The `sub` claim in the userInfo response MUST be verified to exactly match the `sub` Claim in the <code>id_token</code>; if they do not match, the userInfo response values MUST NOT be used.</aside>
 
 <aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
-
-<p>When an error condition occurs an error response as defined in the <a href="https://tools.ietf.org/html/rfc6750" target="blank">OAuth 2.0 Bearer Token Usage specification</a> will be returned.</p>
 <pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">401</span> <span class="ne">Unauthorized</span>
 <span class="s">  WWW-Authenticate: error="invalid_token",</span>
 <span class="s">    error_description="The Access Token expired"</span>
-</code></pre><h3 id='capturing-claims-from-the-39-scope-39-parameter'>Capturing claims from the &#39;scope&#39; parameter</h3>
+</code></pre>
+<p>When an error condition occurs an error response as defined in the <a href="https://tools.ietf.org/html/rfc6750" target="blank">OAuth 2.0 Bearer Token Usage specification</a> will be returned.</p>
+<h3 id='capturing-claims-from-the-39-scope-39-parameter'>Capturing claims from the &#39;scope&#39; parameter</h3>
 <p>On top of the <code>openid</code> and <code>service:service_code</code> parameters specified in the Authentication Request, you can also ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes apply:</p>
 
 <table><thead>
