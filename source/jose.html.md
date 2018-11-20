@@ -2,7 +2,7 @@
 title: itsme® OpenID Connect documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
- - http: HTTP
+ - json: 
 
 toc_footers:
  - <a href='#'>Sign Up for a Developer Key</a> -->
@@ -38,7 +38,6 @@ Following steps will show you how to generate a JWS Compact Serialization object
   <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JWS Header. Don't forget to advertise in the JWS Header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements:  <code>jku</code>, <code>jwk</code>, <code>kid</code>, <code>x5u</code>, <code>x5c</code>, <code>x5t</code> and <code>x5t#s256</code>.<br>An example use can be found below.</br></li>
 </ol>
 
-<div class="center-column"></div>
 ```json--inline
 {
    "alg": "RS256",
@@ -65,7 +64,6 @@ Parameter | Required | Description
   <li value="2">The JWS Header will then be encoded using UTF-8 and base64url to produce the string below.</li>
 </ol>
 
-<div class="center-column"></div>
 ```plaintext--inline
 eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2dpbnNAaG9iYml0b24uZXhhbXBsZSJ9
 ```
