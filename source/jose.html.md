@@ -212,6 +212,7 @@ The decryption process is the reverse of the encryption process:
   <li>Decrypt the JWE Encrypted Key with the algorithm defined in the <code>alg</code> parameter, to produce the Content Encryption Key (CEK).</li>
   <li>Let the Additional Authenticated Data (AAD) encryption parameter be the octets of the ASCII representation of the encoded JWE Header value.</li>
   <li>Decrypt the JWE Ciphertext using the Content Encryption Key (CEK), the JWE initialization vector and the Additional Authentication Data (AAD) value, with the encryption algorithm defined by the <code>enc</code> parameter. It will return the decrypted JWS object.</li>
+</ol>
 
 **Extracting the payload**
 
@@ -229,7 +230,7 @@ signature =
 ```
 
 <ol>
-  <li>Base64url-decode the encoded representation of the JWS Header.</li>
+  <li value="2">Base64url-decode the encoded representation of the JWS Header.</li>
 </ol>
 
 <div class="center-column"></div>
@@ -241,7 +242,7 @@ signature =
 ```
 
 <ol>
-  <li>Verify that the resulting octet sequence is a UTF-8-encoded representation of a completely valid JSON object.</li>
+  <li value="3">Verify that the resulting octet sequence is a UTF-8-encoded representation of a completely valid JSON object.</li>
   <li>Base64url-decode the encoded representation of the JWS Payload.</li>
 </ol>
 
@@ -260,7 +261,7 @@ signature =
 ```
 
 <ol>
-  <li>Base64url-decode the encoded representation of the JWS Signature.</li>
+  <li value="5">Base64url-decode the encoded representation of the JWS Signature.</li>
 </ol>
 
 <div class="center-column"></div>
@@ -274,7 +275,7 @@ You have decoded the JWS object. The next step is to validate the JWS Signature.
 **Checking the JWS Signature**
 
 <ol>
-  <li>Determine the signing algorithm <code>alg<code> and the key identifier <code>kid</code> from the JWS Header.</li>
+  <li>Determine the signing algorithm <code>alg</code> and the key identifier <code>kid</code> from the JWS Header.</li>
   <li>Retrieve the value of the <code>jwks_uri</code> key in the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>. As the returned JSON Web Key (JWK) contains an array of keys, you MUST use the one corresponding to the value given by the <code>kid</code> parameter from the JWS Header.</li>
   <li>Use one of the available <a href="https://jwt.io/" target="blank">cryptographic libraries</a> to validate the the JWS Signature in the manner defined for the algorithm being used, which MUST be accurately represented by the value of the <code>alg</code> parameter.</li>
 </ol>
