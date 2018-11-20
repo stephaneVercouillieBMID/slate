@@ -78,12 +78,33 @@ First, you will forg a HTTPS GET request that MUST be sent to the itsme® Author
 The OpenID Connect Core specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:
 
 ```http--inline
-GET /authorization?response_type=code HTTP/1.1
+GET /authorization HTTP/1.1
+Host: server.itsme.be
+
+?response_type=code 
 &scope=openid%20profile%20email%20service%3Aclient.registration
 &client_id=s6BhdRkqt3
 &state=af0ifjsldkj
 &redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb HTTP/1.1
-Host: server.itsme.be
+&claims=
+  {
+  "userinfo":
+    {
+    "tag:sixdots.be,2016-06:claim_nationality":null,
+    "tag:sixdots.be,2016-06:claim_gender":null,
+    "tag:sixdots.be,2016-06:claim_birthplace":null,
+    "tag:sixdots.be,2017-05:claim_device":null
+    },
+  "id_token":
+    {
+    "tag:sixdots.be,2016-06:claim_eid":null,
+    "auth_time":{"essential":true},
+    "acr_values":
+      {
+      "value":["tag:sixdots.be,2016-06:acr_advanced"]
+      }
+    }
+  }
 ```
 
 Parameter | Required | Description
