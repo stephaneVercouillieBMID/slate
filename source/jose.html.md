@@ -46,7 +46,7 @@ Following steps will show you how to generate a JWS Compact Serialization object
       }
 ```
 
-
+<div class="center-column"></div>
 <pre>
       {
          "alg": "RS256",
