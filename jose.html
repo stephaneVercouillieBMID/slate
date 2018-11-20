@@ -262,39 +262,12 @@
 <ol>
   <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JWS Header. Don't forget to advertise in the JWS Header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements:  <code>jku</code>, <code>jwk</code>, <code>kid</code>, <code>x5u</code>, <code>x5c</code>, <code>x5t</code> and <code>x5t#s256</code>.<br>An example can be found below.</br></li>
 </ol>
-<pre class="highlight plaintext tab-plaintext--inline"><code>      {
-         "alg": "RS256",
-         "crit": ["exp"],
-         "exp": 1363284000
-      }
-</code></pre>
-<div class="center-column"></div>
 
-<pre>
-      {
-         "alg": "RS256",
-         "crit": ["exp"],
-         "exp": 1363284000
-      }
-</pre>
-
-<div class="center-column"></div>
-
-<p><code>
-      {
-         &quot;alg&quot;: &quot;RS256&quot;,
-         &quot;crit&quot;: [&quot;exp&quot;],
-         &quot;exp&quot;: 1363284000
-      }
-</code></p>
-
-<p><code style=display:block;white-space:pre-wrap>
-      {
-         &quot;alg&quot;: &quot;RS256&quot;,
-         &quot;crit&quot;: [&quot;exp&quot;],
-         &quot;exp&quot;: 1363284000
-      }
-</code></p>
+<p><code style=display:block;white-space:pre-wrap>{
+  &quot;alg&quot;: &quot;RS256&quot;,
+  &quot;crit&quot;: [&quot;exp&quot;],
+  &quot;exp&quot;: 1363284000
+}</code></p>
 
 <table><thead>
 <tr>
@@ -364,21 +337,20 @@
   <li value="2">The JWS Header will then be encoded using UTF-8 and base64url to produce the string below.</li>
 </ol>
 
-<div class="center-column"></div>
-<pre class="highlight plaintext tab-plaintext--inline"><code>eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2dpbnNAaG9iYml0b24uZX
-hhbXBsZSJ9
-</code></pre>
+<p><code style=display:block;white-space:pre-wrap>eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2dpbnNAaG9iYml0b24uZXhhbXBsZSJ9</code></p>
+
 <ol>
   <li value="3">Construct the payload or the content to be signed as UTF-8 — this is known as the JWS Payload.</li>
   <li>The JWS Payload will then be encoded using base64url to produce the string below.</li>
 </ol>
 
-<div class="center-column"></div>
-<pre class="highlight plaintext tab-plaintext--inline"><code>SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IH
+<p><code style=display:block;white-space:pre-wrap>SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IH
 lvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBk
 b24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcm
-UgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by
-</code></pre>
+UgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by</code></p>
+
+<p><code style=display:block;white-space:pre-wrap>SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by</code></p>
+
 <ol>
   <li value="5">Combine the JWS Header and JWS Payload, and separate them with period ('.') characters, to produce the JWS Signing Input.</li>
   <li>Complete the signing operation over the JWS Signing Input constructed in the previous step, following the signature algorithm defined by the JWS Header element <code>alg</code>. The JWS Signing Input is signed using the private key corresponding to the public key advertised in the JOSE Header. Performing the signature operation over the JWS Signing Input produces the JWS Signature.</li>
