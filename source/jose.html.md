@@ -46,13 +46,23 @@ Following steps will show you how to generate a JWS Compact Serialization object
       }
 ```
 
-<blockquote>
-        {
+
+<pre>
+      {
          "alg": "RS256",
          "crit": ["exp"],
          "exp": 1363284000
       }
-</blockquote>
+</pre>
+
+<div class="center-column"></div>
+<code>
+      {
+         "alg": "RS256",
+         "crit": ["exp"],
+         "exp": 1363284000
+      }
+</code>
 
 Parameter | Required | Description
 :-------- | :--------| :----- 
