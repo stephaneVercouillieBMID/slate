@@ -60,40 +60,39 @@ Parameter | Required | Description
 **cty** | Optionnal | It is used by JWS applications to declare the media type of the payload.
 **crit** | Optionnal | It indicates that extensions to this specification and/or JWA are being used that MUST be  understood and processed.
 
-<ol>  
-  <li value="2">The JWS Header will then be encoded using UTF-8 and base64url to produce the string below.</li>
-</ol>
-
 ```plaintext--inline
 eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2dpbnNAaG9iYml0b24uZXhhbXBsZSJ9
 ```
 
-<ol>
-  <li value="3">Construct the payload or the content to be signed as UTF-8 — this is known as the JWS Payload.</li>
-  <li>The JWS Payload will then be encoded using base64url to produce the string below.</li>
+<ol>  
+  <li value="2">The JWS Header will then be encoded using UTF-8 and base64url to produce the string enclosed.</li>
 </ol>
 
-<div class="center-column"></div>
+<ol>
+  <li value="3">Construct the payload or the content to be signed as UTF-8 — this is known as the JWS Payload.</li>
+</ol>
+
 ```plaintext--inline
 SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4
 ```
+<ol>
+  <li value="4">The JWS Payload will then be encoded using base64url to produce the string enclosed.</li>
+</ol>
 
 <ol>
   <li value="5">Combine the JWS Header and JWS Payload, and separate them with period ('.') characters, to produce the JWS Signing Input.</li>
   <li>Complete the signing operation over the JWS Signing Input constructed in the previous step, following the signature algorithm defined by the JWS Header element <code>alg</code>. The JWS Signing Input is signed using the private key corresponding to the public key advertised in the JOSE Header. Performing the signature operation over the JWS Signing Input produces the JWS Signature.</li>
-  <li>The JWS Signature will then be encoded using base64url to produce the string below.</li>
 </ol>
 
-<div class="center-column"></div>
 ```plaintext--inline
 MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx996ivp83xuglII7PNDi84wnB-BDkoBwA78185hX-Es4J   IwmDLJK3lfWRa-XtL0RnltuYv746iYTh_qHRD68BNt1uSNCrUCTJDt5aAE6x8wW1Kt9eRo4QPocSadnHXFxnt8Is9UzpERV0ePPQdLuW3IS_de3xyIrDaLGdjluP  xUAhb6L2aXic1U12podGU0KLUQSE_oI-ZnmKJ3F4uOZDnd6QZWJushZ41Axf_fcIe8u9ipH84ogoree7vjbU5y18kDquDg
 ```
 
 <ol>
-  <li value="8">Finally, you are now be able to build the JWS object by concatenating the three strings, and separate them with period ('.') characters. An example of a JWS object is given below.</li>
+  <li value="7">The JWS Signature will then be encoded using base64url to produce the string enclosed.</li>
+  <li> Finally, you are now be able to build the JWS object by concatenating the three strings, and separate them with period ('.') characters. An example of a JWS object is given aside.</li>
 </ol>
 
-<div class="center-column"></div>
 ```plaintext--inline
 eyJhbGciOiJSUzI1NiIsImtpZCI6ImJpbGJvLmJhZ2dpbnNAaG9iYml0b24uZXhhbXBsZSJ9
 .
@@ -111,11 +110,6 @@ An encrypted content can be serialized in two ways: the JWE compact serializatio
 
 With the JWE compact serialization, a JWE object is built with five key components, each separated by a period (.): JWE Header, JWE Encrypted Key, JWE Initialization Vector, JWE Additional Authentication Data (AAD), JWE Ciphertext and JWE Authentication Tag. The following steps will show you how to generate a JWE Compact Serialization object:
 
-<ol>
-  <li>Build a JSON object including all the header elements. The structure of the JWE Header is the same, as we discussed under JWS other than couple of exceptions. The JWE specification introduces two new elements (<code>enc</code> and <code>zip</code>), which are included in the JWE Header of the JWE object, in addition to what’s defined by the JSON Web Signature (JWS) specification.<br>An example use can be found below.</br></li>
-</ol>
-
-<div class="center-column"></div>
 ```json--inline
 {
      "alg": "RSA-OAEP",
@@ -123,6 +117,10 @@ With the JWE compact serialization, a JWE object is built with five key componen
      "enc": "A128CBC-HS256"
 }
 ```
+
+<ol>
+  <li>Build a JSON object including all the header elements. The structure of the JWE Header is the same, as we discussed under JWS other than couple of exceptions. The JWE specification introduces two new elements (<code>enc</code> and <code>zip</code>), which are included in the JWE Header of the JWE object, in addition to what’s defined by the JSON Web Signature (JWS) specification.<br>An example use can be found enclosed.</br></li>
+</ol>
 
 Parameter | Required | Description
 :-------- | :--------| :----- 
@@ -140,45 +138,37 @@ Parameter | Required | Description
 **cty** | Optionnal | It is used by JWS applications to declare the media type of the secured content (the plaintext).
 **crit** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the </code>crit</code> parameter defined in the JWS section, except that parameters for a JWE are being referred to, rather than parameters for a JWS.
 
-<ol>  
-  <li value="2">The JWE Header will then be encoded using using UTF-8 and base64url to produce the string below.</li>
-</ol>
-
-<div class="center-column"></div>
 ```plaintext--inline
 eyJhbGciOiJSU0EtT0FFUCIsImtpZCI6InNhbXdpc2UuZ2FtZ2VlQGhvYmJpdG9uLmV4YW1wbGUiLCJlbmMiOiJBMjU2R0NNIn0
 ```
 
-<ol>
-  <li value="3">Generate a random Content Encryption Key (CEK).</li>
+<ol>  
+  <li value="2">The JWE Header will then be encoded using using UTF-8 and base64url to produce the string enclosed.</li>
+  <li>Generate a random Content Encryption Key (CEK).</li>
   <li>Compute the CEK with the algorithm defined in the <code>alg</code> parameter, to produce the JWE Encrypted Key.</li>
-  <li>The JWE Encrypted Key will then be encoded using base64url to produce the string below.</li>
 </ol>
 
-<div class="center-column"></div>
 ```plaintext--inline
 rT99rwrBTbTI7IJM8fU3Eli7226HEB7IchCxNuh7lCiud48LxeolRdtFF4nzQibeYOl5S_PJsAXZwSXtDePz9hk-BbtsTBqC2UsPOdwjC9NhNupNNu9uHIVftDyucvI6hvALeZ6OGnhNV4v1zx2k7O1D89mAzfw-_kT3tkuorpDU-CpBENfIHX1Q58-Aad3FzMuo3Fn9buEP2yXakLXYa15BUXQsupM4A1GD4_H4Bd7V3u9h8Gkg8BpxKdUV9ScfJQTcYm6eJEBz3aSwIaK4T3-dwWpuBOhROQXBosJzS1asnuHtVMt2pKIIfux5BC6huIvmY7kzV7W7aIUrpYm_3H4zYvyMeq5pGqFmW2k8zpO878TRlZx7  pZfPYDSXZyS0CfKKkMozT_qiCwZTSz4duYnt8hS4Z9sGthXn9uDqd6wycMagnQfOTs_lycTWmY-aqWVDKhjYNRf03NiwRtb5BE-tOdFwCASQj3uuAgPGrO2AWBe3   8UjQb0lvXn1SpyvYZ3WFc7WOJYaTa7A8DRn6MC6T-xDmMuxC0G7S2rscw5lQQU06MvZTlFOt0UvfuKBa03cxA_nIBIhLMjY2kOTxQMmpDPTr6Cbo8aKaOnx6ASE5   Jx9paBpnNmOOKH35j_QlrQhDWUN6A2Gg8iFayJ69xDEdHAVCGRzN3woEI2ozDRs
 ```
 
 <ol>
-  <li value="6">Generate a random JWE Initialization Vector.</li>
-  <li>The JWE Initialization Vector will then be encoded using base64url to produce the string below.</li>
+  <li value="5">The JWE Encrypted Key will then be encoded using base64url to produce the string enclosed.</li>
+  <li>Generate a random JWE Initialization Vector.</li>
 </ol>
 
-<div class="center-column"></div>
 ```plaintext--inline
 bbd5sTkYwhAIqfHsx8DayA
 ```
 
 <ol>
+  <li value="7">The JWE Initialization Vector will then be encoded using base64url to produce the string enclosed.</li>
   <li>Compute the ASCII value of the encoded JWE Header to get the Additional Authenticated Data (AAD).</li>
   <li>Encrypt the JSON payload using the Content Encryption Key (CEK), the JWE initialization vector and the Additional Authentication Data (AAD) value, with the encryption algorithm defined by the <code>enc</code> parameter. It will produce the JWE Ciphertext and Authentication Tag.</li>
   <li>Base64url-encode the JWE Ciphertext.</li>
   <li>Base64url-encode the JWE Authentication Tag.</li>
-  <li>Assemble the final representation by concatenating the five strings, and separate them with period ('.') characters. An example of a JWE object is given below.</li>
 </ol>
 
-<div class="center-column"></div>
 ```plaintext--inline
 eyJhbGciOiJSU0EtT0FFUCIsImtpZCI6InNhbXdpc2UuZ2FtZ2VlQGhvYmJpdG9uLmV4YW1wbGUiLCJlbmMiOiJBMjU2R0NNIn0
 .
@@ -190,6 +180,10 @@ o4k2cnGN8rSSw3IDo1YuySkqeS_t2m1GXklSgqBdpACm6UJuJowOHC5ytjqYgRL-I-soPlwqMUf4UgRW
 .
 UCGiqJxhBI3IFVdPalHHvA
 ```
+
+<ol>
+  <li value="12">Assemble the final representation by concatenating the five strings, and separate them with period ('.') characters. An example of a JWE object is given aside.</li>
+</ol>
 
 An example illustrating the signing process is available at <a href="https://tools.ietf.org/html/rfc7520#section-5.2" target="blank">https://tools.ietf.org/html/rfc7520#section-5.2</a>.
 
@@ -214,11 +208,6 @@ The decryption process is the reverse of the encryption process:
 
 **Extracting the payload**
 
-<ol>
-  <li>Parse the JWS object to extract the JWS components serialized values, such as in the example below.</li>
-</ol>
-
-<div class="center-column"></div>
 ```plaintext--inline
 jws_header = 
 "eyJhbGciOiJFUzI1NiIsImtpZCI6IjM0NjZkNTFmN2RkMGM3ODA1NjU2ODhjMTgzOTIxODE2YzQ1ODg5YWQifQ"
@@ -228,10 +217,9 @@ signature =
 ```
 
 <ol>
-  <li value="2">Base64url-decode the encoded representation of the JWS Header.</li>
+  <li>Parse the JWS object to extract the JWS components serialized values, such as in the example aside.</li>
 </ol>
 
-<div class="center-column"></div>
 ```javascript--inline
 {
    "alg":"RS256",
@@ -240,11 +228,10 @@ signature =
 ```
 
 <ol>
-  <li value="3">Verify that the resulting octet sequence is a UTF-8-encoded representation of a completely valid JSON object.</li>
-  <li>Base64url-decode the encoded representation of the JWS Payload.</li>
+  <li value="2">Base64url-decode the encoded representation of the JWS Header.</li>
+  <li>Verify that the resulting octet sequence is a UTF-8-encoded representation of a completely valid JSON object.</li>
 </ol>
 
-<div class="center-column"></div>
 ```javascript--inline
 {
    "sub":"joe",
@@ -259,13 +246,16 @@ signature =
 ```
 
 <ol>
-  <li value="5">Base64url-decode the encoded representation of the JWS Signature.</li>
+  <li value="4">Base64url-decode the encoded representation of the JWS Payload.</li>
 </ol>
 
-<div class="center-column"></div>
 ```plaintext--inline
 XiyNdHHHoYqarDZGkhln5sF_SQNNVvV67SZsFAk7yo8NreJjzVw7LmtkwpiUQe87-Km39PeIwf1W_PqEH9RqjA
 ```
+
+<ol>
+  <li value="5">Base64url-decode the encoded representation of the JWS Signature.</li>
+</ol>
 
 You have decoded the JWS object. The next step is to validate the JWS Signature.
 
