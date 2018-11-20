@@ -350,12 +350,33 @@
 </aside>
 
 <p>The OpenID Connect Core specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:</p>
-<pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/authorization?response_type=code</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="s">&amp;scope=openid%20profile%20email%20service%3Aclient.registration</span>
-<span class="s">&amp;client_id=s6BhdRkqt3</span>
-<span class="s">&amp;state=af0ifjsldkj</span>
-<span class="s">&amp;redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb HTTP/1.1</span>
+<pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/authorization</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">server.itsme.be</span>
+
+?response_type=code 
+&amp;scope=openid%20profile%20email%20service%3Aclient.registration
+&amp;client_id=s6BhdRkqt3
+&amp;state=af0ifjsldkj
+&amp;redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb HTTP/1.1
+&amp;claims=
+  {
+  "userinfo":
+    {
+      "tag:sixdots.be,2016-06:claim_nationality":null,
+      "tag:sixdots.be,2016-06:claim_gender":null,
+      "tag:sixdots.be,2016-06:claim_birthplace":null,
+      "tag:sixdots.be,2017-05:claim_device":null
+    },
+  "id_token":
+    {
+      "tag:sixdots.be,2016-06:claim_eid":null,
+      "auth_time":{"essential":true},
+      "acr_values":
+        {
+          "value":["tag:sixdots.be,2016-06:acr_advanced"]
+        }
+    }
+  }
 </code></pre>
 <table><thead>
 <tr>
@@ -466,8 +487,9 @@
 <p>If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an Authorization Code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the <code>redirect_uri</code> specified previously in the Authentication Request.</p>
 <pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
 <span class="na">Location</span><span class="p">:</span> <span class="s">https://client.example.org/cb?</span>
-<span class="s">code=SplxlOBeZQQYbYS6WxSbIA&amp;</span>
-<span class="s">state=af0ifjsldkj</span>
+
+code=SplxlOBeZQQYbYS6WxSbIA&amp;
+state=af0ifjsldkj
 </code></pre>
 <p>The response will contain:</p>
 
@@ -495,9 +517,10 @@
 <p>If the User denies the Authentication Request or if the request fails for reasons other than a missing or invalid redirection URI, itsme® will return an error response to your application. As for a successful response this is achieved by returning a HTTPS 302 redirect request to the redirection_uri specified in the Authentication Request. Following parameters could be added to the query component of the redirection_uri:</p>
 <pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
 <span class="na">Location</span><span class="p">:</span> <span class="s">https://client.example.org/cb?</span>
-<span class="s">error=invalid_request</span>
-<span class="s">&amp;error_description=Unsupported%20response_type%20value</span>
-<span class="s">&amp;state=af0ifjsldkj </span>
+
+error=invalid_request
+&amp;error_description=Unsupported%20response_type%20value
+&amp;state=af0ifjsldkj 
 </code></pre>
 <table><thead>
 <tr>
@@ -650,22 +673,23 @@ grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Cache-Control</span><span class="p">:</span> <span class="s">no-store</span>
 <span class="na">Pragma</span><span class="p">:</span> <span class="s">no-cache</span>
-<span class="s">{</span>
-<span class="s">  "access_token": "SlAV32hkKG",</span>
-<span class="s">  "token_type": "Bearer",</span>
-<span class="s">  "expires_in": 3600,</span>
-<span class="s">  "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjFlOWdkazcifQ.ewogImlzc</span>
-<span class="s">  yI6ICJodHRwOi8vc2VydmVyLmV4YW1wbGUuY29tIiwKICJzdWIiOiAiMjQ4Mjg5</span>
-<span class="s">  NzYxMDAxIiwKICJhdWQiOiAiczZCaGRSa3F0MyIsCiAibm9uY2UiOiAibi0wUzZ</span>
-<span class="s">  fV3pBMk1qIiwKICJleHAiOiAxMzExMjgxOTcwLAogImlhdCI6IDEzMTEyODA5Nz</span>
-<span class="s">  AKfQ.ggW8hZ1EuVLuxNuuIJKX_V8a_OMXzR0EHR9R6jgdqrOOF4daGU96Sr_P6q</span>
-<span class="s">  Jp6IcmD3HP99Obi1PRs-cwh3LO-p146waJ8IhehcwL7F09JdijmBqkvPeB2T9CJ</span>
-<span class="s">  NqeGpe-gccMg4vfKjkM8FcGvnzZUN4_KSP0aAp1tOJ1zZwgjxqGByKHiOtX7Tpd</span>
-<span class="s">  QyHE5lcMiKPXfEIQILVq0pc_E2DzL7emopWoaoZTF_m0_N0YzFC6g6EJbOEoRoS</span>
-<span class="s">  K5hoDalrcvRYLSrQAZZKflyuVCyixEoV9GfNQC3_osjzw2PAithfubEEBLuVVk4</span>
-<span class="s">  XUVrWOLrLl0nx7RkKU8NXNHq-rvKMzqg"</span>
-<span class="s">}</span>
-</code></pre>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SlAV32hkKG"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJSUzI1NiIsImtpZCI6IjFlOWdkazcifQ.ewogImlzc
+  yI6ICJodHRwOi8vc2VydmVyLmV4YW1wbGUuY29tIiwKICJzdWIiOiAiMjQ4Mjg5
+  NzYxMDAxIiwKICJhdWQiOiAiczZCaGRSa3F0MyIsCiAibm9uY2UiOiAibi0wUzZ
+  fV3pBMk1qIiwKICJleHAiOiAxMzExMjgxOTcwLAogImlhdCI6IDEzMTEyODA5Nz
+  AKfQ.ggW8hZ1EuVLuxNuuIJKX_V8a_OMXzR0EHR9R6jgdqrOOF4daGU96Sr_P6q
+  Jp6IcmD3HP99Obi1PRs-cwh3LO-p146waJ8IhehcwL7F09JdijmBqkvPeB2T9CJ
+  NqeGpe-gccMg4vfKjkM8FcGvnzZUN4_KSP0aAp1tOJ1zZwgjxqGByKHiOtX7Tpd
+  QyHE5lcMiKPXfEIQILVq0pc_E2DzL7emopWoaoZTF_m0_N0YzFC6g6EJbOEoRoS
+  K5hoDalrcvRYLSrQAZZKflyuVCyixEoV9GfNQC3_osjzw2PAithfubEEBLuVVk4
+  XUVrWOLrLl0nx7RkKU8NXNHq-rvKMzqg"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>The response body will include the following values:</p>
 
 <table><thead>
