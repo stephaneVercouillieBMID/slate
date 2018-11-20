@@ -64,6 +64,16 @@ Following steps will show you how to generate a JWS Compact Serialization object
       }
 </code>
 
+<code style=display:block;white-space:pre-wrap>
+      {
+         "alg": "RS256",
+         "crit": ["exp"],
+         "exp": 1363284000
+      }
+</code>
+
+
+
 Parameter | Required | Description
 :-------- | :--------| :----- 
 **alg** | Required | This parameter identifies the cryptographic algorithm used to secure the JWS. The <code>alg</code> value for this use can be found in the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using one of these keys: <code>request_object_signing_alg_values_supported</code>, <code>id_token_signing_alg_values_supported</code>, <code>token_endpoint_auth_signing_alg_values_supported</code> or <code>userinfo_signing_alg_values_supported</code>. 
