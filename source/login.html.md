@@ -313,13 +313,14 @@ The itsme® userInfo Endpoint will return a HTTP 200 OK response and the User cl
 
 <aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
 
-When an error condition occurs an error response as defined in the <a href="https://tools.ietf.org/html/rfc6750" target="blank">OAuth 2.0 Bearer Token Usage specification</a> will be returned.
-
 ```http--inline
 HTTP/1.1 401 Unauthorized
   WWW-Authenticate: error="invalid_token",
     error_description="The Access Token expired"
 ```
+
+When an error condition occurs an error response as defined in the <a href="https://tools.ietf.org/html/rfc6750" target="blank">OAuth 2.0 Bearer Token Usage specification</a> will be returned.
+
 
 ###  Capturing claims from the 'scope' parameter
 
