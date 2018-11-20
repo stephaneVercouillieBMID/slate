@@ -39,13 +39,11 @@ Following steps will show you how to generate a JWS Compact Serialization object
 </ol>
 
 <code>
-  <pre>
       {
          "alg": "RS256",
          "crit": ["exp"],
          "exp": 1363284000
       }
-   </pre>
 </code>
 
 Parameter | Required | Description
