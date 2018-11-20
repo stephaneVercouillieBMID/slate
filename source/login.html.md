@@ -90,19 +90,19 @@ Host: server.itsme.be
   {
   "userinfo":
     {
-    "tag:sixdots.be,2016-06:claim_nationality":null,
-    "tag:sixdots.be,2016-06:claim_gender":null,
-    "tag:sixdots.be,2016-06:claim_birthplace":null,
-    "tag:sixdots.be,2017-05:claim_device":null
+      "tag:sixdots.be,2016-06:claim_nationality":null,
+      "tag:sixdots.be,2016-06:claim_gender":null,
+      "tag:sixdots.be,2016-06:claim_birthplace":null,
+      "tag:sixdots.be,2017-05:claim_device":null
     },
   "id_token":
     {
-    "tag:sixdots.be,2016-06:claim_eid":null,
-    "auth_time":{"essential":true},
-    "acr_values":
-      {
-      "value":["tag:sixdots.be,2016-06:acr_advanced"]
-      }
+      "tag:sixdots.be,2016-06:claim_eid":null,
+      "auth_time":{"essential":true},
+      "acr_values":
+        {
+          "value":["tag:sixdots.be,2016-06:acr_advanced"]
+        }
     }
   }
 ```
@@ -140,6 +140,7 @@ If the User is successfully authenticated and authorizes access to the data requ
 ```http--inline
 HTTP/1.1 302 Found
 Location: https://client.example.org/cb?
+
 code=SplxlOBeZQQYbYS6WxSbIA&
 state=af0ifjsldkj
  ```
@@ -162,6 +163,7 @@ If the User denies the Authentication Request or if the request fails for reason
 ```http--inline
 HTTP/1.1 302 Found
 Location: https://client.example.org/cb?
+
 error=invalid_request
 &error_description=Unsupported%20response_type%20value
 &state=af0ifjsldkj 
@@ -250,6 +252,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 Cache-Control: no-store
 Pragma: no-cache
+
 {
   "access_token": "SlAV32hkKG",
   "token_type": "Bearer",
