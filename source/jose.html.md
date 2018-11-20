@@ -38,25 +38,13 @@ Following steps will show you how to generate a JWS Compact Serialization object
   <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JWS Header. Don't forget to advertise in the JWS Header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements:  <code>jku</code>, <code>jwk</code>, <code>kid</code>, <code>x5u</code>, <code>x5c</code>, <code>x5t</code> and <code>x5t#s256</code>.<br>An example can be found below.</br></li>
 </ol>
 
-<code>
-  <pre>
+```
       {
          "alg": "RS256",
          "crit": ["exp"],
          "exp": 1363284000
       }
-  </pre>
-</code>
-
-<pre>
-  <code>
-      {
-         "alg": "RS256",
-         "crit": ["exp"],
-         "exp": 1363284000
-      }
-  </code>
-</pre>
+```
 
 Parameter | Required | Description
 :-------- | :--------| :----- 
