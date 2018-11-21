@@ -79,7 +79,6 @@ The OpenID Connect Core specification defines a number of mandatory and recommen
 
 <code style=display:block;white-space:pre-wrap>GET /authorization HTTP/1.1
 Host: server.itsme.be
-
 ?response_type=code 
 &scope=openid%20profile%20email%20service%3Aclient.registration
 &client_id=s6BhdRkqt3
@@ -157,7 +156,6 @@ If the User denies the Authentication Request or if the request fails for reason
 
 <code style=display:block;white-space:pre-wrap>HTTP/1.1 302 Found
 Location: https://client.example.org/cb?
-
 error=invalid_request
 &error_description=Unsupported%20response_type%20value
 &state=af0ifjsldkj</code>
