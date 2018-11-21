@@ -629,7 +629,7 @@ error=invalid_request
 <tr>
 <td style="text-align: left"><strong>client_assertion</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the Token request.<br>The OpenID Connect Core specifications support multiple authentication methods, but itsme® only supports <code>private_key_jwt</code>. This authentication method uses a JWT signed using the private key corresponding to the public key you have registered when setting up your project in the <a href="#Onboarding">itsme® B2B portal</a>. The JWT MUST be sent as the value of the <code>client_assertion</code> parameter.</br><br>See the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JOSE</a> specifications for more information.</br></td>
+<td style="text-align: left">To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the Token Request.<br>The OpenID Connect Core specifications support multiple authentication methods, but itsme® only supports <code>private_key_jwt</code>. This authentication method uses a JWT signed with the private key corresponding to the public key you have registered when setting up your project in the <a href="#Onboarding">itsme® B2B portal</a>. The JWT MUST be sent as the value of the <code>client_assertion</code> parameter.</br><br>See the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JOSE</a> specifications for more information.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>client_assertion_type</strong></td>
