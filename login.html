@@ -352,9 +352,8 @@
 <p>The OpenID Connect Core specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:</p>
 
 <p><code style=display:block;white-space:pre-wrap>GET /authorization HTTP/1.1
-Host: server.itsme.be</p>
-
-<p>?response_type=code 
+Host: server.itsme.be
+?response_type=code 
 &amp;scope=openid%20profile%20email%20service%3Aclient.registration
 &amp;client_id=s6BhdRkqt3
 &amp;state=af0ifjsldkj
@@ -519,9 +518,8 @@ state=af0ifjsldkj</code></p>
 <p>If the User denies the Authentication Request or if the request fails for reasons other than a missing or invalid redirection URI, itsme® will return an error response to your application. As for a successful response this is achieved by returning a HTTPS 302 redirect request to the redirection_uri specified in the Authentication Request. Following parameters could be added to the query component of the redirection_uri:</p>
 
 <p><code style=display:block;white-space:pre-wrap>HTTP/1.1 302 Found
-Location: https://client.example.org/cb?</p>
-
-<p>error=invalid_request
+Location: https://client.example.org/cb?
+error=invalid_request
 &amp;error_description=Unsupported%20response_type%20value
 &amp;state=af0ifjsldkj</code></p>
 
