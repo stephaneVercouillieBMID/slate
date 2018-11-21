@@ -243,7 +243,7 @@
                     <a href="#3-5-exchanging-the-authorization-code" class="toc-h2 toc-link" data-title="3-5-exchanging-the-authorization-code">3.5. Exchanging the Authorization Code</a>
                   </li>
                   <li>
-                    <a href="#3-6-managing-id-token-response" class="toc-h2 toc-link" data-title="3-6-managing-id-token-response">3.6. Managing ID Token Response</a>
+                    <a href="#3-6-managing-token-response" class="toc-h2 toc-link" data-title="3-6-managing-token-response">3.6. Managing Token Response</a>
                   </li>
                   <li>
                     <a href="#3-7-obtaining-user-attributes-or-claims" class="toc-h2 toc-link" data-title="3-7-obtaining-user-attributes-or-claims">3.7. Obtaining User attributes or claims</a>
@@ -351,33 +351,6 @@
 
 <p>The OpenID Connect Core specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:</p>
 
-<p><code style=display:block;white-space:pre-wrap>GET /authorization HTTP/1.1
-Host: server.itsme.be
-?response_type=code 
-&amp;scope=openid%20profile%20email%20service%3Aclient.registration
-&amp;client_id=s6BhdRkqt3
-&amp;state=af0ifjsldkj
-&amp;redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb HTTP/1.1
-&amp;claims=
-  {
-  &quot;userinfo&quot;:
-    {
-      &quot;tag:sixdots.be,2016-06:claim_nationality&quot;:null,
-      &quot;tag:sixdots.be,2016-06:claim_gender&quot;:null,
-      &quot;tag:sixdots.be,2016-06:claim_birthplace&quot;:null,
-      &quot;tag:sixdots.be,2017-05:claim_device&quot;:null
-    },
-  &quot;id_token&quot;:
-    {
-      &quot;tag:sixdots.be,2016-06:claim_eid&quot;:null,
-      &quot;auth_time&quot;:{&quot;essential&quot;:true},
-      &quot;acr_values&quot;:
-        {
-          &quot;value&quot;:[&quot;tag:sixdots.be,2016-06:acr_advanced&quot;]
-        }
-    }
-  }</code></p>
-
 <table><thead>
 <tr>
 <th style="text-align: left">Parameter</th>
@@ -482,14 +455,42 @@ Host: server.itsme.be
 </tr>
 </tbody></table>
 
+<p>The following is a non-normative example request that would be sent to the Authorization Server:</p>
+
+<p><code style=display:block;white-space:pre-wrap>GET /authorization HTTP/1.1
+Host: server.itsme.be
+?response_type=code 
+&amp;scope=openid%20profile%20email%20service%3Aclient.registration
+&amp;client_id=s6BhdRkqt3
+&amp;state=af0ifjsldkj
+&amp;redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb HTTP/1.1
+&amp;claims=
+  {
+  &quot;userinfo&quot;:
+    {
+      &quot;tag:sixdots.be,2016-06:claim_nationality&quot;:null,
+      &quot;tag:sixdots.be,2016-06:claim_gender&quot;:null,
+      &quot;tag:sixdots.be,2016-06:claim_birthplace&quot;:null,
+      &quot;tag:sixdots.be,2017-05:claim_device&quot;:null
+    },
+  &quot;id_token&quot;:
+    {
+      &quot;tag:sixdots.be,2016-06:claim_eid&quot;:null,
+      &quot;auth_time&quot;:{&quot;essential&quot;:true},
+      &quot;acr_values&quot;:
+        {
+          &quot;value&quot;:[&quot;tag:sixdots.be,2016-06:acr_advanced&quot;]
+        }
+    }
+  }</code></p>
+
 <p><a name="AuthNResponse"></a></p>
 <h2 id='3-3-capturing-an-authorization-code'>3.3. Capturing an Authorization Code</h2><h3 id='capturing-a-successful-authorization-code'>Capturing a successful Authorization Code</h3>
-<p>If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an Authorization Code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the <code>redirect_uri</code> specified previously in the Authentication Request.</p>
+<p>If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an Authorization Code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the <code>redirect_uri</code> specified previously in the Authentication Request. The following is a non-normative example of ansuccessful Authentication Response:</p>
 
 <p><code style=display:block;white-space:pre-wrap>HTTP/1.1 302 Found
-Location: https://client.example.org/cb?</p>
-
-<p>code=SplxlOBeZQQYbYS6WxSbIA&amp;
+Location: https://client.example.org/cb?
+code=SplxlOBeZQQYbYS6WxSbIA&amp;
 state=af0ifjsldkj</code></p>
 
 <p>The response will contain:</p>
@@ -515,13 +516,7 @@ state=af0ifjsldkj</code></p>
 <h3 id='handling-authentication-error-response'>Handling Authentication Error Response</h3>
 <p>If the request fails due to a missing, invalid, or mismatching redirection URI, or if the client identifier is missing or invalid, the Authorization Server SHOULD inform the User of the error and MUST NOT automatically redirect him to the invalid redirection URI. </p>
 
-<p>If the User denies the Authentication Request or if the request fails for reasons other than a missing or invalid redirection URI, itsme® will return an error response to your application. As for a successful response this is achieved by returning a HTTPS 302 redirect request to the redirection_uri specified in the Authentication Request. Following parameters could be added to the query component of the redirection_uri:</p>
-
-<p><code style=display:block;white-space:pre-wrap>HTTP/1.1 302 Found
-Location: https://client.example.org/cb?
-error=invalid_request
-&amp;error_description=Unsupported%20response_type%20value
-&amp;state=af0ifjsldkj</code></p>
+<p>If the User denies the Authentication Request or if the request fails for reasons other than a missing or invalid redirection URI, itsme® will return an error response to your application. As for a successful response this is achieved by returning a HTTPS 302 redirect request to the redirection_uri specified in the Authentication Request. The error response parameters are the following:</p>
 
 <table><thead>
 <tr>
@@ -540,7 +535,20 @@ error=invalid_request
 <td style="text-align: left">Always</td>
 <td style="text-align: left">Indicating the nature of the error</td>
 </tr>
+<tr>
+<td style="text-align: left"><strong>state</strong></td>
+<td style="text-align: left">If provided</td>
+<td style="text-align: left">Set to the value defined in the Authorisation Request, if any.</td>
+</tr>
 </tbody></table>
+
+<p>The following is a non-normative example of an error response:</p>
+
+<p><code style=display:block;white-space:pre-wrap>HTTP/1.1 302 Found
+Location: https://client.example.org/cb?
+error=invalid_request
+&amp;error_description=Unsupported%20response_type%20value
+&amp;state=af0ifjsldkj</code></p>
 
 <p>The following table describes the various error codes that can be returned in the <code>error</code> parameter of the error response:</p>
 
@@ -592,17 +600,9 @@ error=invalid_request
 
 <p>Your server makes this exchange by sending an HTTPS POST request to the itsme® Token Endpoint URI. This URI can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <code>token_endpoint</code>.</p>
 
-<aside class="notice">An Authorization Code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling token error response.</aside>
+<aside class="notice">An Authorization Code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section <a href="https://belgianmobileid.github.io/slate/login.html#3-6-managing-id-token-response" target="blank">Handling token error response</a>.</aside>
 
 <p>The request MUST include the following parameters in the <code>POST</code> body:</p>
-
-<p><code style=display:block;white-space:pre-wrap>POST /token HTTP/1.1
-Host: server.example.com
-Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
-Content-Type: application/x-www-form-urlencoded</p>
-
-<p>grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA
-&amp;redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb</code></p>
 
 <table><thead>
 <tr>
@@ -638,6 +638,15 @@ Content-Type: application/x-www-form-urlencoded</p>
 </tr>
 </tbody></table>
 
+<p>The following is a non-normative example of a request to obtain an ID Token and Access Token:</p>
+
+<p><code style=display:block;white-space:pre-wrap>POST /token HTTP/1.1
+Host: server.example.com
+Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+Content-Type: application/x-www-form-urlencoded
+grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA
+&amp;redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb</code></p>
+
 <p>According to the <code>private_key_jwt</code> client authentication method, the <code>client_assertion</code> JWT MUST contain the following parameters in the JWT Payload:</p>
 
 <table><thead>
@@ -669,15 +678,14 @@ Content-Type: application/x-www-form-urlencoded</p>
 </tbody></table>
 
 <p><a name="TokenResponse"></a></p>
-<h2 id='3-6-managing-id-token-response'>3.6. Managing ID Token Response</h2><h3 id='extracting-a-successful-token-response'>Extracting a successful Token response</h3>
-<p>If the Token request has been sucessfully validated we will return an HTTP 200 OK response including ID and Access Tokens as in the example aside.</p>
+<h2 id='3-6-managing-token-response'>3.6. Managing Token Response</h2><h3 id='extracting-a-successful-token-response'>Extracting a successful Token Response</h3>
+<p>If the Token Request has been sucessfully validated we will return an HTTP 200 OK response including ID and Access Tokens as in the example below:</p>
 
 <p><code style=display:block;white-space:pre-wrap>HTTP/1.1 200 OK
 Content-Type: application/json
 Cache-Control: no-store
-Pragma: no-cache</p>
-
-<p>{
+Pragma: no-cache
+{
   &quot;access_token&quot;: &quot;SlAV32hkKG&quot;,
   &quot;token_type&quot;: &quot;Bearer&quot;,
   &quot;expires_in&quot;: 3600,
@@ -798,7 +806,7 @@ Pragma: no-cache</p>
   <li>As the ID Token is a Nested JWT object, you will have to decrypt and verify it using the keys and algorithms that the you specified when registering your project in the [itsme® B2B portal](#Onboarding). The process of decryption and signature validation is described in <a href="https://belgianmobileid.github.io/slate/jose#4-validating-a-nested-jwt-object" target="blank">section 4.</a> of the JOSE specifications.<br>If the ID Token is not encrypted, the you SHOULD reject it.</br></li>
   <li>The Issuer Identifier for itsme® (which is obtained when registering your project in the <a href="#Onboarding" target="blank">itsme® B2B portal</a>) MUST exactly match the value of the <code>iss</code> claim.</li>
   <li>You MUST validate that the <code>aud</code> claim contains your <code>client_id</code> value registered in the <a href="#Onboarding" target="blank">itsme® B2B portal</a>. The ID Token MUST be rejected if the ID Token does not list the <code>client_id</code> as a valid audience.</li>
-  <li>The current time MUST be before the time represented by the <code>exp</code> claim.
+  <li>The current time MUST be before the time represented by the <code>exp</code> claim.</li>
 <ol>
 
 If all the above verifications are successful, you can use the subject (<code>sub</code>) of the ID Token as the unique identifier of the corresponding User.
@@ -810,7 +818,7 @@ To validate an Access Token issued from the Token Endpoint, you SHOULD do the fo
 <ol>
   <li>Hash the octets of the ASCII representation of the <code>access_token</code> with the hash algorithm specified in the <code>alg</code> parameter of the ID Token's JWS Header, namely <code>RS256</code> corresponding to the hash algorithm SHA-256.</li>
   <li>Take the left-most half of the hash and base64url encode it.</li>
-  <li>The value of <code>at_hash</code> in the ID Token MUST match the value produced in the previous step.
+  <li>The value of <code>at_hash</code> in the ID Token MUST match the value produced in the previous step.</li>
 </ol>
 <h3 id='handling-token-error-response'>Handling token error response</h3>
 <p>If the Token Request is invalid or unauthorized an HTTP 400 response will be returned as in the example:</p>
@@ -818,28 +826,35 @@ To validate an Access Token issued from the Token Endpoint, you SHOULD do the fo
 <p><code style=display:block;white-space:pre-wrap>HTTP/1.1 400 Bad Request
 Content-Type: application/json
 Cache-Control: no-store
-Pragma: no-cache</p>
-
-<p>{
+Pragma: no-cache
+{
   &quot;error&quot;: &quot;invalid_request&quot;
 }</code></p>
 
 <p>The response will contain an error parameter and optionally <code>error_description</code> and <code>error_uri</code> parameters. The <code>error_uri</code> parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.</p>
 
 <p><a name="Data"></a></p>
-<h2 id='3-7-obtaining-user-attributes-or-claims'>3.7. Obtaining User attributes or claims</h2><h3 id='creating-the-userinfo-request'>Creating the userInfo request</h3>
+<h2 id='3-7-obtaining-user-attributes-or-claims'>3.7. Obtaining User attributes or claims</h2><h3 id='creating-the-userinfo-request'>Creating the userInfo Request</h3>
 <p>OpenID Connect Core specifications also allow your application to obtain basic profile information about a specific User in a interoperable way. This is achieved by sending a HTTPS GET request to the itsme® userInfo Endpoint, passing the Access Token value in the Authorization header using the Bearer authentication scheme. The itsme userInfo Endpoint URI can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <code>userinfo_endpoint</code>.</p>
 
 <p><code style=display:block;white-space:pre-wrap>GET https://merchant.itsme.be/oidc/userinfo HTTP/1.1
 Authorization: Bearer <access token></code></p>
-<h3 id='managing-the-userinfo-response'>Managing the userInfo response</h3>
-<p>The itsme® userInfo Endpoint will return a HTTP 200 OK response and the User claims in a Nested JWT format. </p>
+<h3 id='managing-the-userinfo-response'>Managing the userInfo Response</h3>
+<p>The itsme® userInfo Endpoint will return a HTTP 200 OK response and the User claims in a Nested JWT format. The following is a non-normative example of a UserInfo Response:</p>
 
 <aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
 
-<p><code style=display:block;white-space:pre-wrap>HTTP/1.1 401 Unauthorized
-WWW-Authenticate: error=&quot;invalid_token&quot;,
-error_description=&quot;The Access Token expired&quot;</code></p>
+<p><code style=display:block;white-space:pre-wrap>HTTP/1.1 200 OK
+  Content-Type: application/json
+  {
+   &quot;sub&quot;: &quot;248289761001&quot;,
+   &quot;name&quot;: &quot;Jane Doe&quot;,
+   &quot;given_name&quot;: &quot;Jane&quot;,
+   &quot;family_name&quot;: &quot;Doe&quot;,
+   &quot;preferred_username&quot;: &quot;j.doe&quot;,
+   &quot;email&quot;: &quot;janedoe@example.com&quot;,
+   &quot;picture&quot;: &quot;http://example.com/janedoe/me.jpg&quot;
+  }</code></p>
 
 <p>Before being able to consume the claims from the userInfo response, you will first need to validate it by following the userInfo response validation rules described in the section below.</p>
 <h3 id='userinfo-response-validation'>UserInfo response validation</h3>
@@ -1280,14 +1295,12 @@ print(queryParameters(from: url!))</p>
   super.onCreate(savedInstanceState);
   ...
   handleIntent(getIntent());
-}</p>
-
-<p>protected void onNewIntent(Intent intent) {
+}
+protected void onNewIntent(Intent intent) {
   super.onNewIntent(intent);
   handleIntent(intent);
-}</p>
-
-<p>private void handleIntent(Intent intent) {
+}
+private void handleIntent(Intent intent) {
     String appLinkAction = intent.getAction();
     Uri appLinkData = intent.getData();
     if (Intent.ACTION_VIEW.equals(appLinkAction) &amp;&amp; appLinkData != null){
@@ -1394,7 +1407,7 @@ print(queryParameters(from: url!))</p>
 
 <p>You need to store the Request Object resource either locally or remotely at a URL the the Authorization Server can access. This URL is the Request URI, <code>request_uri</code>.</p>
 
-<p>Enclosed you will find a non-normative example of an Authorization Request using the <code>request_uri</code>parameter;</p>
+<p>Enclosed you will find a non-normative example of an Authorization Request using the <code>request_uri</code>parameter:</p>
 
 <p><code style=display:block;white-space:pre-wrap>GET /oidc/authorization HTTP/1.1
     response_type=code%20id_token
