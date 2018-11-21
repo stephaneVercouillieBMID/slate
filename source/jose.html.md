@@ -35,7 +35,7 @@ A signed content can be serialized in two ways: the JWS compact serialization an
 Following steps will show you how to generate a JWS Compact Serialization object:
 
 <ol>
-  <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JWS Header. Don't forget to advertise in the JWS Header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements:  <code>jku</code>, <code>jwk</code>, <code>kid</code>, <code>x5u</code>, <code>x5c</code>, <code>x5t</code> and <code>x5t#s256</code>.<br>An example can be found below.</br></li>
+  <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JWS Header. Don't forget to advertise in the JWS Header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements:  <i>"jku"</i>, <i>"jwk"</i>, <i>"kid"</i>, <i>"x5u"</i>, <i>"x5c"</i>, <i>"x5t"</i> and <i>"x5t#s256"</i>.<br>An example can be found below.</br></li>
 </ol>
 
 <code style=display:block;white-space:pre-wrap>{
@@ -46,7 +46,7 @@ Following steps will show you how to generate a JWS Compact Serialization object
 
 Parameter | Required | Description
 :-------- | :--------| :----- 
-**alg** | Required | This parameter identifies the cryptographic algorithm used to secure the JWS. The <code>alg</code> value for this use can be found in the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using one of these keys: <code>request_object_signing_alg_values_supported</code>, <code>id_token_signing_alg_values_supported</code>, <code>token_endpoint_auth_signing_alg_values_supported</code> or <code>userinfo_signing_alg_values_supported</code>. 
+**alg** | Required | This parameter identifies the cryptographic algorithm used to secure the JWS. The <i>"alg"</i> value for this use can be found in the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using one of these keys: <i>"request_object_signing_alg_values_supported"</i>, <i>"id_token_signing_alg_values_supported"</i>, <i>"token_endpoint_auth_signing_alg_values_supported"</i> or <i>"userinfo_signing_alg_values_supported"</i>. 
 **jku** | Optionnal | This is a URI that refers to a resource for a set of JSON-encoded public keys, one of which corresponds to the key used to digitally sign the JWS.  The keys MUST be encoded as a JWK Set (JWK).
 **jwk** | Optionnal | This is the public key that corresponds to the key used to digitally sign the JWS.  This key is represented as a JSON Web Key (JWK).
 **kid** | Optionnal | It is a hint indicating which key was used to secure the JWS.  This parameter allows you to explicitly signal a change of key to recipients.  The structure of the <code>kid</code> value is unspecified.  Its value MUST be a case-sensitive string.
