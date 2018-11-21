@@ -275,17 +275,11 @@ Values | Returned | Description
 :-- | :-- | :--
 **access_token** | Always | The Access Token which may be used to access the userInfo Endpoint.
 **token_type** | Always | Set to `Bearer`.
-**id_token** | Always | The ID Token is a JSON Web Token (JWT) that contains User profile information (like the User's name, email, and so forth), represented in the form of claims. However, before being able to store and use it, you MUST validate the ID Token.
+**id_token** | Always | The ID Token is a JSON Web Token (JWT) that contains User profile information (like the User's name, email, and so forth), represented in the form of claims. 
 **at_hash** | Not supported | itsme® does not provide any value for this parameter.
 **refresh_token** | Not supported | itsme® does not provide any value for this parameter as it only maintains short-lived session to enforce re-authentication.
 
-The `id_token` parameter is comprised of three Base64URL encoded elements. The first element is the ID Token header. If you decode the value you should get a string similar to the one below:
-
-`{"alg":"RS256","kid":"1e9gdk7"}`
-
-This specifies that the token has been signed with an RSA Signature utilising the SHA-256 hashing algorithm and the key identified by the string “1e9gdk7”. 
-
-Decoding the second element gives you the JSON object containing the claims about the User. Following fields could be returned: For example decoding the value from the example above gives:
+With the following claims returned in the <code>id_token</code>: 
 
 Values |	Returned |	Description
 :-- | :-- | :--
@@ -300,9 +294,34 @@ Values |	Returned |	Description
 **amr** | Never |
 **azp** | Never |
 
-The third element is the signature over the JSON object. Details on how this signature is created and on how to validate it can be found in the <a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON Web Signature specification</a>.
+However, before being able to store and use the returned claims from <code>id_token</code> and/or the <code>access_token</code>, you MUST validate these strings as follows:
 
-In short, this Base64URL encoding is called a JSON Web Token (JWT). It makes sure that the data you received has not been modified. 
+<ul>
+  <li>Follow the ID Token validation rules in the section 3.2. below</li>
+  <li>Follow the Access Token validation rules in Section 3.3. below</li>
+</ul>
+
+### ID Token validation
+
+You MUST validate the ID Token in the Token Response in the following manner:
+
+<ol>
+  <li>As the ID Token is a Nested JWT object, you will have to decrypt and verify it using the keys and algorithms that the you specified when registering your project in the [itsme® B2B portal](#Onboarding). The process of decryption and signature validation is described in <a href="https://belgianmobileid.github.io/slate/jose#4-validating-a-nested-jwt-object" target="blank">section 4.</a> of the JOSE specifications.<br>If the ID Token is not encrypted, the you SHOULD reject it.</br></li>
+  <li>The Issuer Identifier for itsme® (which is obtained when registering your project in the [itsme® B2B portal](#Onboarding)) MUST exactly match the value of the <code>iss</code> claim.</li>
+  <li>You MUST validate that the <code>aud</code> claim contains your <code>client_id</code> value registered in the <a href="#Onboarding" target="blank">itsme® B2B portal</a>. The ID Token MUST be rejected if the ID Token does not list the <code>client_id</code> as a valid audience.</li>
+  <li>The current time MUST be before the time represented by the <code>exp</code> claim.
+<ol>
+
+If all the above verifications are successful, you can use the subject (<code>sub</code>) of the ID Token as the unique identifier of the corresponding User.
+
+ ### Access Token validation
+
+To validate an Access Token issued from the Token Endpoint, you SHOULD do the following:
+
+<ol>
+  <li>Hash the octets of the ASCII representation of the <code>access_token</code> with the hash algorithm specified in the <code>alg</code> parameter of the ID Token's JWS Header. For instance, if the alg is RS256, the hash algorithm used is SHA-256.
+Take the left-most half of the hash and base64url encode it.
+The value of at_hash in the ID Token MUST match the value produced in the previous step.
 
 ### Handling token error response 
 
