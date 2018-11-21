@@ -2,7 +2,7 @@
 title: itsme® OpenID Connect documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
- - http: HTTP
+ - http: 
 
 toc_footers:
  - <a href='#'>Sign Up for a Developer Key</a> -->
@@ -77,8 +77,7 @@ First, you will forg a HTTPS GET request that MUST be sent to the itsme® Author
 
 The OpenID Connect Core specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:
 
-```http--inline
-GET /authorization HTTP/1.1
+<code style=display:block;white-space:pre-wrap>GET /authorization HTTP/1.1
 Host: server.itsme.be
 
 ?response_type=code 
@@ -104,8 +103,7 @@ Host: server.itsme.be
           "value":["tag:sixdots.be,2016-06:acr_advanced"]
         }
     }
-  }
-```
+  }</code>
 
 Parameter | Required | Description
 :-------- | :--------| :----- 
@@ -137,13 +135,11 @@ Parameter | Required | Description
 
 If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an Authorization Code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the `redirect_uri` specified previously in the Authentication Request.
  
-```http--inline
-HTTP/1.1 302 Found
+<code style=display:block;white-space:pre-wrap>HTTP/1.1 302 Found
 Location: https://client.example.org/cb?
 
 code=SplxlOBeZQQYbYS6WxSbIA&
-state=af0ifjsldkj
- ```
+state=af0ifjsldkj</code>
 
 The response will contain:
 
@@ -159,15 +155,12 @@ If the request fails due to a missing, invalid, or mismatching redirection URI, 
 
 If the User denies the Authentication Request or if the request fails for reasons other than a missing or invalid redirection URI, itsme® will return an error response to your application. As for a successful response this is achieved by returning a HTTPS 302 redirect request to the redirection_uri specified in the Authentication Request. Following parameters could be added to the query component of the redirection_uri:
 
-
-```http--inline
-HTTP/1.1 302 Found
+<code style=display:block;white-space:pre-wrap>HTTP/1.1 302 Found
 Location: https://client.example.org/cb?
 
 error=invalid_request
 &error_description=Unsupported%20response_type%20value
-&state=af0ifjsldkj 
-```
+&state=af0ifjsldkj</code>
 
 Values |	Returned | Description
 :--|:--|:--
@@ -212,15 +205,13 @@ Your server makes this exchange by sending an HTTPS POST request to the itsme® 
 
 The request MUST include the following parameters in the `POST` body:
 
-```http--inline
-POST /token HTTP/1.1
+<code style=display:block;white-space:pre-wrap>POST /token HTTP/1.1
 Host: server.example.com
 Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code&code=SplxlOBeZQQYbYS6WxSbIA
-&redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb
-```
+&redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb</code>
 
 Parameter | Required | Description
 :-- | :-- | :--
@@ -247,8 +238,7 @@ Parameter | Description
 
 If the Token request has been sucessfully validated we will return an HTTP 200 OK response including ID and Access Tokens as in the example aside.
 
-```http--inline
-HTTP/1.1 200 OK
+<code style=display:block;white-space:pre-wrap>HTTP/1.1 200 OK
 Content-Type: application/json
 Cache-Control: no-store
 Pragma: no-cache
@@ -267,8 +257,8 @@ Pragma: no-cache
   QyHE5lcMiKPXfEIQILVq0pc_E2DzL7emopWoaoZTF_m0_N0YzFC6g6EJbOEoRoS
   K5hoDalrcvRYLSrQAZZKflyuVCyixEoV9GfNQC3_osjzw2PAithfubEEBLuVVk4
   XUVrWOLrLl0nx7RkKU8NXNHq-rvKMzqg"
-}
-```
+}</code>
+
 The response body will include the following values:
 
 Values | Returned | Description
@@ -323,15 +313,14 @@ To validate an Access Token issued from the Token Endpoint, you SHOULD do the fo
 
 If the Token Request is invalid or unauthorized an HTTP 400 response will be returned as in the example:
 
-```http--inline
-HTTP/1.1 400 Bad Request
+<code style=display:block;white-space:pre-wrap>HTTP/1.1 400 Bad Request
 Content-Type: application/json
 Cache-Control: no-store
 Pragma: no-cache
+
 {
   "error": "invalid_request"
-}
-```
+}</code>
 
 The response will contain an error parameter and optionally `error_description` and `error_uri` parameters. The `error_uri` parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.
 
@@ -343,10 +332,8 @@ The response will contain an error parameter and optionally `error_description` 
 
 OpenID Connect Core specifications also allow your application to obtain basic profile information about a specific User in a interoperable way. This is achieved by sending a HTTPS GET request to the itsme® userInfo Endpoint, passing the Access Token value in the Authorization header using the Bearer authentication scheme. The itsme userInfo Endpoint URI can be retrieved from the [itsme® Discovery document](#OpenIDConfig), using the key `userinfo_endpoint`.
 
-```http--inline
-GET https://merchant.itsme.be/oidc/userinfo HTTP/1.1
-Authorization: Bearer <access token>
-```
+<code style=display:block;white-space:pre-wrap>GET https://merchant.itsme.be/oidc/userinfo HTTP/1.1
+Authorization: Bearer <access token></code>
 
 ### Managing the userInfo response 
 
@@ -354,11 +341,9 @@ The itsme® userInfo Endpoint will return a HTTP 200 OK response and the User cl
 
 <aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
 
-```http--inline
-HTTP/1.1 401 Unauthorized
-  WWW-Authenticate: error="invalid_token",
-    error_description="The Access Token expired"
-```
+<code style=display:block;white-space:pre-wrap>HTTP/1.1 401 Unauthorized
+WWW-Authenticate: error="invalid_token",
+error_description="The Access Token expired"</code>
 
 Before being able to consume the claims from the userInfo response, you will first need to validate it by following the userInfo response validation rules described in the section below.
 
@@ -371,9 +356,7 @@ You MUST validate the userInfo reponse in the following manner:
   <li>The <code>sub</code> claim will always be included in the response and this should be verified by you to mitigate against token substitution attacks. The <code>sub</code> claim in the userInfo response MUST be verified to exactly match the <code>sub</code> claim in the <code>id_token</code>; if they do not match, the userInfo response values MUST NOT be used.</li>
 </ol>
 
-
 When an error condition occurs an error response as defined in the <a href="https://tools.ietf.org/html/rfc6750" target="blank">OAuth 2.0 Bearer Token Usage specification</a> will be returned.
-
 
 ###  Capturing claims from the 'scope' parameter
 
@@ -476,8 +459,7 @@ If the same user would opt to (re)create an itsme® afterwards, he will need to 
 
 ## 5.1. Universal Links on iOS
 
-```
-{
+<code style=display:block;white-space:pre-wrap>{
   "applinks": {
     "apps": [],
     "details": [
@@ -489,8 +471,7 @@ If the same user would opt to (re)create an itsme® afterwards, he will need to 
       }
     ]
   }
-} 
-```
+}</code>
 
 Integration is going to be pretty straightforward, all details can be found in below steps (as documented on <a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal Links official documentation</a>):
 
@@ -528,12 +509,11 @@ paths	| Array of strings that specify which paths are included or excluded from 
 <aside class="notice">Apple doc says to limit this list to no more than about 20 to 30 domains</aside>
  
 <ol>
-  <li value="9">Update the app delegate to respond appropriately when it receives the `NSUserActivity` object. After all above steps are completed perfectly, when the User click a universal link, the app will open up and the method <code>application:continueUserActivity:restorationHandler</code> will get called in <code>Appdelegate</code>. When iOS launches the the app after a User taps a universal link, you receive an <code>NSUserActivity</code> object with an <code>activityType</code> value of <code>NSUserActivityTypeBrowsingWeb</code>. The activity object’s <code>webpageURL</code> property contains the redirect URI that the user is accessing. The webpage URL property always contains an HTTPS URL, and you can use <code>NSURLComponents</code> APIs to manipulate the components of the URL.<br>For getting the URL parameters, use the function aside.</br><br>Also if you want to check if the app had opened by clicking a universal link or not in the `didFinishLaunchingWithOptions` method aside.</br>
+  <li value="9">Update the app delegate to respond appropriately when it receives the `NSUserActivity` object. After all above steps are completed perfectly, when the User click a universal link, the app will open up and the method <code>application:continueUserActivity:restorationHandler</code> will get called in <code>Appdelegate</code>. When iOS launches the the app after a User taps a universal link, you receive an <code>NSUserActivity</code> object with an <code>activityType</code> value of <code>NSUserActivityTypeBrowsingWeb</code>. The activity object’s <code>webpageURL</code> property contains the redirect URI that the user is accessing. The webpage URL property always contains an HTTPS URL, and you can use <code>NSURLComponents</code> APIs to manipulate the components of the URL.<br>For getting the URL parameters, use the function aside.</br><br>Also if you want to check if the app had opened by clicking a universal link or not in the `didFinishLaunchingWithOptions` method below.</br>
   </li>
 </ol>
 
-```http--inline
-func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+<code style=display:block;white-space:pre-wrap>func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
     print("Continue User Activity called: ")
     if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
         let url = userActivity.webpageURL!
@@ -541,11 +521,9 @@ func application(_ application: UIApplication, continue userActivity: NSUserActi
         //handle url and open whatever page you want to open.
     }
     return true
-}
-```
+}</code>
 
-```http--inline
-//playground code..
+<code style=display:block;white-space:pre-wrap>//playground code..
 var str = “https://google.com/contents/someotherpath?category=series&contentid=1562167825"
 let url = URL(string: str)
 func queryParameters(from url: URL) -> [String: String] {
@@ -562,11 +540,9 @@ return queryParams
 // print the url parameters dictionary
 print(queryParameters(from: url!))
 
-//It will print [“category”: “series”, “contentid”: “1562167825”]
-```
+//It will print [“category”: “series”, “contentid”: “1562167825”]</code>
 
-```http--inline
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+<code style=display:block;white-space:pre-wrap>func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
  var isUniversalLinkClick: Bool = false
  if launchOptions[UIApplicationLaunchOptionsUserActivityDictionaryKey] {
  let activityDictionary = launchOptions[UIApplicationLaunchOptionsUserActivityDictionaryKey] as? [AnyHashable: Any] ?? [AnyHashable: Any]()
@@ -581,8 +557,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
  // set the initial viewcontroller
  }
  return true
-}
-```
+}</code>
 
 ## 5.2. App Links on Android
 
@@ -614,8 +589,7 @@ The App Links Assistant in Android Studio can help you create intent filters in 
   </li>
 </ol>
 
-```
-  protected void onCreate(Bundle savedInstanceState) {
+<code style=display:block;white-space:pre-wrap>protected void onCreate(Bundle savedInstanceState) {
   super.onCreate(savedInstanceState);
   ...
   handleIntent(getIntent());
@@ -635,8 +609,7 @@ private void handleIntent(Intent intent) {
             .appendPath(recipeId).build();
         showRecipe(appData);
     }
-}
-```
+}</code>
 
 <ol>
   <li value="6">Associate the app with the redirect URI. After setting up URL support for your app, the App Links Assistant generates a Digital Asset Links file you can use to associate his website with your app. As an alternative to using the Digital Asset Links file, you can associate your site and app in Search Console. To associate the app and the website using the App Links Assistant, click Open the Digital Asset Links File Generator from the App Links Assistant:</li>
@@ -674,8 +647,7 @@ The `request` parameter enables the Authentication Requests to be passed in a si
 
 When `request` parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax.
 
-```http--inline
-GET /oidc/authorization HTTP/1.1
+<code style=display:block;white-space:pre-wrap>GET /oidc/authorization HTTP/1.1
     ?response_type=code%20id_token
     &client_id=s6BhdRkqt3
     &redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
@@ -701,8 +673,7 @@ GET /oidc/authorization HTTP/1.1
     GIzvuJT_u7PkY2t8QU9hjBcHs68PkgjDVTrG1uRTx0GxFbuPbj96tVuj11pTnmFC
     UR6IEOXKYr7iGOCRB3btfJhM0_AKQUfqKnRlrRscc8Kol-cSLWoYE9l5QqholImz
     jT_cMnNIznW9E7CDyWXTsO70xnB4SkG6pXfLSjLLlxmPGiyon_-Te111V8uE83Il
-    zCYIb_NMXvtTIVc1jpspnTSD7xMbpL-2QgwUsAlMGzw
-```
+    zCYIb_NMXvtTIVc1jpspnTSD7xMbpL-2QgwUsAlMGzw</code>
 
 The following validations should be done when using the `request` parameter:
 
@@ -730,15 +701,15 @@ You need to store the Request Object resource either locally or remotely at a UR
 
 Enclosed you will find a non-normative example of an Authorization Request using the `request_uri `parameter;
 
-```http—inline
-GET /oidc/authorization HTTP/1.1
+<code style=display:block;white-space:pre-wrap>GET /oidc/authorization HTTP/1.1
     response_type=code%20id_token
     &client_id=s6BhdRkqt3
     &request_uri=https%3A%2F%2Fclient.example.org%2Frequest.jwt
     %23GkurKxf5T0Y-mnPFCHqWOMiZi4VS138cQO_V7PZHAdM
     &state=af0ifjsldkj&nonce=n-0S6_WzA2Mj
-    &scope=openid
-```
+    &scope=openid</code>
+    
+    
 
 
 
