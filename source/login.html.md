@@ -296,7 +296,7 @@ You MUST validate the ID Token in the Token Response in the following manner:
   <li>The Issuer Identifier for itsme® (which is obtained when registering your project in the <a href="#Onboarding" target="blank">itsme® B2B portal</a>) MUST exactly match the value of the <i>"iss"</i> claim.</li>
   <li>You MUST validate that the <i>"aud"</i> claim contains your <i>"client_id"</i> value registered in the <a href="#Onboarding" target="blank">itsme® B2B portal</a>. The ID Token MUST be rejected if the ID Token does not list the <i>"client_id"</i> as a valid audience.</li>
   <li>The current time MUST be before the time represented by the <i>"exp"</i> claim.</li>
-<ol>
+</ol>
 
 If all the above verifications are successful, you can use the subject (<i>"sub"</i>) of the ID Token as the unique identifier of the corresponding User.
 
