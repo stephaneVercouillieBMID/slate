@@ -211,7 +211,7 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="http">HTTP</a>
+              <a href="#" data-language-name="http"></a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -256,73 +256,74 @@
 <p>Moreover, the <a href="https://belgianmobileid.github.io/slate/" target="blank">itsme® OpenID Login and Share Data</a> specifications MUST be understood first, before going further into the next paragraphs.</p>
 <h1 id='2-integrating-confirm-service'>2. Integrating Confirm service</h1>
 <p>The itsme® Confirm service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. However, there are some specific rules you MUST take into account during the implementation:</p>
-<pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/oidc/authorization</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="s">?response_type=code</span>
-<span class="s">&amp;client_id=yourprojectid</span>
-<span class="s">&amp;redirect_uri=yourredirecturl</span>
-<span class="s">&amp;scope=openid+service%3Ayourservicecode+profile</span>
-<span class="na">&amp;redirect_uri=https</span><span class="p">:</span><span class="s">\/\/service-provider.be\/my_call_back_url </span>
-<span class="s">&amp;nonce=A_VALID_NONCE </span>
-<span class="s">&amp;state=A_VALID_STATE </span>
-<span class="s">&amp;request={</span>
-<span class="s">  "response_type":"code",</span>
-<span class="s">  "client_id":"MY_PARTNER_CODE",</span>
-<span class="s">  "redirect_uri":" https:\/\/service-provider.be\/my_call_back_url",</span>
-<span class="s">  "aud":"https:\/\/merchant.itsme.be\/oidc",</span>
-<span class="s">  "scope":"openid service: MY_APPROVAL_SERVICE_CODE",</span>
-<span class="s">  "acr_values":"tag:sixdots.be,2016-06:acr_advanced",</span>
-<span class="s">  "iss":"MY_PARTNER_CODE",</span>
-<span class="s">  "nonce":"A_VALID_NONCE",</span>
-<span class="s">  "state":"A_VALID_STATE",</span>
-<span class="s">  "claims":{</span>
-<span class="s">    "userinfo":{</span>
-<span class="s">    "sub":{</span>
-<span class="s">      "value":"THE_END_USER_ALREADY_KNOWN_USER_CODE"</span>
-<span class="s">     },</span>
-<span class="s">    "tag:sixdots.be,2016-08:claim_approval_template_name":{</span>
-<span class="s">      "value":"adv_payment",</span>
-<span class="s">      "essential":true</span>
-<span class="s">    },</span>
-<span class="s">    "tag:sixdots.be,2016-08:claim_approval_amount_key":{</span>
-<span class="s">      "value":"100",</span>
-<span class="s">      "essential":true</span>
-<span class="s">    },</span>
-<span class="s">    "tag:sixdots.be,2016-08:claim_approval_currency_key":{</span>
-<span class="s">      "value":"EUR",</span>
-<span class="s">      "essential":true</span>
-<span class="s">    },</span>
-<span class="s">    "tag:sixdots.be,2016-08:claim_approval_iban_key":{</span>
-<span class="s">      "value":"BE00793774892029",</span>
-<span class="s">      "essential":true</span>
-<span class="s">    }</span>
-<span class="s">   }</span>
-<span class="s">  }</span>
-<span class="s">}</span>
-</code></pre>
+
 <ul>
-  <li>The Authentication Request MUST be communicated using HTTPS GET protocol and the <code>application/x-www-form-urlencoded</code> media type. By opposition to the OpenID Connect specifications, POST method is not authorized when triggering the itsme® App through the Universal/App Link mechanism only support the HTTP GET method on the Authorisation Endpoint.
+  <li>The Authentication Request MUST be communicated using HTTPS GET protocol and the <i>"application/x-www-form-urlencoded"</i> media type. By opposition to the OpenID Connect specifications, POST method is not authorized when triggering the itsme® App through the Universal/App Link mechanism only support the HTTP GET method on the Authorisation Endpoint.
   </li>
-  <li>You CAN also specify the type of info you want to have visualized in the itsme® app. This will be done by using the key <code>tag:sixdots.be,2016-08:claim_approval_template_name</code> in the </code>claim</code> parameter when forming the Authentication Request. More information on the available templates can be found in the Appendixes.</li>    
-  <li>Using the <code>request</code> or <code>request_uri</code> parameter is mandatory when forming the Authentication Request. This parameter MUST be signed with your private key and/or encrypted with the itsme® public key.</li>
-  <li>The <code>prompt</code> parameter can be <code>login</code> and/or <login>consent</code>.</li>
+  <li>You CAN also specify the type of info you want to have visualized in the itsme® app. This will be done by using the key <i>"tag:sixdots.be,2016-08:claim_approval_template_name"</i> in the <i>"claim"</i> parameter when forming the Authentication Request. More information on the available templates can be found in the Appendixes.</li>    
+  <li>Using the <i>"request"</i> or <i>"request_uri"</i> parameter is mandatory when forming the Authentication Request. This parameter MUST be signed with your private key and/or encrypted with the itsme® public key.</li>
+  <li>The <i>"prompt"</i> parameter can be <i>"login"</i> and/or <i>"consent"</i>.</li>
   <li>The Token Endpoint MUST ALWAYS be called to validate that the Authorization Code is valid and corresponds effectively to the Confirm transaction initiated by your application.</li>
   <li>The OpenID Connect Core Specification specifies the validation you MUST perform on the ID Token. This includes but is not limited to the the following:
     <ul>
-      <li>The issuer identifier of itsme® must exactly match the value of the <code>iss</code> claim</li>
-      <li>The <code>aud</code> claim must contain the <code>client_id</code> value provided during the registration of your application in the itsme® B2B portal.</li>
+      <li>The issuer identifier of itsme® must exactly match the value of the <i>"iss"</i> claim</li>
+      <li>The <i>"aud"</i> claim must contain the <i>"lient_id"</i> value provided during the registration of your application in the itsme® B2B portal.</li>
       <li>The transaction is effectively signed by itsme®.</li>
-      <li>The current time MUST be before the time represented by the <code>exp</code> claim.</li>
+      <li>The current time MUST be before the time represented by the <i>"exp"</i> claim.</li>
       <li>It is correctly unencrypted using your private key.</li>
-      <li>The <code>nonce</code> value is similar to the one provided in the Authentication Request (if specified).</li>
-      <li>If the User is already logged in your application, the <code>sub</code> value MUST match the one provided during the log in of the User.</li>
+      <li>The <i>"nonce"</i> value is similar to the one provided in the Authentication Request (if specified).</li>
+      <li>If the User is already logged in your application, the <i>"sub"</i> value MUST match the one provided during the log in of the User.</li>
     </ul>
 
 <p></li>
  </ul></p>
 
-<p>For example, the Confirm Authentication Request using the <code>sub</code> identifier might look like the sample aside. The value <code>THE_END_USER_ALREADY_KNOWN_USER_CODE</code> MUST be replaced with a valid <code>sub</code> (e.g.: an identifier for the User, unique among all itsme® accounts and never reused).</p>
+<p>For example, the Confirm Authentication Request using the <i>&quot;sub&quot;</i> identifier might look like the example below. The value <i>&quot;THE_END_USER_ALREADY_KNOWN_USER_CODE&quot;</i> MUST be replaced with a valid <i>&quot;sub&quot;</i> (e.g.: an identifier for the User, unique among all itsme® accounts and never reused).</p>
 
-<aside class="notice">In the example aside, the <code>request</code> parameter is represented as a regular JSON formatted object for clarity only. Indeed, it MUST be correctly encoded, signed and then encrypted as explained in the official OpenID Connect Core specification.</aside>
+<p><code style=display:block;white-space:pre-wrap>GET /oidc/authorization HTTP/1.1
+?response_type=code
+&amp;client_id=yourprojectid
+&amp;redirect_uri=yourredirecturl
+&amp;scope=openid+service%3Ayourservicecode+profile
+&amp;redirect_uri=https:\/\/service-provider.be\/my_call_back_url 
+&amp;nonce=A_VALID_NONCE 
+&amp;state=A_VALID_STATE 
+&amp;request={
+  &quot;response_type&quot;:&quot;code&quot;,
+  &quot;client_id&quot;:&quot;MY_PARTNER_CODE&quot;,
+  &quot;redirect_uri&quot;:&quot; https:\/\/service-provider.be\/my_call_back_url&quot;,
+  &quot;aud&quot;:&quot;https:\/\/merchant.itsme.be\/oidc&quot;,
+  &quot;scope&quot;:&quot;openid service: MY_APPROVAL_SERVICE_CODE&quot;,
+  &quot;acr_values&quot;:&quot;tag:sixdots.be,2016-06:acr_advanced&quot;,
+  &quot;iss&quot;:&quot;MY_PARTNER_CODE&quot;,
+  &quot;nonce&quot;:&quot;A_VALID_NONCE&quot;,
+  &quot;state&quot;:&quot;A_VALID_STATE&quot;,
+  &quot;claims&quot;:{
+    &quot;userinfo&quot;:{
+    &quot;sub&quot;:{
+      &quot;value&quot;:&quot;THE_END_USER_ALREADY_KNOWN_USER_CODE&quot;
+     },
+    &quot;tag:sixdots.be,2016-08:claim_approval_template_name&quot;:{
+      &quot;value&quot;:&quot;adv_payment&quot;,
+      &quot;essential&quot;:true
+    },
+    &quot;tag:sixdots.be,2016-08:claim_approval_amount_key&quot;:{
+      &quot;value&quot;:&quot;100&quot;,
+      &quot;essential&quot;:true
+    },
+    &quot;tag:sixdots.be,2016-08:claim_approval_currency_key&quot;:{
+      &quot;value&quot;:&quot;EUR&quot;,
+      &quot;essential&quot;:true
+    },
+    &quot;tag:sixdots.be,2016-08:claim_approval_iban_key&quot;:{
+      &quot;value&quot;:&quot;BE00793774892029&quot;,
+      &quot;essential&quot;:true
+    }
+   }
+  }
+}</code></p>
+
+<aside class="notice">In the example aside, the <i>"request"</i> parameter is represented as a regular JSON formatted object for clarity only. Indeed, it MUST be correctly encoded, signed and then encrypted as explained in the official OpenID Connect Core specification.</aside>
 <h1 id='3-appendixes'>3. Appendixes</h1><h2 id='3-1-templates'>3.1. Templates</h2>
 <p>There are currently two templates that can be used when forming a Confirm Authentication Request. Depending on the template used, the Authentication Request MUST include the following parameters in the body:</p>
 
@@ -336,29 +337,29 @@
 <tr>
 <td style="text-align: left"><strong>adv_payment</strong></td>
 <td style="text-align: left">Amount</td>
-<td style="text-align: left">A string holding an integer value inside. This MUST be set to <code>tag:sixdots.be,2016-08:claim_approval_amount_key</code>.</td>
+<td style="text-align: left">A string holding an integer value inside. This MUST be set to <i>&quot;tag:sixdots.be,2016-08:claim_approval_amount_key&quot;</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><label></label></td>
 <td style="text-align: left">Currency</td>
-<td style="text-align: left">A string holding a valid currency code (e.g. “EUR”). This MUST be set to <code>tag:sixdots.be,2016-08:claim_approval_currency_key</code>.</td>
+<td style="text-align: left">A string holding a valid currency code (e.g. “EUR”). This MUST be set to <i>&quot;tag:sixdots.be,2016-08:claim_approval_currency_key&quot;</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><label></label></td>
 <td style="text-align: left">IBAN</td>
-<td style="text-align: left">A string holding a valid IBAN account number. This MUST be set to <code>tag:sixdots.be,2016-08:claim_approval_iban_key</code>.</td>
+<td style="text-align: left">A string holding a valid IBAN account number. This MUST be set to <i>&quot;tag:sixdots.be,2016-08:claim_approval_iban_key&quot;</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>free_text</strong></td>
 <td style="text-align: left">Text</td>
-<td style="text-align: left">A string holding any text to be displayed in the itsme® app. This MUST be set to <code>tag:sixdots.be,2016-08:claim_approval_text_key</code>.</td>
+<td style="text-align: left">A string holding any text to be displayed in the itsme® app. This MUST be set to<i>&quot;tag:sixdots.be,2016-08:claim_approval_text_key&quot;</i>.</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="http">HTTP</a>
+                <a href="#" data-language-name="http"></a>
           </div>
       </div>
     </div>
