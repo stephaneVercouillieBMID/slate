@@ -147,7 +147,7 @@ Parameter | Required | Description
 
 <ol>
   <li>Compute the ASCII value of the encoded JWE Header to get the Additional Authenticated Data (AAD).</li>
-  <li>Encrypt the JSON payload using the Content Encryption Key (CEK), the JWE initialization vector and the Additional Authentication Data (AAD) value, with the encryption algorithm defined by the <code>enc</code> parameter. It will produce the JWE Ciphertext and Authentication Tag.</li>
+  <li>Encrypt the JSON payload with the encryption algorithm defined by the <code>enc</code> parameter. It will produce the JWE Ciphertext and Authentication Tag.</li>
   <li>Base64url-encode the JWE Ciphertext.</li>
   <li>Base64url-encode the JWE Authentication Tag.</li>
   <li>Assemble the final representation by concatenating the five strings, and separate them with period ('.') characters. An example of a JWE object is given below.</li>
@@ -181,7 +181,7 @@ The decryption process is the reverse of the encryption process:
   <li>Determine the algorithm specified by the <code>alg</code> parameter.</li>
   <li>Decrypt the JWE Encrypted Key with the algorithm defined in the <code>alg</code> parameter, to produce the Content Encryption Key (CEK).</li>
   <li>Let the Additional Authenticated Data (AAD) encryption parameter be the octets of the ASCII representation of the encoded JWE Header value.</li>
-  <li>Decrypt the JWE Ciphertext using the Content Encryption Key (CEK), the JWE initialization vector and the Additional Authentication Data (AAD) value, with the encryption algorithm defined by the <code>enc</code> parameter. It will return the decrypted JWS object.</li>
+  <li>Decrypt the JWE Ciphertext with the encryption algorithm defined by the <code>enc</code> parameter. It will return the decrypted JWS object.</li>
 </ol>
 
 **Extracting the payload**
