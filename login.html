@@ -211,7 +211,7 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="http">HTTP</a>
+              <a href="#" data-language-name="http"></a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -243,7 +243,7 @@
                     <a href="#3-5-exchanging-the-authorization-code" class="toc-h2 toc-link" data-title="3-5-exchanging-the-authorization-code">3.5. Exchanging the Authorization Code</a>
                   </li>
                   <li>
-                    <a href="#3-6-managing-token-response" class="toc-h2 toc-link" data-title="3-6-managing-token-response">3.6. Managing Token Response</a>
+                    <a href="#3-6-managing-id-token-response" class="toc-h2 toc-link" data-title="3-6-managing-id-token-response">3.6. Managing ID Token Response</a>
                   </li>
                   <li>
                     <a href="#3-7-obtaining-user-attributes-or-claims" class="toc-h2 toc-link" data-title="3-7-obtaining-user-attributes-or-claims">3.7. Obtaining User attributes or claims</a>
@@ -350,34 +350,35 @@
 </aside>
 
 <p>The OpenID Connect Core specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:</p>
-<pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/authorization</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">server.itsme.be</span>
 
-?response_type=code 
+<p><code style=display:block;white-space:pre-wrap>GET /authorization HTTP/1.1
+Host: server.itsme.be</p>
+
+<p>?response_type=code 
 &amp;scope=openid%20profile%20email%20service%3Aclient.registration
 &amp;client_id=s6BhdRkqt3
 &amp;state=af0ifjsldkj
 &amp;redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb HTTP/1.1
 &amp;claims=
   {
-  "userinfo":
+  &quot;userinfo&quot;:
     {
-      "tag:sixdots.be,2016-06:claim_nationality":null,
-      "tag:sixdots.be,2016-06:claim_gender":null,
-      "tag:sixdots.be,2016-06:claim_birthplace":null,
-      "tag:sixdots.be,2017-05:claim_device":null
+      &quot;tag:sixdots.be,2016-06:claim_nationality&quot;:null,
+      &quot;tag:sixdots.be,2016-06:claim_gender&quot;:null,
+      &quot;tag:sixdots.be,2016-06:claim_birthplace&quot;:null,
+      &quot;tag:sixdots.be,2017-05:claim_device&quot;:null
     },
-  "id_token":
+  &quot;id_token&quot;:
     {
-      "tag:sixdots.be,2016-06:claim_eid":null,
-      "auth_time":{"essential":true},
-      "acr_values":
+      &quot;tag:sixdots.be,2016-06:claim_eid&quot;:null,
+      &quot;auth_time&quot;:{&quot;essential&quot;:true},
+      &quot;acr_values&quot;:
         {
-          "value":["tag:sixdots.be,2016-06:acr_advanced"]
+          &quot;value&quot;:[&quot;tag:sixdots.be,2016-06:acr_advanced&quot;]
         }
     }
-  }
-</code></pre>
+  }</code></p>
+
 <table><thead>
 <tr>
 <th style="text-align: left">Parameter</th>
@@ -485,12 +486,13 @@
 <p><a name="AuthNResponse"></a></p>
 <h2 id='3-3-capturing-an-authorization-code'>3.3. Capturing an Authorization Code</h2><h3 id='capturing-a-successful-authorization-code'>Capturing a successful Authorization Code</h3>
 <p>If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an Authorization Code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the <code>redirect_uri</code> specified previously in the Authentication Request.</p>
-<pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
-<span class="na">Location</span><span class="p">:</span> <span class="s">https://client.example.org/cb?</span>
 
-code=SplxlOBeZQQYbYS6WxSbIA&amp;
-state=af0ifjsldkj
-</code></pre>
+<p><code style=display:block;white-space:pre-wrap>HTTP/1.1 302 Found
+Location: https://client.example.org/cb?</p>
+
+<p>code=SplxlOBeZQQYbYS6WxSbIA&amp;
+state=af0ifjsldkj</code></p>
+
 <p>The response will contain:</p>
 
 <table><thead>
@@ -515,13 +517,14 @@ state=af0ifjsldkj
 <p>If the request fails due to a missing, invalid, or mismatching redirection URI, or if the client identifier is missing or invalid, the Authorization Server SHOULD inform the User of the error and MUST NOT automatically redirect him to the invalid redirection URI. </p>
 
 <p>If the User denies the Authentication Request or if the request fails for reasons other than a missing or invalid redirection URI, itsme® will return an error response to your application. As for a successful response this is achieved by returning a HTTPS 302 redirect request to the redirection_uri specified in the Authentication Request. Following parameters could be added to the query component of the redirection_uri:</p>
-<pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
-<span class="na">Location</span><span class="p">:</span> <span class="s">https://client.example.org/cb?</span>
 
-error=invalid_request
+<p><code style=display:block;white-space:pre-wrap>HTTP/1.1 302 Found
+Location: https://client.example.org/cb?</p>
+
+<p>error=invalid_request
 &amp;error_description=Unsupported%20response_type%20value
-&amp;state=af0ifjsldkj 
-</code></pre>
+&amp;state=af0ifjsldkj</code></p>
+
 <table><thead>
 <tr>
 <th style="text-align: left">Values</th>
@@ -594,14 +597,15 @@ error=invalid_request
 <aside class="notice">An Authorization Code can only be exchanged once. Attempting to re-exchange a code will generate a bad request response, outlined below in the section Handling token error response.</aside>
 
 <p>The request MUST include the following parameters in the <code>POST</code> body:</p>
-<pre class="highlight http tab-http--inline"><code><span class="nf">POST</span> <span class="nn">/token</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">server.example.com</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
-grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA
-&amp;redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb
-</code></pre>
+<p><code style=display:block;white-space:pre-wrap>POST /token HTTP/1.1
+Host: server.example.com
+Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+Content-Type: application/x-www-form-urlencoded</p>
+
+<p>grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA
+&amp;redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb</code></p>
+
 <table><thead>
 <tr>
 <th style="text-align: left">Parameter</th>
@@ -667,18 +671,19 @@ grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA
 </tbody></table>
 
 <p><a name="TokenResponse"></a></p>
-<h2 id='3-6-managing-token-response'>3.6. Managing Token Response</h2><h3 id='extracting-a-successful-token-response'>Extracting a successful Token response</h3>
+<h2 id='3-6-managing-id-token-response'>3.6. Managing ID Token Response</h2><h3 id='extracting-a-successful-token-response'>Extracting a successful Token response</h3>
 <p>If the Token request has been sucessfully validated we will return an HTTP 200 OK response including ID and Access Tokens as in the example aside.</p>
-<pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">no-store</span>
-<span class="na">Pragma</span><span class="p">:</span> <span class="s">no-cache</span>
 
-<span class="p">{</span><span class="w">
-  </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SlAV32hkKG"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"id_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJSUzI1NiIsImtpZCI6IjFlOWdkazcifQ.ewogImlzc
+<p><code style=display:block;white-space:pre-wrap>HTTP/1.1 200 OK
+Content-Type: application/json
+Cache-Control: no-store
+Pragma: no-cache</p>
+
+<p>{
+  &quot;access_token&quot;: &quot;SlAV32hkKG&quot;,
+  &quot;token_type&quot;: &quot;Bearer&quot;,
+  &quot;expires_in&quot;: 3600,
+  &quot;id_token&quot;: &quot;eyJhbGciOiJSUzI1NiIsImtpZCI6IjFlOWdkazcifQ.ewogImlzc
   yI6ICJodHRwOi8vc2VydmVyLmV4YW1wbGUuY29tIiwKICJzdWIiOiAiMjQ4Mjg5
   NzYxMDAxIiwKICJhdWQiOiAiczZCaGRSa3F0MyIsCiAibm9uY2UiOiAibi0wUzZ
   fV3pBMk1qIiwKICJleHAiOiAxMzExMjgxOTcwLAogImlhdCI6IDEzMTEyODA5Nz
@@ -687,9 +692,9 @@ grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA
   NqeGpe-gccMg4vfKjkM8FcGvnzZUN4_KSP0aAp1tOJ1zZwgjxqGByKHiOtX7Tpd
   QyHE5lcMiKPXfEIQILVq0pc_E2DzL7emopWoaoZTF_m0_N0YzFC6g6EJbOEoRoS
   K5hoDalrcvRYLSrQAZZKflyuVCyixEoV9GfNQC3_osjzw2PAithfubEEBLuVVk4
-  XUVrWOLrLl0nx7RkKU8NXNHq-rvKMzqg"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+  XUVrWOLrLl0nx7RkKU8NXNHq-rvKMzqg&quot;
+}</code></p>
+
 <p>The response body will include the following values:</p>
 
 <table><thead>
@@ -712,7 +717,7 @@ grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA
 <tr>
 <td style="text-align: left"><strong>id_token</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">The ID Token is a JSON Web Token (JWT) that contains User profile information (like the User&#39;s name, email, and so forth), represented in the form of claims. However, before being able to store and use it, you MUST validate the ID Token.</td>
+<td style="text-align: left">The ID Token is a JSON Web Token (JWT) that contains User profile information (like the User&#39;s name, email, and so forth), represented in the form of claims.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>at_hash</strong></td>
@@ -726,13 +731,7 @@ grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA
 </tr>
 </tbody></table>
 
-<p>The <code>id_token</code> parameter is comprised of three Base64URL encoded elements. The first element is the ID Token header. If you decode the value you should get a string similar to the one below:</p>
-
-<p><code>{&quot;alg&quot;:&quot;RS256&quot;,&quot;kid&quot;:&quot;1e9gdk7&quot;}</code></p>
-
-<p>This specifies that the token has been signed with an RSA Signature utilising the SHA-256 hashing algorithm and the key identified by the string “1e9gdk7”. </p>
-
-<p>Decoding the second element gives you the JSON object containing the claims about the User. Following fields could be returned: For example decoding the value from the example above gives:</p>
+<p>With the following claims returned in the <code>id_token</code>: </p>
 
 <table><thead>
 <tr>
@@ -793,36 +792,66 @@ grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA
 </tr>
 </tbody></table>
 
-<p>The third element is the signature over the JSON object. Details on how this signature is created and on how to validate it can be found in the <a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON Web Signature specification</a>.</p>
+<p>However, before being able to store and use the returned claims from <code>id_token</code> and/or the <code>access_token</code>, you MUST validate these strings by following the ID Token and Access Token validation rules described in the sections below.</p>
+<h3 id='id-token-validation'>ID Token validation</h3>
+<p>You MUST validate the ID Token in the Token Response in the following manner:</p>
 
-<p>In short, this Base64URL encoding is called a JSON Web Token (JWT). It makes sure that the data you received has not been modified. </p>
+<ol>
+  <li>As the ID Token is a Nested JWT object, you will have to decrypt and verify it using the keys and algorithms that the you specified when registering your project in the [itsme® B2B portal](#Onboarding). The process of decryption and signature validation is described in <a href="https://belgianmobileid.github.io/slate/jose#4-validating-a-nested-jwt-object" target="blank">section 4.</a> of the JOSE specifications.<br>If the ID Token is not encrypted, the you SHOULD reject it.</br></li>
+  <li>The Issuer Identifier for itsme® (which is obtained when registering your project in the <a href="#Onboarding" target="blank">itsme® B2B portal</a>) MUST exactly match the value of the <code>iss</code> claim.</li>
+  <li>You MUST validate that the <code>aud</code> claim contains your <code>client_id</code> value registered in the <a href="#Onboarding" target="blank">itsme® B2B portal</a>. The ID Token MUST be rejected if the ID Token does not list the <code>client_id</code> as a valid audience.</li>
+  <li>The current time MUST be before the time represented by the <code>exp</code> claim.
+<ol>
+
+If all the above verifications are successful, you can use the subject (<code>sub</code>) of the ID Token as the unique identifier of the corresponding User.
+
+ ### Access Token validation
+
+To validate an Access Token issued from the Token Endpoint, you SHOULD do the following:
+
+<ol>
+  <li>Hash the octets of the ASCII representation of the <code>access_token</code> with the hash algorithm specified in the <code>alg</code> parameter of the ID Token's JWS Header, namely <code>RS256</code> corresponding to the hash algorithm SHA-256.</li>
+  <li>Take the left-most half of the hash and base64url encode it.</li>
+  <li>The value of <code>at_hash</code> in the ID Token MUST match the value produced in the previous step.
+</ol>
 <h3 id='handling-token-error-response'>Handling token error response</h3>
 <p>If the Token Request is invalid or unauthorized an HTTP 400 response will be returned as in the example:</p>
-<pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">no-store</span>
-<span class="na">Pragma</span><span class="p">:</span> <span class="s">no-cache</span>
-<span class="s">{</span>
-<span class="s">  "error": "invalid_request"</span>
-<span class="s">}</span>
-</code></pre>
+
+<p><code style=display:block;white-space:pre-wrap>HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Cache-Control: no-store
+Pragma: no-cache</p>
+
+<p>{
+  &quot;error&quot;: &quot;invalid_request&quot;
+}</code></p>
+
 <p>The response will contain an error parameter and optionally <code>error_description</code> and <code>error_uri</code> parameters. The <code>error_uri</code> parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.</p>
 
 <p><a name="Data"></a></p>
-<h2 id='3-7-obtaining-user-attributes-or-claims'>3.7. Obtaining User attributes or claims</h2>
+<h2 id='3-7-obtaining-user-attributes-or-claims'>3.7. Obtaining User attributes or claims</h2><h3 id='creating-the-userinfo-request'>Creating the userInfo request</h3>
 <p>OpenID Connect Core specifications also allow your application to obtain basic profile information about a specific User in a interoperable way. This is achieved by sending a HTTPS GET request to the itsme® userInfo Endpoint, passing the Access Token value in the Authorization header using the Bearer authentication scheme. The itsme userInfo Endpoint URI can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <code>userinfo_endpoint</code>.</p>
-<pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">https://merchant.itsme.be/oidc/userinfo</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer &lt;access token&gt;</span>
-</code></pre>
-<p>The itsme® userInfo Endpoint will return a HTTP 200 OK response and the User claims in a Nested JWT format. However, before being able to store and use the claims, you will first need to decrypt the JWE object, then extract the signed JWT from its payload and verify the signature. This process is described in the section X of the JOSE document.</p>
 
-<aside class="notice">The `sub` claim will always be included in the response and this should be verified by you to mitigate against token substitution attacks. The `sub` claim in the userInfo response MUST be verified to exactly match the `sub` Claim in the <code>id_token</code>; if they do not match, the userInfo response values MUST NOT be used.</aside>
+<p><code style=display:block;white-space:pre-wrap>GET https://merchant.itsme.be/oidc/userinfo HTTP/1.1
+Authorization: Bearer <access token></code></p>
+<h3 id='managing-the-userinfo-response'>Managing the userInfo response</h3>
+<p>The itsme® userInfo Endpoint will return a HTTP 200 OK response and the User claims in a Nested JWT format. </p>
 
 <aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
-<pre class="highlight http tab-http--inline"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">401</span> <span class="ne">Unauthorized</span>
-<span class="s">  WWW-Authenticate: error="invalid_token",</span>
-<span class="s">    error_description="The Access Token expired"</span>
-</code></pre>
+
+<p><code style=display:block;white-space:pre-wrap>HTTP/1.1 401 Unauthorized
+WWW-Authenticate: error=&quot;invalid_token&quot;,
+error_description=&quot;The Access Token expired&quot;</code></p>
+
+<p>Before being able to consume the claims from the userInfo response, you will first need to validate it by following the userInfo response validation rules described in the section below.</p>
+<h3 id='userinfo-response-validation'>UserInfo response validation</h3>
+<p>You MUST validate the userInfo reponse in the following manner:</p>
+
+<ol>
+  <li>As the userInfo response is a Nested JWT object, you will have to decrypt and verify it using the keys and algorithms that the you specified when registering your project in the [itsme® B2B portal](#Onboarding). The process of decryption and signature validation is described in <a href="https://belgianmobileid.github.io/slate/jose#4-validating-a-nested-jwt-object" target="blank">section 4.</a> of the JOSE specifications.<br>If the userInfo response is not encrypted, the you SHOULD reject it.</br></li>
+  <li>The <code>sub</code> claim will always be included in the response and this should be verified by you to mitigate against token substitution attacks. The <code>sub</code> claim in the userInfo response MUST be verified to exactly match the <code>sub</code> claim in the <code>id_token</code>; if they do not match, the userInfo response values MUST NOT be used.</li>
+</ol>
+
 <p>When an error condition occurs an error response as defined in the <a href="https://tools.ietf.org/html/rfc6750" target="blank">OAuth 2.0 Bearer Token Usage specification</a> will be returned.</p>
 <h3 id='capturing-claims-from-the-39-scope-39-parameter'>Capturing claims from the &#39;scope&#39; parameter</h3>
 <p>On top of the <code>openid</code> and <code>service:service_code</code> parameters specified in the Authentication Request, you can also ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes apply:</p>
@@ -1106,20 +1135,21 @@ grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA
 <p>If the same user would opt to (re)create an itsme® afterwards, he will need to re-bind his itsme® account with your application server (as the initial identifier is no longer valid as explained before). To re-bind his itsme® account one of the above scenario should be used. After successful (re)binding you will need to overwrite the initial reference with the new ‘sub’ claim value in your database.</p>
 <h1 id='5-appendixes'>5. Appendixes</h1>
 <p><a name="Appendix"></a> </p>
-<h2 id='5-1-universal-links-on-ios'>5.1. Universal Links on iOS</h2><pre class="highlight plaintext"><code>{
-  "applinks": {
-    "apps": [],
-    "details": [
+<h2 id='5-1-universal-links-on-ios'>5.1. Universal Links on iOS</h2>
+<p><code style=display:block;white-space:pre-wrap>{
+  &quot;applinks&quot;: {
+    &quot;apps&quot;: [],
+    &quot;details&quot;: [
       {
-        "appID": “JHGFJHHYX.com.facebook.ios",
-        "paths": [
-          "*"
+        &quot;appID&quot;: “JHGFJHHYX.com.facebook.ios&quot;,
+        &quot;paths&quot;: [
+          &quot;*&quot;
         ]
       }
     ]
   }
-} 
-</code></pre>
+}</code></p>
+
 <p>Integration is going to be pretty straightforward, all details can be found in below steps (as documented on <a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal Links official documentation</a>):</p>
 
 <ol>
@@ -1169,24 +1199,26 @@ grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA
  
 
 <ol>
-  <li value="9">Update the app delegate to respond appropriately when it receives the `NSUserActivity` object. After all above steps are completed perfectly, when the User click a universal link, the app will open up and the method <code>application:continueUserActivity:restorationHandler</code> will get called in <code>Appdelegate</code>. When iOS launches the the app after a User taps a universal link, you receive an <code>NSUserActivity</code> object with an <code>activityType</code> value of <code>NSUserActivityTypeBrowsingWeb</code>. The activity object’s <code>webpageURL</code> property contains the redirect URI that the user is accessing. The webpage URL property always contains an HTTPS URL, and you can use <code>NSURLComponents</code> APIs to manipulate the components of the URL.<br>For getting the URL parameters, use the function aside.</br><br>Also if you want to check if the app had opened by clicking a universal link or not in the `didFinishLaunchingWithOptions` method aside.</br>
+  <li value="9">Update the app delegate to respond appropriately when it receives the `NSUserActivity` object. After all above steps are completed perfectly, when the User click a universal link, the app will open up and the method <code>application:continueUserActivity:restorationHandler</code> will get called in <code>Appdelegate</code>. When iOS launches the the app after a User taps a universal link, you receive an <code>NSUserActivity</code> object with an <code>activityType</code> value of <code>NSUserActivityTypeBrowsingWeb</code>. The activity object’s <code>webpageURL</code> property contains the redirect URI that the user is accessing. The webpage URL property always contains an HTTPS URL, and you can use <code>NSURLComponents</code> APIs to manipulate the components of the URL.<br>For getting the URL parameters, use the function aside.</br><br>Also if you want to check if the app had opened by clicking a universal link or not in the `didFinishLaunchingWithOptions` method below.</br>
   </li>
 </ol>
-<pre class="highlight http tab-http--inline"><code><span class="err">func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -&gt; Void) -&gt; Bool {
-    print("Continue User Activity called: ")
+
+<p><code style=display:block;white-space:pre-wrap>func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -&gt; Void) -&gt; Bool {
+    print(&quot;Continue User Activity called: &quot;)
     if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
         let url = userActivity.webpageURL!
         print(url.absoluteString)
         //handle url and open whatever page you want to open.
     }
     return true
-}
-</span></code></pre><pre class="highlight http tab-http--inline"><code><span class="err">//playground code..
-var str = “https://google.com/contents/someotherpath?category=series&amp;contentid=1562167825"
+}</code></p>
+
+<p><code style=display:block;white-space:pre-wrap>//playground code..
+var str = “https://google.com/contents/someotherpath?category=series&amp;contentid=1562167825&quot;
 let url = URL(string: str)
 func queryParameters(from url: URL) -&gt; [String: String] {
 let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
-var queryParams = [String: String]()
+var queryParams = <a href="#">String: String</a>
 for queryItem: URLQueryItem in (urlComponents?.queryItems)! {
 if queryItem.value == nil {
 continue
@@ -1196,13 +1228,14 @@ queryParams[queryItem.name] = queryItem.value
 return queryParams
 }
 // print the url parameters dictionary
-print(queryParameters(from: url!))
+print(queryParameters(from: url!))</p>
 
-//It will print [“category”: “series”, “contentid”: “1562167825”]
-</span></code></pre><pre class="highlight http tab-http--inline"><code><span class="err">func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -&gt; Bool {
+<p>//It will print [“category”: “series”, “contentid”: “1562167825”]</code></p>
+
+<p><code style=display:block;white-space:pre-wrap>func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -&gt; Bool {
  var isUniversalLinkClick: Bool = false
  if launchOptions[UIApplicationLaunchOptionsUserActivityDictionaryKey] {
- let activityDictionary = launchOptions[UIApplicationLaunchOptionsUserActivityDictionaryKey] as? [AnyHashable: Any] ?? [AnyHashable: Any]()
+ let activityDictionary = launchOptions[UIApplicationLaunchOptionsUserActivityDictionaryKey] as? [AnyHashable: Any] ?? <a href="#">AnyHashable: Any</a>
  let activity = activityDictionary[“UIApplicationLaunchOptionsUserActivityKey”] as? NSUserActivity ?? NSUserActivity()
  if activity != nil {
  isUniversalLinkClick = true
@@ -1214,8 +1247,8 @@ print(queryParameters(from: url!))
  // set the initial viewcontroller
  }
  return true
-}
-</span></code></pre><h2 id='5-2-app-links-on-android'>5.2. App Links on Android</h2>
+}</code></p>
+<h2 id='5-2-app-links-on-android'>5.2. App Links on Android</h2>
 <p>The App Links Assistant in Android Studio can help you create intent filters in your manifest and map existing URLs from your website to activities in your app. Follow below steps to configure the App links (as documented on <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App Links official documentation</a>):</p>
 
 <ol>
@@ -1244,28 +1277,29 @@ print(queryParameters(from: url!))
     <br>However, this code isn't complete on its own. You MUST now take an action based on the URI in <appLinkData>, such as display the corresponding content. For example, for the recipe-sharing app, the code might look like the sample aside.</br>
   </li>
 </ol>
-<pre class="highlight plaintext"><code>  protected void onCreate(Bundle savedInstanceState) {
+
+<p><code style=display:block;white-space:pre-wrap>protected void onCreate(Bundle savedInstanceState) {
   super.onCreate(savedInstanceState);
   ...
   handleIntent(getIntent());
-}
+}</p>
 
-protected void onNewIntent(Intent intent) {
+<p>protected void onNewIntent(Intent intent) {
   super.onNewIntent(intent);
   handleIntent(intent);
-}
+}</p>
 
-private void handleIntent(Intent intent) {
+<p>private void handleIntent(Intent intent) {
     String appLinkAction = intent.getAction();
     Uri appLinkData = intent.getData();
     if (Intent.ACTION_VIEW.equals(appLinkAction) &amp;&amp; appLinkData != null){
         String recipeId = appLinkData.getLastPathSegment();
-        Uri appData = Uri.parse("content://com.recipe_app/recipe/").buildUpon()
+        Uri appData = Uri.parse(&quot;content://com.recipe_app/recipe/&quot;).buildUpon()
             .appendPath(recipeId).build();
         showRecipe(appData);
     }
-}
-</code></pre>
+}</code></p>
+
 <ol>
   <li value="6">Associate the app with the redirect URI. After setting up URL support for your app, the App Links Assistant generates a Digital Asset Links file you can use to associate his website with your app. As an alternative to using the Digital Asset Links file, you can associate your site and app in Search Console. To associate the app and the website using the App Links Assistant, click Open the Digital Asset Links File Generator from the App Links Assistant:</li>
   <li>Enter your Site domain and Application ID.</li>
@@ -1311,34 +1345,35 @@ private void handleIntent(Intent intent) {
 <p>The <code>request</code> parameter enables the Authentication Requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. It represents the request as a JWT whose claims are the parameters specified in section 3.2. This JWT is called a Request Object by value.</p>
 
 <p>When <code>request</code> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax.</p>
-<pre class="highlight http tab-http--inline"><code><span class="nf">GET</span> <span class="nn">/oidc/authorization</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="s">    ?response_type=code%20id_token</span>
-<span class="s">    &amp;client_id=s6BhdRkqt3</span>
-<span class="s">    &amp;redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb</span>
-<span class="s">    &amp;scope=openid</span>
-<span class="s">    &amp;state=af0ifjsldkj</span>
-<span class="s">    &amp;nonce=n-0S6_WzA2Mj</span>
-<span class="s">    &amp;request=eyJhbGciOiJSUzI1NiIsImtpZCI6ImsyYmRjIn0.ew0KICJpc3MiOiA</span>
-<span class="s">    iczZCaGRSa3F0MyIsDQogImF1ZCI6ICJodHRwczovL3NlcnZlci5leGFtcGxlLmN</span>
-<span class="s">    vbSIsDQogInJlc3BvbnNlX3R5cGUiOiAiY29kZSBpZF90b2tlbiIsDQogImNsaWV</span>
-<span class="s">    udF9pZCI6ICJzNkJoZFJrcXQzIiwNCiAicmVkaXJlY3RfdXJpIjogImh0dHBzOi8</span>
-<span class="s">    vY2xpZW50LmV4YW1wbGUub3JnL2NiIiwNCiAic2NvcGUiOiAib3BlbmlkIiwNCiA</span>
-<span class="s">    ic3RhdGUiOiAiYWYwaWZqc2xka2oiLA0KICJub25jZSI6ICJuLTBTNl9XekEyTWo</span>
-<span class="s">    iLA0KICJtYXhfYWdlIjogODY0MDAsDQogImNsYWltcyI6IA0KICB7DQogICAidXN</span>
-<span class="s">    lcmluZm8iOiANCiAgICB7DQogICAgICJnaXZlbl9uYW1lIjogeyJlc3NlbnRpYWw</span>
-<span class="s">    iOiB0cnVlfSwNCiAgICAgIm5pY2tuYW1lIjogbnVsbCwNCiAgICAgImVtYWlsIjo</span>
-<span class="s">    geyJlc3NlbnRpYWwiOiB0cnVlfSwNCiAgICAgImVtYWlsX3ZlcmlmaWVkIjogeyJ</span>
-<span class="s">    lc3NlbnRpYWwiOiB0cnVlfSwNCiAgICAgInBpY3R1cmUiOiBudWxsDQogICAgfSw</span>
-<span class="s">    NCiAgICJpZF90b2tlbiI6IA0KICAgIHsNCiAgICAgImdlbmRlciI6IG51bGwsDQo</span>
-<span class="s">    gICAgICJiaXJ0aGRhdGUiOiB7ImVzc2VudGlhbCI6IHRydWV9LA0KICAgICAiYWN</span>
-<span class="s">    yIjogeyJ2YWx1ZXMiOiBbInVybjptYWNlOmluY29tbW9uOmlhcDpzaWx2ZXIiXX0</span>
-<span class="s">    NCiAgICB9DQogIH0NCn0.nwwnNsk1-ZkbmnvsF6zTHm8CHERFMGQPhos-EJcaH4H</span>
-<span class="s">    h-sMgk8ePrGhw_trPYs8KQxsn6R9Emo_wHwajyFKzuMXZFSZ3p6Mb8dkxtVyjoy2</span>
-<span class="s">    GIzvuJT_u7PkY2t8QU9hjBcHs68PkgjDVTrG1uRTx0GxFbuPbj96tVuj11pTnmFC</span>
-<span class="s">    UR6IEOXKYr7iGOCRB3btfJhM0_AKQUfqKnRlrRscc8Kol-cSLWoYE9l5QqholImz</span>
-<span class="s">    jT_cMnNIznW9E7CDyWXTsO70xnB4SkG6pXfLSjLLlxmPGiyon_-Te111V8uE83Il</span>
-<span class="s">    zCYIb_NMXvtTIVc1jpspnTSD7xMbpL-2QgwUsAlMGzw</span>
-</code></pre>
+
+<p><code style=display:block;white-space:pre-wrap>GET /oidc/authorization HTTP/1.1
+    ?response_type=code%20id_token
+    &amp;client_id=s6BhdRkqt3
+    &amp;redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
+    &amp;scope=openid
+    &amp;state=af0ifjsldkj
+    &amp;nonce=n-0S6_WzA2Mj
+    &amp;request=eyJhbGciOiJSUzI1NiIsImtpZCI6ImsyYmRjIn0.ew0KICJpc3MiOiA
+    iczZCaGRSa3F0MyIsDQogImF1ZCI6ICJodHRwczovL3NlcnZlci5leGFtcGxlLmN
+    vbSIsDQogInJlc3BvbnNlX3R5cGUiOiAiY29kZSBpZF90b2tlbiIsDQogImNsaWV
+    udF9pZCI6ICJzNkJoZFJrcXQzIiwNCiAicmVkaXJlY3RfdXJpIjogImh0dHBzOi8
+    vY2xpZW50LmV4YW1wbGUub3JnL2NiIiwNCiAic2NvcGUiOiAib3BlbmlkIiwNCiA
+    ic3RhdGUiOiAiYWYwaWZqc2xka2oiLA0KICJub25jZSI6ICJuLTBTNl9XekEyTWo
+    iLA0KICJtYXhfYWdlIjogODY0MDAsDQogImNsYWltcyI6IA0KICB7DQogICAidXN
+    lcmluZm8iOiANCiAgICB7DQogICAgICJnaXZlbl9uYW1lIjogeyJlc3NlbnRpYWw
+    iOiB0cnVlfSwNCiAgICAgIm5pY2tuYW1lIjogbnVsbCwNCiAgICAgImVtYWlsIjo
+    geyJlc3NlbnRpYWwiOiB0cnVlfSwNCiAgICAgImVtYWlsX3ZlcmlmaWVkIjogeyJ
+    lc3NlbnRpYWwiOiB0cnVlfSwNCiAgICAgInBpY3R1cmUiOiBudWxsDQogICAgfSw
+    NCiAgICJpZF90b2tlbiI6IA0KICAgIHsNCiAgICAgImdlbmRlciI6IG51bGwsDQo
+    gICAgICJiaXJ0aGRhdGUiOiB7ImVzc2VudGlhbCI6IHRydWV9LA0KICAgICAiYWN
+    yIjogeyJ2YWx1ZXMiOiBbInVybjptYWNlOmluY29tbW9uOmlhcDpzaWx2ZXIiXX0
+    NCiAgICB9DQogIH0NCn0.nwwnNsk1-ZkbmnvsF6zTHm8CHERFMGQPhos-EJcaH4H
+    h-sMgk8ePrGhw_trPYs8KQxsn6R9Emo_wHwajyFKzuMXZFSZ3p6Mb8dkxtVyjoy2
+    GIzvuJT_u7PkY2t8QU9hjBcHs68PkgjDVTrG1uRTx0GxFbuPbj96tVuj11pTnmFC
+    UR6IEOXKYr7iGOCRB3btfJhM0_AKQUfqKnRlrRscc8Kol-cSLWoYE9l5QqholImz
+    jT_cMnNIznW9E7CDyWXTsO70xnB4SkG6pXfLSjLLlxmPGiyon_-Te111V8uE83Il
+    zCYIb_NMXvtTIVc1jpspnTSD7xMbpL-2QgwUsAlMGzw</code></p>
+
 <p>The following validations should be done when using the <code>request</code> parameter:</p>
 
 <ol>
@@ -1362,18 +1397,19 @@ private void handleIntent(Intent intent) {
 <p>You need to store the Request Object resource either locally or remotely at a URL the the Authorization Server can access. This URL is the Request URI, <code>request_uri</code>.</p>
 
 <p>Enclosed you will find a non-normative example of an Authorization Request using the <code>request_uri</code>parameter;</p>
-<pre class="highlight plaintext"><code>GET /oidc/authorization HTTP/1.1
+
+<p><code style=display:block;white-space:pre-wrap>GET /oidc/authorization HTTP/1.1
     response_type=code%20id_token
     &amp;client_id=s6BhdRkqt3
     &amp;request_uri=https%3A%2F%2Fclient.example.org%2Frequest.jwt
     %23GkurKxf5T0Y-mnPFCHqWOMiZi4VS138cQO_V7PZHAdM
     &amp;state=af0ifjsldkj&amp;nonce=n-0S6_WzA2Mj
-    &amp;scope=openid
-</code></pre>
+    &amp;scope=openid</code></p>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="http">HTTP</a>
+                <a href="#" data-language-name="http"></a>
           </div>
       </div>
     </div>
