@@ -241,7 +241,7 @@ Parameter | Description
 **exp** | The <code>exp</code> (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing.  The processing of the <code>exp</code> claim requires that the current date/time MUST be before the expiration date/time listed in the <code>exp</code> claim. Implementers MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew.  Its value MUST be a number containing a NumericDate value (e.g. 1538507868 for Tuesday, March 22, 2011 6:43:00 PM).
 
 <a name="TokenResponse"></a>
-## 3.6. Managing Token Response
+## 3.6. Managing ID Token Response
 
 ### Extracting a successful Token response
 
@@ -294,12 +294,7 @@ Values |	Returned |	Description
 **amr** | Never |
 **azp** | Never |
 
-However, before being able to store and use the returned claims from <code>id_token</code> and/or the <code>access_token</code>, you MUST validate these strings as follows:
-
-<ul>
-  <li>Follow the ID Token validation rules in the section 3.2. below</li>
-  <li>Follow the Access Token validation rules in Section 3.3. below</li>
-</ul>
+However, before being able to store and use the returned claims from <code>id_token</code> and/or the <code>access_token</code>, you MUST validate these strings by following the ID Token and Access Token validation rules described in the sections below.
 
 ### ID Token validation
 
@@ -307,7 +302,7 @@ You MUST validate the ID Token in the Token Response in the following manner:
 
 <ol>
   <li>As the ID Token is a Nested JWT object, you will have to decrypt and verify it using the keys and algorithms that the you specified when registering your project in the [itsme® B2B portal](#Onboarding). The process of decryption and signature validation is described in <a href="https://belgianmobileid.github.io/slate/jose#4-validating-a-nested-jwt-object" target="blank">section 4.</a> of the JOSE specifications.<br>If the ID Token is not encrypted, the you SHOULD reject it.</br></li>
-  <li>The Issuer Identifier for itsme® (which is obtained when registering your project in the [itsme® B2B portal](#Onboarding)) MUST exactly match the value of the <code>iss</code> claim.</li>
+  <li>The Issuer Identifier for itsme® (which is obtained when registering your project in the <a href="#Onboarding" target="blank">itsme® B2B portal</a>) MUST exactly match the value of the <code>iss</code> claim.</li>
   <li>You MUST validate that the <code>aud</code> claim contains your <code>client_id</code> value registered in the <a href="#Onboarding" target="blank">itsme® B2B portal</a>. The ID Token MUST be rejected if the ID Token does not list the <code>client_id</code> as a valid audience.</li>
   <li>The current time MUST be before the time represented by the <code>exp</code> claim.
 <ol>
@@ -319,9 +314,10 @@ If all the above verifications are successful, you can use the subject (<code>su
 To validate an Access Token issued from the Token Endpoint, you SHOULD do the following:
 
 <ol>
-  <li>Hash the octets of the ASCII representation of the <code>access_token</code> with the hash algorithm specified in the <code>alg</code> parameter of the ID Token's JWS Header. For instance, if the alg is RS256, the hash algorithm used is SHA-256.
-Take the left-most half of the hash and base64url encode it.
-The value of at_hash in the ID Token MUST match the value produced in the previous step.
+  <li>Hash the octets of the ASCII representation of the <code>access_token</code> with the hash algorithm specified in the <code>alg</code> parameter of the ID Token's JWS Header, namely <code>RS256</code> corresponding to the hash algorithm SHA-256.</li>
+  <li>Take the left-most half of the hash and base64url encode it.</li>
+  <li>The value of <code>at_hash</code> in the ID Token MUST match the value produced in the previous step.
+</ol>
 
 ### Handling token error response 
 
@@ -343,6 +339,8 @@ The response will contain an error parameter and optionally `error_description` 
 <a name="Data"></a>
 ## 3.7. Obtaining User attributes or claims
 
+### Creating the userInfo request 
+
 OpenID Connect Core specifications also allow your application to obtain basic profile information about a specific User in a interoperable way. This is achieved by sending a HTTPS GET request to the itsme® userInfo Endpoint, passing the Access Token value in the Authorization header using the Bearer authentication scheme. The itsme userInfo Endpoint URI can be retrieved from the [itsme® Discovery document](#OpenIDConfig), using the key `userinfo_endpoint`.
 
 ```http--inline
@@ -350,9 +348,9 @@ GET https://merchant.itsme.be/oidc/userinfo HTTP/1.1
 Authorization: Bearer <access token>
 ```
 
-The itsme® userInfo Endpoint will return a HTTP 200 OK response and the User claims in a Nested JWT format. However, before being able to store and use the claims, you will first need to decrypt the JWE object, then extract the signed JWT from its payload and verify the signature. This process is described in the section X of the JOSE document.
+### Managing the userInfo response 
 
-<aside class="notice">The `sub` claim will always be included in the response and this should be verified by you to mitigate against token substitution attacks. The `sub` claim in the userInfo response MUST be verified to exactly match the `sub` Claim in the <code>id_token</code>; if they do not match, the userInfo response values MUST NOT be used.</aside>
+The itsme® userInfo Endpoint will return a HTTP 200 OK response and the User claims in a Nested JWT format. 
 
 <aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
 
@@ -361,6 +359,18 @@ HTTP/1.1 401 Unauthorized
   WWW-Authenticate: error="invalid_token",
     error_description="The Access Token expired"
 ```
+
+Before being able to consume the claims from the userInfo response, you will first need to validate it by following the userInfo response validation rules described in the section below.
+
+### UserInfo response validation
+
+You MUST validate the userInfo reponse in the following manner:
+
+<ol>
+  <li>As the userInfo response is a Nested JWT object, you will have to decrypt and verify it using the keys and algorithms that the you specified when registering your project in the [itsme® B2B portal](#Onboarding). The process of decryption and signature validation is described in <a href="https://belgianmobileid.github.io/slate/jose#4-validating-a-nested-jwt-object" target="blank">section 4.</a> of the JOSE specifications.<br>If the userInfo response is not encrypted, the you SHOULD reject it.</br></li>
+  <li>The <code>sub</code> claim will always be included in the response and this should be verified by you to mitigate against token substitution attacks. The <code>sub</code> claim in the userInfo response MUST be verified to exactly match the <code>sub</code> claim in the <code>id_token</code>; if they do not match, the userInfo response values MUST NOT be used.</li>
+</ol>
+
 
 When an error condition occurs an error response as defined in the <a href="https://tools.ietf.org/html/rfc6750" target="blank">OAuth 2.0 Bearer Token Usage specification</a> will be returned.
 
