@@ -116,15 +116,6 @@ Host: server.itsme.be
       "tag:sixdots.be,2016-06:claim_gender":null,
       "tag:sixdots.be,2016-06:claim_birthplace":null,
       "tag:sixdots.be,2017-05:claim_device":null
-    },
-  "id_token":
-    {
-      "tag:sixdots.be,2016-06:claim_eid":null,
-      "auth_time":{"essential":true},
-      "acr_values":
-        {
-          "value":["tag:sixdots.be,2016-06:acr_advanced"]
-        }
     }
   }</code>
 
@@ -292,8 +283,8 @@ However, before being able to store and use the returned claims from <i>"id_toke
 You MUST validate the ID Token in the Token Response in the following manner:
 
 <ol>
-  <li>As the ID Token is a Nested JWT object, you will have to decrypt and verify it using the keys and algorithms that the you specified when registering your project in the [itsme® B2B portal](#Onboarding). The process of decryption and signature validation is described in <a href="https://belgianmobileid.github.io/slate/jose#4-validating-a-nested-jwt-object" target="blank">section 4.</a> of the JOSE specifications.<br>If the ID Token is not encrypted, the you SHOULD reject it.</br></li>
-  <li>The Issuer Identifier for itsme® (which is obtained when registering your project in the <a href="#Onboarding" target="blank">itsme® B2B portal</a>) MUST exactly match the value of the <i>"iss"</i> claim.</li>
+  <li>As the ID Token is a Nested JWT object, you will have to decrypt and verify it using the keys and algorithms that you specified when registering your project in the [itsme® B2B portal](#Onboarding). The process of decryption and signature validation is described in <a href="https://belgianmobileid.github.io/slate/jose#4-validating-a-nested-jwt-object" target="blank">section 4.</a> of the JOSE specifications.<br>If the ID Token is not encrypted, you SHOULD reject it.</br></li>
+  <li>The Issuer identifier for itsme® (which is obtained by using the key <i>"issuer"</i> in the <a href="#OpenIDConfig" target="blank">itsme® Discovery document</a>) MUST exactly match the value of the <i>"iss"</i> claim.</li>
   <li>You MUST validate that the <i>"aud"</i> claim contains your <i>"client_id"</i> value registered in the <a href="#Onboarding" target="blank">itsme® B2B portal</a>. The ID Token MUST be rejected if the ID Token does not list the <i>"client_id"</i> as a valid audience.</li>
   <li>The current time MUST be before the time represented by the <i>"exp"</i> claim.</li>
 </ol>
