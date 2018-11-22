@@ -291,8 +291,8 @@ You MUST validate the ID Token in the Token Response in the following manner:
 
 If all the above verifications are successful, you can use the subject (<i>"sub"</i>) of the ID Token as the unique identifier of the corresponding User.
 
- ### Access Token validation
-
+### Access Token validation
+ 
 To validate an Access Token issued from the Token Endpoint, you SHOULD do the following:
 
 <ol>
