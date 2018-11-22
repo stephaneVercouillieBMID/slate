@@ -209,10 +209,11 @@ The following is a non-normative example of a request to obtain an ID Token and 
 
 <code style=display:block;white-space:pre-wrap>POST /token HTTP/1.1
 Host: server.example.com
-Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
 Content-Type: application/x-www-form-urlencoded
-grant_type=authorization_code&code=SplxlOBeZQQYbYS6WxSbIA
-&redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb</code>
+grant_type=authorization_code&
+code=i1WsRn1uB1&
+client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
+client_assertion=PHNhbWxwOl ... ZT</code>
 
 According to the <i>"private_key_jwt"</i> client authentication method, the <i>"client_assertion"</i> JWT MUST contain the following parameters in the JWT Payload:
 
