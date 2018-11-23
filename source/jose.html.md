@@ -60,9 +60,18 @@ Parameter | Required | Description
 
 <ol>
   <li value="5">Combine the JWS Header and JWS Payload, and separate them with period ('.') characters, to produce the JWS Signing Input.</li>
-  <li>Complete the signing operation over the JWS Signing Input constructed in the previous step, following the signature algorithm defined by the JWS Header element <i>"alg"</i>. The JWS Signing Input is signed using your private key corresponding to the public key provided in your JWK Set URI (URI that you shared with itsme® when setting up your project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>). Performing the signature operation over the JWS Signing Input produces the JWS Signature.</li>
+  <li>Complete the signing operation over the JWS Signing Input constructed in the previous step, following the signature algorithm defined by the JWS Header element <i>"alg"</i>. The JWS Signing Input is signed using your private key corresponding to the public key referenced in your JWK Set (you shared its URI with itsme® when setting up your project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>). Performing the signature operation over the JWS Signing Input produces the JWS Signature.</li>
   <li>The JWS Signature will then be encoded using base64url to produce the string below.</li>
 </ol>
+
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+
+a resource for a set of JSON-encoded public keys, one of
+   which corresponds to the key used to digitally sign the JWS.  The
+   keys MUST be encoded as a JWK Set [JWK].
   
 <code style=display:block;white-space:pre-wrap>MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx996ivp83xuglII7PNDi84wnB-BDkoBwA78185hX-Es4JIwmDLJK3lfWRa-XtL0RnltuYv746iYTh_qHRD68BNt1uSNCrUCTJDt5aAE6x8wW1Kt9eRo4QPocSadnHXFxnt8Is9UzpERV0ePPQdLuW3IS_de3xyIrDaLGdjluPxUAhb6L2aXic1U12podGU0KLUQSE_oI-ZnmKJ3F4uOZDnd6QZWJushZ41Axf_fcIe8u9ipH84ogoree7vjbU5y18kDquDg</code>
 
