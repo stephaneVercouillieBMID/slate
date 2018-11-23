@@ -28,21 +28,15 @@ The JSON Object Signing and Encryption (JOSE) framework consists of several tech
 </ul>
 
 
-# 3. Generating a JWS object
+# 3. Signing
 
 A signed content can be serialized in two ways: the JWS compact serialization and the JWS JSON serialization. Because the OpenID Connect specification mandates to use JWS compact serialization whenever necessary, we will not explain the JWS JSON serialization signing process in this document.
 
 Following steps will show you how to generate a JWS Compact Serialization object:
 
 <ol>
-  <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JWS Header. Don't forget to advertise in the JWS Header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements:  <i>"jku"</i>, <i>"jwk"</i>, <i>"kid"</i>, <i>"x5u"</i>, <i>"x5c"</i>, <i>"x5t"</i> and <i>"x5t#s256"</i>.<br>An example can be found below.</br></li>
+  <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JWS Header. The header parameters are listed below:</li>
 </ol>
-
-<code style=display:block;white-space:pre-wrap>{
-  "alg": "RS256",
-  "crit": ["exp"],
-  "exp": 1363284000
-}</code>
 
 Parameter | Required | Description
 :-------- | :--------| :----- 
@@ -92,7 +86,7 @@ MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx
 An example illustrating the signing process is available at <a href="https://tools.ietf.org/html/rfc7520#section-4.1" target="blank">https://tools.ietf.org/html/rfc7520#section-4.1</a>.
 
 
-# 4. Producing a JWE object
+# 4. Encryption
 
 An encrypted content can be serialized in two ways: the JWE compact serialization and the JWE JSON serialization. Because the OpenID Connect specification mandates to use JWE compact serialization whenever necessary, we will not explain the JWE JSON serialization signing process in this document.
 
@@ -166,7 +160,7 @@ kvKuFBXHe5mQr4lqgobAUg</code>
 An example illustrating the signing process is available at <a href="https://tools.ietf.org/html/rfc7520#section-5.2" target="blank">https://tools.ietf.org/html/rfc7520#section-5.2</a>.
 
 
-# 4. Validating a Nested JWT object
+# 4. Decrypting
 
 To validate a Nested JWT object, you will first need to decrypt the JWE object, then extract the signed JWS Payload and verify the JWS Signature. 
 
