@@ -2,7 +2,7 @@
 title: itsme® OpenID Connect documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
- - http: HTTP
+ - http: 
 
 toc_footers:
  - <a href='#'>Sign Up for a Developer Key</a> -->
@@ -20,19 +20,19 @@ At this moment only the Hash Signing variant is available and documented. In thi
 <a name="Onboarding"></a>
 # 2. Prerequisites
  
-Before you can integrate your application with itsme® service, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.
+Before you can integrate your application with itsme® Sign service, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.
 
 
 # 3. Integrating Sign services
 The itsme® Sign flow goes through the steps shown in the sequence diagram below. 
 
- ![Sequence diagram describing the QES Hash Signing flow](QES_Hash_Signing_SeqDiag.png)
+![Sequence diagram describing the QES Hash Signing flow](QES_Hash_Signing_SeqDiag.png)
 
 <ol>
   <li>The User indicates on your end he wishes to sign a document with itsme®</li>
   <li>Your web desktop, mobile web or mobile SCA application sends a request to itsme® Integration Layer Back-End in order to create the User’s Identification session and obtain the User’s signing certificate to be include in the data to be signed.</li>
   <li>itsme® returns the session id and the redirect URL specific to the User to your SCA Back-End.</li>
-  <li>Your SCA Front-End redirects the User to the Integration Layer Front-End of itsme®, meaning that the User will be identified in the meanwhile (in case the <code>userCode</code> is transmitted by the SCA, this step can be skipped as the user will already be identified). If the User has no signature certificate yet, the certificate creation process will be initiated automatically.</li>
+  <li>Your SCA Front-End redirects the User to the Integration Layer Front-End of itsme®, meaning that the User will be identified in the meanwhile (in case the <i>"userCode"</i> is transmitted by the SCA, this step can be skipped as the user will already be identified). If the User has no signature certificate yet, the certificate creation process will be initiated automatically.</li>
   <li>Finally, when the User is authenticated and has a signature certificate, he is redirected to the your SCA Front-End. The redirection to your SCA Front-End should be (almost) transparent to the User (aka possible displaying of a spinner) as the laps of time between step 5 and step 11 of this diagram should be extremely short.</li>
   <li>Your SCA Back-End contacts the itsme® Integration Layer Back-End to get the signature certificate of the User.</li>
 </ol>
@@ -74,25 +74,23 @@ Environment | URL
 
 ## 3.2. Starting a new User identification session
 
-First, you will forg a HTTPS POST request that MUST be sent to the itsme® User Identification Endpoint. The itsme® User Identification Endpoint can be retrieved from the [itsme® JSON document](#OpenIDQES), using the key `user_identification`.
+First, you will forg a HTTPS POST request that MUST be sent to the itsme® User Identification Endpoint. The itsme® User Identification Endpoint can be retrieved from the [itsme® JSON document](#OpenIDQES), using the key <i>"user_identification"</i>.
 
 Below you will find a number of mandatory and recommended parameters to integrate in the HTTPS POST query string:
 
-```http--inline
-POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/user_identification HTTP/1.1
+<code style=display:block;white-space:pre-wrap>POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/user_identification HTTP/1.1
 {
 	"partnerCode":"myClientID", 
 	"serviceCode":"myServiceCode", 
 	"redirect_uri":"myServiceRedirectUri",
 	"lang":"FR"
-}
-```
+}</code>
 
 Parameter | Type | Required | Description
 :-------- | :-------- | :--------| :----- 
 **partnerCode** | String | Required | This MUST be the client identifier you received when registering your application in the [itsme® B2B portal](#Onboarding).
-**userCode** | String | Optional | An identifier for the User, unique among all itsme® accounts and never reused. Use <code>userCode</code> in the application as the unique-identifier key for the User.
-**serviceCode** | String | Required | This parameter allows the application to express the desired scope. It MUST contain the value `service:service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
+**userCode** | String | Optional | An identifier for the User, unique among all itsme® accounts and never reused. Use <i>"userCode"</i> in the application as the unique-identifier key for the User.
+**serviceCode** | String | Required | This parameter allows the application to express the desired scope. It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
 **lang** | String | Optional | This parameters defines the recommended language to be used for GUI interaction. If the parameter is not defined in the request, then the language that will be used is the one of the cookie. This defaults to the language used in the browser if there is no cookie. 
 **redirect_uri** | String | Required | This is the URI to which the User will be redirected to your remote SCA. This MUST exactly match the redirect URI of the specified service defined when registering your application in the [itsme® B2B portal](#Onboarding).
 
@@ -101,15 +99,14 @@ Parameter | Type | Required | Description
 
 ### Capturing a successful Identification Code
 
-If the User is successfully authenticated and authorizes access to the Identification Request, itsme® will return a response to your server component. This is achieved by returning an Identification Response to the `redirect_uri` specified previously in the Identification Request.
+If the User is successfully authenticated and authorizes access to the Identification Request, itsme® will return a response to your server component. This is achieved by returning an Identification Response to the <i>"redirect_uri"</i> specified previously in the Identification Request.
  
-```http--inline
-{
+<code style=display:block;white-space:pre-wrap>{
     "status": "OK",
     "asyncRespId": "4kpr55zdi2mk9ns27awgngkltoenfy04gi9b",
     "identificationUrl": "https://uatmerchant.itsme.be/qes/identify_yourself?language=FR&q=ss4liz8kjk1xxz8taj3nbxae7zqty6eq"
-}
- ```
+}</code>
+
 The response will contain:
 
 Values | Type | Returned | Description
@@ -130,19 +127,17 @@ By calling the Identification Session Status Endpoint, you are checking the stat
 
 Below you will find a number of mandatory and recommended parameters to integrate in the HTTPS POST query string:
 
-```http--inline
-POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/user_identification/status HTTP/1.1
+<code style=display:block;white-space:pre-wrap>POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/user_identification/status HTTP/1.1
 {
 	"partnerCode":"myPartnerCode", 
 	"serviceCode":"myServiceCode", 
 	"asyncRespID":"4kpr55zdi2mk9ns27awgngkltoenfy04gi9b"
-}
-```
+}</code>
 
 Parameter | Type | Required | Description
 :-------- | :-------- | :--------| :----- 
 **partnerCode** | String | Required | This MUST be the client identifier you received when registering your application in the [itsme® B2B portal](#Onboarding).
-**serviceCode** | String | Required | This parameter allows the application to express the desired scope. It MUST contain the value `service:service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
+**serviceCode** | String | Required | This parameter allows the application to express the desired scope. It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
 **asyncRespId** | String | Required | This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Identification Response.
 
 
@@ -152,18 +147,16 @@ If the Identification Session Status Request has been sucessfully validated we w
 
 The response body will include the following values:
 
-```http--inline
-{
+<code style=display:block;white-space:pre-wrap>{
     "status": "OK",
     "userCode": "9o8f04wm1g0bdc8gmgcuxp2ehgn7txh0x2kq",
     "certificate": "user-certificate"
-}
- ```
+}</code>
 
 Values | Type | Returned | Description
 :----- |:-------- |:-------- |:---
 **status** | String | Always | It is the status of User Identification Request.
-**userCode** | String | Optional | An identifier for the User, unique among all itsme® accounts and never reused. Use <code>userCode</code> in the application as the unique-identifier key for the User.
+**userCode** | String | Optional | An identifier for the User, unique among all itsme® accounts and never reused. Use <i>"userCode"</i> in the application as the unique-identifier key for the User.
 **certificate** | String | Always | 
 
 
@@ -173,8 +166,7 @@ This request has to be created in order to get the information about the Sign se
 
 Below you will find the minimal set of parameters required for processing the HTTPS POST query string:
 
-```http--inline
-POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/sign_document HTTP/1.1
+<code style=display:block;white-space:pre-wrap>POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/sign_document HTTP/1.1
 {
 	"inDocs": {
 		"docHash":[
@@ -195,8 +187,7 @@ POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/sign_document HTTP/1.1
     	"profile": [
     		"urn:be:itsme:dss:1.0",
     		"urn:oasis:names:tc:dss:1.0:profiles:asynchronousprocessing",
-    		
-    	],
+     	],
     "policy": [],
     "lang": "FR",
     "nonce": null,
@@ -253,8 +244,7 @@ POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/sign_document HTTP/1.1
       }
     }
   }
-}
-```
+}</code>
 
 Parameter | Type | Required | Description
 :-------- | :-------- | :--------| :----- 
@@ -265,13 +255,13 @@ Parameter | Type | Required | Description
 **alg** | String | Required | Only the SHA256 algorithm is supported. See <a href="http://www.w3.org/2001/04/xmlenc#sha256" target="blank">http://www.w3.org/2001/04/xmlenc#sha256</a> for more information.
 **value** | Array | Required | This is the hash to be signed during the signature flow. The value of the hash computed must be given in Base64.
 **reqID** | String | Required | This is the ID of the request that you transfer.
-**asyncRespId** | String | Optional | This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Identification Response. In case no <code>asyncRespID</code> is given in the request, a new session is created. 
+**asyncRespId** | String | Optional | This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Identification Response. In case no <i>"asyncRespID"</i> is given in the request, a new session is created. 
 **optInp** | String | Required | Those are additional information needed for the signature request.
 **lang** | String | Optional | This parameters defines the recommended language to be used for GUI interaction. If the parameter is not defined in the request, then the language that will be used is the one of the cookie. This defaults to the language used in the browser if there is no cookie. 
 **itsme** |  | Required | This parameter contains all the information related to itsme® context. 
 **signer** | DssISigner | Required | This is all the information that allows identification of the User in itsme®.
 **partnerCode** | String | Required | This MUST be the client identifier you received when registering your application in the [itsme® B2B portal](#Onboarding).
-**serviceCode** | String | Required | This parameter allows the application to express the desired scope. It MUST contain the value `service:service_code`, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
+**serviceCode** | String | Required | This parameter allows the application to express the desired scope. It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
 **redirect_uri** | String | Required | This is the URI to which the User will be redirected to your remote SCA. This MUST exactly match the redirect URI of the specified service defined when registering your application in the [itsme® B2B portal](#Onboarding).
 **signPolicy** | DssISignPolicy | Required | This is the object of the Signature policy to be used during the Signature. This parameter contains all the information related to the signature policy. 
 **signPolicyRef** | String | Optional | This defines the reference of the signature policy to be used during itsme® Signing flow. In case no specific signature policy is applicable for that specific use case, the itsme® generic qualified signature policy should be used. The signature policy has to be indicated in the SCA Front-End to the User. The list of available codes can be retrieved from the [JSON document](#OpenIDQES).
@@ -288,8 +278,7 @@ If the Sign Request has been sucessfully validated we will return an HTTP 200 OK
 
 The response body will include the following values:
 
-```http--inline
-{
+<code style=display:block;white-space:pre-wrap>{
     "result": {
         "maj": "urn:oasis:names:tc:dss:1.0:profiles:asynchronousprocessing:resultmajor:Pending"
     },
@@ -300,8 +289,7 @@ The response body will include the following values:
             "signingUrl": "https://uatmerchant.itsme.be/qes/prove_its_you_poka?q=34u5jh2dltb1xhsu0g4bshnlziycdhow&language=FR"
         }
     }
-}
-```
+}</code>
 
 Values | Type | Returned | Description
 :----- |:-------- |:-------- |:---
@@ -314,7 +302,7 @@ Values | Type | Returned | Description
 **optOutp** | String |  | Those are additional information needed for the signature request.
 **itsme** | String |  | This value contains all the information related to itsme® context.
 **signingUrl** | String |  | This signing URL is the link to redirect the User from the SCA frontend  to the itsme® Signing Page. 
-**userCode** | String |  | An identifier for the User, unique among all itsme® accounts and never reused. Use <code>userCode</code> in the application as the unique-identifier key for the User.
+**userCode** | String |  | An identifier for the User, unique among all itsme® accounts and never reused. Use <i>"userCode"</i> in the application as the unique-identifier key for the User.
 **sigObj** | Array |  | This is the signature object. Currently this is the hash to be signed.
 
 ### Handling Error Response
@@ -334,7 +322,7 @@ Status code | Description
 **409** | Returned in case the User identification flow has been interrupted.
 **500** | Internal Server Error.
 
-The Error Response will contain the `status` and the `statusReason` value. The following table describes the various error types that can be returned in the `statusReason` value of the error response:
+The Error Response will contain the <i>"status"</i> and the `statusReason` value. The following table describes the various error types that can be returned in the `statusReason` value of the error response:
 
 Status code | Error |  Description
 :-------- | :-------- | :--------
