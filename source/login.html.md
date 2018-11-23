@@ -397,7 +397,6 @@ Parameter | Description
 **tag:sixdots.be,2016-06:claim_nationality** | It will request the <i>"nationality"</i> claim.
 **tag:sixdots.be,2016-06:claim_city_of_birth** | It will request the <i>"place of Birth - city"</i> claim.
 **tag:sixdots.be,2016-06:claim_eid**  | It will request the <i>"eid"</i>, <i>"issuance_locality"</i>, <i>"validity_from"</i>, <i>"validity_to"</i>, <i>"certificate_validity"</i> and <i>"read_date"</i> claims
-**tag:sixdots.be,2017-05:claim_passport_sn** | It will request the <i>"passport Number"</i> claim.
 **tag:sixdots.be,2017-05:claim_device** | It will request the <i>"os"</i>, <i>"appName"</i>, <i>"appRelease"</i>, <i>"deviceLabel"</i>, <i>"debugEnabled"</i>, <i>"deviceID"</i>, <i>"osRelease"</i>, <i>"manufacturer"</i>, <i>"hasSimEnabled"</i>, <i>"deviceLockLevel"</i>, <i>"smsEnabled"</i>, <i>"rooted"</i>, <i>"imei"</i>, <i>"deviceModel"</i>, <i>"msisdn"</i> and <i>"sdkRelease"</i> claims.
 **tag:sixdots.be,2017-05:claim_transaction_info** | It will request the <i>"securityLevel"</i>, <i>"bindLevel"</i> and <i>"mcc"</i> claims.
 **tag:sixdots.be,2017-05:2017-05:claim_photo** | It will request the <i>"e-ID Picture"</i> claim.
@@ -416,7 +415,6 @@ Values | Description
 **validity_to**  | The eID card validity “to” date.
 **certificate_validity**  | The eID card certificate validity.
 **read_date**  | The data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000).
-**passport Number** | Simple string containing the User’s Passport Serial Number. 
 **os** | The device operating system. The returned values will be <i>"ANDROID"</i> or <i>"iOS"</i>
 **appName**  | The application name.
 **appRelease**  | The application current release.
