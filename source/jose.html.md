@@ -12,7 +12,7 @@ search: true
 ---
 # 1. Introduction
 
-The concepts of JWT, JWS and JWE are part of the JSON Object Signing and Encryption (JOSE) framework that intends to provide a method to securely transfer claims between parties.
+The concepts of JWT, JWS, JWE and JWK are part of the JSON Object Signing and Encryption (JOSE) framework that intends to provide a method to securely transfer claims between parties.
 
 All these technologies can be used collectively to encrypt and/or sign content using a variety of algorithms. While the full set of permutations is extremely large, and might be daunting to some, it is expected that most applications will only use a small set of algorithms to meet their needs.
 
@@ -25,7 +25,7 @@ The JSON Object Signing and Encryption (JOSE) framework consists of several tech
   <li>JSON Web Token (<a href=" https://tools.ietf.org/html/rfc7519" target="blank">JWT</a>) is a compact, URL-safe means of representing claims to be transferred between two parties. The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure, as the plaintext of a JSON Web Encryption (JWE) structure or enclosed in another JWE or JWS structure to create a Nested JWT, enabling nested signing and encryption to be performed. In fact a JWT does not exist itself — either it has to be a JWS and/or a JWE. It’s like an abstract class — the JWS and JWE are the concrete implementations.</li>
   <li>JSON Web Signature (<a href=" https://tools.ietf.org/html/rfc7515" target="blank">JWS</a>) represents signed content using JSON data structures and base64url encoding as defined in the specifications.</li>
   <li>JSON Web Encryption (<a href=" https://tools.ietf.org/html/rfc7516" target="blank">JWE</a>) specification standardizes the way to represent an encrypted content in a JSON-based data structure.</li>
-  <li>JSON Web Key (JWK) defines a consistent way to represent a cryptographic key in a JSON structure which is used to sign (JWS) and/or encrypt (JWE) a specific content. The JSON Web Key Set (JWKS) extension defines a consistent way to represent a set of cryptographic keys in a JSON structure.<br></br>As itsme® only support the RSA cryptosystem, it requires that each party exposes its public keys as a simple JWK Set document on a URI accessible to all.
+  <li>JSON Web Key (JWK) defines a consistent way to represent a cryptographic key in a JSON structure which is used to sign (JWS) and/or encrypt (JWE) a specific content. The JSON Web Key Set (JWKS) extension defines a consistent way to represent a set of cryptographic keys in a JSON structure.<br>As itsme® only support the RSA cryptosystem, it requires that each party exposes its public keys as a simple JWK Set document on a URI accessible to all.</br>
     <ul>
       <li>For itsme®, this URI can be retrieved from the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using the <i>"jwks_uri"</i> parameter.</li>
       <li>Your JWK Set document MUST be accessible via the URI communicated when setting up your project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>.</li>
@@ -158,10 +158,10 @@ The decryption process is the reverse of the encryption process:
   <li>Parse the JWE object to extract the serialized values of the base64url-encoded JWE Header, the base64url-encoded JWE Encrypted Key, the base64url-encoded JWE  Initialization Vector, the base64url-encoded JWE Ciphertext, and the base64url-encoded JWE Authentication Tag.</li>
   <li>Base64url decode the encoded representations of the JWE Header, the JWE Encrypted Key, the JWE Initialization  Vector, the JWE Ciphertext, the JWE Authentication Tag, and the JWE Additional Authenticated Data (AAD).</li>
   <li>Verify that the octet sequence resulting from decoding the encoded JWE Header is a UTF-8-encoded representation of a completely valid JSON object.</li>
-  <li>Determine the algorithm specified by the <i>"alg"</i> parameter.</li>
+  <li>Determine the algorithm specified by the <i>"alg"</i> parameter in the JWE Header.</li>
   <li>Decrypt the JWE Encrypted Key with the algorithm defined in the <i>"alg"</i> parameter, to produce the Content Encryption Key (CEK).</li>
   <li>Let the Additional Authenticated Data (AAD) encryption parameter be the octets of the ASCII representation of the encoded JWE Header value.</li>
-  <li>Decrypt the JWE Ciphertext with the encryption algorithm defined by the <i>"enc"</i> parameter. It will return the decrypted JWS object.</li>
+  <li>Decrypt the JWE Ciphertext with the encryption algorithm defined by the <i>"enc"</i> parameter in the JWE Header. It will return the decrypted JWS object.</li>
 </ol>
 
 **Extracting the payload**
