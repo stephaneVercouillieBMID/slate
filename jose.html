@@ -225,13 +225,13 @@
             <a href="#2-definitions" class="toc-h1 toc-link" data-title="2-definitions">2. Definitions</a>
           </li>
           <li>
-            <a href="#3-generating-a-jws-object" class="toc-h1 toc-link" data-title="3-generating-a-jws-object">3. Generating a JWS object</a>
+            <a href="#3-signing" class="toc-h1 toc-link" data-title="3-signing">3. Signing</a>
           </li>
           <li>
-            <a href="#4-producing-a-jwe-object" class="toc-h1 toc-link" data-title="4-producing-a-jwe-object">4. Producing a JWE object</a>
+            <a href="#4-encryption" class="toc-h1 toc-link" data-title="4-encryption">4. Encryption</a>
           </li>
           <li>
-            <a href="#4-validating-a-nested-jwt-object" class="toc-h1 toc-link" data-title="4-validating-a-nested-jwt-object">4. Validating a Nested JWT object</a>
+            <a href="#4-decrypting" class="toc-h1 toc-link" data-title="4-decrypting">4. Decrypting</a>
           </li>
       </div>
         <ul class="toc-footer">
@@ -253,21 +253,20 @@
   <li>JSON Web Token (<a href=" https://tools.ietf.org/html/rfc7519" target="blank">JWT</a>) is a compact, URL-safe means of representing claims to be transferred between two parties. The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure, as the plaintext of a JSON Web Encryption (JWE) structure or enclosed in another JWE or JWS structure to create a Nested JWT, enabling nested signing and encryption to be performed. In fact a JWT does not exist itself — either it has to be a JWS and/or a JWE. It’s like an abstract class — the JWS and JWE are the concrete implementations.</li>
   <li>JSON Web Signature (<a href=" https://tools.ietf.org/html/rfc7515" target="blank">JWS</a>) represents signed content using JSON data structures and base64url encoding as defined in the specifications.</li>
   <li>JSON Web Encryption (<a href=" https://tools.ietf.org/html/rfc7516" target="blank">JWE</a>) specification standardizes the way to represent an encrypted content in a JSON-based data structure.</li>
+  <li>JSON Web Key (JWK) defines a consistent way to represent a cryptographic key in a JSON structure which is used to sign (JWS) and/or encrypt (JWE) a specific content. The JSON Web Key Set (JWKS) extension defines a consistent way to represent a set of cryptographic keys in a JSON structure.<br></br>As itsme® only support the RSA cryptosystem, it requires that each party exposes its public keys as a simple JWK Set document on a URI accessible to all.
+    <ul>
+      <li>For itsme®, this URI can be retrieved from the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using the <i>"jwks_uri"</i> parameter.</li>
+      <li>Your JWK Set document MUST be accessible via the URI communicated when setting up your project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>.</li>
+    </ul></li>
 </ul>
-<h1 id='3-generating-a-jws-object'>3. Generating a JWS object</h1>
+<h1 id='3-signing'>3. Signing</h1>
 <p>A signed content can be serialized in two ways: the JWS compact serialization and the JWS JSON serialization. Because the OpenID Connect specification mandates to use JWS compact serialization whenever necessary, we will not explain the JWS JSON serialization signing process in this document.</p>
 
 <p>Following steps will show you how to generate a JWS Compact Serialization object:</p>
 
 <ol>
-  <li>Build a JSON object including all the header elements, which express the cryptographic properties of the JWS object — this is known as the JWS Header. Don't forget to advertise in the JWS Header, the public key corresponding to the key used to sign the message. This can be expressed via any of these header elements:  <i>"jku"</i>, <i>"jwk"</i>, <i>"kid"</i>, <i>"x5u"</i>, <i>"x5c"</i>, <i>"x5t"</i> and <i>"x5t#s256"</i>.<br>An example can be found below.</br></li>
+  <li>Build a JSON object including the below header elements, which express the cryptographic properties of the JWS object — this is known as the JWS Header.</li>
 </ol>
-
-<p><code style=display:block;white-space:pre-wrap>{
-  &quot;alg&quot;: &quot;RS256&quot;,
-  &quot;crit&quot;: [&quot;exp&quot;],
-  &quot;exp&quot;: 1363284000
-}</code></p>
 
 <table><thead>
 <tr>
@@ -279,57 +278,12 @@
 <tr>
 <td style="text-align: left"><strong>alg</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This parameter identifies the cryptographic algorithm used to secure the JWS. The <i>&quot;alg&quot;</i> value for this use can be found in the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using one of these keys: <i>&quot;request_object_signing_alg_values_supported&quot;</i>, <i>&quot;id_token_signing_alg_values_supported&quot;</i>, <i>&quot;token_endpoint_auth_signing_alg_values_supported&quot;</i> or <i>&quot;userinfo_signing_alg_values_supported&quot;</i>.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>jku</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left">This is a URI that refers to a resource for a set of JSON-encoded public keys, one of which corresponds to the key used to digitally sign the JWS.  The keys MUST be encoded as a JWK Set (JWK).</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>jwk</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left">This is the public key that corresponds to the key used to digitally sign the JWS.  This key is represented as a JSON Web Key (JWK).</td>
+<td style="text-align: left">This parameter identifies the cryptographic algorithm used to secure the JWS. This MUST be set to <i>&quot;RS256&quot;</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>kid</strong></td>
 <td style="text-align: left">Optionnal</td>
-<td style="text-align: left">It is a hint indicating which key was used to secure the JWS.  This parameter allows you to explicitly signal a change of key to recipients.  The structure of the <i>&quot;kid&quot;</i> value is unspecified.  Its value MUST be a case-sensitive string.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>x5u</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left">It is a URI that refers to a resource for the X.509 public key certificate or certificate chain corresponding to the key used to digitally sign the JWS.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>x5c</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left">This parameter contains the X.509 public key certificate or certificate chain corresponding to the key used to digitally sign the JWS.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>x5t</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left">It is a base64url-encoded SHA-1 thumbprint (a.k.a. digest) of the DER encoding of the X.509 certificate corresponding to the key used to digitally sign the JWS.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>x5t#S256</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left">It is a base64url-encoded SHA-256 thumbprint (a.k.a. digest) of the DER encoding of the X.509 certificate corresponding to the key used to digitally sign the JWS.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>typ</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left">It is used by JWS applications to declare the media type of this complete JWS.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>cty</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left">It is used by JWS applications to declare the media type of the payload.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>crit</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left">It indicates that extensions to this specification and/or JWA are being used that MUST be  understood and processed.</td>
+<td style="text-align: left">It is a hint indicating which key was used to secure the JWS. The structure of the <i>&quot;kid&quot;</i> value is unspecified. In case there are multiple signing keys referenced in your JWK Set document than it MUST be a case-sensitive string.</td>
 </tr>
 </tbody></table>
 
@@ -348,10 +302,9 @@
 
 <ol>
   <li value="5">Combine the JWS Header and JWS Payload, and separate them with period ('.') characters, to produce the JWS Signing Input.</li>
-  <li>Complete the signing operation over the JWS Signing Input constructed in the previous step, following the signature algorithm defined by the JWS Header element <i>"alg"</i>. The JWS Signing Input is signed using the private key corresponding to the public key advertised in the JOSE Header. Performing the signature operation over the JWS Signing Input produces the JWS Signature.</li>
+  <li>Complete the signing operation over the JWS Signing Input constructed in the previous step, following the signature algorithm defined by the JWS Header element <i>"alg"</i>. The JWS Signing Input is signed using your private key corresponding to the public key referenced in your JWK Set document. This information SHOULD be made available via the URI you communicated when setting up your project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>. Performing the signature operation over the JWS Signing Input produces the JWS Signature.</li>
   <li>The JWS Signature will then be encoded using base64url to produce the string below.</li>
 </ol>
-  
 
 <p><code style=display:block;white-space:pre-wrap>MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx996ivp83xuglII7PNDi84wnB-BDkoBwA78185hX-Es4JIwmDLJK3lfWRa-XtL0RnltuYv746iYTh_qHRD68BNt1uSNCrUCTJDt5aAE6x8wW1Kt9eRo4QPocSadnHXFxnt8Is9UzpERV0ePPQdLuW3IS_de3xyIrDaLGdjluPxUAhb6L2aXic1U12podGU0KLUQSE_oI-ZnmKJ3F4uOZDnd6QZWJushZ41Axf_fcIe8u9ipH84ogoree7vjbU5y18kDquDg</code></p>
 
@@ -366,7 +319,7 @@ SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91
 MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx996ivp83xuglII7PNDi84wnB-BDkoBwA78185hX-Es4JIwmDLJK3lfWRa-XtL0RnltuYv746iYTh_qHRD68BNt1uSNCrUCTJDt5aAE6x8wW1Kt9eRo4QPocSadnHXFxnt8Is9UzpERV0ePPQdLuW3IS_de3xyIrDaLGdjluPxUAhb6L2aXic1U12podGU0KLUQSE_oI-ZnmKJ3F4uOZDnd6QZWJushZ41Axf_fcIe8u9ipH84ogoree7vjbU5y18kDquDg</code></p>
 
 <p>An example illustrating the signing process is available at <a href="https://tools.ietf.org/html/rfc7520#section-4.1" target="blank">https://tools.ietf.org/html/rfc7520#section-4.1</a>.</p>
-<h1 id='4-producing-a-jwe-object'>4. Producing a JWE object</h1>
+<h1 id='4-encryption'>4. Encryption</h1>
 <p>An encrypted content can be serialized in two ways: the JWE compact serialization and the JWE JSON serialization. Because the OpenID Connect specification mandates to use JWE compact serialization whenever necessary, we will not explain the JWE JSON serialization signing process in this document.</p>
 
 <p>With the JWE compact serialization, a JWE object is built with five key components, each separated by a period (.): JWE Header, JWE Encrypted Key, JWE Initialization Vector, JWE Additional Authentication Data (AAD), JWE Ciphertext and JWE Authentication Tag. The following steps will show you how to generate a JWE Compact Serialization object:</p>
@@ -391,67 +344,17 @@ MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx
 <tr>
 <td style="text-align: left"><strong>alg</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This parameter has the same meaning, syntax, and processing rules as the <i>&quot;alg&quot;</i> defined in the JWS section, except that it defines the cryptographic algorithm used to encrypt the CEK. The <i>&quot;alg&quot;</i> value for this use can be found in the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using one of these keys: <i>&quot;request_object_encryption_alg_values_supported&quot;</i>, <i>&quot;id_token_encryption_alg_values_supported&quot;</i>, or <i>&quot;userinfo_encryption_alg_values_supported&quot;</i>.</td>
+<td style="text-align: left">This parameter has the same meaning, syntax, and processing rules as the <i>&quot;alg&quot;</i> defined in the JWS section, except that it defines the cryptographic algorithm used to encrypt the CEK. This MUST be set to <i>&quot;RSA-OAEP&quot;</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>enc</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">It identifies the content encryption algorithm used to perform authenticated encryption on the plaintext to produce the ciphertext and the Authentication Tag. The <i>&quot;enc&quot;</i> value can be retrieved from the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using one of these keys: <i>&quot;request_object_encryption_enc_values_supported&quot;</i>, <i>&quot;id_token_encryption_enc_values_supported&quot;</i>, or <i>&quot;userinfo_encryption_enc_values_supported&quot;</code>.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>zip</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>jku</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left">This parameter has the same meaning, syntax, and processing rules as the <i>&quot;jku&quot;</i> parameter defined in the JWS section, except that the JWK Set resource contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>jwk</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left">This parameter has the same meaning, syntax, and processing rules as the <i>&quot;jwk&quot;</i> parameter defined in the JWS section, except that the key is the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.</td>
+<td style="text-align: left">It identifies the content encryption algorithm used to perform authenticated encryption on the plaintext to produce the Ciphertext and the Authentication Tag. The <i>&quot;enc&quot;</i> value MUST be set to <i>&quot;A128CBC-HS256&quot;</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>kid</strong></td>
 <td style="text-align: left">Optionnal</td>
 <td style="text-align: left">This parameter has the same meaning, syntax, and processing rules as the <i>&quot;kid&quot;</i> parameter defined in the JWS section, except that the key hint references the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>x5u</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left">This parameter has the same meaning, syntax, and processing rules as the <i>&quot;x5u&quot;</i> parameter defined in the JWS section, except that the X.509 public key certificate or certificate chain contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>x5c</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left">This parameter has the same meaning, syntax, and processing rules as the <i>&quot;x5c&quot;</i> parameter defined in the JWS section, except that the X.509 public key certificate or certificate chain contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>x5t</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left">This parameter has the same meaning, syntax, and processing rules as the <i>&quot;x5t&quot;</i> parameter defined in the JWS section, except that the certificate referenced by the thumbprint contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>x5t#S256</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left">This parameter has the same meaning, syntax, and processing rules as the <i>&quot;x5t#S256&quot;</i> parameter defined in the JWS section, except that the certificate referenced by the thumbprint contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>typ</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left">It is used by JWS applications to declare the media type of this complete JWE.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>cty</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left">It is used by JWS applications to declare the media type of the secured content (the plaintext).</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>crit</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left">This parameter has the same meaning, syntax, and processing rules as the </code>crit</code> parameter defined in the JWS section, except that parameters for a JWE are being referred to, rather than parameters for a JWS.</td>
 </tr>
 </tbody></table>
 
@@ -495,7 +398,7 @@ bbd5sTkYwhAIqfHsx8DayA
 kvKuFBXHe5mQr4lqgobAUg</code></p>
 
 <p>An example illustrating the signing process is available at <a href="https://tools.ietf.org/html/rfc7520#section-5.2" target="blank">https://tools.ietf.org/html/rfc7520#section-5.2</a>.</p>
-<h1 id='4-validating-a-nested-jwt-object'>4. Validating a Nested JWT object</h1>
+<h1 id='4-decrypting'>4. Decrypting</h1>
 <p>To validate a Nested JWT object, you will first need to decrypt the JWE object, then extract the signed JWS Payload and verify the JWS Signature. </p>
 
 <p><strong>Decrypting the JWE object</strong></p>

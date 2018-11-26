@@ -211,7 +211,7 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="http">HTTP</a>
+              <a href="#" data-language-name="http"></a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -276,7 +276,7 @@
 
 <p><a name="Onboarding"></a></p>
 <h1 id='2-prerequisites'>2. Prerequisites</h1>
-<p>Before you can integrate your application with itsme® service, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.</p>
+<p>Before you can integrate your application with itsme® Sign service, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.</p>
 <h1 id='3-integrating-sign-services'>3. Integrating Sign services</h1>
 <p>The itsme® Sign flow goes through the steps shown in the sequence diagram below. </p>
 
@@ -286,7 +286,7 @@
   <li>The User indicates on your end he wishes to sign a document with itsme®</li>
   <li>Your web desktop, mobile web or mobile SCA application sends a request to itsme® Integration Layer Back-End in order to create the User’s Identification session and obtain the User’s signing certificate to be include in the data to be signed.</li>
   <li>itsme® returns the session id and the redirect URL specific to the User to your SCA Back-End.</li>
-  <li>Your SCA Front-End redirects the User to the Integration Layer Front-End of itsme®, meaning that the User will be identified in the meanwhile (in case the <code>userCode</code> is transmitted by the SCA, this step can be skipped as the user will already be identified). If the User has no signature certificate yet, the certificate creation process will be initiated automatically.</li>
+  <li>Your SCA Front-End redirects the User to the Integration Layer Front-End of itsme®, meaning that the User will be identified in the meanwhile (in case the <i>"userCode"</i> is transmitted by the SCA, this step can be skipped as the user will already be identified). If the User has no signature certificate yet, the certificate creation process will be initiated automatically.</li>
   <li>Finally, when the User is authenticated and has a signature certificate, he is redirected to the your SCA Front-End. The redirection to your SCA Front-End should be (almost) transparent to the User (aka possible displaying of a spinner) as the laps of time between step 5 and step 11 of this diagram should be extremely short.</li>
   <li>Your SCA Back-End contacts the itsme® Integration Layer Back-End to get the signature certificate of the User.</li>
 </ol>
@@ -334,17 +334,18 @@
 </tr>
 </tbody></table>
 <h2 id='3-2-starting-a-new-user-identification-session'>3.2. Starting a new User identification session</h2>
-<p>First, you will forg a HTTPS POST request that MUST be sent to the itsme® User Identification Endpoint. The itsme® User Identification Endpoint can be retrieved from the <a href="#OpenIDQES">itsme® JSON document</a>, using the key <code>user_identification</code>.</p>
+<p>First, you will forg a HTTPS POST request that MUST be sent to the itsme® User Identification Endpoint. The itsme® User Identification Endpoint can be retrieved from the <a href="#OpenIDQES">itsme® JSON document</a>, using the key <i>&quot;user_identification&quot;</i>.</p>
 
 <p>Below you will find a number of mandatory and recommended parameters to integrate in the HTTPS POST query string:</p>
-<pre class="highlight http tab-http--inline"><code><span class="nf">POST</span> <span class="nn">/https://uatb2b.sixdots.be/qes-partners/1.0.0/user_identification</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="s">{</span>
-<span class="s">    "partnerCode":"myClientID", </span>
-<span class="s">    "serviceCode":"myServiceCode", </span>
-<span class="s">    "redirect_uri":"myServiceRedirectUri",</span>
-<span class="s">    "lang":"FR"</span>
-<span class="s">}</span>
-</code></pre>
+
+<p><code style=display:block;white-space:pre-wrap>POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/user_identification HTTP/1.1
+{
+    &quot;partnerCode&quot;:&quot;myClientID&quot;, 
+    &quot;serviceCode&quot;:&quot;myServiceCode&quot;, 
+    &quot;redirect_uri&quot;:&quot;myServiceRedirectUri&quot;,
+    &quot;lang&quot;:&quot;FR&quot;
+}</code></p>
+
 <table><thead>
 <tr>
 <th style="text-align: left">Parameter</th>
@@ -363,13 +364,13 @@
 <td style="text-align: left"><strong>userCode</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">An identifier for the User, unique among all itsme® accounts and never reused. Use <code>userCode</code> in the application as the unique-identifier key for the User.</td>
+<td style="text-align: left">An identifier for the User, unique among all itsme® accounts and never reused. Use <i>&quot;userCode&quot;</i> in the application as the unique-identifier key for the User.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>serviceCode</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This parameter allows the application to express the desired scope. It MUST contain the value <code>service:service_code</code>, the itsme® service you want to use as defined for your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+<td style="text-align: left">This parameter allows the application to express the desired scope. It MUST contain the value <i>&quot;service:service_code&quot;</i>, the itsme® service you want to use as defined for your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>lang</strong></td>
@@ -385,13 +386,14 @@
 </tr>
 </tbody></table>
 <h2 id='3-3-capturing-the-identification-response'>3.3. Capturing the Identification Response</h2><h3 id='capturing-a-successful-identification-code'>Capturing a successful Identification Code</h3>
-<p>If the User is successfully authenticated and authorizes access to the Identification Request, itsme® will return a response to your server component. This is achieved by returning an Identification Response to the <code>redirect_uri</code> specified previously in the Identification Request.</p>
-<pre class="highlight http tab-http--inline"><code><span class="err">{
-    "status": "OK",
-    "asyncRespId": "4kpr55zdi2mk9ns27awgngkltoenfy04gi9b",
-    "identificationUrl": "https://uatmerchant.itsme.be/qes/identify_yourself?language=FR&amp;q=ss4liz8kjk1xxz8taj3nbxae7zqty6eq"
-}
-</span></code></pre>
+<p>If the User is successfully authenticated and authorizes access to the Identification Request, itsme® will return a response to your server component. This is achieved by returning an Identification Response to the <i>&quot;redirect_uri&quot;</i> specified previously in the Identification Request.</p>
+
+<p><code style=display:block;white-space:pre-wrap>{
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;asyncRespId&quot;: &quot;4kpr55zdi2mk9ns27awgngkltoenfy04gi9b&quot;,
+    &quot;identificationUrl&quot;: &quot;https://uatmerchant.itsme.be/qes/identify_yourself?language=FR&amp;q=ss4liz8kjk1xxz8taj3nbxae7zqty6eq&quot;
+}</code></p>
+
 <p>The response will contain:</p>
 
 <table><thead>
@@ -433,13 +435,14 @@
 <p>By calling the Identification Session Status Endpoint, you are checking the status of the User identification session. </p>
 
 <p>Below you will find a number of mandatory and recommended parameters to integrate in the HTTPS POST query string:</p>
-<pre class="highlight http tab-http--inline"><code><span class="nf">POST</span> <span class="nn">/https://uatb2b.sixdots.be/qes-partners/1.0.0/user_identification/status</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="s">{</span>
-<span class="s">    "partnerCode":"myPartnerCode", </span>
-<span class="s">    "serviceCode":"myServiceCode", </span>
-<span class="s">    "asyncRespID":"4kpr55zdi2mk9ns27awgngkltoenfy04gi9b"</span>
-<span class="s">}</span>
-</code></pre>
+
+<p><code style=display:block;white-space:pre-wrap>POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/user_identification/status HTTP/1.1
+{
+    &quot;partnerCode&quot;:&quot;myPartnerCode&quot;, 
+    &quot;serviceCode&quot;:&quot;myServiceCode&quot;, 
+    &quot;asyncRespID&quot;:&quot;4kpr55zdi2mk9ns27awgngkltoenfy04gi9b&quot;
+}</code></p>
+
 <table><thead>
 <tr>
 <th style="text-align: left">Parameter</th>
@@ -458,7 +461,7 @@
 <td style="text-align: left"><strong>serviceCode</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This parameter allows the application to express the desired scope. It MUST contain the value <code>service:service_code</code>, the itsme® service you want to use as defined for your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+<td style="text-align: left">This parameter allows the application to express the desired scope. It MUST contain the value <i>&quot;service:service_code&quot;</i>, the itsme® service you want to use as defined for your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>asyncRespId</strong></td>
@@ -471,12 +474,13 @@
 <p>If the Identification Session Status Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside. In other words, you will get the confirmation that the User can perform a Sign transaction with itsme® and retrieve the User certificate reference value.</p>
 
 <p>The response body will include the following values:</p>
-<pre class="highlight http tab-http--inline"><code><span class="err">{
-    "status": "OK",
-    "userCode": "9o8f04wm1g0bdc8gmgcuxp2ehgn7txh0x2kq",
-    "certificate": "user-certificate"
-}
-</span></code></pre>
+
+<p><code style=display:block;white-space:pre-wrap>{
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;userCode&quot;: &quot;9o8f04wm1g0bdc8gmgcuxp2ehgn7txh0x2kq&quot;,
+    &quot;certificate&quot;: &quot;user-certificate&quot;
+}</code></p>
+
 <table><thead>
 <tr>
 <th style="text-align: left">Values</th>
@@ -495,7 +499,7 @@
 <td style="text-align: left"><strong>userCode</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">An identifier for the User, unique among all itsme® accounts and never reused. Use <code>userCode</code> in the application as the unique-identifier key for the User.</td>
+<td style="text-align: left">An identifier for the User, unique among all itsme® accounts and never reused. Use <i>&quot;userCode&quot;</i> in the application as the unique-identifier key for the User.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>certificate</strong></td>
@@ -508,87 +512,87 @@
 <p>This request has to be created in order to get the information about the Sign session. </p>
 
 <p>Below you will find the minimal set of parameters required for processing the HTTPS POST query string:</p>
-<pre class="highlight http tab-http--inline"><code><span class="nf">POST</span> <span class="nn">/https://uatb2b.sixdots.be/qes-partners/1.0.0/sign_document</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="s">{</span>
-<span class="s">    "inDocs": {</span>
-<span class="s">        "docHash":[</span>
-<span class="s">            {</span>
-<span class="s">                "di":[</span>
-<span class="s">                    {</span>
-<span class="s">                        "alg":"http://www.w3.org/2001/04/xmlenc#sha256",</span>
-<span class="s">                        "value":"f4OxZX/x/FO5LcGBSKHWXfwtSx+j1ncoSt3SABJtkGk="</span>
-<span class="s">                    }</span>
-<span class="s">                ],</span>
-<span class="s">                "id":"ContractCar20180914u89236456.pdf"</span>
-<span class="s">            }</span>
-<span class="s">        ]</span>
-<span class="s">    },</span>
-<span class="s">    "reqID": "ReqID4va0acsef3mv5ft1dp71",</span>
-<span class="s">    "asyncRespID": null,</span>
-<span class="s">    "optInp": {</span>
-<span class="s">        "profile": [</span>
-<span class="s">            "urn:be:itsme:dss:1.0",</span>
-<span class="s">            "urn:oasis:names:tc:dss:1.0:profiles:asynchronousprocessing",</span>
 
+<p><code style=display:block;white-space:pre-wrap>POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/sign_document HTTP/1.1
+{
+    &quot;inDocs&quot;: {
+        &quot;docHash&quot;:[
+            {
+                &quot;di&quot;:[
+                    {
+                        &quot;alg&quot;:&quot;http://www.w3.org/2001/04/xmlenc#sha256&quot;,
+                        &quot;value&quot;:&quot;f4OxZX/x/FO5LcGBSKHWXfwtSx+j1ncoSt3SABJtkGk=&quot;
+                    }
+                ],
+                &quot;id&quot;:&quot;ContractCar20180914u89236456.pdf&quot;
+            }
+        ]
+    },
+    &quot;reqID&quot;: &quot;ReqID4va0acsef3mv5ft1dp71&quot;,
+    &quot;asyncRespID&quot;: null,
+    &quot;optInp&quot;: {
+        &quot;profile&quot;: [
+            &quot;urn:be:itsme:dss:1.0&quot;,
+            &quot;urn:oasis:names:tc:dss:1.0:profiles:asynchronousprocessing&quot;,
         ],
-    "policy": [],
-    "lang": "FR",
-    "nonce": null,
-    "sigAlgo": null,
-    "itsme": {
-      "signer": {
-        "userCode": "9o8f04wm1g0bdc8gmgcuxp2ehgn7txh0x2kq"
+    &quot;policy&quot;: [],
+    &quot;lang&quot;: &quot;FR&quot;,
+    &quot;nonce&quot;: null,
+    &quot;sigAlgo&quot;: null,
+    &quot;itsme&quot;: {
+      &quot;signer&quot;: {
+        &quot;userCode&quot;: &quot;9o8f04wm1g0bdc8gmgcuxp2ehgn7txh0x2kq&quot;
       },
-      "partnerCode": "myPartnerCode",
-      "serviceCode": "myServiceCode",
-      "description": [
+      &quot;partnerCode&quot;: &quot;myPartnerCode&quot;,
+      &quot;serviceCode&quot;: &quot;myServiceCode&quot;,
+      &quot;description&quot;: [
         {
-          "lang": "EN",
-          "value": "Car insurance contract"
+          &quot;lang&quot;: &quot;EN&quot;,
+          &quot;value&quot;: &quot;Car insurance contract&quot;
         },
         {
-          "lang": "FR",
-          "value": "Contrat d’assurance voiture"
+          &quot;lang&quot;: &quot;FR&quot;,
+          &quot;value&quot;: &quot;Contrat d’assurance voiture&quot;
         },
         {
-          "lang": "NL",
-          "value": "Contract verzekering auto"
+          &quot;lang&quot;: &quot;NL&quot;,
+          &quot;value&quot;: &quot;Contract verzekering auto&quot;
         },
         {
-          "lang": "DE",
-          "value": "Kfz-Versicherungsvertrag"
+          &quot;lang&quot;: &quot;DE&quot;,
+          &quot;value&quot;: &quot;Kfz-Versicherungsvertrag&quot;
         }
       ],
-      "callbackUrl": null,
-      "redirectUrl": "myServiceRedirectUrl",
-      "expiryTimestamp": null,
-      "legalNotice": null,
-      "signPolicy": {
-        "signPolicyRef": "ITSME_DEFAULT",
-        "commitmentTypeRef":"1.2.840.113549.1.9.16.6.5",
-        "signerRole": [
+      &quot;callbackUrl&quot;: null,
+      &quot;redirectUrl&quot;: &quot;myServiceRedirectUrl&quot;,
+      &quot;expiryTimestamp&quot;: null,
+      &quot;legalNotice&quot;: null,
+      &quot;signPolicy&quot;: {
+        &quot;signPolicyRef&quot;: &quot;ITSME_DEFAULT&quot;,
+        &quot;commitmentTypeRef&quot;:&quot;1.2.840.113549.1.9.16.6.5&quot;,
+        &quot;signerRole&quot;: [
           {
-            "lang": "EN",
-            "value": "General Manager"
+            &quot;lang&quot;: &quot;EN&quot;,
+            &quot;value&quot;: &quot;General Manager&quot;
           },
           {
-            "lang": "FR",
-            "value": "Gestionnaire"
+            &quot;lang&quot;: &quot;FR&quot;,
+            &quot;value&quot;: &quot;Gestionnaire&quot;
           },
           {
-            "lang": "NL",
-            "value": "Zaakvoerder"
+            &quot;lang&quot;: &quot;NL&quot;,
+            &quot;value&quot;: &quot;Zaakvoerder&quot;
           },
           {
-            "lang": "DE",
-            "value": "Manager"
+            &quot;lang&quot;: &quot;DE&quot;,
+            &quot;value&quot;: &quot;Manager&quot;
           }
         ]
       }
     }
   }
-}
-</code></pre>
+}</code></p>
+
 <table><thead>
 <tr>
 <th style="text-align: left">Parameter</th>
@@ -643,7 +647,7 @@
 <td style="text-align: left"><strong>asyncRespId</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Identification Response. In case no <code>asyncRespID</code> is given in the request, a new session is created.</td>
+<td style="text-align: left">This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Identification Response. In case no <i>&quot;asyncRespID&quot;</i> is given in the request, a new session is created.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>optInp</strong></td>
@@ -679,7 +683,7 @@
 <td style="text-align: left"><strong>serviceCode</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This parameter allows the application to express the desired scope. It MUST contain the value <code>service:service_code</code>, the itsme® service you want to use as defined for your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+<td style="text-align: left">This parameter allows the application to express the desired scope. It MUST contain the value <i>&quot;service:service_code&quot;</i>, the itsme® service you want to use as defined for your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>redirect_uri</strong></td>
@@ -718,19 +722,20 @@
 <p>If the Sign Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside.</p>
 
 <p>The response body will include the following values:</p>
-<pre class="highlight http tab-http--inline"><code><span class="err">{
-    "result": {
-        "maj": "urn:oasis:names:tc:dss:1.0:profiles:asynchronousprocessing:resultmajor:Pending"
+
+<p><code style=display:block;white-space:pre-wrap>{
+    &quot;result&quot;: {
+        &quot;maj&quot;: &quot;urn:oasis:names:tc:dss:1.0:profiles:asynchronousprocessing:resultmajor:Pending&quot;
     },
-    "reqID": "ReqID4va0acsef3mv5ft1dp71",
-    "respID": "hjg3ngu3tvvv71k9qg1vyokc2mwmqgqk43iv",
-    "optOutp": {
-        "itsme": {
-            "signingUrl": "https://uatmerchant.itsme.be/qes/prove_its_you_poka?q=34u5jh2dltb1xhsu0g4bshnlziycdhow&amp;language=FR"
+    &quot;reqID&quot;: &quot;ReqID4va0acsef3mv5ft1dp71&quot;,
+    &quot;respID&quot;: &quot;hjg3ngu3tvvv71k9qg1vyokc2mwmqgqk43iv&quot;,
+    &quot;optOutp&quot;: {
+        &quot;itsme&quot;: {
+            &quot;signingUrl&quot;: &quot;https://uatmerchant.itsme.be/qes/prove_its_you_poka?q=34u5jh2dltb1xhsu0g4bshnlziycdhow&amp;language=FR&quot;
         }
     }
-}
-</span></code></pre>
+}</code></p>
+
 <table><thead>
 <tr>
 <th style="text-align: left">Values</th>
@@ -797,7 +802,7 @@
 <td style="text-align: left"><strong>userCode</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left"></td>
-<td style="text-align: left">An identifier for the User, unique among all itsme® accounts and never reused. Use <code>userCode</code> in the application as the unique-identifier key for the User.</td>
+<td style="text-align: left">An identifier for the User, unique among all itsme® accounts and never reused. Use <i>&quot;userCode&quot;</i> in the application as the unique-identifier key for the User.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>sigObj</strong></td>
@@ -831,7 +836,7 @@
 </tr>
 </tbody></table>
 
-<p>The Error Response will contain the <code>status</code> and the <code>statusReason</code> value. The following table describes the various error types that can be returned in the <code>statusReason</code> value of the error response:</p>
+<p>The Error Response will contain the <i>&quot;status&quot;</i> and the <code>statusReason</code> value. The following table describes the various error types that can be returned in the <code>statusReason</code> value of the error response:</p>
 
 <table><thead>
 <tr>
@@ -910,7 +915,7 @@
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="http">HTTP</a>
+                <a href="#" data-language-name="http"></a>
           </div>
       </div>
     </div>

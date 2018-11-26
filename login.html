@@ -633,10 +633,11 @@ error=invalid_request
 
 <p><code style=display:block;white-space:pre-wrap>POST /token HTTP/1.1
 Host: server.example.com
-Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
 Content-Type: application/x-www-form-urlencoded
-grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA
-&amp;redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb</code></p>
+grant_type=authorization_code&amp;
+code=i1WsRn1uB1&amp;
+client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&amp;
+client_assertion=PHNhbWxwOl ... ZT</code></p>
 
 <p>According to the <i>&quot;private_key_jwt&quot;</i> client authentication method, the <i>&quot;client_assertion&quot;</i> JWT MUST contain the following parameters in the JWT Payload:</p>
 
@@ -979,10 +980,6 @@ Authorization: Bearer <access token></code></p>
 <td style="text-align: left">It will request the <i>&quot;eid&quot;</i>, <i>&quot;issuance_locality&quot;</i>, <i>&quot;validity_from&quot;</i>, <i>&quot;validity_to&quot;</i>, <i>&quot;certificate_validity&quot;</i> and <i>&quot;read_date&quot;</i> claims</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>tag:sixdots.be,2017-05:claim_passport_sn</strong></td>
-<td style="text-align: left">It will request the <i>&quot;passport Number&quot;</i> claim.</td>
-</tr>
-<tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2017-05:claim_device</strong></td>
 <td style="text-align: left">It will request the <i>&quot;os&quot;</i>, <i>&quot;appName&quot;</i>, <i>&quot;appRelease&quot;</i>, <i>&quot;deviceLabel&quot;</i>, <i>&quot;debugEnabled&quot;</i>, <i>&quot;deviceID&quot;</i>, <i>&quot;osRelease&quot;</i>, <i>&quot;manufacturer&quot;</i>, <i>&quot;hasSimEnabled&quot;</i>, <i>&quot;deviceLockLevel&quot;</i>, <i>&quot;smsEnabled&quot;</i>, <i>&quot;rooted&quot;</i>, <i>&quot;imei&quot;</i>, <i>&quot;deviceModel&quot;</i>, <i>&quot;msisdn&quot;</i> and <i>&quot;sdkRelease&quot;</i> claims.</td>
 </tr>
@@ -1037,10 +1034,6 @@ Authorization: Bearer <access token></code></p>
 <tr>
 <td style="text-align: left"><strong>read_date</strong></td>
 <td style="text-align: left">The data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000).</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>passport Number</strong></td>
-<td style="text-align: left">Simple string containing the User’s Passport Serial Number.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>os</strong></td>
