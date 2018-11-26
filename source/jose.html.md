@@ -40,11 +40,9 @@ Following steps will show you how to generate a JWS Compact Serialization object
 
 Parameter | Required | Description
 :-------- | :--------| :----- 
-**alg** | Required | This parameter identifies the cryptographic algorithm used to secure the JWS. The <i>"alg"</i> value for this use can be found in the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using one of these keys: <i>"request_object_signing_alg_values_supported"</i>, <i>"id_token_signing_alg_values_supported"</i>, <i>"token_endpoint_auth_signing_alg_values_supported"</i> or <i>"userinfo_signing_alg_values_supported"</i>. 
+**alg** | Required | This parameter identifies the cryptographic algorithm used to secure the JWS. This MUST be set to <i>"RS256"</i>.
 **kid** | Optionnal | It is a hint indicating which key was used to secure the JWS. The structure of the <i>"kid"</i> value is unspecified. In case there are multiple signing keys referenced in your JWK Set than it MUST be a case-sensitive string.
 
-<aside class="alert">The OpenID Connect specifications mention additionnal header parameters which could be included in the JWS Header, but these are not relevant when integrating one of the itsme® services in your application.</aside>
-  
 <ol>  
   <li value="2">The JWS Header will then be encoded using UTF-8 and base64url to produce the string below.</li>
 </ol>
@@ -60,7 +58,7 @@ Parameter | Required | Description
 
 <ol>
   <li value="5">Combine the JWS Header and JWS Payload, and separate them with period ('.') characters, to produce the JWS Signing Input.</li>
-  <li>Complete the signing operation over the JWS Signing Input constructed in the previous step, following the signature algorithm defined by the JWS Header element <i>"alg"</i>. The JWS Signing Input is signed using your private key corresponding to the public key stored in a JWK Set at its <i>"jwks_uri"</i> location. This URI MUST be shared with itsme® when setting up your project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>. Performing the signature operation over the JWS Signing Input produces the JWS Signature.</li>
+  <li>Complete the signing operation over the JWS Signing Input constructed in the previous step, following the signature algorithm defined by the JWS Header element <i>"alg"</i>. The JWS Signing Input is signed using your private key corresponding to the public key stored in a JWK Set at its JWK Set URI location. This URI MUST be shared with itsme® when setting up your project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>. Performing the signature operation over the JWS Signing Input produces the JWS Signature.</li>
   <li>The JWS Signature will then be encoded using base64url to produce the string below.</li>
 </ol>
 
@@ -99,17 +97,7 @@ Parameter | Required | Description
 :-------- | :--------| :----- 
 **alg** | Required | This parameter has the same meaning, syntax, and processing rules as the <i>"alg"</i> defined in the JWS section, except that it defines the cryptographic algorithm used to encrypt the CEK. The <i>"alg"</i> value for this use can be found in the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using one of these keys: <i>"request_object_encryption_alg_values_supported"</i>, <i>"id_token_encryption_alg_values_supported"</i>, or <i>"userinfo_encryption_alg_values_supported"</i>. 
 **enc** | Required | It identifies the content encryption algorithm used to perform authenticated encryption on the plaintext to produce the ciphertext and the Authentication Tag. The <i>"enc"</i> value can be retrieved from the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using one of these keys: <i>"request_object_encryption_enc_values_supported"</i>, <i>"id_token_encryption_enc_values_supported"</i>, or <i>"userinfo_encryption_enc_values_supported"</code>. 
-**zip** | Optionnal | 
-**jku** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <i>"jku"</i> parameter defined in the JWS section, except that the JWK Set resource contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
-**jwk** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <i>"jwk"</i> parameter defined in the JWS section, except that the key is the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
 **kid** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <i>"kid"</i> parameter defined in the JWS section, except that the key hint references the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
-**x5u** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <i>"x5u"</i> parameter defined in the JWS section, except that the X.509 public key certificate or certificate chain contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
-**x5c** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <i>"x5c"</i> parameter defined in the JWS section, except that the X.509 public key certificate or certificate chain contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
-**x5t** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <i>"x5t"</i> parameter defined in the JWS section, except that the certificate referenced by the thumbprint contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
-**x5t#S256** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <i>"x5t#S256"</i> parameter defined in the JWS section, except that the certificate referenced by the thumbprint contains the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
-**typ** | Optionnal | It is used by JWS applications to declare the media type of this complete JWE.
-**cty** | Optionnal | It is used by JWS applications to declare the media type of the secured content (the plaintext).
-**crit** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the </code>crit</code> parameter defined in the JWS section, except that parameters for a JWE are being referred to, rather than parameters for a JWS.
 
 <ol>  
   <li value="2">The JWE Header will then be encoded using using UTF-8 and base64url to produce the string below.</li>
