@@ -41,7 +41,7 @@ Following steps will show you how to generate a JWS Compact Serialization object
 Parameter | Required | Description
 :-------- | :--------| :----- 
 **alg** | Required | This parameter identifies the cryptographic algorithm used to secure the JWS. The <i>"alg"</i> value for this use can be found in the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using one of these keys: <i>"request_object_signing_alg_values_supported"</i>, <i>"id_token_signing_alg_values_supported"</i>, <i>"token_endpoint_auth_signing_alg_values_supported"</i> or <i>"userinfo_signing_alg_values_supported"</i>. 
-**kid** | Optionnal | It is a hint indicating which key was used to secure the JWS. The structure of the <i>"kid"</i> value is unspecified. In case there are multiple signing keys referenced in your JWK Set URI (URI that you shared with itsme® when setting up your project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>) than it MUST be a case-sensitive string.
+**kid** | Optionnal | It is a hint indicating which key was used to secure the JWS. The structure of the <i>"kid"</i> value is unspecified. In case there are multiple signing keys referenced in your JWK Set than it MUST be a case-sensitive string.
 
 <aside class="alert">The OpenID Connect specifications mention additionnal header parameters which could be included in the JWS Header, but these are not relevant when integrating one of the itsme® services in your application.</aside>
   
@@ -60,19 +60,10 @@ Parameter | Required | Description
 
 <ol>
   <li value="5">Combine the JWS Header and JWS Payload, and separate them with period ('.') characters, to produce the JWS Signing Input.</li>
-  <li>Complete the signing operation over the JWS Signing Input constructed in the previous step, following the signature algorithm defined by the JWS Header element <i>"alg"</i>. The JWS Signing Input is signed using your private key corresponding to the public key referenced in your JWK Set (you shared its URI with itsme® when setting up your project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>). Performing the signature operation over the JWS Signing Input produces the JWS Signature.</li>
+  <li>Complete the signing operation over the JWS Signing Input constructed in the previous step, following the signature algorithm defined by the JWS Header element <i>"alg"</i>. The JWS Signing Input is signed using your private key corresponding to the public key stored in a JWK Set at its <i>"jwks_uri"</i> location. This URI MUST be shared with itsme® when setting up your project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>. Performing the signature operation over the JWS Signing Input produces the JWS Signature.</li>
   <li>The JWS Signature will then be encoded using base64url to produce the string below.</li>
 </ol>
 
-
-
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-
-a resource for a set of JSON-encoded public keys, one of
-   which corresponds to the key used to digitally sign the JWS.  The
-   keys MUST be encoded as a JWK Set [JWK].
-  
 <code style=display:block;white-space:pre-wrap>MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx996ivp83xuglII7PNDi84wnB-BDkoBwA78185hX-Es4JIwmDLJK3lfWRa-XtL0RnltuYv746iYTh_qHRD68BNt1uSNCrUCTJDt5aAE6x8wW1Kt9eRo4QPocSadnHXFxnt8Is9UzpERV0ePPQdLuW3IS_de3xyIrDaLGdjluPxUAhb6L2aXic1U12podGU0KLUQSE_oI-ZnmKJ3F4uOZDnd6QZWJushZ41Axf_fcIe8u9ipH84ogoree7vjbU5y18kDquDg</code>
 
 <ol>
