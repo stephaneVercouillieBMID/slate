@@ -127,7 +127,7 @@ Parameter | Required | Description
 
 <ol>
   <li>Compute the ASCII value of the encoded JWE Header to get the Additional Authenticated Data (AAD). Its value will be used later to encrypt the payload.</li>
-  <li>Encrypt the payload with the encryption algorithm defined by the <i>"enc"</i> parameter. The algorithm takes as input four strings: the CEK, the AAD and the Initialization Vector which were computed in the previous steps, plus the payload. The JWE Ciphertext value and Authentication Tag value are provided as outputs.
+  <li>Encrypt the payload with the encryption algorithm defined by the <i>"enc"</i> parameter. The algorithm takes as input four strings: the CEK, the AAD and the JWE Initialization Vector which were computed in the previous steps, plus the payload. The JWE Ciphertext value and Authentication Tag value are provided as outputs.
   <li>Base64url-encode the JWE Ciphertext.</li>
   <li>Base64url-encode the JWE Authentication Tag.</li>
   <li>Assemble the final representation by concatenating the five strings, and separate them with period ('.') characters. An example of a JWE object is given below.</li>
@@ -159,7 +159,7 @@ The decryption process is the reverse of the encryption process:
   <li>Base64url decode the encoded representations of the JWE Header, the JWE Encrypted Key, the JWE Initialization  Vector, the JWE Ciphertext, the JWE Authentication Tag, and the JWE Additional Authenticated Data (AAD).</li>
   <li>Verify that the octet sequence resulting from decoding the encoded JWE Header is a UTF-8-encoded representation of a completely valid JSON object.</li>
   <li>Determine the algorithm specified by the <i>"alg"</i> parameter in the JWE Header.</li>
-  <li>Decrypt the JWE Encrypted Key with the algorithm defined in the <i>"alg"</i> parameter, to produce the Content Encryption Key (CEK).</li>
+  <li>Decrypt the JWE Encrypted Key with the algorithm defined in the <i>"alg"</i> parameter, to produce the Content Encryption Key (CEK). The JWE Encrypted Key is decoded using your private key corresponding to the public key referenced in your JWK Set document. This information SHOULD be made available via the URI you communicated when setting up your project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>.</li></li> 
   <li>Let the Additional Authenticated Data (AAD) encryption parameter be the octets of the ASCII representation of the encoded JWE Header value.</li>
   <li>Decrypt the JWE Ciphertext with the encryption algorithm defined by the <i>"enc"</i> parameter in the JWE Header. It will return the decrypted JWS object.</li>
 </ol>
@@ -214,8 +214,7 @@ You have decoded the JWS object. The next step is to validate the JWS Signature.
 
 <ol>
   <li>Determine the signing algorithm <i>"alg"</i> and the key identifier <i>"kid"</i> from the JWS Header.</li>
-  <li>Retrieve the value of the <i>"jwks_uri"</i> key in the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>. As the returned JSON Web Key (JWK) contains an array of keys, you MUST use the one corresponding to the value given by the <i>"kid"</i> parameter from the JWS Header.</li>
-  <li>Use one of the available <a href="https://jwt.io/" target="blank">cryptographic libraries</a> to validate the the JWS Signature in the manner defined for the algorithm being used, which MUST be accurately represented by the value of the <i>"alg"</i> parameter.</li>
+  <li>Validate the JWS Signature in the manner defined for the algorithm being used, which MUST be accurately represented by the value of the <i>"alg"</i> parameter. The signature is verified using the public key of itsme®, which can be retrieved from the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using the <i>"jwks_uri"</i> key. If the returned itsme® JSON Web Key (JWK) contains an array of keys, you MUST use the one corresponding to the value given by the <i>"kid"</i> parameter from the JWS Header.</li>
 </ol>
     
 
