@@ -27,7 +27,7 @@ The JSON Object Signing and Encryption (JOSE) framework consists of several tech
   <li>JSON Web Encryption (<a href=" https://tools.ietf.org/html/rfc7516" target="blank">JWE</a>) specification standardizes the way to represent an encrypted content in a JSON-based data structure.</li>
   <li>JSON Web Key (<a href=" https://tools.ietf.org/html/rfc7517" target="blank">JWK</a>) defines a consistent way to represent a cryptographic key in a JSON structure which is used to sign (JWS) and/or encrypt (JWE) a specific content. The JSON Web Key Set (JWKS) extension defines a consistent way to represent a set of cryptographic keys in a JSON structure.<br>As itsme® only support the RSA cryptosystem, it requires that each party exposes its public keys as a simple JWK Set document on a URI accessible to all.</br>
     <ul>
-      <li>For itsme®, this URI can be retrieved from the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using the <i>"jwks_uri"</i> parameter.</li>
+      <li>For itsme®, this URI can be retrieved from the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using the <i>"jwks_uri"</i> key.</li>
       <li>Your JWK Set document MUST be accessible via the URI communicated when setting up your project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>.</li>
     </ul></li>
 </ul>
@@ -63,7 +63,7 @@ Parameter | Required | Description
 
 <ol>
   <li value="5">Combine the JWS Header and JWS Payload, and separate them with period ('.') characters, to produce the JWS Signing Input.</li>
-  <li>Complete the signing operation over the JWS Signing Input constructed in the previous step, following the signature algorithm defined by the JWS Header element <i>"alg"</i>. The JWS Signing Input is signed using your private key corresponding to the public key referenced in your JWK Set document. This information SHOULD be made available via the URI you communicated when setting up your project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>. Performing the signature operation over the JWS Signing Input produces the JWS Signature.</li>
+  <li>Complete the signing operation over the JWS Signing Input with the algorithm defined in the <i>"alg"</i> parameter, to produce the JWS Signature. The JWS Signing Input is signed using your private key corresponding to the public key referenced in your JWK Set document. This information SHOULD be made available via the URI you communicated when setting up your project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>.</li>
   <li>The JWS Signature will then be encoded using base64url to produce the string below.</li>
 </ol>
 
@@ -100,7 +100,7 @@ With the JWE compact serialization, a JWE object is built with five key componen
 
 Parameter | Required | Description
 :-------- | :--------| :----- 
-**alg** | Required | This parameter has the same meaning, syntax, and processing rules as the <i>"alg"</i> defined in the JWS section, except that it defines the cryptographic algorithm used to encrypt the CEK. This MUST be set to <i>"RSA-OAEP"</i>.
+**alg** | Required | This parameter has the same meaning, syntax, and processing rules as the <i>"alg"</i> defined in the JWS section, except that it defines the cryptographic algorithm used to encrypt the Content Encryption Key (CEK). This MUST be set to <i>"RSA-OAEP"</i>.
 **enc** | Required | It identifies the content encryption algorithm used to perform authenticated encryption on the payload to produce the Ciphertext and the Authentication Tag. The <i>"enc"</i> value MUST be set to <i>"A128CBC-HS256"</i>.
 **kid** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <i>"kid"</i> parameter defined in the JWS section, except that the key hint references the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
 
@@ -111,8 +111,8 @@ Parameter | Required | Description
 <code style=display:block;white-space:pre-wrap>eyJhbGciOiJSU0ExXzUiLCJraWQiOiJmcm9kby5iYWdnaW5zQGhvYmJpdG9uLmV4YW1wbGUiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0</code>
 
 <ol>
-  <li value="3">Generate a random Content Encryption Key (CEK). This key will be used later to encrypt the payload.</li>
-  <li>Compute the CEK with the algorithm defined in the <i>"alg"</i> parameter, to produce the JWE Encrypted Key.</li>
+  <li value="3">Generate a random CEK. This key will be used later to encrypt the payload.</li>
+  <li>Compute the CEK with the algorithm defined in the <i>"alg"</i> parameter, to produce the JWE Encrypted Key. To perform the encryption operation you will need the public key of itsme®, which can be retrieved from the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using the <i>"jwks_uri"</i> key.</li>
   <li>The JWE Encrypted Key will then be encoded using base64url to produce the string below.</li>
 </ol>
 
