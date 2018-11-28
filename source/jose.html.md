@@ -101,7 +101,7 @@ With the JWE compact serialization, a JWE object is built with five key componen
 Parameter | Required | Description
 :-------- | :--------| :----- 
 **alg** | Required | This parameter has the same meaning, syntax, and processing rules as the <i>"alg"</i> defined in the JWS section, except that it defines the cryptographic algorithm used to encrypt the CEK. This MUST be set to <i>"RSA-OAEP"</i>.
-**enc** | Required | It identifies the content encryption algorithm used to perform authenticated encryption on the plaintext to produce the Ciphertext and the Authentication Tag. The <i>"enc"</i> value MUST be set to <i>"A128CBC-HS256"</i>.
+**enc** | Required | It identifies the content encryption algorithm used to perform authenticated encryption on the payload to produce the Ciphertext and the Authentication Tag. The <i>"enc"</i> value MUST be set to <i>"A128CBC-HS256"</i>.
 **kid** | Optionnal | This parameter has the same meaning, syntax, and processing rules as the <i>"kid"</i> parameter defined in the JWS section, except that the key hint references the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.
 
 <ol>  
@@ -111,7 +111,7 @@ Parameter | Required | Description
 <code style=display:block;white-space:pre-wrap>eyJhbGciOiJSU0ExXzUiLCJraWQiOiJmcm9kby5iYWdnaW5zQGhvYmJpdG9uLmV4YW1wbGUiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0</code>
 
 <ol>
-  <li value="3">Generate a random Content Encryption Key (CEK).</li>
+  <li value="3">Generate a random Content Encryption Key (CEK). This key will be used later to encrypt the payload.</li>
   <li>Compute the CEK with the algorithm defined in the <i>"alg"</i> parameter, to produce the JWE Encrypted Key.</li>
   <li>The JWE Encrypted Key will then be encoded using base64url to produce the string below.</li>
 </ol>
@@ -119,15 +119,15 @@ Parameter | Required | Description
 <code style=display:block;white-space:pre-wrap>laLxI0j-nLH-_BgLOXMozKxmy9gffy2gTdvqzfTihJBuuzxg0V7yk1WClnQePFvG2K-pvSlWc9BRIazDrn50RcRai__3TDON395H3c62tIouJJ4XaRvYHFjZTZ2GXfz8YAImcc91Tfk0WXC2F5Xbb71ClQ1DDH151tlpH77f2ff7xiSxh9oSewYrcGTSLUeeCt36r1Kt3OSj7EyBQXoZlN7IxbyhMAfgIe7Mv1rOTOI5I8NQqeXXW8VlzNmoxaGMny3YnGir5Wf6Qt2nBq4qDaPdnaAuuGUGEecelIO1wx1BpyIfgvfjOhMBs9M8XL223Fg47xlGsMXdfuY-4jaqVw</code>
  
 <ol>
-  <li value="6">Generate a random JWE Initialization Vector.</li>
+  <li value="6">Generate a random JWE Initialization Vector. Its value will be used later to encrypt the payload.</li>
   <li>The JWE Initialization Vector will then be encoded using base64url to produce the string below.</li>
 </ol>
 
 <code style=display:block;white-space:pre-wrap>bbd5sTkYwhAIqfHsx8DayA</code>
 
 <ol>
-  <li>Compute the ASCII value of the encoded JWE Header to get the Additional Authenticated Data (AAD).</li>
-  <li>Encrypt the JSON payload with the encryption algorithm defined by the <i>"enc"</i> parameter. It will produce the JWE Ciphertext and Authentication Tag.</li>
+  <li>Compute the ASCII value of the encoded JWE Header to get the Additional Authenticated Data (AAD). Its value will be used later to encrypt the payload.</li>
+  <li>Encrypt the payload with the encryption algorithm defined by the <i>"enc"</i> parameter. The algorithm takes as input four strings: the CEK, the AAD and the Initialization Vector which were computed in the previous steps, plus the payload. The JWE Ciphertext value and Authentication Tag value are provided as outputs.
   <li>Base64url-encode the JWE Ciphertext.</li>
   <li>Base64url-encode the JWE Authentication Tag.</li>
   <li>Assemble the final representation by concatenating the five strings, and separate them with period ('.') characters. An example of a JWE object is given below.</li>
