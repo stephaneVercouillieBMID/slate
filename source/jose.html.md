@@ -33,7 +33,12 @@ The JSON Object Signing and Encryption (JOSE) framework consists of several tech
 </ul>
 
 
-# 3. Signing
+# 3. Creating your JWK Set URI
+
+
+# 4. Signing, encrypting and decrypting
+
+## 4.1. Signing
 
 A signed content can be serialized in two ways: the JWS compact serialization and the JWS JSON serialization. Because the OpenID Connect specification mandates to use JWS compact serialization whenever necessary, we will not explain the JWS JSON serialization signing process in this document.
 
@@ -82,7 +87,7 @@ MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx
 An example illustrating the signing process is available at <a href="https://tools.ietf.org/html/rfc7520#section-4.1" target="blank">https://tools.ietf.org/html/rfc7520#section-4.1</a>.
 
 
-# 4. Encryption
+## 4.2. Encryption
 
 An encrypted content can be serialized in two ways: the JWE compact serialization and the JWE JSON serialization. Because the OpenID Connect specification mandates to use JWE compact serialization whenever necessary, we will not explain the JWE JSON serialization signing process in this document.
 
@@ -146,7 +151,7 @@ kvKuFBXHe5mQr4lqgobAUg</code>
 An example illustrating the signing process is available at <a href="https://tools.ietf.org/html/rfc7520#section-5.2" target="blank">https://tools.ietf.org/html/rfc7520#section-5.2</a>.
 
 
-# 4. Decrypting
+## 4.3. Decrypting
 
 To validate a Nested JWT object, you will first need to decrypt the JWE object, then extract the signed JWS Payload and verify the JWS Signature. 
 
