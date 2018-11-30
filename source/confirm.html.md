@@ -99,15 +99,34 @@ For example, the Confirm Authentication Request using the <i>"sub"</i> identifie
 
 ## 3.1. Templates
 
-There are currently two templates that can be used when forming a Confirm Authentication Request. Depending on the template used, the Authentication Request MUST include the following parameters in the body:
+There are currently two templates that can be used when forming a Confirm Authentication Request.
 
-Template | Parameters |  Description
-:-------- | :-------- | :--------
-**adv_payment** | Amount | A string holding an integer value inside. This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_amount_key"</i>.
-<label></label> | Currency | A string holding a valid currency code (e.g. “EUR”). This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_currency_key"</i>.
-<label></label> | IBAN | A string holding a valid IBAN account number. This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_iban_key"</i>.
- **free_text** | Text | A string holding any text to be displayed in the itsme® app. This MUST be set to<i>"tag:sixdots.be,2016-08:claim_approval_text_key"</i>.
+### Advanced Payment template
 
+The Advanced Payment template can be retrieved using the following parameters in the request body:
+
+Parameter |  Description
+:-------- | :--------
+**tag:sixdots.be,2016-08:claim_approval_amount_key** | A string holding an integer value inside. This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_amount_key"</i>.
+**tag:sixdots.be,2016-08:claim_approval_currency_key** | A string holding a valid currency code (e.g. “EUR”). This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_currency_key"</i>.
+**tag:sixdots.be,2016-08:claim_approval_iban_key** | A string holding a valid IBAN account number. This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_iban_key"</i>.
+
+### Free Text template
+
+The Free Text template which can be retrieved using the following parameter in the request body:
+
+Parameter |  Description
+:-------- | :--------
+**tag:sixdots.be,2016-08:claim_approval_text_key** | A string holding any text to be displayed in the itsme® app. This MUST be set to<i>"tag:sixdots.be,2016-08:claim_approval_text_key"</i>.
+
+When using the Free text template, the below requirements apply:
+
+<ul>
+  <li>Use the standard character encodings ISO8859-1 for the text.</li>
+  <li>Special characters are allowed</li>
+  <li>Supported formatting tags are: <u>underlined text</u>, <i>emphasized text</i>, <b>bold text</b> and <br>new line</br>. Tags that are not listed will be ignored.
+</ul>
+  
 
 
 
