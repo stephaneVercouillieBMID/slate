@@ -225,13 +225,21 @@
             <a href="#2-definitions" class="toc-h1 toc-link" data-title="2-definitions">2. Definitions</a>
           </li>
           <li>
-            <a href="#3-signing" class="toc-h1 toc-link" data-title="3-signing">3. Signing</a>
+            <a href="#3-creating-your-jwk-set-uri" class="toc-h1 toc-link" data-title="3-creating-your-jwk-set-uri">3. Creating your JWK Set URI</a>
           </li>
           <li>
-            <a href="#4-encryption" class="toc-h1 toc-link" data-title="4-encryption">4. Encryption</a>
-          </li>
-          <li>
-            <a href="#4-decrypting" class="toc-h1 toc-link" data-title="4-decrypting">4. Decrypting</a>
+            <a href="#4-signing-encrypting-and-decrypting" class="toc-h1 toc-link" data-title="4-signing-encrypting-and-decrypting">4. Signing, encrypting and decrypting</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#4-1-signing" class="toc-h2 toc-link" data-title="4-1-signing">4.1. Signing</a>
+                  </li>
+                  <li>
+                    <a href="#4-2-encryption" class="toc-h2 toc-link" data-title="4-2-encryption">4.2. Encryption</a>
+                  </li>
+                  <li>
+                    <a href="#4-3-decrypting" class="toc-h2 toc-link" data-title="4-3-decrypting">4.3. Decrypting</a>
+                  </li>
+              </ul>
           </li>
       </div>
         <ul class="toc-footer">
@@ -259,7 +267,7 @@
       <li>Your JWK Set document MUST be accessible via the URI communicated when setting up your project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>.</li>
     </ul></li>
 </ul>
-<h1 id='3-signing'>3. Signing</h1>
+<h1 id='3-creating-your-jwk-set-uri'>3. Creating your JWK Set URI</h1><h1 id='4-signing-encrypting-and-decrypting'>4. Signing, encrypting and decrypting</h1><h2 id='4-1-signing'>4.1. Signing</h2>
 <p>A signed content can be serialized in two ways: the JWS compact serialization and the JWS JSON serialization. Because the OpenID Connect specification mandates to use JWS compact serialization whenever necessary, we will not explain the JWS JSON serialization signing process in this document.</p>
 
 <p>Following steps will show you how to generate a JWS Compact Serialization object:</p>
@@ -319,7 +327,7 @@ SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91
 MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx996ivp83xuglII7PNDi84wnB-BDkoBwA78185hX-Es4JIwmDLJK3lfWRa-XtL0RnltuYv746iYTh_qHRD68BNt1uSNCrUCTJDt5aAE6x8wW1Kt9eRo4QPocSadnHXFxnt8Is9UzpERV0ePPQdLuW3IS_de3xyIrDaLGdjluPxUAhb6L2aXic1U12podGU0KLUQSE_oI-ZnmKJ3F4uOZDnd6QZWJushZ41Axf_fcIe8u9ipH84ogoree7vjbU5y18kDquDg</code></p>
 
 <p>An example illustrating the signing process is available at <a href="https://tools.ietf.org/html/rfc7520#section-4.1" target="blank">https://tools.ietf.org/html/rfc7520#section-4.1</a>.</p>
-<h1 id='4-encryption'>4. Encryption</h1>
+<h2 id='4-2-encryption'>4.2. Encryption</h2>
 <p>An encrypted content can be serialized in two ways: the JWE compact serialization and the JWE JSON serialization. Because the OpenID Connect specification mandates to use JWE compact serialization whenever necessary, we will not explain the JWE JSON serialization signing process in this document.</p>
 
 <p>With the JWE compact serialization, a JWE object is built with five key components, each separated by a period (.): JWE Header, JWE Encrypted Key, JWE Initialization Vector, JWE Additional Authentication Data (AAD), JWE Ciphertext and JWE Authentication Tag. The following steps will show you how to generate a JWE Compact Serialization object:</p>
@@ -398,7 +406,7 @@ bbd5sTkYwhAIqfHsx8DayA
 kvKuFBXHe5mQr4lqgobAUg</code></p>
 
 <p>An example illustrating the signing process is available at <a href="https://tools.ietf.org/html/rfc7520#section-5.2" target="blank">https://tools.ietf.org/html/rfc7520#section-5.2</a>.</p>
-<h1 id='4-decrypting'>4. Decrypting</h1>
+<h2 id='4-3-decrypting'>4.3. Decrypting</h2>
 <p>To validate a Nested JWT object, you will first need to decrypt the JWE object, then extract the signed JWS Payload and verify the JWS Signature. </p>
 
 <p><strong>Decrypting the JWE object</strong></p>
