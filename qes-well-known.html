@@ -1,0 +1,306 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all_nosearch.js"></script>
+  </head>
+
+  <body class="qes-well-known" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+      <div id="toc" class="toc-list-h1">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <p><code style=display:block;white-space:pre-wrap>{
+  &quot;sign_policy_templates_supported&quot; : [ {
+    &quot;oid&quot; : &quot;1.3.6.1.4.1.49274.1.1.5.1.0&quot;,
+    &quot;ref&quot; : &quot;1.3.6.1.4.1.49274.1.1.5.1.0&quot;,
+    &quot;url&quot; : &quot;https://www.itsme.be/files/itsme-TestSignaturePolicy-1.0-EN.pdf&quot;,
+    &quot;status&quot; : &quot;ENABLED&quot;,
+    &quot;sigDigest&quot; : &quot;88455cd6d8081c4e48d271da5532a73895878001267acdd767d71435a7d028ca&quot;,
+    &quot;sigDigestAlg&quot; : &quot;SHA256&quot;,
+    &quot;text&quot; : {
+      &quot;DE&quot; : &quot;Signaturrichtlinie für Signaturen, die nur zum Testen verwendet werden und den Unterzeichner nicht an irgendetwas binden.&quot;,
+      &quot;EN&quot; : &quot;Signature Policy for signatures that are only used for testing and do not bind the signer to anything.&quot;,
+      &quot;FR&quot; : &quot;Politique de signature pour les signatures qui ne sont utilisées que pour tester et ne lient pas le signataire.&quot;,
+      &quot;NL&quot; : &quot;Handtekeningbeleid voor handtekeningen die enkel voor testdoeleinden gebruikt worden en de ondertekenaar tot niets verbinden.&quot;
+    }
+  } ],
+  &quot;commitment_types_supported&quot; : [ {
+    &quot;oid&quot; : &quot;1.3.6.1.4.1.49274.1.2.1&quot;,
+    &quot;ref&quot; : &quot;1.3.6.1.4.1.49274.1.2.1&quot;,
+    &quot;text&quot; : {
+      &quot;DE&quot; : &quot;Test&quot;,
+      &quot;EN&quot; : &quot;Testing&quot;,
+      &quot;FR&quot; : &quot;Test&quot;,
+      &quot;NL&quot; : &quot;Test&quot;
+    }
+  }, {
+    &quot;oid&quot; : &quot;1.2.840.113549.1.9.16.6.1&quot;,
+    &quot;ref&quot; : &quot;1.2.840.113549.1.9.16.6.1&quot;,
+    &quot;text&quot; : {
+      &quot;DE&quot; : &quot;Ursprungsnachweis&quot;,
+      &quot;EN&quot; : &quot;Proof of origin&quot;,
+      &quot;FR&quot; : &quot;Preuve d&#39;origine&quot;,
+      &quot;NL&quot; : &quot;Bewijs van herkomst&quot;
+    }
+  }, {
+    &quot;oid&quot; : &quot;1.2.840.113549.1.9.16.6.2&quot;,
+    &quot;ref&quot; : &quot;1.2.840.113549.1.9.16.6.2&quot;,
+    &quot;text&quot; : {
+      &quot;DE&quot; : &quot;Empfangsbescheinigung&quot;,
+      &quot;EN&quot; : &quot;Proof of receipt&quot;,
+      &quot;FR&quot; : &quot;Preuve de réception&quot;,
+      &quot;NL&quot; : &quot;Bewijs van ontvangst&quot;
+    }
+  }, {
+    &quot;oid&quot; : &quot;1.2.840.113549.1.9.16.6.3&quot;,
+    &quot;ref&quot; : &quot;1.2.840.113549.1.9.16.6.3&quot;,
+    &quot;text&quot; : {
+      &quot;DE&quot; : &quot;Zustellnachweis&quot;,
+      &quot;EN&quot; : &quot;Proof of delivery&quot;,
+      &quot;FR&quot; : &quot;Preuve de livraison&quot;,
+      &quot;NL&quot; : &quot;Bewijs van levering&quot;
+    }
+  }, {
+    &quot;oid&quot; : &quot;1.2.840.113549.1.9.16.6.4&quot;,
+    &quot;ref&quot; : &quot;1.2.840.113549.1.9.16.6.4&quot;,
+    &quot;text&quot; : {
+      &quot;DE&quot; : &quot;Nachweis des Absenders&quot;,
+      &quot;EN&quot; : &quot;Proof of sender&quot;,
+      &quot;FR&quot; : &quot;Preuve d&#39;expéditeur&quot;,
+      &quot;NL&quot; : &quot;Bewijs van afzender&quot;
+    }
+  }, {
+    &quot;oid&quot; : &quot;1.2.840.113549.1.9.16.6.5&quot;,
+    &quot;ref&quot; : &quot;1.2.840.113549.1.9.16.6.5&quot;,
+    &quot;text&quot; : {
+      &quot;DE&quot; : &quot;Nachweis der Zustimmung&quot;,
+      &quot;EN&quot; : &quot;Proof of approval&quot;,
+      &quot;FR&quot; : &quot;Preuve d&#39;approbation&quot;,
+      &quot;NL&quot; : &quot;Bewijs van goedkeuring&quot;
+    }
+  }, {
+    &quot;oid&quot; : &quot;1.2.840.113549.1.9.16.6.6&quot;,
+    &quot;ref&quot; : &quot;1.2.840.113549.1.9.16.6.6&quot;,
+    &quot;text&quot; : {
+      &quot;DE&quot; : &quot;Nachweis der Schöpfung&quot;,
+      &quot;EN&quot; : &quot;Proof of creation&quot;,
+      &quot;FR&quot; : &quot;Preuve de création&quot;,
+      &quot;NL&quot; : &quot;Bewijs van creatie&quot;
+    }
+  } ],
+  &quot;sign_languages_supported&quot; : [ &quot;EN&quot;, &quot;FR&quot;, &quot;NL&quot;, &quot;DE&quot; ]
+}</code></p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>
