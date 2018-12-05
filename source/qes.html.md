@@ -68,8 +68,7 @@ The JSON document for itsme® Sign service may be retrieved from:
 
 Environment | URL
 :-------- | :--------
-**SANDBOX** | <a href="https://uatb2b.sixdots.be/qes-partners/1.0.0/.well-known/configuration" target="blank">https://uatb2b.sixdots.be/qes-partners/1.0.0/.well-known/configuration</a>
-**PRODUCTION** | <a href="https://b2b.sixdots.be/qes-partners/1.0.0/.well-known/configuration" target="blank">https://b2b.sixdots.be/qes-partners/1.0.0/.well-known/configuration</a>
+**PRODUCTION** | <a href="https://belgianmobileid.github.io/slate/qes-well-known" target="blank">https://belgianmobileid.github.io/slate/qes-well-known</a>
  
 
 ## 3.2. Starting a new User identification session
