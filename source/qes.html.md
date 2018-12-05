@@ -69,7 +69,7 @@ The JSON document for itsme® Sign service may be retrieved from:
 Environment | URL
 :-------- | :--------
 **PRODUCTION** | <a href="https://belgianmobileid.github.io/slate/qesdiscovery" target="blank">https://belgianmobileid.github.io/slate/qesdiscovery</a>
- 
+
 
 ## 3.2. Starting a new User identification session
 
