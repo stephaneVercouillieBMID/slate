@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="login" data-languages="[&quot;http&quot;]">
+  <body class="sharedata" data-languages="[&quot;http&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -225,7 +225,7 @@
             <a href="#2-prerequisites" class="toc-h1 toc-link" data-title="2-prerequisites">2. Prerequisites</a>
           </li>
           <li>
-            <a href="#3-integrating-login-and-share-data-services" class="toc-h1 toc-link" data-title="3-integrating-login-and-share-data-services">3. Integrating Login and Share Data services</a>
+            <a href="#3-integrating-share-data-service" class="toc-h1 toc-link" data-title="3-integrating-share-data-service">3. Integrating Share Data service</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#3-1-checking-itsme-openid-provider-configuration" class="toc-h2 toc-link" data-title="3-1-checking-itsme-openid-provider-configuration">3.1. Checking itsme® OpenID Provider configuration</a>
@@ -285,13 +285,13 @@
         <h1 id='1-introduction'>1. Introduction</h1>
 <p>itsme® is a trusted identity provider allowing partners to use verified identities for authentication and authorization on web desktop, mobile web and mobile applications. </p>
 
-<p>The objective of this document is to provide all the information needed to integrate the <strong>Login</strong> service using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.</p>
+<p>The objective of this document is to provide all the information needed to integrate the <strong>Share Data</strong> service using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.</p>
 
 <p><a name="Onboarding"></a></p>
 <h1 id='2-prerequisites'>2. Prerequisites</h1>
-<p>Before you can integrate your application with itsme® Login service, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.</p>
-<h1 id='3-integrating-login-and-share-data-services'>3. Integrating Login and Share Data services</h1>
-<p>The itsme® Login service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following diagram:</p>
+<p>Before you can integrate your application with itsme® Share Data service, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.</p>
+<h1 id='3-integrating-share-data-service'>3. Integrating Share Data service</h1>
+<p>The itsme® Share Data service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following diagram:</p>
 
 <p><img src="OpenID_Login_SeqDiag.png" alt="Sequence diagram describing the OpenID flow" /></p>
 
@@ -307,7 +307,7 @@
   If you are building a mobile web or mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links or App links mechanism.</li>
   <li>Once the User has authorized the request and has been authenticated, itsme® will return an Authorization Code to the Service Provider Front-End, redirecting the user to your mobile or web application.</li>
   <li>The Service Provider Back-End calls the itsme® Token Endpoint and exchanges the Authorization Code for an ID Token identifying the User and an Access Token.</li>
-  <li>The Service Provider Back-End MAY request the additional User information from the itsme® userInfo Endpoint by presenting the Access Token obtained in the previous step.</li>
+  <li>The Service Provider Back-End MUST requests the additional User information from the itsme® userInfo Endpoint by presenting the Access Token obtained in the previous step.</li>
   <li>At this stage you are able to confirm the success of the operation and display a success message.</li>
 </ol>
 
@@ -324,7 +324,7 @@
   <li>...</li>
 </ul>
 
-<p>The Discovery document for itsme® Login service may be retrieved from: </p>
+<p>The Discovery document for itsme® Share Data service may be retrieved from: </p>
 
 <table><thead>
 <tr>
@@ -371,7 +371,7 @@
 <tr>
 <td style="text-align: left"><strong>scope</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>&quot;openid&quot;</i> and <i>&quot;service:login_service_code&quot;</i>, by replacing &quot;login_service_code&quot; with the code you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br>You MAY also specify additional scopes, separated by spaces, to request more information about the User. Depending on your use case, the following additional scopes MAY apply:<ul><li>profile: will request the claims representing basic profile information. These are <i>&quot;family_name&quot;</i>, <i>&quot;given_name&quot;</i>, <i>&quot;gender&quot;</i>, <i>&quot;birthdate&quot;</i> and <i>&quot;locale&quot;</i>.</li><li>email: will request the <i>&quot;email&quot;</i> and <i>&quot;email_verified&quot;</i> claims.</li><li>phone: will request the <i>&quot;phone_number&quot;</i> and <i>&quot;phone_number_verified&quot;</i> claims.</li><li>address: will request the <i>&quot;street_address&quot;</i>, <i>&quot;locality&quot;</i>, <i>&quot;postal_code&quot;</i> and <i>&quot;country&quot;</i> claims.</li></ul>For more information on User attributes or claims, please consult the <a href="#Data">ID claims</a> section.</br><br>An HTTP ERROR <i>&quot;not_implemented&quot;</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br></td>
+<td style="text-align: left">The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>&quot;openid&quot;</i> and <i>&quot;service:share_data_service_code&quot;</i>, by replacing &quot;share_data_service_code&quot; with the code you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br>You SHALL also specify additional scopes, separated by spaces, to request more information about the User. Depending on your use case, the following additional scopes SHALL apply:<ul><li>profile: will request the claims representing basic profile information. These are <i>&quot;family_name&quot;</i>, <i>&quot;given_name&quot;</i>, <i>&quot;gender&quot;</i>, <i>&quot;birthdate&quot;</i> and <i>&quot;locale&quot;</i>.</li><li>email: will request the <i>&quot;email&quot;</i> and <i>&quot;email_verified&quot;</i> claims.</li><li>phone: will request the <i>&quot;phone_number&quot;</i> and <i>&quot;phone_number_verified&quot;</i> claims.</li><li>address: will request the <i>&quot;street_address&quot;</i>, <i>&quot;locality&quot;</i>, <i>&quot;postal_code&quot;</i> and <i>&quot;country&quot;</i> claims.</li></ul>For more information on User attributes or claims, please consult the <a href="#Data">ID claims</a> section.</br><br>An HTTP ERROR <i>&quot;not_implemented&quot;</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>redirect_uri</strong></td>
@@ -421,7 +421,7 @@
 <tr>
 <td style="text-align: left"><strong>claims</strong></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">This parameter MAY be used to request specific claims. The value is a JSON object listing the requested claims. When passed as a HTTP GET parameter, the <i>&quot;claims&quot;</i> parameter value is represented as UTF-8 encoded JSON which ends up being form-urlencoded. When used in a Request Object value, see <a href="#RequestObjectByValue">Appendixes</a>, the JSON is used as the value of the claims member.<br>See <a href="#Data">User Data</a> for more information.</br></td>
+<td style="text-align: left">This parameter SHALL be used to request specific claims. The value is a JSON object listing the requested claims. When passed as a HTTP GET parameter, the <i>&quot;claims&quot;</i> parameter value is represented as UTF-8 encoded JSON which ends up being form-urlencoded. When used in a Request Object value, see <a href="#RequestObjectByValue">Appendixes</a>, the JSON is used as the value of the claims member.<br>See <a href="#Data">User Data</a> for more information.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>request</strong></td>
