@@ -124,7 +124,7 @@ Host: server.itsme.be
 
 ### Capturing a successful Authorization Code
 
-If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an Authorization Code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the <i>"redirect_uri"</i> specified previously in the Authentication Request. The following is a non-normative example of ansuccessful Authentication Response:
+If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an Authorization Code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the <i>"redirect_uri"</i> specified previously in the Authentication Request. The following is a non-normative example of a successful Authentication Response:
  
 <code style=display:block;white-space:pre-wrap>HTTP/1.1 302 Found
 Location: https://client.example.org/cb?
