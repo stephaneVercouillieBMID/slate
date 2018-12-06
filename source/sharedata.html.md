@@ -59,7 +59,7 @@ To simplify implementations and increase flexibility, <a href="https://openid.ne
   <li>...</li>
 </ul>
 
-The Discovery document for itsme® Share Data service may be retrieved from: 
+The Discovery document for itsme® Share Data service MAY be retrieved from: 
 
 Environment | URL
 :-------- | :--------
@@ -632,7 +632,7 @@ Security level | Login | Share Data
 **basic** | Allowed | Allowed
 **advanced** | Allowed | Allowed
 
-Next to the security levels, your application can also request additional security data to determine the context in which the transactions have been executed. The security data elements can, alone or in combination with each other, indicate a given risk exposure. By providing these elements, itsme® allows you to detect fraud attempts or effective fraudulent transactions. The security data elements that can be used to associate a risk exposure to a specific transaction are available in the section [Capturing claims from the userInfo Endpoint](#SecurityDataElements).
+Next to the security levels, your application SHALL also request additional security data to determine the context in which the transactions have been executed. The security data elements, alone or in combination with each other, indicate a given risk exposure. By providing these elements, itsme® allows you to detect fraud attempts or effective fraudulent transactions. The security data elements that SHALL be used to associate a risk exposure to a specific transaction are available in the section [Capturing claims from the userInfo Endpoint](#SecurityDataElements).
 
 
 <a name="RequestObjectByValue"></a>
