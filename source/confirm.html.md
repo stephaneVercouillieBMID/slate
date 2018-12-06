@@ -18,14 +18,41 @@ The objective of this document is to provide all the information needed to integ
 <a name="Onboarding"></a>
 # 2. Prerequisites
  
-Before you can integrate your application with itsme® Confirm service, you must set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.
+Before you can integrate your application with itsme® Confirm service, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.
 
-Moreover, the <a href="https://belgianmobileid.github.io/slate/" target="blank">itsme® OpenID Login and Share Data</a> specifications MUST be understood first, before going further into the next paragraphs.
-  
-  
-# 2. Integrating Confirm service
 
-The itsme® Confirm service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. However, there are some specific rules you MUST take into account during the implementation:
+# 3. Integrating Confirm service
+
+The itsme® Confirm service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following diagram:
+  
+ ![Sequence diagram describing the OpenID flow](OpenID_Login_SeqDiag.png)
+ 
+<ol>
+  <li>The User indicates on your end he wishes to authenticate with itsme®</li>
+  <li>Your web desktop, mobile web or mobile application (aka 'Relying Party' in the OpenID Connect specification) sends a request to itsme® (aka 'OpenID Provider' in the OpenID Connect specification) to authenticate the User. This request will redirect the User to the itsme® Front-End. itsme® then authenticates the User by asking him
+    <ul type>
+      <li>to enter his phone number on the itsme® OpenID web page</li>
+      <li>authorize the release of some information’s to your application</li>
+      <li>to provide his credentials (itsme® code or fingerprint or FaceID)</li>
+    </ul>
+  
+  If you are building a mobile web or mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links or App links mechanism.</li>
+  <li>Once the User has authorized the request and has been authenticated, itsme® will return an Authorization Code to the Service Provider Front-End, redirecting the user to your mobile or web application.</li>
+  <li>The Service Provider Back-End calls the itsme® Token Endpoint and exchanges the Authorization Code for an ID Token identifying the User and an Access Token.</li>
+  <li>The Service Provider Back-End MAY request the additional User information from the itsme® userInfo Endpoint by presenting the Access Token obtained in the previous step.</li>
+  <li>At this stage you are able to confirm the success of the operation and display a success message.</li>
+</ol>
+
+This flow is described in much more detail in the following sections.
+
+
+
+
+
+
+
+
+
 
 <ul>
   <li>The Authentication Request MUST be communicated using HTTPS GET protocol and the <i>"application/x-www-form-urlencoded"</i> media type. By opposition to the OpenID Connect specifications, POST method is not authorized when triggering the itsme® App through the Universal/App Link mechanism only support the HTTP GET method on the Authorisation Endpoint.
