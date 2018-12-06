@@ -297,7 +297,7 @@
 
 <ol>
   <li>The User indicates on your end he wishes to authenticate with itsme®</li>
-  <li>Your web desktop, mobile web or mobile application (aka 'Relying Party' in the OpenID Connect specification) sends a request to itsme® (aka 'OpenID Provider' in the OpenID Connect specification) to authenticate the User. This request will redirect the user to the itsme® Front-End. itsme® then authenticates the User by asking him
+  <li>Your web desktop, mobile web or mobile application (aka 'Relying Party' in the OpenID Connect specification) sends a request to itsme® (aka 'OpenID Provider' in the OpenID Connect specification) to authenticate the User. This request will redirect the User to the itsme® Front-End. itsme® then authenticates the User by asking him
     <ul type>
       <li>to enter his phone number on the itsme® OpenID web page</li>
       <li>authorize the release of some information’s to your application</li>
@@ -324,7 +324,7 @@
   <li>...</li>
 </ul>
 
-<p>The Discovery document for itsme® Login service may be retrieved from: </p>
+<p>The Discovery document for itsme® Login service MAY be retrieved from: </p>
 
 <table><thead>
 <tr>
@@ -477,7 +477,7 @@ Host: server.itsme.be
 
 <p><a name="AuthNResponse"></a></p>
 <h2 id='3-3-capturing-an-authorization-code'>3.3. Capturing an Authorization Code</h2><h3 id='capturing-a-successful-authorization-code'>Capturing a successful Authorization Code</h3>
-<p>If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an Authorization Code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the <i>&quot;redirect_uri&quot;</i> specified previously in the Authentication Request. The following is a non-normative example of ansuccessful Authentication Response:</p>
+<p>If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an Authorization Code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the <i>&quot;redirect_uri&quot;</i> specified previously in the Authentication Request. The following is a non-normative example of a successful Authentication Response:</p>
 
 <p><code style=display:block;white-space:pre-wrap>HTTP/1.1 302 Found
 Location: https://client.example.org/cb?
@@ -1331,7 +1331,7 @@ private void handleIntent(Intent intent) {
 </tr>
 </tbody></table>
 
-<p>Next to the security levels, your application can also request additional security data to determine the context in which the transactions have been executed. The security data elements can, alone or in combination with each other, indicate a given risk exposure. By providing these elements, itsme® allows you to detect fraud attempts or effective fraudulent transactions. The security data elements that can be used to associate a risk exposure to a specific transaction are available in the section <a href="#SecurityDataElements">Capturing claims from the userInfo Endpoint</a>.</p>
+<p>Next to the security levels, your application MAY also request additional security data to determine the context in which the transactions have been executed. The security data elements, alone or in combination with each other, indicate a given risk exposure. By providing these elements, itsme® allows you to detect fraud attempts or effective fraudulent transactions. The security data elements that MAY be used to associate a risk exposure to a specific transaction are available in the section <a href="#SecurityDataElements">Capturing claims from the userInfo Endpoint</a>.</p>
 
 <p><a name="RequestObjectByValue"></a></p>
 <h2 id='5-4-using-the-request-parameter'>5.4. Using the request parameter</h2>
