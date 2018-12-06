@@ -331,8 +331,6 @@ Authorization: Bearer <access token></code>
 
 The itsme® userInfo Endpoint will return a HTTP 200 OK response and the User claims in a Nested JWT format. The following is a non-normative example of a UserInfo Response:
 
-<aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
-
 <code style=display:block;white-space:pre-wrap>HTTP/1.1 200 OK
   Content-Type: application/json
   {
@@ -344,6 +342,8 @@ The itsme® userInfo Endpoint will return a HTTP 200 OK response and the User cl
    "email": "janedoe@example.com",
    "picture": "http://example.com/janedoe/me.jpg"
   }</code>
+
+<aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
 
 Before being able to consume the claims from the userInfo response, you will first need to validate it by following the userInfo response validation rules described in the section below.
 
@@ -360,7 +360,7 @@ When an error condition occurs an error response as defined in the <a href="http
 
 ###  Capturing claims from the 'scope' parameter
 
-On top of the <i>"openid"</i> and <i>"service:service_code"</i> parameters specified in the Authentication Request, you can also ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes apply:
+On top of the <i>"openid"</i> and <i>"service:share_data_service_code"</i> values specified in the Authentication Request, you SHALL also ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes SHALL apply:
 
 Parameter | Description
 :-- | :-- 
@@ -387,10 +387,9 @@ Values |	Returned |	Description
 **postal_code** | If requested | 
 **country** | If requested | 
 
-
 ###  Capturing claims from the 'claims' parameter
 
-Typically, the values returned via the <i>"scope"</i> parameter only contain claims about the identity of the User. More information about the User can be requested by including additional parameters in the <i>"claims"</i> parameter as specified below:
+Typically, the values returned via the <i>"scope"</i> parameter only contain claims about the identity of the User. More information about the User SHALL be requested by including additional parameters in the <i>"claims"</i> parameter as specified below:
 
 Parameter | Description
 :-- | :-- 
