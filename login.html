@@ -225,7 +225,7 @@
             <a href="#2-prerequisites" class="toc-h1 toc-link" data-title="2-prerequisites">2. Prerequisites</a>
           </li>
           <li>
-            <a href="#3-integrating-login-and-share-data-services" class="toc-h1 toc-link" data-title="3-integrating-login-and-share-data-services">3. Integrating Login and Share Data services</a>
+            <a href="#3-integrating-login-service" class="toc-h1 toc-link" data-title="3-integrating-login-service">3. Integrating Login service</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#3-1-checking-itsme-openid-provider-configuration" class="toc-h2 toc-link" data-title="3-1-checking-itsme-openid-provider-configuration">3.1. Checking itsme® OpenID Provider configuration</a>
@@ -290,7 +290,7 @@
 <p><a name="Onboarding"></a></p>
 <h1 id='2-prerequisites'>2. Prerequisites</h1>
 <p>Before you can integrate your application with itsme® Login service, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.</p>
-<h1 id='3-integrating-login-and-share-data-services'>3. Integrating Login and Share Data services</h1>
+<h1 id='3-integrating-login-service'>3. Integrating Login service</h1>
 <p>The itsme® Login service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following diagram:</p>
 
 <p><img src="OpenID_Login_SeqDiag.png" alt="Sequence diagram describing the OpenID flow" /></p>
@@ -832,8 +832,6 @@ Authorization: Bearer <access token></code></p>
 <h3 id='managing-the-userinfo-response'>Managing the userInfo Response</h3>
 <p>The itsme® userInfo Endpoint will return a HTTP 200 OK response and the User claims in a Nested JWT format. The following is a non-normative example of a UserInfo Response:</p>
 
-<aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
-
 <p><code style=display:block;white-space:pre-wrap>HTTP/1.1 200 OK
   Content-Type: application/json
   {
@@ -846,6 +844,8 @@ Authorization: Bearer <access token></code></p>
    &quot;picture&quot;: &quot;http://example.com/janedoe/me.jpg&quot;
   }</code></p>
 
+<aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
+
 <p>Before being able to consume the claims from the userInfo response, you will first need to validate it by following the userInfo response validation rules described in the section below.</p>
 <h3 id='userinfo-response-validation'>UserInfo response validation</h3>
 <p>You MUST validate the userInfo reponse in the following manner:</p>
@@ -857,7 +857,7 @@ Authorization: Bearer <access token></code></p>
 
 <p>When an error condition occurs an error response as defined in the <a href="https://tools.ietf.org/html/rfc6750" target="blank">OAuth 2.0 Bearer Token Usage specification</a> will be returned.</p>
 <h3 id='capturing-claims-from-the-39-scope-39-parameter'>Capturing claims from the &#39;scope&#39; parameter</h3>
-<p>On top of the <i>&quot;openid&quot;</i> and <i>&quot;service:service_code&quot;</i> parameters specified in the Authentication Request, you can also ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes apply:</p>
+<p>On top of the <i>&quot;openid&quot;</i> and <i>&quot;service:login_service_code&quot;</i> values specified in the Authentication Request, you MAY also ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes MAY apply:</p>
 
 <table><thead>
 <tr>
@@ -959,7 +959,7 @@ Authorization: Bearer <access token></code></p>
 </tr>
 </tbody></table>
 <h3 id='capturing-claims-from-the-39-claims-39-parameter'>Capturing claims from the &#39;claims&#39; parameter</h3>
-<p>Typically, the values returned via the <i>&quot;scope&quot;</i> parameter only contain claims about the identity of the User. More information about the User can be requested by including additional parameters in the <i>&quot;claims&quot;</i> parameter as specified below:</p>
+<p>Typically, the values returned via the <i>&quot;scope&quot;</i> parameter only contain claims about the identity of the User. More information about the User MAY be requested by including additional parameters in the <i>&quot;claims&quot;</i> parameter as specified below:</p>
 
 <table><thead>
 <tr>
