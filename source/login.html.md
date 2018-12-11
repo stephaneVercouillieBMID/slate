@@ -37,7 +37,7 @@ The itsme® Login service integration is based on the <a href="http://openid.net
       <li>to provide his credentials (itsme® code or fingerprint or FaceID)</li>
     </ul>
   
-  If you are building a mobile web or mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links or App links mechanism.</li>
+  If you are building a mobile web or mobile application, the User don’t need to enter his mobile phone number on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links or App links mechanism.</li>
   <li>Once the User has authorized the request and has been authenticated, itsme® will return an Authorization Code to the Service Provider Front-End, redirecting the user to your mobile or web application.</li>
   <li>The Service Provider Back-End calls the itsme® Token Endpoint and exchanges the Authorization Code for an ID Token identifying the User and an Access Token.</li>
   <li>The Service Provider Back-End MAY request the additional User information from the itsme® userInfo Endpoint by presenting the Access Token obtained in the previous step.</li>
@@ -396,7 +396,7 @@ Parameter | Description
 **tag:sixdots.be,2016-06:claim_nationality** | It will request the <i>"nationality"</i> claim.
 **tag:sixdots.be,2016-06:claim_city_of_birth** | It will request the <i>"place of Birth - city"</i> claim.
 **tag:sixdots.be,2016-06:claim_eid**  | It will request the <i>"eid"</i>, <i>"issuance_locality"</i>, <i>"validity_from"</i>, <i>"validity_to"</i>, <i>"certificate_validity"</i> and <i>"read_date"</i> claims
-**tag:sixdots.be,2017-05:claim_device** | It will request the <i>"os"</i>, <i>"appName"</i>, <i>"appRelease"</i>, <i>"deviceLabel"</i>, <i>"debugEnabled"</i>, <i>"deviceID"</i>, <i>"osRelease"</i>, <i>"manufacturer"</i>, <i>"hasSimEnabled"</i>, <i>"deviceLockLevel"</i>, <i>"smsEnabled"</i>, <i>"rooted"</i>, <i>"imei"</i>, <i>"deviceModel"</i>, <i>"msisdn"</i> and <i>"sdkRelease"</i> claims.
+**tag:sixdots.be,2017-05:claim_device** | It will request the <i>"os"</i>, <i>"appName"</i>, <i>"appRelease"</i>, <i>"deviceLabel"</i>, <i>"debugEnabled"</i>, <i>"deviceID"</i>, <i>"osRelease"</i>, <i>"manufacturer"</i>, <i>"hasSimEnabled"</i>, <i>"deviceLockLevel"</i>, <i>"smsEnabled"</i>, <i>"rooted"</i>, <i>"imei"</i>, <i>"deviceModel"</i> and <i>"sdkRelease"</i> claims.
 **tag:sixdots.be,2017-05:claim_transaction_info** | It will request the <i>"securityLevel"</i>, <i>"bindLevel"</i> and <i>"mcc"</i> claims.
 **tag:sixdots.be,2017-05:2017-05:claim_photo** | It will request the <i>"e-ID Picture"</i> claim.
 
@@ -428,7 +428,6 @@ Values | Description
 **rooted**  | The returned value is always <i>"false"</i> as long as itsme® can't be used on a jailbreaked/rooted device.
 **imei**  | The device IMEI value.
 **deviceModel**  | The model of the device.
-**msisdn**  | The User’s phone number.
 **sdkRelease**  |
 **securityLevel** | The security level used during transaction. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
 **bindLevel**  | It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
