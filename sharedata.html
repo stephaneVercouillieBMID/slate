@@ -304,7 +304,7 @@
       <li>to provide his credentials (itsme® code or fingerprint or FaceID)</li>
     </ul>
   
-  If you are building a mobile web or mobile application, the User don’t need to enter his MSISDN on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links or App links mechanism.</li>
+  If you are building a mobile web or mobile application, the User don’t need to enter his mobile phone number on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links or App links mechanism.</li>
   <li>Once the User has authorized the request and has been authenticated, itsme® will return an Authorization Code to the Service Provider Front-End, redirecting the user to your mobile or web application.</li>
   <li>The Service Provider Back-End calls the itsme® Token Endpoint and exchanges the Authorization Code for an ID Token identifying the User and an Access Token.</li>
   <li>The Service Provider Back-End MUST requests the additional User information from the itsme® userInfo Endpoint by presenting the Access Token obtained in the previous step.</li>
@@ -981,7 +981,7 @@ Authorization: Bearer <access token></code></p>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2017-05:claim_device</strong></td>
-<td style="text-align: left">It will request the <i>&quot;os&quot;</i>, <i>&quot;appName&quot;</i>, <i>&quot;appRelease&quot;</i>, <i>&quot;deviceLabel&quot;</i>, <i>&quot;debugEnabled&quot;</i>, <i>&quot;deviceID&quot;</i>, <i>&quot;osRelease&quot;</i>, <i>&quot;manufacturer&quot;</i>, <i>&quot;hasSimEnabled&quot;</i>, <i>&quot;deviceLockLevel&quot;</i>, <i>&quot;smsEnabled&quot;</i>, <i>&quot;rooted&quot;</i>, <i>&quot;imei&quot;</i>, <i>&quot;deviceModel&quot;</i>, <i>&quot;msisdn&quot;</i> and <i>&quot;sdkRelease&quot;</i> claims.</td>
+<td style="text-align: left">It will request the <i>&quot;os&quot;</i>, <i>&quot;appName&quot;</i>, <i>&quot;appRelease&quot;</i>, <i>&quot;deviceLabel&quot;</i>, <i>&quot;debugEnabled&quot;</i>, <i>&quot;deviceID&quot;</i>, <i>&quot;osRelease&quot;</i>, <i>&quot;manufacturer&quot;</i>, <i>&quot;hasSimEnabled&quot;</i>, <i>&quot;deviceLockLevel&quot;</i>, <i>&quot;smsEnabled&quot;</i>, <i>&quot;rooted&quot;</i>, <i>&quot;imei&quot;</i>, <i>&quot;deviceModel&quot;</i> and <i>&quot;sdkRelease&quot;</i> claims.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2017-05:claim_transaction_info</strong></td>
@@ -1090,10 +1090,6 @@ Authorization: Bearer <access token></code></p>
 <tr>
 <td style="text-align: left"><strong>deviceModel</strong></td>
 <td style="text-align: left">The model of the device.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>msisdn</strong></td>
-<td style="text-align: left">The User’s phone number.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>sdkRelease</strong></td>

@@ -287,7 +287,7 @@
   <li>Your web desktop, mobile web or mobile SCA application sends a request to itsme® Integration Layer Back-End in order to create the User’s Identification session and obtain the User’s signing certificate to be include in the data to be signed.</li>
   <li>itsme® returns the session id and the redirect URL specific to the User to your SCA Back-End.</li>
   <li>Your SCA Front-End redirects the User to the Integration Layer Front-End of itsme®, meaning that the User will be identified in the meanwhile (in case the <i>"userCode"</i> is transmitted by the SCA, this step can be skipped as the user will already be identified). If the User has no signature certificate yet, the certificate creation process will be initiated automatically.</li>
-  <li>Finally, when the User is authenticated and has a signature certificate, he is redirected to the your SCA Front-End. The redirection to your SCA Front-End should be (almost) transparent to the User (aka possible displaying of a spinner) as the laps of time between step 5 and step 11 of this diagram should be extremely short.</li>
+  <li>Finally, when the User is authenticated and has a signature certificate, he is redirected to the your SCA Front-End. The redirection to your SCA Front-End SHOULD be (almost) transparent to the User (aka possible displaying of a spinner) as the laps of time between step 5 and step 11 of this diagram SHOULD be extremely short.</li>
   <li>Your SCA Back-End contacts the itsme® Integration Layer Back-End to get the signature certificate of the User.</li>
 </ol>
 
@@ -613,7 +613,7 @@
 <td style="text-align: left"><strong>id</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This is the ID of the hash(es) to be signed. You should provide us this information when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>. Currently, only single hash signing is allowed.</td>
+<td style="text-align: left">This is the ID of the hash(es) to be signed. You SHOULD provide us this information when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>. Currently, only single hash signing is allowed.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>di</strong></td>
@@ -697,13 +697,13 @@
 <td style="text-align: left"><strong>signPolicyRef</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">This defines the reference of the signature policy to be used during itsme® Signing flow. In case no specific signature policy is applicable for that specific use case, the itsme® generic qualified signature policy should be used. The signature policy has to be indicated in the SCA Front-End to the User. The list of available codes can be retrieved from the <a href="#OpenIDQES">JSON document</a>.</td>
+<td style="text-align: left">This defines the reference of the signature policy to be used during itsme® Signing flow. In case no specific signature policy is applicable for that specific use case, the itsme® generic qualified signature policy SHOULD be used. The signature policy has to be indicated in the SCA Front-End to the User. The list of available codes can be retrieved from the <a href="#OpenIDQES">JSON document</a>.<br>The signature policies used SHOULD be defined in the <a href="#Onboarding">itsme® B2B portal</a>. It is up to you to choose your signature policies within the list given by itsme®. If you want to add new signature policies to your list, please ask the itsme® Onboarding team.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>commitmentTypeRef</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">This defines the reference of the commitment type to be used during itsme® Signing flow. This parameter is used to display (in the itsme® App) the commitment type of the signature to the User. There is no commitment type by default. If the parameter is not given by the SCA, then nothing is displayed in the itsme® App. You should use a code that corresponds to a specific commitment type. The list of available codes can be retrieved from the <a href="#OpenIDQES">JSON document</a>.</td>
+<td style="text-align: left">This defines the reference of the commitment type to be used during itsme® Signing flow. This parameter is used to display (in the itsme® App) the commitment type of the signature to the User. There is no commitment type by default. If the parameter is not given by the SCA, then nothing is displayed in the itsme® App. You SHOULD use a code that corresponds to a specific commitment type. The list of available codes can be retrieved from the <a href="#OpenIDQES">JSON document</a>.<br>The commitment types used SHOULD be defined in the <a href="#Onboarding">itsme® B2B portal</a>. It is up to you to choose your commitment types within the list given by itsme®. If you want to add new commitment types to your list, please ask the itsme® Onboarding team.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>signerRole</strong></td>
@@ -713,7 +713,7 @@
 </tr>
 </tbody></table>
 
-<p>This parameter is optional and freely defined in a free text of maximum 50 characters by yourself. You should provide this free text in all supported languages. The characters used to define the Signer Role MUST be ISO-8859-1 compatible.  </p>
+<p>This parameter is optional and freely defined in a free text of maximum 50 characters by yourself. You SHOULD provide this free text in all supported languages. The characters used to define the Signer Role MUST be ISO-8859-1 compatible.<br>The signer role SHOULD be provided in all languages supported by itsme®.</br></p>
 <h2 id='3-7-managing-the-sign-response'>3.7. Managing the Sign Response</h2><h3 id='getting-a-successful-sign-response'>Getting a successful Sign Response</h3>
 <p>If the Sign Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside.</p>
 
@@ -844,7 +844,7 @@
 <tr>
 <td style="text-align: left"><strong>400</strong></td>
 <td style="text-align: left">NO_REQUEST</td>
-<td style="text-align: left">user_identification is a POST service. A body should be inserted into the request. For more information on the structure of this request, you can go to the section related to /user_identification.</td>
+<td style="text-align: left">user_identification is a POST service. A body SHOULD be inserted into the request. For more information on the structure of this request, you can go to the section related to /user_identification.</td>
 </tr>
 <tr>
 <td style="text-align: left"><label></label></td>
@@ -879,12 +879,12 @@
 <tr>
 <td style="text-align: left"><label></label></td>
 <td style="text-align: left">UNEXPECTED_ERROR</td>
-<td style="text-align: left">An error occurred during the validation of partner information. You should try again later. If the error persists, then you should contact itsme® support team for investigation.</td>
+<td style="text-align: left">An error occurred during the validation of partner information. You SHOULD try again later. If the error persists, then you SHOULD contact itsme® support team for investigation.</td>
 </tr>
 <tr>
 <td style="text-align: left"><label></label></td>
 <td style="text-align: left">UNKNOWN</td>
-<td style="text-align: left">An unknown error occurred during the request. You should contact itsme® support team for investigation.</td>
+<td style="text-align: left">An unknown error occurred during the request. You SHOULD contact itsme® support team for investigation.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>409</strong></td>
@@ -904,7 +904,7 @@
 <tr>
 <td style="text-align: left"><label></label></td>
 <td style="text-align: left">UNEXPECTED_ERROR</td>
-<td style="text-align: left">An unexpected error occurred during User’s Identification flow. You should try again later. If the error persists, then you should contact itsme® support team for investigation.</td>
+<td style="text-align: left">An unexpected error occurred during User’s Identification flow. You SHOULD try again later. If the error persists, then you SHOULD contact itsme® support team for investigation.</td>
 </tr>
 </tbody></table>
 
