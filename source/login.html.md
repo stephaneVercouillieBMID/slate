@@ -262,7 +262,7 @@ Values | Returned | Description
 **at_hash** | Not supported | itsme® does not provide any value for this parameter.
 **refresh_token** | Not supported | itsme® does not provide any value for this parameter as it only maintains short-lived session to enforce re-authentication.
 
-With the following claims returned in the <i>"id_token"</i>: 
+With the following values returned in the <i>"id_token"</i>: 
 
 Values |	Returned |	Description
 :-- | :-- | :--
@@ -277,7 +277,7 @@ Values |	Returned |	Description
 **amr** | Never |
 **azp** | Never |
 
-However, before being able to store and use the returned claims from <i>"id_token"</i> and the <i>"access_token"</i>, you MUST validate these strings by following the ID Token and Access Token validation rules described in the sections below.
+However, before being able to store and use the returned values from <i>"id_token", you will first need to validate it by following the the ID Token validation rules described in the section below.
 
 ### ID Token validation
 
@@ -291,16 +291,6 @@ You MUST validate the ID Token in the Token Response in the following manner:
 </ol>
 
 If all the above verifications are successful, you can use the subject (<i>"sub"</i>) of the ID Token as the unique identifier of the corresponding User.
-
-### Access Token validation
- 
-To validate an Access Token issued from the Token Endpoint, you SHOULD do the following:
-
-<ol>
-  <li>Hash the octets of the ASCII representation of the <i>"access_token"</i> with the hash algorithm specified in the <i>"alg"</i> parameter of the ID Token's JWS Header, namely <i>"RS256"</i> corresponding to the hash algorithm SHA-256.</li>
-  <li>Take the left-most half of the hash and base64url encode it.</li>
-  <li>The value of <i>"at_hash"</i> in the ID Token MUST match the value produced in the previous step.</li>
-</ol>
 
 ### Handling token error response 
 
@@ -345,7 +335,7 @@ The itsme® userInfo Endpoint will return a HTTP 200 OK response and the User cl
 
 <aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
 
-Before being able to consume the claims from the userInfo response, you will first need to validate it by following the userInfo response validation rules described in the section below.
+However, before being able to consume the claims from the userInfo response, you will first need to validate it by following the userInfo response validation rules described in the section below.
 
 ### UserInfo response validation
 
