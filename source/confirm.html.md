@@ -298,7 +298,7 @@ Values |	Returned |	Description
 **iat** |	Always	| The time the ID Token was issued, represented in Unix time (integer seconds).
 **auth_time** | Always | The time the User authentication occurred, represented in Unix time (integer seconds). 
 **nonce** | If provided | String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. Sufficient entropy MUST be present in the <i>"nonce"</i> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.
-**acr** | Always | Possible values: <i>"tag:sixdots.be,2016-06:acr_basic"</i> and <i>"tag:sixdots.be,2016-06:acr_advanced"</i>
+**acr** | Always | Could be <i>"tag:sixdots.be,2016-06:acr_basic"</i> or <i>"tag:sixdots.be,2016-06:acr_advanced"</i> depending on the value entered in the <i>"acr_values"</i>  Authorisation Request parameter. If no value is provided in the <i>"acr_values"</i> parameter, the <i>"acr"</i> will contain <i>"tag:sixdots.be,2016-06:acr_basic"</i>.
 **amr** | Never |
 **azp** | Never |
 
