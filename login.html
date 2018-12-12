@@ -776,7 +776,7 @@ Pragma: no-cache
 <tr>
 <td style="text-align: left"><strong>acr</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">Possible values: <i>&quot;tag:sixdots.be,2016-06:acr_basic&quot;</i> and <i>&quot;tag:sixdots.be,2016-06:acr_advanced&quot;</i></td>
+<td style="text-align: left">Could be <i>&quot;tag:sixdots.be,2016-06:acr_basic&quot;</i> or <i>&quot;tag:sixdots.be,2016-06:acr_advanced&quot;</i> depending on the value entered in the <i>&quot;acr_values&quot;</i>  Authorisation Request parameter. If no value is provided in the <i>&quot;acr_values&quot;</i> parameter, the <i>&quot;acr&quot;</i> will contain <i>&quot;tag:sixdots.be,2016-06:acr_basic&quot;</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>amr</strong></td>
@@ -790,7 +790,7 @@ Pragma: no-cache
 </tr>
 </tbody></table>
 
-<p>However, before being able to store and use the returned values from <i>&quot;id_token&quot;, you will first need to validate it by following the the ID Token validation rules described in the section below.</p>
+<p>However, before being able to store and use the returned values from <i>&quot;id_token&quot;</i>, you will first need to validate it by following the the ID Token validation rules described in the section below.</p>
 <h3 id='id-token-validation'>ID Token validation</h3>
 <p>You MUST validate the ID Token in the Token Response in the following manner:</p>
 
