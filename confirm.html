@@ -820,7 +820,7 @@ Pragma: no-cache
 </tr>
 </tbody></table>
 
-<p>However, before being able to store and use the returned claims from <i>&quot;id_token&quot;</i> and the <i>&quot;access_token&quot;</i>, you MUST validate these strings by following the ID Token and Access Token validation rules described in the sections below.</p>
+<p>However, before being able to store and use the returned values from <i>&quot;id_token&quot;, you will first need to validate it by following the the ID Token validation rules described in the section below.</p>
 <h3 id='id-token-validation'>ID Token validation</h3>
 <p>You MUST validate the ID Token in the Token Response in the following manner:</p>
 
@@ -834,14 +834,6 @@ Pragma: no-cache
 </ol>
 
 <p>If all the above verifications are successful, you can use the subject (<i>&quot;sub&quot;</i>) of the ID Token as the unique identifier of the corresponding User.</p>
-<h3 id='access-token-validation'>Access Token validation</h3>
-<p>To validate an Access Token issued from the Token Endpoint, you SHOULD do the following:</p>
-
-<ol>
-  <li>Hash the octets of the ASCII representation of the <i>"access_token"</i> with the hash algorithm specified in the <i>"alg"</i> parameter of the ID Token's JWS Header, namely <i>"RS256"</i> corresponding to the hash algorithm SHA-256.</li>
-  <li>Take the left-most half of the hash and base64url encode it.</li>
-  <li>The value of <i>"at_hash"</i> in the ID Token MUST match the value produced in the previous step.</li>
-</ol>
 <h3 id='handling-token-error-response'>Handling token error response</h3>
 <p>If the Token Request is invalid or unauthorized an HTTP 400 response will be returned as in the example:</p>
 
@@ -878,7 +870,7 @@ Authorization: Bearer <access token></code></p>
 
 <aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
 
-<p>Before being able to consume the claims from the userInfo response, you will first need to validate it by following the userInfo response validation rules described in the section below.</p>
+<p>However, before being able to consume the claims from the userInfo response, you will first need to validate it by following the userInfo response validation rules described in the section below.</p>
 <h3 id='userinfo-response-validation'>UserInfo response validation</h3>
 <p>You MUST validate the userInfo reponse in the following manner:</p>
 
