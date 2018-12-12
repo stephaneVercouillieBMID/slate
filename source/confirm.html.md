@@ -302,7 +302,7 @@ Values |	Returned |	Description
 **amr** | Never |
 **azp** | Never |
 
-However, before being able to store and use the returned values from <i>"id_token", you will first need to validate it by following the the ID Token validation rules described in the section below.
+However, before being able to store and use the returned values from <i>"id_token"</i>, you will first need to validate it by following the the ID Token validation rules described in the section below.
 
 ### ID Token validation
 
