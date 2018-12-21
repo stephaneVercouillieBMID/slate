@@ -18,6 +18,8 @@ The objective of this document is to provide all the information needed to integ
   
 <a name="Onboarding"></a>
 # 2. Prerequisites
+
+## 2.1. Signing up your application in itsme® B2B portal
  
 Before you can integrate your application with itsme® Login service, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>. From here, you will be able to 
 
@@ -27,7 +29,30 @@ Before you can integrate your application with itsme® Login service, you MUST s
   <li>provide your signature and encryption public keys, also known as your JSON Web Key Set (JWKS). More information can be found in our <a href="https://belgianmobileid.github.io/slate/jose" target="blank">JSON Object Signing and Encryption (JOSE)</a> page;</li>
   <li>share the redirection URI that will be used in one of the steps below.</li>
 </ul>
-  
+
+<a name="OpenIDConfig"></a>
+## 2.2. Checking itsme® OpenID Provider configuration
+
+To simplify implementations and increase flexibility, <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID Connect allows the use of a Discovery Document</a>, a JSON document containing key-value pairs which provide details about itsme® configuration, such as the URIs of the 
+
+<ul>
+  <li>Authorization, Token and userInfo Endpoints</li>
+  <li>supported claims</li>
+  <li>JWKSet URL</li>
+  <li>...</li>
+</ul>
+
+The Discovery document for itsme® Login service MAY be retrieved from: 
+
+Environment | URL
+:-------- | :--------
+**SANDBOX** | <a href="https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</a>
+**PRODUCTION** | <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a>
+
+## 2.3. Consulting OpenID Connect certified libraries
+
+OpenID Connect provides certified libraries, products, and tools which could help you integrating the itsme® service. More more information, please visit the official webpage: <a href="https://openid.net/developers/libraries/" target="blank">https://openid.net/developers/libraries/</a>.
+
 
 # 3. Integrating Login service
 
@@ -54,28 +79,8 @@ The itsme® Login service integration is based on the <a href="http://openid.net
 This flow is described in much more detail in the following sections.
  
 
-<a name="OpenIDConfig"></a>
-## 3.1. Checking itsme® OpenID Provider configuration
-
-To simplify implementations and increase flexibility, <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID Connect allows the use of a Discovery Document</a>, a JSON document containing key-value pairs which provide details about itsme® configuration, such as the URIs of the 
-
-<ul>
-  <li>Authorization, Token and userInfo Endpoints</li>
-  <li>supported claims</li>
-  <li>JWKSet URL</li>
-  <li>...</li>
-</ul>
-
-The Discovery document for itsme® Login service MAY be retrieved from: 
-
-Environment | URL
-:-------- | :--------
-**SANDBOX** | <a href="https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">https://e2emerchant.itsme.be/oidc/.well-known/openid-configuration</a>
-**PRODUCTION** | <a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a>
-
-
 <a name="AuthNRequest"></a>
-## 3.2. Forging an Authentication Request
+## 3.1. Forging an Authentication Request
 
 First, you will forg a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint can be retrieved from the [itsme® Discovery document](#OpenIDConfig), using the key <i>"authorization_endpoint"</i>.
 
@@ -127,7 +132,7 @@ Host: server.itsme.be
   }</code>
 
 <a name="AuthNResponse"></a>
-## 3.3. Capturing an Authorization Code
+## 3.2. Capturing an Authorization Code
 
 ### Capturing a successful Authorization Code
 
@@ -178,7 +183,7 @@ Error | Description
 All other HTTPS errors unrelated to OpenID Connect Core will be returned to the User using the appropriate HTTPS status code.
 
 <a name="UniversalLinks"></a> 
-## 3.4. Supporting Universal Links and App Links mechanism
+## 3.3. Supporting Universal Links and App Links mechanism
 Regardless of the application you are building you should make sure that your redirect URIs support the <a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal links</a> and <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App links</a> mechanism. Functionally, it will allow you to have only one single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.
 
 Universal links and App links are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.
@@ -191,7 +196,7 @@ iOS Universal Links and Android App Links were intended to fix this. Instead of 
 
 The specifications for the implementation of Universal links and App links can be found in the [Appendix](#Appendixes).
 
-## 3.5. Exchanging the Authorization Code 
+## 3.4. Exchanging the Authorization Code 
 <a name="tokenEndpoint"></a> 
 
 Once your server component has received an [Authorization Code](#AuthNResponse), your server can exchange it for an Access Token and an ID Token.
@@ -233,7 +238,7 @@ Parameter | Description
 **exp** | The <i>"exp"</i> (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing.  The processing of the <i>"exp"</i> claim requires that the current date/time MUST be before the expiration date/time listed in the <i>"exp"</i> claim. Implementers MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew.  Its value MUST be a number containing a NumericDate value (e.g. 1538507868 for Tuesday, March 22, 2011 6:43:00 PM).
 
 <a name="TokenResponse"></a>
-## 3.6. Managing Token Response
+## 3.5. Managing Token Response
 
 ### Extracting a successful Token Response
 
@@ -315,7 +320,7 @@ The response will contain an error parameter and optionally <i>"error_descriptio
 
 
 <a name="Data"></a>
-## 3.7. Obtaining User attributes or claims
+## 3.6. Obtaining User attributes or claims
 
 ### Creating the userInfo Request 
 
