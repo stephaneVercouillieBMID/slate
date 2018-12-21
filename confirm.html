@@ -223,30 +223,38 @@
           </li>
           <li>
             <a href="#2-prerequisites" class="toc-h1 toc-link" data-title="2-prerequisites">2. Prerequisites</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#2-1-signing-up-your-application-in-itsme-b2b-portal" class="toc-h2 toc-link" data-title="2-1-signing-up-your-application-in-itsme-b2b-portal">2.1. Signing up your application in itsme® B2B portal</a>
+                  </li>
+                  <li>
+                    <a href="#2-2-checking-itsme-openid-provider-configuration" class="toc-h2 toc-link" data-title="2-2-checking-itsme-openid-provider-configuration">2.2. Checking itsme® OpenID Provider configuration</a>
+                  </li>
+                  <li>
+                    <a href="#2-3-consulting-openid-connect-certified-libraries" class="toc-h2 toc-link" data-title="2-3-consulting-openid-connect-certified-libraries">2.3. Consulting OpenID Connect certified libraries</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#3-integrating-confirm-service" class="toc-h1 toc-link" data-title="3-integrating-confirm-service">3. Integrating Confirm service</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#3-1-checking-itsme-openid-provider-configuration" class="toc-h2 toc-link" data-title="3-1-checking-itsme-openid-provider-configuration">3.1. Checking itsme® OpenID Provider configuration</a>
+                    <a href="#3-1-forging-an-authentication-request" class="toc-h2 toc-link" data-title="3-1-forging-an-authentication-request">3.1. Forging an Authentication Request</a>
                   </li>
                   <li>
-                    <a href="#3-2-forging-an-authentication-request" class="toc-h2 toc-link" data-title="3-2-forging-an-authentication-request">3.2. Forging an Authentication Request</a>
+                    <a href="#3-2-capturing-an-authorization-code" class="toc-h2 toc-link" data-title="3-2-capturing-an-authorization-code">3.2. Capturing an Authorization Code</a>
                   </li>
                   <li>
-                    <a href="#3-3-capturing-an-authorization-code" class="toc-h2 toc-link" data-title="3-3-capturing-an-authorization-code">3.3. Capturing an Authorization Code</a>
+                    <a href="#3-3-supporting-universal-links-and-app-links-mechanism" class="toc-h2 toc-link" data-title="3-3-supporting-universal-links-and-app-links-mechanism">3.3. Supporting Universal Links and App Links mechanism</a>
                   </li>
                   <li>
-                    <a href="#3-4-supporting-universal-links-and-app-links-mechanism" class="toc-h2 toc-link" data-title="3-4-supporting-universal-links-and-app-links-mechanism">3.4. Supporting Universal Links and App Links mechanism</a>
+                    <a href="#3-4-exchanging-the-authorization-code" class="toc-h2 toc-link" data-title="3-4-exchanging-the-authorization-code">3.4. Exchanging the Authorization Code</a>
                   </li>
                   <li>
-                    <a href="#3-5-exchanging-the-authorization-code" class="toc-h2 toc-link" data-title="3-5-exchanging-the-authorization-code">3.5. Exchanging the Authorization Code</a>
+                    <a href="#3-5-managing-token-response" class="toc-h2 toc-link" data-title="3-5-managing-token-response">3.5. Managing Token Response</a>
                   </li>
                   <li>
-                    <a href="#3-6-managing-token-response" class="toc-h2 toc-link" data-title="3-6-managing-token-response">3.6. Managing Token Response</a>
-                  </li>
-                  <li>
-                    <a href="#3-7-obtaining-user-attributes-or-claims" class="toc-h2 toc-link" data-title="3-7-obtaining-user-attributes-or-claims">3.7. Obtaining User attributes or claims</a>
+                    <a href="#3-6-obtaining-user-attributes-or-claims" class="toc-h2 toc-link" data-title="3-6-obtaining-user-attributes-or-claims">3.6. Obtaining User attributes or claims</a>
                   </li>
               </ul>
           </li>
@@ -291,33 +299,18 @@
 <p>The objective of this document is to provide all the information needed to integrate the <strong>Confirm</strong> service using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.</p>
 
 <p><a name="Onboarding"></a></p>
-<h1 id='2-prerequisites'>2. Prerequisites</h1>
-<p>Before you can integrate your application with itsme® Confirm service, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.</p>
-<h1 id='3-integrating-confirm-service'>3. Integrating Confirm service</h1>
-<p>The itsme® Confirm service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following diagram:</p>
+<h1 id='2-prerequisites'>2. Prerequisites</h1><h2 id='2-1-signing-up-your-application-in-itsme-b2b-portal'>2.1. Signing up your application in itsme® B2B portal</h2>
+<p>Before you can integrate your application with itsme® Confirm service, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>. From here, you will be able to </p>
 
-<p><img src="OpenID_Login_SeqDiag.png" alt="Sequence diagram describing the OpenID flow" /></p>
-
-<ol>
-  <li>The User indicates on your end he wishes to authenticate with itsme®</li>
-  <li>Your web desktop, mobile web or mobile application (aka 'Relying Party' in the OpenID Connect specification) sends a request to itsme® (aka 'OpenID Provider' in the OpenID Connect specification) to authenticate the User. This request will redirect the User to the itsme® Front-End. itsme® then authenticates the User by asking him
-    <ul type>
-      <li>to enter his phone number on the itsme® OpenID web page</li>
-      <li>authorize the release of some information’s to your application</li>
-      <li>to provide his credentials (itsme® code or fingerprint or FaceID)</li>
-    </ul>
-  
-  If you are building a mobile web or mobile application, the User don’t need to enter his mobile phone number on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links or App links mechanism.</li>
-  <li>Once the User has authorized the request and has been authenticated, itsme® will return an Authorization Code to the Service Provider Front-End, redirecting the user to your mobile or web application.</li>
-  <li>The Service Provider Back-End calls the itsme® Token Endpoint and exchanges the Authorization Code for an ID Token identifying the User and an Access Token.</li>
-  <li>The Service Provider Back-End MAY request the additional User information from the itsme® userInfo Endpoint by presenting the Access Token obtained in the previous step.</li>
-  <li>At this stage you are able to confirm the success of the operation and display a success message.</li>
-</ol>
-
-<p>This flow is described in much more detail in the following sections.</p>
+<ul>
+  <li>define the itsme® service you want to integrate;</li>
+  <li>if applicable, specify the User claims you want to obtain;</li>
+  <li>provide your signature and encryption public keys, also known as your JSON Web Key Set (JWKS). More information can be found in our <a href="https://belgianmobileid.github.io/slate/jose" target="blank">JSON Object Signing and Encryption (JOSE)</a> page;</li>
+  <li>share the redirection URI that will be used in one of the steps below.</li>
+</ul>
 
 <p><a name="OpenIDConfig"></a></p>
-<h2 id='3-1-checking-itsme-openid-provider-configuration'>3.1. Checking itsme® OpenID Provider configuration</h2>
+<h2 id='2-2-checking-itsme-openid-provider-configuration'>2.2. Checking itsme® OpenID Provider configuration</h2>
 <p>To simplify implementations and increase flexibility, <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID Connect allows the use of a Discovery Document</a>, a JSON document containing key-value pairs which provide details about itsme® configuration, such as the URIs of the </p>
 
 <ul>
@@ -344,9 +337,33 @@
 <td style="text-align: left"><a href="https://merchant.itsme.be/oidc/.well-known/openid-configuration" target="blank">https://merchant.itsme.be/oidc/.well-known/openid-configuration</a></td>
 </tr>
 </tbody></table>
+<h2 id='2-3-consulting-openid-connect-certified-libraries'>2.3. Consulting OpenID Connect certified libraries</h2>
+<p>OpenID Connect provides certified libraries, products, and tools which could help you integrating the itsme® service. More more information, please visit the official webpage: <a href="https://openid.net/developers/libraries/" target="blank">https://openid.net/developers/libraries/</a>.</p>
+<h1 id='3-integrating-confirm-service'>3. Integrating Confirm service</h1>
+<p>The itsme® Confirm service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following diagram:</p>
+
+<p><img src="OpenID_Login_SeqDiag.png" alt="Sequence diagram describing the OpenID flow" /></p>
+
+<ol>
+  <li>The User indicates on your end he wishes to authenticate with itsme®</li>
+  <li>Your web desktop, mobile web or mobile application (aka 'Relying Party' in the OpenID Connect specification) sends a request to itsme® (aka 'OpenID Provider' in the OpenID Connect specification) to authenticate the User. This request will redirect the User to the itsme® Front-End. itsme® then authenticates the User by asking him
+    <ul type>
+      <li>to enter his phone number on the itsme® OpenID web page</li>
+      <li>authorize the release of some information’s to your application</li>
+      <li>to provide his credentials (itsme® code or fingerprint or FaceID)</li>
+    </ul>
+  
+  If you are building a mobile web or mobile application, the User don’t need to enter his mobile phone number on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links or App links mechanism.</li>
+  <li>Once the User has authorized the request and has been authenticated, itsme® will return an Authorization Code to the Service Provider Front-End, redirecting the user to your mobile or web application.</li>
+  <li>The Service Provider Back-End calls the itsme® Token Endpoint and exchanges the Authorization Code for an ID Token identifying the User and an Access Token.</li>
+  <li>The Service Provider Back-End MAY request the additional User information from the itsme® userInfo Endpoint by presenting the Access Token obtained in the previous step.</li>
+  <li>At this stage you are able to confirm the success of the operation and display a success message.</li>
+</ol>
+
+<p>This flow is described in much more detail in the following sections.</p>
 
 <p><a name="AuthNRequest"></a></p>
-<h2 id='3-2-forging-an-authentication-request'>3.2. Forging an Authentication Request</h2>
+<h2 id='3-1-forging-an-authentication-request'>3.1. Forging an Authentication Request</h2>
 <p>First, you will forg a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <i>&quot;authorization_endpoint&quot;</i>.</p>
 
 <aside class="alert">By opposition to the OpenID Connect specifications, POST method is not authorized when triggering the itsme® App through the Universal/App Link mechanism only support the HTTP GET method on the Authorisation Endpoint. More information about Universal links and App links can be found in the <a href="#UniversalLinks">section 3.4</a>.
@@ -429,7 +446,7 @@
 <tr>
 <td style="text-align: left"><strong>request</strong></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter, and to be optionally signed with your private key and/or encrypted with the itsme® public key. The parameter value is a Request Object value. It represents the request as a JWT.<br>See <a href="#RequestObjectByValuei">Using request parameter</a> section for more information.</br></td>
+<td style="text-align: left">This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter, and to be optionally signed with your private key and encrypted with the itsme® public key. The parameter value is a Request Object value. It represents the request as a JWT.<br>See <a href="#RequestObjectByValuei">Using request parameter</a> section for more information.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>request_uri</strong></td>
@@ -506,7 +523,7 @@
 <aside class="notice">In the example aside, the <i>"request"</i> parameter is represented as a regular JSON formatted object for clarity only. Indeed, it MUST be correctly encoded, signed and then encrypted as explained in the official OpenID Connect Core specification.</aside>
 
 <p><a name="AuthNResponse"></a></p>
-<h2 id='3-3-capturing-an-authorization-code'>3.3. Capturing an Authorization Code</h2><h3 id='capturing-a-successful-authorization-code'>Capturing a successful Authorization Code</h3>
+<h2 id='3-2-capturing-an-authorization-code'>3.2. Capturing an Authorization Code</h2><h3 id='capturing-a-successful-authorization-code'>Capturing a successful Authorization Code</h3>
 <p>If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an Authorization Code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the <i>&quot;redirect_uri&quot;</i> specified previously in the Authentication Request. The following is a non-normative example of a successful Authentication Response:</p>
 
 <p><code style=display:block;white-space:pre-wrap>HTTP/1.1 302 Found
@@ -600,7 +617,7 @@ error=invalid_request
 <p>All other HTTPS errors unrelated to OpenID Connect Core will be returned to the User using the appropriate HTTPS status code.</p>
 
 <p><a name="UniversalLinks"></a> </p>
-<h2 id='3-4-supporting-universal-links-and-app-links-mechanism'>3.4. Supporting Universal Links and App Links mechanism</h2>
+<h2 id='3-3-supporting-universal-links-and-app-links-mechanism'>3.3. Supporting Universal Links and App Links mechanism</h2>
 <p>Regardless of the application you are building you should make sure that your redirect URIs support the <a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal links</a> and <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App links</a> mechanism. Functionally, it will allow you to have only one single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.</p>
 
 <p>Universal links and App links are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.</p>
@@ -612,7 +629,7 @@ error=invalid_request
 <p>iOS Universal Links and Android App Links were intended to fix this. Instead of opening up the web browser first when a link is clicked, the OS will check if a Universal Link has been registered (a file should be there in the domain which contains the bundle id of the app and the paths the app should open) for the domain associated with the link, then check if the corresponding app is installed. If the app is currently installed, it will be opened. If it’s not, the web browser will open and the HTTPS link will load.</p>
 
 <p>The specifications for the implementation of Universal links and App links can be found in the <a href="#Appendixes">Appendix</a>.</p>
-<h2 id='3-5-exchanging-the-authorization-code'>3.5. Exchanging the Authorization Code</h2>
+<h2 id='3-4-exchanging-the-authorization-code'>3.4. Exchanging the Authorization Code</h2>
 <p><a name="tokenEndpoint"></a> </p>
 
 <p>Once your server component has received an <a href="#AuthNResponse">Authorization Code</a>, your server can exchange it for an Access Token and an ID Token.</p>
@@ -700,7 +717,7 @@ client_assertion=PHNhbWxwOl ... ZT</code></p>
 </tbody></table>
 
 <p><a name="TokenResponse"></a></p>
-<h2 id='3-6-managing-token-response'>3.6. Managing Token Response</h2><h3 id='extracting-a-successful-token-response'>Extracting a successful Token Response</h3>
+<h2 id='3-5-managing-token-response'>3.5. Managing Token Response</h2><h3 id='extracting-a-successful-token-response'>Extracting a successful Token Response</h3>
 <p>If the Token Request has been sucessfully validated we will return an HTTP 200 OK response including ID and Access Tokens as in the example below:</p>
 
 <p><code style=display:block;white-space:pre-wrap>HTTP/1.1 200 OK
@@ -848,7 +865,7 @@ Pragma: no-cache
 <p>The response will contain an error parameter and optionally <i>&quot;error_description&quot;</i> and <i>&quot;error_uri&quot;</i> parameters. The <i>&quot;error_uri&quot;</i> parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.</p>
 
 <p><a name="Data"></a></p>
-<h2 id='3-7-obtaining-user-attributes-or-claims'>3.7. Obtaining User attributes or claims</h2><h3 id='creating-the-userinfo-request'>Creating the userInfo Request</h3>
+<h2 id='3-6-obtaining-user-attributes-or-claims'>3.6. Obtaining User attributes or claims</h2><h3 id='creating-the-userinfo-request'>Creating the userInfo Request</h3>
 <p>OpenID Connect Core specifications also allow your application to obtain basic profile information about a specific User in a interoperable way. This is achieved by sending a HTTPS GET request to the itsme® userInfo Endpoint, passing the Access Token value in the Authorization header using the Bearer authentication scheme. The itsme userInfo Endpoint URI can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <i>&quot;userinfo_endpoint&quot;</i>.</p>
 
 <p><code style=display:block;white-space:pre-wrap>GET https://merchant.itsme.be/oidc/userinfo HTTP/1.1
