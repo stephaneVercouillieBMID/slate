@@ -19,7 +19,14 @@ The objective of this document is to provide all the information needed to integ
 <a name="Onboarding"></a>
 # 2. Prerequisites
  
-Before you can integrate your application with itsme® Share Data service, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.
+Before you can integrate your application with itsme® Share Data service, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>. From here, you will be able to 
+
+<ul>
+  <li>define the itsme® service you want to integrate;</li>
+  <li>if applicable, specify the User claims you want to obtain;</li>
+  <li>provide your signature and encryption public keys, also known as your JSON Web Key Set (JWKS). More information can be found in our <a href="https://belgianmobileid.github.io/slate/jose" target="blank">JSON Object Signing and Encryption (JOSE)</a> page;</li>
+  <li>share the redirection URI that will be used in one of the steps below.</li>
+</ul>
 
 
 # 3. Integrating Share Data service
