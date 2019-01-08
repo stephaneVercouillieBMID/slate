@@ -129,8 +129,10 @@ The following is a non-normative example request that would be sent to the Autho
   "nonce":"A_VALID_NONCE",
   "state":"A_VALID_STATE",
   "claims":{
-    "userinfo":
-      {
+    "userinfo":{
+      "sub":{
+        "value":"THE_END_USER_ALREADY_KNOWN_USER_CODE"
+      },
       "tag:sixdots.be,2016-08:claim_approval_template_name":{
         "value":"adv_payment",
         "essential":true
