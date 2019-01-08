@@ -363,7 +363,7 @@
 <h2 id='3-1-forging-an-authentication-request'>3.1. Forging an Authentication Request</h2>
 <p>First, you will forg a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <i>&quot;authorization_endpoint&quot;</i>.</p>
 
-<aside class="alert">By opposition to the OpenID Connect specifications, POST method is not authorized when triggering the itsme® App through the Universal/App Link mechanism only support the HTTP GET method on the Authorisation Endpoint. More information about Universal links and App links can be found in the <a href="#UniversalLinks">section 3.4</a>.
+<aside class="alert">By opposition to the OpenID Connect specifications, POST method is not authorized when triggering the itsme® App through the Universal/App Link mechanism only support the HTTP GET method on the Authorisation Endpoint. More information about Universal links and App links can be found in the <a href="#UniversalLinks">section 3.3</a>.
 </aside>
 
 <p>The OpenID Connect Core specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:</p>
@@ -1340,7 +1340,7 @@ private void handleIntent(Intent intent) {
 
 <p><a name="RequestObjectByValue"></a></p>
 <h2 id='5-4-using-the-request-parameter'>5.4. Using the request parameter</h2>
-<p>The <i>&quot;request&quot;</i> parameter enables the Authentication Requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. It represents the request as a JWT whose claims are the parameters specified in section 3.2. This JWT is called a Request Object by value.</p>
+<p>The <i>&quot;request&quot;</i> parameter enables the Authentication Requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. It represents the request as a JWT whose claims are the parameters specified in section 3.1. This JWT is called a Request Object by value.</p>
 
 <p>When <i>&quot;request&quot;</i> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax.</p>
 
