@@ -520,22 +520,7 @@
 
 <aside class="notice">In the example aside, the <i>"request"</i> parameter is represented as a regular JSON formatted object for clarity only. Indeed, it MUST be correctly encoded, signed and then encrypted as explained in the official OpenID Connect Core specification.</aside>
 
-<aside class="notice">If the User is already logged in your application, you will be able to bypass the itsme® identification page by communicating the unique-identifier key of the User (aka. the User's <i>"sub"</i> value received in the ID Token) that will approve the request. To do so, you will need to add below string in <i>"claims"</i> parameter of the Authentication Request:
-"sub":
-  {
-  "value":"THE_END_USER_ALREADY_KNOWN_USER_CODE"
-  },  
-<br></br>The result would be the string below:
-"claims":
-  {
-  "userinfo":
-  {
-    "sub":
-    {
-    "value":"THE_END_USER_ALREADY_KNOWN_USER_CODE"
-    }
-  }
-</aside>
+<aside class="notice">If the User is already logged in your application, you will be able to bypass the itsme® identification page by communicating the unique-identifier key of the User (aka. the User's <i>"sub"</i> value received in the ID Token) that will approve the request. To do so, you will need to add below string in <i>"claims"</i> parameter of the Authentication Request. The exact string (e.g. <i>"value":"THE_END_USER_ALREADY_KNOWN_USER_CODE</i>) to use can be visualized in the non-normative example above.</aside>
   
 
 <p><a name="AuthNResponse"></a></p>
