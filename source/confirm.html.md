@@ -129,31 +129,47 @@ The following is a non-normative example request that would be sent to the Autho
   "nonce":"A_VALID_NONCE",
   "state":"A_VALID_STATE",
   "claims":{
-    "userinfo":{
-    "sub":{
-      "value":"THE_END_USER_ALREADY_KNOWN_USER_CODE"
-     },
-    "tag:sixdots.be,2016-08:claim_approval_template_name":{
-      "value":"adv_payment",
-      "essential":true
-    },
-    "tag:sixdots.be,2016-08:claim_approval_amount_key":{
-      "value":"100",
-      "essential":true
-    },
-    "tag:sixdots.be,2016-08:claim_approval_currency_key":{
-      "value":"EUR",
-      "essential":true
-    },
-    "tag:sixdots.be,2016-08:claim_approval_iban_key":{
-      "value":"BE00793774892029",
-      "essential":true
-    }
+    "userinfo":
+      {
+      "tag:sixdots.be,2016-08:claim_approval_template_name":{
+        "value":"adv_payment",
+        "essential":true
+      },
+      "tag:sixdots.be,2016-08:claim_approval_amount_key":{
+        "value":"100",
+        "essential":true
+      },
+      "tag:sixdots.be,2016-08:claim_approval_currency_key":{
+        "value":"EUR",
+        "essential":true
+      },
+      "tag:sixdots.be,2016-08:claim_approval_iban_key":{
+        "value":"BE00793774892029",
+        "essential":true
+      }
    }
   }
 }</code>
 
 <aside class="notice">In the example aside, the <i>"request"</i> parameter is represented as a regular JSON formatted object for clarity only. Indeed, it MUST be correctly encoded, signed and then encrypted as explained in the official OpenID Connect Core specification.</aside>
+
+<aside class="notice">If the User is already logged in your application, you will be able to bypass the itsme® identification page by communicating the unique-identifier key of the User (aka. the User's <i>"sub"</i> value received in the ID Token) that will approve the request. To do so, you will need to add below string in <i>"claims"</i> parameter of the Authentication Request:
+"sub":
+  {
+  "value":"THE_END_USER_ALREADY_KNOWN_USER_CODE"
+  },  
+<br></br>The result would be the string below:
+"claims":
+  {
+  "userinfo":
+  {
+    "sub":
+    {
+    "value":"THE_END_USER_ALREADY_KNOWN_USER_CODE"
+    }
+  }
+</aside>
+  
 
 <a name="AuthNResponse"></a>
 ## 3.2. Capturing an Authorization Code
