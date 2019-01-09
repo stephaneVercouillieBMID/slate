@@ -411,7 +411,7 @@
 <tr>
 <td style="text-align: left"><strong>login_hint</strong></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">Hint to the Authorization Server about the login identifier the User might use to log in (if necessary).<br>If provided, this value MUST be a phone number in the format specified for the <i>&quot;phone_number&quot;</i> claim: <i>&quot;<countrycode>+<phonenumber>&quot;</i>. E.g. <i>&quot;login_hint=32+123456789&quot;</i>.</br><br><i>&quot;login_hint&quot;</i> with invalid syntax will be ignored.</br></td>
+<td style="text-align: left">Can be used to pre-fill the phone number field on the itsme® OpenID web page for the User, if your application knows ahead of time which User is trying to authenticate. If provided, this value MUST be a phone number in the format specified for the <i>&quot;phone_number&quot;</i> claim: <i>&quot;<countrycode>+<phonenumber>&quot;</i>. E.g. <i>&quot;login_hint=32+123456789&quot;</i>.</br><br><i>&quot;login_hint&quot;</i> with invalid syntax will be ignored.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>display</strong></td>
@@ -796,7 +796,7 @@ Pragma: no-cache
 <tr>
 <td style="text-align: left"><strong>sub</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">An for the User, unique among all itsme® accounts and never reused. Use <i>&quot;sub&quot;</i> in the application as the unique-identifier key for the User. It has 32 characters.</td>
+<td style="text-align: left">An identifier for the User, unique among all itsme® accounts and never reused. Use <i>&quot;sub&quot;</i> in the application as the unique-identifier key for the User. It has 32 characters.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>aud</strong></td>
