@@ -397,7 +397,7 @@ Parameter | Description
 :-- | :-- 
 **tag:sixdots.be,2016-06:claim_nationality** | It will request the <i>"nationality"</i> claim.
 **tag:sixdots.be,2016-06:claim_city_of_birth** | It will request the <i>"place of Birth - city"</i> claim.
-**tag:sixdots.be,2016-06:claim_eid**  | It will request the <i>"eid"</i>, <i>"issuance_locality"</i>, <i>"validity_from"</i>, <i>"validity_to"</i>, <i>"certificate_validity"</i> and <i>"read_date"</i> claims
+**tag:sixdots.be,2016-06:claim_eid**  | It will request the <i>"eid"</i>, <i>"issuance_locality"</i>, <i>"validity_from"</i>, <i>"validity_to"</i>, <i>"certificate_validity"</i>, <i>"read_date"</i> and <i>"national_number"</i> claims.
 **tag:sixdots.be,2017-05:claim_device** | It will request the <i>"os"</i>, <i>"appName"</i>, <i>"appRelease"</i>, <i>"deviceLabel"</i>, <i>"debugEnabled"</i>, <i>"deviceID"</i>, <i>"osRelease"</i>, <i>"manufacturer"</i>, <i>"hasSimEnabled"</i>, <i>"deviceLockLevel"</i>, <i>"smsEnabled"</i>, <i>"rooted"</i>, <i>"imei"</i>, <i>"deviceModel"</i> and <i>"sdkRelease"</i> claims.
 **tag:sixdots.be,2017-05:claim_transaction_info** | It will request the <i>"securityLevel"</i>, <i>"bindLevel"</i> and <i>"mcc"</i> claims.
 **tag:sixdots.be,2017-05:2017-05:claim_photo** | It will request the <i>"e-ID Picture"</i> claim.
@@ -410,30 +410,31 @@ Values | Description
 :-- | :-- 
 **nationality** | 
 **place of Birth - city** | 
-**eid**  | The eID card serial number.
+**eid** | The eID card serial number.
 **issuance_locality**  | The eID card issuance locality.
-**validity_from**  | The eID card validity “from” date.
-**validity_to**  | The eID card validity “to” date.
-**certificate_validity**  | The eID card certificate validity.
-**read_date**  | The data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000).
+**validity_from** | The eID card validity “from” date.
+**validity_to** | The eID card validity “to” date.
+**certificate_validity** | The eID card certificate validity.
+**read_date** | The data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000).
+**national_number** | The Belgian National Register Number.
 **os** | The device operating system. The returned values will be <i>"ANDROID"</i> or <i>"iOS"</i>
-**appName**  | The application name.
-**appRelease**  | The application current release.
-**deviceLabel**  | The name of the device.
+**appName** | The application name.
+**appRelease** | The application current release.
+**deviceLabel** | The name of the device.
 **debugEnabled**  | <i>"True"</i> if debug mode has been activated; otherwise <i>"false"</i>.
-**deviceId**  | The device identifier.
-**osRelease**  | The version of the OS running on your device.
-**manufacturer**  | The brand of the device manufacturer.
-**hasSimEnabled**  | It tells you if a SIM card is installed in the device, or not. The returned value is always <i>"true"</i> as long as itsme® can't be installed on tablets.
-**deviceLockLevel**  |
-**smsEnabled**  |
-**rooted**  | The returned value is always <i>"false"</i> as long as itsme® can't be used on a jailbreaked/rooted device.
-**imei**  | The device IMEI value.
-**deviceModel**  | The model of the device.
-**sdkRelease**  |
+**deviceId** | The device identifier.
+**osRelease** | The version of the OS running on your device.
+**manufacturer** | The brand of the device manufacturer.
+**hasSimEnabled** | It tells you if a SIM card is installed in the device, or not. The returned value is always <i>"true"</i> as long as itsme® can't be installed on tablets.
+**deviceLockLevel** |
+**smsEnabled** |
+**rooted** | The returned value is always <i>"false"</i> as long as itsme® can't be used on a jailbreaked/rooted device.
+**imei** | The device IMEI value.
+**deviceModel** | The model of the device.
+**sdkRelease** |
 **securityLevel** | The security level used during transaction. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
-**bindLevel**  | It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
-**mcc**  | The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country.
+**bindLevel** | It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
+**mcc** | The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country.
 **e-ID Picture** | 
 
 
