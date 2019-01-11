@@ -366,7 +366,7 @@
 <h2 id='3-1-forging-an-authentication-request'>3.1. Forging an Authentication Request</h2>
 <p>First, you will forg a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <i>&quot;authorization_endpoint&quot;</i>.</p>
 
-<aside class="alert">By opposition to the OpenID Connect specifications, POST method is not authorized when triggering the itsme® App through the Universal/App Link mechanism only support the HTTP GET method on the Authorisation Endpoint. More information about Universal links and App links can be found in the <a href="#UniversalLinks">section 3.3</a>.
+<aside class="notice">By opposition to the OpenID Connect specifications, POST method is not authorized when triggering the itsme® App through the Universal/App Link mechanism only support the HTTP GET method on the Authorisation Endpoint. More information about Universal links and App links can be found in the <a href="#UniversalLinks">section 3.3</a>.
 </aside>
 
 <p>The OpenID Connect Core specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:</p>
@@ -1021,7 +1021,7 @@ Authorization: Bearer <access token></code></p>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2016-06:claim_eid</strong></td>
-<td style="text-align: left">It will request the <i>&quot;eid&quot;</i>, <i>&quot;issuance_locality&quot;</i>, <i>&quot;validity_from&quot;</i>, <i>&quot;validity_to&quot;</i>, <i>&quot;certificate_validity&quot;</i> and <i>&quot;read_date&quot;</i> claims</td>
+<td style="text-align: left">It will request the <i>&quot;eid&quot;</i>, <i>&quot;issuance_locality&quot;</i>, <i>&quot;validity_from&quot;</i>, <i>&quot;validity_to&quot;</i>, <i>&quot;certificate_validity&quot;</i>, <i>&quot;read_date&quot;</i> and <i>&quot;national_number&quot;</i> claims.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2017-05:claim_device</strong></td>
@@ -1082,6 +1082,10 @@ Authorization: Bearer <access token></code></p>
 <tr>
 <td style="text-align: left"><strong>read_date</strong></td>
 <td style="text-align: left">The data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000).</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>national_number</strong></td>
+<td style="text-align: left">The Belgian National Register Number.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>os</strong></td>
