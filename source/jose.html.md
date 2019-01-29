@@ -35,6 +35,7 @@ The JSON Object Signing and Encryption (JOSE) framework consists of several tech
 
 # 3. Creating your JWK Set URI
 
+![Under construction logo](Under_Construction.png)
 
 # 4. Signing, encrypting and decrypting
 
