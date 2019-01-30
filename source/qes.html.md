@@ -117,7 +117,7 @@ Values | Type | Returned | Description
 
 ### Handling Error Response
 
-See [Appendixes](#RequestObjectByValue) to get more information on the error codes.
+See [Appendixes](#Appendixes) to get more information on the error codes.
 
 
 ## 3.4. Requesting the User identification session status  
@@ -159,9 +159,9 @@ Values | Type | Returned | Description
 **certificate** | String | Always | 
 
 
-## 3.6. Processing a Sign Request 
+## 3.6. Starting a new Sign session 
 
-This request has to be created in order to get the information about the Sign session. 
+This request has to be created in order to intiate the Sign session. 
 
 Below you will find the minimal set of parameters required for processing the HTTPS POST query string:
 
@@ -265,8 +265,7 @@ Parameter | Type | Required | Description
 **signPolicy** | DssISignPolicy | Required | This is the object of the Signature policy to be used during the Signature. This parameter contains all the information related to the signature policy. 
 **signPolicyRef** | String | Optional | This defines the reference of the signature policy to be used during itsme® Signing flow. In case no specific signature policy is applicable for that specific use case, the itsme® generic qualified signature policy SHOULD be used. The signature policy has to be indicated in the SCA Front-End to the User. The list of available codes can be retrieved from the [JSON document](#OpenIDQES).<br>The signature policies used SHOULD be defined in the [itsme® B2B portal](#Onboarding). It is up to you to choose your signature policies within the list given by itsme®. If you want to add new signature policies to your list, please ask the itsme® Onboarding team.</br>
 **commitmentTypeRef** | String | Optional | This defines the reference of the commitment type to be used during itsme® Signing flow. This parameter is used to display (in the itsme® App) the commitment type of the signature to the User. There is no commitment type by default. If the parameter is not given by the SCA, then nothing is displayed in the itsme® App. You SHOULD use a code that corresponds to a specific commitment type. The list of available codes can be retrieved from the [JSON document](#OpenIDQES).<br>The commitment types used SHOULD be defined in the [itsme® B2B portal](#Onboarding). It is up to you to choose your commitment types within the list given by itsme®. If you want to add new commitment types to your list, please ask the itsme® Onboarding team.</br>
-**signerRole** | Array | Optional | This defines the role of the signer. This information is displayed in the itsme® App to show to the signer under which role he will sign the document. If no signer role is provided nothing will be displayed in the itsme® App. 
-This parameter is optional and freely defined in a free text of maximum 50 characters by yourself. You SHOULD provide this free text in all supported languages. The characters used to define the Signer Role MUST be ISO-8859-1 compatible.<br>The signer role SHOULD be provided in all languages supported by itsme®.</br>
+**signerRole** | Array | Optional | This defines the role of the signer. This information is displayed in the itsme® App to show to the signer under which role he will sign the document. If no signer role is provided nothing will be displayed in the itsme® App. This parameter is optional and freely defined in a free text of maximum 50 characters by yourself. You SHOULD provide this free text in all supported languages. The characters used to define the Signer Role MUST be ISO-8859-1 compatible. The signer role SHOULD be provided in all languages supported by itsme®.
 
 
 ## 3.7. Managing the Sign Response 
@@ -306,10 +305,82 @@ Values | Type | Returned | Description
 
 ### Handling Error Response
 
-See [Appendixes](#RequestObjectByValue) to get more information on the error codes.
+See [Appendixes](#Appendixes) to get more information on the error codes.
+
+## 3.8 Requesting the Sign session status
+This request has to be created in order to get the information about the Sign session. 
+
+Below you will find the minimal set of parameters required for processing the HTTPS POST query string:
+<code style=display:block;white-space:pre-wrap> POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/sign_document HTTP/1.1
+  {
+  "inDocs": null, 
+  "reqID": "ReqIDv1prg8pmn9mtive3otsc", 
+  "asyncRespID": "b99a7d03acb94ea5a4d972aa31bb1c36",
+  "optInp": {
+              "itsme": {
+                        "partnerCode":"myPartnerCode ", 
+                        "serviceCode":"myServiceCode"
+              }
+        }
+}
+</code>
+
+Parameter | Type | Required | Description
+:-------- | :-------- | :--------| :----- 
+**inDocs** |  | Required | This MUST be 'null'. 
+**reqID** | String | Required | This is the ID of the request that you transfer.
+**asyncRespId** | String | Optional | This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Identification Response. In case no <i>"asyncRespID"</i> is given in the request, a new session is created. 
+**optInp** | String | Required | Those are additional information needed for the signature request.
+**itsme** |  | Required | This parameter contains all the information related to itsme® context. 
+**partnerCode** | String | Required | This MUST be the client identifier you received when registering your application in the [itsme® B2B portal](#Onboarding).
+**serviceCode** | String | Required | This parameter allows the application to express the desired scope. It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
+
+## 3.9 Managing the Sign Status Response
+
+### Getting a successful Sign Status Response
+
+<code style=display:block;white-space:pre-wrap> HTTP200 
+
+{ 
+
+  "result": { 
+
+    "maj": "urn:oasis:names:tc:dss:1.0:profiles:asynchronousprocessing:resultmajor:Pending" 
+
+  }, 
+
+  "reqID": "ReqIDv1prg8pmn9mtive3otsc", 
+
+  "respID": "8lycz0t07bh1q8nz41fcwg21s9k8jd217vtp", 
+
+  "optOutp": { 
+
+    "itsme": { 
+
+      "signingUrl": "http://itsme.labo.sixdots.be/qes/index.php?q=gjs57sq7w72eme0yg9ufufdfae98bcj6" 
+
+    } 
+
+  } 
+
+}
+</code>
+
+Parameter | Type | Required | Description
+:-------- | :-------- | :--------| :----- 
+**respID** | String | Required | needs to be reused later to check status of signature as asyncRespID value
+**signingUrl** | String | Required | signingUrl is the link to provide to the end user where he will receive BMID instructions and poka yoke code
+**optInp** | String | Required | Those are additional information needed for the signature request.
+**itsme** |  | Required | This parameter contains all the information related to itsme® context. 
+**partnerCode** | String | Required | This MUST be the client identifier you received when registering your application in the [itsme® B2B portal](#Onboarding).
+**serviceCode** | String | Required | This parameter allows the application to express the desired scope. It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
+
+### Handling Error Response
+
+See [Appendixes](#Appendixes) to get more information on the error codes.
 
 
-# 4. Appendixes
+<a name="Appendixes"></a> # 4. Appendixes
 
 ## 4.1. Handling Error Response
 
