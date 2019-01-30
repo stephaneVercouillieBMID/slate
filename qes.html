@@ -243,16 +243,17 @@
                     <a href="#3-5-getting-the-user-identification-status-info" class="toc-h2 toc-link" data-title="3-5-getting-the-user-identification-status-info">3.5. Getting the User identification status info</a>
                   </li>
                   <li>
-                    <a href="#3-6-processing-a-sign-request" class="toc-h2 toc-link" data-title="3-6-processing-a-sign-request">3.6. Processing a Sign Request</a>
+                    <a href="#3-6-starting-a-new-sign-session" class="toc-h2 toc-link" data-title="3-6-starting-a-new-sign-session">3.6. Starting a new Sign session</a>
                   </li>
                   <li>
                     <a href="#3-7-managing-the-sign-response" class="toc-h2 toc-link" data-title="3-7-managing-the-sign-response">3.7. Managing the Sign Response</a>
                   </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#4-appendixes" class="toc-h1 toc-link" data-title="4-appendixes">4. Appendixes</a>
-              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#3-8-requesting-the-sign-session-status" class="toc-h2 toc-link" data-title="3-8-requesting-the-sign-session-status">3.8 Requesting the Sign session status</a>
+                  </li>
+                  <li>
+                    <a href="#3-9-managing-the-sign-status-response" class="toc-h2 toc-link" data-title="3-9-managing-the-sign-status-response">3.9 Managing the Sign Status Response</a>
+                  </li>
                   <li>
                     <a href="#4-1-handling-error-response" class="toc-h2 toc-link" data-title="4-1-handling-error-response">4.1. Handling Error Response</a>
                   </li>
@@ -426,7 +427,7 @@
 </tr>
 </tbody></table>
 <h3 id='handling-error-response'>Handling Error Response</h3>
-<p>See <a href="#RequestObjectByValue">Appendixes</a> to get more information on the error codes.</p>
+<p>See <a href="#Appendixes">Appendixes</a> to get more information on the error codes.</p>
 <h2 id='3-4-requesting-the-user-identification-session-status'>3.4. Requesting the User identification session status</h2>
 <p>By calling the Identification Session Status Endpoint, you are checking the status of the User identification session. </p>
 
@@ -504,8 +505,8 @@
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
-<h2 id='3-6-processing-a-sign-request'>3.6. Processing a Sign Request</h2>
-<p>This request has to be created in order to get the information about the Sign session. </p>
+<h2 id='3-6-starting-a-new-sign-session'>3.6. Starting a new Sign session</h2>
+<p>This request has to be created in order to intiate the Sign session. </p>
 
 <p>Below you will find the minimal set of parameters required for processing the HTTPS POST query string:</p>
 
@@ -709,11 +710,9 @@
 <td style="text-align: left"><strong>signerRole</strong></td>
 <td style="text-align: left">Array</td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">This defines the role of the signer. This information is displayed in the itsme® App to show to the signer under which role he will sign the document. If no signer role is provided nothing will be displayed in the itsme® App.</td>
+<td style="text-align: left">This defines the role of the signer. This information is displayed in the itsme® App to show to the signer under which role he will sign the document. If no signer role is provided nothing will be displayed in the itsme® App. This parameter is optional and freely defined in a free text of maximum 50 characters by yourself. You SHOULD provide this free text in all supported languages. The characters used to define the Signer Role MUST be ISO-8859-1 compatible. The signer role SHOULD be provided in all languages supported by itsme®.</td>
 </tr>
 </tbody></table>
-
-<p>This parameter is optional and freely defined in a free text of maximum 50 characters by yourself. You SHOULD provide this free text in all supported languages. The characters used to define the Signer Role MUST be ISO-8859-1 compatible.<br>The signer role SHOULD be provided in all languages supported by itsme®.</br></p>
 <h2 id='3-7-managing-the-sign-response'>3.7. Managing the Sign Response</h2><h3 id='getting-a-successful-sign-response'>Getting a successful Sign Response</h3>
 <p>If the Sign Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside.</p>
 
@@ -808,8 +807,154 @@
 </tr>
 </tbody></table>
 <h3 id='handling-error-response-2'>Handling Error Response</h3>
-<p>See <a href="#RequestObjectByValue">Appendixes</a> to get more information on the error codes.</p>
-<h1 id='4-appendixes'>4. Appendixes</h1><h2 id='4-1-handling-error-response'>4.1. Handling Error Response</h2>
+<p>See <a href="#Appendixes">Appendixes</a> to get more information on the error codes.</p>
+<h2 id='3-8-requesting-the-sign-session-status'>3.8 Requesting the Sign session status</h2>
+<p>This request has to be created in order to get the information about the Sign session. </p>
+
+<p>Below you will find the minimal set of parameters required for processing the HTTPS POST query string:
+<code style=display:block;white-space:pre-wrap> POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/sign_document HTTP/1.1
+  {
+  &quot;inDocs&quot;: null, 
+  &quot;reqID&quot;: &quot;ReqIDv1prg8pmn9mtive3otsc&quot;, 
+  &quot;asyncRespID&quot;: &quot;b99a7d03acb94ea5a4d972aa31bb1c36&quot;,
+  &quot;optInp&quot;: {
+              &quot;itsme&quot;: {
+                        &quot;partnerCode&quot;:&quot;myPartnerCode &quot;, 
+                        &quot;serviceCode&quot;:&quot;myServiceCode&quot;
+              }
+        }
+}
+</code></p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>inDocs</strong></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This MUST be &#39;null&#39;.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>reqID</strong></td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This is the ID of the request that you transfer.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>asyncRespId</strong></td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Identification Response. In case no <i>&quot;asyncRespID&quot;</i> is given in the request, a new session is created.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>optInp</strong></td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">Those are additional information needed for the signature request.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>itsme</strong></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This parameter contains all the information related to itsme® context.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>partnerCode</strong></td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This MUST be the client identifier you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>serviceCode</strong></td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This parameter allows the application to express the desired scope. It MUST contain the value <i>&quot;service:service_code&quot;</i>, the itsme® service you want to use as defined for your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+</tr>
+</tbody></table>
+<h2 id='3-9-managing-the-sign-status-response'>3.9 Managing the Sign Status Response</h2><h3 id='getting-a-successful-sign-status-response'>Getting a successful Sign Status Response</h3>
+<p><code style=display:block;white-space:pre-wrap> HTTP200 </p>
+
+<p>{ </p>
+
+<p>&quot;result&quot;: { </p>
+
+<p>&quot;maj&quot;: &quot;urn:oasis:names:tc:dss:1.0:profiles:asynchronousprocessing:resultmajor:Pending&quot; </p>
+
+<p>}, </p>
+
+<p>&quot;reqID&quot;: &quot;ReqIDv1prg8pmn9mtive3otsc&quot;, </p>
+
+<p>&quot;respID&quot;: &quot;8lycz0t07bh1q8nz41fcwg21s9k8jd217vtp&quot;, </p>
+
+<p>&quot;optOutp&quot;: { </p>
+
+<p>&quot;itsme&quot;: { </p>
+
+<p>&quot;signingUrl&quot;: &quot;http://itsme.labo.sixdots.be/qes/index.php?q=gjs57sq7w72eme0yg9ufufdfae98bcj6&quot; </p>
+
+<p>} </p>
+
+<p>} </p>
+
+<p>}
+</code></p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>respID</strong></td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">needs to be reused later to check status of signature as asyncRespID value</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>signingUrl</strong></td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">signingUrl is the link to provide to the end user where he will receive BMID instructions and poka yoke code</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>optInp</strong></td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">Those are additional information needed for the signature request.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>itsme</strong></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This parameter contains all the information related to itsme® context.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>partnerCode</strong></td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This MUST be the client identifier you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>serviceCode</strong></td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This parameter allows the application to express the desired scope. It MUST contain the value <i>&quot;service:service_code&quot;</i>, the itsme® service you want to use as defined for your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+</tr>
+</tbody></table>
+<h3 id='handling-error-response-3'>Handling Error Response</h3>
+<p>See <a href="#Appendixes">Appendixes</a> to get more information on the error codes.</p>
+
+<p><a name="Appendixes"></a> # 4. Appendixes</p>
+<h2 id='4-1-handling-error-response'>4.1. Handling Error Response</h2>
 <p>If one of the above request is invalid or unauthorized an error code will be returned to the User using the appropriate HTTPS status code, as listed in the table below:</p>
 
 <table><thead>
