@@ -733,7 +733,8 @@ Enclosed you will find a non-normative example of an Authorization Request using
     &client_id=s6BhdRkqt3
     &request_uri=https%3A%2F%2Fclient.example.org%2Frequest.jwt
     %23GkurKxf5T0Y-mnPFCHqWOMiZi4VS138cQO_V7PZHAdM
-    &state=af0ifjsldkj&nonce=n-0S6_WzA2Mj
+    &state=af0ifjsldkj
+    &nonce=n-0S6_WzA2Mj
     &scope=openid</code>
 
 
