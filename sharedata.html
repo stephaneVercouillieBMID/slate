@@ -274,10 +274,7 @@
                     <a href="#5-3-security-levels-and-context-data" class="toc-h2 toc-link" data-title="5-3-security-levels-and-context-data">5.3. Security levels and context data</a>
                   </li>
                   <li>
-                    <a href="#5-4-using-the-request-parameter" class="toc-h2 toc-link" data-title="5-4-using-the-request-parameter">5.4. Using the request parameter</a>
-                  </li>
-                  <li>
-                    <a href="#5-5-using-request_uri-parameter" class="toc-h2 toc-link" data-title="5-5-using-request_uri-parameter">5.5. Using request_uri parameter</a>
+                    <a href="#5-4-using-request_uri-parameter" class="toc-h2 toc-link" data-title="5-4-using-request_uri-parameter">5.4. Using request_uri parameter</a>
                   </li>
               </ul>
           </li>
@@ -441,14 +438,9 @@
 <td style="text-align: left">This parameter SHALL be used to request specific claims. The value is a JSON object listing the requested claims. When passed as a HTTP GET parameter, the <i>&quot;claims&quot;</i> parameter value is represented as UTF-8 encoded JSON which ends up being form-urlencoded. When used in a Request Object value, see <a href="#RequestObjectByValue">Appendixes</a>, the JSON is used as the value of the claims member.<br>See <a href="#Data">User Data</a> for more information.</br></td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>request</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">This parameter enables OpenID Connect requests to be passed in a single, self-contained parameter, and to be optionally signed with your private key and/or encrypted with the itsme® public key. The parameter value is a Request Object value. It represents the request as a JWT.<br>See <a href="#RequestObjectByValuei">Using request parameter</a> section for more information.</br></td>
-</tr>
-<tr>
 <td style="text-align: left"><strong>request_uri</strong></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">This parameter MUST be used when the GET request lenght is too long. This parameter enables OpenID Connect requests to be passed by reference, rather than by value. The <i>&quot;request_uri&quot;</i> value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. The URL MUST be shared with us when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br>See <a href="#RequestUri">Using request_uri parameter</a> for more details.</br></td>
+<td style="text-align: left">This parameter enables OpenID Connect requests to be passed by reference. The <i>&quot;request_uri&quot;</i> value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. The URL MUST be shared with us when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br>See <a href="#RequestUri">Using request_uri parameter</a> for more details.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>response_mode</strong></td>
@@ -474,23 +466,48 @@
 
 <p>The following is a non-normative example request that would be sent to the Authorization Server:</p>
 
-<p><code style=display:block;white-space:pre-wrap>GET /authorization HTTP/1.1
-Host: server.itsme.be
-?response_type=code 
-&amp;scope=openid%20profile%20email%20service%3Aclient.registration
-&amp;client_id=s6BhdRkqt3
-&amp;state=af0ifjsldkj
-&amp;redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb HTTP/1.1
-&amp;claims=
-  {
-  &quot;userinfo&quot;:
+<p><code style=display:block;white-space:pre-wrap>Authentication Request:<br></br>
+    GET /oidc/authorization HTTP/1.1
+    &amp;client_id=MY_PARTNER_CODE
+    &amp;request_uri=https%3A%2F%2Ftest.istme.be:443
+    &amp;state=A_VALID_STATE
+    &amp;nonce=A_VALID_NONCE
+    &amp;scope=openid<br></br>
+Raw Request Object (not signed, not encrypted):<br></br>
     {
-      &quot;tag:sixdots.be,2016-06:claim_nationality&quot;:null,
-      &quot;tag:sixdots.be,2016-06:claim_gender&quot;:null,
-      &quot;tag:sixdots.be,2016-06:claim_birthplace&quot;:null,
-      &quot;tag:sixdots.be,2017-05:claim_device&quot;:null
-    }
-  }</code></p>
+      &quot;aud&quot;: &quot;https://merchant.itsme.be/oidc/&quot;,
+      &quot;scope&quot;: &quot;openid service:TEST-CONFIRM profile phone address&quot;,
+      &quot;redirect_uri&quot;: &quot;https://test.istme.be&quot;,
+      &quot;response_type&quot;:&quot;code&quot;,
+      &quot;client_id&quot;:&quot;MY_PARTNER_CODE&quot;,
+      &quot;scope&quot;:&quot;openid service: MY_APPROVAL_SERVICE_CODE&quot;,
+      &quot;acr_values&quot;:&quot;tag:sixdots.be,2016-06:acr_advanced&quot;,
+      &quot;iss&quot;:&quot;MY_PARTNER_CODE&quot;,
+      &quot;nonce&quot;:&quot;A_VALID_NONCE&quot;,
+      &quot;state&quot;:&quot;A_VALID_STATE&quot;,
+      &quot;claims&quot;:{
+        &quot;userinfo&quot;:{
+          &quot;sub&quot;:{
+          &quot;value&quot;:&quot;THE_END_USER_ALREADY_KNOWN_USER_CODE&quot;
+          },
+          &quot;tag:sixdots.be,2016-08:claim_approval_template_name&quot;:{
+            &quot;value&quot;:&quot;adv_payment&quot;,
+            &quot;essential&quot;:true
+          },
+          &quot;tag:sixdots.be,2016-08:claim_approval_amount_key&quot;:{
+            &quot;value&quot;:&quot;100&quot;,
+            &quot;essential&quot;:true
+          },
+          &quot;tag:sixdots.be,2016-08:claim_approval_currency_key&quot;:{
+            &quot;value&quot;:&quot;EUR&quot;,
+            &quot;essential&quot;:true
+          },
+          &quot;tag:sixdots.be,2016-08:claim_approval_iban_key&quot;:{
+            &quot;value&quot;:&quot;BE00793774892029&quot;,
+            &quot;essential&quot;:true
+          }
+       }
+     }</code></p>
 
 <p><a name="AuthNResponse"></a></p>
 <h2 id='3-2-capturing-an-authorization-code'>3.2. Capturing an Authorization Code</h2><h3 id='capturing-a-successful-authorization-code'>Capturing a successful Authorization Code</h3>
@@ -1342,72 +1359,67 @@ private void handleIntent(Intent intent) {
 
 <p>Next to the security levels, your application SHALL also request additional security data to determine the context in which the transactions have been executed. The security data elements, alone or in combination with each other, indicate a given risk exposure. By providing these elements, itsme® allows you to detect fraud attempts or effective fraudulent transactions. The security data elements that SHALL be used to associate a risk exposure to a specific transaction are available in the section <a href="#SecurityDataElements">Capturing claims from the userInfo Endpoint</a>.</p>
 
-<p><a name="RequestObjectByValue"></a></p>
-<h2 id='5-4-using-the-request-parameter'>5.4. Using the request parameter</h2>
-<p>The <i>&quot;request&quot;</i> parameter enables the Authentication Requests to be passed in a single, self-contained parameter and to be optionally signed and/or encrypted. It represents the request as a JWT whose claims are the parameters specified in section 3.1. This JWT is called a Request Object by value.</p>
-
-<p>When <i>&quot;request&quot;</i> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax.</p>
-
-<p><code style=display:block;white-space:pre-wrap>GET /oidc/authorization HTTP/1.1
-    ?response_type=code%20id_token
-    &amp;client_id=s6BhdRkqt3
-    &amp;redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
-    &amp;scope=openid
-    &amp;state=af0ifjsldkj
-    &amp;nonce=n-0S6_WzA2Mj
-    &amp;request=eyJhbGciOiJSUzI1NiIsImtpZCI6ImsyYmRjIn0.ew0KICJpc3MiOiA
-    iczZCaGRSa3F0MyIsDQogImF1ZCI6ICJodHRwczovL3NlcnZlci5leGFtcGxlLmN
-    vbSIsDQogInJlc3BvbnNlX3R5cGUiOiAiY29kZSBpZF90b2tlbiIsDQogImNsaWV
-    udF9pZCI6ICJzNkJoZFJrcXQzIiwNCiAicmVkaXJlY3RfdXJpIjogImh0dHBzOi8
-    vY2xpZW50LmV4YW1wbGUub3JnL2NiIiwNCiAic2NvcGUiOiAib3BlbmlkIiwNCiA
-    ic3RhdGUiOiAiYWYwaWZqc2xka2oiLA0KICJub25jZSI6ICJuLTBTNl9XekEyTWo
-    iLA0KICJtYXhfYWdlIjogODY0MDAsDQogImNsYWltcyI6IA0KICB7DQogICAidXN
-    lcmluZm8iOiANCiAgICB7DQogICAgICJnaXZlbl9uYW1lIjogeyJlc3NlbnRpYWw
-    iOiB0cnVlfSwNCiAgICAgIm5pY2tuYW1lIjogbnVsbCwNCiAgICAgImVtYWlsIjo
-    geyJlc3NlbnRpYWwiOiB0cnVlfSwNCiAgICAgImVtYWlsX3ZlcmlmaWVkIjogeyJ
-    lc3NlbnRpYWwiOiB0cnVlfSwNCiAgICAgInBpY3R1cmUiOiBudWxsDQogICAgfSw
-    NCiAgICJpZF90b2tlbiI6IA0KICAgIHsNCiAgICAgImdlbmRlciI6IG51bGwsDQo
-    gICAgICJiaXJ0aGRhdGUiOiB7ImVzc2VudGlhbCI6IHRydWV9LA0KICAgICAiYWN
-    yIjogeyJ2YWx1ZXMiOiBbInVybjptYWNlOmluY29tbW9uOmlhcDpzaWx2ZXIiXX0
-    NCiAgICB9DQogIH0NCn0.nwwnNsk1-ZkbmnvsF6zTHm8CHERFMGQPhos-EJcaH4H
-    h-sMgk8ePrGhw_trPYs8KQxsn6R9Emo_wHwajyFKzuMXZFSZ3p6Mb8dkxtVyjoy2
-    GIzvuJT_u7PkY2t8QU9hjBcHs68PkgjDVTrG1uRTx0GxFbuPbj96tVuj11pTnmFC
-    UR6IEOXKYr7iGOCRB3btfJhM0_AKQUfqKnRlrRscc8Kol-cSLWoYE9l5QqholImz
-    jT_cMnNIznW9E7CDyWXTsO70xnB4SkG6pXfLSjLLlxmPGiyon_-Te111V8uE83Il
-    zCYIb_NMXvtTIVc1jpspnTSD7xMbpL-2QgwUsAlMGzw</code></p>
-
-<p>The following validations should be done when using the <i>&quot;request&quot;</i> parameter:</p>
-
-<ol>
-  <li>The values for the <i>"response_type"</i> and <i>"client_id"</i> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li>
-  <li>Even if a <i>"scope"</i> parameter is present in the Request Object value, a <i>"scope"</i> parameter – containing the <i>"openid"</i> scope value to indicate that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li>
-  <li>The Request Object MAY be signed or unsigned (plaintext) using the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Signature</a> (JWS). If signed, the Request Object SHOULD contain the claims <i>"iss"</i> (issuer) and <i>"aud"</i> (audience) as members. The <i>"iss"</i> value SHOULD be your Client ID. The <i>"aud"</i> value SHOULD be <i>"https://merchant.itsme.be/oidc"</i>.</li>
-  <li>The Request Object MAY also be encrypted using <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Encryption</a> (JWE). In this case, it MUST be signed then encrypted, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section.</li>
-  <li>The <i>"request"</i> and <i>"request_uri"</i> query parameters MUST NOT be included at the same time in Request Objects.</li>
-</ol>
-
-<p>Enclosed you will find a non-normative example of an Authorization Request using the <i>&quot;request&quot;</i> parameter.</p>
-
 <p><a name="RequestUri"></a></p>
-<h2 id='5-5-using-request_uri-parameter'>5.5. Using request_uri parameter</h2>
-<p>The <i>&quot;request_uri&quot;</i> parameter enables the Authentication Requests to be passed by reference, rather than by value. This parameter is used identically to the <i>&quot;request&quot;</i> parameter, except that the Request Object value is retrieved from the resource at the specified URL.</p>
+<h2 id='5-4-using-request_uri-parameter'>5.4. Using request_uri parameter</h2>
+<p>The <i>&quot;request_uri&quot;</i> parameter enables the Authentication Requests to be passed by reference, meaning that the Request Object value is retrieved from the resource at the specified URL.</p>
 
-<p>When the <i>&quot;request_uri&quot;</i> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OpenID Connect Authorization Request syntax. However, parameters MAY also be passed using the OpenID Connect Authorization Request syntax even when a <i>&quot;request_uri&quot;</i> is used; this would typically be done to enable a cached, pre-signed (and possibly pre-encrypted) Request Object value to be used containing the fixed request parameters, while parameters that can vary with each request, such as <i>&quot;state&quot;</i> and <i>&quot;nonce&quot;</i>, are passed as OpenID Connect parameters.</p>
+<p>When the <i>&quot;request_uri&quot;</i> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax. </p>
 
-<p>To be a valid OpenID Connect Authorization Request, it MUST include the <i>&quot;response_type&quot;</i> and <i>&quot;client_id&quot;</i> parameters, since they are REQUIRED by OpenID Connect Core 1.0 specifications. The values for these parameters MUST match those in the Request Object.</p>
+<p>The following validations should be done when using the <i>&quot;request_uri&quot;</i> parameter:</p>
 
-<p>You need to store the Request Object resource either locally or remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>&quot;request_uri&quot;</i>.</p>
+<p>ol&gt;
+  <li>The values for the <i>&quot;response_type&quot;</i> and <i>&quot;client_id&quot;</i> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li>
+  <li>Even if a <i>&quot;scope&quot;</i> parameter is present in the Request Object value, a <i>&quot;scope&quot;</i> parameter – containing the <i>&quot;openid&quot;</i> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li>
+  <li>The Request Object MAY be signed or unsigned (plaintext) using the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Signature</a> (JWS). If signed, the Request Object SHOULD contain the claims <i>&quot;iss&quot;</i> (issuer) and <i>&quot;aud&quot;</i> (audience) as members. The <i>&quot;iss&quot;</i> value SHOULD be your Client ID. The <i>&quot;aud&quot;</i> value SHOULD be <i>&quot;https://merchant.itsme.be/oidc&quot;</i>.</li>
+  <li>The Request Object MAY also be encrypted using <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Encryption</a> (JWE). In this case, it MUST be signed then encrypted, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section.</li>
+  <li>You need to store the Request Object resource either locally or remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>&quot;request_uri&quot;</i>.
+</ol></p>
 
 <p>Enclosed you will find a non-normative example of an Authorization Request using the <i>&quot;request_uri&quot;</i> parameter:</p>
 
-<p><code style=display:block;white-space:pre-wrap>GET /oidc/authorization HTTP/1.1
+<p><code style=display:block;white-space:pre-wrap>Authentication Request:<br></br>
+    GET /oidc/authorization HTTP/1.1
     response_type=code%20id_token
-    &amp;client_id=s6BhdRkqt3
-    &amp;request_uri=https%3A%2F%2Fclient.example.org%2Frequest.jwt
-    %23GkurKxf5T0Y-mnPFCHqWOMiZi4VS138cQO_V7PZHAdM
-    &amp;state=af0ifjsldkj
-    &amp;nonce=n-0S6_WzA2Mj
-    &amp;scope=openid</code></p>
+     &amp;client_id=MY_PARTNER_CODE
+    &amp;request_uri=https%3A%2F%2Ftest.istme.be:443
+    &amp;state=A_VALID_STATE
+    &amp;nonce=A_VALID_NONCE
+    &amp;scope=openid<br></br>
+Raw Request Object (not signed, not encrypted):<br></br>
+    {
+      &quot;aud&quot;: &quot;https://merchant.itsme.be/oidc/&quot;,
+      &quot;scope&quot;: &quot;openid service:TEST-CONFIRM profile phone address&quot;,
+      &quot;redirect_uri&quot;: &quot;https://test.istme.be&quot;,
+      &quot;response_type&quot;:&quot;code&quot;,
+      &quot;client_id&quot;:&quot;MY_PARTNER_CODE&quot;,
+      &quot;scope&quot;:&quot;openid service: MY_APPROVAL_SERVICE_CODE&quot;,
+      &quot;acr_values&quot;:&quot;tag:sixdots.be,2016-06:acr_advanced&quot;,
+      &quot;iss&quot;:&quot;MY_PARTNER_CODE&quot;,
+      &quot;nonce&quot;:&quot;A_VALID_NONCE&quot;,
+      &quot;state&quot;:&quot;A_VALID_STATE&quot;,
+      &quot;claims&quot;:{
+        &quot;userinfo&quot;:{
+          &quot;sub&quot;:{
+          &quot;value&quot;:&quot;THE_END_USER_ALREADY_KNOWN_USER_CODE&quot;
+          },
+          &quot;tag:sixdots.be,2016-08:claim_approval_template_name&quot;:{
+            &quot;value&quot;:&quot;adv_payment&quot;,
+            &quot;essential&quot;:true
+          },
+          &quot;tag:sixdots.be,2016-08:claim_approval_amount_key&quot;:{
+            &quot;value&quot;:&quot;100&quot;,
+            &quot;essential&quot;:true
+          },
+          &quot;tag:sixdots.be,2016-08:claim_approval_currency_key&quot;:{
+            &quot;value&quot;:&quot;EUR&quot;,
+            &quot;essential&quot;:true
+          },
+          &quot;tag:sixdots.be,2016-08:claim_approval_iban_key&quot;:{
+            &quot;value&quot;:&quot;BE00793774892029&quot;,
+            &quot;essential&quot;:true
+          }
+       }
+     }</code></p>
 
       </div>
       <div class="dark-box">
