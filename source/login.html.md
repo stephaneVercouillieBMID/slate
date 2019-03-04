@@ -113,23 +113,48 @@ Parameter | Required | Description
 
 The following is a non-normative example request that would be sent to the Authorization Server:
 
-<code style=display:block;white-space:pre-wrap>GET /authorization HTTP/1.1
-Host: server.itsme.be
-?response_type=code 
-&scope=openid%20profile%20email%20service%3Aclient.registration
-&client_id=s6BhdRkqt3
-&state=af0ifjsldkj
-&redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb HTTP/1.1
-&claims=
-  {
-  "userinfo":
+<code style=display:block;white-space:pre-wrap>Authentication Request:<br></br>
+    GET /oidc/authorization HTTP/1.1
+    &client_id=MY_PARTNER_CODE
+    &request_uri=https%3A%2F%2Ftest.istme.be:443
+    &state=A_VALID_STATE
+    &nonce=A_VALID_NONCE
+    &scope=openid<br></br>
+Raw Request Object (not signed, not encrypted):<br></br>
     {
-      "tag:sixdots.be,2016-06:claim_nationality":null,
-      "tag:sixdots.be,2016-06:claim_gender":null,
-      "tag:sixdots.be,2016-06:claim_birthplace":null,
-      "tag:sixdots.be,2017-05:claim_device":null
-    }
-  }</code>
+      "aud": "https://merchant.itsme.be/oidc/",
+      "scope": "openid service:TEST-CONFIRM profile phone address",
+      "redirect_uri": "https://test.istme.be",
+      "response_type":"code",
+      "client_id":"MY_PARTNER_CODE",
+      "scope":"openid service: MY_APPROVAL_SERVICE_CODE",
+      "acr_values":"tag:sixdots.be,2016-06:acr_advanced",
+      "iss":"MY_PARTNER_CODE",
+      "nonce":"A_VALID_NONCE",
+      "state":"A_VALID_STATE",
+      "claims":{
+        "userinfo":{
+          "sub":{
+          "value":"THE_END_USER_ALREADY_KNOWN_USER_CODE"
+          },
+          "tag:sixdots.be,2016-08:claim_approval_template_name":{
+            "value":"adv_payment",
+            "essential":true
+          },
+          "tag:sixdots.be,2016-08:claim_approval_amount_key":{
+            "value":"100",
+            "essential":true
+          },
+          "tag:sixdots.be,2016-08:claim_approval_currency_key":{
+            "value":"EUR",
+            "essential":true
+          },
+          "tag:sixdots.be,2016-08:claim_approval_iban_key":{
+            "value":"BE00793774892029",
+            "essential":true
+          }
+       }
+     }</code>
 
 <a name="AuthNResponse"></a>
 ## 3.2. Capturing an Authorization Code
