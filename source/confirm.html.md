@@ -108,52 +108,51 @@ Parameter | Required | Description
 **claims_locales** | Not supported | Any supplied value will be ignored.
 **registration** | Not supported | Any supplied value will be ignored.
 
-requests to be passed in a single, self-contained parameter, 
-
 The following is a non-normative example request that would be sent to the Authorization Server:
 
-<code style=display:block;white-space:pre-wrap>GET /oidc/authorization HTTP/1.1
-?response_type=code
-&client_id=yourprojectid
-&redirect_uri=yourredirecturl
-&scope=openid+service%3Ayourservicecode+profile
-&redirect_uri=https:\/\/service-provider.be\/my_call_back_url 
-&nonce=A_VALID_NONCE 
-&state=A_VALID_STATE 
-&request={
-  "response_type":"code",
-  "client_id":"MY_PARTNER_CODE",
-  "redirect_uri":" https:\/\/service-provider.be\/my_call_back_url",
-  "aud":"https:\/\/merchant.itsme.be\/oidc",
-  "scope":"openid service: MY_APPROVAL_SERVICE_CODE",
-  "acr_values":"tag:sixdots.be,2016-06:acr_advanced",
-  "iss":"MY_PARTNER_CODE",
-  "nonce":"A_VALID_NONCE",
-  "state":"A_VALID_STATE",
-  "claims":{
-    "userinfo":{
-      "sub":{
-        "value":"THE_END_USER_ALREADY_KNOWN_USER_CODE"
-      },
-      "tag:sixdots.be,2016-08:claim_approval_template_name":{
-        "value":"adv_payment",
-        "essential":true
-      },
-      "tag:sixdots.be,2016-08:claim_approval_amount_key":{
-        "value":"100",
-        "essential":true
-      },
-      "tag:sixdots.be,2016-08:claim_approval_currency_key":{
-        "value":"EUR",
-        "essential":true
-      },
-      "tag:sixdots.be,2016-08:claim_approval_iban_key":{
-        "value":"BE00793774892029",
-        "essential":true
-      }
-   }
-  }
-}</code>
+<code style=display:block;white-space:pre-wrap>Authentication Request:<br></br>
+    GET /oidc/authorization HTTP/1.1
+    response_type=code%20id_token
+    &client_id=MY_PARTNER_CODE
+    &request_uri=https%3A%2F%2Ftest.istme.be:443
+    &state=A_VALID_STATE
+    &nonce=A_VALID_NONCE
+    &scope=openid<br></br>
+Raw Request Object (not signed, not encrypted):<br></br>
+    {
+      "aud": "https://merchant.itsme.be/oidc/",
+      "scope": "openid service:TEST-CONFIRM profile phone address",
+      "redirect_uri": "https://test.istme.be",
+      "response_type":"code",
+      "client_id":"MY_PARTNER_CODE",
+      "scope":"openid service: MY_APPROVAL_SERVICE_CODE",
+      "acr_values":"tag:sixdots.be,2016-06:acr_advanced",
+      "iss":"MY_PARTNER_CODE",
+      "nonce":"A_VALID_NONCE",
+      "state":"A_VALID_STATE",
+      "claims":{
+        "userinfo":{
+          "sub":{
+          "value":"THE_END_USER_ALREADY_KNOWN_USER_CODE"
+          },
+          "tag:sixdots.be,2016-08:claim_approval_template_name":{
+            "value":"adv_payment",
+            "essential":true
+          },
+          "tag:sixdots.be,2016-08:claim_approval_amount_key":{
+            "value":"100",
+            "essential":true
+          },
+          "tag:sixdots.be,2016-08:claim_approval_currency_key":{
+            "value":"EUR",
+            "essential":true
+          },
+          "tag:sixdots.be,2016-08:claim_approval_iban_key":{
+            "value":"BE00793774892029",
+            "essential":true
+          }
+       }
+     }</code>
 
 <aside class="notice">In the example aside, the <i>"request"</i> parameter is represented as a regular JSON formatted object for clarity only. Indeed, it MUST be correctly encoded, signed and then encrypted as explained in the official OpenID Connect Core specification.</aside>
 
@@ -688,24 +687,49 @@ The following validations should be done when using the <i>"request_uri"</i> par
 
 Enclosed you will find a non-normative example of an Authorization Request using the <i>"request_uri"</i> parameter:
 
-<code style=display:block;white-space:pre-wrap>Authentication Request :<br></br>
+<code style=display:block;white-space:pre-wrap>Authentication Request:<br></br>
     GET /oidc/authorization HTTP/1.1
     response_type=code%20id_token
-    &client_id=s6BhdRkqt3
+    &client_id=MY_PARTNER_CODE
     &request_uri=https%3A%2F%2Ftest.istme.be:443
-    %23GkurKxf5T0Y-mnPFCHqWOMiZi4VS138cQO_V7PZHAdM
-    &state=af0ifjsldkj
-    &nonce=n-0S6_WzA2Mj
+    &state=A_VALID_STATE
+    &nonce=A_VALID_NONCE
     &scope=openid<br></br>
-Raw Request Object (not signed, not encrypted) :<br></br>
+Raw Request Object (not signed, not encrypted):<br></br>
     {
       "aud": "https://merchant.itsme.be/oidc/",
       "scope": "openid service:TEST-CONFIRM profile phone address",
-      "redirect_uri": " https://test.istme.be",
-      "iss": "TEST",
-      "response_type": "code",
-      "client_id": "TEST"
-    }</code>
+      "redirect_uri": "https://test.istme.be",
+      "response_type":"code",
+      "client_id":"MY_PARTNER_CODE",
+      "scope":"openid service: MY_APPROVAL_SERVICE_CODE",
+      "acr_values":"tag:sixdots.be,2016-06:acr_advanced",
+      "iss":"MY_PARTNER_CODE",
+      "nonce":"A_VALID_NONCE",
+      "state":"A_VALID_STATE",
+      "claims":{
+        "userinfo":{
+          "sub":{
+          "value":"THE_END_USER_ALREADY_KNOWN_USER_CODE"
+          },
+          "tag:sixdots.be,2016-08:claim_approval_template_name":{
+            "value":"adv_payment",
+            "essential":true
+          },
+          "tag:sixdots.be,2016-08:claim_approval_amount_key":{
+            "value":"100",
+            "essential":true
+          },
+          "tag:sixdots.be,2016-08:claim_approval_currency_key":{
+            "value":"EUR",
+            "essential":true
+          },
+          "tag:sixdots.be,2016-08:claim_approval_iban_key":{
+            "value":"BE00793774892029",
+            "essential":true
+          }
+       }
+     }</code>
 
 
 ## 5.5. Templates
