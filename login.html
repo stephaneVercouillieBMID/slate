@@ -475,7 +475,7 @@
     &amp;scope=openid<br></br>
 Raw Request Object (not signed, not encrypted):<br></br>
     {
-      &quot;aud&quot;: &quot;https://merchant.itsme.be/oidc/&quot;,
+      &quot;aud&quot;: &quot;https://merchant.itsme.be/oidc/authorization&quot;,
       &quot;scope&quot;: &quot;openid service:TEST-CONFIRM profile phone address&quot;,
       &quot;redirect_uri&quot;: &quot;https://test.istme.be&quot;,
       &quot;response_type&quot;:&quot;code&quot;,
@@ -1370,7 +1370,7 @@ private void handleIntent(Intent intent) {
 <p>ol&gt;
   <li>The values for the <i>&quot;response_type&quot;</i> and <i>&quot;client_id&quot;</i> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li>
   <li>Even if a <i>&quot;scope&quot;</i> parameter is present in the Request Object value, a <i>&quot;scope&quot;</i> parameter – containing the <i>&quot;openid&quot;</i> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li>
-  <li>The Request Object MAY be signed or unsigned (plaintext) using the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Signature</a> (JWS). If signed, the Request Object SHOULD contain the claims <i>&quot;iss&quot;</i> (issuer) and <i>&quot;aud&quot;</i> (audience) as members. The <i>&quot;iss&quot;</i> value SHOULD be your Client ID. The <i>&quot;aud&quot;</i> value SHOULD be <i>&quot;https://merchant.itsme.be/oidc&quot;</i>.</li>
+  <li>The Request Object MAY be signed or unsigned (plaintext) using the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Signature</a> (JWS). If signed, the Request Object SHOULD contain the claims <i>&quot;iss&quot;</i> (issuer) and <i>&quot;aud&quot;</i> (audience) as members. The <i>&quot;iss&quot;</i> value SHOULD be your Client ID. The <i>&quot;aud&quot;</i> value SHOULD be <i>&quot;https://merchant.itsme.be/oidc/authorization&quot;</i>.</li>
   <li>The Request Object MAY also be encrypted using <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Encryption</a> (JWE). In this case, it MUST be signed then encrypted, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section.</li>
   <li>You need to store the Request Object resource either locally or remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>&quot;request_uri&quot;</i>.
 </ol></p>
@@ -1387,7 +1387,7 @@ private void handleIntent(Intent intent) {
     &amp;scope=openid<br></br>
 Raw Request Object (not signed, not encrypted):<br></br>
     {
-      &quot;aud&quot;: &quot;https://merchant.itsme.be/oidc/&quot;,
+      &quot;aud&quot;: &quot;https://merchant.itsme.be/oidc/authorization&quot;,
       &quot;scope&quot;: &quot;openid service:TEST-CONFIRM profile phone address&quot;,
       &quot;redirect_uri&quot;: &quot;https://test.istme.be&quot;,
       &quot;response_type&quot;:&quot;code&quot;,
