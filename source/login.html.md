@@ -121,7 +121,7 @@ The following is a non-normative example request that would be sent to the Autho
     &scope=openid<br></br>
 Raw Request Object (not signed, not encrypted):<br></br>
     {
-      "aud": "https://merchant.itsme.be/oidc/",
+      "aud": "https://merchant.itsme.be/oidc/authorization",
       "scope": "openid service:TEST-CONFIRM profile phone address",
       "redirect_uri": "https://test.istme.be",
       "response_type":"code",
@@ -673,7 +673,7 @@ The following validations should be done when using the <i>"request_uri"</i> par
 ol>
   <li>The values for the <i>"response_type"</i> and <i>"client_id"</i> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li>
   <li>Even if a <i>"scope"</i> parameter is present in the Request Object value, a <i>"scope"</i> parameter – containing the <i>"openid"</i> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li>
-  <li>The Request Object MAY be signed or unsigned (plaintext) using the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Signature</a> (JWS). If signed, the Request Object SHOULD contain the claims <i>"iss"</i> (issuer) and <i>"aud"</i> (audience) as members. The <i>"iss"</i> value SHOULD be your Client ID. The <i>"aud"</i> value SHOULD be <i>"https://merchant.itsme.be/oidc"</i>.</li>
+  <li>The Request Object MAY be signed or unsigned (plaintext) using the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Signature</a> (JWS). If signed, the Request Object SHOULD contain the claims <i>"iss"</i> (issuer) and <i>"aud"</i> (audience) as members. The <i>"iss"</i> value SHOULD be your Client ID. The <i>"aud"</i> value SHOULD be <i>"https://merchant.itsme.be/oidc/authorization"</i>.</li>
   <li>The Request Object MAY also be encrypted using <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Encryption</a> (JWE). In this case, it MUST be signed then encrypted, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section.</li>
   <li>You need to store the Request Object resource either locally or remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>"request_uri"</i>.
 </ol>
@@ -690,7 +690,7 @@ Enclosed you will find a non-normative example of an Authorization Request using
     &scope=openid<br></br>
 Raw Request Object (not signed, not encrypted):<br></br>
     {
-      "aud": "https://merchant.itsme.be/oidc/",
+      "aud": "https://merchant.itsme.be/oidc/authorization",
       "scope": "openid service:TEST-CONFIRM profile phone address",
       "redirect_uri": "https://test.istme.be",
       "response_type":"code",
