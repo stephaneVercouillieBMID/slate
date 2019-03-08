@@ -87,7 +87,7 @@ First, you will forg a HTTPS GET request that MUST be sent to the itsme® Author
 <aside class="notice">By opposition to the OpenID Connect specifications, POST method is not authorized when triggering the itsme® App through the Universal/App Link mechanism only support the HTTP GET method on the Authorisation Endpoint. More information about Universal links and App links can be found in the <a href="#UniversalLinks">section 3.3</a>.
 </aside>
 
-The OpenID Connect Core specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:
+The OpenID Connect Core specification defines a number of parameters to integrate in the HTTPS GET query string:
 
 Parameter | Required | Description
 :-------- | :--------| :----- 
@@ -95,6 +95,12 @@ Parameter | Required | Description
 **response_type** | Required | This defines the processing flow to be used when forming the response. Because itsme® uses the Authorization Code Flow as described above, this value MUST be <i>"code"</i>.
 **scope** | Required | The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>"openid"</i> and <i>"service:login_service_code"</i>, by replacing "login_service_code" with the code you received when registering your project in the [itsme® B2B portal](#Onboarding).<br>You MAY also specify additional scopes, separated by spaces, to request more information about the User. Depending on your use case, the following additional scopes MAY apply:<ul><li>profile: will request the claims representing basic profile information. These are <i>"family_name"</i>, <i>"given_name"</i>, <i>"gender"</i>, <i>"birthdate"</i> and <i>"locale"</i>.</li><li>email: will request the <i>"email"</i> and <i>"email_verified"</i> claims.</li><li>phone: will request the <i>"phone_number"</i> and <i>"phone_number_verified"</i> claims.</li><li>address: will request the <i>"street_address"</i>, <i>"locality"</i>, <i>"postal_code"</i> and <i>"country"</i> claims.</li></ul>For more information on User attributes or claims, please consult the [ID claims](#Data) section.</br><br>An HTTP ERROR <i>"not_implemented"</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br>
 **redirect_uri** | Required | This is the URI to which the authentication response should be sent. This MUST exactly match the redirect URI of the specified service defined when registering your project in the [itsme® B2B portal](#Onboarding).
+**request_uri** | Optional | This parameter enables OpenID Connect parameters to be passed by reference. The <i>"request_uri"</i> value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. The URL MUST be shared with us when registering your project in the [itsme® B2B portal](#Onboarding).<br>See <a href="#RequestUri">Using request_uri parameter</a> for more details.</br>
+
+On top of this, OpenID Connect specify that additionnal parameters MAY be added to the Authentication Request as a JWT Payload in the <i>"request_uri"</i> parameter:
+
+Parameter | Required | Description
+:-------- | :--------| :----- 
 **state** | Strongly RECOMMENDED | An opaque value used in the Authentication Request, which will be returned unchanged in the Authorization Code. This parameter SHOULD be used for preventing cross-site request forgery (XRSF). <br>When deciding how to implement this, one suggestion is to use a private key together with some easily verifiable variables, for example, your client ID and a session cookie, to compute a hashed value. This will result in a byte value that will be infeasibility difficult to guess without the private key. After computing such an HMAC, base-64 encode it and pass it to the Authorization  Server as <i>"state"</i> parameter. Another suggestion is to hash the current date and time. This requires your application to save the time of transmission in order to verify it or to allow a sliding period of validity.</br>
 **nonce** | Strongly RECOMMENDED | A string value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. Sufficient entropy MUST be present in the <i>"nonce"</i> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">OpenID Connect Core specifications</a> for more information.
 **login_hint** | Optional | Can be used to pre-fill the phone number field on the itsme® OpenID web page for the User, if your application knows ahead of time which User is trying to authenticate. If provided, this value MUST be a phone number in the format specified for the <i>"phone_number"</i> claim: <i>"<countrycode>+<phonenumber>"</i>. E.g. <i>"login_hint=32+123456789"</i>.</br><br><i>"login_hint"</i> with invalid syntax will be ignored.</br>
@@ -103,56 +109,38 @@ Parameter | Required | Description
 **ui_locales** | Optional | User's preferred languages and scripts for the User interface (e.g.: OpenID web page). Supported values are: <i>"fr"</i>, <i>"nl"</i>, <i>"en"</i> and <i>"de"</i>. Any other value will be ignored.
 **max_age** | Not supported | Any supplied value will be ignored.<br>As itsme® does not maintain a session mechanism, an active authentication is always required.</br>
 <a name="acrvalues">**acr_values**</a> | Optional | Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference.<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br><i>"tag:sixdots.be,2016-06:acr_basic"</i></br></li><li>Advanced level - force the User to use PIN<br><i>"tag:sixdots.be,2016-06:acr_advanced"</i></br></li></ul>When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used.</br><br>More information on security levels and context data can be found in the [Appendixes](#SecurityLevels).</br>
-**claims** | Optional | This parameter MAY be used to request specific claims. The value is a JSON object listing the requested claims. When passed as a HTTP GET parameter, the <i>"claims"</i> parameter value is represented as UTF-8 encoded JSON which ends up being form-urlencoded. When used in a Request Object value, see [Appendixes](#RequestObjectByValue), the JSON is used as the value of the claims member.<br>See [User Data](#Data) for more information.</br>
-**request_uri** | Optional | This parameter enables OpenID Connect requests to be passed by reference. The <i>"request_uri"</i> value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. The URL MUST be shared with us when registering your project in the [itsme® B2B portal](#Onboarding).<br>See <a href="#RequestUri">Using request_uri parameter</a> for more details.</br>
+**claims** | Optional | This parameter MAY be used to request specific claims. The value is a JSON object listing the requested claims. <br>See [User Data](#Data) for more information.</br>
 **response_mode** | Not supported | Any supplied value will be ignored.
 **id\_token\_hint** | Not supported | Any supplied value will be ignored.
 **claims_locales** | Not supported | Any supplied value will be ignored.
 **registration** | Not supported | Any supplied value will be ignored.
 
-The following is a non-normative example request that would be sent to the Authorization Server:
+The following is a non-normative example of a request that would be sent to the Authorization Server:
 
 <code style=display:block;white-space:pre-wrap>Authentication Request:<br></br>
     GET /oidc/authorization HTTP/1.1
+    &response_type=code
     &client_id=MY_PARTNER_CODE
-    &request_uri=https%3A%2F%2Ftest.istme.be:443
-    &state=A_VALID_STATE
-    &nonce=A_VALID_NONCE
-    &scope=openid<br></br>
+    &scope=openid service:service:login_service_code profile email
+    &redirect_uri=https://test.istme.be
+    &request_uri=https://test.istme.be:443<br></br>
 Raw Request Object (not signed, not encrypted):<br></br>
     {
       "aud": "https://merchant.itsme.be/oidc/authorization",
-      "scope": "openid service:TEST-CONFIRM profile phone address",
+      "scope": "openid service:service:login_service_code profile email",
       "redirect_uri": "https://test.istme.be",
       "response_type":"code",
       "client_id":"MY_PARTNER_CODE",
-      "scope":"openid service: MY_APPROVAL_SERVICE_CODE",
       "acr_values":"tag:sixdots.be,2016-06:acr_advanced",
       "iss":"MY_PARTNER_CODE",
       "nonce":"A_VALID_NONCE",
       "state":"A_VALID_STATE",
       "claims":{
         "userinfo":{
-          "sub":{
-          "value":"THE_END_USER_ALREADY_KNOWN_USER_CODE"
-          },
-          "tag:sixdots.be,2016-08:claim_approval_template_name":{
-            "value":"adv_payment",
-            "essential":true
-          },
-          "tag:sixdots.be,2016-08:claim_approval_amount_key":{
-            "value":"100",
-            "essential":true
-          },
-          "tag:sixdots.be,2016-08:claim_approval_currency_key":{
-            "value":"EUR",
-            "essential":true
-          },
-          "tag:sixdots.be,2016-08:claim_approval_iban_key":{
-            "value":"BE00793774892029",
-            "essential":true
+          "tag:sixdots.be,2016-06:claim_eid":null,
+          "tag:sixdots.be,2016-06:claim_city_of_birth":null
           }
-       }
+        }
      }</code>
 
 <a name="AuthNResponse"></a>
@@ -682,46 +670,28 @@ Enclosed you will find a non-normative example of an Authorization Request using
 
 <code style=display:block;white-space:pre-wrap>Authentication Request:<br></br>
     GET /oidc/authorization HTTP/1.1
-    response_type=code%20id_token
+    &response_type=code
     &client_id=MY_PARTNER_CODE
-    &request_uri=https%3A%2F%2Ftest.istme.be:443
-    &state=A_VALID_STATE
-    &nonce=A_VALID_NONCE
-    &scope=openid<br></br>
+    &scope=openid service:service:login_service_code profile email
+    &redirect_uri=https://test.istme.be
+    &request_uri=https://test.istme.be:443<br></br>
 Raw Request Object (not signed, not encrypted):<br></br>
     {
       "aud": "https://merchant.itsme.be/oidc/authorization",
-      "scope": "openid service:TEST-CONFIRM profile phone address",
+      "scope": "openid service:service:login_service_code profile email",
       "redirect_uri": "https://test.istme.be",
       "response_type":"code",
       "client_id":"MY_PARTNER_CODE",
-      "scope":"openid service: MY_APPROVAL_SERVICE_CODE",
       "acr_values":"tag:sixdots.be,2016-06:acr_advanced",
       "iss":"MY_PARTNER_CODE",
       "nonce":"A_VALID_NONCE",
       "state":"A_VALID_STATE",
       "claims":{
         "userinfo":{
-          "sub":{
-          "value":"THE_END_USER_ALREADY_KNOWN_USER_CODE"
-          },
-          "tag:sixdots.be,2016-08:claim_approval_template_name":{
-            "value":"adv_payment",
-            "essential":true
-          },
-          "tag:sixdots.be,2016-08:claim_approval_amount_key":{
-            "value":"100",
-            "essential":true
-          },
-          "tag:sixdots.be,2016-08:claim_approval_currency_key":{
-            "value":"EUR",
-            "essential":true
-          },
-          "tag:sixdots.be,2016-08:claim_approval_iban_key":{
-            "value":"BE00793774892029",
-            "essential":true
+          "tag:sixdots.be,2016-06:claim_eid":null,
+          "tag:sixdots.be,2016-06:claim_city_of_birth":null
           }
-       }
+        }
      }</code>
     
     
