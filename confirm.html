@@ -366,7 +366,7 @@
 <aside class="notice">By opposition to the OpenID Connect specifications, POST method is not authorized when triggering the itsme® App through the Universal/App Link mechanism only support the HTTP GET method on the Authorisation Endpoint. More information about Universal links and App links can be found in the <a href="#UniversalLinks">section 3.3</a>.
 </aside>
 
-<p>The OpenID Connect Core specification defines a number of mandatory and recommended parameters to integrate in the HTTPS GET query string:</p>
+<p>The OpenID Connect Core specification defines a number of parameters to integrate in the HTTPS GET query string:</p>
 
 <table><thead>
 <tr>
@@ -388,13 +388,29 @@
 <tr>
 <td style="text-align: left"><strong>scope</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>&quot;openid&quot;</i> and <i>&quot;service:login_service_code&quot;</i>, by replacing &quot;login_service_code&quot; with the code you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br>You MAY also specify additional scopes, separated by spaces, to request more information about the User. Depending on your use case, the following additional scopes MAY apply:<ul><li>profile: will request the claims representing basic profile information. These are <i>&quot;family_name&quot;</i>, <i>&quot;given_name&quot;</i>, <i>&quot;gender&quot;</i>, <i>&quot;birthdate&quot;</i> and <i>&quot;locale&quot;</i>.</li><li>email: will request the <i>&quot;email&quot;</i> and <i>&quot;email_verified&quot;</i> claims.</li><li>phone: will request the <i>&quot;phone_number&quot;</i> and <i>&quot;phone_number_verified&quot;</i> claims.</li><li>address: will request the <i>&quot;street_address&quot;</i>, <i>&quot;locality&quot;</i>, <i>&quot;postal_code&quot;</i> and <i>&quot;country&quot;</i> claims.</li></ul>For more information on User attributes or claims, please consult the <a href="#Data">ID claims</a> section.</br><br>An HTTP ERROR <i>&quot;not_implemented&quot;</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br></td>
+<td style="text-align: left">The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>&quot;openid&quot;</i> and <i>&quot;service:TEST_code&quot;</i>, by replacing &quot;TEST_code&quot; with the code you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br>You MAY also specify additional scopes, separated by spaces, to request more information about the User. Depending on your use case, the following additional scopes MAY apply:<ul><li>profile: will request the claims representing basic profile information. These are <i>&quot;family_name&quot;</i>, <i>&quot;given_name&quot;</i>, <i>&quot;gender&quot;</i>, <i>&quot;birthdate&quot;</i> and <i>&quot;locale&quot;</i>.</li><li>email: will request the <i>&quot;email&quot;</i> and <i>&quot;email_verified&quot;</i> claims.</li><li>phone: will request the <i>&quot;phone_number&quot;</i> and <i>&quot;phone_number_verified&quot;</i> claims.</li><li>address: will request the <i>&quot;street_address&quot;</i>, <i>&quot;locality&quot;</i>, <i>&quot;postal_code&quot;</i> and <i>&quot;country&quot;</i> claims.</li></ul>For more information on User attributes or claims, please consult the <a href="#Data">ID claims</a> section.</br><br>An HTTP ERROR <i>&quot;not_implemented&quot;</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>redirect_uri</strong></td>
 <td style="text-align: left">Required</td>
 <td style="text-align: left">This is the URI to which the authentication response should be sent. This MUST exactly match the redirect URI of the specified service defined when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
+<tr>
+<td style="text-align: left"><strong>request_uri</strong></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This parameter enables OpenID Connect parameters to be passed by reference. The <i>&quot;request_uri&quot;</i> value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. The URL MUST be shared with us when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br>See <a href="#RequestUri">Using request_uri parameter</a> for more details.</br></td>
+</tr>
+</tbody></table>
+
+<p>On top of this, OpenID Connect specify that additionnal parameters MUST be added to the Authentication Request as a JWT Payload in the <i>&quot;request_uri&quot;</i> parameter:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td style="text-align: left"><strong>state</strong></td>
 <td style="text-align: left">Strongly RECOMMENDED</td>
@@ -437,13 +453,8 @@
 </tr>
 <tr>
 <td style="text-align: left"><strong>claims</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">This parameter MAY be used to request specific claims. The value is a JSON object listing the requested claims. When passed as a HTTP GET parameter, the <i>&quot;claims&quot;</i> parameter value is represented as UTF-8 encoded JSON which ends up being form-urlencoded. When used in a Request Object value, see <a href="#RequestObjectByValue">Appendixes</a>, the JSON is used as the value of the claims member.<br>See <a href="#Data">User Data</a> for more information.</br></td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>request_uri</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This parameter enables OpenID Connect requests to be passed by reference. The <i>&quot;request_uri&quot;</i> value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. The URL MUST be shared with us when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br>See <a href="#RequestUri">Using request_uri parameter</a> for more details.</br></td>
+<td style="text-align: left">This parameter is used to request specific claims. The value is a JSON object listing the requested claims. <br>See <a href="#Data">User Data</a> for more information.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>response_mode</strong></td>
@@ -467,53 +478,36 @@
 </tr>
 </tbody></table>
 
-<p>The following is a non-normative example request that would be sent to the Authorization Server:</p>
+<p>The following is a non-normative example of a request that would be sent to the Authorization Server:</p>
 
 <p><code style=display:block;white-space:pre-wrap>Authentication Request:<br></br>
     GET /oidc/authorization HTTP/1.1
-    response_type=code%20id_token
+    &amp;response_type=code
     &amp;client_id=MY_PARTNER_CODE
-    &amp;request_uri=https%3A%2F%2Ftest.istme.be:443
-    &amp;state=A_VALID_STATE
-    &amp;nonce=A_VALID_NONCE
-    &amp;scope=openid<br></br>
+    &amp;scope=openid service:TEST_code profile email
+    &amp;redirect_uri=https://test.istme.be
+    &amp;request_uri=https://test.istme.be:443<br></br>
 Raw Request Object (not signed, not encrypted):<br></br>
     {
       &quot;aud&quot;: &quot;https://merchant.itsme.be/oidc/authorization&quot;,
-      &quot;scope&quot;: &quot;openid service:TEST-CONFIRM profile phone address&quot;,
+      &quot;scope&quot;: &quot;openid service:TEST_code profile email&quot;,
       &quot;redirect_uri&quot;: &quot;https://test.istme.be&quot;,
       &quot;response_type&quot;:&quot;code&quot;,
       &quot;client_id&quot;:&quot;MY_PARTNER_CODE&quot;,
-      &quot;scope&quot;:&quot;openid service: MY_APPROVAL_SERVICE_CODE&quot;,
       &quot;acr_values&quot;:&quot;tag:sixdots.be,2016-06:acr_advanced&quot;,
       &quot;iss&quot;:&quot;MY_PARTNER_CODE&quot;,
       &quot;nonce&quot;:&quot;A_VALID_NONCE&quot;,
       &quot;state&quot;:&quot;A_VALID_STATE&quot;,
       &quot;claims&quot;:{
         &quot;userinfo&quot;:{
-          &quot;sub&quot;:{
-          &quot;value&quot;:&quot;THE_END_USER_ALREADY_KNOWN_USER_CODE&quot;
-          },
-          &quot;tag:sixdots.be,2016-08:claim_approval_template_name&quot;:{
-            &quot;value&quot;:&quot;adv_payment&quot;,
-            &quot;essential&quot;:true
-          },
-          &quot;tag:sixdots.be,2016-08:claim_approval_amount_key&quot;:{
-            &quot;value&quot;:&quot;100&quot;,
-            &quot;essential&quot;:true
-          },
-          &quot;tag:sixdots.be,2016-08:claim_approval_currency_key&quot;:{
-            &quot;value&quot;:&quot;EUR&quot;,
-            &quot;essential&quot;:true
-          },
-          &quot;tag:sixdots.be,2016-08:claim_approval_iban_key&quot;:{
-            &quot;value&quot;:&quot;BE00793774892029&quot;,
-            &quot;essential&quot;:true
+          &quot;tag:sixdots.be,2016-06:claim_eid&quot;:null,
+          &quot;tag:sixdots.be,2016-06:claim_city_of_birth&quot;:null,
+          &quot;sub&quot;:{ &quot;value&quot;:&quot;THE_END_USER_ALREADY_KNOWN_USER_CODE&quot; },
+          &quot;tag:sixdots.be,2016-08:claim_approval_template_name&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: &quot;free_text&quot; },
+          &quot;tag:sixdots.be,2016-08:claim_approval_text_key&quot;: { &quot;essential&quot;: true, &quot;value&quot;: &quot;This is a test&quot; }
           }
-       }
+        }
      }</code></p>
-
-<aside class="notice">In the example aside, the <i>"request"</i> parameter is represented as a regular JSON formatted object for clarity only. Indeed, it MUST be correctly encoded, signed and then encrypted as explained in the official OpenID Connect Core specification.</aside>
 
 <aside class="notice">If the User is already logged in your application, you will be able to bypass the itsme® identification page by communicating the unique-identifier key of the User (aka. the User's <i>"sub"</i> value received in the ID Token) that will approve the request. To do so, you will need to add below string in <i>"claims"</i> parameter of the Authentication Request. The exact string (e.g. <i>"value":"THE_END_USER_ALREADY_KNOWN_USER_CODE</i>) to use can be visualized in the non-normative example above.</aside>
   
@@ -571,7 +565,7 @@ state=af0ifjsldkj</code></p>
 </tr>
 <tr>
 <td style="text-align: left"><strong>state</strong></td>
-<td style="text-align: left">If provided</td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">Set to the value defined in the Authorisation Request, if any.</td>
 </tr>
 </tbody></table>
@@ -682,32 +676,38 @@ code=i1WsRn1uB1&amp;
 client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&amp;
 client_assertion=PHNhbWxwOl ... ZT</code></p>
 
-<p>According to the <i>&quot;private_key_jwt&quot;</i> client authentication method, the <i>&quot;client_assertion&quot;</i> JWT MUST contain the following parameters in the JWT Payload:</p>
+<p>According to the <i>&quot;private_key_jwt&quot;</i> client authentication method, the <i>&quot;client_assertion&quot;</i> contains the following parameters in the JWT Payload:</p>
 
 <table><thead>
 <tr>
 <th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>iss</strong></td>
+<td style="text-align: left">Required</td>
 <td style="text-align: left">The issuer of the <i>&quot;private_key_jwt&quot;</i>. This MUST contain the <i>&quot;client_id&quot;</i>. This is the client identifier (e.g. : Project ID) you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>sub</strong></td>
+<td style="text-align: left">Required</td>
 <td style="text-align: left">The subject of the <i>&quot;private_key_jwt&quot;</i>. This MUST contain the <i>&quot;client_id&quot;</i>. This is the client identifier (e.g. : Project ID) you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>aud</strong></td>
+<td style="text-align: left">Required</td>
 <td style="text-align: left">Value that identifies the Authorization Server as an intended audience. This MUST be the itsme® Token Endpoint URL: <i>&quot;https://merchant.itsme.be/oidc/token&quot;</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>jti</strong></td>
+<td style="text-align: left">Required</td>
 <td style="text-align: left">The <i>&quot;jti&quot;</i> (JWT ID) claim provides a unique identifier for the JWT. The identifier value MUST be assigned by the you in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object; if the application uses multiple issuers, collisions MUST be prevented among values produced by different issuers as well.  The <i>&quot;jti&quot;</i> claim can be used  to prevent the JWT from being replayed. The <i>&quot;jti&quot;</i> value is a case-sensitive string.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>exp</strong></td>
+<td style="text-align: left">Required</td>
 <td style="text-align: left">The <i>&quot;exp&quot;</i> (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing.  The processing of the <i>&quot;exp&quot;</i> claim requires that the current date/time MUST be before the expiration date/time listed in the <i>&quot;exp&quot;</i> claim. Implementers MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew.  Its value MUST be a number containing a NumericDate value (e.g. 1538507868 for Tuesday, March 22, 2011 6:43:00 PM).</td>
 </tr>
 </tbody></table>
@@ -813,12 +813,12 @@ Pragma: no-cache
 </tr>
 <tr>
 <td style="text-align: left"><strong>nonce</strong></td>
-<td style="text-align: left">If provided</td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. Sufficient entropy MUST be present in the <i>&quot;nonce&quot;</i> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>acr</strong></td>
-<td style="text-align: left">Always</td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">Could be <i>&quot;tag:sixdots.be,2016-06:acr_basic&quot;</i> or <i>&quot;tag:sixdots.be,2016-06:acr_advanced&quot;</i> depending on the value entered in the <i>&quot;acr_values&quot;</i>  Authorisation Request parameter. If no value is provided in the <i>&quot;acr_values&quot;</i> parameter, the <i>&quot;acr&quot;</i> will contain <i>&quot;tag:sixdots.be,2016-06:acr_basic&quot;</i>.</td>
 </tr>
 <tr>
@@ -894,28 +894,33 @@ Authorization: Bearer <access token></code></p>
 
 <p>When an error condition occurs an error response as defined in the <a href="https://tools.ietf.org/html/rfc6750" target="blank">OAuth 2.0 Bearer Token Usage specification</a> will be returned.</p>
 <h3 id='capturing-claims-from-the-39-scope-39-parameter'>Capturing claims from the &#39;scope&#39; parameter</h3>
-<p>On top of the <i>&quot;openid&quot;</i> and <i>&quot;service:login_service_code&quot;</i> values specified in the Authentication Request, you MAY also ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes MAY apply:</p>
+<p>On top of the <i>&quot;openid&quot;</i> and <i>&quot;service:TEST_code&quot;</i> values specified in the Authentication Request, you MAY also ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes MAY apply:</p>
 
 <table><thead>
 <tr>
 <th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>profile</strong></td>
+<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">It will request the claims representing basic profile information. These are <i>&quot;family_name&quot;</i>, <i>&quot;given_name&quot;</i>, <i>&quot;gender&quot;</i>, <i>&quot;birthdate&quot;</i> and <i>&quot;locale&quot;</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>email</strong></td>
+<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">It will request the <i>&quot;email&quot;</i> and <i>&quot;email_verified&quot;</i> claims.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>phone</strong></td>
+<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">It will request the <i>&quot;phone_number&quot;</i> and <i>&quot;phone_number_verified&quot;</i> claims</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>address</strong></td>
+<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">It will request the <i>&quot;street_address&quot;</i>, <i>&quot;locality&quot;</i>, <i>&quot;postal_code&quot;</i> and <i>&quot;country&quot;</i> claims.</td>
 </tr>
 </tbody></table>
@@ -1001,35 +1006,43 @@ Authorization: Bearer <access token></code></p>
 <table><thead>
 <tr>
 <th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2016-06:claim_nationality</strong></td>
+<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">It will request the <i>&quot;nationality&quot;</i> claim.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2016-06:claim_city_of_birth</strong></td>
+<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">It will request the <i>&quot;place of Birth - city&quot;</i> claim.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2016-06:claim_eid</strong></td>
+<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">It will request the <i>&quot;eid&quot;</i>, <i>&quot;issuance_locality&quot;</i>, <i>&quot;validity_from&quot;</i>, <i>&quot;validity_to&quot;</i>, <i>&quot;certificate_validity&quot;</i>, <i>&quot;read_date&quot;</i> and <i>&quot;national_number&quot;</i> claims.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2017-05:claim_device</strong></td>
+<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">It will request the <i>&quot;os&quot;</i>, <i>&quot;appName&quot;</i>, <i>&quot;appRelease&quot;</i>, <i>&quot;deviceLabel&quot;</i>, <i>&quot;debugEnabled&quot;</i>, <i>&quot;deviceID&quot;</i>, <i>&quot;osRelease&quot;</i>, <i>&quot;manufacturer&quot;</i>, <i>&quot;hasSimEnabled&quot;</i>, <i>&quot;deviceLockLevel&quot;</i>, <i>&quot;smsEnabled&quot;</i>, <i>&quot;rooted&quot;</i>, <i>&quot;imei&quot;</i>, <i>&quot;deviceModel&quot;</i> and <i>&quot;sdkRelease&quot;</i> claims.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2017-05:claim_transaction_info</strong></td>
+<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">It will request the <i>&quot;securityLevel&quot;</i>, <i>&quot;bindLevel&quot;</i> and <i>&quot;mcc&quot;</i> claims.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2017-05:claim_photo</strong></td>
+<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">It will request the <i>&quot;e-ID Picture&quot;</i> claim.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2016-08:claim_approval_template_name</strong></td>
+<td style="text-align: left">Required</td>
 <td style="text-align: left">It will allow you to have a specific request template visualized in the itsme® app. More information about the tags to use MAY be found in the <a href="#Appendixes">Appendix</a>.</td>
 </tr>
 </tbody></table>
@@ -1041,120 +1054,154 @@ Authorization: Bearer <access token></code></p>
 <table><thead>
 <tr>
 <th style="text-align: left">Values</th>
+<th style="text-align: left">Returned</th>
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>nationality</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>place of Birth - city</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>eid</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">The eID card serial number.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>issuance_locality</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">The eID card issuance locality.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>validity_from</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">The eID card validity “from” date.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>validity_to</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">The eID card validity “to” date.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>certificate_validity</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">The eID card certificate validity.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>read_date</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">The data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000).</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>national_number</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">The Belgian National Register Number.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>os</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">The device operating system. The returned values will be <i>&quot;ANDROID&quot;</i> or <i>&quot;iOS&quot;</i></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>appName</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">The application name.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>appRelease</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">The application current release.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>deviceLabel</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">The name of the device.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>debugEnabled</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left"><i>&quot;True&quot;</i> if debug mode has been activated; otherwise <i>&quot;false&quot;</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>deviceId</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">The device identifier.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>osRelease</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">The version of the OS running on your device.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>manufacturer</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">The brand of the device manufacturer.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>hasSimEnabled</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">It tells you if a SIM card is installed in the device, or not. The returned value is always <i>&quot;true&quot;</i> as long as itsme® can&#39;t be installed on tablets.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>deviceLockLevel</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>smsEnabled</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>rooted</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">The returned value is always <i>&quot;false&quot;</i> as long as itsme® can&#39;t be used on a jailbreaked/rooted device.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>imei</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">The device IMEI value.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>deviceModel</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">The model of the device.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>sdkRelease</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>securityLevel</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">The security level used during transaction. The returned values could be <i>&quot;SOFT_ONLY&quot;</i>, <i>&quot;SIM_ONLY&quot;</i> or <i>&quot;SIM_AND_SOFT&quot;</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>bindLevel</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <i>&quot;SOFT_ONLY&quot;</i>, <i>&quot;SIM_ONLY&quot;</i> or <i>&quot;SIM_AND_SOFT&quot;</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>mcc</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>e-ID Picture</strong></td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>template</strong></td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">It will return specific values depending on the template used.</td>
 </tr>
 </tbody></table>
 <h1 id='4-mapping-the-user'>4. Mapping the User</h1>
