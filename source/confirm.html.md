@@ -176,7 +176,7 @@ Values |	Returned | Description
 :--|:--|:--
 **error**	| Always |	Error type. 
 **error_description** |	Always	| Indicating the nature of the error
-**state** |	If provided	| Set to the value defined in the Authorisation Request, if any.
+**state** |	If requested	| Set to the value defined in the Authorisation Request, if any.
 
 The following is a non-normative example of an error response:
 
@@ -242,15 +242,15 @@ code=i1WsRn1uB1&
 client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
 client_assertion=PHNhbWxwOl ... ZT</code>
 
-According to the <i>"private_key_jwt"</i> client authentication method, the <i>"client_assertion"</i> JWT MUST contain the following parameters in the JWT Payload:
+According to the <i>"private_key_jwt"</i> client authentication method, the <i>"client_assertion"</i> contains the following parameters in the JWT Payload:
 
-Parameter | Description
-:-- | :-- 
-**iss** | The issuer of the <i>"private_key_jwt"</i>. This MUST contain the <i>"client_id"</i>. This is the client identifier (e.g. : Project ID) you received when registering your project in the [itsme® B2B portal](#Onboarding).
-**sub** | The subject of the <i>"private_key_jwt"</i>. This MUST contain the <i>"client_id"</i>. This is the client identifier (e.g. : Project ID) you received when registering your project in the [itsme® B2B portal](#Onboarding).
-**aud** | Value that identifies the Authorization Server as an intended audience. This MUST be the itsme® Token Endpoint URL: <i>"https://merchant.itsme.be/oidc/token"</i>.
-**jti** | The <i>"jti"</i> (JWT ID) claim provides a unique identifier for the JWT. The identifier value MUST be assigned by the you in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object; if the application uses multiple issuers, collisions MUST be prevented among values produced by different issuers as well.  The <i>"jti"</i> claim can be used  to prevent the JWT from being replayed. The <i>"jti"</i> value is a case-sensitive string. 
-**exp** | The <i>"exp"</i> (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing.  The processing of the <i>"exp"</i> claim requires that the current date/time MUST be before the expiration date/time listed in the <i>"exp"</i> claim. Implementers MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew.  Its value MUST be a number containing a NumericDate value (e.g. 1538507868 for Tuesday, March 22, 2011 6:43:00 PM).
+Parameter | Required | Description
+:-- | :-- | :-- 
+**iss** | Required | The issuer of the <i>"private_key_jwt"</i>. This MUST contain the <i>"client_id"</i>. This is the client identifier (e.g. : Project ID) you received when registering your project in the [itsme® B2B portal](#Onboarding).
+**sub** | Required | The subject of the <i>"private_key_jwt"</i>. This MUST contain the <i>"client_id"</i>. This is the client identifier (e.g. : Project ID) you received when registering your project in the [itsme® B2B portal](#Onboarding).
+**aud** | Required | Value that identifies the Authorization Server as an intended audience. This MUST be the itsme® Token Endpoint URL: <i>"https://merchant.itsme.be/oidc/token"</i>.
+**jti** | Required | The <i>"jti"</i> (JWT ID) claim provides a unique identifier for the JWT. The identifier value MUST be assigned by the you in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object; if the application uses multiple issuers, collisions MUST be prevented among values produced by different issuers as well.  The <i>"jti"</i> claim can be used  to prevent the JWT from being replayed. The <i>"jti"</i> value is a case-sensitive string. 
+**exp** | Required | The <i>"exp"</i> (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing.  The processing of the <i>"exp"</i> claim requires that the current date/time MUST be before the expiration date/time listed in the <i>"exp"</i> claim. Implementers MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew.  Its value MUST be a number containing a NumericDate value (e.g. 1538507868 for Tuesday, March 22, 2011 6:43:00 PM).
 
 <a name="TokenResponse"></a>
 ## 3.5. Managing Token Response
@@ -299,8 +299,8 @@ Values |	Returned |	Description
 **exp**	| Always |	Expiration time on or after which the ID Token MUST NOT be accepted for processing.
 **iat** |	Always	| The time the ID Token was issued, represented in Unix time (integer seconds).
 **auth_time** | Always | The time the User authentication occurred, represented in Unix time (integer seconds). 
-**nonce** | If provided | String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. Sufficient entropy MUST be present in the <i>"nonce"</i> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.
-**acr** | Always | Could be <i>"tag:sixdots.be,2016-06:acr_basic"</i> or <i>"tag:sixdots.be,2016-06:acr_advanced"</i> depending on the value entered in the <i>"acr_values"</i>  Authorisation Request parameter. If no value is provided in the <i>"acr_values"</i> parameter, the <i>"acr"</i> will contain <i>"tag:sixdots.be,2016-06:acr_basic"</i>.
+**nonce** | If requested | String value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. Sufficient entropy MUST be present in the <i>"nonce"</i> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">the OpenID Connect Core specifications</a> for more information.
+**acr** | If requested | Could be <i>"tag:sixdots.be,2016-06:acr_basic"</i> or <i>"tag:sixdots.be,2016-06:acr_advanced"</i> depending on the value entered in the <i>"acr_values"</i>  Authorisation Request parameter. If no value is provided in the <i>"acr_values"</i> parameter, the <i>"acr"</i> will contain <i>"tag:sixdots.be,2016-06:acr_basic"</i>.
 **amr** | Never |
 **azp** | Never |
 
@@ -381,12 +381,12 @@ When an error condition occurs an error response as defined in the <a href="http
 
 On top of the <i>"openid"</i> and <i>"service:TEST_code"</i> values specified in the Authentication Request, you MAY also ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes MAY apply:
 
-Parameter | Description
-:-- | :-- 
-**profile** | It will request the claims representing basic profile information. These are <i>"family_name"</i>, <i>"given_name"</i>, <i>"gender"</i>, <i>"birthdate"</i> and <i>"locale"</i>.
-**email** | It will request the <i>"email"</i> and <i>"email_verified"</i> claims.
-**phone** | It will request the <i>"phone_number"</i> and <i>"phone_number_verified"</i> claims
-**address**  | It will request the <i>"street_address"</i>, <i>"locality"</i>, <i>"postal_code"</i> and <i>"country"</i> claims.
+Parameter | Required | Description
+:-- | :-- | :--
+**profile** | Optionnal | It will request the claims representing basic profile information. These are <i>"family_name"</i>, <i>"given_name"</i>, <i>"gender"</i>, <i>"birthdate"</i> and <i>"locale"</i>.
+**email** | Optionnal | It will request the <i>"email"</i> and <i>"email_verified"</i> claims.
+**phone** | Optionnal | It will request the <i>"phone_number"</i> and <i>"phone_number_verified"</i> claims
+**address** | Optionnal | It will request the <i>"street_address"</i>, <i>"locality"</i>, <i>"postal_code"</i> and <i>"country"</i> claims.
 
 The values returned via the itsme® userInfo Endpoint are those below:
 
@@ -410,50 +410,51 @@ Values |	Returned |	Description
 
 Typically, the values returned via the <i>"scope"</i> parameter only contain claims about the identity of the User. More information about the User MAY be requested by including additional parameters in the <i>"claims"</i> parameter as specified below:
 
-Parameter | Description
-:-- | :-- 
-**tag:sixdots.be,2016-06:claim_nationality** | It will request the <i>"nationality"</i> claim.
-**tag:sixdots.be,2016-06:claim_city_of_birth** | It will request the <i>"place of Birth - city"</i> claim.
-**tag:sixdots.be,2016-06:claim_eid**  | It will request the <i>"eid"</i>, <i>"issuance_locality"</i>, <i>"validity_from"</i>, <i>"validity_to"</i>, <i>"certificate_validity"</i>, <i>"read_date"</i> and <i>"national_number"</i> claims.
-**tag:sixdots.be,2017-05:claim_device** | It will request the <i>"os"</i>, <i>"appName"</i>, <i>"appRelease"</i>, <i>"deviceLabel"</i>, <i>"debugEnabled"</i>, <i>"deviceID"</i>, <i>"osRelease"</i>, <i>"manufacturer"</i>, <i>"hasSimEnabled"</i>, <i>"deviceLockLevel"</i>, <i>"smsEnabled"</i>, <i>"rooted"</i>, <i>"imei"</i>, <i>"deviceModel"</i> and <i>"sdkRelease"</i> claims.
-**tag:sixdots.be,2017-05:claim_transaction_info** | It will request the <i>"securityLevel"</i>, <i>"bindLevel"</i> and <i>"mcc"</i> claims.
-**tag:sixdots.be,2017-05:claim_photo** | It will request the <i>"e-ID Picture"</i> claim.
-**tag:sixdots.be,2016-08:claim_approval_template_name** | It will allow you to have a specific request template visualized in the itsme® app. More information about the tags to use MAY be found in the [Appendix](#Appendixes).
+Parameter | Required | Description
+:-- | :-- | :-- 
+**tag:sixdots.be,2016-06:claim_nationality** | Optionnal | It will request the <i>"nationality"</i> claim.
+**tag:sixdots.be,2016-06:claim_city_of_birth** | Optionnal | It will request the <i>"place of Birth - city"</i> claim.
+**tag:sixdots.be,2016-06:claim_eid**  | Optionnal | It will request the <i>"eid"</i>, <i>"issuance_locality"</i>, <i>"validity_from"</i>, <i>"validity_to"</i>, <i>"certificate_validity"</i>, <i>"read_date"</i> and <i>"national_number"</i> claims.
+**tag:sixdots.be,2017-05:claim_device** | Optionnal | It will request the <i>"os"</i>, <i>"appName"</i>, <i>"appRelease"</i>, <i>"deviceLabel"</i>, <i>"debugEnabled"</i>, <i>"deviceID"</i>, <i>"osRelease"</i>, <i>"manufacturer"</i>, <i>"hasSimEnabled"</i>, <i>"deviceLockLevel"</i>, <i>"smsEnabled"</i>, <i>"rooted"</i>, <i>"imei"</i>, <i>"deviceModel"</i> and <i>"sdkRelease"</i> claims.
+**tag:sixdots.be,2017-05:claim_transaction_info** | Optionnal | It will request the <i>"securityLevel"</i>, <i>"bindLevel"</i> and <i>"mcc"</i> claims.
+**tag:sixdots.be,2017-05:claim_photo** | Optionnal | It will request the <i>"e-ID Picture"</i> claim.
+**tag:sixdots.be,2016-08:claim_approval_template_name** | Required | It will allow you to have a specific request template visualized in the itsme® app. More information about the tags to use MAY be found in the [Appendix](#Appendixes).
 
 The values returned via the itsme® userInfo Endpoint are those below:
 
 <a name id="SecurityDataElements"></a>
 
-Values | Description
-:-- | :-- 
-**nationality** | 
-**place of Birth - city** | 
-**eid** | The eID card serial number.
-**issuance_locality**  | The eID card issuance locality.
-**validity_from** | The eID card validity “from” date.
-**validity_to** | The eID card validity “to” date.
-**certificate_validity** | The eID card certificate validity.
-**read_date** | The data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000).
-**national_number** | The Belgian National Register Number.
-**os** | The device operating system. The returned values will be <i>"ANDROID"</i> or <i>"iOS"</i>
-**appName** | The application name.
-**appRelease** | The application current release.
-**deviceLabel** | The name of the device.
-**debugEnabled**  | <i>"True"</i> if debug mode has been activated; otherwise <i>"false"</i>.
-**deviceId** | The device identifier.
-**osRelease** | The version of the OS running on your device.
-**manufacturer** | The brand of the device manufacturer.
-**hasSimEnabled** | It tells you if a SIM card is installed in the device, or not. The returned value is always <i>"true"</i> as long as itsme® can't be installed on tablets.
-**deviceLockLevel** |
-**smsEnabled** |
-**rooted** | The returned value is always <i>"false"</i> as long as itsme® can't be used on a jailbreaked/rooted device.
-**imei** | The device IMEI value.
-**deviceModel** | The model of the device.
-**sdkRelease** |
-**securityLevel** | The security level used during transaction. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
-**bindLevel** | It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
-**mcc** | The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country.
-**e-ID Picture** | 
+Values | Returned | Description
+:-- | :-- | :-- 
+**nationality** | If requested | 
+**place of Birth - city** | If requested | 
+**eid** | If requested | The eID card serial number.
+**issuance_locality**  | If requested | The eID card issuance locality.
+**validity_from** | If requested | The eID card validity “from” date.
+**validity_to** | If requested | The eID card validity “to” date.
+**certificate_validity** | If requested | The eID card certificate validity.
+**read_date** | If requested | The data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000).
+**national_number** | If requested | The Belgian National Register Number.
+**os** | If requested | The device operating system. The returned values will be <i>"ANDROID"</i> or <i>"iOS"</i>
+**appName** | If requested | The application name.
+**appRelease** | If requested | The application current release.
+**deviceLabel** | If requested | The name of the device.
+**debugEnabled**  | If requested | <i>"True"</i> if debug mode has been activated; otherwise <i>"false"</i>.
+**deviceId** | If requested | The device identifier.
+**osRelease** | If requested | The version of the OS running on your device.
+**manufacturer** | If requested | The brand of the device manufacturer.
+**hasSimEnabled** | If requested | It tells you if a SIM card is installed in the device, or not. The returned value is always <i>"true"</i> as long as itsme® can't be installed on tablets.
+**deviceLockLevel** | If requested |
+**smsEnabled** | If requested |
+**rooted** | If requested | The returned value is always <i>"false"</i> as long as itsme® can't be used on a jailbreaked/rooted device.
+**imei** | If requested | The device IMEI value.
+**deviceModel** | If requested | The model of the device.
+**sdkRelease** | If requested |
+**securityLevel** | If requested | The security level used during transaction. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
+**bindLevel** | If requested | It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
+**mcc** | If requested | The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country.
+**e-ID Picture** | If requested |
+**template** | Always | It will return specific values depending on the template used.
 
 
 # 4. Mapping the User
