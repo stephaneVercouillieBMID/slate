@@ -379,7 +379,7 @@ When an error condition occurs an error response as defined in the <a href="http
 
 ###  Capturing claims from the 'scope' parameter
 
-On top of the <i>"openid"</i> and <i>"service:login_service_code"</i> values specified in the Authentication Request, you MAY also ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes MAY apply:
+On top of the <i>"openid"</i> and <i>"service:TEST_code"</i> values specified in the Authentication Request, you MAY also ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes MAY apply:
 
 Parameter | Description
 :-- | :-- 
