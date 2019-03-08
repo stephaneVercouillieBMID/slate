@@ -159,7 +159,7 @@ The response will contain:
 Values | Returned | Description
 :----- |:-------- |:---
 **code** | Always |The <i>"code"</i> parameter holds the Authorization Code which is a string value. The content of Authorization Code is opaque for you. This code has a lifetime of 3 minutes.
-**state** | If provided |The <i>"state"</i> parameter will be returned if you provided a value in the Authentication Request. You should validate that the value returned matches the one supplied in the Authentication Request. The state value can additionally be used to mitigate against XSRF attacks by cryptographically binding the value of this parameter with a browser cookie.<br>If a wrong/unknown <i>"state"</i> is received, you should take it into account and refuse the related <i>"code"</i> or from a security detection/prevention point of view, monitor if it is a recurring pattern or not.</br>
+**state** | If requested |The <i>"state"</i> parameter will be returned if you provided a value in the Authentication Request. You should validate that the value returned matches the one supplied in the Authentication Request. The state value can additionally be used to mitigate against XSRF attacks by cryptographically binding the value of this parameter with a browser cookie.<br>If a wrong/unknown <i>"state"</i> is received, you should take it into account and refuse the related <i>"code"</i> or from a security detection/prevention point of view, monitor if it is a recurring pattern or not.</br>
 
  
 ### Handling Authentication Error Response
@@ -172,7 +172,7 @@ Values |	Returned | Description
 :--|:--|:--
 **error**	| Always |	Error type. 
 **error_description** |	Always	| Indicating the nature of the error
-**state** |	If provided	| Set to the value defined in the Authorisation Request, if any.
+**state** |	If requested	| Set to the value defined in the Authorisation Request, if any.
 
 The following is a non-normative example of an error response:
 
