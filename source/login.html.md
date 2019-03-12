@@ -123,7 +123,7 @@ The following is a non-normative example of a request that would be sent to the 
     &client_id=MY_PARTNER_CODE
     &scope=openid service:TEST_code profile email
     &redirect_uri=https://test.istme.be
-    &request_uri=https://test.istme.be:443<br></br>
+    &request_uri=https://test.istme.be:443/p/test<br></br>
 Raw Request Object (not signed, not encrypted):<br></br>
     {
       "aud": "https://merchant.itsme.be/oidc/authorization",
@@ -674,7 +674,7 @@ Enclosed you will find a non-normative example of an Authorization Request using
     &client_id=MY_PARTNER_CODE
     &scope=openid service:TEST_code profile email
     &redirect_uri=https://test.istme.be
-    &request_uri=https://test.istme.be:443<br></br>
+    &request_uri=https://test.istme.be:443/p/test<br></br>
 Raw Request Object (not signed, not encrypted):<br></br>
     {
       "aud": "https://merchant.itsme.be/oidc/authorization",
