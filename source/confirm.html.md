@@ -120,7 +120,7 @@ The following is a non-normative example of a request that would be sent to the 
     &client_id=MY_PARTNER_CODE
     &scope=openid service:TEST_code profile email
     &redirect_uri=https://test.istme.be
-    &request_uri=https://test.istme.be:443<br></br>
+    &request_uri=https://test.istme.be:443/p/test<br></br>
 Raw Request Object (not signed, not encrypted):<br></br>
     {
       "aud": "https://merchant.itsme.be/oidc/authorization",
@@ -677,46 +677,31 @@ Enclosed you will find a non-normative example of an Authorization Request using
 
 <code style=display:block;white-space:pre-wrap>Authentication Request:<br></br>
     GET /oidc/authorization HTTP/1.1
-    response_type=code%20id_token
+    &response_type=code
     &client_id=MY_PARTNER_CODE
-    &request_uri=https%3A%2F%2Ftest.istme.be:443
-    &state=A_VALID_STATE
-    &nonce=A_VALID_NONCE
-    &scope=openid<br></br>
+    &scope=openid service:TEST_code profile email
+    &redirect_uri=https://test.istme.be
+    &request_uri=https://test.istme.be:443/p/test<br></br>
 Raw Request Object (not signed, not encrypted):<br></br>
     {
       "aud": "https://merchant.itsme.be/oidc/authorization",
-      "scope": "openid service:TEST-CONFIRM profile phone address",
+      "scope": "openid service:TEST_code profile email",
       "redirect_uri": "https://test.istme.be",
       "response_type":"code",
       "client_id":"MY_PARTNER_CODE",
-      "scope":"openid service: MY_APPROVAL_SERVICE_CODE",
       "acr_values":"tag:sixdots.be,2016-06:acr_advanced",
       "iss":"MY_PARTNER_CODE",
       "nonce":"A_VALID_NONCE",
       "state":"A_VALID_STATE",
       "claims":{
         "userinfo":{
-          "sub":{
-          "value":"THE_END_USER_ALREADY_KNOWN_USER_CODE"
-          },
-          "tag:sixdots.be,2016-08:claim_approval_template_name":{
-            "value":"adv_payment",
-            "essential":true
-          },
-          "tag:sixdots.be,2016-08:claim_approval_amount_key":{
-            "value":"100",
-            "essential":true
-          },
-          "tag:sixdots.be,2016-08:claim_approval_currency_key":{
-            "value":"EUR",
-            "essential":true
-          },
-          "tag:sixdots.be,2016-08:claim_approval_iban_key":{
-            "value":"BE00793774892029",
-            "essential":true
+          "tag:sixdots.be,2016-06:claim_eid":null,
+          "tag:sixdots.be,2016-06:claim_city_of_birth":null,
+          "sub":{ "value":"THE_END_USER_ALREADY_KNOWN_USER_CODE" },
+          "tag:sixdots.be,2016-08:claim_approval_template_name":{ "essential": true, "value": "free_text" },
+          "tag:sixdots.be,2016-08:claim_approval_text_key": { "essential": true, "value": "This is a test" }
           }
-       }
+        }
      }</code>
 
 
