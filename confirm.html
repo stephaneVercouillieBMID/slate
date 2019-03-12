@@ -486,7 +486,7 @@
     &amp;client_id=MY_PARTNER_CODE
     &amp;scope=openid service:TEST_code profile email
     &amp;redirect_uri=https://test.istme.be
-    &amp;request_uri=https://test.istme.be:443<br></br>
+    &amp;request_uri=https://test.istme.be:443/p/test<br></br>
 Raw Request Object (not signed, not encrypted):<br></br>
     {
       &quot;aud&quot;: &quot;https://merchant.itsme.be/oidc/authorization&quot;,
@@ -1441,46 +1441,31 @@ private void handleIntent(Intent intent) {
 
 <p><code style=display:block;white-space:pre-wrap>Authentication Request:<br></br>
     GET /oidc/authorization HTTP/1.1
-    response_type=code%20id_token
+    &amp;response_type=code
     &amp;client_id=MY_PARTNER_CODE
-    &amp;request_uri=https%3A%2F%2Ftest.istme.be:443
-    &amp;state=A_VALID_STATE
-    &amp;nonce=A_VALID_NONCE
-    &amp;scope=openid<br></br>
+    &amp;scope=openid service:TEST_code profile email
+    &amp;redirect_uri=https://test.istme.be
+    &amp;request_uri=https://test.istme.be:443/p/test<br></br>
 Raw Request Object (not signed, not encrypted):<br></br>
     {
       &quot;aud&quot;: &quot;https://merchant.itsme.be/oidc/authorization&quot;,
-      &quot;scope&quot;: &quot;openid service:TEST-CONFIRM profile phone address&quot;,
+      &quot;scope&quot;: &quot;openid service:TEST_code profile email&quot;,
       &quot;redirect_uri&quot;: &quot;https://test.istme.be&quot;,
       &quot;response_type&quot;:&quot;code&quot;,
       &quot;client_id&quot;:&quot;MY_PARTNER_CODE&quot;,
-      &quot;scope&quot;:&quot;openid service: MY_APPROVAL_SERVICE_CODE&quot;,
       &quot;acr_values&quot;:&quot;tag:sixdots.be,2016-06:acr_advanced&quot;,
       &quot;iss&quot;:&quot;MY_PARTNER_CODE&quot;,
       &quot;nonce&quot;:&quot;A_VALID_NONCE&quot;,
       &quot;state&quot;:&quot;A_VALID_STATE&quot;,
       &quot;claims&quot;:{
         &quot;userinfo&quot;:{
-          &quot;sub&quot;:{
-          &quot;value&quot;:&quot;THE_END_USER_ALREADY_KNOWN_USER_CODE&quot;
-          },
-          &quot;tag:sixdots.be,2016-08:claim_approval_template_name&quot;:{
-            &quot;value&quot;:&quot;adv_payment&quot;,
-            &quot;essential&quot;:true
-          },
-          &quot;tag:sixdots.be,2016-08:claim_approval_amount_key&quot;:{
-            &quot;value&quot;:&quot;100&quot;,
-            &quot;essential&quot;:true
-          },
-          &quot;tag:sixdots.be,2016-08:claim_approval_currency_key&quot;:{
-            &quot;value&quot;:&quot;EUR&quot;,
-            &quot;essential&quot;:true
-          },
-          &quot;tag:sixdots.be,2016-08:claim_approval_iban_key&quot;:{
-            &quot;value&quot;:&quot;BE00793774892029&quot;,
-            &quot;essential&quot;:true
+          &quot;tag:sixdots.be,2016-06:claim_eid&quot;:null,
+          &quot;tag:sixdots.be,2016-06:claim_city_of_birth&quot;:null,
+          &quot;sub&quot;:{ &quot;value&quot;:&quot;THE_END_USER_ALREADY_KNOWN_USER_CODE&quot; },
+          &quot;tag:sixdots.be,2016-08:claim_approval_template_name&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: &quot;free_text&quot; },
+          &quot;tag:sixdots.be,2016-08:claim_approval_text_key&quot;: { &quot;essential&quot;: true, &quot;value&quot;: &quot;This is a test&quot; }
           }
-       }
+        }
      }</code></p>
 <h2 id='5-5-templates'>5.5. Templates</h2>
 <p>There are currently two templates that can be used when forming a Confirm Authentication Request.</p>
