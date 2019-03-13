@@ -171,7 +171,7 @@ If the User denies the Authentication Request or if the request fails for reason
 Values |	Returned | Description
 :--|:--|:--
 **error**	| Always |	Error type. 
-**error_description** |	Always	| Indicating the nature of the error
+**error_description** |	Always	| Indicating the nature of the error.
 **state** |	If requested	| Set to the value defined in the Authorisation Request, if any.
 
 The following is a non-normative example of an error response:
@@ -188,7 +188,6 @@ Error | Description
 :-- | :-- 
 **interaction_required**  | The Authorization Server requires User interaction of some form to proceed.
 **invalid_request_object** | The <i>"request"</i> parameter contains an invalid Request Object.
-**request_uri_not_supported** | This error is returned because itsme® does not support use of the <i>"request_uri"</i> parameter defined in the JWTs.
 **registration_not_supported** | This error is returned because itsme® does not support use of the <i>"registration"</i> parameter.
 
 All other HTTPS errors unrelated to OpenID Connect Core will be returned to the User using the appropriate HTTPS status code.
