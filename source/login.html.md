@@ -669,8 +669,10 @@ The following validations should be done when using the <i>"request_uri"</i> par
   <li>The Request Object MAY be <b>signed</b> using the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Signature</a> (JWS). If signed, the Request Object SHOULD contain the claims <i>"iss"</i> (issuer) and <i>"aud"</i> (audience) as members. The <i>"iss"</i> value SHOULD be your Client ID. The <i>"aud"</i> value SHOULD be <i>"https://merchant.itsme.be/oidc/authorization"</i>.</li>
   <li>The Request Object MAY also be <b>encrypted</b> using <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Encryption</a> (JWE). In this case, it MUST be signed then encrypted, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section.</li>
   <li>You need to store the Request Object resource either locally or remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>"request_uri"</i>.
+  <li>The Request URI MUST contain the port 443 as in this example: https://test.istme.be:443/p/test.</li>
+  <li>The Request URI value is a URL using the <i>https</i> scheme.</li>
 </ol>
-  
+
 Enclosed you will find a non-normative example of an Authorization Request using the <i>"request_uri"</i> parameter:
 
 <code style=display:block;white-space:pre-wrap>Authentication Request:<br></br>
