@@ -55,29 +55,28 @@ The itsme® Sign flow goes through the steps shown in the sequence diagram below
 <a name="OpenIDQES"></a>
 ## 3.1. Checking itsme® Sign configuration
 
-To simplify implementations and increase flexibility, all needed key-value pairs about itsme® configuration can be retrieved from a JSON document, such as
+To simplify implementations and increase flexibility, the following key-value pairs about itsme® configuration can be retrieved from a JSON document:
 
 <ul>
   <li>the signature policies</li>
   <li>commitment types</li>
   <li>supported languages</li>
-  <li>...</li>
 </ul>
 
 The JSON document for itsme® Sign service may be retrieved from: 
 
 Environment | URL
 :-------- | :--------
-**PRODUCTION** | <a href="https://belgianmobileid.github.io/slate/qesdiscovery" target="blank">https://belgianmobileid.github.io/slate/qesdiscovery</a>
+**PRODUCTION** | <a href="https://belgianmobileid.github.io/slate/qesdiscovery.json" target="blank">https://belgianmobileid.github.io/slate/qesdiscovery.json</a>
 
 
 ## 3.2. Starting a new User identification session
 
-First, you will forg a HTTPS POST request that MUST be sent to the itsme® User Identification Endpoint. The itsme® User Identification Endpoint can be retrieved from the [itsme® JSON document](#OpenIDQES), using the key <i>"user_identification"</i>.
+First, you will forge a HTTPS POST request that MUST be sent to the itsme® User Identification Endpoint, which is https://b2b.sixdots.be/qes-partners/1.0.0/user_identification. Please note we are using SSLMA as authentication method, as specified in [SSLMA Authentication](#SSLMA).
 
 Below you will find a number of mandatory and recommended parameters to integrate in the HTTPS POST query string:
 
-<code style=display:block;white-space:pre-wrap>POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/user_identification HTTP/1.1
+<code style=display:block;white-space:pre-wrap>POST /https://b2b.sixdots.be/qes-partners/1.0.0/user_identification HTTP/1.1
 {
 	"partnerCode":"myClientID", 
 	"serviceCode":"myServiceCode", 
@@ -119,14 +118,17 @@ Values | Type | Returned | Description
 
 See [Appendixes](#Appendixes) to get more information on the error codes.
 
+## 3.4 Redirecting the end user
 
-## 3.4. Requesting the User identification session status  
+The next step is to redirect the end user to our Front-End, so that we can process the identification session. You must do that by forging a GET request towards the url specified at previous step, in the parameter `identificationUrl`.
 
-By calling the Identification Session Status Endpoint, you are checking the status of the User identification session. 
+## 3.5. Requesting the User identification session status  
+
+By calling the Identification Session Status Endpoint, you are checking the status of the User identification session. This endpoint is https://b2b.sixdots.be/qes-partners/1.0.0/user_identification/status. Please note we are using SSLMA as authentication method, as specified in [SSLMA Authentication](#SSLMA).
 
 Below you will find a number of mandatory and recommended parameters to integrate in the HTTPS POST query string:
 
-<code style=display:block;white-space:pre-wrap>POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/user_identification/status HTTP/1.1
+<code style=display:block;white-space:pre-wrap>POST /https://b2b.sixdots.be/qes-partners/1.0.0/user_identification/status HTTP/1.1
 {
 	"partnerCode":"myPartnerCode", 
 	"serviceCode":"myServiceCode", 
@@ -140,7 +142,7 @@ Parameter | Type | Required | Description
 **asyncRespId** | String | Required | This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Identification Response.
 
 
-## 3.5. Getting the User identification status info
+## 3.6. Getting the User identification status info
 
 If the Identification Session Status Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside. In other words, you will get the confirmation that the User can perform a Sign transaction with itsme® and retrieve the User certificate reference value.
 
@@ -159,13 +161,13 @@ Values | Type | Returned | Description
 **certificate** | String | Always | 
 
 
-## 3.6. Starting a new Sign session 
+## 3.7. Starting a new Sign session 
 
-This request has to be created in order to intiate the Sign session. 
+In order to intiate the Sign session, you will forge a POST request towards this endpoint: https://b2b.sixdots.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, as specified in [SSLMA Authentication](#SSLMA).
 
 Below you will find the minimal set of parameters required for processing the HTTPS POST query string:
 
-<code style=display:block;white-space:pre-wrap>POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/sign_document HTTP/1.1
+<code style=display:block;white-space:pre-wrap>POST /https://b2b.sixdots.be/qes-partners/1.0.0/sign_document HTTP/1.1
 {
 	"inDocs": {
 		"docHash":[
@@ -268,7 +270,7 @@ Parameter | Type | Required | Description
 **signerRole** | Array | Optional | This defines the role of the signer. This information is displayed in the itsme® App to show to the signer under which role he will sign the document. If no signer role is provided nothing will be displayed in the itsme® App. This parameter is optional and freely defined in a free text of maximum 50 characters by yourself. You SHOULD provide this free text in all supported languages. The characters used to define the Signer Role MUST be ISO-8859-1 compatible. The signer role SHOULD be provided in all languages supported by itsme®.
 
 
-## 3.7. Managing the Sign Response 
+## 3.8. Managing the Sign Response 
 
 ### Getting a successful Sign Response
 
@@ -307,11 +309,15 @@ Values | Type | Returned | Description
 
 See [Appendixes](#Appendixes) to get more information on the error codes.
 
-## 3.8 Requesting the Sign session status
-This request has to be created in order to get the information about the Sign session. 
+## 3.9 Redirecting the end user
+
+The next step is to redirect the end user to our Front-End, so that we can process the identification session. You must do that by forging a GET request towards the url specified at previous step, in the parameter `signingUrl`.
+
+## 3.10 Requesting the Sign session status
+This request has to be created in order to get the information about the Sign session. In order to do so, you will forge a POST request towards https://b2b.sixdots.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, as specified in [SSLMA Authentication](#SSLMA).
 
 Below you will find the minimal set of parameters required for processing the HTTPS POST query string:
-<code style=display:block;white-space:pre-wrap> POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/sign_document HTTP/1.1
+<code style=display:block;white-space:pre-wrap> POST /https://b2b.sixdots.be/qes-partners/1.0.0/sign_document HTTP/1.1
   {
   "inDocs": null, 
   "reqID": "ReqIDv1prg8pmn9mtive3otsc", 
@@ -335,7 +341,7 @@ Parameter | Type | Required | Description
 **partnerCode** | String | Required | This MUST be the client identifier you received when registering your application in the [itsme® B2B portal](#Onboarding).
 **serviceCode** | String | Required | This parameter allows the application to express the desired scope. It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
 
-## 3.9 Managing the Sign Status Response
+## 3.11 Managing the Sign Status Response
 
 ### Getting a successful Sign Status Response
 
@@ -373,14 +379,14 @@ Parameter | Type | Required | Description
 **optInp** | String | Required | Those are additional information needed for the signature request.
 **itsme** |  | Required | This parameter contains all the information related to itsme® context. 
 **partnerCode** | String | Required | This MUST be the client identifier you received when registering your application in the [itsme® B2B portal](#Onboarding).
-**serviceCode** | String | Required | This parameter allows the application to express the desired scope. It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
 
 ### Handling Error Response
 
 See [Appendixes](#Appendixes) to get more information on the error codes.
 
 
-<a name="Appendixes"></a> # 4. Appendixes
+<a name="Appendixes"></a>
+# 4. Appendixes
 
 ## 4.1. Handling Error Response
 
@@ -409,3 +415,7 @@ Status code | Error |  Description
 <label></label> | REJECTED | The User had to create a certificate in order to make a signature. However, he rejected his CREATE_CERT action in the itsme® App. A new User Identification session must be initialized. During that session, User has to confirm the CREATE_CERT action.
 <label></label> | EXPIRED | The User had to create a certificate in order to make a signature. However, he waited too long (more than three minutes) before confirming his CREATE_CERT action in the itsme® App and his action expired. A new User Identification Session must be initialized. During that session, User has to confirm the CREATE_CERT action in time.
 <label></label> | UNEXPECTED_ERROR | An unexpected error occurred during User’s Identification flow. You SHOULD try again later. If the error persists, then you SHOULD contact itsme® support team for investigation.
+
+<a name="SSLMA"></a>
+## 4.2 SSLMA Authentication
+We make use of SSLMA Authentication with our b2b interface (https://b2b.sixdots.be/qes-partners/1.0.0/). This means that the SSL certificate you present upon each call towards this interface must be the one whitelisted in our systems as part of the onboarding process.
