@@ -861,7 +861,7 @@
 <td style="text-align: left"><strong>reqID</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This is the ID of the request that you transfer.</td>
+<td style="text-align: left">This is the ID of the request that you provide to us.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>asyncRespId</strong></td>
@@ -871,13 +871,13 @@
 </tr>
 <tr>
 <td style="text-align: left"><strong>optInp</strong></td>
-<td style="text-align: left">String</td>
+<td style="text-align: left">Json</td>
 <td style="text-align: left">Required</td>
 <td style="text-align: left">Those are additional information needed for the signature request.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>itsme</strong></td>
-<td style="text-align: left"></td>
+<td style="text-align: left">Json</td>
 <td style="text-align: left">Required</td>
 <td style="text-align: left">This parameter contains all the information related to itsme® context.</td>
 </tr>
@@ -895,9 +895,8 @@
 </tr>
 </tbody></table>
 <h2 id='3-11-managing-the-sign-status-response'>3.11 Managing the Sign Status Response</h2><h3 id='getting-a-successful-sign-status-response'>Getting a successful Sign Status Response</h3>
-<p><code style=display:block;white-space:pre-wrap> HTTP200 </p>
-
-<p>{ </p>
+<p><code style=display:block;white-space:pre-wrap> HTTP200 
+{ </p>
 
 <p>&quot;result&quot;: { </p>
 
@@ -926,39 +925,51 @@
 <tr>
 <th style="text-align: left">Parameter</th>
 <th style="text-align: left">Type</th>
-<th style="text-align: left">Required</th>
+<th style="text-align: left">Returned</th>
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left"><strong>result</strong></td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">This is the Oasis DSS compliant status of the sign session</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>reqID</strong></td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">This is the ID of the request that you provide to us.</td>
+</tr>
+<tr>
 <td style="text-align: left"><strong>respID</strong></td>
 <td style="text-align: left">String</td>
-<td style="text-align: left">Required</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">needs to be reused later to check status of signature as asyncRespID value</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>signingUrl</strong></td>
 <td style="text-align: left">String</td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">signingUrl is the link to provide to the end user where he will receive BMID instructions and poka yoke code</td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">signingUrl is the link where you must redirect the end user. He will receive there BMID instructions and poka yoke code</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>optInp</strong></td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Required</td>
+<td style="text-align: left"><strong>optOutp</strong></td>
+<td style="text-align: left">Json</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">Those are additional information needed for the signature request.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>itsme</strong></td>
-<td style="text-align: left"></td>
-<td style="text-align: left">Required</td>
+<td style="text-align: left">Json</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">This parameter contains all the information related to itsme® context.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>partnerCode</strong></td>
+<td style="text-align: left"><strong>signingUrl</strong></td>
 <td style="text-align: left">String</td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">This MUST be the client identifier you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">This parameter allows the application to express the desired scope. It MUST contain the value <i>&quot;service:service_code&quot;</i>, the itsme® service you want to use as defined for your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 </tbody></table>
 <h3 id='handling-error-response-3'>Handling Error Response</h3>
