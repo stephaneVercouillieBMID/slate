@@ -237,25 +237,39 @@
                     <a href="#3-3-capturing-the-identification-response" class="toc-h2 toc-link" data-title="3-3-capturing-the-identification-response">3.3. Capturing the Identification Response</a>
                   </li>
                   <li>
-                    <a href="#3-4-requesting-the-user-identification-session-status" class="toc-h2 toc-link" data-title="3-4-requesting-the-user-identification-session-status">3.4. Requesting the User identification session status</a>
+                    <a href="#3-4-redirecting-the-end-user" class="toc-h2 toc-link" data-title="3-4-redirecting-the-end-user">3.4 Redirecting the end user</a>
                   </li>
                   <li>
-                    <a href="#3-5-getting-the-user-identification-status-info" class="toc-h2 toc-link" data-title="3-5-getting-the-user-identification-status-info">3.5. Getting the User identification status info</a>
+                    <a href="#3-5-requesting-the-user-identification-session-status" class="toc-h2 toc-link" data-title="3-5-requesting-the-user-identification-session-status">3.5. Requesting the User identification session status</a>
                   </li>
                   <li>
-                    <a href="#3-6-starting-a-new-sign-session" class="toc-h2 toc-link" data-title="3-6-starting-a-new-sign-session">3.6. Starting a new Sign session</a>
+                    <a href="#3-6-getting-the-user-identification-status-info" class="toc-h2 toc-link" data-title="3-6-getting-the-user-identification-status-info">3.6. Getting the User identification status info</a>
                   </li>
                   <li>
-                    <a href="#3-7-managing-the-sign-response" class="toc-h2 toc-link" data-title="3-7-managing-the-sign-response">3.7. Managing the Sign Response</a>
+                    <a href="#3-7-starting-a-new-sign-session" class="toc-h2 toc-link" data-title="3-7-starting-a-new-sign-session">3.7. Starting a new Sign session</a>
                   </li>
                   <li>
-                    <a href="#3-8-requesting-the-sign-session-status" class="toc-h2 toc-link" data-title="3-8-requesting-the-sign-session-status">3.8 Requesting the Sign session status</a>
+                    <a href="#3-8-managing-the-sign-response" class="toc-h2 toc-link" data-title="3-8-managing-the-sign-response">3.8. Managing the Sign Response</a>
                   </li>
                   <li>
-                    <a href="#3-9-managing-the-sign-status-response" class="toc-h2 toc-link" data-title="3-9-managing-the-sign-status-response">3.9 Managing the Sign Status Response</a>
+                    <a href="#3-9-redirecting-the-end-user" class="toc-h2 toc-link" data-title="3-9-redirecting-the-end-user">3.9 Redirecting the end user</a>
                   </li>
+                  <li>
+                    <a href="#3-10-requesting-the-sign-session-status" class="toc-h2 toc-link" data-title="3-10-requesting-the-sign-session-status">3.10 Requesting the Sign session status</a>
+                  </li>
+                  <li>
+                    <a href="#3-11-managing-the-sign-status-response" class="toc-h2 toc-link" data-title="3-11-managing-the-sign-status-response">3.11 Managing the Sign Status Response</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#4-appendixes" class="toc-h1 toc-link" data-title="4-appendixes">4. Appendixes</a>
+              <ul class="toc-list-h2">
                   <li>
                     <a href="#4-1-handling-error-response" class="toc-h2 toc-link" data-title="4-1-handling-error-response">4.1. Handling Error Response</a>
+                  </li>
+                  <li>
+                    <a href="#4-2-sslma-authentication" class="toc-h2 toc-link" data-title="4-2-sslma-authentication">4.2 SSLMA Authentication</a>
                   </li>
               </ul>
           </li>
@@ -308,13 +322,12 @@
 
 <p><a name="OpenIDQES"></a></p>
 <h2 id='3-1-checking-itsme-sign-configuration'>3.1. Checking itsme® Sign configuration</h2>
-<p>To simplify implementations and increase flexibility, all needed key-value pairs about itsme® configuration can be retrieved from a JSON document, such as</p>
+<p>To simplify implementations and increase flexibility, the following key-value pairs about itsme® configuration can be retrieved from a JSON document:</p>
 
 <ul>
   <li>the signature policies</li>
   <li>commitment types</li>
   <li>supported languages</li>
-  <li>...</li>
 </ul>
 
 <p>The JSON document for itsme® Sign service may be retrieved from: </p>
@@ -327,15 +340,15 @@
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>PRODUCTION</strong></td>
-<td style="text-align: left"><a href="https://belgianmobileid.github.io/slate/qesdiscovery" target="blank">https://belgianmobileid.github.io/slate/qesdiscovery</a></td>
+<td style="text-align: left"><a href="https://belgianmobileid.github.io/slate/qesdiscovery.json" target="blank">https://belgianmobileid.github.io/slate/qesdiscovery.json</a></td>
 </tr>
 </tbody></table>
 <h2 id='3-2-starting-a-new-user-identification-session'>3.2. Starting a new User identification session</h2>
-<p>First, you will forg a HTTPS POST request that MUST be sent to the itsme® User Identification Endpoint. The itsme® User Identification Endpoint can be retrieved from the <a href="#OpenIDQES">itsme® JSON document</a>, using the key <i>&quot;user_identification&quot;</i>.</p>
+<p>First, you will forge a HTTPS POST request that MUST be sent to the itsme® User Identification Endpoint, which is https://b2b.sixdots.be/qes-partners/1.0.0/user_identification. Please note we are using SSLMA as authentication method, as specified in <a href="#SSLMA">SSLMA Authentication</a>.</p>
 
 <p>Below you will find a number of mandatory and recommended parameters to integrate in the HTTPS POST query string:</p>
 
-<p><code style=display:block;white-space:pre-wrap>POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/user_identification HTTP/1.1
+<p><code style=display:block;white-space:pre-wrap>POST /https://b2b.sixdots.be/qes-partners/1.0.0/user_identification HTTP/1.1
 {
     &quot;partnerCode&quot;:&quot;myClientID&quot;, 
     &quot;serviceCode&quot;:&quot;myServiceCode&quot;, 
@@ -428,12 +441,14 @@
 </tbody></table>
 <h3 id='handling-error-response'>Handling Error Response</h3>
 <p>See <a href="#Appendixes">Appendixes</a> to get more information on the error codes.</p>
-<h2 id='3-4-requesting-the-user-identification-session-status'>3.4. Requesting the User identification session status</h2>
-<p>By calling the Identification Session Status Endpoint, you are checking the status of the User identification session. </p>
+<h2 id='3-4-redirecting-the-end-user'>3.4 Redirecting the end user</h2>
+<p>The next step is to redirect the end user to our Front-End, so that we can process the identification session. You must do that by forging a GET request towards the url specified at previous step, in the parameter <code>identificationUrl</code>.</p>
+<h2 id='3-5-requesting-the-user-identification-session-status'>3.5. Requesting the User identification session status</h2>
+<p>By calling the Identification Session Status Endpoint, you are checking the status of the User identification session. This endpoint is https://b2b.sixdots.be/qes-partners/1.0.0/user_identification/status. Please note we are using SSLMA as authentication method, as specified in <a href="#SSLMA">SSLMA Authentication</a>.</p>
 
 <p>Below you will find a number of mandatory and recommended parameters to integrate in the HTTPS POST query string:</p>
 
-<p><code style=display:block;white-space:pre-wrap>POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/user_identification/status HTTP/1.1
+<p><code style=display:block;white-space:pre-wrap>POST /https://b2b.sixdots.be/qes-partners/1.0.0/user_identification/status HTTP/1.1
 {
     &quot;partnerCode&quot;:&quot;myPartnerCode&quot;, 
     &quot;serviceCode&quot;:&quot;myServiceCode&quot;, 
@@ -467,7 +482,7 @@
 <td style="text-align: left">This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Identification Response.</td>
 </tr>
 </tbody></table>
-<h2 id='3-5-getting-the-user-identification-status-info'>3.5. Getting the User identification status info</h2>
+<h2 id='3-6-getting-the-user-identification-status-info'>3.6. Getting the User identification status info</h2>
 <p>If the Identification Session Status Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside. In other words, you will get the confirmation that the User can perform a Sign transaction with itsme® and retrieve the User certificate reference value.</p>
 
 <p>The response body will include the following values:</p>
@@ -505,12 +520,12 @@
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
-<h2 id='3-6-starting-a-new-sign-session'>3.6. Starting a new Sign session</h2>
-<p>This request has to be created in order to intiate the Sign session. </p>
+<h2 id='3-7-starting-a-new-sign-session'>3.7. Starting a new Sign session</h2>
+<p>In order to intiate the Sign session, you will forge a POST request towards this endpoint: https://b2b.sixdots.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, as specified in <a href="#SSLMA">SSLMA Authentication</a>.</p>
 
 <p>Below you will find the minimal set of parameters required for processing the HTTPS POST query string:</p>
 
-<p><code style=display:block;white-space:pre-wrap>POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/sign_document HTTP/1.1
+<p><code style=display:block;white-space:pre-wrap>POST /https://b2b.sixdots.be/qes-partners/1.0.0/sign_document HTTP/1.1
 {
     &quot;inDocs&quot;: {
         &quot;docHash&quot;:[
@@ -713,7 +728,7 @@
 <td style="text-align: left">This defines the role of the signer. This information is displayed in the itsme® App to show to the signer under which role he will sign the document. If no signer role is provided nothing will be displayed in the itsme® App. This parameter is optional and freely defined in a free text of maximum 50 characters by yourself. You SHOULD provide this free text in all supported languages. The characters used to define the Signer Role MUST be ISO-8859-1 compatible. The signer role SHOULD be provided in all languages supported by itsme®.</td>
 </tr>
 </tbody></table>
-<h2 id='3-7-managing-the-sign-response'>3.7. Managing the Sign Response</h2><h3 id='getting-a-successful-sign-response'>Getting a successful Sign Response</h3>
+<h2 id='3-8-managing-the-sign-response'>3.8. Managing the Sign Response</h2><h3 id='getting-a-successful-sign-response'>Getting a successful Sign Response</h3>
 <p>If the Sign Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside.</p>
 
 <p>The response body will include the following values:</p>
@@ -808,11 +823,13 @@
 </tbody></table>
 <h3 id='handling-error-response-2'>Handling Error Response</h3>
 <p>See <a href="#Appendixes">Appendixes</a> to get more information on the error codes.</p>
-<h2 id='3-8-requesting-the-sign-session-status'>3.8 Requesting the Sign session status</h2>
-<p>This request has to be created in order to get the information about the Sign session. </p>
+<h2 id='3-9-redirecting-the-end-user'>3.9 Redirecting the end user</h2>
+<p>The next step is to redirect the end user to our Front-End, so that we can process the identification session. You must do that by forging a GET request towards the url specified at previous step, in the parameter <code>signingUrl</code>.</p>
+<h2 id='3-10-requesting-the-sign-session-status'>3.10 Requesting the Sign session status</h2>
+<p>This request has to be created in order to get the information about the Sign session. In order to do so, you will forge a POST request towards https://b2b.sixdots.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, as specified in <a href="#SSLMA">SSLMA Authentication</a>.</p>
 
 <p>Below you will find the minimal set of parameters required for processing the HTTPS POST query string:
-<code style=display:block;white-space:pre-wrap> POST /https://uatb2b.sixdots.be/qes-partners/1.0.0/sign_document HTTP/1.1
+<code style=display:block;white-space:pre-wrap> POST /https://b2b.sixdots.be/qes-partners/1.0.0/sign_document HTTP/1.1
   {
   &quot;inDocs&quot;: null, 
   &quot;reqID&quot;: &quot;ReqIDv1prg8pmn9mtive3otsc&quot;, 
@@ -877,7 +894,7 @@
 <td style="text-align: left">This parameter allows the application to express the desired scope. It MUST contain the value <i>&quot;service:service_code&quot;</i>, the itsme® service you want to use as defined for your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
 </tbody></table>
-<h2 id='3-9-managing-the-sign-status-response'>3.9 Managing the Sign Status Response</h2><h3 id='getting-a-successful-sign-status-response'>Getting a successful Sign Status Response</h3>
+<h2 id='3-11-managing-the-sign-status-response'>3.11 Managing the Sign Status Response</h2><h3 id='getting-a-successful-sign-status-response'>Getting a successful Sign Status Response</h3>
 <p><code style=display:block;white-space:pre-wrap> HTTP200 </p>
 
 <p>{ </p>
@@ -943,18 +960,12 @@
 <td style="text-align: left">Required</td>
 <td style="text-align: left">This MUST be the client identifier you received when registering your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
 </tr>
-<tr>
-<td style="text-align: left"><strong>serviceCode</strong></td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">This parameter allows the application to express the desired scope. It MUST contain the value <i>&quot;service:service_code&quot;</i>, the itsme® service you want to use as defined for your application in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
-</tr>
 </tbody></table>
 <h3 id='handling-error-response-3'>Handling Error Response</h3>
 <p>See <a href="#Appendixes">Appendixes</a> to get more information on the error codes.</p>
 
-<p><a name="Appendixes"></a> # 4. Appendixes</p>
-<h2 id='4-1-handling-error-response'>4.1. Handling Error Response</h2>
+<p><a name="Appendixes"></a></p>
+<h1 id='4-appendixes'>4. Appendixes</h1><h2 id='4-1-handling-error-response'>4.1. Handling Error Response</h2>
 <p>If one of the above request is invalid or unauthorized an error code will be returned to the User using the appropriate HTTPS status code, as listed in the table below:</p>
 
 <table><thead>
@@ -1052,6 +1063,10 @@
 <td style="text-align: left">An unexpected error occurred during User’s Identification flow. You SHOULD try again later. If the error persists, then you SHOULD contact itsme® support team for investigation.</td>
 </tr>
 </tbody></table>
+
+<p><a name="SSLMA"></a></p>
+<h2 id='4-2-sslma-authentication'>4.2 SSLMA Authentication</h2>
+<p>We make use of SSLMA Authentication with our b2b interface (https://b2b.sixdots.be/qes-partners/1.0.0/). This means that the SSL certificate you present upon each call towards this interface must be the one whitelisted in our systems as part of the onboarding process.</p>
 
       </div>
       <div class="dark-box">
