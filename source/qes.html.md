@@ -334,10 +334,10 @@ Below you will find the minimal set of parameters required for processing the HT
 Parameter | Type | Required | Description
 :-------- | :-------- | :--------| :----- 
 **inDocs** |  | Required | This MUST be 'null'. 
-**reqID** | String | Required | This is the ID of the request that you transfer.
+**reqID** | String | Required | This is the ID of the request that you provide to us.
 **asyncRespId** | String | Optional | This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Identification Response. In case no <i>"asyncRespID"</i> is given in the request, a new session is created. 
-**optInp** | String | Required | Those are additional information needed for the signature request.
-**itsme** |  | Required | This parameter contains all the information related to itsme® context. 
+**optInp** | Json | Required | Those are additional information needed for the signature request.
+**itsme** | Json | Required | This parameter contains all the information related to itsme® context. 
 **partnerCode** | String | Required | This MUST be the client identifier you received when registering your application in the [itsme® B2B portal](#Onboarding).
 **serviceCode** | String | Required | This parameter allows the application to express the desired scope. It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
 
@@ -346,7 +346,6 @@ Parameter | Type | Required | Description
 ### Getting a successful Sign Status Response
 
 <code style=display:block;white-space:pre-wrap> HTTP200 
-
 { 
 
   "result": { 
@@ -372,13 +371,15 @@ Parameter | Type | Required | Description
 }
 </code>
 
-Parameter | Type | Required | Description
+Parameter | Type | Returned | Description
 :-------- | :-------- | :--------| :----- 
-**respID** | String | Required | needs to be reused later to check status of signature as asyncRespID value
-**signingUrl** | String | Required | signingUrl is the link to provide to the end user where he will receive BMID instructions and poka yoke code
-**optInp** | String | Required | Those are additional information needed for the signature request.
-**itsme** |  | Required | This parameter contains all the information related to itsme® context. 
-**partnerCode** | String | Required | This MUST be the client identifier you received when registering your application in the [itsme® B2B portal](#Onboarding).
+**result** | String | Always | This is the Oasis DSS compliant status of the sign session
+**reqID** | String | Always | This is the ID of the request that you provide to us.
+**respID** | String | Always | needs to be reused later to check status of signature as asyncRespID value
+**signingUrl** | String | Always | signingUrl is the link where you must redirect the end user. He will receive there BMID instructions and poka yoke code
+**optOutp** | Json | Always | Those are additional information needed for the signature request.
+**itsme** | Json | Always | This parameter contains all the information related to itsme® context. 
+**signingUrl** | String | Always | This parameter allows the application to express the desired scope. It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
 
 ### Handling Error Response
 
