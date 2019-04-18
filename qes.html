@@ -344,11 +344,11 @@
 </tr>
 </tbody></table>
 <h2 id='3-2-starting-a-new-user-identification-session'>3.2. Starting a new User identification session</h2>
-<p>First, you will forge a HTTPS POST request that MUST be sent to the itsme® User Identification Endpoint, which is https://b2b.sixdots.be/qes-partners/1.0.0/user_identification. Please note we are using SSLMA as authentication method, as specified in <a href="#SSLMA">SSLMA Authentication</a>.</p>
+<p>First, you will forge a HTTPS POST request that MUST be sent to the itsme® User Identification Endpoint, which is https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification. Please note we are using SSLMA as authentication method, as specified in <a href="#SSLMA">SSLMA Authentication</a>.</p>
 
 <p>Below you will find a number of mandatory and recommended parameters to integrate in the HTTPS POST query string:</p>
 
-<p><code style=display:block;white-space:pre-wrap>POST /https://b2b.sixdots.be/qes-partners/1.0.0/user_identification HTTP/1.1
+<p><code style=display:block;white-space:pre-wrap>POST /https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification HTTP/1.1
 {
     &quot;partnerCode&quot;:&quot;myClientID&quot;, 
     &quot;serviceCode&quot;:&quot;myServiceCode&quot;, 
@@ -444,11 +444,11 @@
 <h2 id='3-4-redirecting-the-end-user'>3.4 Redirecting the end user</h2>
 <p>The next step is to redirect the end user to our Front-End, so that we can process the identification session. You must do that by forging a GET request towards the url specified at previous step, in the parameter <code>identificationUrl</code>.</p>
 <h2 id='3-5-requesting-the-user-identification-session-status'>3.5. Requesting the User identification session status</h2>
-<p>By calling the Identification Session Status Endpoint, you are checking the status of the User identification session. This endpoint is https://b2b.sixdots.be/qes-partners/1.0.0/user_identification/status. Please note we are using SSLMA as authentication method, as specified in <a href="#SSLMA">SSLMA Authentication</a>.</p>
+<p>By calling the Identification Session Status Endpoint, you are checking the status of the User identification session. This endpoint is https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification/status. Please note we are using SSLMA as authentication method, as specified in <a href="#SSLMA">SSLMA Authentication</a>.</p>
 
 <p>Below you will find a number of mandatory and recommended parameters to integrate in the HTTPS POST query string:</p>
 
-<p><code style=display:block;white-space:pre-wrap>POST /https://b2b.sixdots.be/qes-partners/1.0.0/user_identification/status HTTP/1.1
+<p><code style=display:block;white-space:pre-wrap>POST /https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification/status HTTP/1.1
 {
     &quot;partnerCode&quot;:&quot;myPartnerCode&quot;, 
     &quot;serviceCode&quot;:&quot;myServiceCode&quot;, 
@@ -521,11 +521,11 @@
 </tr>
 </tbody></table>
 <h2 id='3-7-starting-a-new-sign-session'>3.7. Starting a new Sign session</h2>
-<p>In order to intiate the Sign session, you will forge a POST request towards this endpoint: https://b2b.sixdots.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, as specified in <a href="#SSLMA">SSLMA Authentication</a>.</p>
+<p>In order to intiate the Sign session, you will forge a POST request towards this endpoint: https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, as specified in <a href="#SSLMA">SSLMA Authentication</a>.</p>
 
 <p>Below you will find the minimal set of parameters required for processing the HTTPS POST query string:</p>
 
-<p><code style=display:block;white-space:pre-wrap>POST /https://b2b.sixdots.be/qes-partners/1.0.0/sign_document HTTP/1.1
+<p><code style=display:block;white-space:pre-wrap>POST /https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document HTTP/1.1
 {
     &quot;inDocs&quot;: {
         &quot;docHash&quot;:[
@@ -826,10 +826,10 @@
 <h2 id='3-9-redirecting-the-end-user'>3.9 Redirecting the end user</h2>
 <p>The next step is to redirect the end user to our Front-End, so that we can process the identification session. You must do that by forging a GET request towards the url specified at previous step, in the parameter <code>signingUrl</code>.</p>
 <h2 id='3-10-requesting-the-sign-session-status'>3.10 Requesting the Sign session status</h2>
-<p>This request has to be created in order to get the information about the Sign session. In order to do so, you will forge a POST request towards https://b2b.sixdots.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, as specified in <a href="#SSLMA">SSLMA Authentication</a>.</p>
+<p>This request has to be created in order to get the information about the Sign session. In order to do so, you will forge a POST request towards https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, as specified in <a href="#SSLMA">SSLMA Authentication</a>.</p>
 
 <p>Below you will find the minimal set of parameters required for processing the HTTPS POST query string:
-<code style=display:block;white-space:pre-wrap> POST /https://b2b.sixdots.be/qes-partners/1.0.0/sign_document HTTP/1.1
+<code style=display:block;white-space:pre-wrap> POST /https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document HTTP/1.1
   {
   &quot;inDocs&quot;: null, 
   &quot;reqID&quot;: &quot;ReqIDv1prg8pmn9mtive3otsc&quot;, 
@@ -1077,7 +1077,7 @@
 
 <p><a name="SSLMA"></a></p>
 <h2 id='4-2-sslma-authentication'>4.2 SSLMA Authentication</h2>
-<p>We make use of SSLMA Authentication with our b2b interface (https://b2b.sixdots.be/qes-partners/1.0.0/). This means that the SSL certificate you present upon each call towards this interface must be the one whitelisted in our systems as part of the onboarding process.</p>
+<p>We make use of SSLMA Authentication with our b2b interface (https://b2b.sign.itsme.be/qes-partners/1.0.0). This means that the SSL certificate you present upon each call towards this interface must be the one whitelisted in our systems as part of the onboarding process.</p>
 
       </div>
       <div class="dark-box">
