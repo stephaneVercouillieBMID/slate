@@ -72,7 +72,7 @@ Environment | URL
 
 ## 3.2. Starting a new User identification session
 
-First, you will forge a HTTPS POST request that MUST be sent to the itsme® User Identification Endpoint, which is https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification. Please note we are using SSLMA as authentication method, as specified in [SSLMA Authentication](#SSLMA).
+First, you will forge a HTTPS POST request that MUST be sent to the itsme® User Identification Endpoint, which is https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA).
 
 Below you will find a number of mandatory and recommended parameters to integrate in the HTTPS POST query string:
 
@@ -124,7 +124,7 @@ The next step is to redirect the end user to our Front-End, so that we can proce
 
 ## 3.5. Requesting the User identification session status  
 
-By calling the Identification Session Status Endpoint, you are checking the status of the User identification session. This endpoint is https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification/status. Please note we are using SSLMA as authentication method, as specified in [SSLMA Authentication](#SSLMA).
+By calling the Identification Session Status Endpoint, you are checking the status of the User identification session. This endpoint is https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification/status. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA).
 
 Below you will find a number of mandatory and recommended parameters to integrate in the HTTPS POST query string:
 
@@ -163,7 +163,7 @@ Values | Type | Returned | Description
 
 ## 3.7. Starting a new Sign session 
 
-In order to intiate the Sign session, you will forge a POST request towards this endpoint: https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, as specified in [SSLMA Authentication](#SSLMA).
+In order to intiate the Sign session, you will forge a POST request towards this endpoint: https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA).
 
 Below you will find the minimal set of parameters required for processing the HTTPS POST query string:
 
@@ -314,7 +314,7 @@ See [Appendixes](#Appendixes) to get more information on the error codes.
 The next step is to redirect the end user to our Front-End, so that we can process the identification session. You must do that by forging a GET request towards the url specified at previous step, in the parameter `signingUrl`.
 
 ## 3.10 Requesting the Sign session status
-This request has to be created in order to get the information about the Sign session. In order to do so, you will forge a POST request towards https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, as specified in [SSLMA Authentication](#SSLMA).
+This request has to be created in order to get the information about the Sign session. In order to do so, you will forge a POST request towards https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA).
 
 Below you will find the minimal set of parameters required for processing the HTTPS POST query string:
 <code style=display:block;white-space:pre-wrap> POST /https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document HTTP/1.1
@@ -420,3 +420,4 @@ Status code | Error |  Description
 <a name="SSLMA"></a>
 ## 4.2 SSLMA Authentication
 We make use of SSLMA Authentication with our b2b interface (https://b2b.sign.itsme.be/qes-partners/1.0.0). This means that the SSL certificate you present upon each call towards this interface must be the one whitelisted in our systems as part of the onboarding process.
+We combine this authentication with IP filtering, meaning that we need to whitelist the IP address of your server. This is also part of the onboarding process.
