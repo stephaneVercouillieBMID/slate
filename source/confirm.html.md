@@ -112,7 +112,7 @@ Parameter | Required | Description
 **claims_locales** | Not supported | Any supplied value will be ignored.
 **registration** | Not supported | Any supplied value will be ignored.
 
-<aside class="notice">The JWT Payload in the <i>"request_uri"</i> parameter MUST be <b>signed then encrypted</b>, with the result being a Nested JWT, as defined in the JSON Web Token (JWT) section.
+<aside class="notice">The JWT Payload in the <i>"request_uri"</i> parameter MUST be <b>signed then encrypted</b>, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section.
 </aside>
 
 The following is a non-normative example of a request that would be sent to the Authorization Server:
@@ -234,7 +234,7 @@ Parameter | Required | Description
 **client_assertion** | Required | To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the Token Request.<br>The OpenID Connect Core specifications support multiple authentication methods, but itsme® only supports <i>"private_key_jwt"</i>. The JWT MUST be sent as the value of the <i>"client_assertion"</i> parameter.</br><br>See the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JOSE</a> specifications for more information.</br>
 **client\_assertion\_type** | Required | This MUST be set to <i>"urn:ietf:params:oauth:client-assertion-type:jwt-bearer"</i>. 
 
-<aside class="notice">The JWT Payload in the <i>"client_assertion"</i> parameter MUST be <b>signed then encrypted</b>, with the result being a Nested JWT, as defined in the JSON Web Token (JWT) section.
+<aside class="notice">The JWT Payload in the <i>"client_assertion"</i> parameter MUST be <b>signed then encrypted</b>, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section.
 </aside>
 
 The following is a non-normative example of a request to obtain an ID Token and Access Token:
