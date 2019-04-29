@@ -664,10 +664,11 @@ error=invalid_request
 <p><code style=display:block;white-space:pre-wrap>POST /token HTTP/1.1
 Host: server.example.com
 Content-Type: application/x-www-form-urlencoded
-grant_type=authorization_code&amp;
-code=i1WsRn1uB1&amp;
-client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&amp;
-client_assertion=PHNhbWxwOl ... ZT</code></p>
+?grant_type=authorization_code
+&amp;code=i1WsRn1uB1
+&amp;redirect_uri=https://test.istme.be
+&amp;client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
+&amp;client_assertion=PHNhbWxwOl ... ZT</code></p>
 
 <p>According to the <i>&quot;private_key_jwt&quot;</i> client authentication method, the <i>&quot;client_assertion&quot;</i> contains the following parameters in the JWT Payload:</p>
 
