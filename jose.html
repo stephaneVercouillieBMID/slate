@@ -335,13 +335,15 @@ MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx
 <p>With the JWE compact serialization, a JWE object is built with five key components, each separated by a period (.): JWE Header, JWE Encrypted Key, JWE Initialization Vector, JWE Additional Authentication Data (AAD), JWE Ciphertext and JWE Authentication Tag. The following steps will show you how to generate a JWE Compact Serialization object:</p>
 
 <ol>
-  <li>Build a JSON object including all the header elements. The structure of the JWE Header is the same, as we discussed under JWS other than couple of exceptions. The JWE specification introduces two new elements (<i>"enc"</i> and <i>"zip"</i>), which are included in the JWE Header of the JWE object, in addition to what’s defined by the JSON Web Signature (JWS) specification.<br>An example use can be found below.</br></li>
+  <li>Create the JWS object, as described in the section above.</li>
+  <li>Build a JSON object including all the header elements. The structure of the JWE Header is the same, as we discussed under JWS other than couple of exceptions. The JWE specification introduces two new elements (<i>"enc"</i>, <i>"zip"</i> and <i>"cty"</i>), which are included in the JWE Header of the JWE object, in addition to what’s defined by the JSON Web Signature (JWS) specification.<br>An example use can be found below.</br></li>
 </ol>
 
 <p><code style=display:block;white-space:pre-wrap>{
     &quot;alg&quot;: &quot;RSA-OAEP&quot;,
-    &quot;kid&quot;: &quot;samwise.gamgee@hobbiton.example&quot;,
-    &quot;enc&quot;: &quot;A128CBC-HS256&quot;
+    &quot;enc&quot;: &quot;A128CBC-HS256&quot;,
+    &quot;cty&quot;: &quot;JWT&quot;,
+    &quot;kid&quot;: &quot;samwise.gamgee@hobbiton.example&quot;
 }</code></p>
 
 <table><thead>
@@ -362,6 +364,11 @@ MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx
 <td style="text-align: left">It identifies the content encryption algorithm used to perform authenticated encryption on the payload to produce the Ciphertext and the Authentication Tag. The <i>&quot;enc&quot;</i> value MUST be set to <i>&quot;A128CBC-HS256&quot;</i>.</td>
 </tr>
 <tr>
+<td style="text-align: left"><strong>cty</strong></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">As the JWT MUST be signed then encrypted, this Header Parameter MUST be present; in this case, the value MUST be &quot;JWT&quot;, to indicate that a Nested JWT is carried in this JWT.</td>
+</tr>
+<tr>
 <td style="text-align: left"><strong>kid</strong></td>
 <td style="text-align: left">Optionnal</td>
 <td style="text-align: left">This parameter has the same meaning, syntax, and processing rules as the <i>&quot;kid&quot;</i> parameter defined in the JWS section, except that the key hint references the public key to which the JWE was encrypted; this can be used to determine the private key needed to decrypt the JWE.</td>
@@ -369,13 +376,13 @@ MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx
 </tbody></table>
 
 <ol>  
-  <li value="2">The JWE Header will then be encoded using using UTF-8 and base64url to produce the string below.</li>
+  <li value="3">The JWE Header will then be encoded using using UTF-8 and base64url to produce the string below.</li>
 </ol>
 
 <p><code style=display:block;white-space:pre-wrap>eyJhbGciOiJSU0ExXzUiLCJraWQiOiJmcm9kby5iYWdnaW5zQGhvYmJpdG9uLmV4YW1wbGUiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0</code></p>
 
 <ol>
-  <li value="3">Generate a random CEK. This key will be used later to encrypt the payload.</li>
+  <li value="4">Generate a random CEK. This key will be used later to encrypt the payload.</li>
   <li>Compute the CEK with the algorithm defined in the <i>"alg"</i> parameter, to produce the JWE Encrypted Key. To perform the encryption operation you will need the public key of itsme®, which can be retrieved from the <a href="https://belgianmobileid.github.io/slate/login.html#3-1-checking-itsme-openid-provider-configuration" target="blank">itsme® Discovery document</a>, using the <i>"jwks_uri"</i> key.</li>
   <li>The JWE Encrypted Key will then be encoded using base64url to produce the string below.</li>
 </ol>
@@ -383,14 +390,14 @@ MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx
 <p><code style=display:block;white-space:pre-wrap>laLxI0j-nLH-<em>BgLOXMozKxmy9gffy2gTdvqzfTihJBuuzxg0V7yk1WClnQePFvG2K-pvSlWc9BRIazDrn50RcRai</em>_3TDON395H3c62tIouJJ4XaRvYHFjZTZ2GXfz8YAImcc91Tfk0WXC2F5Xbb71ClQ1DDH151tlpH77f2ff7xiSxh9oSewYrcGTSLUeeCt36r1Kt3OSj7EyBQXoZlN7IxbyhMAfgIe7Mv1rOTOI5I8NQqeXXW8VlzNmoxaGMny3YnGir5Wf6Qt2nBq4qDaPdnaAuuGUGEecelIO1wx1BpyIfgvfjOhMBs9M8XL223Fg47xlGsMXdfuY-4jaqVw</code></p>
 
 <ol>
-  <li value="6">Generate a random JWE Initialization Vector. Its value will be used later to encrypt the payload.</li>
+  <li value="7">Generate a random JWE Initialization Vector. Its value will be used later to encrypt the payload.</li>
   <li>The JWE Initialization Vector will then be encoded using base64url to produce the string below.</li>
 </ol>
 
 <p><code style=display:block;white-space:pre-wrap>bbd5sTkYwhAIqfHsx8DayA</code></p>
 
 <ol>
-  <li>Compute the ASCII value of the encoded JWE Header to get the Additional Authenticated Data (AAD). Its value will be used later to encrypt the payload.</li>
+  <li value="9">Compute the ASCII value of the encoded JWE Header to get the Additional Authenticated Data (AAD). Its value will be used later to encrypt the payload.</li>
   <li>Encrypt the payload with the encryption algorithm defined by the <i>"enc"</i> parameter. The algorithm takes as input four strings: the CEK, the AAD and the JWE Initialization Vector which were computed in the previous steps, plus the payload. The JWE Ciphertext value and Authentication Tag value are provided as outputs.
   <li>Base64url-encode the JWE Ciphertext.</li>
   <li>Base64url-encode the JWE Authentication Tag.</li>

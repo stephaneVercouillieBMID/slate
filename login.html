@@ -475,7 +475,7 @@
 </tr>
 </tbody></table>
 
-<aside class="notice">The JWT Payload in the <i>"request_uri"</i> parameter MAY be <b>signed</b> using the JSON Web Signature (JWS). It MAY also be <b>encrypted</b> using JSON Web Encryption (JWE). In this case, it MUST be signed then encrypted, with the result being a Nested JWT, as defined in the JSON Web Token (JWT) section.
+<aside class="notice">The JWT Payload in the <i>"request_uri"</i> parameter MAY be <b>signed</b> using the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Signature</a> (JWS). It MAY also be <b>encrypted</b> using <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Encryption</a> (JWE). In this case, it MUST be signed then encrypted, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section.
 </aside>
 
 <p>The following is a non-normative example of a request that would be sent to the Authorization Server:</p>
@@ -656,7 +656,7 @@ error=invalid_request
 </tr>
 </tbody></table>
 
-<aside class="notice">The JWT Payload in the <i>"client_assertion"</i> parameter MUST be <b>signed then encrypted</b>, with the result being a Nested JWT, as defined in the JSON Web Token (JWT) section.
+<aside class="notice">The JWT Payload in the <i>"client_assertion"</i> parameter MUST be <b>signed then encrypted</b>, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section.
 </aside>
 
 <p>The following is a non-normative example of a request to obtain an ID Token and Access Token:</p>
