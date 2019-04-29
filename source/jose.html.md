@@ -96,7 +96,7 @@ With the JWE compact serialization, a JWE object is built with five key componen
 
 <ol>
   <li>Create the JWS object, as described in the section above.</li>
-  <li>Build a JSON object including all the header elements. The structure of the JWE Header is the same, as we discussed under JWS other than couple of exceptions. The JWE specification introduces two new elements (<i>"enc"</i>, <i>"zip"</i> and <i>"cty"</i>), which are included in the JWE Header of the JWE object, in addition to what’s defined by the JSON Web Signature (JWS) specification.<br>An example use can be found below.</br></li>
+  <li>Build a JSON object including all the header elements. The structure of the JWE Header is the same, as we discussed under JWS other than couple of exceptions. The JWE specification introduces three new elements (<i>"enc"</i>, <i>"zip"</i> and <i>"cty"</i>), which are included in the JWE Header of the JWE object, in addition to what’s defined by the JSON Web Signature (JWS) specification.<br>An example can be found below.</br></li>
 </ol>
 
 <code style=display:block;white-space:pre-wrap>{
