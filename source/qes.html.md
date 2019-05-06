@@ -17,13 +17,17 @@ The objective of this document is to provide all the information needed to integ
 
 At this moment only the Hash Signing variant is available and documented. In this variant, a remote Signature Creation Application (SCA) will provide the WYSIWYS experience to the User, provide the hash of the data to be signed to the itsme® service and use the returned digital signature value to format the signature in one of the AdES formats.
 
+# 2. Audience 
+
+This document is intended to be read by developers of any Signature Creation Application party. Partners who wish to use the itsme sign service through an existing SCA should refer to this SCA instead.
+
 <a name="Onboarding"></a>
-# 2. Prerequisites
+# 3. Prerequisites
  
 Before you can integrate your application with itsme® Sign service, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.
 
 
-# 3. Integrating Sign services
+# 4. Integrating Sign services
 The itsme® Sign flow goes through the steps shown in the sequence diagram below. 
 
 ![Sequence diagram describing the QES Hash Signing flow](QES_Hash_Signing_SeqDiag.png)
@@ -53,7 +57,7 @@ The itsme® Sign flow goes through the steps shown in the sequence diagram below
 
 
 <a name="OpenIDQES"></a>
-## 3.1. Checking itsme® Sign configuration
+## 4.1. Checking itsme® Sign configuration
 
 To simplify implementations and increase flexibility, the following key-value pairs about itsme® configuration can be retrieved from a JSON document:
 
@@ -70,7 +74,9 @@ Environment | URL
 **PRODUCTION** | <a href="https://belgianmobileid.github.io/slate/qesdiscovery.json" target="blank">https://belgianmobileid.github.io/slate/qesdiscovery.json</a>
 
 
-## 3.2. Starting a new User identification session
+## 4.2. Starting a new User identification session
+
+This section relates to the step 2 of the sequence diagram.
 
 First, you will forge a HTTPS POST request that MUST be sent to the itsme® User Identification Endpoint, which is https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA).
 
@@ -93,7 +99,7 @@ Parameter | Type | Required | Description
 **redirect_uri** | String | Required | This is the URI to which the User will be redirected to your remote SCA. This MUST exactly match the redirect URI of the specified service defined when registering your application in the [itsme® B2B portal](#Onboarding).
 
 
-## 3.3. Capturing the Identification Response
+## 4.3. Capturing the Identification Response
 
 ### Capturing a successful Identification Code
 
@@ -118,11 +124,11 @@ Values | Type | Returned | Description
 
 See [Appendixes](#Appendixes) to get more information on the error codes.
 
-## 3.4 Redirecting the end user
+## 4.4 Redirecting the end user
 
 The next step is to redirect the end user to our Front-End, so that we can process the identification session. You must do that by forging a GET request towards the url specified at previous step, in the parameter `identificationUrl`.
 
-## 3.5. Requesting the User identification session status  
+## 4.5. Requesting the User identification session status  
 
 By calling the Identification Session Status Endpoint, you are checking the status of the User identification session. This endpoint is https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification/status. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA).
 
@@ -142,7 +148,7 @@ Parameter | Type | Required | Description
 **asyncRespId** | String | Required | This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Identification Response.
 
 
-## 3.6. Getting the User identification status info
+## 4.6. Getting the User identification status info
 
 If the Identification Session Status Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside. In other words, you will get the confirmation that the User can perform a Sign transaction with itsme® and retrieve the User certificate reference value.
 
@@ -161,7 +167,7 @@ Values | Type | Returned | Description
 **certificate** | String | Always | 
 
 
-## 3.7. Starting a new Sign session 
+## 4.7. Starting a new Sign session 
 
 In order to intiate the Sign session, you will forge a POST request towards this endpoint: https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA).
 
@@ -206,7 +212,7 @@ Below you will find the minimal set of parameters required for processing the HT
         },
         {
           "lang": "FR",
-          "value": "Contrat d’assurance voiture"
+          "value": "Contrat d'assurance voiture"
         },
         {
           "lang": "NL",
@@ -270,7 +276,7 @@ Parameter | Type | Required | Description
 **signerRole** | Array | Optional | This defines the role of the signer. This information is displayed in the itsme® App to show to the signer under which role he will sign the document. If no signer role is provided nothing will be displayed in the itsme® App. This parameter is optional and freely defined in a free text of maximum 50 characters by yourself. You SHOULD provide this free text in all supported languages. The characters used to define the Signer Role MUST be ISO-8859-1 compatible. The signer role SHOULD be provided in all languages supported by itsme®.
 
 
-## 3.8. Managing the Sign Response 
+## 4.8. Managing the Sign Response 
 
 ### Getting a successful Sign Response
 
@@ -309,11 +315,11 @@ Values | Type | Returned | Description
 
 See [Appendixes](#Appendixes) to get more information on the error codes.
 
-## 3.9 Redirecting the end user
+## 4.9 Redirecting the end user
 
 The next step is to redirect the end user to our Front-End, so that we can process the identification session. You must do that by forging a GET request towards the url specified at previous step, in the parameter `signingUrl`.
 
-## 3.10 Requesting the Sign session status
+## 4.10 Requesting the Sign session status
 This request has to be created in order to get the information about the Sign session. In order to do so, you will forge a POST request towards https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA).
 
 Below you will find the minimal set of parameters required for processing the HTTPS POST query string:
@@ -341,7 +347,7 @@ Parameter | Type | Required | Description
 **partnerCode** | String | Required | This MUST be the client identifier you received when registering your application in the [itsme® B2B portal](#Onboarding).
 **serviceCode** | String | Required | This parameter allows the application to express the desired scope. It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
 
-## 3.11 Managing the Sign Status Response
+## 4.11 Managing the Sign Status Response
 
 ### Getting a successful Sign Status Response
 
@@ -387,9 +393,9 @@ See [Appendixes](#Appendixes) to get more information on the error codes.
 
 
 <a name="Appendixes"></a>
-# 4. Appendixes
+# 5. Appendixes
 
-## 4.1. Handling Error Response
+## 5.1. Handling Error Response
 
 If one of the above request is invalid or unauthorized an error code will be returned to the User using the appropriate HTTPS status code, as listed in the table below:
 
@@ -418,6 +424,6 @@ Status code | Error |  Description
 <label></label> | UNEXPECTED_ERROR | An unexpected error occurred during User’s Identification flow. You SHOULD try again later. If the error persists, then you SHOULD contact itsme® support team for investigation.
 
 <a name="SSLMA"></a>
-## 4.2 SSLMA Authentication
+## 5.2 SSLMA Authentication
 We make use of SSLMA Authentication with our b2b interface (https://b2b.sign.itsme.be/qes-partners/1.0.0). This means that the SSL certificate you present upon each call towards this interface must be the one whitelisted in our systems as part of the onboarding process.
 We combine this authentication with IP filtering, meaning that we need to whitelist the IP address of your server. This is also part of the onboarding process.
