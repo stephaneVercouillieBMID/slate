@@ -59,6 +59,11 @@ The itsme® Sign flow goes through the steps shown in the sequence diagram below
 <a name="OpenIDQES"></a>
 ## 4.1. Checking itsme® Sign configuration
 
+Two JSON documents are available to ease the integration of itsme sign service:
+- The discovery document
+- The swagger of the B2B interface
+
+### Discovery document
 To simplify implementations and increase flexibility, the following key-value pairs about itsme® configuration can be retrieved from a JSON document:
 
 <ul>
@@ -67,11 +72,11 @@ To simplify implementations and increase flexibility, the following key-value pa
   <li>supported languages</li>
 </ul>
 
-The JSON document for itsme® Sign service may be retrieved from: 
+The JSON document for itsme® Sign service may be retrieved from <a href="https://belgianmobileid.github.io/slate/qesdiscovery.json" target="blank">https://belgianmobileid.github.io/slate/qesdiscovery.json</a>
 
-Environment | URL
-:-------- | :--------
-**PRODUCTION** | <a href="https://belgianmobileid.github.io/slate/qesdiscovery.json" target="blank">https://belgianmobileid.github.io/slate/qesdiscovery.json</a>
+### B2B interface swagger
+
+The swagger of the B2B interface (for the back-end to back-end calls) may be retrieved from <a href="https://belgianmobileid.github.io/slate/qesB2B.json" target="blank">https://belgianmobileid.github.io/slate/qesB2B.json</a>
 
 
 ## 4.2. Starting a new User identification session
