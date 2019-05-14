@@ -221,10 +221,7 @@ Below you will find the minimal set of parameters required for processing the HT
           "value": "Kfz-Versicherungsvertrag"
         }
       ],
-      "callbackUrl": null,
       "redirectUrl": "myServiceRedirectUrl",
-      "expiryTimestamp": null,
-      "legalNotice": null,
       "signPolicy": {
         "signPolicyRef": "ITSME_DEFAULT",
         "commitmentTypeRef":"1.2.840.113549.1.9.16.6.5",
