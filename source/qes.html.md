@@ -196,14 +196,7 @@ Below you will find the minimal set of parameters required for processing the HT
 	"reqID": "ReqID4va0acsef3mv5ft1dp71",
 	"asyncRespID": null,
 	"optInp": {
-    	"profile": [
-    		"urn:be:itsme:dss:1.0",
-    		"urn:oasis:names:tc:dss:1.0:profiles:asynchronousprocessing",
-     	],
-    "policy": [],
     "lang": "FR",
-    "nonce": null,
-    "sigAlgo": null,
     "itsme": {
       "signer": {
         "userCode": "9o8f04wm1g0bdc8gmgcuxp2ehgn7txh0x2kq"
