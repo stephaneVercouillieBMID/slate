@@ -91,7 +91,7 @@ Below you will find a number of mandatory and recommended parameters to integrat
 {
 	"partnerCode":"myClientID", 
 	"serviceCode":"myServiceCode", 
-	"redirect_uri":"myServiceRedirectUri",
+	"redirectUrl":"myServiceRedirectUri",
 	"lang":"FR"
 }</code>
 
