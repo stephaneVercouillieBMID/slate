@@ -36,8 +36,8 @@ The itsme® Sign flow goes through the steps shown in the sequence diagram below
   <li>The User indicates on your end he wishes to sign a document with itsme®</li>
   <li>Your web desktop, mobile web or mobile SCA application sends a request to itsme® Integration Layer Back-End in order to create the User’s Identification session and obtain the User’s signing certificate to be include in the data to be signed.</li>
   <li>itsme® returns the session id and the redirect URL specific to the User to your SCA Back-End.</li>
-  <li>Your SCA Front-End redirects the User to the Integration Layer Front-End of itsme®, meaning that the User will be identified in the meanwhile (in case the <i>"userCode"</i> is transmitted by the SCA, this step can be skipped as the user will already be identified). If the User has no signature certificate yet, the certificate creation process will be initiated automatically.</li>
-  <li>Finally, when the User is authenticated and has a signature certificate, he is redirected to the your SCA Front-End. The redirection to your SCA Front-End SHOULD be (almost) transparent to the User (aka possible displaying of a spinner) as the laps of time between step 5 and step 11 of this diagram SHOULD be extremely short.</li>
+  <li>Your SCA Front-End redirects the User to the Integration Layer Front-End of itsme®, meaning that the User will be identified in the meanwhile (in case the <i>"userCode"</i> is transmitted by the SCA, this step will be skipped as the user will already be identified). If the User has no signature certificate yet, the certificate creation process will be initiated automatically.</li>
+  <li>Finally, when the User is authenticated and has a signature certificate, he is redirected to the your SCA Front-End. The redirection to your SCA Front-End SHOULD be (almost) transparent to the User (with a possible displaying of a spinner) as the laps of time between step 5 and step 11 of this diagram SHOULD be extremely short.</li>
   <li>Your SCA Back-End contacts the itsme® Integration Layer Back-End to get the signature certificate of the User.</li>
   <li>The itsme® Integration Layer Back-End returns your SCA Back-End the signer information as well as the signature certificate of the User.</li>
   <li>Your SCA Back-End constructs the data to be signed and the hash of the signature will be computed by yourself. The value of this hash MUST be base64url encoded.</li> 
@@ -72,7 +72,8 @@ To simplify implementations and increase flexibility, the following key-value pa
   <li>supported languages</li>
 </ul>
 
-The JSON document for itsme® Sign service may be retrieved from <a href="https://belgianmobileid.github.io/slate/qesdiscovery.json" target="blank">https://belgianmobileid.github.io/slate/qesdiscovery.json</a>
+The JSON document for itsme® Sign service may be retrieved from <a>https://b2b.sign.itsme.be/qes-partners/1.0.0/.well-known/configuration</a>.
+Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA). If you need to access the discovery document before setting up the connectivity, you can use the public version here (this one is updated manually, while the previous one is automatically generated): <a href="https://belgianmobileid.github.io/slate/qesdiscovery.json" target="blank">https://belgianmobileid.github.io/slate/qesdiscovery.json</a>
 
 ### B2B interface swagger
 
@@ -85,30 +86,33 @@ This section relates to the step 2 of the sequence diagram.
 
 First, you will forge a HTTPS POST request that MUST be sent to the itsme® User Identification Endpoint, which is https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA).
 
-Below you will find a number of mandatory and recommended parameters to integrate in the HTTPS POST query string:
+Below you will find the mandatory and optional parameters to integrate in the HTTPS POST request body formatted as application/json:
 
 <code style=display:block;white-space:pre-wrap>POST /https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification HTTP/1.1
 {
 	"partnerCode":"myClientID", 
 	"serviceCode":"myServiceCode", 
-	"redirectUrl":"myServiceRedirectUri",
+	"redirectUrl":"myServiceRedirectUrl",
+  "userCode":"endUserUserCode",
 	"lang":"FR"
 }</code>
 
 Parameter | Type | Required | Description
 :-------- | :-------- | :--------| :----- 
-**partnerCode** | String | Required | This MUST be the client identifier you received when registering your application in the [itsme® B2B portal](#Onboarding).
-**userCode** | String | Optional | An identifier for the User, unique among all itsme® accounts and never reused. Use <i>"userCode"</i> in the application as the unique-identifier key for the User.
-**serviceCode** | String | Required | This parameter allows the application to express the desired scope. It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
-**lang** | String | Optional | This parameters defines the recommended language to be used for GUI interaction. If the parameter is not defined in the request, then the language that will be used is the one of the cookie. This defaults to the language used in the browser if there is no cookie. 
-**redirect_uri** | String | Required | This is the URI to which the User will be redirected to your remote SCA. This MUST exactly match the redirect URI of the specified service defined when registering your application in the [itsme® B2B portal](#Onboarding).
+**partnerCode** | String | Required | This MUST be the client identifier you received when registering your application during the [onboarding process](#Onboarding). This parameter will be translated to a label describing the customer for whow the User is signing the document. 
+**userCode** | String | Optional | The userCode is the unique identifier created by itsme for a user connecting with a Service Provider. A user has a different user code at each Service Provider. You SHOULD provide a <i>"userCode"</i> known by itsme if you already have authenticated the User who needs to sign the document. Providing a userCode will bypass the identification screen (user won't have to enter his phone number).
+**serviceCode** | String | Required | It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application during the [onboarding process](#Onboarding).
+**lang** | String | Required | This parameters defines the recommended language to be used for GUI interaction. 
+**redirectUrl** | String | Required | This is the URL to which the User will be redirected to your remote SCA. This MUST exactly match the redirect URL of the specified service defined when registering your application during the [onboarding process](#Onboarding).
 
 
 ## 4.3. Capturing the Identification Response
 
+This section relates to the step 3 of the sequence diagram.
+
 ### Capturing a successful Identification Code
 
-If the User is successfully authenticated and authorizes access to the Identification Request, itsme® will return a response to your server component. This is achieved by returning an Identification Response to the <i>"redirect_uri"</i> specified previously in the Identification Request.
+If the User is successfully authenticated and authorizes access to the Identification Request, itsme® will return a response to your server component. This is achieved by returning an Identification Response to the <i>"redirectUrl"</i> specified previously in the Identification Request.
  
 <code style=display:block;white-space:pre-wrap>{
     "status": "OK",
@@ -121,7 +125,7 @@ The response will contain:
 Values | Type | Returned | Description
 :----- |:-------- |:-------- |:---
 **status** | String | Always | It is the status of User Identification Request.
-**statusReason** | String | Always | It explains the reason of a failure. No reason is given in case the request status is pending or success. 
+**statusReason** | String | Conditional | It explains the reason of a failure. No reason is given in case the request status is pending or success. 
 **asyncRespId** | String | Always | This parameter is the identifier of a User identification session. 
 **identificationUrl** | String | Always | This is the itsme® URL of the signature welcome page. On this webpage the User will identify himself by entering his mobile phone number. 
 
@@ -131,13 +135,17 @@ See [Appendixes](#Appendixes) to get more information on the error codes.
 
 ## 4.4 Redirecting the end user
 
+This section relates to the step 4 of the sequence diagram.
+
 The next step is to redirect the end user to our Front-End, so that we can process the identification session. You must do that by forging a GET request towards the url specified at previous step, in the parameter `identificationUrl`.
 
 ## 4.5. Requesting the User identification session status  
 
+This section relates to the step 6 of the sequence diagram.
+
 By calling the Identification Session Status Endpoint, you are checking the status of the User identification session. This endpoint is https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification/status. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA).
 
-Below you will find a number of mandatory and recommended parameters to integrate in the HTTPS POST query string:
+Below you will find the mandatory and optional parameters to integrate in the HTTPS POST request body formatted as application/json:
 
 <code style=display:block;white-space:pre-wrap>POST /https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification/status HTTP/1.1
 {
@@ -148,12 +156,14 @@ Below you will find a number of mandatory and recommended parameters to integrat
 
 Parameter | Type | Required | Description
 :-------- | :-------- | :--------| :----- 
-**partnerCode** | String | Required | This MUST be the client identifier you received when registering your application in the [itsme® B2B portal](#Onboarding).
-**serviceCode** | String | Required | This parameter allows the application to express the desired scope. It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
-**asyncRespId** | String | Required | This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Identification Response.
+**partnerCode** | String | Required | This MUST be the client identifier you received when registering your application during the [onboarding process](#Onboarding). This parameter will be translated to a label describing the customer for whow the User is signing the document. 
+**serviceCode** | String | Required | It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application during the [onboarding process](#Onboarding).
+**asyncRespId** | String | Required | This parameter is the identifier of a User identification session. This value MUST be retrieved from the Identification Response.
 
 
-## 4.6. Getting the User identification status info
+## 4.6. Capturing the User identification status info
+
+This section relates to the step 7 of the sequence diagram.
 
 If the Identification Session Status Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside. In other words, you will get the confirmation that the User can perform a Sign transaction with itsme® and retrieve the User certificate reference value.
 
@@ -168,8 +178,12 @@ The response body will include the following values:
 Values | Type | Returned | Description
 :----- |:-------- |:-------- |:---
 **status** | String | Always | It is the status of User Identification Request.
-**userCode** | String | Optional | An identifier for the User, unique among all itsme® accounts and never reused. Use <i>"userCode"</i> in the application as the unique-identifier key for the User.
-**certificate** | String | Always | 
+**userCode** | String | Optional | The userCode is the unique identifier created by itsme for a user connecting with a Service Provider. A user has a different user code at each Service Provider.
+**certificate** | String | Always | The certificate created for the User, under PEM format.
+
+### Handling Error Response
+
+See [Appendixes](#Appendixes) to get more information on the error codes.
 
 
 ## 4.7. Starting a new Sign session 
@@ -252,7 +266,7 @@ Parameter | Type | Required | Description
 :-------- | :-------- | :--------| :----- 
 **inDocs** |  | Required | This contains the element to be signed. 
 **docHash** |  | Required | This parameter defines the list of hashes to be signed by itsme®, one item per hash. 
-**id** | String | Required | This is the ID of the hash(es) to be signed. You SHOULD provide us this information when registering your application in the [itsme® B2B portal](#Onboarding). Currently, only single hash signing is allowed. 
+**id** | String | Required | This is the ID of the hash(es) to be signed. You SHOULD provide us this information when registering your application during the [onboarding process](#Onboarding). Currently, only single hash signing is allowed. 
 **di** | Array | Required | This is the Table of hashes to be signed during the signature process. 
 **alg** | String | Required | Only the SHA256 algorithm is supported. See <a href="http://www.w3.org/2001/04/xmlenc#sha256" target="blank">http://www.w3.org/2001/04/xmlenc#sha256</a> for more information.
 **value** | Array | Required | This is the hash to be signed during the signature flow. The value of the hash computed must be given in Base64.
@@ -262,12 +276,12 @@ Parameter | Type | Required | Description
 **lang** | String | Optional | This parameters defines the recommended language to be used for GUI interaction. If the parameter is not defined in the request, then the language that will be used is the one of the cookie. This defaults to the language used in the browser if there is no cookie. 
 **itsme** |  | Required | This parameter contains all the information related to itsme® context. 
 **signer** | DssISigner | Required | This is all the information that allows identification of the User in itsme®.
-**partnerCode** | String | Required | This MUST be the client identifier you received when registering your application in the [itsme® B2B portal](#Onboarding).
-**serviceCode** | String | Required | This parameter allows the application to express the desired scope. It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
-**redirect_uri** | String | Required | This is the URI to which the User will be redirected to your remote SCA. This MUST exactly match the redirect URI of the specified service defined when registering your application in the [itsme® B2B portal](#Onboarding).
+**partnerCode** | String | Required | This MUST be the client identifier you received when registering your application during the [onboarding process](#Onboarding). This parameter will be translated to a label describing the customer for whow the User is signing the document. 
+**serviceCode** | String | Required | It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application during the [onboarding process](#Onboarding).
+**redirectUrl** | String | Required | This is the URL to which the User will be redirected to your remote SCA. This MUST exactly match the redirect URL of the specified service defined when registering your application during the [onboarding process](#Onboarding).
 **signPolicy** | DssISignPolicy | Required | This is the object of the Signature policy to be used during the Signature. This parameter contains all the information related to the signature policy. 
-**signPolicyRef** | String | Optional | This defines the reference of the signature policy to be used during itsme® Signing flow. In case no specific signature policy is applicable for that specific use case, the itsme® generic qualified signature policy SHOULD be used. The signature policy has to be indicated in the SCA Front-End to the User. The list of available codes can be retrieved from the [JSON document](#OpenIDQES).<br>The signature policies used SHOULD be defined in the [itsme® B2B portal](#Onboarding). It is up to you to choose your signature policies within the list given by itsme®. If you want to add new signature policies to your list, please ask the itsme® Onboarding team.</br>
-**commitmentTypeRef** | String | Optional | This defines the reference of the commitment type to be used during itsme® Signing flow. This parameter is used to display (in the itsme® App) the commitment type of the signature to the User. There is no commitment type by default. If the parameter is not given by the SCA, then nothing is displayed in the itsme® App. You SHOULD use a code that corresponds to a specific commitment type. The list of available codes can be retrieved from the [JSON document](#OpenIDQES).<br>The commitment types used SHOULD be defined in the [itsme® B2B portal](#Onboarding). It is up to you to choose your commitment types within the list given by itsme®. If you want to add new commitment types to your list, please ask the itsme® Onboarding team.</br>
+**signPolicyRef** | String | Optional | This defines the reference of the signature policy to be used during itsme® Signing flow. In case no specific signature policy is applicable for that specific use case, the itsme® generic qualified signature policy SHOULD be used. The signature policy has to be indicated in the SCA Front-End to the User. The list of available codes can be retrieved from the [JSON document](#OpenIDQES).<br>The signature policies used SHOULD be defined during the [onboarding process](#Onboarding). It is up to you to choose your signature policies within the list given by itsme®. If you want to add new signature policies to your list, please ask the itsme® Onboarding team.</br>
+**commitmentTypeRef** | String | Optional | This defines the reference of the commitment type to be used during itsme® Signing flow. This parameter is used to display (in the itsme® App) the commitment type of the signature to the User. There is no commitment type by default. If the parameter is not given by the SCA, then nothing is displayed in the itsme® App. You SHOULD use a code that corresponds to a specific commitment type. The list of available codes can be retrieved from the [JSON document](#OpenIDQES).<br>The commitment types used SHOULD be defined during the [onboarding process](#Onboarding). It is up to you to choose your commitment types within the list given by itsme®. If you want to add new commitment types to your list, please ask the itsme® Onboarding team.</br>
 **signerRole** | Array | Optional | This defines the role of the signer. This information is displayed in the itsme® App to show to the signer under which role he will sign the document. If no signer role is provided nothing will be displayed in the itsme® App. This parameter is optional and freely defined in a free text of maximum 50 characters by yourself. You SHOULD provide this free text in all supported languages. The characters used to define the Signer Role MUST be ISO-8859-1 compatible. The signer role SHOULD be provided in all languages supported by itsme®.
 
 
@@ -339,8 +353,8 @@ Parameter | Type | Required | Description
 **asyncRespId** | String | Optional | This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Identification Response. In case no <i>"asyncRespID"</i> is given in the request, a new session is created. 
 **optInp** | Json | Required | Those are additional information needed for the signature request.
 **itsme** | Json | Required | This parameter contains all the information related to itsme® context. 
-**partnerCode** | String | Required | This MUST be the client identifier you received when registering your application in the [itsme® B2B portal](#Onboarding).
-**serviceCode** | String | Required | This parameter allows the application to express the desired scope. It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
+**partnerCode** | String | Required | This MUST be the client identifier you received when registering your application during the [onboarding process](#Onboarding). This parameter will be translated to a label describing the customer for whow the User is signing the document. 
+**serviceCode** | String | Required | It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application during the [onboarding process](#Onboarding).
 
 ## 4.11 Managing the Sign Status Response
 
@@ -380,7 +394,7 @@ Parameter | Type | Returned | Description
 **signingUrl** | String | Always | signingUrl is the link where you must redirect the end user. He will receive there BMID instructions and poka yoke code
 **optOutp** | Json | Always | Those are additional information needed for the signature request.
 **itsme** | Json | Always | This parameter contains all the information related to itsme® context. 
-**signingUrl** | String | Always | This parameter allows the application to express the desired scope. It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application in the [itsme® B2B portal](#Onboarding).
+**signingUrl** | String | Always | This parameter allows the application to express the desired scope. It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application during the [onboarding process](#Onboarding).
 
 ### Handling Error Response
 
