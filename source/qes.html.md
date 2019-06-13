@@ -120,6 +120,8 @@ If the User is successfully authenticated and authorizes access to the Identific
     "identificationUrl": "https://uatmerchant.itsme.be/qes/identify_yourself?language=FR&q=ss4liz8kjk1xxz8taj3nbxae7zqty6eq"
 }</code>
 
+You MAY receive a set-cookie header back from this call, but you SHOULD ignore it, it is never used in this context.
+
 The response will contain:
 
 Values | Type | Returned | Description
@@ -137,7 +139,7 @@ See [Appendixes](#Appendixes) to get more information on the error codes.
 
 This section relates to the step 4 of the sequence diagram.
 
-The next step is to redirect the end user to our Front-End, so that we can process the identification session. You must do that by forging a GET request towards the url specified at previous step, in the parameter `identificationUrl`. Please note there is no built-in parameter designed to let you getting your session context back after the redirection to your FE (a parameter similar to the 'state' parameter in OpenID). However, you MAY add any query parameter to the URL specified in `identificationUrl` and it will be preserved during the redirection, effectively allowing you to craft a custom parameter for finding back your session context.
+The next step is to redirect the end user to our Front-End, so that we can process the identification session. You must do that by forging a GET request towards the url specified at previous step, in the parameter `identificationUrl`. Please note there is no built-in parameter designed to let you getting your session context back after the redirection to your FE (a parameter similar to the 'state' parameter in OpenID). However, you MAY add any query parameter to the URL specified in `identificationUrl` and it will be preserved during the redirection, effectively allowing you to craft a custom parameter for finding back your session context. Also, please note that the duration of the identification process may strongly vary from a few seconds to a few minutes, depending on whether or not we need to create a certificate for this end user.
 
 ## 4.5. Requesting the User identification session status  
 
@@ -178,8 +180,8 @@ The response body will include the following values:
 Values | Type | Returned | Description
 :----- |:-------- |:-------- |:---
 **status** | String | Always | It is the status of User Identification Request.
-**userCode** | String | Optional | The userCode is the unique identifier created by itsme for a user connecting with a Service Provider. A user has a different user code at each Service Provider.
-**certificate** | String | Always | The certificate created for the User, under PEM format.
+**userCode** | String | Optional | The userCode is the unique identifier created by itsme for a user connecting with a Service Provider. A user has a different user code at each Service Provider. Is always returned if the status indicates a successful identification.
+**certificate** | String | Always | The certificate created for the User, under PEM format. Is always returned if the status indicates a successful identification.
 
 ### Handling Error Response
 
@@ -278,6 +280,7 @@ Parameter | Type | Required | Description
 **signer** | DssISigner | Required | This is all the information that allows identification of the User in itsme®.
 **partnerCode** | String | Required | This MUST be the client identifier you received when registering your application during the [onboarding process](#Onboarding). This parameter will be translated to a label describing the customer for whow the User is signing the document. 
 **serviceCode** | String | Required | It MUST contain the value of the serviceCode defined for your application during the [onboarding process](#Onboarding).
+**decsription** | Json | Optional | Is a text you provide as the description of the document. It will be displayed in the itsme App. You MUST provide a value for each language supported by itsme ('en', 'fr', 'nl' and 'de'). Please see [Supported character set](#characterEncoding) for encoding concerns.
 **redirectUrl** | String | Required | This is the URL to which the User will be redirected to your remote SCA. This MUST exactly match the redirect URL of the specified service defined when registering your application during the [onboarding process](#Onboarding).
 **signPolicy** | DssISignPolicy | Required | This is the object of the Signature policy to be used during the Signature. This parameter contains all the information related to the signature policy. 
 **signPolicyRef** | String | Optional | This defines the reference of the signature policy to be used during itsme® Signing flow. In case no specific signature policy is applicable for that specific use case, the itsme® generic qualified signature policy SHOULD be used. The signature policy has to be indicated in the SCA Front-End to the User. The list of available codes can be retrieved from the [JSON document](#OpenIDQES).<br>The signature policies used SHOULD be defined during the [onboarding process](#Onboarding). It is up to you to choose your signature policies within the list given by itsme®. If you want to add new signature policies to your list, please ask the itsme® Onboarding team.</br>
@@ -433,6 +436,12 @@ Status code | Error |  Description
 <label></label> | UNEXPECTED_ERROR | An unexpected error occurred during User’s Identification flow. You SHOULD try again later. If the error persists, then you SHOULD contact itsme® support team for investigation.
 
 <a name="SSLMA"></a>
+
 ## 5.2 SSLMA Authentication
 We make use of SSLMA Authentication with our b2b interface (https://b2b.sign.itsme.be/qes-partners/1.0.0). This means that the SSL certificate you present upon each call towards this interface must be the one whitelisted in our systems as part of the onboarding process.
 We combine this authentication with IP filtering, meaning that we need to whitelist the IP address of your server. This is also part of the onboarding process.
+
+<a name="characterEncoding"><a/>
+  
+## 5.3 Supported character set
+The character set we support for free text fields is ISO 8859-15. You can buy the specification [on ISO website](https://www.iso.org/standard/29505.html) or find a free version [on Wikipedia](https://en.wikipedia.org/wiki/ISO/IEC_8859-15#Codepage_layout). You might be interested in knowing that, although most usual characters are supported, some softwares-generated characters like curly apostrophes and long dashes are not part of ISO 8859-15. If you provide a non-supported character in a free text field the signing flow will be stopped and you will receive an error message back.
