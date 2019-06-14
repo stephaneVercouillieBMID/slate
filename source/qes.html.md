@@ -60,8 +60,10 @@ The itsme® Sign flow goes through the steps shown in the sequence diagram below
 ## 4.1. Checking itsme® Sign configuration
 
 Two JSON documents are available to ease the integration of itsme sign service:
-- The discovery document
-- The swagger of the B2B interface
+<ul>
+  <li>The discovery document</li>
+  <li>The swagger of the B2B interface</li>
+</ul>
 
 ### Discovery document
 To simplify implementations and increase flexibility, the following key-value pairs about itsme® configuration can be retrieved from a JSON document:
@@ -188,11 +190,13 @@ Values | Type | Returned | Description
 See [Appendixes](#Appendixes) to get more information on the error codes.
 
 
-## 4.7. Starting a new Sign session 
+## 4.7. Requesting a new Sign session 
+
+This section relates to the step 9 of the sequence diagram.
 
 In order to intiate the Sign session, you will forge a POST request towards this endpoint: https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA). Please note the same endpoint is used for starting the sign session and for requesting the status of this session (also see 'requesting the session status').
 
-Below you will find the minimal set of parameters required for processing the HTTPS POST query string:
+Below you will find the mandatory and optional parameters to integrate in the HTTPS POST request body formatted as application/json:
 
 <code style=display:block;white-space:pre-wrap>POST /https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document HTTP/1.1
 {
@@ -267,32 +271,35 @@ Below you will find the minimal set of parameters required for processing the HT
 Parameter | Type | Required | Description
 :-------- | :-------- | :--------| :----- 
 **inDocs** |  | Required | This contains the element to be signed. 
-**docHash** |  | Required | This parameter defines the list of hashes to be signed by itsme®, one item per hash. 
-**id** | String | Required | This is the ID of the hash(es) to be signed. You SHOULD provide us this information when registering your application during the [onboarding process](#Onboarding). Currently, only single hash signing is allowed. 
-**di** | Array | Required | This is the Table of hashes to be signed during the signature process. 
-**alg** | String | Required | Only the SHA256 algorithm is supported. See <a href="http://www.w3.org/2001/04/xmlenc#sha256" target="blank">http://www.w3.org/2001/04/xmlenc#sha256</a> for more information.
-**value** | Array | Required | This is the hash to be signed during the signature flow. The value of the hash computed must be given in Base64.
-**reqID** | String | Required | This is the ID of the request that you transfer.
+**docHash** | Array | Required | Contains information related to the document. Currently, only single hash signing is allowed. This parameter thus MUST contain information related to one single document to be signed by itsme®, expressed in an array.
+**id** | String | Required | This is the ID of the hash(es) to be signed.
+**di** | Array | Required | This is the array of hashes to be signed during the signature process. Currently, only single hash signing is allowed. This parameter thus MUST contain one single hash and its algorithm , expressed in an array.
+**alg** | String | Required | o	This MUST be "http://www.w3.org/2001/04/xmlenc#sha256", as only the SHA256 algorithm is supported. See <a href="http://www.w3.org/2001/04/xmlenc#sha256" target="blank">http://www.w3.org/2001/04/xmlenc#sha256</a> for more information.
+**value** | String | Required | This is the hash to be signed during the signature flow. The value of the computed hash must be Base64 encoded.
+**reqID** | String | Required | This is an ID you generate to identify the current request.
 **asyncRespId** | String | Optional | This parameter MUST be set to 'null' in order to initiate the sign session. 
-**optInp** | String | Required | Those are additional information needed for the signature request.
-**lang** | String | Optional | This parameters defines the recommended language to be used for GUI interaction. If the parameter is not defined in the request, then the language that will be used is the one of the cookie. This defaults to the language used in the browser if there is no cookie. 
+**optInp** |  | Required | Those are additional information needed for the signature request.
+**lang** | String | Optional | This parameters defines the recommended language to be used for GUI interaction. If the parameter is not defined in the request, then the language that will be used is the one of a dedicated cookie. This defaults to the language used in the browser if there is no cookie. 
 **itsme** |  | Required | This parameter contains all the information related to itsme® context. 
-**signer** | DssISigner | Required | This is all the information that allows identification of the User in itsme®.
+**signer** |  | Required | This is all the information that allows identification of the User in itsme®
+**userCode** | String | Required | The identifier for the User as returned in 3.6
 **partnerCode** | String | Required | This MUST be the client identifier you received when registering your application during the [onboarding process](#Onboarding). This parameter will be translated to a label describing the customer for whow the User is signing the document. 
 **serviceCode** | String | Required | It MUST contain the value of the serviceCode defined for your application during the [onboarding process](#Onboarding).
-**decsription** | Json | Optional | Is a text you provide as the description of the document. It will be displayed in the itsme App. You MUST provide a value for each language supported by itsme ('en', 'fr', 'nl' and 'de'). Please see [Supported character set](#characterEncoding) for encoding concerns.
+**decsription** | Array | Optional | Is a text you provide as the description of the document. The maximum length is 50 characters. It will be displayed in the itsme App. You MUST provide a value for each language supported by itsme ('en', 'fr', 'nl' and 'de'). Please see [Supported character set](#characterEncoding) for encoding concerns.
 **redirectUrl** | String | Required | This is the URL to which the User will be redirected to your remote SCA. This MUST exactly match the redirect URL of the specified service defined when registering your application during the [onboarding process](#Onboarding).
-**signPolicy** | DssISignPolicy | Required | This is the object of the Signature policy to be used during the Signature. This parameter contains all the information related to the signature policy. 
-**signPolicyRef** | String | Optional | This defines the reference of the signature policy to be used during itsme® Signing flow. In case no specific signature policy is applicable for that specific use case, the itsme® generic qualified signature policy SHOULD be used. The signature policy has to be indicated in the SCA Front-End to the User. The list of available codes can be retrieved from the [JSON document](#OpenIDQES).<br>The signature policies used SHOULD be defined during the [onboarding process](#Onboarding). It is up to you to choose your signature policies within the list given by itsme®. If you want to add new signature policies to your list, please ask the itsme® Onboarding team.</br>
+**signPolicy** |  | Optional | This is the object of the Signature policy to be used during the Signature. This parameter contains all the information related to the signature policy. 
+**signPolicyRef** | String | Required | This defines the reference of the signature policy to be used during itsme® Signing flow. In case no specific signature policy is applicable for that specific use case, the itsme® generic qualified signature policy SHOULD be used. The signature policy has to be indicated in the SCA Front-End to the User. The list of available codes can be retrieved from the [JSON document](#OpenIDQES).<br>The signature policies used SHOULD be defined during the [onboarding process](#Onboarding). It is up to you to choose your signature policies within the list given by itsme®. If you want to add new signature policies to your list, please ask the itsme® Onboarding team.</br>
 **commitmentTypeRef** | String | Optional | This defines the reference of the commitment type to be used during itsme® Signing flow. This parameter is used to display (in the itsme® App) the commitment type of the signature to the User. There is no commitment type by default. If the parameter is not given by the SCA, then nothing is displayed in the itsme® App. You SHOULD use a code that corresponds to a specific commitment type. The list of available codes can be retrieved from the [JSON document](#OpenIDQES).<br>The commitment types used SHOULD be defined during the [onboarding process](#Onboarding). It is up to you to choose your commitment types within the list given by itsme®. If you want to add new commitment types to your list, please ask the itsme® Onboarding team.</br>
-**signerRole** | Array | Optional | This defines the role of the signer. This information is displayed in the itsme® App to show to the signer under which role he will sign the document. If no signer role is provided nothing will be displayed in the itsme® App. This parameter is optional and freely defined in a free text of maximum 50 characters by yourself. You SHOULD provide this free text in all supported languages. The characters used to define the Signer Role MUST be ISO-8859-1 compatible. The signer role SHOULD be provided in all languages supported by itsme®.
+**signerRole** | Array | Optional | This defines the role of the signer. This information is displayed in the itsme® App to show to the signer under which role he will sign the document. If no signer role is provided nothing will be displayed in the itsme® App. This parameter is optional and freely defined in a free text of maximum 50 characters by yourself. You SHOULD provide this free text in all supported languages ('en', 'fr', 'nl' and 'de'). The characters used to define the Signer Role MUST be ISO-8859-1 compatible. The signer role SHOULD be provided in all languages supported by itsme®.
 
 
-## 4.8. Managing the Sign Response 
+## 4.8. Capturing the Sign Response 
 
 ### Getting a successful Sign Response
 
-If the Sign Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside.
+This section relates to the step 10 of the sequence diagram.
+
+If the Sign Request has been sucessfully validated we will return an HTTP 200 response.
 
 The response body will include the following values:
 
@@ -301,10 +308,11 @@ The response body will include the following values:
         "maj": "urn:oasis:names:tc:dss:1.0:profiles:asynchronousprocessing:resultmajor:Pending"
     },
     "reqID": "ReqID4va0acsef3mv5ft1dp71",
-    "respID": "hjg3ngu3tvvv71k9qg1vyokc2mwmqgqk43iv",
+    "asyncRespID": "hjg3ngu3tvvv71k9qg1vyokc2mwmqgqk43iv",
     "optOutp": {
         "itsme": {
-            "signingUrl": "https://uatmerchant.itsme.be/qes/prove_its_you_poka?q=34u5jh2dltb1xhsu0g4bshnlziycdhow&language=FR"
+            "signingUrl": "https://uatmerchant.itsme.be/qes/prove_its_you_poka?q=34u5jh2dltb1xhsu0g4bshnlziycdhow&language=FR",
+            "userCode" : endUserUserCode
         }
     }
 }</code>
@@ -314,14 +322,13 @@ Values | Type | Returned | Description
 **result** |  | Always | This is the status of the request (pending, success or failure).
 **maj** | String | Always | This is a general message that will give the status of the request, pending, success or error. In case of failure, the root cause is given.  
 **min** | String | Always | This is a specific message that, in case of failure, identifies the root cause of the failure.
-**msg** | String | Always | This indicates the origin of the error. 
+**msg** | | Always | This indicates the origin of the error. 
 **reqID** | String | Always | This is the ID of the request that you transfer. 
 **asyncRespId** | String |  | This parameter is the identifier of a User identification session. This parameter is needed for you to get the status of the signature.
-**optOutp** | String |  | Those are additional information needed for the signature request.
-**itsme** | String |  | This value contains all the information related to itsme® context.
-**signingUrl** | String |  | This signing URL is the link to redirect the User from the SCA frontend  to the itsme® Signing Page. 
+**optOutp** | | Always | Those are additional information needed for the signature request.
+**itsme** |  | Always | This value contains all the information related to itsme® context.
+**signingUrl** | String | Always | This signing URL is the link to redirect the User from the SCA frontend  to the itsme® Signing Page. 
 **userCode** | String |  | An identifier for the User, unique among all itsme® accounts and never reused. Use <i>"userCode"</i> in the application as the unique-identifier key for the User.
-**sigObj** | Array |  | This is the signature object. Currently this is the hash to be signed.
 
 ### Handling Error Response
 
@@ -329,10 +336,15 @@ See [Appendixes](#Appendixes) to get more information on the error codes.
 
 ## 4.9 Redirecting the end user
 
+This section relates to the step 11 and 12 of the sequence diagram.
+
 The next step is to redirect the end user to our Front-End, so that we can process the identification session. You must do that by forging a GET request towards the url specified at previous step, in the parameter `signingUrl`.
 
 ## 4.10 Requesting the Sign session status
-This request has to be created in order to get the information about the Sign session. In order to do so, you will forge a POST request towards https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA). Please note the same endpoint is used for starting the sign session and for requesting the status of this session (also see 'Starting sign session').
+
+This section relates to the step 13 of the sequence diagram.
+
+This request has to be sent in order to get the information about the Sign session (which you can do as many times as desired for the same signing session, as long as this session is still pending). In order to do so, you will forge a POST request towards https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA). Please note the same endpoint is used for starting the sign session and for requesting the status of this session (also see 'Starting sign session').
 
 Below you will find the minimal set of parameters required for processing the HTTPS POST query string:
 <code style=display:block;white-space:pre-wrap> POST /https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document HTTP/1.1
