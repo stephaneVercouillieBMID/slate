@@ -51,7 +51,7 @@ Environment | URL
 
 ## 2.3. Consulting OpenID Connect certified libraries
 
-OpenID Connect provides certified libraries, products, and tools which could help you integrating the itsme® service. More more information, please visit the official webpage: <a href="https://openid.net/developers/libraries/" target="blank">https://openid.net/developers/libraries/</a>.
+OpenID Connect provides certified libraries, products, and tools which could help you integrating the itsme® service. For more information, please visit the official webpage: <a href="https://openid.net/developers/libraries/" target="blank">https://openid.net/developers/libraries/</a>.
 
 
 # 3. Integrating Share Data service
