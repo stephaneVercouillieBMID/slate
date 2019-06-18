@@ -249,10 +249,10 @@
                     <a href="#4-6-capturing-the-user-identification-status-info" class="toc-h2 toc-link" data-title="4-6-capturing-the-user-identification-status-info">4.6. Capturing the User identification status info</a>
                   </li>
                   <li>
-                    <a href="#4-7-starting-a-new-sign-session" class="toc-h2 toc-link" data-title="4-7-starting-a-new-sign-session">4.7. Starting a new Sign session</a>
+                    <a href="#4-7-requesting-a-new-sign-session" class="toc-h2 toc-link" data-title="4-7-requesting-a-new-sign-session">4.7. Requesting a new Sign session</a>
                   </li>
                   <li>
-                    <a href="#4-8-managing-the-sign-response" class="toc-h2 toc-link" data-title="4-8-managing-the-sign-response">4.8. Managing the Sign Response</a>
+                    <a href="#4-8-capturing-the-sign-response" class="toc-h2 toc-link" data-title="4-8-capturing-the-sign-response">4.8. Capturing the Sign Response</a>
                   </li>
                   <li>
                     <a href="#4-9-redirecting-the-end-user" class="toc-h2 toc-link" data-title="4-9-redirecting-the-end-user">4.9 Redirecting the end user</a>
@@ -331,8 +331,10 @@
 <p><a name="OpenIDQES"></a></p>
 <h2 id='4-1-checking-itsme-sign-configuration'>4.1. Checking itsme® Sign configuration</h2>
 <p>Two JSON documents are available to ease the integration of itsme sign service:
-- The discovery document
-- The swagger of the B2B interface</p>
+<ul>
+  <li>The discovery document</li>
+  <li>The swagger of the B2B interface</li>
+</ul></p>
 <h3 id='discovery-document'>Discovery document</h3>
 <p>To simplify implementations and increase flexibility, the following key-value pairs about itsme® configuration can be retrieved from a JSON document:</p>
 
@@ -538,10 +540,12 @@ Please note we are using SSLMA as authentication method, combined with IP filter
 </tbody></table>
 <h3 id='handling-error-response-2'>Handling Error Response</h3>
 <p>See <a href="#Appendixes">Appendixes</a> to get more information on the error codes.</p>
-<h2 id='4-7-starting-a-new-sign-session'>4.7. Starting a new Sign session</h2>
+<h2 id='4-7-requesting-a-new-sign-session'>4.7. Requesting a new Sign session</h2>
+<p>This section relates to the step 9 of the sequence diagram.</p>
+
 <p>In order to intiate the Sign session, you will forge a POST request towards this endpoint: https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in <a href="#SSLMA">SSLMA Authentication</a>. Please note the same endpoint is used for starting the sign session and for requesting the status of this session (also see &#39;requesting the session status&#39;).</p>
 
-<p>Below you will find the minimal set of parameters required for processing the HTTPS POST query string:</p>
+<p>Below you will find the mandatory and optional parameters to integrate in the HTTPS POST request body formatted as application/json:</p>
 
 <p><code style=display:block;white-space:pre-wrap>POST /https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document HTTP/1.1
 {
@@ -629,39 +633,39 @@ Please note we are using SSLMA as authentication method, combined with IP filter
 </tr>
 <tr>
 <td style="text-align: left"><strong>docHash</strong></td>
-<td style="text-align: left"></td>
+<td style="text-align: left">Array</td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This parameter defines the list of hashes to be signed by itsme®, one item per hash.</td>
+<td style="text-align: left">Contains information related to the document. Currently, only single hash signing is allowed. This parameter thus MUST contain information related to one single document to be signed by itsme®, expressed in an array.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>id</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This is the ID of the hash(es) to be signed. You SHOULD provide us this information when registering your application during the <a href="#Onboarding">onboarding process</a>. Currently, only single hash signing is allowed.</td>
+<td style="text-align: left">This is the ID of the hash(es) to be signed.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>di</strong></td>
 <td style="text-align: left">Array</td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This is the Table of hashes to be signed during the signature process.</td>
+<td style="text-align: left">This is the array of hashes to be signed during the signature process. Currently, only single hash signing is allowed. This parameter thus MUST contain one single hash and its algorithm , expressed in an array.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>alg</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">Only the SHA256 algorithm is supported. See <a href="http://www.w3.org/2001/04/xmlenc#sha256" target="blank">http://www.w3.org/2001/04/xmlenc#sha256</a> for more information.</td>
+<td style="text-align: left">o This MUST be &quot;http://www.w3.org/2001/04/xmlenc#sha256&quot;, as only the SHA256 algorithm is supported. See <a href="http://www.w3.org/2001/04/xmlenc#sha256" target="blank">http://www.w3.org/2001/04/xmlenc#sha256</a> for more information.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>value</strong></td>
-<td style="text-align: left">Array</td>
+<td style="text-align: left">String</td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This is the hash to be signed during the signature flow. The value of the hash computed must be given in Base64.</td>
+<td style="text-align: left">This is the hash to be signed during the signature flow. The value of the computed hash must be Base64 encoded.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>reqID</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This is the ID of the request that you transfer.</td>
+<td style="text-align: left">This is an ID you generate to identify the current request.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>asyncRespId</strong></td>
@@ -671,7 +675,7 @@ Please note we are using SSLMA as authentication method, combined with IP filter
 </tr>
 <tr>
 <td style="text-align: left"><strong>optInp</strong></td>
-<td style="text-align: left">String</td>
+<td style="text-align: left"></td>
 <td style="text-align: left">Required</td>
 <td style="text-align: left">Those are additional information needed for the signature request.</td>
 </tr>
@@ -679,7 +683,7 @@ Please note we are using SSLMA as authentication method, combined with IP filter
 <td style="text-align: left"><strong>lang</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">This parameters defines the recommended language to be used for GUI interaction. If the parameter is not defined in the request, then the language that will be used is the one of the cookie. This defaults to the language used in the browser if there is no cookie.</td>
+<td style="text-align: left">This parameters defines the recommended language to be used for GUI interaction. If the parameter is not defined in the request, then the language that will be used is the one of a dedicated cookie. This defaults to the language used in the browser if there is no cookie.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>itsme</strong></td>
@@ -689,9 +693,15 @@ Please note we are using SSLMA as authentication method, combined with IP filter
 </tr>
 <tr>
 <td style="text-align: left"><strong>signer</strong></td>
-<td style="text-align: left">DssISigner</td>
+<td style="text-align: left"></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This is all the information that allows identification of the User in itsme®.</td>
+<td style="text-align: left">This is all the information that allows identification of the User in itsme®</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>userCode</strong></td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">The identifier for the User as returned in 3.6</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>partnerCode</strong></td>
@@ -707,9 +717,9 @@ Please note we are using SSLMA as authentication method, combined with IP filter
 </tr>
 <tr>
 <td style="text-align: left"><strong>decsription</strong></td>
-<td style="text-align: left">Json</td>
+<td style="text-align: left">Array</td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">Is a text you provide as the description of the document. It will be displayed in the itsme App. You MUST provide a value for each language supported by itsme (&#39;en&#39;, &#39;fr&#39;, &#39;nl&#39; and &#39;de&#39;). Please see <a href="#characterEncoding">Supported character set</a> for encoding concerns.</td>
+<td style="text-align: left">Is a text you provide as the description of the document. The maximum length is 50 characters. It will be displayed in the itsme App. You MUST provide a value for each language supported by itsme (&#39;en&#39;, &#39;fr&#39;, &#39;nl&#39; and &#39;de&#39;). Please see <a href="#characterEncoding">Supported character set</a> for encoding concerns.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>redirectUrl</strong></td>
@@ -719,14 +729,14 @@ Please note we are using SSLMA as authentication method, combined with IP filter
 </tr>
 <tr>
 <td style="text-align: left"><strong>signPolicy</strong></td>
-<td style="text-align: left">DssISignPolicy</td>
-<td style="text-align: left">Required</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">Optional</td>
 <td style="text-align: left">This is the object of the Signature policy to be used during the Signature. This parameter contains all the information related to the signature policy.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>signPolicyRef</strong></td>
 <td style="text-align: left">String</td>
-<td style="text-align: left">Optional</td>
+<td style="text-align: left">Required</td>
 <td style="text-align: left">This defines the reference of the signature policy to be used during itsme® Signing flow. In case no specific signature policy is applicable for that specific use case, the itsme® generic qualified signature policy SHOULD be used. The signature policy has to be indicated in the SCA Front-End to the User. The list of available codes can be retrieved from the <a href="#OpenIDQES">JSON document</a>.<br>The signature policies used SHOULD be defined during the <a href="#Onboarding">onboarding process</a>. It is up to you to choose your signature policies within the list given by itsme®. If you want to add new signature policies to your list, please ask the itsme® Onboarding team.</br></td>
 </tr>
 <tr>
@@ -739,11 +749,13 @@ Please note we are using SSLMA as authentication method, combined with IP filter
 <td style="text-align: left"><strong>signerRole</strong></td>
 <td style="text-align: left">Array</td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">This defines the role of the signer. This information is displayed in the itsme® App to show to the signer under which role he will sign the document. If no signer role is provided nothing will be displayed in the itsme® App. This parameter is optional and freely defined in a free text of maximum 50 characters by yourself. You SHOULD provide this free text in all supported languages. The characters used to define the Signer Role MUST be ISO-8859-1 compatible. The signer role SHOULD be provided in all languages supported by itsme®.</td>
+<td style="text-align: left">This defines the role of the signer. This information is displayed in the itsme® App to show to the signer under which role he will sign the document. If no signer role is provided nothing will be displayed in the itsme® App. This parameter is optional and freely defined in a free text of maximum 50 characters by yourself. You SHOULD provide this free text in all supported languages (&#39;en&#39;, &#39;fr&#39;, &#39;nl&#39; and &#39;de&#39;). The characters used to define the Signer Role MUST be ISO-8859-1 compatible. The signer role SHOULD be provided in all languages supported by itsme®.</td>
 </tr>
 </tbody></table>
-<h2 id='4-8-managing-the-sign-response'>4.8. Managing the Sign Response</h2><h3 id='getting-a-successful-sign-response'>Getting a successful Sign Response</h3>
-<p>If the Sign Request has been sucessfully validated we will return an HTTP 200 OK response as in the example aside.</p>
+<h2 id='4-8-capturing-the-sign-response'>4.8. Capturing the Sign Response</h2><h3 id='getting-a-successful-sign-response'>Getting a successful Sign Response</h3>
+<p>This section relates to the step 10 of the sequence diagram.</p>
+
+<p>If the Sign Request has been sucessfully validated we will return an HTTP 200 response.</p>
 
 <p>The response body will include the following values:</p>
 
@@ -752,10 +764,11 @@ Please note we are using SSLMA as authentication method, combined with IP filter
         &quot;maj&quot;: &quot;urn:oasis:names:tc:dss:1.0:profiles:asynchronousprocessing:resultmajor:Pending&quot;
     },
     &quot;reqID&quot;: &quot;ReqID4va0acsef3mv5ft1dp71&quot;,
-    &quot;respID&quot;: &quot;hjg3ngu3tvvv71k9qg1vyokc2mwmqgqk43iv&quot;,
+    &quot;asyncRespID&quot;: &quot;hjg3ngu3tvvv71k9qg1vyokc2mwmqgqk43iv&quot;,
     &quot;optOutp&quot;: {
         &quot;itsme&quot;: {
-            &quot;signingUrl&quot;: &quot;https://uatmerchant.itsme.be/qes/prove_its_you_poka?q=34u5jh2dltb1xhsu0g4bshnlziycdhow&amp;language=FR&quot;
+            &quot;signingUrl&quot;: &quot;https://uatmerchant.itsme.be/qes/prove_its_you_poka?q=34u5jh2dltb1xhsu0g4bshnlziycdhow&amp;language=FR&quot;,
+            &quot;userCode&quot; : endUserUserCode
         }
     }
 }</code></p>
@@ -788,7 +801,7 @@ Please note we are using SSLMA as authentication method, combined with IP filter
 </tr>
 <tr>
 <td style="text-align: left"><strong>msg</strong></td>
-<td style="text-align: left">String</td>
+<td style="text-align: left"></td>
 <td style="text-align: left">Always</td>
 <td style="text-align: left">This indicates the origin of the error.</td>
 </tr>
@@ -806,20 +819,20 @@ Please note we are using SSLMA as authentication method, combined with IP filter
 </tr>
 <tr>
 <td style="text-align: left"><strong>optOutp</strong></td>
-<td style="text-align: left">String</td>
 <td style="text-align: left"></td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">Those are additional information needed for the signature request.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>itsme</strong></td>
-<td style="text-align: left">String</td>
 <td style="text-align: left"></td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">This value contains all the information related to itsme® context.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>signingUrl</strong></td>
 <td style="text-align: left">String</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">This signing URL is the link to redirect the User from the SCA frontend  to the itsme® Signing Page.</td>
 </tr>
 <tr>
@@ -828,19 +841,17 @@ Please note we are using SSLMA as authentication method, combined with IP filter
 <td style="text-align: left"></td>
 <td style="text-align: left">An identifier for the User, unique among all itsme® accounts and never reused. Use <i>&quot;userCode&quot;</i> in the application as the unique-identifier key for the User.</td>
 </tr>
-<tr>
-<td style="text-align: left"><strong>sigObj</strong></td>
-<td style="text-align: left">Array</td>
-<td style="text-align: left"></td>
-<td style="text-align: left">This is the signature object. Currently this is the hash to be signed.</td>
-</tr>
 </tbody></table>
 <h3 id='handling-error-response-3'>Handling Error Response</h3>
 <p>See <a href="#Appendixes">Appendixes</a> to get more information on the error codes.</p>
 <h2 id='4-9-redirecting-the-end-user'>4.9 Redirecting the end user</h2>
+<p>This section relates to the step 11 and 12 of the sequence diagram.</p>
+
 <p>The next step is to redirect the end user to our Front-End, so that we can process the identification session. You must do that by forging a GET request towards the url specified at previous step, in the parameter <code>signingUrl</code>.</p>
 <h2 id='4-10-requesting-the-sign-session-status'>4.10 Requesting the Sign session status</h2>
-<p>This request has to be created in order to get the information about the Sign session. In order to do so, you will forge a POST request towards https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in <a href="#SSLMA">SSLMA Authentication</a>. Please note the same endpoint is used for starting the sign session and for requesting the status of this session (also see &#39;Starting sign session&#39;).</p>
+<p>This section relates to the step 13 of the sequence diagram.</p>
+
+<p>This request has to be sent in order to get the information about the Sign session (which you can do as many times as desired for the same signing session, as long as this session is still pending). In order to do so, you will forge a POST request towards https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in <a href="#SSLMA">SSLMA Authentication</a>. Please note the same endpoint is used for starting the sign session and for requesting the status of this session (also see &#39;Starting sign session&#39;).</p>
 
 <p>Below you will find the minimal set of parameters required for processing the HTTPS POST query string:
 <code style=display:block;white-space:pre-wrap> POST /https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document HTTP/1.1
