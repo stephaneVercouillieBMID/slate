@@ -387,80 +387,78 @@ When an error condition occurs an error response as defined in the <a href="http
 
 On top of the <i>"openid"</i> and <i>"service:TEST_code"</i> values specified in the Authentication Request, you MAY also ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes MAY apply:
 
-Parameter | Required | Description
-:-- | :-- | :--
-**profile** | Optionnal | It will request the claims representing basic profile information. These are <i>"family_name"</i>, <i>"given_name"</i>, <i>"gender"</i>, <i>"birthdate"</i> and <i>"locale"</i>.
-**email** | Optionnal | It will request the <i>"email"</i> and <i>"email_verified"</i> claims.
-**phone** | Optionnal | It will request the <i>"phone_number"</i> and <i>"phone_number_verified"</i> claims
-**address** | Optionnal | It will request the <i>"street_address"</i>, <i>"locality"</i>, <i>"postal_code"</i> and <i>"country"</i> claims.
+Parameter | Description
+:-- | :--
+**profile** | It will request the claims representing basic profile information. These are <i>"family_name"</i>, <i>"given_name"</i>, <i>"gender"</i>, <i>"birthdate"</i> and <i>"locale"</i>.
+**email** | It will request the <i>"email"</i> and <i>"email_verified"</i> claims.
+**phone** | It will request the <i>"phone_number"</i> and <i>"phone_number_verified"</i> claims
+**address** | It will request the <i>"street_address"</i>, <i>"locality"</i>, <i>"postal_code"</i> and <i>"country"</i> claims.
 
 The values returned via the itsme® userInfo Endpoint are those below:
 
-Values |	Returned |	Description
+Values |	Returned when request |	Description
 :--- | :--- | :---
-**family_name** | If requested | 
-**given_name** | If requested | 
-**gender** | If requested | 
-**birthdate** | If requested | 
-**locale** | If requested | The language of the User
-**email** | If requested | The User's email address. This may not be unique and is not suitable for use as a primary key. Provided only if your scope included the string "email".
-**email_verified** | If requested | <i>"true"</i> if the User's e-mail address has been verified; otherwise <i>"false"</i>.
-**phone_number** | If requested | 
-**phone_number_verified** | If requested | 
-**street_address** | If requested | 
-**locality** | If requested | 
-**postal_code** | If requested | 
-**country** | If requested | 
+**family_name** | Always | 
+**given_name** | Always | 
+**gender** | Always | 
+**birthdate** | Always | 
+**locale** | Optional | The language of the User. itsme(r) does not possess this information for every account.
+**email** | Optional | The User's email address. This may not be unique and is not suitable for use as a primary key. Provided only if your scope included the string "email". itsme(r) does not possess this information for every account.
+**email_verified** | Optional | <i>"true"</i> if the User's e-mail address has been verified; otherwise <i>"false"</i>. Is always returned if email is returned. Is currently always set to 'false'.
+**phone_number** | Always | 
+**phone_number_verified** | Always | 
+**street_address** | Always | 
+**locality** | Always | 
+**postal_code** | Always | 
+**country** | Optional | itsme(r) does not possess this information for every account. 
 
 ###  Capturing claims from the 'claims' parameter
 
 Typically, the values returned via the <i>"scope"</i> parameter only contain claims about the identity of the User. More information about the User MAY be requested by including additional parameters in the <i>"claims"</i> parameter as specified below:
 
-Parameter | Required | Description
-:-- | :-- | :-- 
-**tag:sixdots.be,2016-06:claim_nationality** | Optionnal | It will request the <i>"nationality"</i> claim.
-**tag:sixdots.be,2016-06:claim_city_of_birth** | Optionnal | It will request the <i>"place of Birth - city"</i> claim.
-**tag:sixdots.be,2016-06:claim_eid**  | Optionnal | It will request the <i>"eid"</i>, <i>"issuance_locality"</i>, <i>"validity_from"</i>, <i>"validity_to"</i>, <i>"certificate_validity"</i>, <i>"read_date"</i> and <i>"national_number"</i> claims.
-**tag:sixdots.be,2017-05:claim_device** | Optionnal | It will request the <i>"os"</i>, <i>"appName"</i>, <i>"appRelease"</i>, <i>"deviceLabel"</i>, <i>"debugEnabled"</i>, <i>"deviceID"</i>, <i>"osRelease"</i>, <i>"manufacturer"</i>, <i>"hasSimEnabled"</i>, <i>"deviceLockLevel"</i>, <i>"smsEnabled"</i>, <i>"rooted"</i>, <i>"imei"</i>, <i>"deviceModel"</i> and <i>"sdkRelease"</i> claims.
-**tag:sixdots.be,2017-05:claim_transaction_info** | Optionnal | It will request the <i>"securityLevel"</i>, <i>"bindLevel"</i> and <i>"mcc"</i> claims.
-**tag:sixdots.be,2017-05:claim_photo** | Optionnal | It will request the <i>"e-ID Picture"</i> claim.
-**tag:sixdots.be,2016-08:claim_approval_template_name** | Required | It will allow you to have a specific request template visualized in the itsme® app. More information about the tags to use MAY be found in the [Appendix](#Appendixes).
+Parameter | Description
+:-- | :-- 
+**tag:sixdots.be,2016-06:claim_nationality** | It will request the <i>"nationality"</i> claim.
+**tag:sixdots.be,2016-06:claim_city_of_birth** | It will request the <i>"place of Birth - city"</i> claim.
+**tag:sixdots.be,2016-06:claim_eid**  | It will request the <i>"eid"</i>, <i>"issuance_locality"</i>, <i>"validity_from"</i>, <i>"validity_to"</i>, <i>"certificate_validity"</i>, <i>"read_date"</i> and <i>"national_number"</i> claims.
+**tag:sixdots.be,2017-05:claim_device** | It will request the <i>"os"</i>, <i>"appName"</i>, <i>"appRelease"</i>, <i>"deviceLabel"</i>, <i>"debugEnabled"</i>, <i>"deviceID"</i>, <i>"osRelease"</i>, <i>"manufacturer"</i>, <i>"hasSimEnabled"</i>, <i>"deviceLockLevel"</i>, <i>"smsEnabled"</i>, <i>"rooted"</i>, <i>"imei"</i>, <i>"deviceModel"</i> and <i>"sdkRelease"</i> claims.
+**tag:sixdots.be,2017-05:claim_transaction_info** | It will request the <i>"securityLevel"</i>, <i>"bindLevel"</i> and <i>"mcc"</i> claims.
+**tag:sixdots.be,2017-05:claim_photo** | It will request the <i>"e-ID Picture"</i> claim.
 
 The values returned via the itsme® userInfo Endpoint are those below:
 
 <a name id="SecurityDataElements"></a>
 
-Values | Returned | Description
+Values | Returned when requested | Description
 :-- | :-- | :-- 
-**nationality** | If requested | 
-**place of Birth - city** | If requested | 
-**eid** | If requested | The eID card serial number.
-**issuance_locality**  | If requested | The eID card issuance locality.
-**validity_from** | If requested | The eID card validity “from” date.
-**validity_to** | If requested | The eID card validity “to” date.
-**certificate_validity** | If requested | The eID card certificate validity.
-**read_date** | If requested | The data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000).
-**national_number** | If requested | The Belgian National Register Number.
-**os** | If requested | The device operating system. The returned values will be <i>"ANDROID"</i> or <i>"iOS"</i>
-**appName** | If requested | The application name.
-**appRelease** | If requested | The application current release.
-**deviceLabel** | If requested | The name of the device.
-**debugEnabled**  | If requested | <i>"True"</i> if debug mode has been activated; otherwise <i>"false"</i>.
-**deviceId** | If requested | The device identifier.
-**osRelease** | If requested | The version of the OS running on your device.
-**manufacturer** | If requested | The brand of the device manufacturer.
-**hasSimEnabled** | If requested | It tells you if a SIM card is installed in the device, or not. The returned value is always <i>"true"</i> as long as itsme® can't be installed on tablets.
-**deviceLockLevel** | If requested |
-**smsEnabled** | If requested |
-**rooted** | If requested | The returned value is always <i>"false"</i> as long as itsme® can't be used on a jailbreaked/rooted device.
-**imei** | If requested | The device IMEI value.
-**deviceModel** | If requested | The model of the device.
-**sdkRelease** | If requested |
-**securityLevel** | If requested | The security level used during transaction. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
-**bindLevel** | If requested | It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
-**mcc** | If requested | The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country.
-**e-ID Picture** | If requested |
-**template** | Always | It will return specific values depending on the template used.
+**nationality** | Optional | itsme(r) does not possess this information for every account. 
+**place of Birth - city** | Always | 
+**eid** | Always | The eID card serial number.
+**issuance_locality**  | Optional | The eID card issuance locality. itsme(r) does not possess this information for every account.
+**validity_from** | Optional | The eID card validity “from” date. itsme(r) does not possess this information for every account.
+**validity_to** | Optional | The eID card validity “to” date. itsme(r) does not possess this information for every account.
+**certificate_validity** | Optional | The eID card certificate validity. itsme(r) does not possess this information for every account.
+**read_date** | Optional | The data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000). itsme(r) does not possess this information for every account.
+**national_number** | Always | The Belgian National Register Number.
+**os** | Optional | The device operating system. The returned values will be <i>"ANDROID"</i> or <i>"iOS"</i> itsme(r) does not possess this information for every account.
+**appName** | Optional | The application name. itsme(r) does not possess this information for every account.
+**appRelease** | Optional | The application current release. itsme(r) does not possess this information for every account.
+**deviceLabel** | Optional | The name of the device. itsme(r) does not possess this information for every account.
+**debugEnabled**  | Optional | <i>"True"</i> if debug mode has been activated; otherwise <i>"false"</i>. itsme(r) does not possess this information for every account.
+**deviceId** | Optional | The device identifier. itsme(r) does not possess this information for every account.
+**osRelease** | Optional | The version of the OS running on your device. itsme(r) does not possess this information for every account.
+**manufacturer** | Optional | The brand of the device manufacturer. itsme(r) does not possess this information for every account.
+**hasSimEnabled** | Optional | It tells you if a SIM card is installed in the device, or not. The returned value is always <i>"true"</i> as long as itsme® can't be installed on tablets. itsme(r) does not possess this information for every account.
+**deviceLockLevel** | Optional | The type of action required to unlock the device (PIN, password, pattern, nothing). itsme(r) does not possess this information for every account.
+**smsEnabled** | Optional | itsme(r) does not possess this information for every account.
+**rooted** | Always | The returned value is always <i>"false"</i> since itsme® can't be used on a jailbreaked/rooted device. 
+**imei** | Optional | The device IMEI value. itsme(r) does not possess this information for every account.
+**deviceModel** | Optional | The model of the device. itsme(r) does not possess this information for every account.
+**sdkRelease** | Optional | The version of sdk on this device. itsme(r) does not possess this information for every account.
+**securityLevel** | Always | The security level used during transaction. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
+**bindLevel** | Always | It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
+**mcc** | Optional | The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country. itsme(r) does not possess this information for every account.
+**e-ID Picture** | Optional | itsme(r) does not possess this information for every account.
 
 
 # 4. Mapping the User
