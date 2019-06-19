@@ -434,22 +434,22 @@ Values | Returned when requested | Description
 **certificate_validity** | Optional | The eID card certificate validity. itsme(r) does not possess this information for every account.
 **read_date** | Optional | The data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000). itsme(r) does not possess this information for every account.
 **national_number** | Always | The Belgian National Register Number.
-**os** | Optional | The device operating system. The returned values will be <i>"ANDROID"</i> or <i>"iOS"</i> itsme(r) does not possess this information for every account.
-**appName** | Optional | The application name. itsme(r) does not possess this information for every account.
-**appRelease** | Optional | The application current release. itsme(r) does not possess this information for every account.
-**deviceLabel** | Optional | The name of the device. itsme(r) does not possess this information for every account.
-**debugEnabled**  | Optional | <i>"True"</i> if debug mode has been activated; otherwise <i>"false"</i>. itsme(r) does not possess this information for every account.
-**deviceId** | Optional | The device identifier. itsme(r) does not possess this information for every account.
-**osRelease** | Optional | The version of the OS running on your device. itsme(r) does not possess this information for every account.
-**manufacturer** | Optional | The brand of the device manufacturer. itsme(r) does not possess this information for every account.
-**hasSimEnabled** | Optional | It tells you if a SIM card is installed in the device, or not. The returned value is always <i>"true"</i> as long as itsme® can't be installed on tablets. itsme(r) does not possess this information for every account.
-**deviceLockLevel** | Optional | The type of action required to unlock the device (PIN, password, pattern, nothing). itsme(r) does not possess this information for every account.
-**smsEnabled** | Optional | itsme(r) does not possess this information for every account.
+**os** | Always | The device operating system. The returned values will be <i>"ANDROID"</i> or <i>"iOS"</i>
+**appName** | Always | The application name.
+**appRelease** | Always | The application current release.
+**deviceLabel** | Always | The name of the device. itsme(r) does not possess this information for every account.
+**debugEnabled**  | Always | <i>"True"</i> if debug mode has been activated; otherwise <i>"false"</i>.
+**deviceId** | Always | The device identifier.
+**osRelease** | Always | The version of the OS running on your device.
+**manufacturer** | Always | The brand of the device manufacturer.
+**hasSimEnabled** | Always | It tells you if a SIM card is installed in the device, or not. The returned value is always <i>"true"</i> as long as itsme® can't be installed on tablets.
+**deviceLockLevel** | Always | The type of action required to unlock the device (PIN, password, pattern, nothing).
+**smsEnabled** | Always | True if can send SMS. On iOS, this means it’s an iPhone.
 **rooted** | Always | The returned value is always <i>"false"</i> since itsme® can't be used on a jailbreaked/rooted device. 
-**imei** | Optional | The device IMEI value. itsme(r) does not possess this information for every account.
-**deviceModel** | Optional | The model of the device. itsme(r) does not possess this information for every account.
-**sdkRelease** | Optional | The version of sdk on this device. itsme(r) does not possess this information for every account.
-**securityLevel** | Always | The security level used during transaction. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
+**imei** | Always | The device IMEI value.
+**deviceModel** | Always | The model of the device (e.g. iPhone 7)
+**sdkRelease** | Always | The version of sdk on this device.
+**securityLevel** | Optional | It tells you whether or not the SIM was successfully contacted during the transaction. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
 **bindLevel** | Always | It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
 **mcc** | Optional | The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country. itsme(r) does not possess this information for every account.
 **e-ID Picture** | Optional | itsme(r) does not possess this information for every account.
