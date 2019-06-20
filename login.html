@@ -891,28 +891,23 @@ Authorization: Bearer <access token></code></p>
 <table><thead>
 <tr>
 <th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>profile</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">It will request the claims representing basic profile information. These are <i>&quot;family_name&quot;</i>, <i>&quot;given_name&quot;</i>, <i>&quot;gender&quot;</i>, <i>&quot;birthdate&quot;</i> and <i>&quot;locale&quot;</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>email</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">It will request the <i>&quot;email&quot;</i> and <i>&quot;email_verified&quot;</i> claims.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>phone</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">It will request the <i>&quot;phone_number&quot;</i> and <i>&quot;phone_number_verified&quot;</i> claims</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>address</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">It will request the <i>&quot;street_address&quot;</i>, <i>&quot;locality&quot;</i>, <i>&quot;postal_code&quot;</i> and <i>&quot;country&quot;</i> claims.</td>
 </tr>
 </tbody></table>
@@ -922,74 +917,74 @@ Authorization: Bearer <access token></code></p>
 <table><thead>
 <tr>
 <th style="text-align: left">Values</th>
-<th style="text-align: left">Returned</th>
+<th style="text-align: left">Returned when request</th>
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>family_name</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>given_name</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>gender</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>birthdate</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>locale</strong></td>
-<td style="text-align: left">If requested</td>
-<td style="text-align: left">The language of the User</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">The language of the User. itsme(r) does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>email</strong></td>
-<td style="text-align: left">If requested</td>
-<td style="text-align: left">The User&#39;s email address. This may not be unique and is not suitable for use as a primary key. Provided only if your scope included the string &quot;email&quot;.</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">The User&#39;s email address. This may not be unique and is not suitable for use as a primary key. Provided only if your scope included the string &quot;email&quot;. itsme(r) does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>email_verified</strong></td>
-<td style="text-align: left">If requested</td>
-<td style="text-align: left"><i>&quot;true&quot;</i> if the User&#39;s e-mail address has been verified; otherwise <i>&quot;false&quot;</i>.</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left"><i>&quot;true&quot;</i> if the User&#39;s e-mail address has been verified; otherwise <i>&quot;false&quot;</i>. Is always returned if email is returned. Is currently always set to &#39;false&#39;.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>phone_number</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>phone_number_verified</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>street_address</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>locality</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>postal_code</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>country</strong></td>
-<td style="text-align: left">If requested</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">itsme(r) does not possess this information for every account.</td>
 </tr>
 </tbody></table>
 <h3 id='capturing-claims-from-the-39-claims-39-parameter'>Capturing claims from the &#39;claims&#39; parameter</h3>
@@ -998,38 +993,31 @@ Authorization: Bearer <access token></code></p>
 <table><thead>
 <tr>
 <th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2016-06:claim_nationality</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">It will request the <i>&quot;nationality&quot;</i> claim.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2016-06:claim_city_of_birth</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">It will request the <i>&quot;place of Birth - city&quot;</i> claim.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2016-06:claim_eid</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">It will request the <i>&quot;eid&quot;</i>, <i>&quot;issuance_locality&quot;</i>, <i>&quot;validity_from&quot;</i>, <i>&quot;validity_to&quot;</i>, <i>&quot;certificate_validity&quot;</i>, <i>&quot;read_date&quot;</i> and <i>&quot;national_number&quot;</i> claims.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2017-05:claim_device</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">It will request the <i>&quot;os&quot;</i>, <i>&quot;appName&quot;</i>, <i>&quot;appRelease&quot;</i>, <i>&quot;deviceLabel&quot;</i>, <i>&quot;debugEnabled&quot;</i>, <i>&quot;deviceID&quot;</i>, <i>&quot;osRelease&quot;</i>, <i>&quot;manufacturer&quot;</i>, <i>&quot;hasSimEnabled&quot;</i>, <i>&quot;deviceLockLevel&quot;</i>, <i>&quot;smsEnabled&quot;</i>, <i>&quot;rooted&quot;</i>, <i>&quot;imei&quot;</i>, <i>&quot;deviceModel&quot;</i> and <i>&quot;sdkRelease&quot;</i> claims.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2017-05:claim_transaction_info</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">It will request the <i>&quot;securityLevel&quot;</i>, <i>&quot;bindLevel&quot;</i> and <i>&quot;mcc&quot;</i> claims.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2017-05:claim_photo</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">It will request the <i>&quot;e-ID Picture&quot;</i> claim.</td>
 </tr>
 </tbody></table>
@@ -1041,149 +1029,149 @@ Authorization: Bearer <access token></code></p>
 <table><thead>
 <tr>
 <th style="text-align: left">Values</th>
-<th style="text-align: left">Returned</th>
+<th style="text-align: left">Returned when requested</th>
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>nationality</strong></td>
-<td style="text-align: left">If requested</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">itsme(r) does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>place of Birth - city</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>eid</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">The eID card serial number.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>issuance_locality</strong></td>
-<td style="text-align: left">If requested</td>
-<td style="text-align: left">The eID card issuance locality.</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">The eID card issuance locality. itsme(r) does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>validity_from</strong></td>
-<td style="text-align: left">If requested</td>
-<td style="text-align: left">The eID card validity “from” date.</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">The eID card validity “from” date. itsme(r) does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>validity_to</strong></td>
-<td style="text-align: left">If requested</td>
-<td style="text-align: left">The eID card validity “to” date.</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">The eID card validity “to” date. itsme(r) does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>certificate_validity</strong></td>
-<td style="text-align: left">If requested</td>
-<td style="text-align: left">The eID card certificate validity.</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">The eID card certificate validity. itsme(r) does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>read_date</strong></td>
-<td style="text-align: left">If requested</td>
-<td style="text-align: left">The data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000).</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">The data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000). itsme(r) does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>national_number</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">The Belgian National Register Number.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>os</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">The device operating system. The returned values will be <i>&quot;ANDROID&quot;</i> or <i>&quot;iOS&quot;</i></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>appName</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">The application name.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>appRelease</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">The application current release.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>deviceLabel</strong></td>
-<td style="text-align: left">If requested</td>
-<td style="text-align: left">The name of the device.</td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">The name of the device. itsme(r) does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>debugEnabled</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left"><i>&quot;True&quot;</i> if debug mode has been activated; otherwise <i>&quot;false&quot;</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>deviceId</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">The device identifier.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>osRelease</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">The version of the OS running on your device.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>manufacturer</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">The brand of the device manufacturer.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>hasSimEnabled</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">It tells you if a SIM card is installed in the device, or not. The returned value is always <i>&quot;true&quot;</i> as long as itsme® can&#39;t be installed on tablets.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>deviceLockLevel</strong></td>
-<td style="text-align: left">If requested</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">The type of action required to unlock the device (PIN, password, pattern, nothing).</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>smsEnabled</strong></td>
-<td style="text-align: left">If requested</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">True if can send SMS. On iOS, this means it’s an iPhone.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>rooted</strong></td>
-<td style="text-align: left">If requested</td>
-<td style="text-align: left">The returned value is always <i>&quot;false&quot;</i> as long as itsme® can&#39;t be used on a jailbreaked/rooted device.</td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">The returned value is always <i>&quot;false&quot;</i> since itsme® can&#39;t be used on a jailbreaked/rooted device.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>imei</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">The device IMEI value.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>deviceModel</strong></td>
-<td style="text-align: left">If requested</td>
-<td style="text-align: left">The model of the device.</td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">The model of the device (e.g. iPhone 7)</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>sdkRelease</strong></td>
-<td style="text-align: left">If requested</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">The version of sdk on this device.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>securityLevel</strong></td>
-<td style="text-align: left">If requested</td>
-<td style="text-align: left">The security level used during transaction. The returned values could be <i>&quot;SOFT_ONLY&quot;</i>, <i>&quot;SIM_ONLY&quot;</i> or <i>&quot;SIM_AND_SOFT&quot;</i>.</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">It tells you whether or not the SIM was successfully contacted during the transaction. The returned values could be <i>&quot;SOFT_ONLY&quot;</i>, <i>&quot;SIM_ONLY&quot;</i> or <i>&quot;SIM_AND_SOFT&quot;</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>bindLevel</strong></td>
-<td style="text-align: left">If requested</td>
+<td style="text-align: left">Always</td>
 <td style="text-align: left">It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <i>&quot;SOFT_ONLY&quot;</i>, <i>&quot;SIM_ONLY&quot;</i> or <i>&quot;SIM_AND_SOFT&quot;</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>mcc</strong></td>
-<td style="text-align: left">If requested</td>
-<td style="text-align: left">The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country.</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country. itsme(r) does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>e-ID Picture</strong></td>
-<td style="text-align: left">If requested</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">itsme(r) does not possess this information for every account.</td>
 </tr>
 </tbody></table>
 <h1 id='4-mapping-the-user'>4. Mapping the User</h1>
