@@ -319,12 +319,12 @@ The response body will include the following values:
 
 Values | Type | Returned | Description
 :----- |:-------- |:-------- |:---
-**result** |  | Always | This is the status of the request (pending, success or failure).
+**result** |  | Always | This is the status of the request (pending, success or error).
 **maj** | String | Always | This is a general message that will give the status of the request, pending, success or error. In case of failure, the root cause is given.  
-**min** | String | Always | This is a specific message that, in case of failure, identifies the root cause of the failure.
-**msg** | | Always | This indicates the origin of the error. 
+**min** | String | Optional | This is a specific message that, in case of failure, identifies the root cause of the failure.
+**msg** | | Optional | This indicates the origin of the error. 
 **reqID** | String | Always | This is the ID of the request that you transfer. 
-**asyncRespId** | String |  | This parameter is the identifier of a User identification session. This parameter is needed for you to get the status of the signature.
+**respId** | String |  | This parameter is the identifier of a User identification session. This parameter is needed for you to get the status of the signature.
 **optOutp** | | Always | Those are additional information needed for the signature request.
 **itsme** |  | Always | This value contains all the information related to itsme® context.
 **signingUrl** | String | Always | This signing URL is the link to redirect the User from the SCA frontend  to the itsme® Signing Page. 
@@ -336,7 +336,7 @@ See [Appendixes](#Appendixes) to get more information on the error codes.
 
 ## 4.9 Redirecting the end user
 
-This section relates to the step 11 and 12 of the sequence diagram.
+This section relates to the steps 11 and 12 of the sequence diagram.
 
 The next step is to redirect the end user to our Front-End, so that we can process the identification session. You must do that by forging a GET request towards the url specified at previous step, in the parameter `signingUrl`.
 
@@ -346,7 +346,7 @@ This section relates to the step 13 of the sequence diagram.
 
 This request has to be sent in order to get the information about the Sign session (which you can do as many times as desired for the same signing session, as long as this session is still pending). In order to do so, you will forge a POST request towards https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA). Please note the same endpoint is used for starting the sign session and for requesting the status of this session (also see 'Starting sign session').
 
-Below you will find the minimal set of parameters required for processing the HTTPS POST query string:
+Below you will find the mandatory and optional parameters to integrate in the HTTPS POST request body formatted as application/json:
 <code style=display:block;white-space:pre-wrap> POST /https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document HTTP/1.1
   {
   "inDocs": null, 
@@ -365,51 +365,45 @@ Parameter | Type | Required | Description
 :-------- | :-------- | :--------| :----- 
 **inDocs** |  | Required | This MUST be 'null'. 
 **reqID** | String | Required | This is the ID of the request that you provide to us.
-**asyncRespId** | String | Optional | This parameter is the identifier of a User identification session. This value can be retrieved from the values obtained in the Sign Response. In case no <i>"asyncRespID"</i> is given in the request, a new session is created instead. 
-**optInp** | Json | Required | Those are additional information needed for the signature request.
-**itsme** | Json | Required | This parameter contains all the information related to itsme® context. 
+**asyncRespId** | String | Required | This parameter is the identifier of a User identification session. You MUST provide here the value of the parameter <i>respId</i> returned in step 3.8. In case no <i>"asyncRespID"</i> is given in the request, a new session is created instead (corresponding to step 3.7).
+**optInp** | | Required | Those are additional information needed for the signature request.
+**itsme** | | Required | This parameter contains all the information related to itsme® context. 
 **partnerCode** | String | Required | This MUST be the client identifier you received when registering your application during the [onboarding process](#Onboarding). This parameter will be translated to a label describing the customer for whow the User is signing the document. 
 **serviceCode** | String | Required | It MUST contain the value of the serviceCode defined for your application during the [onboarding process](#Onboarding).
 
-## 4.11 Managing the Sign Status Response
+## 4.11 Capturing the Sign Status Response
+
+This section relates to the step 14 of the sequence diagram.
 
 ### Getting a successful Sign Status Response
 
 <code style=display:block;white-space:pre-wrap> HTTP200 
 { 
-
   "result": { 
-
     "maj": "urn:oasis:names:tc:dss:1.0:profiles:asynchronousprocessing:resultmajor:Pending" 
-
   }, 
-
   "reqID": "ReqIDv1prg8pmn9mtive3otsc", 
-
   "respID": "8lycz0t07bh1q8nz41fcwg21s9k8jd217vtp", 
-
   "optOutp": { 
-
     "itsme": { 
-
       "signingUrl": "http://itsme.labo.sixdots.be/qes/index.php?q=gjs57sq7w72eme0yg9ufufdfae98bcj6" 
-
     } 
-
   } 
-
 }
 </code>
 
 Parameter | Type | Returned | Description
 :-------- | :-------- | :--------| :----- 
-**result** | String | Always | This is the Oasis DSS compliant status of the sign session
+**result** |  | Always | This is the status of the request (pending, success or error).
+**maj** | String | Always | This is a general message that will give the status of the request, pending, success or error. In case of failure, the root cause is given.
+**min** | String | Optional | This is a specific message that, in case of failure, identifies the root cause of the failure.
+**msg** | | Optional | This indicates the origin of the error. 
 **reqID** | String | Always | This is the ID of the request that you provide to us.
-**respID** | String | Always | needs to be reused later to check status of signature as asyncRespID value
+**respID** | String | Always | This WILL be the same value as the value returned in 3.8 in the parameter respId.
+**optOutp** | | Always | Those are additional information needed for the signature request.
+**itsme** | | Always | This parameter contains all the information related to itsme® context. 
 **signingUrl** | String | Always | signingUrl is the link where you must redirect the end user. He will receive there BMID instructions and poka yoke code
-**optOutp** | Json | Always | Those are additional information needed for the signature request.
-**itsme** | Json | Always | This parameter contains all the information related to itsme® context. 
-**signingUrl** | String | Always | This parameter allows the application to express the desired scope. It MUST contain the value <i>"service:service_code"</i>, the itsme® service you want to use as defined for your application during the [onboarding process](#Onboarding).
+**userCode** | String | Always | An identifier for the User, unique among all itsme® accounts and never reused. Use <i>"userCode"</i> in the application as the unique-identifier key for the User.
 
 ### Handling Error Response
 
@@ -423,7 +417,7 @@ See [Appendixes](#Appendixes) to get more information on the error codes.
 
 If one of the above request is invalid or unauthorized an error code will be returned to the User using the appropriate HTTPS status code, as listed in the table below:
 
-Status code | Description
+HTTP Status code | Description
 :-- | :-- 
 **400** | Returned in case of invalid Request Object.
 **409** | Returned in case the User identification flow has been interrupted.
@@ -431,21 +425,21 @@ Status code | Description
 
 The Error Response will contain the <i>"status"</i> and the `statusReason` value. The following table describes the various error types that can be returned in the `statusReason` value of the error response:
 
-Status code | Error |  Description
+HTTP Status code | statusReason |  Description
 :-------- | :-------- | :--------
 **400** | NO_REQUEST | user_identification is a POST service. A body SHOULD be inserted into the request. For more information on the structure of this request, you can go to the section related to /user_identification.
-<label></label> | MISSING_PARTNER_CODE | In this case, the body request does not contain the field "partnerCode". This field corresponds to the "Partner Code/Client ID" referenced in your onboarding file.
-<label></label> | MISSING_SERVICE_CODE | The body request does not contain the field "serviceCode". This field corresponds to the "Service Code" referenced in your onboarding file.
-<label></label> | INVALID_URL | The field "redirectUrl" is null or its syntax is not correct, URL is invalid. This field corresponds to the "Redirect URL" referenced in your onboarding file.
-<label></label> | INVALID_REQUESTOR | The "partnerCode" and/or "serviceCode" referenced into the body do not reference an existing partner and/or service. The "partnerCode" corresponds to the "Partner Code/Client ID" referenced in your onboarding file. The "serviceCode" corresponds to the "Service Code" referenced in your onboarding file for a SIGN service.
-<label></label> | UNAUTHORIZED_URL | The partner and its service have been correctly found by itsme® following referenced "partnerCode" and "serviceCode", but the given "redirectUrl" is not authorized for the partner and/or service mentioned. You did not provide a valid redirectUrl. The "redirectUrl" used here corresponds to the "Redirect URL" referenced in your onboarding file.
-<label></label> | INVALID_LANG | The "lang" field does not reference a language supported by itsme®. You can consult "BMID Well-Known Configuration" to check which are the languages supported by  itsme®, /well-known/configuration.
-<label></label> | UNEXPECTED_ERROR | An error occurred during the validation of partner information. You SHOULD try again later. If the error persists, then you SHOULD contact itsme® support team for investigation. 
-<label></label> | UNKNOWN | An unknown error occurred during the request. You SHOULD contact itsme® support team for investigation.
+**400** | MISSING_PARTNER_CODE | In this case, the body request does not contain the field "partnerCode". This field corresponds to the "Partner Code/Client ID" referenced in your onboarding file.
+**400** | MISSING_SERVICE_CODE | The body request does not contain the field "serviceCode". This field corresponds to the "Service Code" referenced in your onboarding file.
+**400** | INVALID_URL | The field "redirectUrl" is null or its syntax is not correct, URL is invalid. This field corresponds to the "Redirect URL" referenced in your onboarding file.
+**400** | INVALID_REQUESTOR | The "partnerCode" and/or "serviceCode" referenced into the body do not reference an existing partner and/or service. The "partnerCode" corresponds to the "Partner Code/Client ID" referenced in your onboarding file. The "serviceCode" corresponds to the "Service Code" referenced in your onboarding file for a SIGN service.
+**400** | UNAUTHORIZED_URL | The partner and its service have been correctly found by itsme® following referenced "partnerCode" and "serviceCode", but the given "redirectUrl" is not authorized for the partner and/or service mentioned. You did not provide a valid redirectUrl. The "redirectUrl" used here corresponds to the "Redirect URL" referenced in your onboarding file.
+**400** | INVALID_LANG | The "lang" field does not reference a language supported by itsme®. You can consult "BMID Well-Known Configuration" to check which are the languages supported by  itsme®, /well-known/configuration.
+**400** | UNEXPECTED_ERROR | An error occurred during the validation of partner information. You SHOULD try again later. If the error persists, then you SHOULD contact itsme® support team for investigation. 
+**400** | UNKNOWN | An unknown error occurred during the request. You SHOULD contact itsme® support team for investigation.
 **409** | PENDING | The User Identification Session you created is  pending. The User is currently following the User Identification flow at itsme® side (web and mobile).
-<label></label> | REJECTED | The User had to create a certificate in order to make a signature. However, he rejected his CREATE_CERT action in the itsme® App. A new User Identification session must be initialized. During that session, User has to confirm the CREATE_CERT action.
-<label></label> | EXPIRED | The User had to create a certificate in order to make a signature. However, he waited too long (more than three minutes) before confirming his CREATE_CERT action in the itsme® App and his action expired. A new User Identification Session must be initialized. During that session, User has to confirm the CREATE_CERT action in time.
-<label></label> | UNEXPECTED_ERROR | An unexpected error occurred during User’s Identification flow. You SHOULD try again later. If the error persists, then you SHOULD contact itsme® support team for investigation.
+**409** | REJECTED | The User had to create a certificate in order to make a signature. However, he rejected his CREATE_CERT action in the itsme® App. A new User Identification session must be initialized. During that session, User has to confirm the CREATE_CERT action.
+**409** | EXPIRED | The User had to create a certificate in order to make a signature. However, he waited too long (more than three minutes) before confirming his CREATE_CERT action in the itsme® App and his action expired. A new User Identification Session must be initialized. During that session, User has to confirm the CREATE_CERT action in time.
+**409** | UNEXPECTED_ERROR | An unexpected error occurred during User’s Identification flow. You SHOULD try again later. If the error persists, then you SHOULD contact itsme® support team for investigation.
 
 <a name="SSLMA"></a>
 
