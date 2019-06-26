@@ -454,7 +454,7 @@
 <tr>
 <td style="text-align: left"><strong>claims</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This parameter is used to request specific claims. The value is a JSON object listing the requested claims. <br>See <a href="#Data">User Data</a> for more information.</br></td>
+<td style="text-align: left">Specific to the confirm: the template (see <a href="#Templates">Templates - Annex 5.5</a>) MUST be specified here. This parameter is used to request specific claims. The value is a JSON object listing the requested claims. <br>See <a href="#Data">User Data</a> for more information.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>response_mode</strong></td>
@@ -841,7 +841,7 @@ Pragma: no-cache
 <p>You MUST validate the ID Token in the Token Response in the following manner:</p>
 
 <ol>
-  <li>As the ID Token is a Nested JWT object, you will have to decrypt and verify it using the keys and algorithms that you specified when registering your project in the [itsme® B2B portal](#Onboarding). The process of decryption and signature validation is described in <a href="https://belgianmobileid.github.io/slate/jose#4-3-decrypting" target="blank">section 4.3</a> of the JOSE specifications.<br>If the ID Token is not encrypted, you SHOULD reject it.</br></li>
+  <li>As the ID Token is a Nested JWT object, you will have to decrypt and verify it using the keys and algorithms that you specified when registering your project in the <a href="#Onboarding" target="blank">itsme® B2B portal</a>. The process of decryption and signature validation is described in <a href="https://belgianmobileid.github.io/slate/jose#4-3-decrypting" target="blank">section 4.3</a> of the JOSE specifications.<br>If the ID Token is not encrypted, you SHOULD reject it.</br></li>
   <li>The Issuer identifier for itsme® (which is obtained by using the key <i>"issuer"</i> in the <a href="#OpenIDConfig" target="blank">itsme® Discovery document</a>) MUST exactly match the value of the <i>"iss"</i> claim.</li>
   <li>You MUST validate that the <i>"aud"</i> claim contains your <i>"client_id"</i> value registered in the <a href="#Onboarding" target="blank">itsme® B2B portal</a>. The ID Token MUST be rejected if the ID Token does not list the <i>"client_id"</i> as a valid audience.</li>
   <li>The current time MUST be before the time represented by the <i>"exp"</i> claim.</li>
@@ -1449,28 +1449,39 @@ Raw Request Object (not signed, not encrypted):<br></br>
           }
         }
      }</code></p>
+
+<p><a name="Templates"></a></p>
 <h2 id='5-5-templates'>5.5. Templates</h2>
-<p>There are currently two templates that can be used when forming a Confirm Authentication Request.</p>
+<p>The itsme Confirm is based on the notion of template, which helps pre-structure the action screen in the itsme app. Using one of the available templates MUST be specified to form a valid Confirm Authentication Request. There are currently two templates available.</p>
 <h3 id='advanced-payment-template'>Advanced Payment template</h3>
 <p>The Advanced Payment template can be retrieved using the following tags in the <i>&quot;claim&quot;</i> parameter when forming the Authentication Request:</p>
 
 <table><thead>
 <tr>
 <th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left"><strong>&quot;tag:sixdots.be,2016-08:claim_approval_template_name&quot;</strong></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This identifies the template used. It MUST be set to &quot;tag:sixdots.be,2016-08:claim_approval_template_name&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: &quot;advanced_payment&quot; }</td>
+</tr>
+<tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2016-08:claim_approval_amount_key</strong></td>
-<td style="text-align: left">A string holding an integer value inside. This MUST be set to <i>&quot;tag:sixdots.be,2016-08:claim_approval_amount_key&quot;</i>.</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">A string holding an integer value inside. This MUST be set to <i>&quot;tag:sixdots.be,2016-08:claim_approval_amount_key&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: [Amount as a string] }</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2016-08:claim_approval_currency_key</strong></td>
-<td style="text-align: left">A string holding a valid currency code (e.g. “EUR”). This MUST be set to <i>&quot;tag:sixdots.be,2016-08:claim_approval_currency_key&quot;</i>.</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">A string holding a valid currency code (e.g. “EUR”). This MUST be set to <i>&quot;tag:sixdots.be,2016-08:claim_approval_currency_key&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: [Currency as a string] }</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2016-08:claim_approval_iban_key</strong></td>
-<td style="text-align: left">A string holding a valid IBAN account number. This MUST be set to <i>&quot;tag:sixdots.be,2016-08:claim_approval_iban_key&quot;</i>.</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">A string holding a valid IBAN account number. This MUST be set to <i>&quot;tag:sixdots.be,2016-08:claim_approval_iban_key&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: [IBAN as a string] }</i>.</td>
 </tr>
 </tbody></table>
 <h3 id='free-text-template'>Free Text template</h3>
@@ -1479,12 +1490,19 @@ Raw Request Object (not signed, not encrypted):<br></br>
 <table><thead>
 <tr>
 <th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left"><strong>&quot;tag:sixdots.be,2016-08:claim_approval_template_name&quot;</strong></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This identifies the template used. It MUST be set to &quot;tag:sixdots.be,2016-08:claim_approval_template_name&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: &quot;free_text&quot; }</td>
+</tr>
+<tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2016-08:claim_approval_text_key</strong></td>
-<td style="text-align: left">A string holding any text to be displayed in the itsme® app. This MUST be set to<i>&quot;tag:sixdots.be,2016-08:claim_approval_text_key&quot;</i>.</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">A string holding any text to be displayed in the itsme® app. This MUST be set to<i>&quot;tag:sixdots.be,2016-08:claim_approval_text_key&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: [Text as a string] }}</i>.</td>
 </tr>
 </tbody></table>
 
@@ -1492,7 +1510,6 @@ Raw Request Object (not signed, not encrypted):<br></br>
 
 <ul>
   <li>Use the standard character encodings ISO8859-1 for the text.</li>
-  <li>Special characters are allowed</li>
   <li>Supported formatting tags are: <u>underlined text</u>, <i>emphasized text</i>, <b>bold text</b> and <br>new line</br>. Tags that are not listed will be ignored.
 </ul>
 
