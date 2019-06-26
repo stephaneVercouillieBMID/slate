@@ -47,7 +47,7 @@ The resulting JWK Set MUST contain (at least) 2 JWK: one whereby the “use” p
 
 This JWK Set is nothing more than a plain text file (“JSON” format) and you should place that on a publicly available website (https off course) and share that link with us when registering your project in the [itsme® B2B portal](#Onboarding). As these are the PUBLIC keys, there is no problem to share this information publicly (in other words, it should not be placed behind a password or login screen).
 
-Some more (technical) documentation on <a href="https://tools.ietf.org/html/rfc7517" target="blank"></a>.
+Some more (technical) documentation on <a href="https://tools.ietf.org/html/rfc7517" target="blank">https://tools.ietf.org/html/rfc7517</a>.
 
 
 # 4. Signing, encrypting and decrypting
