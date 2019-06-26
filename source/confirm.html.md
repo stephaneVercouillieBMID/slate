@@ -106,7 +106,7 @@ Parameter | Required | Description
 **ui_locales** | Optional | User's preferred languages and scripts for the User interface (e.g.: OpenID web page). Supported values are: <i>"fr"</i>, <i>"nl"</i>, <i>"en"</i> and <i>"de"</i>. Any other value will be ignored.
 **max_age** | Not supported | Any supplied value will be ignored.<br>As itsme® does not maintain a session mechanism, an active authentication is always required.</br>
 <a name="acrvalues">**acr_values**</a> | Optional | Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference.<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br><i>"tag:sixdots.be,2016-06:acr_basic"</i></br></li><li>Advanced level - force the User to use PIN<br><i>"tag:sixdots.be,2016-06:acr_advanced"</i></br></li></ul>When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used.</br><br>More information on security levels and context data can be found in the [Appendixes](#SecurityLevels).</br>
-**claims** | Required | This parameter is used to request specific claims. The value is a JSON object listing the requested claims. <br>See [User Data](#Data) for more information.</br>
+**claims** | Required | Specific to the confirm: the template (see [Templates - Annex 5.5](#Templates)) MUST be specified here. This parameter is used to request specific claims. The value is a JSON object listing the requested claims. <br>See [User Data](#Data) for more information.</br>
 **response_mode** | Not supported | Any supplied value will be ignored.
 **id\_token\_hint** | Not supported | Any supplied value will be ignored.
 **claims_locales** | Not supported | Any supplied value will be ignored.
@@ -709,10 +709,10 @@ Raw Request Object (not signed, not encrypted):<br></br>
         }
      }</code>
 
-
+<a name="Templates"></a>
 ## 5.5. Templates
 
-There are currently two templates that can be used when forming a Confirm Authentication Request.
+The itsme Confirm is based on the notion of template, which helps pre-structure the action screen in the itsme app. Using one of the available templates MUST be specified to form a valid Confirm Authentication Request. There are currently two templates available.
 
 ### Advanced Payment template
 
