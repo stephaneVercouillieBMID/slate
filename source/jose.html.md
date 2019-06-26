@@ -35,7 +35,20 @@ The JSON Object Signing and Encryption (JOSE) framework consists of several tech
 
 # 3. Creating your JWK Set URI
 
-![Under construction logo](Under_Construction.png)
+The JWK is nothing more than another representation of the (public) key of a certificate keypair and the JWK Set is simply a list of one or more JWK.
+
+So, you need to have/create your certificate key pairs (a key pair consists of a public key and private key): they’ll need one pair for encryption and one pair for signing actions.
+
+You can use your certificates or (preferably) get them through a certificate authority. 
+
+Next, you will need to ‘convert’ the PUBLIC keys (NOT the private key. You MUST keep the private key always private) to JWK and group them in a JWK Set. There are various tools that can be used and nearly all software development language have support or extensions to be able to do that. 
+
+The resulting JWK Set MUST contain (at least) 2 JWK: one whereby the “use” parameter is ”enc” (for encryption) and another with “sig” (for signature).
+
+This JWK Set is nothing more than a plain text file (“JSON” format) and you should place that on a publicly available website (https off course) and share that link with us when registering your project in the [itsme® B2B portal](#Onboarding). As these are the PUBLIC keys, there is no problem to share this information publicly (in other words, it should not be placed behind a password or login screen).
+
+Some more (technical) documentation on <a href="https://tools.ietf.org/html/rfc7517" target="blank"></a>.
+
 
 # 4. Signing, encrypting and decrypting
 
