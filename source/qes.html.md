@@ -189,7 +189,7 @@ Values | Type | Returned | Description
 
 See [Appendixes](#Appendixes) to get more information on the error codes.
 
-
+<a name="startSignSession"></a>
 ## 4.7. Requesting a new Sign session 
 
 This section relates to the step 9 of the sequence diagram.
@@ -325,10 +325,10 @@ Values | Type | Returned | Description
 **msg** | | Optional | This indicates the origin of the error. 
 **reqID** | String | Always | This is the ID of the request that you transfer. 
 **respId** | String |  | This parameter is the identifier of a User identification session. This parameter is needed for you to get the status of the signature.
-**optOutp** | | Always | Those are additional information needed for the signature request.
-**itsme** |  | Always | This value contains all the information related to itsme® context.
-**signingUrl** | String | Always | This signing URL is the link to redirect the User from the SCA frontend  to the itsme® Signing Page. 
-**userCode** | String |  | An identifier for the User, unique among all itsme® accounts and never reused. Use <i>"userCode"</i> in the application as the unique-identifier key for the User.
+**optOutp** | | Always | Those are additional information needed for the signature request. Please note this parameter is not returned in the other use of this call (see section [Requesting the Sign session status](#signStatus))
+**itsme** |  | Always | This value contains all the information related to itsme® context. Please note this parameter is not returned in the other use of this call (see section [Requesting the Sign session status](#signStatus))
+**signingUrl** | String | Always | This signing URL is the link to redirect the User from the SCA frontend  to the itsme® Signing Page. Please note this parameter is not returned in the other use of this call (see section [Requesting the Sign session status](#signStatus))
+**userCode** | String |  | An identifier for the User, unique among all itsme® accounts and never reused. Use <i>"userCode"</i> in the application as the unique-identifier key for the User. Please note this parameter is not returned in the other use of this call (see section [Requesting the Sign session status](#signStatus))
 
 ### Handling Error Response
 
@@ -340,6 +340,7 @@ This section relates to the steps 11 and 12 of the sequence diagram.
 
 The next step is to redirect the end user to our Front-End, so that we can process the identification session. You must do that by forging a GET request towards the url specified at previous step, in the parameter `signingUrl`.
 
+<a name="signStatus"></a>
 ## 4.10 Requesting the Sign session status
 
 This section relates to the step 13 of the sequence diagram.
@@ -378,18 +379,22 @@ This section relates to the step 14 of the sequence diagram.
 ### Getting a successful Sign Status Response
 
 <code style=display:block;white-space:pre-wrap> HTTP200 
-{ 
-  "result": { 
-    "maj": "urn:oasis:names:tc:dss:1.0:profiles:asynchronousprocessing:resultmajor:Pending" 
-  }, 
-  "reqID": "ReqIDv1prg8pmn9mtive3otsc", 
-  "respID": "8lycz0t07bh1q8nz41fcwg21s9k8jd217vtp", 
-  "optOutp": { 
-    "itsme": { 
-      "signingUrl": "http://itsme.labo.sixdots.be/qes/index.php?q=gjs57sq7w72eme0yg9ufufdfae98bcj6" 
-    } 
-  } 
+{
+  "result": {
+    "maj": "urn:oasis:names:tc:dss:1.0:resultmajor:Success"
+  },
+  "reqID": "ReqID4va0acsef3mv5ft1dp71",
+  "respID": "gl1bb6g0bykali5yl46civwh615qtn5ek28m",
+  "sigObj": [
+    {
+      "b64Sig": {
+        "value": "pekb3BX5tyWPn07qq/DIZI3W3qjyXrq2sZcIKpMAV0lGhcP0AzSXVkadlPwcmkOHJBFuCm0C1U6Bc8VrNCZnP6E260DShiasEAoV7ZmFhB4k7om/nXEsBTLPUJTWV9FUk1XyfuAnnbNvvmX7lAvmDyVPELO840ODUX7q8a43NES0ZFpPzbNd7HhqCRHf8UKKLFop7FwTPngc7LarTP6j0iX8PSNaoc/F2pi0Z62qN67UPy/zHmc1/5w718qygy6BSPLXS2csm+OcscN8Bg1JnJOgRLpxFelPpGxYSj/uOojfSXkF/0Kj9n2xlNLZnM+EPIwZCoTjA/4dBPvw5vdD0g=="
+      },
+      "whichDoc": "myDoc"
+    }
+  ]
 }
+
 </code>
 
 Parameter | Type | Returned | Description
@@ -399,11 +404,14 @@ Parameter | Type | Returned | Description
 **min** | String | Optional | This is a specific message that, in case of failure, identifies the root cause of the failure.
 **msg** | | Optional | This indicates the origin of the error. 
 **reqID** | String | Always | This is the ID of the request that you provide to us.
-**respID** | String | Always | This WILL be the same value as the value returned in 3.8 in the parameter respId.
-**optOutp** | | Always | Those are additional information needed for the signature request.
-**itsme** | | Always | This parameter contains all the information related to itsme® context. 
-**signingUrl** | String | Always | signingUrl is the link where you must redirect the end user. He will receive there BMID instructions and poka yoke code
-**userCode** | String | Always | An identifier for the User, unique among all itsme® accounts and never reused. Use <i>"userCode"</i> in the application as the unique-identifier key for the User.
+**respID** | String | Always | This will be the same value as the value returned in 4.8 in the parameter respId.
+**sigObj** | Array| Always | This contains the signed hashes within a Json array. Currently we only support single hash signing. You will thus only find one object in this array. Please note this parameter is not returned in the other use of this call (see section [Requesting a new Sign session](#startSignSession)).
+**b64Sig** | | Always | This contains the signed has within a Json object. Please note this parameter is not returned in the other use of this call (see section [Requesting a new Sign session](#startSignSession)).
+**value** | String | Always | This is the base64 encoded hash. The Sign algorithm is SHA256, the Public Key Cryptographic Standard is PKCS1 and the Signature format is « raw ». Please note this parameter is not returned in the other use of this call (see section [Requesting a new Sign session](#startSignSession)).
+**whichdoc** | String | Always | This is the ID of the hash(es) to be signed, as provided in section <a href="#startSignSession">Requesting a new Sign session</a>. Please note this parameter is not returned in the other use of this call (see section [Requesting a new Sign session](#startSignSession)).
+
+
+
 
 ### Handling Error Response
 
