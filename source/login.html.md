@@ -175,7 +175,7 @@ If the User denies the Authentication Request or if the request fails for reason
 Values |	Returned | Description
 :--|:--|:--
 **error**	| Always |	Error type. 
-**error_description** |	Always	| Indicating the nature of the error.
+**error_description** |	Optional	| Indicating the nature of the error.
 **state** |	If requested	| Set to the value defined in the Authorisation Request, if any.
 
 The following is a non-normative example of an error response:
