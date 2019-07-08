@@ -101,7 +101,7 @@ Below you will find the mandatory and optional parameters to integrate in the HT
 
 Parameter | Type | Required | Description
 :-------- | :-------- | :--------| :----- 
-**partnerCode** | String | Required | This MUST be the client identifier you received when registering your application during the [onboarding process](#Onboarding). This parameter will be translated to a label describing the customer for whow the User is signing the document. 
+**partnerCode** | String | Required | This MUST be the client identifier you received when registering your application during the [onboarding process](#Onboarding). This parameter will be translated to a label describing the customer for which the User is signing the document. 
 **userCode** | String | Optional | The userCode is the unique identifier created by itsme for a user connecting with a Service Provider. A user has a different user code at each Service Provider. You SHOULD provide a <i>"userCode"</i> known by itsme if you already have authenticated the User who needs to sign the document. Providing a userCode will bypass the identification screen (user won't have to enter his phone number).
 **serviceCode** | String | Required | It MUST contain the value of the serviceCode defined for your application during the [onboarding process](#Onboarding).
 **lang** | String | Required | This parameters defines the recommended language to be used for GUI interaction. 
@@ -160,7 +160,7 @@ Below you will find the mandatory and optional parameters to integrate in the HT
 
 Parameter | Type | Required | Description
 :-------- | :-------- | :--------| :----- 
-**partnerCode** | String | Required | This MUST be the client identifier you received when registering your application during the [onboarding process](#Onboarding). This parameter will be translated to a label describing the customer for whow the User is signing the document. 
+**partnerCode** | String | Required | This MUST be the client identifier you received when registering your application during the [onboarding process](#Onboarding). This parameter will be translated to a label describing the customer for which the User is signing the document. 
 **serviceCode** | String | Required | It MUST contain the value It MUST contain the value of the serviceCode defined for your application during the [onboarding process](#Onboarding).
 **asyncRespId** | String | Required | This parameter is the identifier of a User identification session. This value MUST be retrieved from the Identification Response.
 
@@ -283,7 +283,7 @@ Parameter | Type | Required | Description
 **itsme** |  | Required | This parameter contains all the information related to itsme® context. 
 **signer** |  | Required | This is all the information that allows identification of the User in itsme®
 **userCode** | String | Required | The identifier for the User as returned in 3.6
-**partnerCode** | String | Required | This MUST be the client identifier you received when registering your application during the [onboarding process](#Onboarding). This parameter will be translated to a label describing the customer for whow the User is signing the document. 
+**partnerCode** | String | Required | This MUST be the client identifier you received when registering your application during the [onboarding process](#Onboarding). This parameter will be translated to a label describing the customer for which the User is signing the document. 
 **serviceCode** | String | Required | It MUST contain the value of the serviceCode defined for your application during the [onboarding process](#Onboarding).
 **decsription** | Array | Optional | Is a text you provide as the description of the document. The maximum length is 50 characters. It will be displayed in the itsme App. You MUST provide a value for each language supported by itsme ('en', 'fr', 'nl' and 'de'). Please see [Supported character set](#characterEncoding) for encoding concerns.
 **redirectUrl** | String | Required | This is the URL to which the User will be redirected to your remote SCA. This MUST exactly match the redirect URL of the specified service defined when registering your application during the [onboarding process](#Onboarding).
@@ -369,7 +369,7 @@ Parameter | Type | Required | Description
 **asyncRespId** | String | Required | This parameter is the identifier of a User identification session. You MUST provide here the value of the parameter <i>respId</i> returned in step 3.8. In case no <i>"asyncRespID"</i> is given in the request, a new session is created instead (corresponding to step 3.7).
 **optInp** | | Required | Those are additional information needed for the signature request.
 **itsme** | | Required | This parameter contains all the information related to itsme® context. 
-**partnerCode** | String | Required | This MUST be the client identifier you received when registering your application during the [onboarding process](#Onboarding). This parameter will be translated to a label describing the customer for whow the User is signing the document. 
+**partnerCode** | String | Required | This MUST be the client identifier you received when registering your application during the [onboarding process](#Onboarding). This parameter will be translated to a label describing the customer for which the User is signing the document. 
 **serviceCode** | String | Required | It MUST contain the value of the serviceCode defined for your application during the [onboarding process](#Onboarding).
 
 ## 4.11 Capturing the Sign Status Response
