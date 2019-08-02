@@ -720,7 +720,7 @@ The Advanced Payment template can be retrieved using the following tags in the <
 
 Parameter | Required | Description
 :-------- | :-------- | :--------
-**"tag:sixdots.be,2016-08:claim_approval_template_name"** | Required | This identifies the template used. It MUST be set to "tag:sixdots.be,2016-08:claim_approval_template_name":{ "essential": true, "value": "advanced_payment" }
+**"tag:sixdots.be,2016-08:claim_approval_template_name"** | Required | This identifies the template used. It MUST be set to "tag:sixdots.be,2016-08:claim_approval_template_name":{ "essential": true, "value": "adv_payment" }
 **tag:sixdots.be,2016-08:claim_approval_amount_key** | Required | A string holding an integer value inside. This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_amount_key":{ "essential": true, "value": [Amount as a string] }</i>.
 **tag:sixdots.be,2016-08:claim_approval_currency_key** | Required | A string holding a valid currency code (e.g. “EUR”). This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_currency_key":{ "essential": true, "value": [Currency as a string] }</i>.
 **tag:sixdots.be,2016-08:claim_approval_iban_key** | Required | A string holding a valid IBAN account number. This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_iban_key":{ "essential": true, "value": [IBAN as a string] }</i>.
