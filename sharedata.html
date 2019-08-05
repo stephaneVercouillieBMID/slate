@@ -931,10 +931,6 @@ Authorization: Bearer <access token></code></p>
 <td style="text-align: left">It will request the <i>&quot;os&quot;</i>, <i>&quot;appName&quot;</i>, <i>&quot;appRelease&quot;</i>, <i>&quot;deviceLabel&quot;</i>, <i>&quot;debugEnabled&quot;</i>, <i>&quot;deviceID&quot;</i>, <i>&quot;osRelease&quot;</i>, <i>&quot;manufacturer&quot;</i>, <i>&quot;hasSimEnabled&quot;</i>, <i>&quot;deviceLockLevel&quot;</i>, <i>&quot;smsEnabled&quot;</i>, <i>&quot;rooted&quot;</i>, <i>&quot;imei&quot;</i>, <i>&quot;deviceModel&quot;</i> and <i>&quot;sdkRelease&quot;</i> claims.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>tag:sixdots.be,2017-05:claim_transaction_info</strong></td>
-<td style="text-align: left">It will request the <i>&quot;securityLevel&quot;</i>, <i>&quot;bindLevel&quot;</i> and <i>&quot;mcc&quot;</i> claims.</td>
-</tr>
-<tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2017-05:claim_photo</strong></td>
 <td style="text-align: left">It will request the <i>&quot;e-ID Picture&quot;</i> claim.</td>
 </tr>
@@ -1070,21 +1066,6 @@ Authorization: Bearer <access token></code></p>
 <td style="text-align: left"><strong>sdkRelease</strong></td>
 <td style="text-align: left">Always</td>
 <td style="text-align: left">The version of sdk on this device.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>securityLevel</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">It tells you whether or not the SIM was successfully contacted during the transaction. The returned values could be <i>&quot;SOFT_ONLY&quot;</i>, <i>&quot;SIM_ONLY&quot;</i> or <i>&quot;SIM_AND_SOFT&quot;</i>.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>bindLevel</strong></td>
-<td style="text-align: left">Always</td>
-<td style="text-align: left">It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <i>&quot;SOFT_ONLY&quot;</i>, <i>&quot;SIM_ONLY&quot;</i> or <i>&quot;SIM_AND_SOFT&quot;</i>.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>mcc</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country. itsme(r) does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>e-ID Picture</strong></td>
