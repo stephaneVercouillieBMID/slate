@@ -418,7 +418,6 @@ Parameter | Description
 **tag:sixdots.be,2016-06:claim_city_of_birth** | It will request the <i>"place of Birth - city"</i> claim.
 **tag:sixdots.be,2016-06:claim_eid**  | It will request the <i>"eid"</i>, <i>"issuance_locality"</i>, <i>"validity_from"</i>, <i>"validity_to"</i>, <i>"certificate_validity"</i>, <i>"read_date"</i> and <i>"national_number"</i> claims.
 **tag:sixdots.be,2017-05:claim_device** | It will request the <i>"os"</i>, <i>"appName"</i>, <i>"appRelease"</i>, <i>"deviceLabel"</i>, <i>"debugEnabled"</i>, <i>"deviceID"</i>, <i>"osRelease"</i>, <i>"manufacturer"</i>, <i>"hasSimEnabled"</i>, <i>"deviceLockLevel"</i>, <i>"smsEnabled"</i>, <i>"rooted"</i>, <i>"imei"</i>, <i>"deviceModel"</i> and <i>"sdkRelease"</i> claims.
-**tag:sixdots.be,2017-05:claim_transaction_info** | It will request the <i>"securityLevel"</i>, <i>"bindLevel"</i> and <i>"mcc"</i> claims.
 **tag:sixdots.be,2017-05:claim_photo** | It will request the <i>"e-ID Picture"</i> claim.
 
 The values returned via the itsme® userInfo Endpoint are those below:
@@ -451,9 +450,6 @@ Values | Returned when requested | Description
 **imei** | Always | The device IMEI value.
 **deviceModel** | Always | The model of the device (e.g. iPhone 7)
 **sdkRelease** | Always | The version of sdk on this device.
-**securityLevel** | Optional | It tells you whether or not the SIM was successfully contacted during the transaction. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
-**bindLevel** | Always | It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
-**mcc** | Optional | The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country. itsme(r) does not possess this information for every account.
 **e-ID Picture** | Optional | itsme(r) does not possess this information for every account.
 
 
