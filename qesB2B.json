@@ -5,7 +5,7 @@
     "version" : "1.0.0",
     "title" : "QES Partners API"
   },
-  "host" : "b2b.sign.itsme.be",
+  "host" : "uatb2b.sixdots.be",
   "basePath" : "/qes-partners/1.0.0",
   "tags" : [ {
     "name" : ".well-knownconfiguration",
@@ -16,6 +16,9 @@
   }, {
     "name" : "user_identification",
     "description" : "API used by partner to start and manage an IDENTIFICATION Session, during which user will be able to create a signature certificate, needed for the Signature flow"
+  }, {
+    "name" : "verify_document",
+    "description" : "Service returning a BMID report to the remote SCA attesting that signatures contained in a document are valid or not"
   } ],
   "schemes" : [ "https" ],
   "paths" : {
@@ -121,13 +124,13 @@
           "409" : {
             "description" : "Returned in case of error",
             "schema" : {
-              "$ref" : "#/definitions/IdentificationResponse"
+              "$ref" : "#/definitions/UserIdentificationBasicInfo"
             }
           },
           "500" : {
             "description" : "Internal Server Error",
             "schema" : {
-              "$ref" : "#/definitions/IdentificationResponse"
+              "$ref" : "#/definitions/UserIdentificationBasicInfo"
             }
           }
         }
@@ -166,24 +169,24 @@
           "400" : {
             "description" : "Returned in case of invalid request object",
             "schema" : {
-              "$ref" : "#/definitions/UserCertificateResponse"
+              "$ref" : "#/definitions/UserIdentificationBasicInfo"
             }
           },
           "409" : {
             "description" : "Returned in case of error",
             "schema" : {
-              "$ref" : "#/definitions/UserCertificateResponse"
+              "$ref" : "#/definitions/UserIdentificationBasicInfo"
             }
           },
           "500" : {
             "description" : "Internal Server Error",
             "schema" : {
-              "$ref" : "#/definitions/UserCertificateResponse"
+              "$ref" : "#/definitions/UserIdentificationBasicInfo"
             }
           }
         }
       }
-    },
+    }
   },
   "definitions" : {
     "DssBase64Data" : {
