@@ -338,7 +338,7 @@ See [Appendixes](#Appendixes) to get more information on the error codes.
 
 This section relates to the steps 11 and 12 of the sequence diagram.
 
-The next step is to redirect the end user to our Front-End, so that we can process the identification session. You must do that by forging a GET request towards the url specified at previous step, in the parameter `signingUrl`.
+The next step is to redirect the end user to our Front-End, so that we can process the identification session. You must do that by forging a GET request towards the url specified at previous step, in the parameter `signingUrl`. Please note there is no built-in parameter designed to let you getting your session context back after the redirection to your FE (a parameter similar to the 'state' parameter in OpenID). However, you MAY add any query parameter to the URL specified in `signingUrl` and it will be preserved during the redirection, effectively allowing you to craft a custom parameter for finding back your session context. Also, please note that the duration of the identification process may strongly vary from a few seconds to a few minutes, depending on whether or not we need to create a certificate for this end user.
 
 <a name="signStatus"></a>
 ## 4.10 Requesting the Sign session status
