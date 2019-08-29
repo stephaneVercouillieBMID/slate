@@ -867,7 +867,7 @@ Please note we are using SSLMA as authentication method, combined with IP filter
   &quot;asyncRespID&quot;: &quot;b99a7d03acb94ea5a4d972aa31bb1c36&quot;,
   &quot;optInp&quot;: {
               &quot;itsme&quot;: {
-                        &quot;partnerCode&quot;:&quot;myPartnerCode &quot;, 
+                        &quot;partnerCode&quot;:&quot;myPartnerCode&quot;, 
                         &quot;serviceCode&quot;:&quot;myServiceCode&quot;
               }
         }
@@ -898,7 +898,7 @@ Please note we are using SSLMA as authentication method, combined with IP filter
 <td style="text-align: left"><strong>asyncRespId</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This parameter is the identifier of a User identification session. You MUST provide here the value of the parameter <i>respId</i> returned in step 3.8. In case no <i>&quot;asyncRespID&quot;</i> is given in the request, a new session is created instead (corresponding to step 3.7).</td>
+<td style="text-align: left">This parameter is the identifier of a User identification session. You MUST provide here the value of the parameter <i>respId</i> returned in step 4.8. In case no <i>&quot;asyncRespID&quot;</i> is given in the request, a new session is created instead (corresponding to step 4.7). <em>Please note you will receive a 409 if you fill in this parameter with the asyncRespId returned at step 4.5 instead</em></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>optInp</strong></td>
@@ -1116,6 +1116,11 @@ Please note we are using SSLMA as authentication method, combined with IP filter
 <td style="text-align: left"><strong>409</strong></td>
 <td style="text-align: left">UNEXPECTED_ERROR</td>
 <td style="text-align: left">An unexpected error occurred during User’s Identification flow. You SHOULD try again later. If the error persists, then you SHOULD contact itsme® support team for investigation.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>409</strong></td>
+<td style="text-align: left">CONFLICT</td>
+<td style="text-align: left">This error can be thrown in different cases. One frequent case is when the sign_document request is called with an asyncRespID that is not found. Please consult section 4.10 for this specific case.</td>
 </tr>
 </tbody></table>
 
