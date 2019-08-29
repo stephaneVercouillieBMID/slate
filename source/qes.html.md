@@ -357,7 +357,7 @@ Below you will find the mandatory and optional parameters to integrate in the HT
   "asyncRespID": "b99a7d03acb94ea5a4d972aa31bb1c36",
   "optInp": {
               "itsme": {
-                        "partnerCode":"myPartnerCode ", 
+                        "partnerCode":"myPartnerCode", 
                         "serviceCode":"myServiceCode"
               }
         }
@@ -368,7 +368,7 @@ Parameter | Type | Required | Description
 :-------- | :-------- | :--------| :----- 
 **inDocs** |  | Required | This MUST be 'null'. 
 **reqID** | String | Required | This is the ID of the request that you provide to us.
-**asyncRespId** | String | Required | This parameter is the identifier of a User identification session. You MUST provide here the value of the parameter <i>respId</i> returned in step 3.8. In case no <i>"asyncRespID"</i> is given in the request, a new session is created instead (corresponding to step 3.7).
+**asyncRespId** | String | Required | This parameter is the identifier of a User identification session. You MUST provide here the value of the parameter <i>respId</i> returned in step 4.8. In case no <i>"asyncRespID"</i> is given in the request, a new session is created instead (corresponding to step 4.7). _Please note you will receive a 409 if you fill in this parameter with the asyncRespId returned at step 4.5 instead_
 **optInp** | | Required | Those are additional information needed for the signature request.
 **itsme** | | Required | This parameter contains all the information related to itsme® context. 
 **partnerCode** | String | Required | This MUST be the client identifier you received when registering your application during the [onboarding process](#Onboarding). This parameter will be translated to a label describing the customer for which the User is signing the document. 
@@ -450,6 +450,7 @@ HTTP Status code | statusReason |  Description
 **409** | REJECTED | The User had to create a certificate in order to make a signature. However, he rejected his CREATE_CERT action in the itsme® App. A new User Identification session must be initialized. During that session, User has to confirm the CREATE_CERT action.
 **409** | EXPIRED | The User had to create a certificate in order to make a signature. However, he waited too long (more than three minutes) before confirming his CREATE_CERT action in the itsme® App and his action expired. A new User Identification Session must be initialized. During that session, User has to confirm the CREATE_CERT action in time.
 **409** | UNEXPECTED_ERROR | An unexpected error occurred during User’s Identification flow. You SHOULD try again later. If the error persists, then you SHOULD contact itsme® support team for investigation.
+**409** | CONFLICT | This error can be thrown in different cases. One frequent case is when the sign_document request is called with an asyncRespID that is not found. Please consult section 4.10 for this specific case.
 
 <a name="SSLMA"></a>
 
