@@ -437,6 +437,7 @@ The Error Response will contain the <i>"status"</i> and the `statusReason` value
 
 HTTP Status code | statusReason |  Description
 :-------- | :-------- | :--------
+**400** | NOT_ALLOWED_TO_SIGN | This error means the user account is not eligible for itsme hash signing. There are a few reasons to this, the most frequent one is that the user account is blocked. In any case, the user has to take action that cannot be initiated at your side and might need to contact the support.
 **400** | NO_REQUEST | user_identification is a POST service. A body SHOULD be inserted into the request. For more information on the structure of this request, you can go to the section related to /user_identification.
 **400** | MISSING_PARTNER_CODE | In this case, the body request does not contain the field "partnerCode". This field corresponds to the "Partner Code/Client ID" referenced in your onboarding file.
 **400** | MISSING_SERVICE_CODE | The body request does not contain the field "serviceCode". This field corresponds to the "Service Code" referenced in your onboarding file.
@@ -450,7 +451,7 @@ HTTP Status code | statusReason |  Description
 **409** | REJECTED | The User had to create a certificate in order to make a signature. However, he rejected his CREATE_CERT action in the itsme® App. A new User Identification session must be initialized. During that session, User has to confirm the CREATE_CERT action.
 **409** | EXPIRED | The User had to create a certificate in order to make a signature. However, he waited too long (more than three minutes) before confirming his CREATE_CERT action in the itsme® App and his action expired. A new User Identification Session must be initialized. During that session, User has to confirm the CREATE_CERT action in time.
 **409** | UNEXPECTED_ERROR | An unexpected error occurred during User’s Identification flow. You SHOULD try again later. If the error persists, then you SHOULD contact itsme® support team for investigation.
-**409** | CONFLICT | This error can be thrown in different cases. One frequent case is when the sign_document request is called with an asyncRespID that is not found. Please consult section 4.10 for this specific case.
+**409** | No payload | This error can be thrown in different cases. One frequent case is when the sign_document request is called with an asyncRespID that is not found. Please consult section 4.10 for this specific case.
 
 <a name="SSLMA"></a>
 
