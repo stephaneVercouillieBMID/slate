@@ -1054,6 +1054,11 @@ Please note we are using SSLMA as authentication method, combined with IP filter
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>400</strong></td>
+<td style="text-align: left">NOT_ALLOWED_TO_SIGN</td>
+<td style="text-align: left">This error means the user account is not eligible for itsme hash signing. There are a few reasons to this, the most frequent one is that the user account is blocked. In any case, the user has to take action that cannot be initiated at your side and might need to contact the support.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>400</strong></td>
 <td style="text-align: left">NO_REQUEST</td>
 <td style="text-align: left">user_identification is a POST service. A body SHOULD be inserted into the request. For more information on the structure of this request, you can go to the section related to /user_identification.</td>
 </tr>
@@ -1119,7 +1124,7 @@ Please note we are using SSLMA as authentication method, combined with IP filter
 </tr>
 <tr>
 <td style="text-align: left"><strong>409</strong></td>
-<td style="text-align: left">CONFLICT</td>
+<td style="text-align: left">No payload</td>
 <td style="text-align: left">This error can be thrown in different cases. One frequent case is when the sign_document request is called with an asyncRespID that is not found. Please consult section 4.10 for this specific case.</td>
 </tr>
 </tbody></table>
