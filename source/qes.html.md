@@ -162,7 +162,7 @@ Parameter | Type | Required | Description
 :-------- | :-------- | :--------| :----- 
 **partnerCode** | String | Required | This MUST be the client identifier you received when registering your application during the [onboarding process](#Onboarding). This parameter will be translated to a label describing the customer for which the User is signing the document. 
 **serviceCode** | String | Required | It MUST contain the value It MUST contain the value of the serviceCode defined for your application during the [onboarding process](#Onboarding).
-**asyncRespId** | String | Required | This parameter is the identifier of a User identification session. This value MUST be retrieved from the Identification Response.
+**asyncRespID** | String | Required | This parameter is the identifier of a User identification session. This value MUST be retrieved from the Identification Response.
 
 
 ## 4.6. Capturing the User identification status info
@@ -277,7 +277,7 @@ Parameter | Type | Required | Description
 **alg** | String | Required | o	This MUST be "http://www.w3.org/2001/04/xmlenc#sha256", as only the SHA256 algorithm is supported. See <a href="http://www.w3.org/2001/04/xmlenc#sha256" target="blank">http://www.w3.org/2001/04/xmlenc#sha256</a> for more information.
 **value** | String | Required | This is the hash to be signed during the signature flow. The value of the computed hash must be Base64 encoded.
 **reqID** | String | Required | This is an ID you generate to identify the current request.
-**asyncRespId** | String | Optional | This parameter MUST be set to 'null' in order to initiate the sign session. 
+**asyncRespID** | String | Optional | This parameter MUST be set to 'null' in order to initiate the sign session. 
 **optInp** |  | Required | Those are additional information needed for the signature request.
 **lang** | String | Optional | This parameters defines the recommended language to be used for GUI interaction. If the parameter is not defined in the request, then the language that will be used is the one of a dedicated cookie. This defaults to the language used in the browser if there is no cookie. 
 **itsme** |  | Required | This parameter contains all the information related to itsme® context. 
@@ -368,7 +368,7 @@ Parameter | Type | Required | Description
 :-------- | :-------- | :--------| :----- 
 **inDocs** |  | Required | This MUST be 'null'. 
 **reqID** | String | Required | This is the ID of the request that you provide to us.
-**asyncRespId** | String | Required | This parameter is the identifier of a User identification session. You MUST provide here the value of the parameter <i>respId</i> returned in step 4.8. In case no <i>"asyncRespID"</i> is given in the request, a new session is created instead (corresponding to step 4.7). _Please note you will receive a 409 if you fill in this parameter with the asyncRespId returned at step 4.5 instead_
+**asyncRespID** | String | Required | This parameter is the identifier of a User identification session. You MUST provide here the value of the parameter <i>respId</i> returned in step 4.8. In case no <i>"asyncRespID"</i> is given in the request, a new session is created instead (corresponding to step 4.7). _Please note you will receive a 409 if you fill in this parameter with the asyncRespID returned at step 4.5 instead_
 **optInp** | | Required | Those are additional information needed for the signature request.
 **itsme** | | Required | This parameter contains all the information related to itsme® context. 
 **partnerCode** | String | Required | This MUST be the client identifier you received when registering your application during the [onboarding process](#Onboarding). This parameter will be translated to a label describing the customer for which the User is signing the document. 
