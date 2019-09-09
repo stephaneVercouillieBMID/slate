@@ -734,9 +734,19 @@ When using the Free text template, the below requirements apply:
 
 <ul>
   <li>Use the standard character encodings ISO8859-1 for the text.</li>
-  <li>Supported formatting tags are: <u>underlined text</u>, <i>emphasized text</i>, <b>bold text</b> and <br>new line</br>. Tags that are not listed will be ignored.
+  <li>Supported formatting tags are listed in section <a href="FormattingTags">Formatting tags</a>
 </ul>
 
 ## 5.5 Supported character set
 
 The character set we support for free text fields is ISO 8859-15. You can buy the specification on [ISO website](https://www.iso.org/standard/29505.html) or find a free version on [Wikipedia](https://en.wikipedia.org/wiki/ISO/IEC_8859-15#Codepage_layout). You might be interested in knowing that, although most usual characters are supported, some softwares-generated characters like curly apostrophes and long dashes are not part of ISO 8859-15. If you provide a non-supported character in a free text field the flow will be stopped and you will receive an error message back.
+
+<a name="FormattingTags"></a>
+## 5.6 Supported formatting tags
+
+We currently have support for the following HTML tags in the FREE_TEXT format:
+- &lt; b &gt;
+- &lt; i &gt;
+- &lt; u &gt;
+- &lt; br &gt;
+Some other tags (like &lt; h1 &gt;) are properly rendered in the itsme app but are not actively supported. We thus advise not to use them. Tags that are not rendered are ignored.
