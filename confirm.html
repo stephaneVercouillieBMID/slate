@@ -282,6 +282,9 @@
                   <li>
                     <a href="#5-5-supported-character-set" class="toc-h2 toc-link" data-title="5-5-supported-character-set">5.5 Supported character set</a>
                   </li>
+                  <li>
+                    <a href="#5-6-supported-formatting-tags" class="toc-h2 toc-link" data-title="5-6-supported-formatting-tags">5.6 Supported formatting tags</a>
+                  </li>
               </ul>
           </li>
       </div>
@@ -396,7 +399,7 @@
 <tr>
 <td style="text-align: left"><strong>redirect_uri</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This is the URI to which the authentication response should be sent. This MUST exactly match the redirect URI of the specified service defined when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+<td style="text-align: left">This is the URI to which the authentication response should be sent. This MUST exactly match the redirect URI, GET parameters included, of the specified service defined when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>. Please note in Sandbox environment, the redirect_uri is NOT checked. This allows you to test your integration locally.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>request_uri</strong></td>
@@ -1398,7 +1401,7 @@ private void handleIntent(Intent intent) {
   <li>The values for the <i>"response_type"</i> and <i>"client_id"</i> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li>
   <li>Even if a <i>"scope"</i> parameter is present in the Request Object value, a <i>"scope"</i> parameter – containing the <i>"openid"</i> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li>
   <li>The Request Object MUST be <b>signed then encrypted</b>, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section.</li> Because it is signed, the Request Object SHOULD contain the claims <i>"iss"</i> (issuer) and <i>"aud"</i> (audience) as members. The <i>"iss"</i> value SHOULD be your Client ID. The <i>"aud"</i> value SHOULD be <i>"https://merchant.itsme.be/oidc/authorization"</i>.</li>
-  <li>You need to store the Request Object resource either locally or remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>"request_uri"</i>.
+  <li>You need to store the Request Object resource remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>"request_uri"</i>. Usage of 'localhost' is not permitted.
   <li>The Request URI MUST contain the port 443 as in this example: https://test.istme.be:443/p/test.</li>
   <li>The Request URI value is a URL using the <i>https</i> scheme.</li>
 </ol>
@@ -1494,10 +1497,19 @@ Raw Request Object (not signed, not encrypted):<br></br>
 
 <ul>
   <li>Use the standard character encodings ISO8859-1 for the text.</li>
-  <li>Supported formatting tags are: <u>underlined text</u>, <i>emphasized text</i>, <b>bold text</b> and <br>new line</br>. Tags that are not listed will be ignored.
+  <li>Supported formatting tags are listed in section <a href="FormattingTags">Formatting tags</a>
 </ul>
 <h2 id='5-5-supported-character-set'>5.5 Supported character set</h2>
 <p>The character set we support for free text fields is ISO 8859-15. You can buy the specification on <a href="https://www.iso.org/standard/29505.html">ISO website</a> or find a free version on <a href="https://en.wikipedia.org/wiki/ISO/IEC_8859-15#Codepage_layout">Wikipedia</a>. You might be interested in knowing that, although most usual characters are supported, some softwares-generated characters like curly apostrophes and long dashes are not part of ISO 8859-15. If you provide a non-supported character in a free text field the flow will be stopped and you will receive an error message back.</p>
+
+<p><a name="FormattingTags"></a></p>
+<h2 id='5-6-supported-formatting-tags'>5.6 Supported formatting tags</h2>
+<p>We currently have support for the following HTML tags in the FREE_TEXT format:
+- &lt; b &gt;
+- &lt; i &gt;
+- &lt; u &gt;
+- &lt; br &gt;
+Some other tags (like &lt; h1 &gt;) are properly rendered in the itsme app but are not actively supported. We thus advise not to use them. Tags that are not rendered are ignored.</p>
 
       </div>
       <div class="dark-box">
