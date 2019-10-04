@@ -417,6 +417,7 @@ Parameter | Description
 **http://itsme.services/v2/claim/place_of_birth** | It will request the place of Birth claim. This will return a JSON object composed of the city of birth and country of birth.
 **http://itsme.services/v2/claim/BEeidSn**  | It will request the serial number of the eID card. NOTE: in OpenID V1, there was a claim returning a JSON object composed of the NRN, the eID SN and the metadata about the eID card. This claim no longer exists. NRN has a separate claim, and metadata are not available anymore.
 **http://itsme.services/v2/claim/BENationalNumber**  | It will request the serial number of the eID card. NOTE: in OpenID V1, there was a claim returning a JSON object composed of the NRN, the eID SN and the metadata about the eID card. This claim no longer exists. eID SN has a separate claim, and metadata are not available anymore.
+**http://itsme.services/v2/claim/transaction_info** | It will request the <i>"securityLevel"</i>, <i>"bindLevel"</i> and <i>"mcc"</i> claims.
 **http://itsme.services/v2/claim/claim_device** | It will request the <i>"os"</i>, <i>"appName"</i>, <i>"appRelease"</i>, <i>"deviceLabel"</i>, <i>"debugEnabled"</i>, <i>"deviceID"</i>, <i>"osRelease"</i>, <i>"manufacturer"</i>, <i>"hasSimEnabled"</i>, <i>"deviceLockLevel"</i>, <i>"smsEnabled"</i>, <i>"rooted"</i>, <i>"imei"</i>, <i>"deviceModel"</i> and <i>"sdkRelease"</i> claims.
 **http://itsme.services/v2/claim/claim_luxtrust_ssn** | It will request the serial number of the LuxTrust certificate for this user.
 
@@ -446,6 +447,9 @@ Values | Returned when requested | Description
 **deviceModel** | Always | The model of the device (e.g. iPhone 7)
 **sdkRelease** | Always | The version of sdk on this device.
 **e-ID Picture** | Optional | itsme(r) does not possess this information for every account.
+**securityLevel** | If requested | The security level used during transaction. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
+**bindLevel** | If requested | It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
+**mcc** | If requested | The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country.
 
 
 # 4. Mapping the User
