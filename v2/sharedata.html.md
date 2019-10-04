@@ -418,8 +418,9 @@ Parameter | Description
 **http://itsme.services/v2/claim/place_of_birth** | It will request the place of Birth claim. This will return a JSON object composed of the city of birth and country of birth.
 **http://itsme.services/v2/claim/BEeidSn**  | It will request the serial number of the eID card. NOTE: in OpenID V1, there was a claim returning a JSON object composed of the NRN, the eID SN and the metadata about the eID card. This claim no longer exists. NRN has a separate claim, and metadata are not available anymore.
 **http://itsme.services/v2/claim/BENationalNumber**  | It will request the serial number of the eID card. NOTE: in OpenID V1, there was a claim returning a JSON object composed of the NRN, the eID SN and the metadata about the eID card. This claim no longer exists. eID SN has a separate claim, and metadata are not available anymore.
+**http://itsme.services/v2/claim/transaction_info** | It will request the <i>"securityLevel"</i>, <i>"bindLevel"</i> and <i>"mcc"</i> claims.
 **http://itsme.services/v2/claim/claim_device** | It will request the <i>"os"</i>, <i>"appName"</i>, <i>"appRelease"</i>, <i>"deviceLabel"</i>, <i>"debugEnabled"</i>, <i>"deviceID"</i>, <i>"osRelease"</i>, <i>"manufacturer"</i>, <i>"hasSimEnabled"</i>, <i>"deviceLockLevel"</i>, <i>"smsEnabled"</i>, <i>"rooted"</i>, <i>"imei"</i>, <i>"deviceModel"</i> and <i>"sdkRelease"</i> claims.
-**http://itsme.services/v2/claim/claim_luxtrust_ssn** | It will request the SSN of the LuxTrust certificate
+**http://itsme.services/v2/claim/claim_luxtrust_ssn** | It will request the serial number of the LuxTrust certificate for this user.
 
 The values returned via the itsme® userInfo Endpoint are those below:
 
@@ -428,14 +429,9 @@ The values returned via the itsme® userInfo Endpoint are those below:
 Values | Returned when requested | Description
 :-- | :-- | :-- 
 **nationality** | Optional | itsme(r) does not possess this information for every account. 
-**place of Birth - city** | Always | 
-**eid** | Always | The eID card serial number.
-**issuance_locality**  | Optional | The eID card issuance locality. itsme(r) does not possess this information for every account.
-**validity_from** | Optional | The eID card validity “from” date. itsme(r) does not possess this information for every account.
-**validity_to** | Optional | The eID card validity “to” date. itsme(r) does not possess this information for every account.
-**certificate_validity** | Optional | The eID card certificate validity. itsme(r) does not possess this information for every account.
-**read_date** | Optional | The data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000). itsme(r) does not possess this information for every account.
-**national_number** | Always | The Belgian National Register Number.
+**place of Birth** | Optional | itsme(r) does not possess this information for every account. 
+**eid** | Optional | The eID card serial number. itsme(r) does not possess this information for every account. 
+**national_number** | Optional | The Belgian National Register Number. itsme(r) does not possess this information for every account. 
 **os** | Always | The device operating system. The returned values will be <i>"ANDROID"</i> or <i>"iOS"</i>
 **appName** | Always | The application name.
 **appRelease** | Always | The application current release.
@@ -452,6 +448,9 @@ Values | Returned when requested | Description
 **deviceModel** | Always | The model of the device (e.g. iPhone 7)
 **sdkRelease** | Always | The version of sdk on this device.
 **e-ID Picture** | Optional | itsme(r) does not possess this information for every account.
+**securityLevel** | If requested | The security level used during transaction. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
+**bindLevel** | If requested | It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
+**mcc** | If requested | The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country.
 
 
 # 4. Mapping the User
