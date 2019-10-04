@@ -129,7 +129,7 @@ The following is a non-normative example of a request that would be sent to the 
     &request_uri=https://test.istme.be:443/p/test<br></br>
 Raw Request Object (not signed, not encrypted):<br></br>
     {
-      "aud": "https://merchant.itsme.be/oidc/authorization",
+      "aud": "https://idp.prd.itsme.services/v2/authorization",
       "scope": "openid service:TEST_code profile email",
       "redirect_uri": "https://test.istme.be",
       "response_type":"code",
@@ -251,7 +251,7 @@ Parameter | Required | Description
 :-- | :-- | :-- 
 **iss** | Required | The issuer of the <i>"private_key_jwt"</i>. This MUST contain the <i>"client_id"</i>. This is the client identifier (e.g. : Project ID) you received when registering your project in the [itsme® B2B portal](#Onboarding).
 **sub** | Required | The subject of the <i>"private_key_jwt"</i>. This MUST contain the <i>"client_id"</i>. This is the client identifier (e.g. : Project ID) you received when registering your project in the [itsme® B2B portal](#Onboarding).
-**aud** | Required | Value that identifies the Authorization Server as an intended audience. This MUST be the itsme® Token Endpoint URL: <i>"https://merchant.itsme.be/oidc/token"</i>.
+**aud** | Required | Value that identifies the Authorization Server as an intended audience. This MUST be the itsme® Token Endpoint URL: <i>"https://idp.prd.itsme.services/v2/token"</i>.
 **jti** | Required | The <i>"jti"</i> (JWT ID) claim provides a unique identifier for the JWT. The identifier value MUST be assigned by the you in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object; if the application uses multiple issuers, collisions MUST be prevented among values produced by different issuers as well.  The <i>"jti"</i> claim can be used  to prevent the JWT from being replayed. The <i>"jti"</i> value is a case-sensitive string. 
 **exp** | Required | The <i>"exp"</i> (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing.  The processing of the <i>"exp"</i> claim requires that the current date/time MUST be before the expiration date/time listed in the <i>"exp"</i> claim. Implementers MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew.  Its value is a JSON number representing the number of seconds from 1970-01-01T0:0:0Z as measured in UTC until the date/time.
 
@@ -344,7 +344,7 @@ The response will contain an error parameter and optionally <i>"error_descriptio
 
 OpenID Connect Core specifications also allow your application to obtain basic profile information about a specific User in a interoperable way. This is achieved by sending a HTTPS GET request to the itsme® userInfo Endpoint, passing the Access Token value in the Authorization header using the Bearer authentication scheme. The itsme userInfo Endpoint URI can be retrieved from the [itsme® Discovery document](#OpenIDConfig), using the key <i>"userinfo_endpoint"</i>.
 
-<code style=display:block;white-space:pre-wrap>GET https://merchant.itsme.be/oidc/userinfo HTTP/1.1
+<code style=display:block;white-space:pre-wrap>GET https://idp.prd.itsme.services/v2/userinfo HTTP/1.1
 Authorization: Bearer <access token></code>
 
 ### Managing the userInfo Response 
@@ -394,17 +394,17 @@ Values |	Returned when request |	Description
 :--- | :--- | :---
 **family_name** | Always | 
 **given_name** | Always | 
-**gender** | Always | Is either 'male' or 'female' 
-**birthdate** | Always | In YYYY-MM-DD format
+**gender** | Optional | Is either 'male' or 'female' itsme(r) does not possess this information for every account. 
+**birthdate** | Optional | In YYYY-MM-DD format. itsme(r) does not possess this information for every account. 
 **locale** | Optional | The language of the User. itsme(r) does not possess this information for every account. Can currently only be 'en', 'fr', 'nl' or 'de'.
 **email** | Optional | The User's email address. This may not be unique and is not suitable for use as a primary key. Provided only if your scope included the string "email". itsme(r) does not possess this information for every account.
 **email_verified** | Optional | <i>"true"</i> if the User's e-mail address has been verified; otherwise <i>"false"</i>. Is always returned if email is returned. Is currently always set to 'false'.
 **phone_number** | Always | In "prefix number" format. For instance: "+32 422010099"
 **phone_number_verified** | Always | Boolean
-**address** | Always
-**street_address** | Always | As member of address JSON object
-**locality** | Always | As member of address JSON object
-**postal_code** | Always | As member of address JSON object
+**address** | Optional | itsme(r) does not possess this information for every account. 
+**street_address** | Optional | As member of address JSON object
+**locality** | Optional | As member of address JSON object
+**postal_code** | Optional | As member of address JSON object
 **country** | Optional | As member of address JSON object. itsme(r) does not possess this information for every account. 
 
 ###  Capturing claims from the 'claims' parameter
@@ -418,7 +418,7 @@ Parameter | Description
 **http://itsme.services/v2/claim/BEeidSn**  | It will request the serial number of the eID card. NOTE: in OpenID V1, there was a claim returning a JSON object composed of the NRN, the eID SN and the metadata about the eID card. This claim no longer exists. NRN has a separate claim, and metadata are not available anymore.
 **http://itsme.services/v2/claim/BENationalNumber**  | It will request the serial number of the eID card. NOTE: in OpenID V1, there was a claim returning a JSON object composed of the NRN, the eID SN and the metadata about the eID card. This claim no longer exists. eID SN has a separate claim, and metadata are not available anymore.
 **http://itsme.services/v2/claim/claim_device** | It will request the <i>"os"</i>, <i>"appName"</i>, <i>"appRelease"</i>, <i>"deviceLabel"</i>, <i>"debugEnabled"</i>, <i>"deviceID"</i>, <i>"osRelease"</i>, <i>"manufacturer"</i>, <i>"hasSimEnabled"</i>, <i>"deviceLockLevel"</i>, <i>"smsEnabled"</i>, <i>"rooted"</i>, <i>"imei"</i>, <i>"deviceModel"</i> and <i>"sdkRelease"</i> claims.
-**tag:sixdots.be,2017-05:claim_photo** | It will request the <i>"e-ID Picture"</i> claim.
+**http://itsme.services/v2/claim/claim_luxtrust_ssn** | It will request the 
 
 The values returned via the itsme® userInfo Endpoint are those below:
 
@@ -427,9 +427,9 @@ The values returned via the itsme® userInfo Endpoint are those below:
 Values | Returned when requested | Description
 :-- | :-- | :-- 
 **nationality** | Optional | itsme(r) does not possess this information for every account. 
-**place of Birth** | Always | 
-**eid** | Always | The eID card serial number.
-**national_number** | Always | The Belgian National Register Number.
+**place of Birth** | Optional | itsme(r) does not possess this information for every account. 
+**eid** | Optional | The eID card serial number. itsme(r) does not possess this information for every account. 
+**national_number** | Optional | The Belgian National Register Number. itsme(r) does not possess this information for every account. 
 **os** | Always | The device operating system. The returned values will be <i>"ANDROID"</i> or <i>"iOS"</i>
 **appName** | Always | The application name.
 **appRelease** | Always | The application current release.
@@ -659,7 +659,7 @@ The following validations should be done when using the <i>"request_uri"</i> par
 <ol>
   <li>The values for the <i>"response_type"</i> and <i>"client_id"</i> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li>
   <li>Even if a <i>"scope"</i> parameter is present in the Request Object value, a <i>"scope"</i> parameter – containing the <i>"openid"</i> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li>
-  <li>The Request Object MAY be <b>signed</b> using the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Signature</a> (JWS). If signed, the Request Object SHOULD contain the claims <i>"iss"</i> (issuer) and <i>"aud"</i> (audience) as members. The <i>"iss"</i> value SHOULD be your Client ID. The <i>"aud"</i> value SHOULD be <i>"https://merchant.itsme.be/oidc/authorization"</i>.</li>
+  <li>The Request Object MAY be <b>signed</b> using the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Signature</a> (JWS). If signed, the Request Object SHOULD contain the claims <i>"iss"</i> (issuer) and <i>"aud"</i> (audience) as members. The <i>"iss"</i> value SHOULD be your Client ID. The <i>"aud"</i> value SHOULD be <i>"https://idp.prd.itsme.services/v2/authorization"</i>.</li>
   <li>The Request Object MAY also be <b>encrypted</b> using <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Encryption</a> (JWE). In this case, it MUST be signed then encrypted, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section.</li>
   <li>You need to store the Request Object resource remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>"request_uri"</i>. Usage of 'localhost' is not permitted.
   <li>The Request URI MUST contain the port 443 as in this example: https://test.istme.be:443/p/test.</li>
@@ -677,7 +677,7 @@ Enclosed you will find a non-normative example of an Authorization Request using
     &request_uri=https://test.istme.be:443/p/test<br></br>
 Raw Request Object (not signed, not encrypted):<br></br>
     {
-      "aud": "https://merchant.itsme.be/oidc/authorization",
+      "aud": "https://idp.prd.itsme.services/v2/authorization",
       "scope": "openid service:TEST_code profile email",
       "redirect_uri": "https://test.istme.be",
       "response_type":"code",
