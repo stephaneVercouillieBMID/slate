@@ -418,7 +418,7 @@ Parameter | Description
 **http://itsme.services/v2/claim/BEeidSn**  | It will request the serial number of the eID card. NOTE: in OpenID V1, there was a claim returning a JSON object composed of the NRN, the eID SN and the metadata about the eID card. This claim no longer exists. NRN has a separate claim, and metadata are not available anymore.
 **http://itsme.services/v2/claim/BENationalNumber**  | It will request the serial number of the eID card. NOTE: in OpenID V1, there was a claim returning a JSON object composed of the NRN, the eID SN and the metadata about the eID card. This claim no longer exists. eID SN has a separate claim, and metadata are not available anymore.
 **http://itsme.services/v2/claim/claim_device** | It will request the <i>"os"</i>, <i>"appName"</i>, <i>"appRelease"</i>, <i>"deviceLabel"</i>, <i>"debugEnabled"</i>, <i>"deviceID"</i>, <i>"osRelease"</i>, <i>"manufacturer"</i>, <i>"hasSimEnabled"</i>, <i>"deviceLockLevel"</i>, <i>"smsEnabled"</i>, <i>"rooted"</i>, <i>"imei"</i>, <i>"deviceModel"</i> and <i>"sdkRelease"</i> claims.
-**http://itsme.services/v2/claim/claim_luxtrust_ssn** | It will request the 
+**http://itsme.services/v2/claim/claim_luxtrust_ssn** | It will request the serial number of the LuxTrust certificate for this user.
 
 The values returned via the itsme® userInfo Endpoint are those below:
 
