@@ -359,9 +359,8 @@ The itsme® userInfo Endpoint will return a HTTP 200 OK response and the User cl
    "name": "Jane Doe",
    "given_name": "Jane",
    "family_name": "Doe",
-   "preferred_username": "j.doe",
    "email": "janedoe@example.com",
-   "picture": "http://example.com/janedoe/me.jpg"
+   "picture": "[Base 64 encoded picture]"
   }</code>
 
 <aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
@@ -396,17 +395,18 @@ Values |	Returned when request |	Description
 :--- | :--- | :---
 **family_name** | Always | 
 **given_name** | Always | 
-**gender** | Always | 
-**birthdate** | Always | 
+**gender** | Always | Is either 'male' or 'female'.
+**birthdate** | Always | In YYYY-MM-DD format.
 **locale** | Optional | The language of the User. itsme(r) does not possess this information for every account.
 **email** | Optional | The User's email address. This may not be unique and is not suitable for use as a primary key. Provided only if your scope included the string "email". itsme(r) does not possess this information for every account.
 **email_verified** | Optional | <i>"true"</i> if the User's e-mail address has been verified; otherwise <i>"false"</i>. Is always returned if email is returned. Is currently always set to 'false'.
-**phone_number** | Always | 
-**phone_number_verified** | Always | 
-**street_address** | Always | 
-**locality** | Always | 
-**postal_code** | Always | 
-**country** | Optional | itsme(r) does not possess this information for every account. 
+**phone_number** | Always | In "prefix number" format. For instance: "+32 422010099"
+**phone_number_verified** | Always | Boolean
+**address** | Optional |
+**street_address** | Optional | As member of address JSON object
+**locality** | Optional | As member of address JSON object
+**postal_code** | Optional | As member of address JSON object
+**country** | Optional | As member of address JSON object. itsme(r) does not possess this information for every account. 
 
 ###  Capturing claims from the 'claims' parameter
 
