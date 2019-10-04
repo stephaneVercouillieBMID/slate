@@ -786,9 +786,8 @@ Authorization: Bearer <access token></code></p>
    &quot;name&quot;: &quot;Jane Doe&quot;,
    &quot;given_name&quot;: &quot;Jane&quot;,
    &quot;family_name&quot;: &quot;Doe&quot;,
-   &quot;preferred_username&quot;: &quot;j.doe&quot;,
    &quot;email&quot;: &quot;janedoe@example.com&quot;,
-   &quot;picture&quot;: &quot;http://example.com/janedoe/me.jpg&quot;
+   &quot;picture&quot;: &quot;[Base 64 encoded picture]&quot;
   }</code></p>
 
 <aside class="notice">For privacy reasons itsme® may elect to not return values for some requested claims. In that case the claim will be omitted from the JSON object rather than being present with a null or empty string value.</aside>
@@ -852,12 +851,12 @@ Authorization: Bearer <access token></code></p>
 <tr>
 <td style="text-align: left"><strong>gender</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">Is either &#39;male&#39; or &#39;female&#39;.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>birthdate</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">In YYYY-MM-DD format.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>locale</strong></td>
@@ -877,32 +876,37 @@ Authorization: Bearer <access token></code></p>
 <tr>
 <td style="text-align: left"><strong>phone_number</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">In &quot;prefix number&quot; format. For instance: &quot;+32 422010099&quot;</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>phone_number_verified</strong></td>
 <td style="text-align: left">Always</td>
+<td style="text-align: left">Boolean</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>address</strong></td>
+<td style="text-align: left">Optional</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>street_address</strong></td>
-<td style="text-align: left">Always</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">As member of address JSON object</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>locality</strong></td>
-<td style="text-align: left">Always</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">As member of address JSON object</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>postal_code</strong></td>
-<td style="text-align: left">Always</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">As member of address JSON object</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>country</strong></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">itsme(r) does not possess this information for every account.</td>
+<td style="text-align: left">As member of address JSON object. itsme(r) does not possess this information for every account.</td>
 </tr>
 </tbody></table>
 <h3 id='capturing-claims-from-the-39-claims-39-parameter'>Capturing claims from the &#39;claims&#39; parameter</h3>
