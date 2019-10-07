@@ -919,7 +919,7 @@ Authorization: Bearer <access token></code></p>
 <table><thead>
 <tr>
 <th style="text-align: left">Values</th>
-<th style="text-align: left">Returned when request</th>
+<th style="text-align: left">Returned</th>
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
@@ -935,63 +935,63 @@ Authorization: Bearer <access token></code></p>
 </tr>
 <tr>
 <td style="text-align: left"><strong>gender</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">Is either &#39;male&#39; or &#39;female&#39; itsme(r) does not possess this information for every account.</td>
+<td style="text-align: left">If requested</td>
+<td style="text-align: left">Is either <i>&quot;male&quot;</i> or <i>&quot;female&quot;</i>. itsme® does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>birthdate</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">In YYYY-MM-DD format. itsme(r) does not possess this information for every account.</td>
+<td style="text-align: left">If requested</td>
+<td style="text-align: left">In YYYY-MM-DD format. itsme® does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>locale</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">The language of the User. itsme(r) does not possess this information for every account. Can currently only be &#39;en&#39;, &#39;fr&#39;, &#39;nl&#39; or &#39;de&#39;.</td>
+<td style="text-align: left">If requested</td>
+<td style="text-align: left">The language of the User. itsme® does not possess this information for every account. Can currently only be &#39;en&#39;, &#39;fr&#39;, &#39;nl&#39; or &#39;de&#39;.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>email</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">The User&#39;s email address. This may not be unique and is not suitable for use as a primary key. Provided only if your scope included the string &quot;email&quot;. itsme(r) does not possess this information for every account.</td>
+<td style="text-align: left">If requested</td>
+<td style="text-align: left">The User&#39;s email address. This MAY NOT be unique and is not suitable for use as a primary key. Provided only if your <i>&quot;scope&quot;</i> included the string <i>&quot;email&quot;</i>. itsme® does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>email_verified</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left"><i>&quot;true&quot;</i> if the User&#39;s e-mail address has been verified; otherwise <i>&quot;false&quot;</i>. Is always returned if email is returned. Is currently always set to &#39;false&#39;.</td>
+<td style="text-align: left">If requested</td>
+<td style="text-align: left"><i>&quot;true&quot;</i> if the User&#39;s e-mail address has been verified; otherwise <i>&quot;false&quot;</i>. Is always returned if <i>&quot;email&quot;</i> is returned. Is currently always set to <i>&quot;false&quot;</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>phone_number</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">In &quot;prefix number&quot; format. For instance: &quot;+32 422010099&quot;</td>
+<td style="text-align: left">In prefix number format. For instance: &#39;+32 422010099&#39;.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>phone_number_verified</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">Boolean</td>
+<td style="text-align: left">Boolean.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>address</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">itsme(r) does not possess this information for every account.</td>
+<td style="text-align: left">If requested</td>
+<td style="text-align: left">itsme® does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>street_address</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">As member of address JSON object</td>
+<td style="text-align: left">If requested</td>
+<td style="text-align: left">As member of address JSON object.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>locality</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">As member of address JSON object</td>
+<td style="text-align: left">If requested</td>
+<td style="text-align: left">As member of address JSON object.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>postal_code</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">As member of address JSON object</td>
+<td style="text-align: left">If requested</td>
+<td style="text-align: left">As member of address JSON object.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>country</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">As member of address JSON object. itsme(r) does not possess this information for every account.</td>
+<td style="text-align: left">If requested</td>
+<td style="text-align: left">As member of address JSON object. itsme® does not possess this information for every account.</td>
 </tr>
 </tbody></table>
 <h3 id='capturing-claims-from-the-39-claims-39-parameter'>Capturing claims from the &#39;claims&#39; parameter</h3>
@@ -1005,31 +1005,31 @@ Authorization: Bearer <access token></code></p>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_citizenship</strong></td>
-<td style="text-align: left">It will request the nationality claim.</td>
+<td style="text-align: left">It will request the <i>&quot;nationality&quot;</i> claim.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/claim/place_of_birth</strong></td>
-<td style="text-align: left">It will request the place of Birth claim. This will return a JSON object composed of the city of birth and country of birth.</td>
+<td style="text-align: left">It will request the <i>&quot;place of Birth&quot;</i> and the <i>&quot;country of Birth&quot;</i> claim.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/claim/BEeidSn</strong></td>
-<td style="text-align: left">It will request the serial number of the eID card. NOTE: in OpenID V1, there was a claim returning a JSON object composed of the NRN, the eID SN and the metadata about the eID card. This claim no longer exists. NRN has a separate claim, and metadata are not available anymore.</td>
+<td style="text-align: left">It will request the <i>&quot;serial number of the eID card&quot;</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/claim/BENationalNumber</strong></td>
-<td style="text-align: left">It will request the serial number of the eID card. NOTE: in OpenID V1, there was a claim returning a JSON object composed of the NRN, the eID SN and the metadata about the eID card. This claim no longer exists. eID SN has a separate claim, and metadata are not available anymore.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/claim/transaction_info</strong></td>
-<td style="text-align: left">It will request the <i>&quot;securityLevel&quot;</i>, <i>&quot;bindLevel&quot;</i> and <i>&quot;mcc&quot;</i> claims.</td>
+<td style="text-align: left">It will request the <i>&quot;Belgian National Register Number&quot;</i> of the User.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_device</strong></td>
 <td style="text-align: left">It will request the <i>&quot;os&quot;</i>, <i>&quot;appName&quot;</i>, <i>&quot;appRelease&quot;</i>, <i>&quot;deviceLabel&quot;</i>, <i>&quot;debugEnabled&quot;</i>, <i>&quot;deviceID&quot;</i>, <i>&quot;osRelease&quot;</i>, <i>&quot;manufacturer&quot;</i>, <i>&quot;hasSimEnabled&quot;</i>, <i>&quot;deviceLockLevel&quot;</i>, <i>&quot;smsEnabled&quot;</i>, <i>&quot;rooted&quot;</i>, <i>&quot;imei&quot;</i>, <i>&quot;deviceModel&quot;</i> and <i>&quot;sdkRelease&quot;</i> claims.</td>
 </tr>
 <tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/claim/transaction_info</strong></td>
+<td style="text-align: left">It will request the <i>&quot;securityLevel&quot;</i>, <i>&quot;bindLevel&quot;</i> and <i>&quot;mcc&quot;</i> claims.</td>
+</tr>
+<tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_luxtrust_ssn</strong></td>
-<td style="text-align: left">It will request the serial number of the LuxTrust certificate for this user.</td>
+<td style="text-align: left">It will request the <i>&quot;serial number of the LuxTrust certificate&quot;</i> for this User.</td>
 </tr>
 </tbody></table>
 
@@ -1040,29 +1040,34 @@ Authorization: Bearer <access token></code></p>
 <table><thead>
 <tr>
 <th style="text-align: left">Values</th>
-<th style="text-align: left">Returned when requested</th>
+<th style="text-align: left">Returned</th>
 <th style="text-align: left">Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>nationality</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">itsme(r) does not possess this information for every account.</td>
+<td style="text-align: left">If requested</td>
+<td style="text-align: left">itsme® does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>place of Birth</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">itsme(r) does not possess this information for every account.</td>
+<td style="text-align: left">If requested</td>
+<td style="text-align: left">itsme® does not possess this information for every account.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>country of Birth</strong></td>
+<td style="text-align: left">If requested</td>
+<td style="text-align: left">itsme® does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>eid</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">The eID card serial number. itsme(r) does not possess this information for every account.</td>
+<td style="text-align: left">If requested</td>
+<td style="text-align: left">The eID card serial number. itsme® does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>national_number</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">The Belgian National Register Number. itsme(r) does not possess this information for every account.</td>
+<td style="text-align: left">If requested</td>
+<td style="text-align: left">The Belgian National Register Number. itsme® does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>os</strong></td>
@@ -1082,7 +1087,7 @@ Authorization: Bearer <access token></code></p>
 <tr>
 <td style="text-align: left"><strong>deviceLabel</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">The name of the device. itsme(r) does not possess this information for every account.</td>
+<td style="text-align: left">The name of the device. itsme® does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>debugEnabled</strong></td>
@@ -1141,7 +1146,7 @@ Authorization: Bearer <access token></code></p>
 </tr>
 <tr>
 <td style="text-align: left"><strong>e-ID Picture</strong></td>
-<td style="text-align: left">Optional</td>
+<td style="text-align: left">If requested</td>
 <td style="text-align: left">itsme(r) does not possess this information for every account.</td>
 </tr>
 <tr>
@@ -1158,6 +1163,11 @@ Authorization: Bearer <access token></code></p>
 <td style="text-align: left"><strong>mcc</strong></td>
 <td style="text-align: left">If requested</td>
 <td style="text-align: left">The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>SNN</strong></td>
+<td style="text-align: left">If requested</td>
+<td style="text-align: left">The LuxTrust certificate serial number. itsme® does not possess this information for every account.</td>
 </tr>
 </tbody></table>
 <h1 id='4-mapping-the-user'>4. Mapping the User</h1>
