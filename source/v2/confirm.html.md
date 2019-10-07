@@ -392,22 +392,22 @@ Parameter | Description
 
 The values returned via the itsme® userInfo Endpoint are those below:
 
-Values |	Returned when request |	Description
+Values |	Returned |	Description
 :--- | :--- | :---
 **family_name** | Always | 
 **given_name** | Always | 
-**gender** | Optional | Is either 'male' or 'female' itsme(r) does not possess this information for every account. 
-**birthdate** | Optional | In YYYY-MM-DD format. itsme(r) does not possess this information for every account. 
-**locale** | Optional | The language of the User. itsme(r) does not possess this information for every account. Can currently only be 'en', 'fr', 'nl' or 'de'.
-**email** | Optional | The User's email address. This may not be unique and is not suitable for use as a primary key. Provided only if your scope included the string "email". itsme(r) does not possess this information for every account.
-**email_verified** | Optional | <i>"true"</i> if the User's e-mail address has been verified; otherwise <i>"false"</i>. Is always returned if email is returned. Is currently always set to 'false'.
-**phone_number** | Always | In "prefix number" format. For instance: "+32 422010099"
-**phone_number_verified** | Always | Boolean
-**address** | Optional | itsme(r) does not possess this information for every account. 
-**street_address** | Optional | As member of address JSON object
-**locality** | Optional | As member of address JSON object
-**postal_code** | Optional | As member of address JSON object
-**country** | Optional | As member of address JSON object. itsme(r) does not possess this information for every account. 
+**gender** | If requested | Is either <i>"male"</i> or <i>"female"</i>. itsme® does not possess this information for every account. 
+**birthdate** | If requested | In YYYY-MM-DD format. itsme® does not possess this information for every account. 
+**locale** | If requested | The language of the User. itsme® does not possess this information for every account. Can currently only be 'en', 'fr', 'nl' or 'de'.
+**email** | If requested | The User's email address. This MAY NOT be unique and is not suitable for use as a primary key. Provided only if your <i>"scope"</i> included the string <i>"email"</i>. itsme® does not possess this information for every account.
+**email_verified** | If requested | <i>"true"</i> if the User's e-mail address has been verified; otherwise <i>"false"</i>. Is always returned if <i>"email"</i> is returned. Is currently always set to <i>"false"</i>.
+**phone_number** | Always | In prefix number format. For instance: '+32 422010099'.
+**phone_number_verified** | Always | Boolean.
+**address** | If requested | itsme® does not possess this information for every account. 
+**street_address** | If requested | As member of address JSON object.
+**locality** | If requested | As member of address JSON object.
+**postal_code** | If requested | As member of address JSON object.
+**country** | If requested | As member of address JSON object. itsme® does not possess this information for every account. 
 
 ###  Capturing claims from the 'claims' parameter
 
@@ -415,28 +415,29 @@ Typically, the values returned via the <i>"scope"</i> parameter only contain cla
 
 Parameter | Description
 :-- | :-- 
-**http://itsme.services/v2/claim/claim_citizenship** | It will request the nationality claim.
-**http://itsme.services/v2/claim/place_of_birth** | It will request the place of Birth claim. This will return a JSON object composed of the city of birth and country of birth.
-**http://itsme.services/v2/claim/BEeidSn**  | It will request the serial number of the eID card. NOTE: in OpenID V1, there was a claim returning a JSON object composed of the NRN, the eID SN and the metadata about the eID card. This claim no longer exists. NRN has a separate claim, and metadata are not available anymore.
-**http://itsme.services/v2/claim/BENationalNumber**  | It will request the serial number of the eID card. NOTE: in OpenID V1, there was a claim returning a JSON object composed of the NRN, the eID SN and the metadata about the eID card. This claim no longer exists. eID SN has a separate claim, and metadata are not available anymore.
-**http://itsme.services/v2/claim/transaction_info** | It will request the <i>"securityLevel"</i>, <i>"bindLevel"</i> and <i>"mcc"</i> claims.
+**http://itsme.services/v2/claim/claim_citizenship** | It will request the <i>"nationality"</i> claim.
+**http://itsme.services/v2/claim/place_of_birth** | It will request the <i>"place of Birth"</i> and the <i>"country of Birth"</i> claim. 
+**http://itsme.services/v2/claim/BEeidSn**  | It will request the <i>"serial number of the eID card"</i>. 
+**http://itsme.services/v2/claim/BENationalNumber**  | It will request the <i>"Belgian National Register Number"</i> of the User. 
 **http://itsme.services/v2/claim/claim_device** | It will request the <i>"os"</i>, <i>"appName"</i>, <i>"appRelease"</i>, <i>"deviceLabel"</i>, <i>"debugEnabled"</i>, <i>"deviceID"</i>, <i>"osRelease"</i>, <i>"manufacturer"</i>, <i>"hasSimEnabled"</i>, <i>"deviceLockLevel"</i>, <i>"smsEnabled"</i>, <i>"rooted"</i>, <i>"imei"</i>, <i>"deviceModel"</i> and <i>"sdkRelease"</i> claims.
-**http://itsme.services/v2/claim/claim_luxtrust_ssn** | It will request the serial number of the LuxTrust certificate for this user.
+**http://itsme.services/v2/claim/transaction_info** | It will request the <i>"securityLevel"</i>, <i>"bindLevel"</i> and <i>"mcc"</i> claims.
+**http://itsme.services/v2/claim/claim_luxtrust_ssn** | It will request the <i>"serial number of the LuxTrust certificate"</i> for this User.
 
 The values returned via the itsme® userInfo Endpoint are those below:
 
 <a name id="SecurityDataElements"></a>
 
-Values | Returned when requested | Description
+Values | Returned | Description
 :-- | :-- | :-- 
-**nationality** | Optional | itsme(r) does not possess this information for every account. 
-**place of Birth** | Optional | itsme(r) does not possess this information for every account. 
-**eid** | Optional | The eID card serial number. itsme(r) does not possess this information for every account. 
-**national_number** | Optional | The Belgian National Register Number. itsme(r) does not possess this information for every account. 
+**nationality** | If requested | itsme® does not possess this information for every account. 
+**place of Birth** | If requested | itsme® does not possess this information for every account. 
+**country of Birth** | If requested | itsme® does not possess this information for every account. 
+**eid** | If requested | The eID card serial number. itsme® does not possess this information for every account. 
+**national_number** | If requested | The Belgian National Register Number. itsme® does not possess this information for every account. 
 **os** | Always | The device operating system. The returned values will be <i>"ANDROID"</i> or <i>"iOS"</i>
 **appName** | Always | The application name.
 **appRelease** | Always | The application current release.
-**deviceLabel** | Always | The name of the device. itsme(r) does not possess this information for every account.
+**deviceLabel** | Always | The name of the device. itsme® does not possess this information for every account.
 **debugEnabled**  | Always | <i>"True"</i> if debug mode has been activated; otherwise <i>"false"</i>.
 **deviceId** | Always | The device identifier.
 **osRelease** | Always | The version of the OS running on your device.
@@ -448,10 +449,12 @@ Values | Returned when requested | Description
 **imei** | Always | The device IMEI value.
 **deviceModel** | Always | The model of the device (e.g. iPhone 7)
 **sdkRelease** | Always | The version of sdk on this device.
-**e-ID Picture** | Optional | itsme(r) does not possess this information for every account.
+**e-ID Picture** | If requested | itsme(r) does not possess this information for every account.
 **securityLevel** | If requested | The security level used during transaction. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
 **bindLevel** | If requested | It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.
 **mcc** | If requested | The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country.
+**SNN** | If requested | The LuxTrust certificate serial number. itsme® does not possess this information for every account.
+
 
 # 4. Mapping the User
 
