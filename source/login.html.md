@@ -668,6 +668,7 @@ The following validations should be done when using the <i>"request_uri"</i> par
   <li>You need to store the Request Object resource remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>"request_uri"</i>. Usage of 'localhost' is not permitted.
   <li>The Request URI MUST contain the port 443 as in this example: https://test.istme.be:443/p/test.</li>
   <li>The Request URI value is a URL using the <i>https</i> scheme.</li>
+  <li>The Content-Type SHOULD be <i>"application"/jwt</i>
 </ol>
 
 Enclosed you will find a non-normative example of an Authorization Request using the <i>"request_uri"</i> parameter:
