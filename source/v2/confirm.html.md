@@ -741,8 +741,8 @@ The character set we support for free text fields is ISO 8859-15. You can buy th
 ## 5.6 Supported formatting tags
 
 We currently have support for the following HTML tags in the FREE_TEXT format:
-- &lt; b &gt;
-- &lt; i &gt;
-- &lt; u &gt;
-- &lt; br &gt;
-Some other tags (like &lt; h1 &gt;) are properly rendered in the itsme app but are not actively supported. We thus advise not to use them. Tags that are not rendered are ignored.
+- &lt;b&gt;
+- &lt;i&gt;
+- &lt;u&gt;
+- &lt;br&gt;
+Some other tags (like &lt;h1&gt;) are properly rendered in the itsme app but are not actively supported. We thus advise not to use them. Tags that are not rendered are ignored.
