@@ -251,9 +251,6 @@
                     <a href="#3-2-capturing-an-authorization-code" class="toc-h2 toc-link" data-title="3-2-capturing-an-authorization-code">3.2. Capturing an Authorization Code</a>
                   </li>
                   <li>
-                    <a href="#3-3-supporting-universal-links-and-app-links-mechanism" class="toc-h2 toc-link" data-title="3-3-supporting-universal-links-and-app-links-mechanism">3.3. Supporting Universal Links and App Links mechanism</a>
-                  </li>
-                  <li>
                     <a href="#3-4-exchanging-the-authorization-code" class="toc-h2 toc-link" data-title="3-4-exchanging-the-authorization-code">3.4. Exchanging the Authorization Code</a>
                   </li>
                   <li>
@@ -284,6 +281,9 @@
                   </li>
                   <li>
                     <a href="#5-5-supported-character-set" class="toc-h2 toc-link" data-title="5-5-supported-character-set">5.5 Supported character set</a>
+                  </li>
+                  <li>
+                    <a href="#3-3-supporting-universal-links-and-app-links-mechanism" class="toc-h2 toc-link" data-title="3-3-supporting-universal-links-and-app-links-mechanism">3.3. Supporting Universal Links and App Links mechanism</a>
                   </li>
               </ul>
           </li>
@@ -320,7 +320,7 @@
 <h2 id='2-2-crafting-your-cryptographic-keys-uri'>2.2. Crafting your cryptographic keys URI</h2>
 <p>Once you have created your organisation, the next step is to craft your cryptographic keys URI. Some itsme® endpoints require client authentication in order to protect entitlement information between interested parties. </p>
 
-<p>As itsme® only support the <i>&quot;private_key_jwt&quot;</i> client authentication method, it requires that each party exposes its public keys as a simple JWK Set document on a URI accessible to all, and keep its private set for itself. For itsme®, this URI can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the <i>&quot;jwks_uri&quot;</i> key.</p>
+<p>The OpenID Connect Core specifications support multiple authentication methods, but itsme® only supports <i>&quot;private_key_jwt&quot;</i> : it requires that each party exposes its public keys as a simple JWK Set document on a URI accessible to all, and keep its private set for itself. For itsme®, this URI can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the <i>&quot;jwks_uri&quot;</i> key.</p>
 
 <p>Your private and public keys can be generated via Yeoman. To get started, install Yeoman and generator-itsme with NPM:</p>
 
@@ -413,7 +413,7 @@
 <tr>
 <td style="text-align: left"><strong>client_id</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This is the client ID you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+<td style="text-align: left">This is the client ID you received after sharing your organisation details with us.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>response_type</strong></td>
@@ -428,122 +428,18 @@
 <tr>
 <td style="text-align: left"><strong>redirect_uri</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This is the URI to which the authentication response should be sent. This MUST exactly match the redirect URI, GET parameters included, of the specified service defined when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>. Please note in Sandbox environment, the redirect_uri is NOT checked. This allows you to test your integration locally.</td>
+<td style="text-align: left">This is the URI to which the authentication response will be sent. This URI MUST be whitelisted in our systems. So, don&#39;t forget to send your it by email to onboarding@itsme.be and we’ll make sure to complete the configuration for you in no time!<br>Please note that in E2E environment, the <i>&quot;redirect_uri&quot;</i> is NOT checked. This allows you to test your integration locally.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>request_uri</strong></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">This parameter enables OpenID Connect parameters to be passed by reference. The <i>&quot;request_uri&quot;</i> value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. <br>When the <i>&quot;request_uri&quot;</i> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax.</br><br>The following validations should be done when using the <i>&quot;request_uri&quot;</i> parameter:</br><br><ol><li>The values for the <i>&quot;response_type&quot;</i> and <i>&quot;client_id&quot;</i> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li><li>Even if a <i>&quot;scope&quot;</i> parameter is present in the Request Object value, a <i>&quot;scope&quot;</i> parameter – containing the <i>&quot;openid&quot;</i> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li><li>The Request Object MAY be <b>signed</b> using the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Signature</a> (JWS). If signed, the Request Object SHOULD contain the claims <i>&quot;iss&quot;</i> (issuer) and <i>&quot;aud&quot;</i> (audience) as members. The <i>&quot;iss&quot;</i> value SHOULD be your Client ID. The <i>&quot;aud&quot;</i> value SHOULD be <i>&quot;https://idp.prd.itsme.services/v2/authorization&quot;</i>.</li><li>The Request Object MAY also be <b>encrypted</b> using <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Encryption</a> (JWE). In this case, it MUST be signed then encrypted, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section.</li><li>You need to store the Request Object resource remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>&quot;request_uri&quot;</i>. Usage of &#39;localhost&#39; is not permitted.<li>The Request URI MUST contain the port 443 as in this example: https://test.istme.be:443/p/test.</li><li>The Request URI value is a URL using the <i>https</i> scheme.</li></ol></br></td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Description</th>
-<th style="text-align: left">Login</th>
-<th style="text-align: left">Share Data</th>
-<th style="text-align: left">Confirm</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><strong>client_id</strong></td>
-<td style="text-align: left">This is the client ID you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">Required</td>
+<td style="text-align: left">This parameter enables OpenID Connect parameters to be passed by reference. The <i>&quot;request_uri&quot;</i> value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. <br>When the <i>&quot;request_uri&quot;</i> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax.</br><br>The following validations should be done when using the <i>&quot;request_uri&quot;</i> parameter:</br><ul><li>The values for the <i>&quot;response_type&quot;</i> and <i>&quot;client_id&quot;</i> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li><li>Even if a <i>&quot;scope&quot;</i> parameter is present in the Request Object value, a <i>&quot;scope&quot;</i> parameter – containing the <i>&quot;openid&quot;</i> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li><li>The Request Object MUST be MUST be <b>signed</b> then <b>encrypted</b>, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section. As the Request Object is a nested JWT, it MUST contain the claims <i>&quot;iss&quot;</i> (issuer) and <i>&quot;aud&quot;</i> (audience) as members. The <i>&quot;iss&quot;</i> value MUST be your Client ID. The <i>&quot;aud&quot;</i> value MUST be <i>&quot;https://idp.prd.itsme.services/v2/authorization&quot;</i>.</li>&gt;<li>You need to store the Request Object resource remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>&quot;request_uri&quot;</i>. Usage of &#39;localhost&#39; is not permitted.<li>The Request URI MUST contain the port 443 as in this example: https://test.istme.be:443/p/test.</li><li>The Request URI value is a URL using the <i>https</i> scheme.</li></ul><br>Don&#39;t forget to send share this URI by email to onboarding@itsme.be and we’ll make sure to complete the configuration for you in no time!</br></td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>response_type</strong></td>
-<td style="text-align: left">This defines the processing flow to be used when forming the response. Because itsme® uses the Authorization Code Flow as described above, this value MUST be <i>&quot;code&quot;</i>.</td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">Required</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>scope</strong></td>
-<td style="text-align: left">The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>&quot;openid&quot;</i> and <i>&quot;service:TEST_code&quot;</i>, by replacing &quot;TEST_code&quot; with the service code you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br>You MAY also specify additional scopes, separated by spaces, to request more information about the User. Depending on your use case, the following additional scopes MAY apply:<ul><li>profile: will request the claims representing basic profile information. These are <i>&quot;family_name&quot;</i>, <i>&quot;given_name&quot;</i>, <i>&quot;gender&quot;</i>, <i>&quot;birthdate&quot;</i> and <i>&quot;locale&quot;</i>.</li><li>email: will request the <i>&quot;email&quot;</i> and <i>&quot;email_verified&quot;</i> claims.</li><li>phone: will request the <i>&quot;phone_number&quot;</i> and <i>&quot;phone_number_verified&quot;</i> claims.</li><li>address: will request the <i>&quot;street_address&quot;</i>, <i>&quot;locality&quot;</i>, <i>&quot;postal_code&quot;</i> and <i>&quot;country&quot;</i> claims.</li></ul>For more information on User attributes or claims, please consult the <a href="#Data">ID claims</a> section.</br><br>An HTTP ERROR <i>&quot;not_implemented&quot;</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br></td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">Required</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>redirect_uri</strong></td>
-<td style="text-align: left">This is the URI to which the authentication response should be sent. This MUST exactly match the redirect URI, GET parameters included, of the specified service defined when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>. Please note in Sandbox environment, the redirect_uri is NOT checked. This allows you to test your integration locally.</td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">Required</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>request_uri</strong></td>
-<td style="text-align: left">This parameter enables OpenID Connect parameters to be passed by reference. The <i>&quot;request_uri&quot;</i> value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. <br>When the <i>&quot;request_uri&quot;</i> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax.</br><br>The following validations should be done when using the <i>&quot;request_uri&quot;</i> parameter:</br><br><ol><li>The values for the <i>&quot;response_type&quot;</i> and <i>&quot;client_id&quot;</i> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li><li>Even if a <i>&quot;scope&quot;</i> parameter is present in the Request Object value, a <i>&quot;scope&quot;</i> parameter – containing the <i>&quot;openid&quot;</i> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li><li>The Request Object MAY be <b>signed</b> using the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Signature</a> (JWS). If signed, the Request Object SHOULD contain the claims <i>&quot;iss&quot;</i> (issuer) and <i>&quot;aud&quot;</i> (audience) as members. The <i>&quot;iss&quot;</i> value SHOULD be your Client ID. The <i>&quot;aud&quot;</i> value SHOULD be <i>&quot;https://idp.prd.itsme.services/v2/authorization&quot;</i>.</li><li>The Request Object MAY also be <b>encrypted</b> using <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Encryption</a> (JWE). In this case, it MUST be signed then encrypted, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section.</li><li>You need to store the Request Object resource remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>&quot;request_uri&quot;</i>. Usage of &#39;localhost&#39; is not permitted.<li>The Request URI MUST contain the port 443 as in this example: https://test.istme.be:443/p/test.</li><li>The Request URI value is a URL using the <i>https</i> scheme.</li></ol></br></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left"></td>
-</tr>
-</tbody></table>
-
-<p>The URL MUST be shared with us so we can whitelist it in our systems.<br>See <a href="#RequestUri">Using request_uri parameter</a> for more details.</br> | Optional | Optional | Required </p>
-
-<p>The <i>&quot;request_uri&quot;</i> parameter enables the Authentication Requests to be passed by reference, meaning that the Request Object value is retrieved from the resource at the specified URL.</p>
-
-<p>When the <i>&quot;request_uri&quot;</i> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax. </p>
-
-<p>The following validations should be done when using the <i>&quot;request_uri&quot;</i> parameter:</p>
-
-<ol>
-  <li>The values for the <i>"response_type"</i> and <i>"client_id"</i> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li>
-  <li>Even if a <i>"scope"</i> parameter is present in the Request Object value, a <i>"scope"</i> parameter – containing the <i>"openid"</i> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li>
-  <li>The Request Object MAY be <b>signed</b> using the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Signature</a> (JWS). If signed, the Request Object SHOULD contain the claims <i>"iss"</i> (issuer) and <i>"aud"</i> (audience) as members. The <i>"iss"</i> value SHOULD be your Client ID. The <i>"aud"</i> value SHOULD be <i>"https://idp.prd.itsme.services/v2/authorization"</i>.</li>
-  <li>The Request Object MAY also be <b>encrypted</b> using <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Encryption</a> (JWE). In this case, it MUST be signed then encrypted, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section.</li>
-  <li>You need to store the Request Object resource remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>"request_uri"</i>. Usage of 'localhost' is not permitted.
-  <li>The Request URI MUST contain the port 443 as in this example: https://test.istme.be:443/p/test.</li>
-  <li>The Request URI value is a URL using the <i>https</i> scheme.</li>
-</ol>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><strong>client_id</strong></td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">This is the client ID you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>response_type</strong></td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">This defines the processing flow to be used when forming the response. Because itsme® uses the Authorization Code Flow as described above, this value MUST be <i>&quot;code&quot;</i>.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>scope</strong></td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>&quot;openid&quot;</i> and <i>&quot;service:TEST_code&quot;</i>, by replacing &quot;TEST_code&quot; with the service code you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br>You MAY also specify additional scopes, separated by spaces, to request more information about the User. Depending on your use case, the following additional scopes MAY apply:<ul><li>profile: will request the claims representing basic profile information. These are <i>&quot;family_name&quot;</i>, <i>&quot;given_name&quot;</i>, <i>&quot;gender&quot;</i>, <i>&quot;birthdate&quot;</i> and <i>&quot;locale&quot;</i>.</li><li>email: will request the <i>&quot;email&quot;</i> and <i>&quot;email_verified&quot;</i> claims.</li><li>phone: will request the <i>&quot;phone_number&quot;</i> and <i>&quot;phone_number_verified&quot;</i> claims.</li><li>address: will request the <i>&quot;street_address&quot;</i>, <i>&quot;locality&quot;</i>, <i>&quot;postal_code&quot;</i> and <i>&quot;country&quot;</i> claims.</li></ul>For more information on User attributes or claims, please consult the <a href="#Data">ID claims</a> section.</br><br>An HTTP ERROR <i>&quot;not_implemented&quot;</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br></td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>redirect_uri</strong></td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">This is the URI to which the authentication response should be sent. This MUST exactly match the redirect URI, GET parameters included, of the specified service defined when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>. Please note in Sandbox environment, the redirect_uri is NOT checked. This allows you to test your integration locally.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>request_uri</strong></td>
+<td style="text-align: left"><strong>request</strong></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">This parameter enables OpenID Connect parameters to be passed by reference. The <i>&quot;request_uri&quot;</i> value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. The URL MUST be shared with us when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br>See <a href="#RequestUri">Using request_uri parameter</a> for more details.</br></td>
+<td style="text-align: left"></td>
 </tr>
-</tbody></table>
-
-<p>On top of this, OpenID Connect specify that additionnal parameters MAY be added to the Authentication Request as a JWT Payload in the <i>&quot;request_uri&quot;</i> parameter:</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
 <tr>
 <td style="text-align: left"><strong>state</strong></td>
 <td style="text-align: left">Strongly RECOMMENDED</td>
@@ -610,9 +506,6 @@
 <td style="text-align: left">Any supplied value will be ignored.</td>
 </tr>
 </tbody></table>
-
-<aside class="notice">The JWT Payload in the <i>"request_uri"</i> parameter MAY be <b>signed</b> using the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Signature</a> (JWS). It MAY also be <b>encrypted</b> using <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Encryption</a> (JWE). In this case, it MUST be signed then encrypted, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section.
-</aside>
 
 <p>The following is a non-normative example of a request that would be sent to the Authorization Server:</p>
 
@@ -731,20 +624,6 @@ error=invalid_request
 </tbody></table>
 
 <p>All other HTTPS errors unrelated to OpenID Connect Core will be returned to the User using the appropriate HTTPS status code.</p>
-
-<p><a name="UniversalLinks"></a> </p>
-<h2 id='3-3-supporting-universal-links-and-app-links-mechanism'>3.3. Supporting Universal Links and App Links mechanism</h2>
-<p>Regardless of the application you are building you should make sure that your redirect URIs support the <a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal links</a> and <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App links</a> mechanism. Functionally, it will allow you to have only one single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.</p>
-
-<p>Universal links and App links are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.</p>
-
-<p>An App link is the Android version of the Universal link.</p>
-
-<p>How do Universal Links work in iOS and Android ? Before Universal Links, the primary mechanism to open up an app when it was installed was by trying to redirect to an app’s URI scheme  in the web browser. But there was no way to check if the app was installed or not. This meant that developers would try to call the URI scheme 100% of the time, in the off chance that the app was installed, then fallback gracefully to the App Store or Google Play Store when not by using a timer.</p>
-
-<p>iOS Universal Links and Android App Links were intended to fix this. Instead of opening up the web browser first when a link is clicked, the OS will check if a Universal Link has been registered (a file should be there in the domain which contains the bundle id of the app and the paths the app should open) for the domain associated with the link, then check if the corresponding app is installed. If the app is currently installed, it will be opened. If it’s not, the web browser will open and the HTTPS link will load.</p>
-
-<p>The specifications for the implementation of Universal links and App links can be found in the <a href="#Appendixes">Appendix</a>.</p>
 <h2 id='3-4-exchanging-the-authorization-code'>3.4. Exchanging the Authorization Code</h2>
 <p><a name="tokenEndpoint"></a> </p>
 
@@ -783,7 +662,7 @@ error=invalid_request
 <tr>
 <td style="text-align: left"><strong>client_assertion</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the Token Request.<br>The OpenID Connect Core specifications support multiple authentication methods, but itsme® only supports <i>&quot;private_key_jwt&quot;</i>. The JWT MUST be sent as the value of the <i>&quot;client_assertion&quot;</i> parameter.</br><br>See the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JOSE</a> specifications for more information.</br></td>
+<td style="text-align: left">To ensure that the request is genuine and that the tokens are not returned to a third party, you will be authenticated when making the Token Request.<br>The OpenID Connect Core specifications support multiple authentication methods, but itsme® only supports <i>&quot;private_key_jwt&quot;</i>. The JWT Payload in the <i>&quot;client_assertion&quot;</i> parameter MUST be <b>signed then encrypted</b>, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section.</br><br>See the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JOSE</a> specifications for more information.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>client_assertion_type</strong></td>
@@ -791,9 +670,6 @@ error=invalid_request
 <td style="text-align: left">This MUST be set to <i>&quot;urn:ietf:params:oauth:client-assertion-type:jwt-bearer&quot;</i>.</td>
 </tr>
 </tbody></table>
-
-<aside class="notice">The JWT Payload in the <i>"client_assertion"</i> parameter MUST be <b>signed then encrypted</b>, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section.
-</aside>
 
 <p>The following is a non-normative example of a request to obtain an ID Token and Access Token:</p>
 
@@ -818,12 +694,12 @@ grant_type=authorization_code
 <tr>
 <td style="text-align: left"><strong>iss</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">The issuer of the <i>&quot;private_key_jwt&quot;</i>. This MUST contain the <i>&quot;client_id&quot;</i>. This is the client identifier (e.g. : Project ID) you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+<td style="text-align: left">The issuer of the <i>&quot;private_key_jwt&quot;</i>. This MUST contain the <i>&quot;client_id&quot;</i>. This is the client identifier you received after sharing your organisation details with us..</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>sub</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">The subject of the <i>&quot;private_key_jwt&quot;</i>. This MUST contain the <i>&quot;client_id&quot;</i>. This is the client identifier (e.g. : Project ID) you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+<td style="text-align: left">The subject of the <i>&quot;private_key_jwt&quot;</i>. This MUST contain the <i>&quot;client_id&quot;</i>. This is the client identifier you received after sharing your organisation details with us..</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>aud</strong></td>
@@ -1567,6 +1443,20 @@ Raw Request Object (not signed, not encrypted):<br></br>
      }</code></p>
 <h2 id='5-5-supported-character-set'>5.5 Supported character set</h2>
 <p>The character set we support for free text fields is ISO 8859-15. You can buy the specification on <a href="https://www.iso.org/standard/29505.html">ISO website</a> or find a free version on <a href="https://en.wikipedia.org/wiki/ISO/IEC_8859-15#Codepage_layout">Wikipedia</a>. You might be interested in knowing that, although most usual characters are supported, some softwares-generated characters like curly apostrophes and long dashes are not part of ISO 8859-15. If you provide a non-supported character in a free text field the flow will be stopped and you will receive an error message back.</p>
+
+<p><a name="UniversalLinks"></a> </p>
+<h2 id='3-3-supporting-universal-links-and-app-links-mechanism'>3.3. Supporting Universal Links and App Links mechanism</h2>
+<p>Regardless of the application you are building you should make sure that your redirect URIs support the <a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal links</a> and <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App links</a> mechanism. Functionally, it will allow you to have only one single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.</p>
+
+<p>Universal links and App links are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.</p>
+
+<p>An App link is the Android version of the Universal link.</p>
+
+<p>How do Universal Links work in iOS and Android ? Before Universal Links, the primary mechanism to open up an app when it was installed was by trying to redirect to an app’s URI scheme  in the web browser. But there was no way to check if the app was installed or not. This meant that developers would try to call the URI scheme 100% of the time, in the off chance that the app was installed, then fallback gracefully to the App Store or Google Play Store when not by using a timer.</p>
+
+<p>iOS Universal Links and Android App Links were intended to fix this. Instead of opening up the web browser first when a link is clicked, the OS will check if a Universal Link has been registered (a file should be there in the domain which contains the bundle id of the app and the paths the app should open) for the domain associated with the link, then check if the corresponding app is installed. If the app is currently installed, it will be opened. If it’s not, the web browser will open and the HTTPS link will load.</p>
+
+<p>The specifications for the implementation of Universal links and App links can be found in the <a href="#Appendixes">Appendix</a>.</p>
 
       </div>
       <div class="dark-box">
