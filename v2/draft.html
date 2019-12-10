@@ -245,45 +245,36 @@
                     <a href="#5-1-create-a-itsme-button-on-your-application" class="toc-h2 toc-link" data-title="5-1-create-a-itsme-button-on-your-application">5.1. Create a itsme® button on your application</a>
                   </li>
                   <li>
-                    <a href="#5-2-forge-an-authentication-request" class="toc-h2 toc-link" data-title="5-2-forge-an-authentication-request">5.2. Forge an Authentication Request</a>
+                    <a href="#5-2-forge-an-authentication-request-and-attributes" class="toc-h2 toc-link" data-title="5-2-forge-an-authentication-request-and-attributes">5.2. Forge an Authentication Request and attributes</a>
                   </li>
                   <li>
-                    <a href="#3-2-capturing-an-authorization-code" class="toc-h2 toc-link" data-title="3-2-capturing-an-authorization-code">3.2. Capturing an Authorization Code</a>
+                    <a href="#5-3-capturing-an-authorization-code" class="toc-h2 toc-link" data-title="5-3-capturing-an-authorization-code">5.3. Capturing an Authorization Code</a>
                   </li>
                   <li>
-                    <a href="#3-4-exchanging-the-authorization-code" class="toc-h2 toc-link" data-title="3-4-exchanging-the-authorization-code">3.4. Exchanging the Authorization Code</a>
+                    <a href="#5-4-exchanging-the-authorization-code" class="toc-h2 toc-link" data-title="5-4-exchanging-the-authorization-code">5.4. Exchanging the Authorization Code</a>
                   </li>
                   <li>
-                    <a href="#3-5-managing-token-response" class="toc-h2 toc-link" data-title="3-5-managing-token-response">3.5. Managing Token Response</a>
+                    <a href="#5-5-managing-token-response" class="toc-h2 toc-link" data-title="5-5-managing-token-response">5.5. Managing Token Response</a>
                   </li>
                   <li>
-                    <a href="#3-6-obtaining-user-attributes-or-claims" class="toc-h2 toc-link" data-title="3-6-obtaining-user-attributes-or-claims">3.6. Obtaining User attributes or claims</a>
+                    <a href="#5-6-obtaining-user-attributes-or-claims" class="toc-h2 toc-link" data-title="5-6-obtaining-user-attributes-or-claims">5.6. Obtaining User attributes or claims</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#4-mapping-the-user" class="toc-h1 toc-link" data-title="4-mapping-the-user">4. Mapping the User</a>
+            <a href="#6-mapping-the-user" class="toc-h1 toc-link" data-title="6-mapping-the-user">6. Mapping the User</a>
           </li>
           <li>
-            <a href="#5-appendixes" class="toc-h1 toc-link" data-title="5-appendixes">5. Appendixes</a>
+            <a href="#7-appendixes" class="toc-h1 toc-link" data-title="7-appendixes">7. Appendixes</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#5-1-universal-links-on-ios" class="toc-h2 toc-link" data-title="5-1-universal-links-on-ios">5.1. Universal Links on iOS</a>
+                    <a href="#7-1-universal-links-on-ios" class="toc-h2 toc-link" data-title="7-1-universal-links-on-ios">7.1. Universal Links on iOS</a>
                   </li>
                   <li>
-                    <a href="#5-2-app-links-on-android" class="toc-h2 toc-link" data-title="5-2-app-links-on-android">5.2. App Links on Android</a>
+                    <a href="#7-2-app-links-on-android" class="toc-h2 toc-link" data-title="7-2-app-links-on-android">7.2. App Links on Android</a>
                   </li>
                   <li>
-                    <a href="#5-3-security-levels-and-context-data" class="toc-h2 toc-link" data-title="5-3-security-levels-and-context-data">5.3. Security levels and context data</a>
-                  </li>
-                  <li>
-                    <a href="#5-4-using-request_uri-parameter" class="toc-h2 toc-link" data-title="5-4-using-request_uri-parameter">5.4. Using request_uri parameter</a>
-                  </li>
-                  <li>
-                    <a href="#5-5-supported-character-set" class="toc-h2 toc-link" data-title="5-5-supported-character-set">5.5 Supported character set</a>
-                  </li>
-                  <li>
-                    <a href="#3-3-supporting-universal-links-and-app-links-mechanism" class="toc-h2 toc-link" data-title="3-3-supporting-universal-links-and-app-links-mechanism">3.3. Supporting Universal Links and App Links mechanism</a>
+                    <a href="#7-3-security-levels-and-context-data" class="toc-h2 toc-link" data-title="7-3-security-levels-and-context-data">7.3. Security levels and context data</a>
                   </li>
               </ul>
           </li>
@@ -395,7 +386,7 @@
 <p>Upon clicking this button, we will open a modal view which contains a field that need to be filled by the end user with it’s phone number. Note that mobile web users will skip the phone number step, as they use the itsme® mobile app directly to authenticate.</p>
 
 <p>itsme® provides a button <a href="generator" target="blank">https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/buttons-1518207548</a> for you to include in your HTML file. </p>
-<h2 id='5-2-forge-an-authentication-request'>5.2. Forge an Authentication Request</h2>
+<h2 id='5-2-forge-an-authentication-request-and-attributes'>5.2. Forge an Authentication Request and attributes</h2><h3 id='composing-your-base-url'>Composing your base URL</h3>
 <p>First, you will forg a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <i>&quot;authorization_endpoint&quot;</i>.</p>
 
 <aside class="notice">By opposition to the OpenID Connect specifications, POST method is not authorized when triggering the itsme® App through the Universal/App Link mechanism only support the HTTP GET method on the Authorisation Endpoint. More information about Universal links and App links can be found in the <a href="#UniversalLinks">section 3.3</a>.
@@ -423,7 +414,7 @@
 <tr>
 <td style="text-align: left"><strong>scope</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>&quot;openid&quot;</i> and <i>&quot;service:TEST_code&quot;</i>, by replacing &quot;TEST_code&quot; with the service code you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br>You MAY also specify additional scopes, separated by spaces, to request more information about the User. Depending on your use case, the following additional scopes MAY apply:<ul><li>profile: will request the claims representing basic profile information. These are <i>&quot;family_name&quot;</i>, <i>&quot;given_name&quot;</i>, <i>&quot;gender&quot;</i>, <i>&quot;birthdate&quot;</i> and <i>&quot;locale&quot;</i>.</li><li>email: will request the <i>&quot;email&quot;</i> and <i>&quot;email_verified&quot;</i> claims.</li><li>phone: will request the <i>&quot;phone_number&quot;</i> and <i>&quot;phone_number_verified&quot;</i> claims.</li><li>address: will request the <i>&quot;street_address&quot;</i>, <i>&quot;locality&quot;</i>, <i>&quot;postal_code&quot;</i> and <i>&quot;country&quot;</i> claims.</li></ul>For more information on User attributes or claims, please consult the <a href="#Data">ID claims</a> section.</br><br>An HTTP ERROR <i>&quot;not_implemented&quot;</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br></td>
+<td style="text-align: left">The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>&quot;openid&quot;</i> and <i>&quot;service:TEST_code&quot;</i>, by replacing &quot;TEST_code&quot; with the service code you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br>You MAY also specify additional scopes, separated by spaces, to request more information about the User. See the list below for more information.<br>An HTTP ERROR <i>&quot;not_implemented&quot;</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>redirect_uri</strong></td>
@@ -507,6 +498,19 @@
 </tr>
 </tbody></table>
 
+<aside class="notice">Regardless of the application you are building you should make sure that your redirect URIs support the <a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal links</a> and <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App links</a> mechanism. Functionally, it will allow you to have only one single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.
+
+Universal links and App links are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.
+
+An App link is the Android version of the Universal link.
+
+How do Universal Links work in iOS and Android ? Before Universal Links, the primary mechanism to open up an app when it was installed was by trying to redirect to an app’s URI scheme  in the web browser. But there was no way to check if the app was installed or not. This meant that developers would try to call the URI scheme 100% of the time, in the off chance that the app was installed, then fallback gracefully to the App Store or Google Play Store when not by using a timer.
+
+iOS Universal Links and Android App Links were intended to fix this. Instead of opening up the web browser first when a link is clicked, the OS will check if a Universal Link has been registered (a file should be there in the domain which contains the bundle id of the app and the paths the app should open) for the domain associated with the link, then check if the corresponding app is installed. If the app is currently installed, it will be opened. If it’s not, the web browser will open and the HTTPS link will load.
+
+The specifications for the implementation of Universal links and App links can be found in the [Appendix](#Appendixes).
+</aside>
+
 <p>The following is a non-normative example of a request that would be sent to the Authorization Server:</p>
 
 <p><code style=display:block;white-space:pre-wrap>Authentication Request:<br></br>
@@ -534,9 +538,73 @@ Raw Request Object (not signed, not encrypted):<br></br>
           }
         }
      }</code></p>
+<h3 id='capturing-claims-from-the-39-scope-39-parameter'>Capturing claims from the &#39;scope&#39; parameter</h3>
+<p>On top of the <i>&quot;openid&quot;</i> and <i>&quot;service:TEST_code&quot;</i> values specified in the Authentication Request, you MAY also ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes MAY apply:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>profile</strong></td>
+<td style="text-align: left">It will request the claims representing basic profile information. These are <i>&quot;family_name&quot;</i>, <i>&quot;given_name&quot;</i>, <i>&quot;gender&quot;</i>, <i>&quot;birthdate&quot;</i> and <i>&quot;locale&quot;</i>.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>email</strong></td>
+<td style="text-align: left">It will request the <i>&quot;email&quot;</i> and <i>&quot;email_verified&quot;</i> claims.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>phone</strong></td>
+<td style="text-align: left">It will request the <i>&quot;phone_number&quot;</i> and <i>&quot;phone_number_verified&quot;</i> claims</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>address</strong></td>
+<td style="text-align: left">It will request the <i>&quot;street_address&quot;</i>, <i>&quot;locality&quot;</i>, <i>&quot;postal_code&quot;</i> and <i>&quot;country&quot;</i> claims.</td>
+</tr>
+</tbody></table>
+<h3 id='capturing-claims-from-the-39-claims-39-parameter'>Capturing claims from the &#39;claims&#39; parameter</h3>
+<p>Typically, the values returned via the <i>&quot;scope&quot;</i> parameter only contain claims about the identity of the User. More information about the User MAY be requested by including additional parameters in the <i>&quot;claims&quot;</i> parameter as specified below:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_citizenship</strong></td>
+<td style="text-align: left">It will request the <i>&quot;nationality&quot;</i> claim.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/claim/place_of_birth</strong></td>
+<td style="text-align: left">It will request the <i>&quot;place of Birth&quot;</i> and the <i>&quot;country of Birth&quot;</i> claim.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/claim/BEeidSn</strong></td>
+<td style="text-align: left">It will request the <i>&quot;serial number of the eID card&quot;</i>.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/claim/BENationalNumber</strong></td>
+<td style="text-align: left">It will request the <i>&quot;Belgian National Register Number&quot;</i> of the User.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_device</strong></td>
+<td style="text-align: left">It will request the <i>&quot;os&quot;</i>, <i>&quot;appName&quot;</i>, <i>&quot;appRelease&quot;</i>, <i>&quot;deviceLabel&quot;</i>, <i>&quot;debugEnabled&quot;</i>, <i>&quot;deviceID&quot;</i>, <i>&quot;osRelease&quot;</i>, <i>&quot;manufacturer&quot;</i>, <i>&quot;hasSimEnabled&quot;</i>, <i>&quot;deviceLockLevel&quot;</i>, <i>&quot;smsEnabled&quot;</i>, <i>&quot;rooted&quot;</i>, <i>&quot;imei&quot;</i>, <i>&quot;deviceModel&quot;</i> and <i>&quot;sdkRelease&quot;</i> claims.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/claim/transaction_info</strong></td>
+<td style="text-align: left">It will request the <i>&quot;securityLevel&quot;</i>, <i>&quot;bindLevel&quot;</i> and <i>&quot;mcc&quot;</i> claims.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_luxtrust_ssn</strong></td>
+<td style="text-align: left">It will request the <i>&quot;serial number of the LuxTrust certificate&quot;</i> for this User.</td>
+</tr>
+</tbody></table>
 
 <p><a name="AuthNResponse"></a></p>
-<h2 id='3-2-capturing-an-authorization-code'>3.2. Capturing an Authorization Code</h2><h3 id='capturing-a-successful-authorization-code'>Capturing a successful Authorization Code</h3>
+<h2 id='5-3-capturing-an-authorization-code'>5.3. Capturing an Authorization Code</h2><h3 id='capturing-a-successful-authorization-code'>Capturing a successful Authorization Code</h3>
 <p>If the User is successfully authenticated and authorizes access to the data requested, itsme® will return an Authorization Code to your server component. This is achieved by returning an Authentication Response, which is a HTTP 302 redirect request to the <i>&quot;redirect_uri&quot;</i> specified previously in the Authentication Request. The following is a non-normative example of a successful Authentication Response:</p>
 
 <p><code style=display:block;white-space:pre-wrap>HTTP/1.1 302 Found
@@ -624,7 +692,7 @@ error=invalid_request
 </tbody></table>
 
 <p>All other HTTPS errors unrelated to OpenID Connect Core will be returned to the User using the appropriate HTTPS status code.</p>
-<h2 id='3-4-exchanging-the-authorization-code'>3.4. Exchanging the Authorization Code</h2>
+<h2 id='5-4-exchanging-the-authorization-code'>5.4. Exchanging the Authorization Code</h2>
 <p><a name="tokenEndpoint"></a> </p>
 
 <p>Once your server component has received an <a href="#AuthNResponse">Authorization Code</a>, your server can exchange it for an Access Token and an ID Token.</p>
@@ -719,7 +787,7 @@ grant_type=authorization_code
 </tbody></table>
 
 <p><a name="TokenResponse"></a></p>
-<h2 id='3-5-managing-token-response'>3.5. Managing Token Response</h2><h3 id='extracting-a-successful-token-response'>Extracting a successful Token Response</h3>
+<h2 id='5-5-managing-token-response'>5.5. Managing Token Response</h2><h3 id='extracting-a-successful-token-response'>Extracting a successful Token Response</h3>
 <p>If the Token Request has been sucessfully validated we will return an HTTP 200 OK response including ID and Access Tokens as in the example below:</p>
 
 <p><code style=display:block;white-space:pre-wrap>HTTP/1.1 200 OK
@@ -865,7 +933,7 @@ Pragma: no-cache
 <p>The response will contain an error parameter and optionally <i>&quot;error_description&quot;</i> and <i>&quot;error_uri&quot;</i> parameters. The <i>&quot;error_uri&quot;</i> parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.</p>
 
 <p><a name="Data"></a></p>
-<h2 id='3-6-obtaining-user-attributes-or-claims'>3.6. Obtaining User attributes or claims</h2><h3 id='creating-the-userinfo-request'>Creating the userInfo Request</h3>
+<h2 id='5-6-obtaining-user-attributes-or-claims'>5.6. Obtaining User attributes or claims</h2><h3 id='creating-the-userinfo-request'>Creating the userInfo Request</h3>
 <p>OpenID Connect Core specifications also allow your application to obtain basic profile information about a specific User in a interoperable way. This is achieved by sending a HTTPS GET request to the itsme® userInfo Endpoint, passing the Access Token value in the Authorization header using the Bearer authentication scheme. The itsme userInfo Endpoint URI can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <i>&quot;userinfo_endpoint&quot;</i>.</p>
 
 <p><code style=display:block;white-space:pre-wrap>GET https://idp.prd.itsme.services/v2/userinfo HTTP/1.1
@@ -896,35 +964,7 @@ Authorization: Bearer <access token></code></p>
 </ol>
 
 <p>When an error condition occurs an error response as defined in the <a href="https://tools.ietf.org/html/rfc6750" target="blank">OAuth 2.0 Bearer Token Usage specification</a> will be returned.</p>
-<h3 id='capturing-claims-from-the-39-scope-39-parameter'>Capturing claims from the &#39;scope&#39; parameter</h3>
-<p>On top of the <i>&quot;openid&quot;</i> and <i>&quot;service:TEST_code&quot;</i> values specified in the Authentication Request, you MAY also ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes MAY apply:</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><strong>profile</strong></td>
-<td style="text-align: left">It will request the claims representing basic profile information. These are <i>&quot;family_name&quot;</i>, <i>&quot;given_name&quot;</i>, <i>&quot;gender&quot;</i>, <i>&quot;birthdate&quot;</i> and <i>&quot;locale&quot;</i>.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>email</strong></td>
-<td style="text-align: left">It will request the <i>&quot;email&quot;</i> and <i>&quot;email_verified&quot;</i> claims.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>phone</strong></td>
-<td style="text-align: left">It will request the <i>&quot;phone_number&quot;</i> and <i>&quot;phone_number_verified&quot;</i> claims</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>address</strong></td>
-<td style="text-align: left">It will request the <i>&quot;street_address&quot;</i>, <i>&quot;locality&quot;</i>, <i>&quot;postal_code&quot;</i> and <i>&quot;country&quot;</i> claims.</td>
-</tr>
-</tbody></table>
-
-<p>The values returned via the itsme® userInfo Endpoint are those below:</p>
-
+<h3 id='list-of-values-returned-if-requested-in-the-39-scope-39-parameter'>List of values returned if requested in the &#39;scope&#39; parameter</h3>
 <table><thead>
 <tr>
 <th style="text-align: left">Values</th>
@@ -1003,47 +1043,7 @@ Authorization: Bearer <access token></code></p>
 <td style="text-align: left">As member of address JSON object. itsme® does not possess this information for every account.</td>
 </tr>
 </tbody></table>
-<h3 id='capturing-claims-from-the-39-claims-39-parameter'>Capturing claims from the &#39;claims&#39; parameter</h3>
-<p>Typically, the values returned via the <i>&quot;scope&quot;</i> parameter only contain claims about the identity of the User. More information about the User MAY be requested by including additional parameters in the <i>&quot;claims&quot;</i> parameter as specified below:</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_citizenship</strong></td>
-<td style="text-align: left">It will request the <i>&quot;nationality&quot;</i> claim.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/claim/place_of_birth</strong></td>
-<td style="text-align: left">It will request the <i>&quot;place of Birth&quot;</i> and the <i>&quot;country of Birth&quot;</i> claim.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/claim/BEeidSn</strong></td>
-<td style="text-align: left">It will request the <i>&quot;serial number of the eID card&quot;</i>.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/claim/BENationalNumber</strong></td>
-<td style="text-align: left">It will request the <i>&quot;Belgian National Register Number&quot;</i> of the User.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_device</strong></td>
-<td style="text-align: left">It will request the <i>&quot;os&quot;</i>, <i>&quot;appName&quot;</i>, <i>&quot;appRelease&quot;</i>, <i>&quot;deviceLabel&quot;</i>, <i>&quot;debugEnabled&quot;</i>, <i>&quot;deviceID&quot;</i>, <i>&quot;osRelease&quot;</i>, <i>&quot;manufacturer&quot;</i>, <i>&quot;hasSimEnabled&quot;</i>, <i>&quot;deviceLockLevel&quot;</i>, <i>&quot;smsEnabled&quot;</i>, <i>&quot;rooted&quot;</i>, <i>&quot;imei&quot;</i>, <i>&quot;deviceModel&quot;</i> and <i>&quot;sdkRelease&quot;</i> claims.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/claim/transaction_info</strong></td>
-<td style="text-align: left">It will request the <i>&quot;securityLevel&quot;</i>, <i>&quot;bindLevel&quot;</i> and <i>&quot;mcc&quot;</i> claims.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_luxtrust_ssn</strong></td>
-<td style="text-align: left">It will request the <i>&quot;serial number of the LuxTrust certificate&quot;</i> for this User.</td>
-</tr>
-</tbody></table>
-
-<p>The values returned via the itsme® userInfo Endpoint are those below:</p>
-
+<h3 id='list-of-values-returned-if-requested-in-the-39-claims-39-parameter'>List of values returned if requested in the &#39;claims&#39; parameter</h3>
 <p><a name id="SecurityDataElements"></a></p>
 
 <table><thead>
@@ -1179,7 +1179,7 @@ Authorization: Bearer <access token></code></p>
 <td style="text-align: left">The LuxTrust certificate serial number. itsme® does not possess this information for every account.</td>
 </tr>
 </tbody></table>
-<h1 id='4-mapping-the-user'>4. Mapping the User</h1>
+<h1 id='6-mapping-the-user'>6. Mapping the User</h1>
 <p>To sign in successfully in your web desktop, mobile web or mobile application, a given user must be provisioned in OpenID Connect and then mapped to a user account in your database. By default, your application Server will use the subject identifier, or <i>&quot;sub&quot;</i> claim, in the ID Token to identify and verify a user account. Typically, the <i>&quot;sub&quot;</i> claim is a unique string that identifies a given user account. The benefit of using a <i>&quot;sub&quot;</i> claim is that it will not change, even if other user attributes (email, phone number, etc) associated with that account are updated. </p>
 
 <p>The <i>&quot;sub&quot;</i> claim value must be mapped to the corresponding user in your application Server. If you already mapped this <i>&quot;sub&quot;</i> to an account in your application repository, you should start an application session for that User.</p>
@@ -1191,9 +1191,9 @@ Authorization: Bearer <access token></code></p>
 <p>In a limited number of cases (e.g. technical issue,…) a user could ask itsme® to ‘delete’ his account. As a result the specific account will be ‘archived’ (for compliancy reasons) and thus also the unique identifier(s) (e.g. <i>&quot;sub&quot;</i>), used to interact with the different Service Providers the specific users is active with, will be automatically deleted in our database.</p>
 
 <p>If the same user would opt to (re)create an itsme® afterwards, he will need to re-bind his itsme® account with your application server (as the initial identifier is no longer valid as explained before). To re-bind his itsme® account one of the above scenario should be used. After successful (re)binding you will need to overwrite the initial reference with the new ‘sub’ claim value in your database.</p>
-<h1 id='5-appendixes'>5. Appendixes</h1>
+<h1 id='7-appendixes'>7. Appendixes</h1>
 <p><a name="Appendix"></a> </p>
-<h2 id='5-1-universal-links-on-ios'>5.1. Universal Links on iOS</h2>
+<h2 id='7-1-universal-links-on-ios'>7.1. Universal Links on iOS</h2>
 <p><code style=display:block;white-space:pre-wrap>{
   &quot;applinks&quot;: {
     &quot;apps&quot;: [],
@@ -1306,7 +1306,7 @@ print(queryParameters(from: url!))</p>
  }
  return true
 }</code></p>
-<h2 id='5-2-app-links-on-android'>5.2. App Links on Android</h2>
+<h2 id='7-2-app-links-on-android'>7.2. App Links on Android</h2>
 <p>The App Links Assistant in Android Studio can help you create intent filters in your manifest and map existing URLs from your website to activities in your app. Follow below steps to configure the App links (as documented on <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App Links official documentation</a>):</p>
 
 <ol>
@@ -1370,7 +1370,7 @@ private void handleIntent(Intent intent) {
 <aside class="notice">The system verifies the Digital Asset Links file via the encrypted HTTPS protocol. Make sure that the assetlinks.json file is accessible over an HTTPS connection, regardless of whether your app's intent filter includes https.</aside>
 
 <p><a name="SecurityLevels"></a></p>
-<h2 id='5-3-security-levels-and-context-data'>5.3. Security levels and context data</h2>
+<h2 id='7-3-security-levels-and-context-data'>7.3. Security levels and context data</h2>
 <p>Depending on the required level of assurance your application MUST ensure the correct ‘security level’ is requested. Two ‘security levels’ are supported – ‘basic’ and ‘advanced’. Opting for ‘advanced’ will result in an itsme® code entry being enforced to validate the specific transaction (even if the user has activated touch ID/fingerprint). With the ‘basic’ level also touch ID/fingerprint next to the itsme® code are supported to validate the specific transaction.</p>
 
 <p>The following table defines the different possible scenarios:</p>
@@ -1395,68 +1395,6 @@ private void handleIntent(Intent intent) {
 </tbody></table>
 
 <p>Next to the security levels, your application MAY also request additional security data to determine the context in which the transactions have been executed. The security data elements, alone or in combination with each other, indicate a given risk exposure. By providing these elements, itsme® allows you to detect fraud attempts or effective fraudulent transactions. The security data elements that MAY be used to associate a risk exposure to a specific transaction are available in the section <a href="#SecurityDataElements">Capturing claims from the userInfo Endpoint</a>.</p>
-
-<p><a name="RequestUri"></a></p>
-<h2 id='5-4-using-request_uri-parameter'>5.4. Using request_uri parameter</h2>
-<p>The <i>&quot;request_uri&quot;</i> parameter enables the Authentication Requests to be passed by reference, meaning that the Request Object value is retrieved from the resource at the specified URL.</p>
-
-<p>When the <i>&quot;request_uri&quot;</i> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax. </p>
-
-<p>The following validations should be done when using the <i>&quot;request_uri&quot;</i> parameter:</p>
-
-<ol>
-  <li>The values for the <i>"response_type"</i> and <i>"client_id"</i> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li>
-  <li>Even if a <i>"scope"</i> parameter is present in the Request Object value, a <i>"scope"</i> parameter – containing the <i>"openid"</i> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li>
-  <li>The Request Object MAY be <b>signed</b> using the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Signature</a> (JWS). If signed, the Request Object SHOULD contain the claims <i>"iss"</i> (issuer) and <i>"aud"</i> (audience) as members. The <i>"iss"</i> value SHOULD be your Client ID. The <i>"aud"</i> value SHOULD be <i>"https://idp.prd.itsme.services/v2/authorization"</i>.</li>
-  <li>The Request Object MAY also be <b>encrypted</b> using <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Encryption</a> (JWE). In this case, it MUST be signed then encrypted, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section.</li>
-  <li>You need to store the Request Object resource remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>"request_uri"</i>. Usage of 'localhost' is not permitted.
-  <li>The Request URI MUST contain the port 443 as in this example: https://test.istme.be:443/p/test.</li>
-  <li>The Request URI value is a URL using the <i>https</i> scheme.</li>
-</ol>
-
-<p>Enclosed you will find a non-normative example of an Authorization Request using the <i>&quot;request_uri&quot;</i> parameter:</p>
-
-<p><code style=display:block;white-space:pre-wrap>Authentication Request:<br></br>
-    GET /oidc/authorization HTTP/1.1
-    &amp;response_type=code
-    &amp;client_id=MY_PARTNER_CODE
-    &amp;scope=openid service:TEST_code profile email
-    &amp;redirect_uri=https://test.istme.be
-    &amp;request_uri=https://test.istme.be:443/p/test<br></br>
-Raw Request Object (not signed, not encrypted):<br></br>
-    {
-      &quot;aud&quot;: &quot;https://idp.prd.itsme.services/v2/authorization&quot;,
-      &quot;scope&quot;: &quot;openid service:TEST_code profile email&quot;,
-      &quot;redirect_uri&quot;: &quot;https://test.istme.be&quot;,
-      &quot;response_type&quot;:&quot;code&quot;,
-      &quot;client_id&quot;:&quot;MY_PARTNER_CODE&quot;,
-      &quot;http://itsme.services/v2/claim/acr_basic&quot;,
-      &quot;iss&quot;:&quot;MY_PARTNER_CODE&quot;,
-      &quot;nonce&quot;:&quot;A_VALID_NONCE&quot;,
-      &quot;state&quot;:&quot;A_VALID_STATE&quot;,
-      &quot;claims&quot;:{
-        &quot;userinfo&quot;:{
-          &quot;http://itsme.services/v2/claim/BEeidSn&quot;:null,
-          &quot;http://itsme.services/v2/claim/place_of_birth&quot;:null
-          }
-        }
-     }</code></p>
-<h2 id='5-5-supported-character-set'>5.5 Supported character set</h2>
-<p>The character set we support for free text fields is ISO 8859-15. You can buy the specification on <a href="https://www.iso.org/standard/29505.html">ISO website</a> or find a free version on <a href="https://en.wikipedia.org/wiki/ISO/IEC_8859-15#Codepage_layout">Wikipedia</a>. You might be interested in knowing that, although most usual characters are supported, some softwares-generated characters like curly apostrophes and long dashes are not part of ISO 8859-15. If you provide a non-supported character in a free text field the flow will be stopped and you will receive an error message back.</p>
-
-<p><a name="UniversalLinks"></a> </p>
-<h2 id='3-3-supporting-universal-links-and-app-links-mechanism'>3.3. Supporting Universal Links and App Links mechanism</h2>
-<p>Regardless of the application you are building you should make sure that your redirect URIs support the <a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal links</a> and <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App links</a> mechanism. Functionally, it will allow you to have only one single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.</p>
-
-<p>Universal links and App links are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.</p>
-
-<p>An App link is the Android version of the Universal link.</p>
-
-<p>How do Universal Links work in iOS and Android ? Before Universal Links, the primary mechanism to open up an app when it was installed was by trying to redirect to an app’s URI scheme  in the web browser. But there was no way to check if the app was installed or not. This meant that developers would try to call the URI scheme 100% of the time, in the off chance that the app was installed, then fallback gracefully to the App Store or Google Play Store when not by using a timer.</p>
-
-<p>iOS Universal Links and Android App Links were intended to fix this. Instead of opening up the web browser first when a link is clicked, the OS will check if a Universal Link has been registered (a file should be there in the domain which contains the bundle id of the app and the paths the app should open) for the domain associated with the link, then check if the corresponding app is installed. If the app is currently installed, it will be opened. If it’s not, the web browser will open and the HTTPS link will load.</p>
-
-<p>The specifications for the implementation of Universal links and App links can be found in the <a href="#Appendixes">Appendix</a>.</p>
 
       </div>
       <div class="dark-box">
