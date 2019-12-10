@@ -201,7 +201,7 @@
       <script src="../javascripts/all.js"></script>
   </head>
 
-  <body class="v2 v2_login" data-languages="[&quot;http&quot;]">
+  <body class="v2 v2_draft" data-languages="[&quot;http&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -225,21 +225,27 @@
             <a href="#2-prerequisites" class="toc-h1 toc-link" data-title="2-prerequisites">2. Prerequisites</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2-1-signing-up-your-application-in-itsme-b2b-portal" class="toc-h2 toc-link" data-title="2-1-signing-up-your-application-in-itsme-b2b-portal">2.1. Signing up your application in itsme® B2B portal</a>
+                    <a href="#2-1-creating-an-organisation" class="toc-h2 toc-link" data-title="2-1-creating-an-organisation">2.1. Creating an organisation</a>
                   </li>
                   <li>
-                    <a href="#2-2-checking-itsme-openid-provider-configuration" class="toc-h2 toc-link" data-title="2-2-checking-itsme-openid-provider-configuration">2.2. Checking itsme® OpenID Provider configuration</a>
-                  </li>
-                  <li>
-                    <a href="#2-3-consulting-openid-connect-certified-libraries" class="toc-h2 toc-link" data-title="2-3-consulting-openid-connect-certified-libraries">2.3. Consulting OpenID Connect certified libraries</a>
+                    <a href="#2-2-crafting-your-cryptographic-keys-uri" class="toc-h2 toc-link" data-title="2-2-crafting-your-cryptographic-keys-uri">2.2. Crafting your cryptographic keys URI</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#3-integrating-login-service" class="toc-h1 toc-link" data-title="3-integrating-login-service">3. Integrating Login service</a>
+            <a href="#3-itsme-openid-provider-configuration" class="toc-h1 toc-link" data-title="3-itsme-openid-provider-configuration">3. itsme® OpenID Provider configuration</a>
+          </li>
+          <li>
+            <a href="#4-openid-connect-certified-libraries" class="toc-h1 toc-link" data-title="4-openid-connect-certified-libraries">4. OpenID Connect certified libraries</a>
+          </li>
+          <li>
+            <a href="#5-integration-guide" class="toc-h1 toc-link" data-title="5-integration-guide">5. Integration guide</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#3-1-forging-an-authentication-request" class="toc-h2 toc-link" data-title="3-1-forging-an-authentication-request">3.1. Forging an Authentication Request</a>
+                    <a href="#5-1-create-a-itsme-button-on-your-application" class="toc-h2 toc-link" data-title="5-1-create-a-itsme-button-on-your-application">5.1. Create a itsme® button on your application</a>
+                  </li>
+                  <li>
+                    <a href="#5-2-forge-an-authentication-request" class="toc-h2 toc-link" data-title="5-2-forge-an-authentication-request">5.2. Forge an Authentication Request</a>
                   </li>
                   <li>
                     <a href="#3-2-capturing-an-authorization-code" class="toc-h2 toc-link" data-title="3-2-capturing-an-authorization-code">3.2. Capturing an Authorization Code</a>
@@ -291,23 +297,44 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='1-introduction'>1. Introduction</h1>
-<p>itsme® is a trusted identity provider allowing partners to use verified identities for authentication and authorization on web desktop, mobile web and mobile applications. </p>
+<p>itsme® is a trusted identity provider allowing partners to use verified identities for authentication and authorization on web desktop, mobile web or mobile applications. </p>
 
 <p>The objective of this document is to provide all the information needed to integrate the <strong>Login</strong> service using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.</p>
 
 <p><a name="Onboarding"></a></p>
-<h1 id='2-prerequisites'>2. Prerequisites</h1><h2 id='2-1-signing-up-your-application-in-itsme-b2b-portal'>2.1. Signing up your application in itsme® B2B portal</h2>
-<p>Before you can integrate your application with itsme® Login service, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>. From here, you will be able to </p>
+<h1 id='2-prerequisites'>2. Prerequisites</h1>
+<p>Before you can integrate your application with itsme® service, you MUST provide us your organisation information and set up a project.</p>
+<h2 id='2-1-creating-an-organisation'>2.1. Creating an organisation</h2>
+<p>Fill in the form by clicking on the following url: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyfhKiiehNg4DhFzhQeHaj9EG2VeFoyPNVaI-TSwnG5WlFfw/viewform" target="blank">https://docs.google.com/forms/d/e/1FAIpQLSdyfhKiiehNg4DhFzhQeHaj9EG2VeFoyPNVaI-TSwnG5WlFfw/viewform</a>.</p>
+
+<p>Once there, you will need to fill out a basic form with the following questions:</p>
 
 <ul>
-  <li>define the itsme® service you want to integrate;</li>
-  <li>if applicable, specify the User claims you want to obtain;</li>
-  <li>provide your signature and encryption public keys, also known as your JSON Web Key Set (JWKS). More information can be found in our <a href="https://belgianmobileid.github.io/slate/jose" target="blank">JSON Object Signing and Encryption (JOSE)</a> page;</li>
-  <li>share the redirection URI that will be used in one of the steps below.</li>
+  <li>Contact details such as your email, name, phone number.</li>
+  <li>Organisation details as shown on the company register for your jurisdiction.</li>
+  <li>Information about the project you want to set-up and the use case you have in mind.</li>
+  <li>itsme® terms and conditions. If you require a copy of this please contact onboarding@itsme.be.</li>
 </ul>
 
+<p>Our onboarding team will review your project and get in touch within 3 days with a <i>&quot;client_id&quot;</i> and a <i>&quot;service_code&quot;</i> which need to be added in your configuration. Meanwhile, this should not prevent you from starting your integration.</p>
+<h2 id='2-2-crafting-your-cryptographic-keys-uri'>2.2. Crafting your cryptographic keys URI</h2>
+<p>Once you have created your organisation, the next step is to craft your cryptographic keys URI. Some itsme® endpoints require client authentication in order to protect entitlement information between interested parties. </p>
+
+<p>As itsme® only support the <i>&quot;private_key_jwt&quot;</i> client authentication method, it requires that each party exposes its public keys as a simple JWK Set document on a URI accessible to all, and keep its private set for itself. For itsme®, this URI can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the <i>&quot;jwks_uri&quot;</i> key.</p>
+
+<p>Your private and public keys can be generated via Yeoman. To get started, install Yeoman and generator-itsme with NPM:</p>
+
+<p><code style=display:block;white-space:pre-wrap>$ npm install -g yeoman generator-itsme</code></p>
+
+<p>After installation, run the generator:</p>
+
+<p><code style=display:block;white-space:pre-wrap>$ yo itsme</code></p>
+
+<aside class="notice">Don't forget to send your JWK Set URI by email to onboarding@itsme.be and we’ll make sure to complete the configuration for you in no time!
+</aside>
+
 <p><a name="OpenIDConfig"></a></p>
-<h2 id='2-2-checking-itsme-openid-provider-configuration'>2.2. Checking itsme® OpenID Provider configuration</h2>
+<h1 id='3-itsme-openid-provider-configuration'>3. itsme® OpenID Provider configuration</h1>
 <p>To simplify implementations and increase flexibility, <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID Connect allows the use of a Discovery Document</a>, a JSON document containing key-value pairs which provide details about itsme® configuration, such as the URIs of the </p>
 
 <ul>
@@ -317,7 +344,7 @@
   <li>...</li>
 </ul>
 
-<p>The Discovery document for itsme® Login service MAY be retrieved from: </p>
+<p>The Discovery document for itsme® MAY be retrieved from: </p>
 
 <table><thead>
 <tr>
@@ -334,10 +361,12 @@
 <td style="text-align: left"><a href="https://idp.prd.itsme.services/v2/.well-known/openid-configuration" target="blank">https://idp.prd.itsme.services/v2/.well-known/openid-configuration</a></td>
 </tr>
 </tbody></table>
-<h2 id='2-3-consulting-openid-connect-certified-libraries'>2.3. Consulting OpenID Connect certified libraries</h2>
+<h1 id='4-openid-connect-certified-libraries'>4. OpenID Connect certified libraries</h1>
 <p>OpenID Connect provides certified libraries, products, and tools which could help you integrating the itsme® service. For more information, please visit the official webpage: <a href="https://openid.net/developers/libraries/" target="blank">https://openid.net/developers/libraries/</a>.</p>
-<h1 id='3-integrating-login-service'>3. Integrating Login service</h1>
-<p>The itsme® Login service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following diagram:</p>
+<h1 id='5-integration-guide'>5. Integration guide</h1>
+<p>Our itsme® app can be seamlessly be integrated with your web desktop, mobile web or mobile application so you can perform secure identity checks.</p>
+
+<p>itsme® integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following diagram:</p>
 
 <p><img src="../OpenID_Login_SeqDiag.png" alt="Sequence diagram describing the OpenID flow" /></p>
 
@@ -360,13 +389,65 @@
 <p>This flow is described in much more detail in the following sections.</p>
 
 <p><a name="AuthNRequest"></a></p>
-<h2 id='3-1-forging-an-authentication-request'>3.1. Forging an Authentication Request</h2>
+<h2 id='5-1-create-a-itsme-button-on-your-application'>5.1. Create a itsme® button on your application</h2>
+<p>First, you will need to create a button to allow your users to authenticate with itsme®. See the <a href="Button design guide" target="blank">https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/buttons-1518207548</a> before you start the integration. </p>
+
+<p>Upon clicking this button, we will open a modal view which contains a field that need to be filled by the end user with it’s phone number. Note that mobile web users will skip the phone number step, as they use the itsme® mobile app directly to authenticate.</p>
+
+<p>itsme® provides a button <a href="generator" target="blank">https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/buttons-1518207548</a> for you to include in your HTML file. </p>
+<h2 id='5-2-forge-an-authentication-request'>5.2. Forge an Authentication Request</h2>
 <p>First, you will forg a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <i>&quot;authorization_endpoint&quot;</i>.</p>
 
 <aside class="notice">By opposition to the OpenID Connect specifications, POST method is not authorized when triggering the itsme® App through the Universal/App Link mechanism only support the HTTP GET method on the Authorisation Endpoint. More information about Universal links and App links can be found in the <a href="#UniversalLinks">section 3.3</a>.
 </aside>
 
-<p>The OpenID Connect Core specification defines a number of parameters to integrate in the HTTPS GET query string:</p>
+<p>itsme® defines a number of parameters to integrate in the HTTPS GET query string depending on the type of service you requested :</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Login</th>
+<th style="text-align: left">Share Data</th>
+<th style="text-align: left">Confirm</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>client_id</strong></td>
+<td style="text-align: left">This is the client ID you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">Required</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>response_type</strong></td>
+<td style="text-align: left">This defines the processing flow to be used when forming the response. Because itsme® uses the Authorization Code Flow as described above, this value MUST be <i>&quot;code&quot;</i>.</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">Required</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>scope</strong></td>
+<td style="text-align: left">The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>&quot;openid&quot;</i> and <i>&quot;service:TEST_code&quot;</i>, by replacing &quot;TEST_code&quot; with the service code you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br>You MAY also specify additional scopes, separated by spaces, to request more information about the User. Depending on your use case, the following additional scopes MAY apply:<ul><li>profile: will request the claims representing basic profile information. These are <i>&quot;family_name&quot;</i>, <i>&quot;given_name&quot;</i>, <i>&quot;gender&quot;</i>, <i>&quot;birthdate&quot;</i> and <i>&quot;locale&quot;</i>.</li><li>email: will request the <i>&quot;email&quot;</i> and <i>&quot;email_verified&quot;</i> claims.</li><li>phone: will request the <i>&quot;phone_number&quot;</i> and <i>&quot;phone_number_verified&quot;</i> claims.</li><li>address: will request the <i>&quot;street_address&quot;</i>, <i>&quot;locality&quot;</i>, <i>&quot;postal_code&quot;</i> and <i>&quot;country&quot;</i> claims.</li></ul>For more information on User attributes or claims, please consult the <a href="#Data">ID claims</a> section.</br><br>An HTTP ERROR <i>&quot;not_implemented&quot;</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">Required</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>redirect_uri</strong></td>
+<td style="text-align: left">This is the URI to which the authentication response should be sent. This MUST exactly match the redirect URI, GET parameters included, of the specified service defined when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>. Please note in Sandbox environment, the redirect_uri is NOT checked. This allows you to test your integration locally.</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">Required</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>request_uri</strong></td>
+<td style="text-align: left">This parameter enables OpenID Connect parameters to be passed by reference. The <i>&quot;request_uri&quot;</i> value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. The URL MUST be shared with us when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br>See <a href="#RequestUri">Using request_uri parameter</a> for more details.</br></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">Required</td>
+</tr>
+</tbody></table>
 
 <table><thead>
 <tr>
