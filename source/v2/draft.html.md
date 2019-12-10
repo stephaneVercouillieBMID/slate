@@ -11,7 +11,7 @@ toc_footers:
 search: true
 ---
 # 1. Introduction
-itsme® is a trusted identity provider allowing partners to use verified identities for authentication and authorization on web desktop, mobile web and mobile applications. 
+itsme® is a trusted identity provider allowing partners to use verified identities for authentication and authorization on web desktop, mobile web, mobile applications or custom products. 
 
 The objective of this document is to provide all the information needed to integrate the **Login** service using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.
 
@@ -19,19 +19,44 @@ The objective of this document is to provide all the information needed to integ
 <a name="Onboarding"></a>
 # 2. Prerequisites
 
-## 2.1. Signing up your application in itsme® B2B portal
- 
-Before you can integrate your application with itsme® Login service, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a>. From here, you will be able to 
+Before you can integrate your application with itsme® service, you MUST provide us your organisation information and set up a project.
+
+## 2.1. Creating an organisation
+
+Fill in the form by clicking on the following url: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyfhKiiehNg4DhFzhQeHaj9EG2VeFoyPNVaI-TSwnG5WlFfw/viewform" target="blank">https://docs.google.com/forms/d/e/1FAIpQLSdyfhKiiehNg4DhFzhQeHaj9EG2VeFoyPNVaI-TSwnG5WlFfw/viewform</a>.
+
+Once there, you will need to fill out a basic form with the following questions:
 
 <ul>
-  <li>define the itsme® service you want to integrate;</li>
-  <li>if applicable, specify the User claims you want to obtain;</li>
-  <li>provide your signature and encryption public keys, also known as your JSON Web Key Set (JWKS). More information can be found in our <a href="https://belgianmobileid.github.io/slate/jose" target="blank">JSON Object Signing and Encryption (JOSE)</a> page;</li>
-  <li>share the redirection URI that will be used in one of the steps below.</li>
+  <li>Contact details such as your email, name, phone number.</li>
+  <li>Organisation details as shown on the company register for your jurisdiction.</li>
+  <li>Information about the project you want to set-up and the use case you have in mind.</li>
+  <li>itsme® terms and conditions. If you require a copy of this please contact onboarding@itsme.be.</li>
 </ul>
 
+Our onboarding team will review your project and get in touch within 3 days with a <i>"client_id"</i> and a <i>"service_code"</i> which need to be added in your configuration. Meanwhile, this should not prevent you from starting your integration.
+
+
+## 2.2. Crafting your cryptographic keys URI
+
+Once you have created your organisation, the next step is to craft your cryptographic keys URI. Some itsme® endpoints require client authentication in order to protect entitlement information between interested parties. 
+
+As itsme® only support the <i>"private_key_jwt"</i> client authentication method, it requires that each party exposes its public keys as a simple JWK Set document on a URI accessible to all, and keep its private set for itself. For itsme®, this URI can be retrieved from the [itsme® Discovery document](#OpenIDConfig), using the <i>"jwks_uri"</i> key.
+
+Your private and public keys can be generated via Yeoman. To get started, install Yeoman and generator-itsme with NPM:
+
+<code style=display:block;white-space:pre-wrap>$ npm install -g yeoman generator-itsme</code>
+
+After installation, run the generator:
+
+<code style=display:block;white-space:pre-wrap>$ yo itsme</code>
+
+<aside class="notice">Don't forget to send your JWK Set URI by email to onboarding@itsme.be and we’ll make sure to complete the configuration for you in no time!
+</aside>
+
+
 <a name="OpenIDConfig"></a>
-## 2.2. Checking itsme® OpenID Provider configuration
+# 3. itsme® OpenID Provider configuration
 
 To simplify implementations and increase flexibility, <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID Connect allows the use of a Discovery Document</a>, a JSON document containing key-value pairs which provide details about itsme® configuration, such as the URIs of the 
 
@@ -42,19 +67,31 @@ To simplify implementations and increase flexibility, <a href="https://openid.ne
   <li>...</li>
 </ul>
 
-The Discovery document for itsme® Login service MAY be retrieved from: 
+The Discovery document for itsme® MAY be retrieved from: 
 
 Environment | URL
 :-------- | :--------
 **SANDBOX** | <a href="https://idp.e2e.itsme.services/v2/.well-known/openid-configuration" target="blank">https://idp.e2e.itsme.services/v2/.well-known/openid-configuration</a>
 **PRODUCTION** | <a href="https://idp.prd.itsme.services/v2/.well-known/openid-configuration" target="blank">https://idp.prd.itsme.services/v2/.well-known/openid-configuration</a>
 
-## 2.3. Consulting OpenID Connect certified libraries
+# 4. OpenID Connect certified libraries
 
 OpenID Connect provides certified libraries, products, and tools which could help you integrating the itsme® service. For more information, please visit the official webpage: <a href="https://openid.net/developers/libraries/" target="blank">https://openid.net/developers/libraries/</a>.
 
 
-# 3. Integrating Login service
+# 5. Integration guide
+
+Our app can be seamlessly be integrated with your web desktop, mobile web, mobile application or custom product so you can perform secure identity checks.
+
+
+
+
+
+
+
+
+
+
 
 The itsme® Login service integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following diagram:
   
