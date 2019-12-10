@@ -19,7 +19,6 @@ The objective of this document is to provide all the information needed to integ
 <a name="Onboarding"></a>
 # 2. Prerequisites
 
-Before you can integrate your application with itsme® service, you MUST provide us your organisation information and set up a project.
 
 ## 2.1. Creating an organisation
 
