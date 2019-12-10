@@ -245,7 +245,7 @@
                     <a href="#5-1-create-a-itsme-button-on-your-application" class="toc-h2 toc-link" data-title="5-1-create-a-itsme-button-on-your-application">5.1. Create a itsme® button on your application</a>
                   </li>
                   <li>
-                    <a href="#5-2-forge-an-authentication-request-and-attributes" class="toc-h2 toc-link" data-title="5-2-forge-an-authentication-request-and-attributes">5.2. Forge an Authentication Request and attributes</a>
+                    <a href="#5-2-forge-an-authentication-request-and-request-attributes" class="toc-h2 toc-link" data-title="5-2-forge-an-authentication-request-and-request-attributes">5.2. Forge an Authentication Request and request attributes</a>
                   </li>
                   <li>
                     <a href="#5-3-capturing-an-authorization-code" class="toc-h2 toc-link" data-title="5-3-capturing-an-authorization-code">5.3. Capturing an Authorization Code</a>
@@ -384,7 +384,7 @@
 <p>Upon clicking this button, we will open a modal view which contains a field that need to be filled by the end user with it’s phone number. Note that mobile web users will skip the phone number step, as they use the itsme® mobile app directly to authenticate.</p>
 
 <p>itsme® provides a button <a href="generator" target="blank">https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/buttons-1518207548</a> for you to include in your HTML file. </p>
-<h2 id='5-2-forge-an-authentication-request-and-attributes'>5.2. Forge an Authentication Request and attributes</h2><h3 id='composing-your-base-url'>Composing your base URL</h3>
+<h2 id='5-2-forge-an-authentication-request-and-request-attributes'>5.2. Forge an Authentication Request and request attributes</h2><h3 id='composing-your-base-url'>Composing your base URL</h3>
 <p>First, you will forg a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <i>&quot;authorization_endpoint&quot;</i>.</p>
 
 <aside class="notice">By opposition to the OpenID Connect specifications, POST method is not authorized when triggering the itsme® App through the Universal/App Link mechanism only support the HTTP GET method on the Authorisation Endpoint. More information about Universal links and App links can be found in the <a href="#UniversalLinks">section 3.3</a>.
