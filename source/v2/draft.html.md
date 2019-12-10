@@ -115,7 +115,7 @@ Upon clicking this button, we will open a modal view which contains a field that
 itsme® provides a button <a href="generator" target="blank">https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/buttons-1518207548</a> for you to include in your HTML file. 
 
 
-## 5.2. Forge an Authentication Request and attributes
+## 5.2. Forge an Authentication Request and request attributes
 
 ### Composing your base URL
 
