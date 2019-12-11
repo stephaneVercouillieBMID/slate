@@ -189,7 +189,7 @@ Raw Request Object (not signed, not encrypted):<br></br>
         }
      }</code>
      
-###  Capturing claims from the 'scope' parameter
+###  Requesting claims from the 'scope' parameter
 
 On top of the <i>"openid"</i> and <i>"service:TEST_code"</i> values specified in the Authentication Request, you MAY also ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes MAY apply:
 
@@ -200,7 +200,7 @@ Parameter | Description
 **phone** | It will request the <i>"phone_number"</i> and <i>"phone_number_verified"</i> claims
 **address** | It will request the <i>"street_address"</i>, <i>"locality"</i>, <i>"postal_code"</i> and <i>"country"</i> claims.
 
-###  Capturing claims from the 'claims' parameter
+###  Requesting claims from the 'claims' parameter
 
 Typically, the values returned via the <i>"scope"</i> parameter only contain claims about the identity of the User. More information about the User MAY be requested by including additional parameters in the <i>"claims"</i> parameter as specified below:
 
