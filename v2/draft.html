@@ -541,6 +541,13 @@ Raw Request Object (not signed, not encrypted):<br></br>
 
 <p>As itsme® manage multiple international ID Templates - each with his own set of User Data - it can be that you will not receive some information about a User even if you requested the claim it in the Authorisation Request. </p>
 
+<p>Currently, you will be able to access two types of ID Templates :</p>
+
+<ul>
+  <li>Belgian eID</li>
+  <li>LuxTrust certificate</li>
+</ul>
+
 <p>The additonal <i><b>&quot;scope&quot;</b></i> values which can be requested for any type of ID Template are :</p>
 
 <table><thead>
@@ -566,11 +573,145 @@ Raw Request Object (not signed, not encrypted):<br></br>
 <td style="text-align: left">Returned if requested</td>
 <td style="text-align: left">Returned if requested</td>
 </tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">PersonGivenName</td>
+<td style="text-align: left">John Matthew A</td>
+<td style="text-align: left">Returned if requested</td>
+<td style="text-align: left">Returned if requested</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">PersonFullName</td>
+<td style="text-align: left">John Matthew A Smith</td>
+<td style="text-align: left">Returned if requested</td>
+<td style="text-align: left">Returned if requested</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">PersonGender</td>
+<td style="text-align: left">M</td>
+<td style="text-align: left">Returned if requested</td>
+<td style="text-align: left">Returned if requested</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">PersonDateOfBirth</td>
+<td style="text-align: left">1959-06-03</td>
+<td style="text-align: left">Returned if requested</td>
+<td style="text-align: left">Returned if requested</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">locale</td>
+<td style="text-align: left">NL</td>
+<td style="text-align: left">Not always returned if requested</td>
+<td style="text-align: left">Not always returned if requested</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>email</strong></td>
+<td style="text-align: left">email</td>
+<td style="text-align: left">john.smith@company.lu</td>
+<td style="text-align: left">Not always returned if requested</td>
+<td style="text-align: left">Not always returned if requested</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">email_verified</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">Not always returned if requested</td>
+<td style="text-align: left">Not always returned if requested</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>phone</strong></td>
+<td style="text-align: left">countryCode</td>
+<td style="text-align: left">352</td>
+<td style="text-align: left">Returned if requested</td>
+<td style="text-align: left">Returned if requested</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">phoneNumber</td>
+<td style="text-align: left">495162995</td>
+<td style="text-align: left">Returned if requested</td>
+<td style="text-align: left">Returned if requested</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>address</strong></td>
+<td style="text-align: left">AddressFullAddress</td>
+<td style="text-align: left">Place Victor Horta, 79 202 1348 Louvain-la-Neuve</td>
+<td style="text-align: left">Returned if requested</td>
+<td style="text-align: left">Returned if requested</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">AddressPostCode</td>
+<td style="text-align: left">1348</td>
+<td style="text-align: left">Returned if requested</td>
+<td style="text-align: left">Returned if requested</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">AddressPostName</td>
+<td style="text-align: left">Louvain-la-Neuve</td>
+<td style="text-align: left">Returned if requested</td>
+<td style="text-align: left">Returned if requested</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">AddressAdminUnitL1</td>
+<td style="text-align: left">(empty)</td>
+<td style="text-align: left">Returned if requested</td>
+<td style="text-align: left">Returned if requested</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">AddressThoroughFare</td>
+<td style="text-align: left">Place Victor Horta</td>
+<td style="text-align: left">Returned if requested</td>
+<td style="text-align: left">Returned if requested</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">AddressLocatorDesignator</td>
+<td style="text-align: left">79</td>
+<td style="text-align: left">Returned if requested</td>
+<td style="text-align: left">Returned if requested</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">AddressPoBox</td>
+<td style="text-align: left">202</td>
+<td style="text-align: left">Returned if requested</td>
+<td style="text-align: left">Returned if requested</td>
+</tr>
 </tbody></table>
 
-<p><strong>email</strong> | It will request the <i>&quot;email&quot;</i> and <i>&quot;email_verified&quot;</i> claims.
-<strong>phone</strong> | It will request the <i>&quot;phone_number&quot;</i> and <i>&quot;phone_number_verified&quot;</i> claims
-<strong>address</strong> | It will request the <i>&quot;street_address&quot;</i>, <i>&quot;locality&quot;</i>, <i>&quot;postal_code&quot;</i> and <i>&quot;country&quot;</i> claims.</p>
+<p>Typically, the values returned via the &quot;scope&quot; parameter only contain claims about the identity of the User. More information about the User or the Authentication event MAY be requested by including additional values in the &quot;claims&quot; parameter as specified below :</p>
+
+<p><strong>http://itsme.services/v2/claim/claim_citizenship</strong> | PersonCitizenship  | Belg | Not always returned if requested | Returned if requested 
+<strong>http://itsme.services/v2/claim/BEeidSn</strong> | issuanceLocality | Sombreffe | Not always returned if requested | Never returned if requested 
+ | validityFrom | 2019-12-04 | Not always returned if requested | Never returned if requested<br>
+ | validityTo  | 2025-12-04 | Not always returned if requested | Never returned if requested 
+ | certificateValidity | 2025-12-04 | Not always returned if requested | Never returned if requested<br>
+ | readDate | 2025-12-04 | Returned if requested | Returned if requested 
+<strong>http://itsme.services/v2/claim/place_of_birth</strong> | PersonCountryOfBirth | Neerpelt | Returned if requested | Never returned if requested 
+ | PersonPlaceOfBirth | (empty) | Returned if requested | Never returned if requested 
+<strong>http://itsme.services/v2/claim/claim_device</strong> | os | Sombreffe | Returned if requested | Returned if requested 
+ | appName |  | Returned if requested | Returned if requested 
+ | appRelease  |   | Returned if requested | Returned if requested 
+ | deviceLabel |  | Returned if requested | Returned if requested<br>
+ | debugEnabled |  | Returned if requested | Returned if requested 
+ | deviceID |  | Returned if requested | Returned if requested 
+ | osRelease  |  | Returned if requested | Returned if requested 
+ | manufacturer |  | Returned if requested | Returned if requested 
+ | hasSimEnabled |  | Returned if requested | Returned if requested 
+ | deviceLockLevel |  | Returned if requested | Returned if requested 
+ | smsEnabled |  | Returned if requested | Returned if requested 
+ | rooted  |  | Returned if requested | Returned if requested 
+ | imei |  | Returned if requested | Returned if requested 
+ | deviceModel |  | Returned if requested | Returned if requested 
+ | sdkRelease |  | Returned if requested | Returned if requested </p>
 
 <p>using specific <i>&quot;scope&quot;</i> values, or you will also be able to request info about the User or an Authentication event  can be requested using the claims request parameter.</p>
 
