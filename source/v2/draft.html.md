@@ -222,7 +222,7 @@ Typically, the values returned via the "scope" parameter only contain claims abo
 
 Value | Required | Returned claim | Example 
 :-- | :-- | :-- | :-- 
-**http://itsme.services/v2/claim/claim_citizenship** | Optionnal | PersonCitizenship  | Belg 
+**http://itsme.services/v2/<br></br>claim/claim_citizenship** | Optionnal | PersonCitizenship  | Belg 
 **http://itsme.services/v2/claim/BEeidSn** | Optionnal | issuanceLocality | Sombreffe 
  | | validityFrom | 2019-12-04 | Not always returned if requested | Never returned if requested  
  | | validityTo  | 2025-12-04 | Not always returned if requested | Never returned if requested 
