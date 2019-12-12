@@ -195,18 +195,61 @@ The OpenID Connect Core specification defines a sets of standard claims that MAY
 
 As itsme® manage multiple international ID Templates - each with his own set of User Data - it can be that you will not receive some information about a User even if you requested the claim it in the Authorisation Request. 
 
+Currently, you will be able to access two types of ID Templates :
+
+<ul>
+  <li>Belgian eID</li>
+  <li>LuxTrust certificate</li>
+</ul>
+
 The additonal <i><b>"scope"</b></i> values which can be requested for any type of ID Template are :
 
 Value | Returned claim | Example | Belgian eID | Luxtrust certificate 
 :-- | :-- | :-- | :-- | :--
 **profile** | PersonFamilyName | Smith | Returned if requested | Returned if requested 
  | PersonFamilyName | Smith | Returned if requested | Returned if requested 
+ | PersonGivenName | John Matthew A | Returned if requested | Returned if requested 
+ | PersonFullName | John Matthew A Smith | Returned if requested | Returned if requested 
+ | PersonGender | M | Returned if requested | Returned if requested 
+ | PersonDateOfBirth | 1959-06-03 | Returned if requested | Returned if requested 
+ | locale | NL | Not always returned if requested | Not always returned if requested
+**email** | email | john.smith@company.lu | Not always returned if requested | Not always returned if requested
+ | email_verified |  | Not always returned if requested | Not always returned if requested
+**phone** | countryCode | 352 | Returned if requested | Returned if requested 
+ | phoneNumber | 495162995 | Returned if requested | Returned if requested 
+**address** | AddressFullAddress | Place Victor Horta, 79 202 1348 Louvain-la-Neuve | Returned if requested | Returned if requested  
+ | AddressPostCode | 1348 | Returned if requested | Returned if requested 
+ | AddressPostName | Louvain-la-Neuve | Returned if requested | Returned if requested 
+ | AddressAdminUnitL1 | (empty) | Returned if requested | Returned if requested 
+ | AddressThoroughFare | Place Victor Horta | Returned if requested | Returned if requested  
+ | AddressLocatorDesignator | 79 | Returned if requested | Returned if requested  
+ | AddressPoBox | 202 | Returned if requested | Returned if requested  
 
-**email** | It will request the <i>"email"</i> and <i>"email_verified"</i> claims.
-**phone** | It will request the <i>"phone_number"</i> and <i>"phone_number_verified"</i> claims
-**address** | It will request the <i>"street_address"</i>, <i>"locality"</i>, <i>"postal_code"</i> and <i>"country"</i> claims.
+Typically, the values returned via the "scope" parameter only contain claims about the identity of the User. More information about the User or the Authentication event MAY be requested by including additional values in the "claims" parameter as specified below :
 
-
+**http://itsme.services/v2/claim/claim_citizenship** | PersonCitizenship  | Belg | Not always returned if requested | Returned if requested 
+**http://itsme.services/v2/claim/BEeidSn** | issuanceLocality | Sombreffe | Not always returned if requested | Never returned if requested 
+ | validityFrom | 2019-12-04 | Not always returned if requested | Never returned if requested  
+ | validityTo  | 2025-12-04 | Not always returned if requested | Never returned if requested 
+ | certificateValidity | 2025-12-04 | Not always returned if requested | Never returned if requested  
+ | readDate | 2025-12-04 | Returned if requested | Returned if requested 
+**http://itsme.services/v2/claim/place_of_birth** | PersonCountryOfBirth | Neerpelt | Returned if requested | Never returned if requested 
+ | PersonPlaceOfBirth | (empty) | Returned if requested | Never returned if requested 
+**http://itsme.services/v2/claim/claim_device** | os | Sombreffe | Returned if requested | Returned if requested 
+ | appName |  | Returned if requested | Returned if requested 
+ | appRelease  |   | Returned if requested | Returned if requested 
+ | deviceLabel |  | Returned if requested | Returned if requested  
+ | debugEnabled |  | Returned if requested | Returned if requested 
+ | deviceID |  | Returned if requested | Returned if requested 
+ | osRelease  |  | Returned if requested | Returned if requested 
+ | manufacturer |  | Returned if requested | Returned if requested 
+ | hasSimEnabled |  | Returned if requested | Returned if requested 
+ | deviceLockLevel |  | Returned if requested | Returned if requested 
+ | smsEnabled |  | Returned if requested | Returned if requested 
+ | rooted  |  | Returned if requested | Returned if requested 
+ | imei |  | Returned if requested | Returned if requested 
+ | deviceModel |  | Returned if requested | Returned if requested 
+ | sdkRelease |  | Returned if requested | Returned if requested 
 
 
 
