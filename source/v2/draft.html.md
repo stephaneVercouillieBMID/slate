@@ -197,9 +197,11 @@ As itsme® manage multiple international ID Templates - each with his own set of
 
 The additonal <i><b>"scope"</b></i> values which can be requested for any type of ID Template are :
 
-Value | Returned claims | Example | Belgian eID | Luxtrust certificate 
+Value | Returned claim | Example | Belgian eID | Luxtrust certificate 
 :-- | :-- | :-- | :-- | :--
-**profile** | PersonFamilyName
+**profile** | PersonFamilyName | Smith | Returned if requested | Returned if requested 
+ | PersonFamilyName | Smith | Returned if requested | Returned if requested 
+
 **email** | It will request the <i>"email"</i> and <i>"email_verified"</i> claims.
 **phone** | It will request the <i>"phone_number"</i> and <i>"phone_number_verified"</i> claims
 **address** | It will request the <i>"street_address"</i>, <i>"locality"</i>, <i>"postal_code"</i> and <i>"country"</i> claims.
