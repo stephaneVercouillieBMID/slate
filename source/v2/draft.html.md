@@ -222,15 +222,15 @@ Typically, the values returned via the "scope" parameter only contain claims abo
 
 Value | Required | Returned claim | Example 
 :-- | :-- | :-- | :-- 
-**http://itsme.services/v2/<br></br>claim/claim_citizenship** | Optionnal | PersonCitizenship  | Belg 
-**http://itsme.services/v2/claim/BEeidSn** | Optionnal | issuanceLocality | Sombreffe 
+**http://itsme.services/v2/ claim/claim_citizenship** | Optionnal | PersonCitizenship  | Belg 
+**http://itsme.services/v2/ claim/BEeidSn** | Optionnal | issuanceLocality | Sombreffe 
  | | validityFrom | 2019-12-04 | Not always returned if requested | Never returned if requested  
  | | validityTo  | 2025-12-04 | Not always returned if requested | Never returned if requested 
  | | certificateValidity | 2025-12-04 | Not always returned if requested | Never returned if requested  
  | | readDate | 2025-12-04 | Returned if requested | Returned if requested 
-**http://itsme.services/v2/claim/place_of_birth** | Optionnal | PersonCountryOfBirth | Neerpelt 
+**http://itsme.services/v2/ claim/place_of_birth** | Optionnal | PersonCountryOfBirth | Neerpelt 
  | | PersonPlaceOfBirth | (empty) 
-**http://itsme.services/v2/claim/claim_device** | Optionnal | os | Sombreffe 
+**http://itsme.services/v2/ claim/claim_device** | Optionnal | os | Sombreffe 
  | | appName |  
  | | appRelease  |   
  | | deviceLabel |  
@@ -245,14 +245,14 @@ Value | Required | Returned claim | Example
  | | imei |  
  | | deviceModel |   
  | | sdkRelease |  
-**http://itsme.services/v2/claim/physical_person_photo** | Optionnal | picture | Neerpelt 
-**http://itsme.services/v2/claim/claim_approval_template_name** | Not supported |  |  
-**http://itsme.services/v2/claim/claim_approval_text_key** | Not supported |  |  
-**http://itsme.services/v2/claim/claim_approval_amount_key** | Not supported |  | 
-**http://itsme.services/v2/claim/claim_approval_currency_key** | Not supported |  | 
-**http://itsme.services/v2/claim/claim_approval_iban_key** | Not supported |  | 
-**http://itsme.services/v2/claim/claim_luxtrust_ssn** | Optionnal |  | 12345678901234567890
-**http://itsme.services/v2/claim/claim_approval_text_key** | Optionnal |  | 59245644234545465
+**http://itsme.services/v2/ claim/physical_person_photo** | Optionnal | picture | Neerpelt 
+**http://itsme.services/v2/ claim/claim_approval_template_name** | Not supported |  |  
+**http://itsme.services/v2/ claim/claim_approval_text_key** | Not supported |  |  
+**http://itsme.services/v2/ claim/claim_approval_amount_key** | Not supported |  | 
+**http://itsme.services/v2/ claim/claim_approval_currency_key** | Not supported |  | 
+**http://itsme.services/v2/ claim/claim_approval_iban_key** | Not supported |  | 
+**http://itsme.services/v2/ claim/claim_luxtrust_ssn** | Optionnal |  | 12345678901234567890
+**http://itsme.services/v2/ claim/claim_approval_text_key** | Optionnal |  | 59245644234545465
 
 
 <a name="AuthNResponse"></a>
