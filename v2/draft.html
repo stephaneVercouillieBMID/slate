@@ -412,7 +412,7 @@
 <tr>
 <td style="text-align: left"><strong>scope</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>&quot;openid&quot;</i> and <i>&quot;service:TEST_code&quot;</i>, by replacing &quot;TEST_code&quot; with the service code you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br></br><br>You MAY also specify additional scopes, separated by spaces, to request more information about the User. See the list below for more information.<br></br><br>An HTTP ERROR <i>&quot;not_implemented&quot;</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br></td>
+<td style="text-align: left">The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>&quot;openid&quot;</i> and <i>&quot;service:TEST_code&quot;</i>, by replacing &quot;TEST_code&quot; with the service code you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br></br><br>You MAY also specify additional scopes, separated by spaces, to request more information about the User. See the <a href="#Data">list</a> below for more information.</br> below for more information.<br></br><br>An HTTP ERROR <i>&quot;not_implemented&quot;</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>redirect_uri</strong></td>
@@ -460,11 +460,6 @@
 <td style="text-align: left">User&#39;s preferred languages and scripts for the User interface (e.g.: OpenID web page). Supported values are: <i>&quot;fr&quot;</i>, <i>&quot;nl&quot;</i>, <i>&quot;en&quot;</i> and <i>&quot;de&quot;</i>. Any other value will be ignored.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>max_age</strong></td>
-<td style="text-align: left">Not supported</td>
-<td style="text-align: left">Any supplied value will be ignored.<br>As itsme® does not maintain a session mechanism, an active authentication is always required.</br></td>
-</tr>
-<tr>
 <td style="text-align: left"><a name="acrvalues"><strong>acr_values</strong></a></td>
 <td style="text-align: left">Optional</td>
 <td style="text-align: left">Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference.<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br><i>&quot;http://itsme.services/v2/claim/acr_basic&quot;</i></br></li><li>Advanced level - force the User to use PIN<br><i>&quot;http://itsme.services/v2/claim/acr_advanced&quot;</i></br></li></ul>When multiple values are provided only the most constraining will be used (advanced &gt; basic). If not provided basic level will be used.</br><br>More information on security levels and context data can be found in the <a href="#SecurityLevels">Appendixes</a>.</br></td>
@@ -472,7 +467,12 @@
 <tr>
 <td style="text-align: left"><strong>claims</strong></td>
 <td style="text-align: left">Optional</td>
-<td style="text-align: left">This parameter is used to request specific claims. The value is a JSON object listing the requested claims. <br>See <a href="#Data">User Data</a> for more information.</br></td>
+<td style="text-align: left">This parameter is used to request specific claims. The value is a JSON object listing the requested claims. <br>See the <a href="#Data">list</a> below for more information.</br></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>max_age</strong></td>
+<td style="text-align: left">Not supported</td>
+<td style="text-align: left">Any supplied value will be ignored.<br>As itsme® does not maintain a session mechanism, an active authentication is always required.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>response_mode</strong></td>
@@ -541,243 +541,316 @@ Raw Request Object (not signed, not encrypted):<br></br>
 
 <p>As itsme® manage multiple international ID Templates - each with his own set of User Data - it can be that you will not receive some information about a User even if you requested the claim it in the Authorisation Request. </p>
 
-<p>Currently, you will be able to access two types of ID Templates :</p>
-
-<ul>
-  <li>Belgian eID</li>
-  <li>LuxTrust certificate</li>
-</ul>
-
-<p>The additonal <i><b>&quot;scope&quot;</b></i> values which can be requested for any type of ID Template are :</p>
+<p><a name="Data"></a>
+The additonal <i><b>&quot;scope&quot;</b></i> values which can be requested for any type of ID Template are :</p>
 
 <table><thead>
 <tr>
 <th style="text-align: left">Value</th>
+<th style="text-align: left">Required</th>
 <th style="text-align: left">Returned claim</th>
 <th style="text-align: left">Example</th>
-<th style="text-align: left">Belgian eID</th>
-<th style="text-align: left">Luxtrust certificate</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>profile</strong></td>
+<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">PersonFamilyName</td>
 <td style="text-align: left">Smith</td>
-<td style="text-align: left">Returned if requested</td>
-<td style="text-align: left">Returned if requested</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left">PersonFamilyName</td>
-<td style="text-align: left">Smith</td>
-<td style="text-align: left">Returned if requested</td>
-<td style="text-align: left">Returned if requested</td>
-</tr>
-<tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">PersonGivenName</td>
 <td style="text-align: left">John Matthew A</td>
-<td style="text-align: left">Returned if requested</td>
-<td style="text-align: left">Returned if requested</td>
 </tr>
 <tr>
+<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">PersonFullName</td>
 <td style="text-align: left">John Matthew A Smith</td>
-<td style="text-align: left">Returned if requested</td>
-<td style="text-align: left">Returned if requested</td>
 </tr>
 <tr>
+<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">PersonGender</td>
 <td style="text-align: left">M</td>
-<td style="text-align: left">Returned if requested</td>
-<td style="text-align: left">Returned if requested</td>
 </tr>
 <tr>
+<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">PersonDateOfBirth</td>
 <td style="text-align: left">1959-06-03</td>
-<td style="text-align: left">Returned if requested</td>
-<td style="text-align: left">Returned if requested</td>
 </tr>
 <tr>
+<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">locale</td>
 <td style="text-align: left">NL</td>
-<td style="text-align: left">Not always returned if requested</td>
-<td style="text-align: left">Not always returned if requested</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>email</strong></td>
+<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">email</td>
 <td style="text-align: left">john.smith@company.lu</td>
-<td style="text-align: left">Not always returned if requested</td>
-<td style="text-align: left">Not always returned if requested</td>
 </tr>
 <tr>
+<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">email_verified</td>
 <td style="text-align: left"></td>
-<td style="text-align: left">Not always returned if requested</td>
-<td style="text-align: left">Not always returned if requested</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>phone</strong></td>
+<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">countryCode</td>
 <td style="text-align: left">352</td>
-<td style="text-align: left">Returned if requested</td>
-<td style="text-align: left">Returned if requested</td>
 </tr>
 <tr>
+<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">phoneNumber</td>
 <td style="text-align: left">495162995</td>
-<td style="text-align: left">Returned if requested</td>
-<td style="text-align: left">Returned if requested</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>address</strong></td>
+<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">AddressFullAddress</td>
 <td style="text-align: left">Place Victor Horta, 79 202 1348 Louvain-la-Neuve</td>
-<td style="text-align: left">Returned if requested</td>
-<td style="text-align: left">Returned if requested</td>
 </tr>
 <tr>
+<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">AddressPostCode</td>
 <td style="text-align: left">1348</td>
-<td style="text-align: left">Returned if requested</td>
-<td style="text-align: left">Returned if requested</td>
 </tr>
 <tr>
+<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">AddressPostName</td>
 <td style="text-align: left">Louvain-la-Neuve</td>
-<td style="text-align: left">Returned if requested</td>
-<td style="text-align: left">Returned if requested</td>
 </tr>
 <tr>
+<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">AddressAdminUnitL1</td>
 <td style="text-align: left">(empty)</td>
-<td style="text-align: left">Returned if requested</td>
-<td style="text-align: left">Returned if requested</td>
 </tr>
 <tr>
+<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">AddressThoroughFare</td>
 <td style="text-align: left">Place Victor Horta</td>
-<td style="text-align: left">Returned if requested</td>
-<td style="text-align: left">Returned if requested</td>
 </tr>
 <tr>
+<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">AddressLocatorDesignator</td>
 <td style="text-align: left">79</td>
-<td style="text-align: left">Returned if requested</td>
-<td style="text-align: left">Returned if requested</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
+<td style="text-align: left"></td>
 <td style="text-align: left">AddressPoBox</td>
 <td style="text-align: left">202</td>
-<td style="text-align: left">Returned if requested</td>
-<td style="text-align: left">Returned if requested</td>
 </tr>
 </tbody></table>
 
-<p>Typically, the values returned via the &quot;scope&quot; parameter only contain claims about the identity of the User. More information about the User or the Authentication event MAY be requested by including additional values in the &quot;claims&quot; parameter as specified below :</p>
-
-<p><strong>http://itsme.services/v2/claim/claim_citizenship</strong> | PersonCitizenship  | Belg | Not always returned if requested | Returned if requested 
-<strong>http://itsme.services/v2/claim/BEeidSn</strong> | issuanceLocality | Sombreffe | Not always returned if requested | Never returned if requested 
- | validityFrom | 2019-12-04 | Not always returned if requested | Never returned if requested<br>
- | validityTo  | 2025-12-04 | Not always returned if requested | Never returned if requested 
- | certificateValidity | 2025-12-04 | Not always returned if requested | Never returned if requested<br>
- | readDate | 2025-12-04 | Returned if requested | Returned if requested 
-<strong>http://itsme.services/v2/claim/place_of_birth</strong> | PersonCountryOfBirth | Neerpelt | Returned if requested | Never returned if requested 
- | PersonPlaceOfBirth | (empty) | Returned if requested | Never returned if requested 
-<strong>http://itsme.services/v2/claim/claim_device</strong> | os | Sombreffe | Returned if requested | Returned if requested 
- | appName |  | Returned if requested | Returned if requested 
- | appRelease  |   | Returned if requested | Returned if requested 
- | deviceLabel |  | Returned if requested | Returned if requested<br>
- | debugEnabled |  | Returned if requested | Returned if requested 
- | deviceID |  | Returned if requested | Returned if requested 
- | osRelease  |  | Returned if requested | Returned if requested 
- | manufacturer |  | Returned if requested | Returned if requested 
- | hasSimEnabled |  | Returned if requested | Returned if requested 
- | deviceLockLevel |  | Returned if requested | Returned if requested 
- | smsEnabled |  | Returned if requested | Returned if requested 
- | rooted  |  | Returned if requested | Returned if requested 
- | imei |  | Returned if requested | Returned if requested 
- | deviceModel |  | Returned if requested | Returned if requested 
- | sdkRelease |  | Returned if requested | Returned if requested </p>
-
-<p>using specific <i>&quot;scope&quot;</i> values, or you will also be able to request info about the User or an Authentication event  can be requested using the claims request parameter.</p>
-
-<p>Pre-defined sets of Claims can be requested using specific scope values or individual Claims can be requested using the claims request parameter.</p>
-
-<p>On top of the <i>&quot;openid&quot;</i> and <i>&quot;service:TEST_code&quot;</i> values specified in the Authentication Request, you MAY also ask for additional scopes, separated by spaces, to request more information about the User. The following additional scopes MAY apply:</p>
+<p>Typically, the values returned via the &quot;scope&quot; parameter only contain claims about the identity of the User. More information about the User or the Authentication event MAY be requested by including additional values in the <i><b>&quot;claims&quot;</b></i> parameter as specified below :</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><strong>profile</strong></td>
-<td style="text-align: left">It will request the claims representing basic profile information. These are <i>&quot;family_name&quot;</i>, <i>&quot;given_name&quot;</i>, <i>&quot;gender&quot;</i>, <i>&quot;birthdate&quot;</i> and <i>&quot;locale&quot;</i>.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>email</strong></td>
-<td style="text-align: left">It will request the <i>&quot;email&quot;</i> and <i>&quot;email_verified&quot;</i> claims.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>phone</strong></td>
-<td style="text-align: left">It will request the <i>&quot;phone_number&quot;</i> and <i>&quot;phone_number_verified&quot;</i> claims</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>address</strong></td>
-<td style="text-align: left">It will request the <i>&quot;street_address&quot;</i>, <i>&quot;locality&quot;</i>, <i>&quot;postal_code&quot;</i> and <i>&quot;country&quot;</i> claims.</td>
-</tr>
-</tbody></table>
-<h3 id='requesting-claims-from-the-39-claims-39-parameter'>Requesting claims from the &#39;claims&#39; parameter</h3>
-<p>Typically, the values returned via the <i>&quot;scope&quot;</i> parameter only contain claims about the identity of the User. More information about the User MAY be requested by including additional parameters in the <i>&quot;claims&quot;</i> parameter as specified below:</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Description</th>
+<th style="text-align: left">Value</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Returned claim</th>
+<th style="text-align: left">Example</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_citizenship</strong></td>
-<td style="text-align: left">It will request the <i>&quot;nationality&quot;</i> claim.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/claim/place_of_birth</strong></td>
-<td style="text-align: left">It will request the <i>&quot;place of Birth&quot;</i> and the <i>&quot;country of Birth&quot;</i> claim.</td>
+<td style="text-align: left">Optionnal</td>
+<td style="text-align: left">PersonCitizenship</td>
+<td style="text-align: left">Belg</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/claim/BEeidSn</strong></td>
-<td style="text-align: left">It will request the <i>&quot;serial number of the eID card&quot;</i>.</td>
+<td style="text-align: left">Optionnal</td>
+<td style="text-align: left">issuanceLocality</td>
+<td style="text-align: left">Sombreffe</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/claim/BENationalNumber</strong></td>
-<td style="text-align: left">It will request the <i>&quot;Belgian National Register Number&quot;</i> of the User.</td>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">validityFrom</td>
+<td style="text-align: left">2019-12-04</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">validityTo</td>
+<td style="text-align: left">2025-12-04</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">certificateValidity</td>
+<td style="text-align: left">2025-12-04</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">readDate</td>
+<td style="text-align: left">2025-12-04</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/claim/place_of_birth</strong></td>
+<td style="text-align: left">Optionnal</td>
+<td style="text-align: left">PersonCountryOfBirth</td>
+<td style="text-align: left">Neerpelt</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">PersonPlaceOfBirth</td>
+<td style="text-align: left">(empty)</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_device</strong></td>
-<td style="text-align: left">It will request the <i>&quot;os&quot;</i>, <i>&quot;appName&quot;</i>, <i>&quot;appRelease&quot;</i>, <i>&quot;deviceLabel&quot;</i>, <i>&quot;debugEnabled&quot;</i>, <i>&quot;deviceID&quot;</i>, <i>&quot;osRelease&quot;</i>, <i>&quot;manufacturer&quot;</i>, <i>&quot;hasSimEnabled&quot;</i>, <i>&quot;deviceLockLevel&quot;</i>, <i>&quot;smsEnabled&quot;</i>, <i>&quot;rooted&quot;</i>, <i>&quot;imei&quot;</i>, <i>&quot;deviceModel&quot;</i> and <i>&quot;sdkRelease&quot;</i> claims.</td>
+<td style="text-align: left">Optionnal</td>
+<td style="text-align: left">os</td>
+<td style="text-align: left">Sombreffe</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/claim/transaction_info</strong></td>
-<td style="text-align: left">It will request the <i>&quot;securityLevel&quot;</i>, <i>&quot;bindLevel&quot;</i> and <i>&quot;mcc&quot;</i> claims.</td>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">appName</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">appRelease</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">deviceLabel</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">debugEnabled</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">deviceID</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">osRelease</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">manufacturer</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">hasSimEnabled</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">deviceLockLevel</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">smsEnabled</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">rooted</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">imei</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">deviceModel</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">sdkRelease</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/claim/physical_person_photo</strong></td>
+<td style="text-align: left">Optionnal</td>
+<td style="text-align: left">picture</td>
+<td style="text-align: left">Neerpelt</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_approval_template_name</strong></td>
+<td style="text-align: left">Not supported</td>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_approval_text_key</strong></td>
+<td style="text-align: left">Not supported</td>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_approval_amount_key</strong></td>
+<td style="text-align: left">Not supported</td>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_approval_currency_key</strong></td>
+<td style="text-align: left">Not supported</td>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_approval_iban_key</strong></td>
+<td style="text-align: left">Not supported</td>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_luxtrust_ssn</strong></td>
-<td style="text-align: left">It will request the <i>&quot;serial number of the LuxTrust certificate&quot;</i> for this User.</td>
+<td style="text-align: left">Optionnal</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">12345678901234567890</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_approval_text_key</strong></td>
+<td style="text-align: left">Optionnal</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">59245644234545465</td>
 </tr>
 </tbody></table>
 
@@ -1109,8 +1182,6 @@ Pragma: no-cache
 }</code></p>
 
 <p>The response will contain an error parameter and optionally <i>&quot;error_description&quot;</i> and <i>&quot;error_uri&quot;</i> parameters. The <i>&quot;error_uri&quot;</i> parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.</p>
-
-<p><a name="Data"></a></p>
 <h2 id='5-6-retrieving-user-attributes-or-device-transaction-specific-claims'>5.6. Retrieving User attributes or device/transaction specific claims</h2><h3 id='creating-the-userinfo-request'>Creating the userInfo Request</h3>
 <p>OpenID Connect Core specifications also allow your application to obtain basic profile information about a specific User in a interoperable way. This is achieved by sending a HTTPS GET request to the itsme® userInfo Endpoint, passing the Access Token value in the Authorization header using the Bearer authentication scheme. The itsme userInfo Endpoint URI can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <i>&quot;userinfo_endpoint&quot;</i>.</p>
 
