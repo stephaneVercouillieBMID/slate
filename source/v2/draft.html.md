@@ -161,26 +161,79 @@ Parameter | Required | Description
 <br>The specifications for the implementation of Universal links and App links can be found in the <a href="#Appendixes" target="blank">Appendix</a>.</br>
 </aside>
 
-The following is a non-normative example of a request that would be sent to the Authorization Server:
+Concretely, there are 3 ways to build your Authorization Request :
 
-<code style=display:block;white-space:pre-wrap>Authentication Request:<br></br>
-    GET /oidc/authorization HTTP/1.1
+<code style=display:block;white-space:pre-wrap><b>Option 1</b> - request all your parameters in the Authorization Request :<br></br>
+    GET ${baseUrl}/v2/authorization
     &response_type=code
     &client_id=MY_PARTNER_CODE
     &scope=openid service:TEST_code profile email
     &redirect_uri=https://test.istme.be
+    &request_uri=https://test.istme.be:443/p/test
+    &acr_values=http://itsme.services/V2/claim/acr_basic
+    &state=A_VALID_STATE
+    &nonce=A_VALID_NONCE
+    &claims={"userinfo":{"http://itsme.services/V2/claim/BEeidSN":null,"http://itsme.services/v2/claim/place_of_birth":null}}<br></br>
+<b>Option 2</b> - passing your parameters as a JWT in the <i>"request_uri"</i> parameter :<br></br>
+    GET ${baseUrl}/v2/authorization
+    &response_type=code
+    &client_id=MY_PARTNER_CODE
+    &scope=openid 
     &request_uri=https://test.istme.be:443/p/test<br></br>
-Raw Request Object (not signed, not encrypted):<br></br>
+    With following non-normative example of the parameters in a Request Object before base64url encoding, signing and encrypting :<br></br>
     {
-      "aud": "https://idp.prd.itsme.services/v2/authorization",
-      "scope": "openid service:TEST_code profile email",
-      "redirect_uri": "https://test.istme.be",
       "response_type":"code",
       "client_id":"MY_PARTNER_CODE",
+      "scope": "openid service:TEST_code profile email",
+      "redirect_uri": "https://test.istme.be",  
       "acr_values":"http://itsme.services/V2/claim/acr_basic",
-      "iss":"MY_PARTNER_CODE",
       "nonce":"A_VALID_NONCE",
-      "state":"A_VALID_STATE",
+      "state":"A_VALID_STATE",      
+      "aud": "${baseUrl}/v2/authorization",
+      "iss":"MY_PARTNER_CODE",
+      "claims":{
+        "userinfo":{
+          "http://itsme.services/V2/claim/BEeidSN":null,
+          "http://itsme.services/v2/claim/place_of_birth":null
+          }
+        }
+     }<br></br>
+<b>Option 3</b> - passing your parameters as a JWT in the <i>"request"</i> parameter :<br></br>
+    GET ${baseUrl}/v2/authorization
+    &response_type=code
+    &client_id=MY_PARTNER_CODE
+    &scope=openid 
+    &request=eyJhbGciOiJSUzI1NiIsImtpZCI6ImsyYmRjIn0.ew0KICJpc3MiOiA
+    iczZCaGRSa3F0MyIsDQogImF1ZCI6ICJodHRwczovL3NlcnZlci5leGFtcGxlLmN
+    vbSIsDQogInJlc3BvbnNlX3R5cGUiOiAiY29kZSBpZF90b2tlbiIsDQogImNsaWV
+    udF9pZCI6ICJzNkJoZFJrcXQzIiwNCiAicmVkaXJlY3RfdXJpIjogImh0dHBzOi8
+    vY2xpZW50LmV4YW1wbGUub3JnL2NiIiwNCiAic2NvcGUiOiAib3BlbmlkIiwNCiA
+    ic3RhdGUiOiAiYWYwaWZqc2xka2oiLA0KICJub25jZSI6ICJuLTBTNl9XekEyTWo
+    iLA0KICJtYXhfYWdlIjogODY0MDAsDQogImNsYWltcyI6IA0KICB7DQogICAidXN
+    lcmluZm8iOiANCiAgICB7DQogICAgICJnaXZlbl9uYW1lIjogeyJlc3NlbnRpYWw
+    iOiB0cnVlfSwNCiAgICAgIm5pY2tuYW1lIjogbnVsbCwNCiAgICAgImVtYWlsIjo
+    geyJlc3NlbnRpYWwiOiB0cnVlfSwNCiAgICAgImVtYWlsX3ZlcmlmaWVkIjogeyJ
+    lc3NlbnRpYWwiOiB0cnVlfSwNCiAgICAgInBpY3R1cmUiOiBudWxsDQogICAgfSw
+    NCiAgICJpZF90b2tlbiI6IA0KICAgIHsNCiAgICAgImdlbmRlciI6IG51bGwsDQo
+    gICAgICJiaXJ0aGRhdGUiOiB7ImVzc2VudGlhbCI6IHRydWV9LA0KICAgICAiYWN
+    yIjogeyJ2YWx1ZXMiOiBbInVybjptYWNlOmluY29tbW9uOmlhcDpzaWx2ZXIiXX0
+    NCiAgICB9DQogIH0NCn0.nwwnNsk1-ZkbmnvsF6zTHm8CHERFMGQPhos-EJcaH4H
+    h-sMgk8ePrGhw_trPYs8KQxsn6R9Emo_wHwajyFKzuMXZFSZ3p6Mb8dkxtVyjoy2
+    GIzvuJT_u7PkY2t8QU9hjBcHs68PkgjDVTrG1uRTx0GxFbuPbj96tVuj11pTnmFC
+    UR6IEOXKYr7iGOCRB3btfJhM0_AKQUfqKnRlrRscc8Kol-cSLWoYE9l5QqholImz
+    jT_cMnNIznW9E7CDyWXTsO70xnB4SkG6pXfLSjLLlxmPGiyon_-Te111V8uE83Il
+    zCYIb_NMXvtTIVc1jpspnTSD7xMbpL-2QgwUsAlMGzw<br></br>
+    With following non-normative example of the parameters in a Request Object before base64url encoding, signing and encrypting :<br></br>
+    {
+      "response_type":"code",
+      "client_id":"MY_PARTNER_CODE",
+      "scope": "openid service:TEST_code profile email",
+      "redirect_uri": "https://test.istme.be",  
+      "acr_values":"http://itsme.services/V2/claim/acr_basic",
+      "nonce":"A_VALID_NONCE",
+      "state":"A_VALID_STATE",      
+      "aud": "${baseUrl}/v2/authorization",
+      "iss":"MY_PARTNER_CODE",
       "claims":{
         "userinfo":{
           "http://itsme.services/V2/claim/BEeidSN":null,
@@ -188,6 +241,7 @@ Raw Request Object (not signed, not encrypted):<br></br>
           }
         }
      }</code>
+
      
 ###  Requesting claims about the User and the Authentication event 
 
