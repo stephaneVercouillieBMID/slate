@@ -130,7 +130,7 @@ Parameter | Required | Description
 :-------- | :--------| :----- 
 **client_id** | Required |This is the client ID you received after sharing your organisation details with us.
 **response_type** | Required | This defines the processing flow to be used when forming the response. Because itsme® uses the Authorization Code Flow as described above, this value MUST be <i>"code"</i>.
-**scope** | Required | The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>"openid"</i> and <i>"service:TEST_code"</i>, by replacing "TEST_code" with the service code you received when registering your project in the [itsme® B2B portal](#Onboarding).<br>You MAY also specify additional scopes, separated by spaces, to request more information about the User. See the [list](#Data) below for more information.</br> below for more information.<br>An HTTP ERROR <i>"not_implemented"</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br>
+**scope** | Required | The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>"openid"</i> and <i>"service:TEST_code"</i>, by replacing "TEST_code" with the service code you received when registering your project in the [itsme® B2B portal](#Onboarding).<br>You MAY also specify additional scopes, separated by spaces, to request more information about the User. See the [list](#Data) below for more information.</br><br>An HTTP ERROR <i>"not_implemented"</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br>
 **redirect_uri** | Required | This is the URI to which the authentication response will be sent. This URI MUST be whitelisted in our systems. So, don't forget to send your it by email to onboarding@itsme.be and we’ll make sure to complete the configuration for you in no time!<br>Please note that in E2E environment, the <i>"redirect_uri"</i> is NOT checked. This allows you to test your integration locally.</br>
 **request_uri** | Optional | This parameter enables OpenID Connect parameters to be passed by reference. The <i>"request_uri"</i> value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. <br>When the <i>"request_uri"</i> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax.</br><br>The following validations should be done when using the <i>"request_uri"</i> parameter:</br><ul><li>The values for the <i>"response_type"</i> and <i>"client_id"</i> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li><li>Even if a <i>"scope"</i> parameter is present in the Request Object value, a <i>"scope"</i> parameter – containing the <i>"openid"</i> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li><li>The Request Object MUST be MUST be <b>signed</b> then <b>encrypted</b>, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section. As the Request Object is a nested JWT, it MUST contain the claims <i>"iss"</i> (issuer) and <i>"aud"</i> (audience) as members. The <i>"iss"</i> value MUST be your Client ID. The <i>"aud"</i> value MUST be <i>"https://idp.prd.itsme.services/v2/authorization"</i>.</li>><li>You need to store the Request Object resource remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>"request_uri"</i>. Usage of 'localhost' is not permitted.<li>The Request URI MUST contain the port 443 as in this example: https://test.istme.be:443/p/test.</li><li>The Request URI value is a URL using the <i>https</i> scheme.</li></ul><br>Don't forget to send share this URI by email to onboarding@itsme.be and we’ll make sure to complete the configuration for you in no time!</br>
 **request** | Optional | 
@@ -242,71 +242,102 @@ Concretely, there are 3 ways to build your Authorization Request :
         }
      }</code>
 
-     
+
+<a name="Data"></a>
 ###  Requesting claims about the User and the Authentication event 
 
-The OpenID Connect Core specification defines a sets of standard claims that MAY be requested using specific <i>"scope"</i> values or by requesting individual claims about the User/Authentication event via the <i>"claims"</i> request parameter.
+The OpenID Connect Core specification defines a sets of claims that MAY be requested via the <i>"scope"</i> and/or <i>"claims"</i> request parameter.
+
+<aside class="notice">As itsme® manage multiple international ID Templates - each with his own set of User Data - it can be that you will not receive some information about a User even if you requested the claim it in the Authorisation Request.</aside>
+
+**GENERIC PROFILE INFORMATION**
+
+Claim | Example | Required | <i>"scope"</i> tag | <i>"claims"</i> tag  
+:-- | :-- | :-- | :-- | :-- 
+PersonFamilyName | Smith | Optionnal | **profile** | **family_name**  
+PersonGivenName | John Matthew A | Optionnal | **profile** | **given_name**   
+PersonFullName | John Matthew A Smith | Optionnal | **profile** | **name**  
+PersonGender | M | Optionnal | **profile** | **gender**  
+PersonDateOfBirth | 1959-06-03 | Optionnal | **profile** | **birthdate**  
+locale | NL | Optionnal | **profile** | **locale**  
+email | john.smith@company.lu | Optionnal | **email** | **email**  
+email_verified |  | Optionnal | **email** | **email_verified**  
+countryCode | 352 | Optionnal | **phone** | **phone_number** 
+phoneNumber | 495162995 | Optionnal | **phone** | **phone_number_verified** 
+AddressFullAddress | Place Victor Horta, 79 202 1348 Louvain-la-Neuve | Optionnal | **address** | **address** 
+AddressPostCode | 1348 | Optionnal | **address** | **address** 
+AddressPostName | Louvain-la-Neuve | Optionnal | **address** | **address** 
+AddressAdminUnitL1 |  | Optionnal | **address** | **address** 
+AddressThoroughFare | Place Victor Horta | Optionnal | **address** | **address** 
+AddressLocatorDesignator | 79 | Optionnal | **address** | **address** 
+AddressPoBox | 202 | Optionnal | **address**| **address** 
+PersonCitizenship  | Belg | Optionnal | / | **http://itsme.services/v2/ claim/claim_citizenship**
+PersonCountryOfBirth | Neerpelt | Optionnal | / | **http://itsme.services/v2/ claim/place_of_birth** 
+PersonPlaceOfBirth | (empty) | Optionnal | / | **http://itsme.services/v2/ claim/place_of_birth** 
+picture |  | Optionnal | / | **http://itsme.services/v2/ claim/physical_person_photo** 
+
+**SPECIFIC ID DOCUMENT INFORMATION**
+
+Claim | Example | Required | <i>"scope"</i> tag | <i>"claims"</i> tag  
+:-- | :-- | :-- | :-- | :-- 
+BE eID issuanceLocality | Sombreffe | Optionnal | / | **http://itsme.services/v2/ claim/BEeidSn** 
+BE eID validityFrom | 2019-12-04 | Optionnal | / | **http://itsme.services/v2/ claim/BEeidSn**   
+BE eID validityTo  | 2025-12-04 | Optionnal | / | **http://itsme.services/v2/ claim/BEeidSn** 
+BE eID certificateValidity | 2025-12-04 | Optionnal | / | **http://itsme.services/v2/ claim/BEeidSn**  
+BE eID readDate | 2025-12-04 | Optionnal | / | **http://itsme.services/v2/ claim/BEeidSn** 
+LuxTrust SSN | 12345678901234567890 | Optionnal | / | **http://itsme.services/v2/ claim/claim_luxtrust_ssn** 
+
+**DEVICE AND APP INFORMATION**
+
+Claim | Example | Required | <i>"scope"</i> tag | <i>"claims"</i> tag  
+:-- | :-- | :-- | :-- | :-- 
+os | Android | | Optionnal | / | **http://itsme.services/v2/ claim/claim_device** 
+appName |  | Optionnal | / | **http://itsme.services/v2/ claim/claim_device** 
+appRelease  |  | Optionnal | / | **http://itsme.services/v2/ claim/claim_device** 
+deviceLabel |  | Optionnal | / | **http://itsme.services/v2/ claim/claim_device**  
+debugEnabled |  | Optionnal | / | **http://itsme.services/v2/ claim/claim_device**  
+deviceID |  | Optionnal | / | **http://itsme.services/v2/ claim/claim_device**   
+osRelease  |  | Optionnal | / | **http://itsme.services/v2/ claim/claim_device**  
+manufacturer |  | Optionnal | / | **http://itsme.services/v2/ claim/claim_device** 
+hasSimEnabled |  | Optionnal | / | **http://itsme.services/v2/ claim/claim_device**  
+deviceLockLevel |   | Optionnal | / | **http://itsme.services/v2/ claim/claim_device** 
+smsEnabled |   | Optionnal | / | **http://itsme.services/v2/ claim/claim_device** 
+rooted  |   | Optionnal | / | **http://itsme.services/v2/ claim/claim_device** 
+imei |   | Optionnal | / | **http://itsme.services/v2/ claim/claim_device** 
+deviceModel |   | Optionnal | / | **http://itsme.services/v2/ claim/claim_device**  
+sdkRelease |   | Optionnal | / | **http://itsme.services/v2/ claim/claim_device** 
+
+**ADVANCED TEMPLATE INFORMATION**
+
+WYSYWYS template format |   | Optionnal | / | **http://itsme.services/v2/ claim/claim_approval_template_name**
+Free text |  User confirms his booking | Optionnal | / | **http://itsme.services/v2/ claim/claim_approval_text_key**
+Advanced payment amount | 1000 | Optionnal | / | **http://itsme.services/v2/ claim/claim_approval_text_key**
+
+
+
+
+**http://itsme.services/v2/ claim/claim_approval_amount_key** | Not supported |  | 
+**http://itsme.services/v2/ claim/claim_approval_currency_key** | Not supported |  | 
+**http://itsme.services/v2/ claim/claim_approval_iban_key** | Not supported |  | 
+**http://itsme.services/v2/ claim/claim_approval_text_key** | Optionnal |  | 59245644234545465
+
+
+
+
+
 
 As itsme® manage multiple international ID Templates - each with his own set of User Data - it can be that you will not receive some information about a User even if you requested the claim it in the Authorisation Request. 
 
-<a name="Data"></a>
+
 The additonal <i><b>"scope"</b></i> values which can be requested for any type of ID Template are :
 
-Value | Required | Returned claim | Example 
-:-- | :-- | :-- | :-- 
-**profile** | Optionnal | PersonFamilyName | Smith 
- | | PersonGivenName | John Matthew A 
- | | PersonFullName | John Matthew A Smith 
- | | PersonGender | M 
- | | PersonDateOfBirth | 1959-06-03 
- | | locale | NL 
-**email** | Optionnal | email | john.smith@company.lu 
- | | email_verified |  
-**phone** | Optionnal  | countryCode | 352 
- | | phoneNumber | 495162995 
-**address** | Optionnal | AddressFullAddress | Place Victor Horta, 79 202 1348 Louvain-la-Neuve  
- | | AddressPostCode | 1348 
- | | AddressPostName | Louvain-la-Neuve 
- | | AddressAdminUnitL1 | (empty) 
- | | AddressThoroughFare | Place Victor Horta 
- | | AddressLocatorDesignator | 79 
- | | AddressPoBox | 202 
+
 
 Typically, the values returned via the "scope" parameter only contain claims about the identity of the User. More information about the User or the Authentication event MAY be requested by including additional values in the <i><b>"claims"</b></i> parameter as specified below :
 
 Value | Required | Returned claim | Example 
 :-- | :-- | :-- | :-- 
-**http://itsme.services/v2/ claim/claim_citizenship** | Optionnal | PersonCitizenship  | Belg 
-**http://itsme.services/v2/ claim/BEeidSn** | Optionnal | issuanceLocality | Sombreffe 
- | | validityFrom | 2019-12-04 | Not always returned if requested | Never returned if requested  
- | | validityTo  | 2025-12-04 | Not always returned if requested | Never returned if requested 
- | | certificateValidity | 2025-12-04 | Not always returned if requested | Never returned if requested  
- | | readDate | 2025-12-04 | Returned if requested | Returned if requested 
-**http://itsme.services/v2/ claim/place_of_birth** | Optionnal | PersonCountryOfBirth | Neerpelt 
- | | PersonPlaceOfBirth | (empty) 
-**http://itsme.services/v2/ claim/claim_device** | Optionnal | os | Sombreffe 
- | | appName |  
- | | appRelease  |   
- | | deviceLabel |  
- | | debugEnabled |  
- | | deviceID |  
- | | osRelease  |  
- | | manufacturer |  
- | | hasSimEnabled |  
- | | deviceLockLevel |  
- | | smsEnabled |  
- | | rooted  |  
- | | imei |  
- | | deviceModel |   
- | | sdkRelease |  
-**http://itsme.services/v2/ claim/physical_person_photo** | Optionnal | picture | Neerpelt 
-**http://itsme.services/v2/ claim/claim_approval_template_name** | Not supported |  |  
-**http://itsme.services/v2/ claim/claim_approval_text_key** | Not supported |  |  
-**http://itsme.services/v2/ claim/claim_approval_amount_key** | Not supported |  | 
-**http://itsme.services/v2/ claim/claim_approval_currency_key** | Not supported |  | 
-**http://itsme.services/v2/ claim/claim_approval_iban_key** | Not supported |  | 
-**http://itsme.services/v2/ claim/claim_luxtrust_ssn** | Optionnal |  | 12345678901234567890
-**http://itsme.services/v2/ claim/claim_approval_text_key** | Optionnal |  | 59245644234545465
+
 
 
 <a name="AuthNResponse"></a>
