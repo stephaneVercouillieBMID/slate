@@ -412,7 +412,7 @@
 <tr>
 <td style="text-align: left"><strong>scope</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>&quot;openid&quot;</i> and <i>&quot;service:TEST_code&quot;</i>, by replacing &quot;TEST_code&quot; with the service code you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br>You MAY also specify additional scopes, separated by spaces, to request more information about the User. See the <a href="#Data">list</a> below for more information.</br> below for more information.<br>An HTTP ERROR <i>&quot;not_implemented&quot;</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br></td>
+<td style="text-align: left">The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>&quot;openid&quot;</i> and <i>&quot;service:TEST_code&quot;</i>, by replacing &quot;TEST_code&quot; with the service code you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br>You MAY also specify additional scopes, separated by spaces, to request more information about the User. See the <a href="#Data">list</a> below for more information.</br><br>An HTTP ERROR <i>&quot;not_implemented&quot;</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>redirect_uri</strong></td>
@@ -589,13 +589,14 @@
           }
         }
      }</code></p>
+
+<p><a name="Data"></a></p>
 <h3 id='requesting-claims-about-the-user-and-the-authentication-event'>Requesting claims about the User and the Authentication event</h3>
-<p>The OpenID Connect Core specification defines a sets of standard claims that MAY be requested using specific <i>&quot;scope&quot;</i> values or by requesting individual claims about the User/Authentication event via the <i>&quot;claims&quot;</i> request parameter.</p>
+<p>The OpenID Connect Core specification defines a sets of claims that MAY be requested via the <i>&quot;scope&quot;</i> and/or <i>&quot;claims&quot;</i> request parameter.</p>
 
-<p>As itsme® manage multiple international ID Templates - each with his own set of User Data - it can be that you will not receive some information about a User even if you requested the claim it in the Authorisation Request. </p>
+<aside class="notice">As itsme® manage multiple international ID Templates - each with his own set of User Data - it can be that you will not receive some information about a User even if you requested the claim it in the Authorisation Request.</aside>
 
-<p><a name="Data"></a>
-The additonal <i><b>&quot;scope&quot;</b></i> values which can be requested for any type of ID Template are :</p>
+<p>Below, you will find the list of claims that MAY be requested via the <i><b>&quot;scope&quot;</b></i> request parameter :</p>
 
 <table><thead>
 <tr>
@@ -709,7 +710,7 @@ The additonal <i><b>&quot;scope&quot;</b></i> values which can be requested for 
 </tr>
 </tbody></table>
 
-<p>Typically, the values returned via the &quot;scope&quot; parameter only contain claims about the identity of the User. More information about the User or the Authentication event MAY be requested by including additional values in the <i><b>&quot;claims&quot;</b></i> parameter as specified below :</p>
+<p>Typically, the values returned via the &quot;scope&quot; parameter only contain claims about the identity of the User. Via the <i><b>&quot;claims&quot;</b></i> parameter you MAY request the same claims as in the ones available via the <i>&quot;scope&quot;</i> request parameter, as well as information about the specific ID documents, the device and the app version used by the user. These claims are specified below :</p>
 
 <table><thead>
 <tr>
@@ -720,10 +721,136 @@ The additonal <i><b>&quot;scope&quot;</b></i> values which can be requested for 
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left"><strong>name</strong></td>
+<td style="text-align: left">Optionnal</td>
+<td style="text-align: left">PersonFullName</td>
+<td style="text-align: left">John Matthew A Smith</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>given_name</strong></td>
+<td style="text-align: left">Optionnal</td>
+<td style="text-align: left">PersonGivenName</td>
+<td style="text-align: left">John Matthew A</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>family_name</strong></td>
+<td style="text-align: left">Optionnal</td>
+<td style="text-align: left">PersonFamilyName</td>
+<td style="text-align: left">Smith</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>birthdate</strong></td>
+<td style="text-align: left">Optionnal</td>
+<td style="text-align: left">PersonDateOfBirth</td>
+<td style="text-align: left">1959-06-03</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>gender</strong></td>
+<td style="text-align: left">Optionnal</td>
+<td style="text-align: left">PersonGender</td>
+<td style="text-align: left">M</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>email</strong></td>
+<td style="text-align: left">Optionnal</td>
+<td style="text-align: left">email</td>
+<td style="text-align: left">john.smith@company.lu</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>email_verified</strong></td>
+<td style="text-align: left">Optionnal</td>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>phone_number</strong></td>
+<td style="text-align: left">Optionnal</td>
+<td style="text-align: left">countryCode</td>
+<td style="text-align: left">352</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">phoneNumber</td>
+<td style="text-align: left">495162995</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>phone_number_verified</strong></td>
+<td style="text-align: left">Optionnal</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">True</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>locale</strong></td>
+<td style="text-align: left">Optionnal</td>
+<td style="text-align: left">locale</td>
+<td style="text-align: left">NL</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>address</strong></td>
+<td style="text-align: left">Optionnal</td>
+<td style="text-align: left">AddressFullAddress</td>
+<td style="text-align: left">Place Victor Horta, 79 202 1348 Louvain-la-Neuve</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">AddressPostCode</td>
+<td style="text-align: left">1348</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">AddressPostName</td>
+<td style="text-align: left">Louvain-la-Neuve</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">AddressAdminUnitL1</td>
+<td style="text-align: left">(empty)</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">AddressThoroughFare</td>
+<td style="text-align: left">Place Victor Horta</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">AddressLocatorDesignator</td>
+<td style="text-align: left">79</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">AddressPoBox</td>
+<td style="text-align: left">202</td>
+</tr>
+<tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_citizenship</strong></td>
 <td style="text-align: left">Optionnal</td>
 <td style="text-align: left">PersonCitizenship</td>
 <td style="text-align: left">Belg</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/ claim/place_of_birth</strong></td>
+<td style="text-align: left">Optionnal</td>
+<td style="text-align: left">PersonCountryOfBirth</td>
+<td style="text-align: left">Neerpelt</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+<td style="text-align: left">PersonPlaceOfBirth</td>
+<td style="text-align: left">(empty)</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/ claim/physical_person_photo</strong></td>
+<td style="text-align: left">Optionnal</td>
+<td style="text-align: left">picture</td>
+<td style="text-align: left">Neerpelt</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/ claim/BEeidSn</strong></td>
@@ -756,16 +883,10 @@ The additonal <i><b>&quot;scope&quot;</b></i> values which can be requested for 
 <td style="text-align: left">2025-12-04</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/ claim/place_of_birth</strong></td>
+<td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_luxtrust_ssn</strong></td>
 <td style="text-align: left">Optionnal</td>
-<td style="text-align: left">PersonCountryOfBirth</td>
-<td style="text-align: left">Neerpelt</td>
-</tr>
-<tr>
 <td style="text-align: left"></td>
-<td style="text-align: left"></td>
-<td style="text-align: left">PersonPlaceOfBirth</td>
-<td style="text-align: left">(empty)</td>
+<td style="text-align: left">12345678901234567890</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_device</strong></td>
@@ -857,55 +978,72 @@ The additonal <i><b>&quot;scope&quot;</b></i> values which can be requested for 
 <td style="text-align: left">sdkRelease</td>
 <td style="text-align: left"></td>
 </tr>
+</tbody></table>
+<h3 id='specifing-the-wysiwys-template'>Specifing the WYSIWYS template</h3>
+<p>The itsme Confirm is based on the notion of template, which helps pre-structure the action screen in the itsme app. Using one of the available templates MUST be specified to form a valid Confirm Authentication Request. There are currently two templates available.</p>
+
+<p><strong>Advanced Payment template</strong></p>
+
+<p>The Advanced Payment template can be retrieved using the following tags in the <i>&quot;claim&quot;</i> parameter when forming the Authentication Request:</p>
+
+<table><thead>
 <tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/ claim/physical_person_photo</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left">picture</td>
-<td style="text-align: left">Neerpelt</td>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>&quot;http://itsme.services/v2/claim/claim_approval_template_name&quot;</strong></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This identifies the template used. It MUST be set to &quot;tag:sixdots.be,2016-08:claim_approval_template_name&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: &quot;adv_payment&quot; }</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_approval_template_name</strong></td>
-<td style="text-align: left">Not supported</td>
-<td style="text-align: left"></td>
-<td style="text-align: left"></td>
+<td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_approval_amount_key</strong></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">A string holding an integer value inside. This MUST be set to <i>&quot;tag:sixdots.be,2016-08:claim_approval_amount_key&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: [Amount as a string] }</i>.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_approval_text_key</strong></td>
-<td style="text-align: left">Not supported</td>
-<td style="text-align: left"></td>
-<td style="text-align: left"></td>
+<td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_approval_currency_key</strong></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">A string holding a valid currency code (e.g. “EUR”). This MUST be set to <i>&quot;tag:sixdots.be,2016-08:claim_approval_currency_key&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: [Currency as a string] }</i>.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_approval_amount_key</strong></td>
-<td style="text-align: left">Not supported</td>
-<td style="text-align: left"></td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_approval_currency_key</strong></td>
-<td style="text-align: left">Not supported</td>
-<td style="text-align: left"></td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_approval_iban_key</strong></td>
-<td style="text-align: left">Not supported</td>
-<td style="text-align: left"></td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_luxtrust_ssn</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left"></td>
-<td style="text-align: left">12345678901234567890</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_approval_text_key</strong></td>
-<td style="text-align: left">Optionnal</td>
-<td style="text-align: left"></td>
-<td style="text-align: left">59245644234545465</td>
+<td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_approval_iban_key</strong></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">A string holding a valid IBAN account number. This MUST be set to <i>&quot;tag:sixdots.be,2016-08:claim_approval_iban_key&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: [IBAN as a string] }</i>.</td>
 </tr>
 </tbody></table>
+
+<p><strong>Free Text template</strong></p>
+
+<p>The Free Text template which can be retrieved using the following tags in the <i>&quot;claim&quot;</i> parameter when forming the Authentication Request:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>&quot;http://itsme.services/v2/claim/claim_approval_template_name&quot;</strong></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">This identifies the template used. It MUST be set to &quot;tag:sixdots.be,2016-08:claim_approval_template_name&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: &quot;free_text&quot; }</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/claim/claim_approval_text_key</strong></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">A string holding any text to be displayed in the itsme® app. This MUST be set to<i>&quot;tag:sixdots.be,2016-08:claim_approval_text_key&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: [Text as a string] }}</i>.</td>
+</tr>
+</tbody></table>
+
+<p>When using the Free text template, the below requirements apply:</p>
+
+<ul>
+  <li>Use the standard character encodings ISO 8859-15 for the text. If you provide a non-supported character in a free text field the flow will be stopped and you will receive an error message back.</li>
+  <li>Supported formatting tags are : &lt;b&gt; &lt;i&gt; &lt;u&gt; &lt;br&gt;. Tags that are not rendered are ignored.</li>
+</ul>
 
 <p><a name="AuthNResponse"></a></p>
 <h2 id='5-3-capturing-an-authorization-code'>5.3. Capturing an Authorization Code</h2><h3 id='capturing-a-successful-authorization-code'>Capturing a successful Authorization Code</h3>
