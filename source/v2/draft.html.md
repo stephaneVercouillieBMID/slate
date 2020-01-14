@@ -250,94 +250,106 @@ The OpenID Connect Core specification defines a sets of claims that MAY be reque
 
 <aside class="notice">As itsme® manage multiple international ID Templates - each with his own set of User Data - it can be that you will not receive some information about a User even if you requested the claim it in the Authorisation Request.</aside>
 
-**GENERIC PROFILE INFORMATION**
-
-Claim | Example | Required | <i>"scope"</i> tag | <i>"claims"</i> tag  
-:-- | :-- | :-- | :-- | :-- 
-PersonFamilyName | Smith | Optionnal | **profile** | **family_name**  
-PersonGivenName | John Matthew A | Optionnal | **profile** | **given_name**   
-PersonFullName | John Matthew A Smith | Optionnal | **profile** | **name**  
-PersonGender | M | Optionnal | **profile** | **gender**  
-PersonDateOfBirth | 1959-06-03 | Optionnal | **profile** | **birthdate**  
-locale | NL | Optionnal | **profile** | **locale**  
-email | john.smith@company.lu | Optionnal | **email** | **email**  
-email_verified |  | Optionnal | **email** | **email_verified**  
-countryCode | 352 | Optionnal | **phone** | **phone_number** 
-phoneNumber | 495162995 | Optionnal | **phone** | **phone_number_verified** 
-AddressFullAddress | Place Victor Horta, 79 202 1348 Louvain-la-Neuve | Optionnal | **address** | **address** 
-AddressPostCode | 1348 | Optionnal | **address** | **address** 
-AddressPostName | Louvain-la-Neuve | Optionnal | **address** | **address** 
-AddressAdminUnitL1 |  | Optionnal | **address** | **address** 
-AddressThoroughFare | Place Victor Horta | Optionnal | **address** | **address** 
-AddressLocatorDesignator | 79 | Optionnal | **address** | **address** 
-AddressPoBox | 202 | Optionnal | **address**| **address** 
-PersonCitizenship  | Belg | Optionnal | / | **http://itsme.services/v2/ claim/claim_citizenship**
-PersonCountryOfBirth | Neerpelt | Optionnal | / | **http://itsme.services/v2/ claim/place_of_birth** 
-PersonPlaceOfBirth | (empty) | Optionnal | / | **http://itsme.services/v2/ claim/place_of_birth** 
-picture |  | Optionnal | / | **http://itsme.services/v2/ claim/physical_person_photo** 
-
-**SPECIFIC ID DOCUMENT INFORMATION**
-
-Claim | Example | Required | <i>"scope"</i> tag | <i>"claims"</i> tag  
-:-- | :-- | :-- | :-- | :-- 
-BE eID issuanceLocality | Sombreffe | Optionnal | / | **http://itsme.services/v2/ claim/BEeidSn** 
-BE eID validityFrom | 2019-12-04 | Optionnal | / | **http://itsme.services/v2/ claim/BEeidSn**   
-BE eID validityTo  | 2025-12-04 | Optionnal | / | **http://itsme.services/v2/ claim/BEeidSn** 
-BE eID certificateValidity | 2025-12-04 | Optionnal | / | **http://itsme.services/v2/ claim/BEeidSn**  
-BE eID readDate | 2025-12-04 | Optionnal | / | **http://itsme.services/v2/ claim/BEeidSn** 
-LuxTrust SSN | 12345678901234567890 | Optionnal | / | **http://itsme.services/v2/ claim/claim_luxtrust_ssn** 
-
-**DEVICE AND APP INFORMATION**
-
-Claim | Example | Required | <i>"scope"</i> tag | <i>"claims"</i> tag  
-:-- | :-- | :-- | :-- | :-- 
-os | Android | | Optionnal | / | **http://itsme.services/v2/ claim/claim_device** 
-appName |  | Optionnal | / | **http://itsme.services/v2/ claim/claim_device** 
-appRelease  |  | Optionnal | / | **http://itsme.services/v2/ claim/claim_device** 
-deviceLabel |  | Optionnal | / | **http://itsme.services/v2/ claim/claim_device**  
-debugEnabled |  | Optionnal | / | **http://itsme.services/v2/ claim/claim_device**  
-deviceID |  | Optionnal | / | **http://itsme.services/v2/ claim/claim_device**   
-osRelease  |  | Optionnal | / | **http://itsme.services/v2/ claim/claim_device**  
-manufacturer |  | Optionnal | / | **http://itsme.services/v2/ claim/claim_device** 
-hasSimEnabled |  | Optionnal | / | **http://itsme.services/v2/ claim/claim_device**  
-deviceLockLevel |   | Optionnal | / | **http://itsme.services/v2/ claim/claim_device** 
-smsEnabled |   | Optionnal | / | **http://itsme.services/v2/ claim/claim_device** 
-rooted  |   | Optionnal | / | **http://itsme.services/v2/ claim/claim_device** 
-imei |   | Optionnal | / | **http://itsme.services/v2/ claim/claim_device** 
-deviceModel |   | Optionnal | / | **http://itsme.services/v2/ claim/claim_device**  
-sdkRelease |   | Optionnal | / | **http://itsme.services/v2/ claim/claim_device** 
-
-**ADVANCED TEMPLATE INFORMATION**
-
-WYSYWYS template format |   | Optionnal | / | **http://itsme.services/v2/ claim/claim_approval_template_name**
-Free text |  User confirms his booking | Optionnal | / | **http://itsme.services/v2/ claim/claim_approval_text_key**
-Advanced payment amount | 1000 | Optionnal | / | **http://itsme.services/v2/ claim/claim_approval_text_key**
-
-
-
-
-**http://itsme.services/v2/ claim/claim_approval_amount_key** | Not supported |  | 
-**http://itsme.services/v2/ claim/claim_approval_currency_key** | Not supported |  | 
-**http://itsme.services/v2/ claim/claim_approval_iban_key** | Not supported |  | 
-**http://itsme.services/v2/ claim/claim_approval_text_key** | Optionnal |  | 59245644234545465
-
-
-
-
-
-
-As itsme® manage multiple international ID Templates - each with his own set of User Data - it can be that you will not receive some information about a User even if you requested the claim it in the Authorisation Request. 
-
-
-The additonal <i><b>"scope"</b></i> values which can be requested for any type of ID Template are :
-
-
-
-Typically, the values returned via the "scope" parameter only contain claims about the identity of the User. More information about the User or the Authentication event MAY be requested by including additional values in the <i><b>"claims"</b></i> parameter as specified below :
+Below, you will find the list of claims that MAY be requested via the <i><b>"scope"</b></i> request parameter :
 
 Value | Required | Returned claim | Example 
 :-- | :-- | :-- | :-- 
+**profile** | Optionnal | PersonFamilyName | Smith 
+ | | PersonGivenName | John Matthew A 
+ | | PersonFullName | John Matthew A Smith 
+ | | PersonGender | M 
+ | | PersonDateOfBirth | 1959-06-03 
+ | | locale | NL 
+**email** | Optionnal | email | john.smith@company.lu 
+ | | email_verified |  
+**phone** | Optionnal  | countryCode | 352 
+ | | phoneNumber | 495162995 
+**address** | Optionnal | AddressFullAddress | Place Victor Horta, 79 202 1348 Louvain-la-Neuve  
+ | | AddressPostCode | 1348 
+ | | AddressPostName | Louvain-la-Neuve 
+ | | AddressAdminUnitL1 | (empty) 
+ | | AddressThoroughFare | Place Victor Horta 
+ | | AddressLocatorDesignator | 79 
+ | | AddressPoBox | 202 
+ 
+Typically, the values returned via the "scope" parameter only contain claims about the identity of the User. Via the <i><b>"claims"</b></i> parameter you MAY request the same claims as in the ones available via the <i>"scope"</i> request parameter, as well as information about the specific ID documents, the device and the app version used by the user. These claims are specified below :
 
+Value | Required | Returned claim | Example 
+:-- | :-- | :-- | :-- 
+**name** | Optionnal | PersonFullName | John Matthew A Smith 
+**given_name** | Optionnal | PersonGivenName | John Matthew A
+**family_name** | Optionnal | PersonFamilyName | Smith
+**birthdate** | Optionnal | PersonDateOfBirth | 1959-06-03
+**gender** | Optionnal | PersonGender | M 
+**email** | Optionnal | email | john.smith@company.lu 
+**email_verified** | Optionnal | 
+**phone_number** | Optionnal  | countryCode | 352 
+ | | phoneNumber | 495162995 
+**phone_number_verified** | Optionnal  |  | True  
+**locale** | Optionnal  | locale | NL 
+**address** | Optionnal | AddressFullAddress | Place Victor Horta, 79 202 1348 Louvain-la-Neuve  
+ | | AddressPostCode | 1348 
+ | | AddressPostName | Louvain-la-Neuve 
+ | | AddressAdminUnitL1 | (empty) 
+ | | AddressThoroughFare | Place Victor Horta 
+ | | AddressLocatorDesignator | 79 
+ | | AddressPoBox | 202 
+**http://itsme.services/v2/ claim/claim_citizenship** | Optionnal | PersonCitizenship  | Belg 
+**http://itsme.services/v2/ claim/place_of_birth** | Optionnal | PersonCountryOfBirth | Neerpelt 
+ | | PersonPlaceOfBirth | (empty) 
+**http://itsme.services/v2/ claim/physical_person_photo** | Optionnal | picture | Neerpelt 
+**http://itsme.services/v2/ claim/BEeidSn** | Optionnal | issuanceLocality | Sombreffe 
+ | | validityFrom | 2019-12-04 | Not always returned if requested | Never returned if requested  
+ | | validityTo  | 2025-12-04 | Not always returned if requested | Never returned if requested 
+ | | certificateValidity | 2025-12-04 | Not always returned if requested | Never returned if requested  
+ | | readDate | 2025-12-04 | Returned if requested | Returned if requested 
+**http://itsme.services/v2/ claim/claim_luxtrust_ssn** | Optionnal |  | 12345678901234567890
+**http://itsme.services/v2/ claim/claim_device** | Optionnal | os | Sombreffe 
+ | | appName |  
+ | | appRelease  |   
+ | | deviceLabel |  
+ | | debugEnabled |  
+ | | deviceID |  
+ | | osRelease  |  
+ | | manufacturer |  
+ | | hasSimEnabled |  
+ | | deviceLockLevel |  
+ | | smsEnabled |  
+ | | rooted  |  
+ | | imei |  
+ | | deviceModel |   
+ | | sdkRelease |  
+
+###  Specifing the WYSIWYS template 
+
+The itsme Confirm is based on the notion of template, which helps pre-structure the action screen in the itsme app. Using one of the available templates MUST be specified to form a valid Confirm Authentication Request. There are currently two templates available.
+
+**Advanced Payment template**
+
+The Advanced Payment template can be retrieved using the following tags in the <i>"claim"</i> parameter when forming the Authentication Request:
+
+Parameter | Required | Description
+:-------- | :-------- | :--------
+**"http://itsme.services/v2/claim/claim_approval_template_name"** | Required | This identifies the template used. It MUST be set to "tag:sixdots.be,2016-08:claim_approval_template_name":{ "essential": true, "value": "adv_payment" }
+**http://itsme.services/v2/claim/claim_approval_amount_key** | Required | A string holding an integer value inside. This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_amount_key":{ "essential": true, "value": [Amount as a string] }</i>.
+**http://itsme.services/v2/claim/claim_approval_currency_key** | Required | A string holding a valid currency code (e.g. “EUR”). This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_currency_key":{ "essential": true, "value": [Currency as a string] }</i>.
+**http://itsme.services/v2/claim/claim_approval_iban_key** | Required | A string holding a valid IBAN account number. This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_iban_key":{ "essential": true, "value": [IBAN as a string] }</i>.
+
+**Free Text template**
+
+The Free Text template which can be retrieved using the following tags in the <i>"claim"</i> parameter when forming the Authentication Request:
+
+Parameter | Required |  Description
+:-------- | :-------- | :--------
+**"http://itsme.services/v2/claim/claim_approval_template_name"** | Required | This identifies the template used. It MUST be set to "tag:sixdots.be,2016-08:claim_approval_template_name":{ "essential": true, "value": "free_text" }
+**http://itsme.services/v2/claim/claim_approval_text_key** | Required | A string holding any text to be displayed in the itsme® app. This MUST be set to<i>"tag:sixdots.be,2016-08:claim_approval_text_key":{ "essential": true, "value": [Text as a string] }}</i>.
+
+When using the Free text template, the below requirements apply:
+
+<ul>
+  <li>Use the standard character encodings ISO 8859-15 for the text. If you provide a non-supported character in a free text field the flow will be stopped and you will receive an error message back.</li>
+  <li>Supported formatting tags are : &lt;b&gt; &lt;i&gt; &lt;u&gt; &lt;br&gt;. Tags that are not rendered are ignored.</li>
+</ul>
 
 
 <a name="AuthNResponse"></a>
