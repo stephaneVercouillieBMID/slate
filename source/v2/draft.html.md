@@ -146,6 +146,16 @@ Parameter | Required | Description
 **claims_locales** | Not supported | Any supplied value will be ignored.
 **registration** | Not supported | Any supplied value will be ignored.
 
+OpenID Connect also allow you to use the following parameters to enable Authentication Requests to be signed and encrypted:
+
+Parameter | Required | Description
+:-------- | :--------| :----- 
+**request_uri** | Optional | This parameter enables OpenID Connect parameters to be passed by reference. The <i>"request_uri"</i> value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. <br>When the <i>"request_uri"</i> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax.</br><br>The following validations should be done when using the <i>"request_uri"</i> parameter:</br><ul><li>The values for the <i>"response_type"</i> and <i>"client_id"</i> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li><li>Even if a <i>"scope"</i> parameter is present in the Request Object value, a <i>"scope"</i> parameter – containing the <i>"openid"</i> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li><li>The Request Object MUST be MUST be <b>signed</b> then <b>encrypted</b>, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section. As the Request Object is a nested JWT, it MUST contain the claims <i>"iss"</i> (issuer) and <i>"aud"</i> (audience) as members. The <i>"iss"</i> value MUST be your Client ID. The <i>"aud"</i> value MUST be <i>"https://idp.prd.itsme.services/v2/authorization"</i>.</li>><li>You need to store the Request Object resource remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>"request_uri"</i>. Usage of 'localhost' is not permitted.<li>The Request URI MUST contain the port 443 as in this example: https://test.istme.be:443/p/test.</li><li>The Request URI value is a URL using the <i>https</i> scheme.</li></ul><br>Don't forget to send share this URI by email to onboarding@itsme.be and we’ll make sure to complete the configuration for you in no time!</br>
+**request** | Optional | 
+
+<aside class="notice">If one of these parameters is used, the other MUST NOT be used in the same request.
+  </aside>
+  
 <aside class="notice">Regardless of the application you are building you should make sure that your redirect URIs support the <a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal links</a> and <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App links</a> mechanism. Functionally, it will allow you to have only one single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.
 
 <br>Universal links and App links are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.</br>
@@ -159,19 +169,9 @@ Parameter | Required | Description
 <br>The specifications for the implementation of Universal links and App links can be found in the <a href="#Appendixes" target="blank">Appendix</a>.</br>
 </aside>
 
-OpenID Connect also allow you to use the following parameters to enable Authentication Requests to be signed and encrypted:
+The following is a non-normative example of a request that would be sent to the Authorization Server :
 
-Parameter | Required | Description
-:-------- | :--------| :----- 
-**request_uri** | Optional | This parameter enables OpenID Connect parameters to be passed by reference. The <i>"request_uri"</i> value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. <br>When the <i>"request_uri"</i> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax.</br><br>The following validations should be done when using the <i>"request_uri"</i> parameter:</br><ul><li>The values for the <i>"response_type"</i> and <i>"client_id"</i> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li><li>Even if a <i>"scope"</i> parameter is present in the Request Object value, a <i>"scope"</i> parameter – containing the <i>"openid"</i> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li><li>The Request Object MUST be MUST be <b>signed</b> then <b>encrypted</b>, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section. As the Request Object is a nested JWT, it MUST contain the claims <i>"iss"</i> (issuer) and <i>"aud"</i> (audience) as members. The <i>"iss"</i> value MUST be your Client ID. The <i>"aud"</i> value MUST be <i>"https://idp.prd.itsme.services/v2/authorization"</i>.</li>><li>You need to store the Request Object resource remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>"request_uri"</i>. Usage of 'localhost' is not permitted.<li>The Request URI MUST contain the port 443 as in this example: https://test.istme.be:443/p/test.</li><li>The Request URI value is a URL using the <i>https</i> scheme.</li></ul><br>Don't forget to send share this URI by email to onboarding@itsme.be and we’ll make sure to complete the configuration for you in no time!</br>
-**request** | Optional | 
-
-<aside class="notice">If one of these parameters is used, the other MUST NOT be used in the same request.
-  </aside>
-
-Concretely, there are 3 ways to build your Authorization Request :
-
-<code style=display:block;white-space:pre-wrap><b>Option 1</b> - request all your parameters in the Authorization Request :<br></br>
+<code style=display:block;white-space:pre-wrap>
     GET ${baseUrl}/v2/authorization
     &response_type=code
     &client_id=MY_PARTNER_CODE
@@ -179,23 +179,13 @@ Concretely, there are 3 ways to build your Authorization Request :
     &redirect_uri=https://test.istme.be
     &request_uri=https://test.istme.be:443/p/test
     &acr_values=http://itsme.services/V2/claim/acr_basic
-    &state=A_VALID_STATE
-    &nonce=A_VALID_NONCE
-    &claims={"userinfo":{"http://itsme.services/V2/claim/BEeidSN":null,"http://itsme.services/v2/claim/place_of_birth":null}}<br></br>
-<b>Option 2</b> - passing somour parameters as a JWT in the <i>"request_uri"</i> parameter :<br></br>
-    GET ${baseUrl}/v2/authorization
-    &response_type=code
-    &client_id=MY_PARTNER_CODE
-    &scope=openid 
-    &request_uri=https://test.istme.be:443/p/test<br></br>
-    With following non-normative example of the parameters in a Request Object before base64url encoding, signing and encrypting :<br></br>
+    &nonce=A_VALID_NONCE<br></br>
+With some parameters passed as a JWT in the <i>"request_uri"</i>, before base64url encoding, signing and encrypting :<br></br>
     {
       "response_type":"code",
       "client_id":"MY_PARTNER_CODE",
       "scope": "openid service:TEST_code profile email",
       "redirect_uri": "https://test.istme.be",  
-      "acr_values":"http://itsme.services/V2/claim/acr_basic",
-      "nonce":"A_VALID_NONCE",
       "state":"A_VALID_STATE",      
       "aud": "${baseUrl}/v2/authorization",
       "iss":"MY_PARTNER_CODE",
@@ -206,49 +196,7 @@ Concretely, there are 3 ways to build your Authorization Request :
           }
         }
      }<br></br>
-<b>Option 3</b> - passing your parameters as a JWT in the <i>"request"</i> parameter :<br></br>
-    GET ${baseUrl}/v2/authorization
-    &response_type=code
-    &client_id=MY_PARTNER_CODE
-    &scope=openid 
-    &request=eyJhbGciOiJSUzI1NiIsImtpZCI6ImsyYmRjIn0.ew0KICJpc3MiOiA
-    iczZCaGRSa3F0MyIsDQogImF1ZCI6ICJodHRwczovL3NlcnZlci5leGFtcGxlLmN
-    vbSIsDQogInJlc3BvbnNlX3R5cGUiOiAiY29kZSBpZF90b2tlbiIsDQogImNsaWV
-    udF9pZCI6ICJzNkJoZFJrcXQzIiwNCiAicmVkaXJlY3RfdXJpIjogImh0dHBzOi8
-    vY2xpZW50LmV4YW1wbGUub3JnL2NiIiwNCiAic2NvcGUiOiAib3BlbmlkIiwNCiA
-    ic3RhdGUiOiAiYWYwaWZqc2xka2oiLA0KICJub25jZSI6ICJuLTBTNl9XekEyTWo
-    iLA0KICJtYXhfYWdlIjogODY0MDAsDQogImNsYWltcyI6IA0KICB7DQogICAidXN
-    lcmluZm8iOiANCiAgICB7DQogICAgICJnaXZlbl9uYW1lIjogeyJlc3NlbnRpYWw
-    iOiB0cnVlfSwNCiAgICAgIm5pY2tuYW1lIjogbnVsbCwNCiAgICAgImVtYWlsIjo
-    geyJlc3NlbnRpYWwiOiB0cnVlfSwNCiAgICAgImVtYWlsX3ZlcmlmaWVkIjogeyJ
-    lc3NlbnRpYWwiOiB0cnVlfSwNCiAgICAgInBpY3R1cmUiOiBudWxsDQogICAgfSw
-    NCiAgICJpZF90b2tlbiI6IA0KICAgIHsNCiAgICAgImdlbmRlciI6IG51bGwsDQo
-    gICAgICJiaXJ0aGRhdGUiOiB7ImVzc2VudGlhbCI6IHRydWV9LA0KICAgICAiYWN
-    yIjogeyJ2YWx1ZXMiOiBbInVybjptYWNlOmluY29tbW9uOmlhcDpzaWx2ZXIiXX0
-    NCiAgICB9DQogIH0NCn0.nwwnNsk1-ZkbmnvsF6zTHm8CHERFMGQPhos-EJcaH4H
-    h-sMgk8ePrGhw_trPYs8KQxsn6R9Emo_wHwajyFKzuMXZFSZ3p6Mb8dkxtVyjoy2
-    GIzvuJT_u7PkY2t8QU9hjBcHs68PkgjDVTrG1uRTx0GxFbuPbj96tVuj11pTnmFC
-    UR6IEOXKYr7iGOCRB3btfJhM0_AKQUfqKnRlrRscc8Kol-cSLWoYE9l5QqholImz
-    jT_cMnNIznW9E7CDyWXTsO70xnB4SkG6pXfLSjLLlxmPGiyon_-Te111V8uE83Il
-    zCYIb_NMXvtTIVc1jpspnTSD7xMbpL-2QgwUsAlMGzw<br></br>
-    With following non-normative example of the parameters in a Request Object before base64url encoding, signing and encrypting :<br></br>
-    {
-      "response_type":"code",
-      "client_id":"MY_PARTNER_CODE",
-      "scope": "openid service:TEST_code profile email",
-      "redirect_uri": "https://test.istme.be",  
-      "acr_values":"http://itsme.services/V2/claim/acr_basic",
-      "nonce":"A_VALID_NONCE",
-      "state":"A_VALID_STATE",      
-      "aud": "${baseUrl}/v2/authorization",
-      "iss":"MY_PARTNER_CODE",
-      "claims":{
-        "userinfo":{
-          "http://itsme.services/V2/claim/BEeidSN":null,
-          "http://itsme.services/v2/claim/place_of_birth":null
-          }
-        }
-     }</code>
+</code>
 
 
 <a name="Data"></a>
