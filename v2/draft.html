@@ -414,7 +414,7 @@
 <tr>
 <td style="text-align: left"><strong>redirect_uri</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This is the URI to which the authentication response will be sent. This URI MUST be whitelisted in our systems. So, don&#39;t forget to send your it by email to onboarding@itsme.be and we’ll make sure to complete the configuration for you in no time!<br>Please note that in E2E environment, the <i>&quot;redirect_uri&quot;</i> is NOT checked. This allows you to test your integration locally.</br></td>
+<td style="text-align: left">This is the URI to which the authentication response will be sent. The Redirection URI MUST use the <i>&quot;https&quot;</i> scheme. The Redirection URI MAY NOT use the <i>&quot;http&quot;</i> or an alternate scheme, such as one that is intended to identify a callback into a native application.<br></br><b>Note</b> : this URI MUST be whitelisted in our systems. So, don&#39;t forget to send your it by email to onboarding@itsme.be and we’ll make sure to complete the configuration for you in no time!</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>state</strong></td>
