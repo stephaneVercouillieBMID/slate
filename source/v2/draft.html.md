@@ -288,10 +288,10 @@ The Advanced Payment template can be retrieved using the following tags in the <
 
 Parameter | Required | Description
 :-------- | :-------- | :--------
-**"http://itsme.services/v2/claim/claim_approval_template_name"** | Required | This identifies the template used. It MUST be set to "tag:sixdots.be,2016-08:claim_approval_template_name":{ "essential": true, "value": "adv_payment" }
-**http://itsme.services/v2/claim/claim_approval_amount_key** | Required | A string holding an integer value inside. This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_amount_key":{ "essential": true, "value": [Amount as a string] }</i>.
-**http://itsme.services/v2/claim/claim_approval_currency_key** | Required | A string holding a valid currency code (e.g. “EUR”). This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_currency_key":{ "essential": true, "value": [Currency as a string] }</i>.
-**http://itsme.services/v2/claim/claim_approval_iban_key** | Required | A string holding a valid IBAN account number. This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_iban_key":{ "essential": true, "value": [IBAN as a string] }</i>.
+**"http://itsme.services/v2/<br></br>claim/claim_approval_template_name"** | Required | This identifies the template used. It MUST be set to "tag:sixdots.be,2016-08:claim_approval_template_name":{ "essential": true, "value": "adv_payment" }
+**http://itsme.services/v2/<br></br>claim/claim_approval_amount_key** | Required | A string holding an integer value inside. This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_amount_key":{ "essential": true, "value": [Amount as a string] }</i>.
+**http://itsme.services/v2/<br></br>claim/claim_approval_currency_key** | Required | A string holding a valid currency code (e.g. “EUR”). This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_currency_key":{ "essential": true, "value": [Currency as a string] }</i>.
+**http://itsme.services/v2/<br></br>claim/claim_approval_iban_key** | Required | A string holding a valid IBAN account number. This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_iban_key":{ "essential": true, "value": [IBAN as a string] }</i>.
 
 **Free Text template**
 
@@ -299,8 +299,8 @@ The Free Text template which can be retrieved using the following tags in the <i
 
 Parameter | Required |  Description
 :-------- | :-------- | :--------
-**"http://itsme.services/v2/claim/claim_approval_template_name"** | Required | This identifies the template used. It MUST be set to "tag:sixdots.be,2016-08:claim_approval_template_name":{ "essential": true, "value": "free_text" }
-**http://itsme.services/v2/claim/claim_approval_text_key** | Required | A string holding any text to be displayed in the itsme® app. This MUST be set to<i>"tag:sixdots.be,2016-08:claim_approval_text_key":{ "essential": true, "value": [Text as a string] }}</i>.
+**"http://itsme.services/v2/<br></br>claim/claim_approval_template_name"** | Required | This identifies the template used. It MUST be set to "tag:sixdots.be,2016-08:claim_approval_template_name":{ "essential": true, "value": "free_text" }
+**http://itsme.services/v2/<br></br>claim/claim_approval_text_key** | Required | A string holding any text to be displayed in the itsme® app. This MUST be set to<i>"tag:sixdots.be,2016-08:claim_approval_text_key":{ "essential": true, "value": [Text as a string] }}</i>.
 
 When using the Free text template, the below requirements apply:
 
