@@ -148,7 +148,7 @@ Parameter | Required | Description
 **request** | Required | 
 
 <aside class="notice">If one of these parameters is used, the other MUST NOT be used in the same request.
-  </aside>
+</aside>
 
 When implementing the **Confirm** service, specific rules apply :
 
