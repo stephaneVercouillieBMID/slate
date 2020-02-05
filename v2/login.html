@@ -201,7 +201,7 @@
       <script src="../javascripts/all.js"></script>
   </head>
 
-  <body class="v2 v2_draft" data-languages="[&quot;http&quot;]">
+  <body class="v2 v2_login" data-languages="[&quot;http&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -222,7 +222,7 @@
             <a href="#1-introduction" class="toc-h1 toc-link" data-title="1-introduction">1. Introduction</a>
           </li>
           <li>
-            <a href="#2-before-you-start" class="toc-h1 toc-link" data-title="2-before-you-start">2. Before you start</a>
+            <a href="#2-prerequisite" class="toc-h1 toc-link" data-title="2-prerequisite">2. Prerequisite</a>
           </li>
           <li>
             <a href="#3-integration-guide" class="toc-h1 toc-link" data-title="3-integration-guide">3. Integration guide</a>
@@ -234,7 +234,7 @@
                     <a href="#3-2-create-a-itsme-button-on-your-application" class="toc-h2 toc-link" data-title="3-2-create-a-itsme-button-on-your-application">3.2. Create a itsme® button on your application</a>
                   </li>
                   <li>
-                    <a href="#3-3-crafting-your-cryptographic-keys-uri" class="toc-h2 toc-link" data-title="3-3-crafting-your-cryptographic-keys-uri">3.3. Crafting your cryptographic keys URI</a>
+                    <a href="#3-3-crafting-your-client-authentication-method" class="toc-h2 toc-link" data-title="3-3-crafting-your-client-authentication-method">3.3. Crafting your client authentication method</a>
                   </li>
                   <li>
                     <a href="#3-4-build-an-authentication-request-and-request-attributes" class="toc-h2 toc-link" data-title="3-4-build-an-authentication-request-and-request-attributes">3.4. Build an Authentication Request and request attributes</a>
@@ -279,10 +279,10 @@
         <h1 id='1-introduction'>1. Introduction</h1>
 <p>itsme® is a trusted identity provider allowing partners to use verified identities for authentication and authorization on web desktop, mobile web or mobile applications. </p>
 
-<p>The objective of this document is to provide all the information needed to integrate the <strong>Confirm</strong> service using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.</p>
+<p>The objective of this document is to provide all the information needed to integrate the <strong>Login</strong> service using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.</p>
 
 <p><a name="Onboarding"></a></p>
-<h1 id='2-before-you-start'>2. Before you start</h1>
+<h1 id='2-prerequisite'>2. Prerequisite</h1>
 <p>Before you start integrating itsme®, you MUST create an organisation on the following url: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyfhKiiehNg4DhFzhQeHaj9EG2VeFoyPNVaI-TSwnG5WlFfw/viewform" target="blank">https://docs.google.com/forms/d/e/1FAIpQLSdyfhKiiehNg4DhFzhQeHaj9EG2VeFoyPNVaI-TSwnG5WlFfw/viewform</a>.</p>
 
 <p>Once there, you will need to fill out a basic form with the following questions:</p>
@@ -362,8 +362,8 @@
 <p>Upon clicking this button, we will open a modal view which contains a field that need to be filled by the end user with it’s phone number. Note that mobile web users will skip the phone number step, as they use the itsme® mobile app directly to authenticate.</p>
 
 <p>itsme® provides a button <a href="generator" target="blank">https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/buttons-1518207548</a> for you to include in your HTML file. </p>
-<h2 id='3-3-crafting-your-cryptographic-keys-uri'>3.3. Crafting your cryptographic keys URI</h2>
-<p>Once you have created your organisation, the next step is to craft your cryptographic keys URI. Some itsme® endpoints require client authentication in order to protect entitlement information between interested parties. </p>
+<h2 id='3-3-crafting-your-client-authentication-method'>3.3. Crafting your client authentication method</h2>
+<p>Some itsme® endpoints require client authentication in order to protect entitlement information between interested parties. </p>
 
 <p>The OpenID Connect Core specifications support multiple authentication methods, but itsme® only supports <i>&quot;private_key_jwt&quot;</i> : it requires that each party exposes its public keys as a simple JWK Set document on a URI accessible to all, and keep its private set for itself. For itsme®, this URI can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the <i>&quot;jwks_uri&quot;</i> key.</p>
 
@@ -385,7 +385,7 @@
 <aside class="notice">By opposition to the OpenID Connect specifications, POST method is not authorized when triggering the itsme® App through the Universal/App Link mechanism only support the HTTP GET method on the Authorisation Endpoint. More information about Universal links and App links can be found in the <a href="#UniversalLinks">section 3.3</a>.
 </aside>
 
-<p>When implementing the <strong>Confirm</strong> service, itsme® uses the following request parameters of the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> :</p>
+<p>The OpenID Connect Core specification defines a number of parameters to integrate in the HTTPS GET query string :</p>
 
 <table><thead>
 <tr>
@@ -476,20 +476,9 @@
 </tr>
 <tr>
 <td style="text-align: left"><strong>claims</strong></td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">This parameter is used to request specific claims. The value is a JSON object listing the requested claims. <br>See the <a href="#Data">list</a> below for more information.</br><br>As you are implementing the <b>Confirm</b> service, this parameter always need signed and encrypted. In other words, it needs to be passed as a JWT in the <i>&quot;request_uri</i> or the <i>&quot;request&quot;</i> parameter.</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">This parameter is used to request specific claims. The value is a JSON object listing the requested claims. <br>See the <a href="#Data">list</a> below for more information.</br></td>
 </tr>
-</tbody></table>
-
-<p>OpenID Connect also allow you to use the following parameters to enable Authentication Requests to be signed and encrypted:</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
 <tr>
 <td style="text-align: left"><strong>request_uri</strong></td>
 <td style="text-align: left">Optional</td>
@@ -497,14 +486,14 @@
 </tr>
 <tr>
 <td style="text-align: left"><strong>request</strong></td>
-<td style="text-align: left">Required</td>
+<td style="text-align: left">Optional</td>
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
 
 <aside class="notice">If one of these parameters is used, the other MUST NOT be used in the same request.
   </aside>
-  
+
 <aside class="notice">Regardless of the application you are building you should make sure that your redirect URIs support the <a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal links</a> and <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App links</a> mechanism. Functionally, it will allow you to have only one single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.
 
 <br>Universal links and App links are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.</br>
@@ -558,109 +547,91 @@ With some parameters passed as a JWT in the <i>&quot;request_uri&quot;</i>, befo
 <table><thead>
 <tr>
 <th style="text-align: left">Value</th>
-<th style="text-align: left">Required</th>
 <th style="text-align: left">Returned claim</th>
 <th style="text-align: left">Example</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>profile</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">PersonFamilyName</td>
 <td style="text-align: left">Smith</td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">PersonGivenName</td>
 <td style="text-align: left">John Matthew A</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left"></td>
 <td style="text-align: left">PersonFullName</td>
 <td style="text-align: left">John Matthew A Smith</td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">PersonGender</td>
 <td style="text-align: left">M</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left"></td>
 <td style="text-align: left">PersonDateOfBirth</td>
 <td style="text-align: left">1959-06-03</td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">locale</td>
 <td style="text-align: left">NL</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>email</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">email</td>
 <td style="text-align: left">john.smith@company.lu</td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">email_verified</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>phone</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">countryCode</td>
 <td style="text-align: left">352</td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">phoneNumber</td>
 <td style="text-align: left">495162995</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>address</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">AddressFullAddress</td>
 <td style="text-align: left">Place Victor Horta, 79 202 1348 Louvain-la-Neuve</td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">AddressPostCode</td>
 <td style="text-align: left">1348</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left"></td>
 <td style="text-align: left">AddressPostName</td>
 <td style="text-align: left">Louvain-la-Neuve</td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">AddressAdminUnitL1</td>
 <td style="text-align: left">(empty)</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left"></td>
 <td style="text-align: left">AddressThoroughFare</td>
 <td style="text-align: left">Place Victor Horta</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left"></td>
 <td style="text-align: left">AddressLocatorDesignator</td>
 <td style="text-align: left">79</td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">AddressPoBox</td>
 <td style="text-align: left">202</td>
@@ -672,337 +643,226 @@ With some parameters passed as a JWT in the <i>&quot;request_uri&quot;</i>, befo
 <table><thead>
 <tr>
 <th style="text-align: left">Value</th>
-<th style="text-align: left">Required</th>
 <th style="text-align: left">Returned claim</th>
 <th style="text-align: left">Example</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>name</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">PersonFullName</td>
 <td style="text-align: left">John Matthew A Smith</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>given_name</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">PersonGivenName</td>
 <td style="text-align: left">John Matthew A</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>family_name</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">PersonFamilyName</td>
 <td style="text-align: left">Smith</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>birthdate</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">PersonDateOfBirth</td>
 <td style="text-align: left">1959-06-03</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>gender</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">PersonGender</td>
 <td style="text-align: left">M</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>email</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">email</td>
 <td style="text-align: left">john.smith@company.lu</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>email_verified</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left"></td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>phone_number</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">countryCode</td>
 <td style="text-align: left">352</td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">phoneNumber</td>
 <td style="text-align: left">495162995</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>phone_number_verified</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left"></td>
 <td style="text-align: left">True</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>locale</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">locale</td>
 <td style="text-align: left">NL</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>address</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">AddressFullAddress</td>
 <td style="text-align: left">Place Victor Horta, 79 202 1348 Louvain-la-Neuve</td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">AddressPostCode</td>
 <td style="text-align: left">1348</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left"></td>
 <td style="text-align: left">AddressPostName</td>
 <td style="text-align: left">Louvain-la-Neuve</td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">AddressAdminUnitL1</td>
 <td style="text-align: left">(empty)</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left"></td>
 <td style="text-align: left">AddressThoroughFare</td>
 <td style="text-align: left">Place Victor Horta</td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">AddressLocatorDesignator</td>
 <td style="text-align: left">79</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left"></td>
 <td style="text-align: left">AddressPoBox</td>
 <td style="text-align: left">202</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_citizenship</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">PersonCitizenship</td>
 <td style="text-align: left">Belg</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/ claim/place_of_birth</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">PersonCountryOfBirth</td>
 <td style="text-align: left">Neerpelt</td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">PersonPlaceOfBirth</td>
 <td style="text-align: left">(empty)</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/ claim/physical_person_photo</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">picture</td>
 <td style="text-align: left">Neerpelt</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/ claim/BEeidSn</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">issuanceLocality</td>
 <td style="text-align: left">Sombreffe</td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">validityFrom</td>
 <td style="text-align: left">2019-12-04</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left"></td>
 <td style="text-align: left">validityTo</td>
 <td style="text-align: left">2025-12-04</td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">certificateValidity</td>
 <td style="text-align: left">2025-12-04</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left"></td>
 <td style="text-align: left">readDate</td>
 <td style="text-align: left">2025-12-04</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_luxtrust_ssn</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left"></td>
 <td style="text-align: left">12345678901234567890</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_device</strong></td>
-<td style="text-align: left">Optionnal</td>
 <td style="text-align: left">os</td>
 <td style="text-align: left">Sombreffe</td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">appName</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left"></td>
 <td style="text-align: left">appRelease</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">deviceLabel</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left"></td>
 <td style="text-align: left">debugEnabled</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">deviceID</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left"></td>
 <td style="text-align: left">osRelease</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">manufacturer</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left"></td>
 <td style="text-align: left">hasSimEnabled</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">deviceLockLevel</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left"></td>
 <td style="text-align: left">smsEnabled</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">rooted</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left"></td>
 <td style="text-align: left">imei</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 <td style="text-align: left">deviceModel</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left"></td>
 <td style="text-align: left">sdkRelease</td>
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
-<h3 id='specifing-the-wysiwys-template'>Specifing the WYSIWYS template</h3>
-<p>The itsme <strong>Confirm</strong> is based on the notion of template, which helps pre-structure the action screen in the itsme app. Using one of the available templates MUST be specified to form a valid <strong>Confirm</strong> Authentication Request. There are currently two templates available.</p>
-
-<aside class="notice">If one of these template is used, the other MUST NOT be used in the same request.</aside>
-
-<p><strong>Advanced Payment template</strong></p>
-
-<p>The Advanced Payment template can be retrieved using the following tags in the <i>&quot;claim&quot;</i> parameter when forming the Authentication Request:</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/<br>claim/claim_approval_template_name</br></strong></td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">This identifies the template used. It MUST be set to &quot;tag:sixdots.be,2016-08:claim_approval_template_name&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: &quot;adv_payment&quot; }</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/<br>claim/claim_approval_amount_key</br></strong></td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">A string holding an integer value inside. This MUST be set to <i>&quot;tag:sixdots.be,2016-08:claim_approval_amount_key&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: [Amount as a string] }</i>.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/<br>claim/claim_approval_currency_key</br></strong></td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">A string holding a valid currency code (e.g. “EUR”). This MUST be set to <i>&quot;tag:sixdots.be,2016-08:claim_approval_currency_key&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: [Currency as a string] }</i>.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/<br>claim/claim_approval_iban_key</br></strong></td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">A string holding a valid IBAN account number. This MUST be set to <i>&quot;tag:sixdots.be,2016-08:claim_approval_iban_key&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: [IBAN as a string] }</i>.</td>
-</tr>
-</tbody></table>
-
-<p><strong>Free Text template</strong></p>
-
-<p>The Free Text template which can be retrieved using the following tags in the <i>&quot;claim&quot;</i> parameter when forming the Authentication Request:</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/<br>claim/claim_approval_template_name</br></strong></td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">This identifies the template used. It MUST be set to &quot;tag:sixdots.be,2016-08:claim_approval_template_name&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: &quot;free_text&quot; }</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>http://itsme.services/v2/<br>claim/claim_approval_text_key</br></strong></td>
-<td style="text-align: left">Required</td>
-<td style="text-align: left">A string holding any text to be displayed in the itsme® app. This MUST be set to<i>&quot;tag:sixdots.be,2016-08:claim_approval_text_key&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: [Text as a string] }}</i>.</td>
-</tr>
-</tbody></table>
-
-<p>When using the Free text template, the below requirements apply:</p>
-
-<ul>
-  <li>Use the standard character encodings ISO 8859-15 for the text. If you provide a non-supported character in a free text field the flow will be stopped and you will receive an error message back.</li>
-  <li>Supported formatting tags are : &lt;b&gt; &lt;i&gt; &lt;u&gt; &lt;br&gt;. Tags that are not rendered are ignored.</li>
-</ul>
 
 <p><a name="AuthNResponse"></a></p>
 <h2 id='3-5-capturing-an-authorization-code'>3.5. Capturing an Authorization Code</h2><h3 id='capturing-a-successful-authorization-code'>Capturing a successful Authorization Code</h3>
