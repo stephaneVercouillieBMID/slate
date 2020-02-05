@@ -95,9 +95,9 @@ Upon clicking this button, we will open a modal view which contains a field that
 itsme® provides a button <a href="generator" target="blank">https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/buttons-1518207548</a> for you to include in your HTML file. 
 
 
-## 3.3. Crafting your cryptographic keys URI
+## 3.3. Crafting your client authentication method
 
-Once you have created your organisation, the next step is to craft your cryptographic keys URI. Some itsme® endpoints require client authentication in order to protect entitlement information between interested parties. 
+Some itsme® endpoints require client authentication in order to protect entitlement information between interested parties. 
 
 The OpenID Connect Core specifications support multiple authentication methods, but itsme® only supports <i>"private_key_jwt"</i> : it requires that each party exposes its public keys as a simple JWK Set document on a URI accessible to all, and keep its private set for itself. For itsme®, this URI can be retrieved from the [itsme® Discovery document](#OpenIDConfig), using the <i>"jwks_uri"</i> key.
 
@@ -123,7 +123,7 @@ First, you will forg a HTTPS GET request that MUST be sent to the itsme® Author
 <aside class="notice">By opposition to the OpenID Connect specifications, POST method is not authorized when triggering the itsme® App through the Universal/App Link mechanism only support the HTTP GET method on the Authorisation Endpoint. More information about Universal links and App links can be found in the <a href="#UniversalLinks">section 3.3</a>.
 </aside>
 
-When implementing the **Confirm** service, itsme® uses the following request parameters of the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> :
+The OpenID Connect Core specification defines a number of parameters to integrate in the HTTPS GET query string :
 
 Parameter | Required | Description
 :-------- | :--------| :----- 
@@ -143,17 +143,19 @@ Parameter | Required | Description
 **id\_token\_hint** | Not supported | Any supplied value will be ignored.
 **claims_locales** | Not supported | Any supplied value will be ignored.
 **registration** | Not supported | Any supplied value will be ignored.
-**claims** | Required | This parameter is used to request specific claims. The value is a JSON object listing the requested claims. <br>See the [list](#Data) below for more information.</br><br>As you are implementing the <b>Confirm</b> service, this parameter always need signed and encrypted. In other words, it needs to be passed as a JWT in the <i>"request_uri</i> or the <i>"request"</i> parameter.
-
-OpenID Connect also allow you to use the following parameters to enable Authentication Requests to be signed and encrypted:
-
-Parameter | Required | Description
-:-------- | :--------| :----- 
-**request_uri** | Optional | This parameter enables OpenID Connect parameters to be passed by reference. The <i>"request_uri"</i> value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. <br>When the <i>"request_uri"</i> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax.</br><br>The following validations should be done when using the <i>"request_uri"</i> parameter:</br><ul><li>The values for the <i>"response_type"</i> and <i>"client_id"</i> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li><li>Even if a <i>"scope"</i> parameter is present in the Request Object value, a <i>"scope"</i> parameter – containing the <i>"openid"</i> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li><li>The Request Object MUST be MUST be <b>signed</b> then <b>encrypted</b>, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section. As the Request Object is a nested JWT, it MUST contain the claims <i>"iss"</i> (issuer) and <i>"aud"</i> (audience) as members. The <i>"iss"</i> value MUST be your Client ID. The <i>"aud"</i> value MUST be the value corresponding to the key "authorization_endpoint" in the <a href="#OpenIDConfig" target="blank">itsme® Discovery document</a>.</li>><li>You need to store the Request Object resource remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>"request_uri"</i>. Usage of 'localhost' is not permitted.<li>The Request URI MUST contain the port 443 as in this example: https://test.istme.be:443/p/test.</li><li>The Request URI value is a URL using the <i>https</i> scheme.</li></ul><br>Don't forget to send share this URI by email to onboarding@itsme.be and we’ll make sure to complete the configuration for you in no time!</br>
+**claims** | Required | This parameter is used to request specific claims. The value is a JSON object listing the requested claims. <br>See the [list](#Data) below for more information.</br>
+**request_uri** | Required | This parameter enables OpenID Connect parameters to be passed by reference. The <i>"request_uri"</i> value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. <br>When the <i>"request_uri"</i> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax.</br><br>The following validations should be done when using the <i>"request_uri"</i> parameter:</br><ul><li>The values for the <i>"response_type"</i> and <i>"client_id"</i> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li><li>Even if a <i>"scope"</i> parameter is present in the Request Object value, a <i>"scope"</i> parameter – containing the <i>"openid"</i> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li><li>The Request Object MUST be MUST be <b>signed</b> then <b>encrypted</b>, with the result being a Nested JWT, as defined in the <a href="https://belgianmobileid.github.io/slate/jose.html" target="blank">JSON Web Token</a> (JWT) section. As the Request Object is a nested JWT, it MUST contain the claims <i>"iss"</i> (issuer) and <i>"aud"</i> (audience) as members. The <i>"iss"</i> value MUST be your Client ID. The <i>"aud"</i> value MUST be the value corresponding to the key "authorization_endpoint" in the <a href="#OpenIDConfig" target="blank">itsme® Discovery document</a>.</li>><li>You need to store the Request Object resource remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>"request_uri"</i>. Usage of 'localhost' is not permitted.<li>The Request URI MUST contain the port 443 as in this example: https://test.istme.be:443/p/test.</li><li>The Request URI value is a URL using the <i>https</i> scheme.</li></ul><br>Don't forget to send share this URI by email to onboarding@itsme.be and we’ll make sure to complete the configuration for you in no time!</br>
 **request** | Required | 
 
 <aside class="notice">If one of these parameters is used, the other MUST NOT be used in the same request.
   </aside>
+
+When implementing the **Confirm** service, specific rules apply :
+
+<ol>
+  <li>The <i>"claims"</i> parameter MUST be used, and contain at least the WYSIWYS template claim.</li>
+  <li>The <i>"claims"</i> parameter always need signed and encrypted. In other words, it MUST be passed by reference - using the <i>"request_uri</i> parameter - or by value - using the <i>"request</i> parameter.</li>
+</ol>
   
 <aside class="notice">Regardless of the application you are building you should make sure that your redirect URIs support the <a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal links</a> and <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App links</a> mechanism. Functionally, it will allow you to have only one single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.
 
@@ -207,73 +209,73 @@ The OpenID Connect Core specification defines a sets of claims that MAY be reque
 
 Below, you will find the list of claims that MAY be requested via the <i><b>"scope"</b></i> request parameter :
 
-Value | Required | Returned claim | Example 
-:-- | :-- | :-- | :-- 
-**profile** | Optional | PersonFamilyName | Smith 
- | | PersonGivenName | John Matthew A 
- | | PersonFullName | John Matthew A Smith 
- | | PersonGender | M 
- | | PersonDateOfBirth | 1959-06-03 
- | | locale | NL 
-**email** | Optional | email | john.smith@company.lu 
- | | email_verified |  
-**phone** | Optional  | countryCode | 352 
- | | phoneNumber | 495162995 
-**address** | Optional | AddressFullAddress | Place Victor Horta, 79 202 1348 Louvain-la-Neuve  
- | | AddressPostCode | 1348 
- | | AddressPostName | Louvain-la-Neuve 
- | | AddressAdminUnitL1 | (empty) 
- | | AddressThoroughFare | Place Victor Horta 
- | | AddressLocatorDesignator | 79 
- | | AddressPoBox | 202 
+Value | Returned claim | Example 
+:-- | :-- | :-- 
+**profile** | PersonFamilyName | Smith 
+ | PersonGivenName | John Matthew A 
+ | PersonFullName | John Matthew A Smith 
+ | PersonGender | M 
+ | PersonDateOfBirth | 1959-06-03 
+ | locale | NL 
+**email** | email | john.smith@company.lu 
+ | email_verified |  
+**phone** | countryCode | 352 
+ | phoneNumber | 495162995 
+**address** | AddressFullAddress | Place Victor Horta, 79 202 1348 Louvain-la-Neuve  
+ | AddressPostCode | 1348 
+ | AddressPostName | Louvain-la-Neuve 
+ | AddressAdminUnitL1 | (empty) 
+ | AddressThoroughFare | Place Victor Horta 
+ | AddressLocatorDesignator | 79 
+ | AddressPoBox | 202 
  
 Typically, the values returned via the "scope" parameter only contain claims about the identity of the User. Via the <i><b>"claims"</b></i> parameter you MAY request the same claims as in the ones available via the <i>"scope"</i> request parameter, as well as information about the specific ID documents, the device and the app version used by the user. These claims are specified below :
 
-Value | Required | Returned claim | Example 
-:-- | :-- | :-- | :-- 
-**name** | Optional | PersonFullName | John Matthew A Smith 
-**given_name** | Optional | PersonGivenName | John Matthew A
-**family_name** | Optional | PersonFamilyName | Smith
-**birthdate** | Optional | PersonDateOfBirth | 1959-06-03
-**gender** | Optional | PersonGender | M 
-**email** | Optional | email | john.smith@company.lu 
-**email_verified** | Optional | 
-**phone_number** | Optional  | countryCode | 352 
- | | phoneNumber | 495162995 
-**phone_number_verified** | Optional  |  | True  
-**locale** | Optional  | locale | NL 
-**address** | Optional | AddressFullAddress | Place Victor Horta, 79 202 1348 Louvain-la-Neuve  
- | | AddressPostCode | 1348 
- | | AddressPostName | Louvain-la-Neuve 
- | | AddressAdminUnitL1 | (empty) 
- | | AddressThoroughFare | Place Victor Horta 
- | | AddressLocatorDesignator | 79 
- | | AddressPoBox | 202 
-**http://itsme.services/v2/ claim/claim_citizenship** | Optional | PersonCitizenship  | Belg 
-**http://itsme.services/v2/ claim/place_of_birth** | Optional | PersonCountryOfBirth | Neerpelt 
- | | PersonPlaceOfBirth | (empty) 
-**http://itsme.services/v2/ claim/physical_person_photo** | Optional | picture | Neerpelt 
-**http://itsme.services/v2/ claim/BEeidSn** | Optional | issuanceLocality | Sombreffe 
- | | validityFrom | 2019-12-04 | Not always returned if requested | Never returned if requested  
- | | validityTo  | 2025-12-04 | Not always returned if requested | Never returned if requested 
- | | certificateValidity | 2025-12-04 | Not always returned if requested | Never returned if requested  
- | | readDate | 2025-12-04 | Returned if requested | Returned if requested 
-**http://itsme.services/v2/ claim/claim_luxtrust_ssn** | Optional |  | 12345678901234567890
-**http://itsme.services/v2/ claim/claim_device** | Optional | os | Sombreffe 
- | | appName |  
- | | appRelease  |   
- | | deviceLabel |  
- | | debugEnabled |  
- | | deviceID |  
- | | osRelease  |  
- | | manufacturer |  
- | | hasSimEnabled |  
- | | deviceLockLevel |  
- | | smsEnabled |  
- | | rooted  |  
- | | imei |  
- | | deviceModel |   
- | | sdkRelease |  
+Value | Returned claim | Example 
+:-- | :-- | :-- 
+**name** | PersonFullName | John Matthew A Smith 
+**given_name** | PersonGivenName | John Matthew A
+**family_name** | PersonFamilyName | Smith
+**birthdate** | PersonDateOfBirth | 1959-06-03
+**gender** | PersonGender | M 
+**email** | email | john.smith@company.lu 
+**email_verified** | |
+**phone_number** | countryCode | 352 
+ | phoneNumber | 495162995 
+**phone_number_verified** |  | True  
+**locale** | locale | NL 
+**address** | AddressFullAddress | Place Victor Horta, 79 202 1348 Louvain-la-Neuve  
+ | AddressPostCode | 1348 
+ | AddressPostName | Louvain-la-Neuve 
+ | AddressAdminUnitL1 | (empty) 
+ | AddressThoroughFare | Place Victor Horta 
+ | AddressLocatorDesignator | 79 
+ | AddressPoBox | 202 
+**http://itsme.services/v2/ claim/claim_citizenship** | PersonCitizenship  | Belg 
+**http://itsme.services/v2/ claim/place_of_birth** | PersonCountryOfBirth | Neerpelt 
+ | PersonPlaceOfBirth | (empty) 
+**http://itsme.services/v2/ claim/physical_person_photo** | picture | Neerpelt 
+**http://itsme.services/v2/ claim/BEeidSn** | issuanceLocality | Sombreffe 
+ | validityFrom | 2019-12-04 | Not always returned if requested | Never returned if requested  
+ | validityTo  | 2025-12-04 | Not always returned if requested | Never returned if requested 
+ | certificateValidity | 2025-12-04 | Not always returned if requested | Never returned if requested  
+ | readDate | 2025-12-04 | Returned if requested | Returned if requested 
+**http://itsme.services/v2/ claim/claim_luxtrust_ssn** |  | 12345678901234567890
+**http://itsme.services/v2/ claim/claim_device** | os | Sombreffe 
+ | appName |  
+ | appRelease  |   
+ | deviceLabel |  
+ | debugEnabled |  
+ | deviceID |  
+ | osRelease  |  
+ | manufacturer |  
+ | hasSimEnabled |  
+ | deviceLockLevel |  
+ | smsEnabled |  
+ | rooted  |  
+ | imei |  
+ | deviceModel |   
+ | sdkRelease |  
 
 ###  Specifing the WYSIWYS template 
 
@@ -285,21 +287,21 @@ The itsme® **Confirm** is based on the notion of template, which helps pre-stru
 
 The Advanced Payment template can be retrieved using the following tags in the <i>"claim"</i> parameter when forming the Authentication Request:
 
-Parameter | Required | Description
-:-------- | :-------- | :--------
-**http://itsme.services/v2/<br>claim/claim_approval_template_name</br>** | Required | This identifies the template used. It MUST be set to "tag:sixdots.be,2016-08:claim_approval_template_name":{ "essential": true, "value": "adv_payment" }
-**http://itsme.services/v2/<br>claim/claim_approval_amount_key</br>** | Required | A string holding an integer value inside. This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_amount_key":{ "essential": true, "value": [Amount as a string] }</i>.
-**http://itsme.services/v2/<br>claim/claim_approval_currency_key</br>** | Required | A string holding a valid currency code (e.g. “EUR”). This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_currency_key":{ "essential": true, "value": [Currency as a string] }</i>.
-**http://itsme.services/v2/<br>claim/claim_approval_iban_key</br>** | Required | A string holding a valid IBAN account number. This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_iban_key":{ "essential": true, "value": [IBAN as a string] }</i>.
+Value | Description
+:-------- | :--------
+**http://itsme.services/v2/<br>claim/claim_approval_template_name</br>** | This identifies the template used. It MUST be set to "tag:sixdots.be,2016-08:claim_approval_template_name":{ "essential": true, "value": "adv_payment" }
+**http://itsme.services/v2/<br>claim/claim_approval_amount_key</br>** | A string holding an integer value inside. This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_amount_key":{ "essential": true, "value": [Amount as a string] }</i>.
+**http://itsme.services/v2/<br>claim/claim_approval_currency_key</br>** | A string holding a valid currency code (e.g. “EUR”). This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_currency_key":{ "essential": true, "value": [Currency as a string] }</i>.
+**http://itsme.services/v2/<br>claim/claim_approval_iban_key</br>** | A string holding a valid IBAN account number. This MUST be set to <i>"tag:sixdots.be,2016-08:claim_approval_iban_key":{ "essential": true, "value": [IBAN as a string] }</i>.
 
 **Free Text template**
 
 The Free Text template which can be retrieved using the following tags in the <i>"claim"</i> parameter when forming the Authentication Request:
 
-Parameter | Required |  Description
+Parameter | Description
 :-------- | :-------- | :--------
-**http://itsme.services/v2/<br>claim/claim_approval_template_name</br>** | Required | This identifies the template used. It MUST be set to "tag:sixdots.be,2016-08:claim_approval_template_name":{ "essential": true, "value": "free_text" }
-**http://itsme.services/v2/<br>claim/claim_approval_text_key</br>** | Required | A string holding any text to be displayed in the itsme® app. This MUST be set to<i>"tag:sixdots.be,2016-08:claim_approval_text_key":{ "essential": true, "value": [Text as a string] }}</i>.
+**http://itsme.services/v2/<br>claim/claim_approval_template_name</br>** | This identifies the template used. It MUST be set to "tag:sixdots.be,2016-08:claim_approval_template_name":{ "essential": true, "value": "free_text" }
+**http://itsme.services/v2/<br>claim/claim_approval_text_key</br>** | A string holding any text to be displayed in the itsme® app. This MUST be set to<i>"tag:sixdots.be,2016-08:claim_approval_text_key":{ "essential": true, "value": [Text as a string] }}</i>.
 
 When using the Free text template, the below requirements apply:
 
