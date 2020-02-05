@@ -17,12 +17,9 @@ The objective of this document is to provide all the information needed to integ
 
   
 <a name="Onboarding"></a>
-# 2. Prerequisites
+# 2. Before you start
 
-
-## 2.1. Creating an organisation
-
-Fill in the form by clicking on the following url: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyfhKiiehNg4DhFzhQeHaj9EG2VeFoyPNVaI-TSwnG5WlFfw/viewform" target="blank">https://docs.google.com/forms/d/e/1FAIpQLSdyfhKiiehNg4DhFzhQeHaj9EG2VeFoyPNVaI-TSwnG5WlFfw/viewform</a>.
+Before you start integrating itsme®, you MUST create an organisation on the following url: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyfhKiiehNg4DhFzhQeHaj9EG2VeFoyPNVaI-TSwnG5WlFfw/viewform" target="blank">https://docs.google.com/forms/d/e/1FAIpQLSdyfhKiiehNg4DhFzhQeHaj9EG2VeFoyPNVaI-TSwnG5WlFfw/viewform</a>.
 
 Once there, you will need to fill out a basic form with the following questions:
 
@@ -35,8 +32,70 @@ Once there, you will need to fill out a basic form with the following questions:
 
 Our onboarding team will review your project and get in touch within 3 days with a <i>"client_id"</i> and a <i>"service_code"</i> which need to be added in your configuration. Meanwhile, this should not prevent you from starting your integration.
 
+# 3. Integration guide
 
-## 2.2. Crafting your cryptographic keys URI
+Our itsme® app can be seamlessly be integrated with your web desktop, mobile web or mobile application so you can perform secure identity checks.
+
+**Technical overview**
+
+itsme® integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following diagram:
+  
+ ![Sequence diagram describing the OpenID flow](OpenID_Login_SeqDiag.png)
+
+<aside class="notice">OpenID Connect provides certified libraries, products, and tools which could help you integrating the itsme® service. For more information, please visit the official webpage: <a href="https://openid.net/developers/libraries/" target="blank">https://openid.net/developers/libraries/</a>.
+</aside>
+ 
+**How it works**
+
+<ol>
+  <li>The User indicates on your end he wishes to authenticate with itsme®</li>
+  <li>Your web desktop, mobile web or mobile application (aka 'Relying Party' in the OpenID Connect specification) sends a request to itsme® (aka 'OpenID Provider' in the OpenID Connect specification) to authenticate the User. This request will redirect the User to the itsme® Front-End. itsme® then authenticates the User by asking him
+    <ul type>
+      <li>to enter his phone number on the itsme® OpenID web page</li>
+      <li>authorize the release of some information’s to your application</li>
+      <li>to provide his credentials (itsme® code or fingerprint or FaceID)</li>
+    </ul>
+  
+  If you are building a mobile web or mobile application, the User don’t need to enter his mobile phone number on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links or App links mechanism.</li>
+  <li>Once the User has authorized the request and has been authenticated, itsme® will return an Authorization Code to the Service Provider Front-End, redirecting the user to your mobile or web application.</li>
+  <li>The Service Provider Back-End calls the itsme® Token Endpoint and exchanges the Authorization Code for an ID Token identifying the User and an Access Token.</li>
+  <li>The Service Provider Back-End MAY request the additional User information from the itsme® userInfo Endpoint by presenting the Access Token obtained in the previous step.</li>
+  <li>At this stage you are able to confirm the success of the operation and display a success message.</li>
+</ol>
+
+If a user doesn't have the itsme® app, they'll be redirected to a mobile website with more information and download links.
+
+
+<a name="OpenIDConfig"></a>
+## 3.1. Check itsme® OpenID Provider configuration
+
+To simplify implementations and increase flexibility, <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID Connect allows the use of a Discovery Document</a>, a JSON document containing key-value pairs which provide details about itsme® configuration, such as the URIs of the 
+
+<ul>
+  <li>Authorization, Token and userInfo Endpoints</li>
+  <li>supported claims</li>
+  <li>JWKSet URL</li>
+  <li>...</li>
+</ul>
+
+The Discovery document for itsme® can be retrieved from: 
+
+Environment | URL
+:-------- | :--------
+**SANDBOX** | <a href="https://idp.e2e.itsme.services/v2/.well-known/openid-configuration" target="blank">https://idp.e2e.itsme.services/v2/.well-known/openid-configuration</a>
+**PRODUCTION** | <a href="https://idp.prd.itsme.services/v2/.well-known/openid-configuration" target="blank">https://idp.prd.itsme.services/v2/.well-known/openid-configuration</a>
+
+
+## 3.2. Create a itsme® button on your application
+
+First, you will need to create a button to allow your users to authenticate with itsme®. See the <a href="Button design guide" target="blank">https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/buttons-1518207548</a> before you start the integration. 
+
+Upon clicking this button, we will open a modal view which contains a field that need to be filled by the end user with it’s phone number. Note that mobile web users will skip the phone number step, as they use the itsme® mobile app directly to authenticate.
+
+itsme® provides a button <a href="generator" target="blank">https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/buttons-1518207548</a> for you to include in your HTML file. 
+
+
+## 3.3. Crafting your cryptographic keys URI
 
 Once you have created your organisation, the next step is to craft your cryptographic keys URI. Some itsme® endpoints require client authentication in order to protect entitlement information between interested parties. 
 
@@ -54,68 +113,8 @@ After installation, run the generator:
 </aside>
 
 
-<a name="OpenIDConfig"></a>
-# 3. itsme® OpenID Provider configuration
-
-To simplify implementations and increase flexibility, <a href="https://openid.net/specs/openid-connect-discovery-1_0.html" target="blank">OpenID Connect allows the use of a Discovery Document</a>, a JSON document containing key-value pairs which provide details about itsme® configuration, such as the URIs of the 
-
-<ul>
-  <li>Authorization, Token and userInfo Endpoints</li>
-  <li>supported claims</li>
-  <li>JWKSet URL</li>
-  <li>...</li>
-</ul>
-
-The Discovery document for itsme® MAY be retrieved from: 
-
-Environment | URL
-:-------- | :--------
-**SANDBOX** | <a href="https://idp.e2e.itsme.services/v2/.well-known/openid-configuration" target="blank">https://idp.e2e.itsme.services/v2/.well-known/openid-configuration</a>
-**PRODUCTION** | <a href="https://idp.prd.itsme.services/v2/.well-known/openid-configuration" target="blank">https://idp.prd.itsme.services/v2/.well-known/openid-configuration</a>
-
-# 4. OpenID Connect certified libraries
-
-OpenID Connect provides certified libraries, products, and tools which could help you integrating the itsme® service. For more information, please visit the official webpage: <a href="https://openid.net/developers/libraries/" target="blank">https://openid.net/developers/libraries/</a>.
-
-
-# 5. Integration guide
-
-Our itsme® app can be seamlessly be integrated with your web desktop, mobile web or mobile application so you can perform secure identity checks.
-
-itsme® integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following diagram:
-  
- ![Sequence diagram describing the OpenID flow](OpenID_Login_SeqDiag.png)
- 
-<ol>
-  <li>The User indicates on your end he wishes to authenticate with itsme®</li>
-  <li>Your web desktop, mobile web or mobile application (aka 'Relying Party' in the OpenID Connect specification) sends a request to itsme® (aka 'OpenID Provider' in the OpenID Connect specification) to authenticate the User. This request will redirect the User to the itsme® Front-End. itsme® then authenticates the User by asking him
-    <ul type>
-      <li>to enter his phone number on the itsme® OpenID web page</li>
-      <li>authorize the release of some information’s to your application</li>
-      <li>to provide his credentials (itsme® code or fingerprint or FaceID)</li>
-    </ul>
-  
-  If you are building a mobile web or mobile application, the User don’t need to enter his mobile phone number on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links or App links mechanism.</li>
-  <li>Once the User has authorized the request and has been authenticated, itsme® will return an Authorization Code to the Service Provider Front-End, redirecting the user to your mobile or web application.</li>
-  <li>The Service Provider Back-End calls the itsme® Token Endpoint and exchanges the Authorization Code for an ID Token identifying the User and an Access Token.</li>
-  <li>The Service Provider Back-End MAY request the additional User information from the itsme® userInfo Endpoint by presenting the Access Token obtained in the previous step.</li>
-  <li>At this stage you are able to confirm the success of the operation and display a success message.</li>
-</ol>
-
-This flow is described in much more detail in the following sections.
- 
-
 <a name="AuthNRequest"></a>
-## 5.1. Create a itsme® button on your application
-
-First, you will need to create a button to allow your users to authenticate with itsme®. See the <a href="Button design guide" target="blank">https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/buttons-1518207548</a> before you start the integration. 
-
-Upon clicking this button, we will open a modal view which contains a field that need to be filled by the end user with it’s phone number. Note that mobile web users will skip the phone number step, as they use the itsme® mobile app directly to authenticate.
-
-itsme® provides a button <a href="generator" target="blank">https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/buttons-1518207548</a> for you to include in your HTML file. 
-
-
-## 5.2. Build an Authentication Request and request attributes
+## 3.4. Build an Authentication Request and request attributes
 
 ### Composing your base URL
 
@@ -311,7 +310,7 @@ When using the Free text template, the below requirements apply:
 
 
 <a name="AuthNResponse"></a>
-## 5.3. Capturing an Authorization Code
+## 3.5. Capturing an Authorization Code
 
 ### Capturing a successful Authorization Code
 
@@ -360,7 +359,8 @@ Error | Description
 
 All other HTTPS errors unrelated to OpenID Connect Core will be returned to the User using the appropriate HTTPS status code.
 
-## 5.4. Exchanging the Authorization Code 
+
+## 3.6. Exchanging the Authorization Code 
 <a name="tokenEndpoint"></a> 
 
 Once your server component has received an [Authorization Code](#AuthNResponse), your server can exchange it for an Access Token and an ID Token.
@@ -402,8 +402,9 @@ Parameter | Required | Description
 **jti** | Required | The <i>"jti"</i> (JWT ID) claim provides a unique identifier for the JWT. The identifier value MUST be assigned by the you in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object; if the application uses multiple issuers, collisions MUST be prevented among values produced by different issuers as well.  The <i>"jti"</i> claim can be used  to prevent the JWT from being replayed. The <i>"jti"</i> value is a case-sensitive string. 
 **exp** | Required | The <i>"exp"</i> (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing.  The processing of the <i>"exp"</i> claim requires that the current date/time MUST be before the expiration date/time listed in the <i>"exp"</i> claim. Implementers MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew.  Its value is a JSON number representing the number of seconds from 1970-01-01T0:0:0Z as measured in UTC until the date/time.
 
+
 <a name="TokenResponse"></a>
-## 5.5. Managing Token Response
+## 3.7. Managing Token Response
 
 ### Extracting a successful Token Response
 
@@ -484,7 +485,7 @@ Pragma: no-cache
 The response will contain an error parameter and optionally <i>"error_description"</i> and <i>"error_uri"</i> parameters. The <i>"error_uri"</i> parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.
 
 
-## 5.6. Retrieving User attributes or device/transaction specific claims
+## 3.8. Retrieving User attributes or device/transaction specific claims
 
 ### Creating the userInfo Request 
 
@@ -524,7 +525,7 @@ You MUST validate the userInfo reponse in the following manner:
 When an error condition occurs an error response as defined in the <a href="https://tools.ietf.org/html/rfc6750" target="blank">OAuth 2.0 Bearer Token Usage specification</a> will be returned.
 
 
-# 6. Mapping the User
+# 4. Mapping the User
 
 To sign in successfully in your web desktop, mobile web or mobile application, a given user must be provisioned in OpenID Connect and then mapped to a user account in your database. By default, your application Server will use the subject identifier, or <i>"sub"</i> claim, in the ID Token to identify and verify a user account. Typically, the <i>"sub"</i> claim is a unique string that identifies a given user account. The benefit of using a <i>"sub"</i> claim is that it will not change, even if other user attributes (email, phone number, etc) associated with that account are updated. 
 
@@ -539,10 +540,10 @@ In a limited number of cases (e.g. technical issue,…) a user could ask itsme®
 If the same user would opt to (re)create an itsme® afterwards, he will need to re-bind his itsme® account with your application server (as the initial identifier is no longer valid as explained before). To re-bind his itsme® account one of the above scenario should be used. After successful (re)binding you will need to overwrite the initial reference with the new ‘sub’ claim value in your database.
 
  
-# 7. Appendixes
+# 5. Appendixes
 <a name="Appendix"></a> 
 
-## 7.1. Universal Links on iOS
+## 5.1. Universal Links on iOS
 
 <code style=display:block;white-space:pre-wrap>{
   "applinks": {
@@ -644,7 +645,7 @@ print(queryParameters(from: url!))
  return true
 }</code>
 
-## 7.2. App Links on Android
+## 5.2. App Links on Android
 
 The App Links Assistant in Android Studio can help you create intent filters in your manifest and map existing URLs from your website to activities in your app. Follow below steps to configure the App links (as documented on <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App Links official documentation</a>):
 
