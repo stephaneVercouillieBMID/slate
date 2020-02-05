@@ -17,7 +17,7 @@ The objective of this document is to provide all the information needed to integ
 
   
 <a name="Onboarding"></a>
-# 2. Before you start
+# 2. Prerequisite
 
 Before you start integrating itsme®, you MUST create an organisation on the following url: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyfhKiiehNg4DhFzhQeHaj9EG2VeFoyPNVaI-TSwnG5WlFfw/viewform" target="blank">https://docs.google.com/forms/d/e/1FAIpQLSdyfhKiiehNg4DhFzhQeHaj9EG2VeFoyPNVaI-TSwnG5WlFfw/viewform</a>.
 
@@ -277,7 +277,7 @@ Value | Required | Returned claim | Example
 
 ###  Specifing the WYSIWYS template 
 
-The itsme **Confirm** is based on the notion of template, which helps pre-structure the action screen in the itsme app. Using one of the available templates MUST be specified to form a valid **Confirm** Authentication Request. There are currently two templates available.
+The itsme® **Confirm** is based on the notion of template, which helps pre-structure the action screen in the itsme app. Using one of the available templates MUST be specified to form a valid **Confirm** Authentication Request. There are currently two templates available.
 
 <aside class="notice">If one of these template is used, the other MUST NOT be used in the same request.</aside>
 
