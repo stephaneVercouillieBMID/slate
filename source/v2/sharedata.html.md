@@ -148,7 +148,7 @@ Parameter | Required | Description
 **request** | Optional | 
 
 <aside class="notice">If one of these parameters is used, the other MUST NOT be used in the same request.
-  </aside>
+</aside>
 
 When implementing the **Share Data** service, following rule apply : you MUST at least specify one User claim in the <i>"scope"</i> parameter or use the <i>"claims"</i> parameter.
   
