@@ -13,7 +13,7 @@ search: true
 # 1. Introduction
 itsme® is a trusted identity provider allowing partners to use verified identities for authentication and authorization on web desktop, mobile web or mobile applications. 
 
-The objective of this document is to provide all the information needed to integrate the **Confirm** service using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.
+The objective of this document is to provide all the information needed to integrate the **Confirmation** service using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.
 
   
 <a name="Onboarding"></a>
@@ -150,7 +150,7 @@ Parameter | Required | Description
 <aside class="notice">If one of these parameters is used, the other MUST NOT be used in the same request.
 </aside>
 
-When implementing the **Confirm** service, specific rules apply :
+When implementing the **Confirmation** service, specific rules apply :
 
 <ol>
   <li>The <i>"claims"</i> parameter MUST be used, and contain at least the WYSIWYS template claim.</li>
