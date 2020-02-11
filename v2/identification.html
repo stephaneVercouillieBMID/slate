@@ -201,7 +201,7 @@
       <script src="../javascripts/all.js"></script>
   </head>
 
-  <body class="v2 v2_login" data-languages="[&quot;http&quot;]">
+  <body class="v2 v2_identification" data-languages="[&quot;http&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -279,7 +279,7 @@
         <h1 id='1-introduction'>1. Introduction</h1>
 <p>itsme® is a trusted identity provider allowing partners to use verified identities for authentication and authorization on web desktop, mobile web or mobile applications. </p>
 
-<p>The objective of this document is to provide all the information needed to integrate the <strong>Login</strong> service using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.</p>
+<p>The objective of this document is to provide all the information needed to integrate the <strong>Identification</strong> service using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.</p>
 
 <p><a name="Onboarding"></a></p>
 <h1 id='2-prerequisite'>2. Prerequisite</h1>
@@ -492,7 +492,9 @@
 </tbody></table>
 
 <aside class="notice">If one of these parameters is used, the other MUST NOT be used in the same request.
-  </aside>
+</aside>
+
+<p>When implementing the <strong>Identification</strong> service, following rule apply : you MUST at least specify one User claim in the <i>&quot;scope&quot;</i> parameter or use the <i>&quot;claims&quot;</i> parameter.</p>
 
 <aside class="notice">Regardless of the application you are building you should make sure that your redirect URIs support the <a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal links</a> and <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App links</a> mechanism. Functionally, it will allow you to have only one single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.
 
