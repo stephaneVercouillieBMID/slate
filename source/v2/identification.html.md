@@ -13,7 +13,7 @@ search: true
 # 1. Introduction
 itsme® is a trusted identity provider allowing partners to use verified identities for authentication and authorization on web desktop, mobile web or mobile applications. 
 
-The objective of this document is to provide all the information needed to integrate the **Share Data** service using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.
+The objective of this document is to provide all the information needed to integrate the **Identification** service using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.
 
   
 <a name="Onboarding"></a>
@@ -150,7 +150,7 @@ Parameter | Required | Description
 <aside class="notice">If one of these parameters is used, the other MUST NOT be used in the same request.
 </aside>
 
-When implementing the **Share Data** service, following rule apply : you MUST at least specify one User claim in the <i>"scope"</i> parameter or use the <i>"claims"</i> parameter.
+When implementing the **Identification** service, following rule apply : you MUST at least specify one User claim in the <i>"scope"</i> parameter or use the <i>"claims"</i> parameter.
   
 <aside class="notice">Regardless of the application you are building you should make sure that your redirect URIs support the <a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal links</a> and <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App links</a> mechanism. Functionally, it will allow you to have only one single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.
 
