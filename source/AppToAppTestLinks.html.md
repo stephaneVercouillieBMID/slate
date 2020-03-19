@@ -15,6 +15,8 @@ Please note all the requests below ask for the following claims (all from 'scope
         <li>address</li>
       </ul>
 
+Please note also the Confirm links are only valid for a limited amount of time. After a while, the request object on which they are based are wiped in the hosting server. To re-create new ones, please consult <a href="https://confluence.belgianmobileid.be/display/ITSME/How+to+create+A2A+Confirm+links" target="blank">How to create A2A confirm links</a> (hosted on BMID Confluence).
+
 # Links
 
 ## UAT
