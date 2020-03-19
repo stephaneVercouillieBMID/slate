@@ -74,7 +74,8 @@ To simplify implementations and increase flexibility, the following key-value pa
   <li>supported languages</li>
 </ul>
 
-The JSON document for itsme® Sign service may be retrieved from <a>https://b2b.sign.itsme.be/qes-partners/1.0.0/.well-known/configuration</a>.
+The JSON document for itsme® Sign service may be retrieved from <a href="https://b2b.sign.itsme.be/qes-partners/1.0.0/.well-known/configuration" target="blank">https://b2b.sign.itsme.be/qes-partners/1.0.0/.well-known/configuration</a>.
+
 Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA). If you need to access the discovery document before setting up the connectivity, you can use the public version here (this one is updated manually, while the previous one is automatically generated): <a href="https://belgianmobileid.github.io/slate/qesdiscovery.json" target="blank">https://belgianmobileid.github.io/slate/qesdiscovery.json</a>
 
 ### B2B interface swagger
