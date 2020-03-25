@@ -117,9 +117,11 @@ This section relates to the step 3 of the sequence diagram.
 
 If the User is successfully authenticated and authorizes access to the Identification Request, itsme® will return a response to your server component. This is achieved by returning an Identification Response to the <i>"redirectUrl"</i> specified previously in the Identification Request (preserving the URL parameters).
  
+ <aside class="alert">Although the swagger specifies asyncRespId in the request, you must ask asyncRespID instead (with a capital D).</aside>
+ 
 <code style=display:block;white-space:pre-wrap>{
     "status": "OK",
-    "asyncRespId": "4kpr55zdi2mk9ns27awgngkltoenfy04gi9b",
+    "asyncRespID": "4kpr55zdi2mk9ns27awgngkltoenfy04gi9b",
     "identificationUrl": "https://uatmerchant.itsme.be/qes/identify_yourself?language=FR&q=ss4liz8kjk1xxz8taj3nbxae7zqty6eq"
 }</code>
 
@@ -131,7 +133,7 @@ Values | Type | Returned | Description
 :----- |:-------- |:-------- |:---
 **status** | String | Always | It is the status of User Identification Request.
 **statusReason** | String | Conditional | It explains the reason of a failure. No reason is given in case the request status is pending or success. 
-**asyncRespId** | String | Always | This parameter is the identifier of a User identification session. 
+**asyncRespID** | String | Always | This parameter is the identifier of a User identification session. 
 **identificationUrl** | String | Always | This is the itsme® URL of the signature welcome page. On this webpage the User will identify himself by entering his mobile phone number. 
 
 ### Handling Error Response
