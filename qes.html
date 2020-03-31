@@ -344,8 +344,9 @@
   <li>supported languages</li>
 </ul>
 
-<p>The JSON document for itsme® Sign service may be retrieved from <a>https://b2b.sign.itsme.be/qes-partners/1.0.0/.well-known/configuration</a>.
-Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in <a href="#SSLMA">SSLMA Authentication</a>. If you need to access the discovery document before setting up the connectivity, you can use the public version here (this one is updated manually, while the previous one is automatically generated): <a href="https://belgianmobileid.github.io/slate/qesdiscovery.json" target="blank">https://belgianmobileid.github.io/slate/qesdiscovery.json</a></p>
+<p>The JSON document for itsme® Sign service may be retrieved from <a href="https://b2b.sign.itsme.be/qes-partners/1.0.0/.well-known/configuration" target="blank">https://b2b.sign.itsme.be/qes-partners/1.0.0/.well-known/configuration</a>.</p>
+
+<p>Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in <a href="#SSLMA">SSLMA Authentication</a>. If you need to access the discovery document before setting up the connectivity, you can use the public version here (this one is updated manually, while the previous one is automatically generated): <a href="https://belgianmobileid.github.io/slate/qesdiscovery.json" target="blank">https://belgianmobileid.github.io/slate/qesdiscovery.json</a></p>
 <h3 id='b2b-interface-swagger'>B2B interface swagger</h3>
 <p>The swagger of the B2B interface (for the back-end to back-end calls) may be retrieved from <a href="https://belgianmobileid.github.io/slate/qesB2B.json" target="blank">https://belgianmobileid.github.io/slate/qesB2B.json</a></p>
 <h2 id='4-2-starting-a-new-user-identification-session'>4.2. Starting a new User identification session</h2>
@@ -408,9 +409,11 @@ Please note we are using SSLMA as authentication method, combined with IP filter
 <h3 id='capturing-a-successful-identification-code'>Capturing a successful Identification Code</h3>
 <p>If the User is successfully authenticated and authorizes access to the Identification Request, itsme® will return a response to your server component. This is achieved by returning an Identification Response to the <i>&quot;redirectUrl&quot;</i> specified previously in the Identification Request (preserving the URL parameters).</p>
 
+<p><aside class="alert">Although the swagger specifies asyncRespId in the request, you must ask asyncRespID instead (with a capital D).</aside></p>
+
 <p><code style=display:block;white-space:pre-wrap>{
     &quot;status&quot;: &quot;OK&quot;,
-    &quot;asyncRespId&quot;: &quot;4kpr55zdi2mk9ns27awgngkltoenfy04gi9b&quot;,
+    &quot;asyncRespID&quot;: &quot;4kpr55zdi2mk9ns27awgngkltoenfy04gi9b&quot;,
     &quot;identificationUrl&quot;: &quot;https://uatmerchant.itsme.be/qes/identify_yourself?language=FR&amp;q=ss4liz8kjk1xxz8taj3nbxae7zqty6eq&quot;
 }</code></p>
 
@@ -439,7 +442,7 @@ Please note we are using SSLMA as authentication method, combined with IP filter
 <td style="text-align: left">It explains the reason of a failure. No reason is given in case the request status is pending or success.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>asyncRespId</strong></td>
+<td style="text-align: left"><strong>asyncRespID</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Always</td>
 <td style="text-align: left">This parameter is the identifier of a User identification session.</td>

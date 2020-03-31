@@ -5,7 +5,7 @@
     "version" : "1.0.0",
     "title" : "QES Partners API"
   },
-  "host" : "uatb2b.sixdots.be",
+  "host" : "b2b.itsme.be",
   "basePath" : "/qes-partners/1.0.0",
   "tags" : [ {
     "name" : ".well-knownconfiguration",
@@ -44,7 +44,7 @@
       "post" : {
         "tags" : [ "sign_document" ],
         "summary" : "Process a SIGN session",
-        "description" : "Returns information of a SIGN session. If no asyncRespID is precised in request, creates a new session. If asyncRespID is precised, retrieves information for the corresponding session. \nHere is described the minimal set of data required for processing. \nAdditionally, DSS standards describe other parameter as mandatory inputs but are not required in the processing – for example the \"transforms\" lists \nDSS limitations: we don't want multiple hash under di, only the one hash we have to compute a signature for.",
+        "description" : "Returns information of a SIGN session. If no asyncRespID is precised in request, creates a new session. If asyncRespID is precised, retrieves information for the corresponding session. \nHere is described the minimal set of data required for processing. \nAdditionally, DSS standards describe other parameter as mandatory inputs but are not required in the processing ? for example the \"transforms\" lists \nDSS limitations: we don't want multiple hash under di, only the one hash we have to compute a signature for.",
         "operationId" : "processSignRequest",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -186,24 +186,46 @@
           }
         }
       }
+    },
+    "/verify_document" : {
+      "post" : {
+        "tags" : [ "verify_document" ],
+        "summary" : "Process Signature Validation",
+        "description" : "",
+        "operationId" : "processVerifyRequest",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/DssVerifyRequest"
+          }
+        }, {
+          "name" : "X-Partner-Code",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "default" : ""
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
     }
   },
   "definitions" : {
     "DssBase64Data" : {
       "type" : "object",
+      "required" : [ "value" ],
       "properties" : {
-        "id" : {
-          "type" : "string"
-        },
-        "mimeType" : {
-          "type" : "string"
-        },
         "value" : {
-          "type" : "array",
-          "items" : {
-            "type" : "string",
-            "format" : "byte"
-          }
+          "type" : "string",
+          "example" : "Base64 format representing the signed hash",
+          "description" : "Signed hash created during the SIGN session, for the corresponding hash sent by the SCA to sign"
         }
       }
     },
@@ -216,12 +238,9 @@
           "description" : "Algorithm used for the hash. Only sha256 is supported for now"
         },
         "value" : {
-          "type" : "array",
-          "description" : "Hash to be signed by ItsMe QES solution in a signature flow",
-          "items" : {
-            "type" : "string",
-            "format" : "byte"
-          }
+          "type" : "string",
+          "example" : "Base64 format representing the signed hash",
+          "description" : "Hash to be signed by ItsMe QES solution in a signature flow"
         }
       }
     },
@@ -262,15 +281,15 @@
       "properties" : {
         "signPolicyRef" : {
           "type" : "string",
-          "description" : "Reference of the signing policy to use during BMID Signing flow. \nOptional but recommended. The list of available codes is communicated by BMID through well-known configuration endpoint \nA default policy (the itsme generic signature policy) will be applied if not provided"
+          "description" : "Reference of the signing policy to use during BMID Signing flow. \nThe list of available codes is communicated by BMID through well-known configuration endpoint."
         },
         "commitmentTypeRef" : {
           "type" : "string",
-          "description" : "Reference of the commitment type to use during BMID Signing flow. \nOnly used to show the user in the itsme app the commitment type of the signature  \nOptional: the code of the commitment to be used (list of available codes communicated by BMID) \nNo commitment will be used if not provided"
+          "description" : "Reference of the commitment type to use during BMID Signing flow. \nOnly used to show the user in the itsme app the commitment type of the signature. \nThe list of available codes is communicated by BMID through well-known configuration endpoint. \nNo commitment will be used if not provided"
         },
         "signerRole" : {
           "type" : "array",
-          "description" : "Signer's role during BMID Signing flow. \nOnly used to show the user in the itsme app with what role he will be signing \nOptional: a signer role – free text value  \nA value must be provided for each of the 4 supported languages \nmax 50 chars, only ISO-8859-1 compatible chars are supported \nNo signer role will be used if not provided ",
+          "description" : "Signer's role during BMID Signing flow. \nOnly used to show the user in the itsme app with what role he will be signing \nOptional: a signer role ? free text value  \nA value must be provided for each of the 4 supported languages \nmax 50 chars, only ISO-8859-1 compatible chars are supported \nNo signer role will be used if not provided ",
           "items" : {
             "$ref" : "#/definitions/DssILocalizedLabel"
           }
@@ -312,13 +331,15 @@
     },
     "DssISignResponseContext" : {
       "type" : "object",
+      "required" : [ "signingUrl", "userCode" ],
       "properties" : {
         "signingUrl" : {
           "type" : "string",
           "description" : "Link to provide to the end user where he will receive BMID instructions and poka yoke code"
         },
         "userCode" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "User's identifier for the remote SCA in ItsMe solution"
         }
       }
     },
@@ -329,6 +350,17 @@
         "userCode" : {
           "type" : "string",
           "description" : "User's identifier for the remote SCA in ItsMe solution. \nMandatory for hash signing request"
+        }
+      }
+    },
+    "DssIVerifyRequestContext" : {
+      "type" : "object",
+      "properties" : {
+        "partnerCode" : {
+          "type" : "string"
+        },
+        "serviceCode" : {
+          "type" : "string"
         }
       }
     },
@@ -358,10 +390,36 @@
         }
       }
     },
+    "DssOptionalInputsVerify" : {
+      "type" : "object",
+      "required" : [ "itsme" ],
+      "properties" : {
+        "profile" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "policy" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "lang" : {
+          "type" : "string"
+        },
+        "itsme" : {
+          "$ref" : "#/definitions/DssIVerifyRequestContext"
+        }
+      }
+    },
     "DssOptionalOutputsSign" : {
       "type" : "object",
+      "required" : [ "itsme" ],
       "properties" : {
         "itsme" : {
+          "description" : "Contextual information related to ItsMe application",
           "$ref" : "#/definitions/DssISignResponseContext"
         }
       }
@@ -416,10 +474,12 @@
           "description" : "Identifier of the SIGN session"
         },
         "optOutp" : {
+          "description" : "Contextual information concerning this SIGN session. Will be returned in case of success",
           "$ref" : "#/definitions/DssOptionalOutputsSign"
         },
         "sigObj" : {
           "type" : "array",
+          "description" : "List of signature objects (hashes) returned to the SCA at the end of the successful SIGN session",
           "items" : {
             "$ref" : "#/definitions/DssSignatureObject"
           }
@@ -428,18 +488,38 @@
     },
     "DssSignatureObject" : {
       "type" : "object",
+      "required" : [ "b64Sig", "whichDoc" ],
       "properties" : {
         "b64Sig" : {
+          "description" : "Information about the signed hash created during the SIGN session",
           "$ref" : "#/definitions/DssBase64Data"
         },
         "whichDoc" : {
+          "type" : "string",
+          "description" : "Corresponds to the inDocs.docHash.id provided in the request"
+        }
+      }
+    },
+    "DssVerifyRequest" : {
+      "type" : "object",
+      "properties" : {
+        "inDocs" : {
+          "$ref" : "#/definitions/DssInputDocuments"
+        },
+        "reqID" : {
           "type" : "string"
+        },
+        "optInp" : {
+          "$ref" : "#/definitions/DssOptionalInputsVerify"
+        },
+        "sigObject" : {
+          "$ref" : "#/definitions/DssSignatureObject"
         }
       }
     },
     "GetCertificateRequest" : {
       "type" : "object",
-      "required" : [ "asyncRespId", "partnerCode", "serviceCode" ],
+      "required" : [ "asyncRespID", "partnerCode", "serviceCode" ],
       "properties" : {
         "partnerCode" : {
           "type" : "string",
@@ -453,7 +533,7 @@
           "minLength" : 1,
           "maxLength" : 45
         },
-        "asyncRespId" : {
+        "asyncRespID" : {
           "type" : "string",
           "description" : "User identification's identifier provided through 'Request end user identification' service",
           "minLength" : 1,
@@ -467,7 +547,7 @@
       "properties" : {
         "userCode" : {
           "type" : "string",
-          "description" : "BMID assigned identifier (userCode) for the user. \nCannot be provided without a prior identification of the user via BMID. Optional – default to null if not provided",
+          "description" : "BMID assigned identifier (userCode) for the user. \nCannot be provided without a prior identification of the user via BMID. Optional ? default to null if not provided",
           "minLength" : 36,
           "maxLength" : 36
         },
@@ -500,7 +580,7 @@
     },
     "IdentificationResponse" : {
       "type" : "object",
-      "required" : [ "status" ],
+      "required" : [ "asyncRespId", "identificationUrl", "status" ],
       "properties" : {
         "status" : {
           "type" : "string",
@@ -535,7 +615,7 @@
     },
     "UserCertificateResponse" : {
       "type" : "object",
-      "required" : [ "status" ],
+      "required" : [ "certificate", "status", "userCode" ],
       "properties" : {
         "status" : {
           "type" : "string",
@@ -553,7 +633,7 @@
         },
         "certificate" : {
           "type" : "string",
-          "description" : "Certificate of the user"
+          "description" : "Public signature certificate of the user (X-509 Certificate in PEM format)"
         }
       }
     },
