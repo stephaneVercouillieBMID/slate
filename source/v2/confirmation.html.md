@@ -214,7 +214,6 @@ Value | Returned claim | Example
  | PersonFullName | John Matthew A Smith 
  | PersonGender | M 
  | PersonDateOfBirth | 1959-06-03 
- | locale | NL 
 **email** | email | john.smith@company.lu 
  | email_verified |  
 **phone** | countryCode | 352 
@@ -240,8 +239,7 @@ Value | Returned claim | Example
 **email_verified** | |
 **phone_number** | countryCode | 352 
  | phoneNumber | 495162995 
-**phone_number_verified** |  | True  
-**locale** | locale | NL 
+**phone_number_verified** |  | True   
 **address** | AddressFullAddress | Place Victor Horta, 79 202 1348 Louvain-la-Neuve  
  | AddressPostCode | 1348 
  | AddressPostName | Louvain-la-Neuve 
