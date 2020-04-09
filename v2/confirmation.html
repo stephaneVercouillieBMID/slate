@@ -1191,7 +1191,7 @@ Pragma: no-cache
   &quot;error&quot;: &quot;invalid_request&quot;
 }</code></p>
 
-<p>The response will contain an error parameter and optionally <i>&quot;error_description&quot;</i> and <i>&quot;error_uri&quot;</i> parameters. The <i>&quot;error_uri&quot;</i> parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.</p>
+<p>The response will contain an error parameter and optionally <i>&quot;error_description&quot;</i> parameter.</p>
 <h2 id='3-8-retrieving-user-attributes-or-device-transaction-specific-claims'>3.8. Retrieving User attributes or device/transaction specific claims</h2><h3 id='creating-the-userinfo-request'>Creating the userInfo Request</h3>
 <p>OpenID Connect Core specifications also allow your application to obtain basic profile information about a specific User in a interoperable way. This is achieved by sending a HTTPS GET request to the itsme® userInfo Endpoint, passing the Access Token value in the Authorization header using the Bearer authentication scheme. The itsme userInfo Endpoint URI can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <i>&quot;userinfo_endpoint&quot;</i>.</p>
 
