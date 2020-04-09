@@ -334,7 +334,7 @@ Pragma: no-cache
   "error": "invalid_request"
 }</code>
 
-The response will contain an error parameter and optionally <i>"error_description"</i> and <i>"error_uri"</i> parameters. The <i>"error_uri"</i> parameter may be used by implementations to specify a human-readable web page with information about the error, used to provide the client developer with additional information about the error.
+The response will contain an error parameter and optionally <i>"error_description"</i> parameter.
 
 
 <a name="Data"></a>
