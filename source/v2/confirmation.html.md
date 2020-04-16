@@ -103,7 +103,7 @@ The OpenID Connect Core specifications support multiple authentication methods, 
 
 Your private and public keys can be generated via Yeoman. To get started, install Yeoman and generator-itsme with NPM:
 
-<code style=display:block;white-space:pre-wrap>$ npm install -g yeoman generator-itsme</code>
+<code style=display:block;white-space:pre-wrap>$ npm install -g yo generator-itsme</code>
 
 After installation, run the generator:
 
