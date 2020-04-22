@@ -412,7 +412,7 @@
 <tr>
 <td style="text-align: left"><strong>redirect_uri</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This is the URI to which the authentication response will be sent. The Redirection URI MUST use the <i>&quot;https&quot;</i> scheme. The Redirection URI MAY NOT use the <i>&quot;http&quot;</i> or an alternate scheme, such as one that is intended to identify a callback into a native application.<br></br><b>Note</b> : this URI MUST be whitelisted in our systems. So, don&#39;t forget to send your it by email to onboarding@itsme.be and we’ll make sure to complete the configuration for you in no time!</td>
+<td style="text-align: left">This is the URI to which the authentication response will be sent. The Redirection URI MUST use the <i>&quot;https&quot;</i> scheme. The Redirection URI MAY NOT use the <i>&quot;http&quot;</i> or an alternate scheme, such as one that is intended to identify a callback into a native application.<br></br><b>Note</b> : <ul><li>this URI MUST be whitelisted in our systems. So, don&#39;t forget to send your it by email to onboarding@itsme.be and we’ll make sure to complete the configuration for you in no time!</li><li>Regardless of the application you are building you should make sure that your redirect URIs support the Universal links and App links mechanism. Functionally, it will allow you to have only one single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device. Universal links and App links are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser. The specifications for the implementation of Universal links and App links can be found in the Appendix.</li></ul></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>state</strong></td>
@@ -491,19 +491,6 @@
 </tr>
 </tbody></table>
 
-<aside class="notice">Regardless of the application you are building you should make sure that your redirect URIs support the <a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal links</a> and <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App links</a> mechanism. Functionally, it will allow you to have only one single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.
-
-<br>Universal links and App links are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.</br>
-
-<br>An App link is the Android version of the Universal link.</br>
-
-<br>How do Universal Links work in iOS and Android ? Before Universal Links, the primary mechanism to open up an app when it was installed was by trying to redirect to an app’s URI scheme  in the web browser. But there was no way to check if the app was installed or not. This meant that developers would try to call the URI scheme 100% of the time, in the off chance that the app was installed, then fallback gracefully to the App Store or Google Play Store when not by using a timer.</br>
-
-<br>iOS Universal Links and Android App Links were intended to fix this. Instead of opening up the web browser first when a link is clicked, the OS will check if a Universal Link has been registered (a file should be there in the domain which contains the bundle id of the app and the paths the app should open) for the domain associated with the link, then check if the corresponding app is installed. If the app is currently installed, it will be opened. If it’s not, the web browser will open and the HTTPS link will load.</br>
-
-<br>The specifications for the implementation of Universal links and App links can be found in the <a href="#Appendixes" target="blank">Appendix</a>.</br>
-</aside>
-
 <p>The following is a non-normative example of a request that would be sent to the Authorization Server :</p>
 
 <p><code style=display:block;white-space:pre-wrap>
@@ -558,7 +545,7 @@ With some parameters passed as a JWT in the <i>&quot;request_uri&quot;</i>, befo
 <tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">given_name</td>
-<td style="text-align: left">If several names, these are usually separated by a space between values.</td>
+<td style="text-align: left">For BE citizen, we do share the two complete first names and the intimal of the third name if any.<br></br>For other ID templates this might differ.</td>
 <td style="text-align: left">John Matthew A</td>
 </tr>
 <tr>
@@ -582,7 +569,7 @@ With some parameters passed as a JWT in the <i>&quot;request_uri&quot;</i>, befo
 <tr>
 <td style="text-align: left"><strong>email</strong></td>
 <td style="text-align: left">email</td>
-<td style="text-align: left">Max length: 255</td>
+<td style="text-align: left">Rule for email validity are the following: [a-zA-Z0-9][-_\w.+]{0,30}@([-\w+]{1,30}[.]){1,4}[a-zA-Z]{2,12}<br></br>Max length: 255</td>
 <td style="text-align: left">john.smith@company.lu</td>
 </tr>
 <tr>
@@ -654,7 +641,7 @@ With some parameters passed as a JWT in the <i>&quot;request_uri&quot;</i>, befo
 <tr>
 <td style="text-align: left"><strong>given_name</strong></td>
 <td style="text-align: left">given_name</td>
-<td style="text-align: left">If several names, these are usually separated by a space between values.</td>
+<td style="text-align: left">For BE citizen, we do share the two complete first names and the intimal of the third name if any.<br></br>For other ID templates this might differ.</td>
 <td style="text-align: left">John Matthew A</td>
 </tr>
 <tr>
@@ -684,7 +671,7 @@ With some parameters passed as a JWT in the <i>&quot;request_uri&quot;</i>, befo
 <tr>
 <td style="text-align: left"><strong>email</strong></td>
 <td style="text-align: left">email</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">Rule for email validity are the following: [a-zA-Z0-9][-_\w.+]{0,30}@([-\w+]{1,30}[.]){1,4}[a-zA-Z]{2,12}<br></br>Max length: 255</td>
 <td style="text-align: left">john.smith@company.lu</td>
 </tr>
 <tr>
@@ -798,7 +785,7 @@ With some parameters passed as a JWT in the <i>&quot;request_uri&quot;</i>, befo
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/ claim/BENationalNumber</strong></td>
 <td style="text-align: left">http://itsme.services/v2/ claim/BENationalNumber</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">The value has 11 digits.</td>
 <td style="text-align: left">88041827591</td>
 </tr>
 <tr>

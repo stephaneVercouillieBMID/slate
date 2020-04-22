@@ -412,7 +412,7 @@
 <tr>
 <td style="text-align: left"><strong>redirect_uri</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This is the URI to which the authentication response will be sent. The Redirection URI MUST use the <i>&quot;https&quot;</i> scheme. The Redirection URI MAY NOT use the <i>&quot;http&quot;</i> or an alternate scheme, such as one that is intended to identify a callback into a native application.<br></br><b>Note</b> : this URI MUST be whitelisted in our systems. So, don&#39;t forget to send your it by email to onboarding@itsme.be and we’ll make sure to complete the configuration for you in no time!</td>
+<td style="text-align: left">This is the URI to which the authentication response will be sent. The Redirection URI MUST use the <i>&quot;https&quot;</i> scheme. The Redirection URI MAY NOT use the <i>&quot;http&quot;</i> or an alternate scheme, such as one that is intended to identify a callback into a native application.<br></br><b>Note</b> : <ul><li>this URI MUST be whitelisted in our systems. So, don&#39;t forget to send your it by email to onboarding@itsme.be and we’ll make sure to complete the configuration for you in no time!</li><li>Regardless of the application you are building you should make sure that your redirect URIs support the Universal links and App links mechanism. Functionally, it will allow you to have only one single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device. Universal links and App links are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser. The specifications for the implementation of Universal links and App links can be found in the Appendix.</li></ul></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>state</strong></td>
@@ -493,17 +493,7 @@
 
 <p>When implementing the <strong>Identification</strong> service, following rule apply : you MUST at least specify one User claim in the <i>&quot;scope&quot;</i> parameter or use the <i>&quot;claims&quot;</i> parameter.</p>
 
-<aside class="notice">Regardless of the application you are building you should make sure that your redirect URIs support the <a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal links</a> and <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App links</a> mechanism. Functionally, it will allow you to have only one single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.
-
-<br>Universal links and App links are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.</br>
-
-<br>An App link is the Android version of the Universal link.</br>
-
-<br>How do Universal Links work in iOS and Android ? Before Universal Links, the primary mechanism to open up an app when it was installed was by trying to redirect to an app’s URI scheme  in the web browser. But there was no way to check if the app was installed or not. This meant that developers would try to call the URI scheme 100% of the time, in the off chance that the app was installed, then fallback gracefully to the App Store or Google Play Store when not by using a timer.</br>
-
-<br>iOS Universal Links and Android App Links were intended to fix this. Instead of opening up the web browser first when a link is clicked, the OS will check if a Universal Link has been registered (a file should be there in the domain which contains the bundle id of the app and the paths the app should open) for the domain associated with the link, then check if the corresponding app is installed. If the app is currently installed, it will be opened. If it’s not, the web browser will open and the HTTPS link will load.</br>
-
-<br>The specifications for the implementation of Universal links and App links can be found in the <a href="#Appendixes" target="blank">Appendix</a>.</br>
+<aside class="notice">When implementing the **Identification** service, following rule apply : you MUST at least specify one User claim in the <i>"scope"</i> parameter or use the <i>"claims"</i> parameter.
 </aside>
 
 <p>The following is a non-normative example of a request that would be sent to the Authorization Server :</p>
@@ -547,88 +537,93 @@ With some parameters passed as a JWT in the <i>&quot;request_uri&quot;</i>, befo
 <tr>
 <th style="text-align: left">Value</th>
 <th style="text-align: left">Returned claim</th>
+<th style="text-align: left">Remarks</th>
 <th style="text-align: left">Example</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>profile</strong></td>
-<td style="text-align: left">PersonFamilyName</td>
+<td style="text-align: left">family_name</td>
+<td style="text-align: left"></td>
 <td style="text-align: left">Smith</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left">PersonGivenName</td>
+<td style="text-align: left">given_name</td>
+<td style="text-align: left">For BE citizen, we do share the two complete first names and the intimal of the third name if any.<br></br>For other ID templates this might differ.</td>
 <td style="text-align: left">John Matthew A</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left">PersonFullName</td>
+<td style="text-align: left">name</td>
+<td style="text-align: left"></td>
 <td style="text-align: left">John Matthew A Smith</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left">PersonGender</td>
-<td style="text-align: left">M</td>
+<td style="text-align: left">gender</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">male</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left">PersonDateOfBirth</td>
+<td style="text-align: left">birthdate</td>
+<td style="text-align: left"></td>
 <td style="text-align: left">1959-06-03</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>email</strong></td>
 <td style="text-align: left">email</td>
+<td style="text-align: left">Rule for email validity are the following: [a-zA-Z0-9][-_\w.+]{0,30}@([-\w+]{1,30}[.]){1,4}[a-zA-Z]{2,12}<br></br>Max length: 255</td>
 <td style="text-align: left">john.smith@company.lu</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">email_verified</td>
 <td style="text-align: left"></td>
+<td style="text-align: left">false</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>phone</strong></td>
-<td style="text-align: left">countryCode</td>
-<td style="text-align: left">352</td>
+<td style="text-align: left">phone_number</td>
+<td style="text-align: left">This attribute is stored as an object with 2 fields in our database: <ul><li>mobilePhone/phoneNumber = format should be the &quot;international format&quot; without the country code and leading 0</li><li>mobilePhone/countryCode = [0-9]{2-3}</li></ul></td>
+<td style="text-align: left">+32 495162995</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left">phoneNumber</td>
-<td style="text-align: left">495162995</td>
+<td style="text-align: left">phone_number_verified</td>
+<td style="text-align: left">Supported values are <i>&quot;true&quot;</i> or <i>&quot;false&quot;</i>.But, it is always <i>&quot;true&quot;</i> as we perform a SMS OTP verification during the enrollment.</td>
+<td style="text-align: left">true</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>address</strong></td>
-<td style="text-align: left">AddressFullAddress</td>
-<td style="text-align: left">Place Victor Horta, 79 202 1348 Louvain-la-Neuve</td>
+<td style="text-align: left">formatted</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">Place Victor Horta 79, 1348 Louvain-la-Neuve BE</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left">AddressPostCode</td>
+<td style="text-align: left">street_address</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">Place Victor Horta 79</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">postal_code</td>
+<td style="text-align: left"></td>
 <td style="text-align: left">1348</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left">AddressPostName</td>
+<td style="text-align: left">locality</td>
+<td style="text-align: left"></td>
 <td style="text-align: left">Louvain-la-Neuve</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left">AddressAdminUnitL1</td>
-<td style="text-align: left">(empty)</td>
-</tr>
-<tr>
+<td style="text-align: left">country</td>
 <td style="text-align: left"></td>
-<td style="text-align: left">AddressThoroughFare</td>
-<td style="text-align: left">Place Victor Horta</td>
-</tr>
-<tr>
-<td style="text-align: left"></td>
-<td style="text-align: left">AddressLocatorDesignator</td>
-<td style="text-align: left">79</td>
-</tr>
-<tr>
-<td style="text-align: left"></td>
-<td style="text-align: left">AddressPoBox</td>
-<td style="text-align: left">202</td>
+<td style="text-align: left">BE</td>
 </tr>
 </tbody></table>
 
@@ -638,222 +633,266 @@ With some parameters passed as a JWT in the <i>&quot;request_uri&quot;</i>, befo
 <tr>
 <th style="text-align: left">Value</th>
 <th style="text-align: left">Returned claim</th>
+<th style="text-align: left">Remarks</th>
 <th style="text-align: left">Example</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>name</strong></td>
-<td style="text-align: left">PersonFullName</td>
+<td style="text-align: left">name</td>
+<td style="text-align: left"></td>
 <td style="text-align: left">John Matthew A Smith</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>given_name</strong></td>
-<td style="text-align: left">PersonGivenName</td>
+<td style="text-align: left">given_name</td>
+<td style="text-align: left">For BE citizen, we do share the two complete first names and the intimal of the third name if any.<br></br>For other ID templates this might differ.</td>
 <td style="text-align: left">John Matthew A</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>family_name</strong></td>
-<td style="text-align: left">PersonFamilyName</td>
+<td style="text-align: left">family_name</td>
+<td style="text-align: left"></td>
 <td style="text-align: left">Smith</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>birthdate</strong></td>
-<td style="text-align: left">PersonDateOfBirth</td>
+<td style="text-align: left">birthdate</td>
+<td style="text-align: left"></td>
 <td style="text-align: left">1959-06-03</td>
 </tr>
 <tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/ claim/birthdate_as_string</strong></td>
+<td style="text-align: left">http://itsme.services/v2/ claim/birthdate_as_string</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">10 MAY 1988</td>
+</tr>
+<tr>
 <td style="text-align: left"><strong>gender</strong></td>
-<td style="text-align: left">PersonGender</td>
-<td style="text-align: left">M</td>
+<td style="text-align: left">gender</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">male</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>email</strong></td>
 <td style="text-align: left">email</td>
+<td style="text-align: left">Rule for email validity are the following: [a-zA-Z0-9][-_\w.+]{0,30}@([-\w+]{1,30}[.]){1,4}[a-zA-Z]{2,12}<br></br>Max length: 255</td>
 <td style="text-align: left">john.smith@company.lu</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>email_verified</strong></td>
+<td style="text-align: left">email_verified</td>
 <td style="text-align: left"></td>
-<td style="text-align: left"></td>
+<td style="text-align: left">false</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>phone_number</strong></td>
-<td style="text-align: left">countryCode</td>
-<td style="text-align: left">352</td>
-</tr>
-<tr>
-<td style="text-align: left"></td>
-<td style="text-align: left">phoneNumber</td>
-<td style="text-align: left">495162995</td>
+<td style="text-align: left">phone_number</td>
+<td style="text-align: left">This attribute is stored as an object with 2 fields in our database: <ul><li>mobilePhone/phoneNumber = format should be the &quot;international format&quot; without the country code and leading 0</li><li>mobilePhone/countryCode = [0-9]{2-3}</li></ul></td>
+<td style="text-align: left">+32 428656565</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>phone_number_verified</strong></td>
-<td style="text-align: left"></td>
-<td style="text-align: left">True</td>
+<td style="text-align: left">phone_number_verifie</td>
+<td style="text-align: left">Supported values are <i>&quot;true&quot;</i> or <i>&quot;false&quot;</i>.But, it is always <i>&quot;true&quot;</i> as we perform a SMS OTP verification during the enrollment.</td>
+<td style="text-align: left">true</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>address</strong></td>
-<td style="text-align: left">AddressFullAddress</td>
-<td style="text-align: left">Place Victor Horta, 79 202 1348 Louvain-la-Neuve</td>
+<td style="text-align: left">formatted</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">Place Victor Horta 79, 1348 Louvain-la-Neuve BE</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left">AddressPostCode</td>
+<td style="text-align: left">street_address</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">Place Victor Horta 79</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">postal_code</td>
+<td style="text-align: left"></td>
 <td style="text-align: left">1348</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left">AddressPostName</td>
+<td style="text-align: left">locality</td>
+<td style="text-align: left"></td>
 <td style="text-align: left">Louvain-la-Neuve</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left">AddressAdminUnitL1</td>
-<td style="text-align: left">(empty)</td>
-</tr>
-<tr>
+<td style="text-align: left">country</td>
 <td style="text-align: left"></td>
-<td style="text-align: left">AddressThoroughFare</td>
-<td style="text-align: left">Place Victor Horta</td>
-</tr>
-<tr>
-<td style="text-align: left"></td>
-<td style="text-align: left">AddressLocatorDesignator</td>
-<td style="text-align: left">79</td>
-</tr>
-<tr>
-<td style="text-align: left"></td>
-<td style="text-align: left">AddressPoBox</td>
-<td style="text-align: left">202</td>
+<td style="text-align: left">BE</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_citizenship</strong></td>
-<td style="text-align: left">PersonCitizenship</td>
+<td style="text-align: left">http://itsme.services/v2/ claim/claim_citizenship</td>
+<td style="text-align: left"></td>
 <td style="text-align: left">Belg</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/ claim/place_of_birth</strong></td>
-<td style="text-align: left">PersonCountryOfBirth</td>
-<td style="text-align: left">Neerpelt</td>
+<td style="text-align: left">formatted</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">bruxelles Belgium</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
-<td style="text-align: left">PersonPlaceOfBirth</td>
-<td style="text-align: left">(empty)</td>
+<td style="text-align: left">city</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">bruxelles</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">country</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">BE</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/ claim/physical_person_photo</strong></td>
-<td style="text-align: left">picture</td>
-<td style="text-align: left">Neerpelt</td>
+<td style="text-align: left">http://itsme.services/v2/ claim/physical_person_photo</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">/9j/4AA[...]n</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/ claim/BEeidSn</strong></td>
 <td style="text-align: left">issuanceLocality</td>
+<td style="text-align: left"></td>
 <td style="text-align: left">Sombreffe</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">validityFrom</td>
+<td style="text-align: left"></td>
 <td style="text-align: left">2019-12-04</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">validityTo</td>
+<td style="text-align: left"></td>
 <td style="text-align: left">2025-12-04</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">certificateValidity</td>
+<td style="text-align: left"></td>
 <td style="text-align: left">2025-12-04</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">readDate</td>
+<td style="text-align: left"></td>
 <td style="text-align: left">2025-12-04</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/ claim/BENationalNumber</strong></td>
-<td style="text-align: left"></td>
+<td style="text-align: left">http://itsme.services/v2/ claim/BENationalNumber</td>
+<td style="text-align: left">The value has 11 digits.</td>
 <td style="text-align: left">88041827591</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_luxtrust_ssn</strong></td>
+<td style="text-align: left">http://itsme.services/v2/ claim/claim_luxtrust_ssn</td>
 <td style="text-align: left"></td>
 <td style="text-align: left">12345678901234567890</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_device</strong></td>
 <td style="text-align: left">os</td>
-<td style="text-align: left">Sombreffe</td>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">appName</td>
+<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">appRelease</td>
 <td style="text-align: left"></td>
+<td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">deviceLabel</td>
+<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">debugEnabled</td>
 <td style="text-align: left"></td>
+<td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">deviceID</td>
+<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">osRelease</td>
 <td style="text-align: left"></td>
+<td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">manufacturer</td>
+<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">hasSimEnabled</td>
 <td style="text-align: left"></td>
+<td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">deviceLockLevel</td>
+<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">smsEnabled</td>
 <td style="text-align: left"></td>
+<td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">rooted</td>
+<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">imei</td>
 <td style="text-align: left"></td>
+<td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">deviceModel</td>
 <td style="text-align: left"></td>
+<td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
 <td style="text-align: left">sdkRelease</td>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/ claim/transaction_info</strong></td>
+<td style="text-align: left">http://itsme.services/v2/ claim/transaction_info</td>
+<td style="text-align: left"></td>
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
