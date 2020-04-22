@@ -130,7 +130,7 @@ Parameter | Required | Description
 **client_id** | Required |This is the client ID you received after sharing your organisation details with us.
 **response_type** | Required | This defines the processing flow to be used when forming the response. Because itsme® uses the Authorization Code Flow as described above, this value MUST be <i>"code"</i>.
 **scope** | Required | The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>"openid"</i> and <i>"service:TEST_code"</i>, by replacing "TEST_code" with the service code you received when registering your project in the [itsme® B2B portal](#Onboarding).<br>You MAY also specify additional scopes, separated by spaces, to request more information about the User. See the [list](#Data) below for more information.</br><br>An HTTP ERROR <i>"not_implemented"</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br>
-**redirect_uri** | Required | This is the URI to which the authentication response will be sent. The Redirection URI MUST use the <i>"https"</i> scheme. The Redirection URI MAY NOT use the <i>"http"</i> or an alternate scheme, such as one that is intended to identify a callback into a native application.<br></br><b>Note</b> : this URI MUST be whitelisted in our systems. So, don't forget to send your it by email to onboarding@itsme.be and we’ll make sure to complete the configuration for you in no time!
+**redirect_uri** | Required | This is the URI to which the authentication response will be sent. The Redirection URI MUST use the <i>"https"</i> scheme. The Redirection URI MAY NOT use the <i>"http"</i> or an alternate scheme, such as one that is intended to identify a callback into a native application.<br></br><b>Note</b> : <ul><li>this URI MUST be whitelisted in our systems. So, don't forget to send your it by email to onboarding@itsme.be and we’ll make sure to complete the configuration for you in no time!</li><li>Regardless of the application you are building you should make sure that your redirect URIs support the Universal links and App links mechanism. Functionally, it will allow you to have only one single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device. Universal links and App links are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser. The specifications for the implementation of Universal links and App links can be found in the Appendix.</li></ul>
 **state** | Strongly RECOMMENDED | An opaque value used in the Authentication Request, which will be returned unchanged in the Authorization Code. This parameter SHOULD be used for preventing cross-site request forgery (XRSF). <br>When deciding how to implement this, one suggestion is to use a private key together with some easily verifiable variables, for example, your client ID and a session cookie, to compute a hashed value. This will result in a byte value that will be infeasibility difficult to guess without the private key. After computing such an HMAC, base-64 encode it and pass it to the Authorization  Server as <i>"state"</i> parameter. Another suggestion is to hash the current date and time. This requires your application to save the time of transmission in order to verify it or to allow a sliding period of validity.</br>
 **nonce** | Strongly RECOMMENDED | A string value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. Sufficient entropy MUST be present in the <i>"nonce"</i> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">OpenID Connect Core specifications</a> for more information.
 **login_hint** | Optional | Can be used to pre-fill the phone number field on the itsme® OpenID web page for the User, if your application knows ahead of time which User is trying to authenticate. If provided, this value MUST be a phone number in the format specified for the <i>"phone_number"</i> claim: <i>"<countrycode>+<phonenumber>"</i>. E.g. <i>"login_hint=32+123456789"</i>.</br><br><i>"login_hint"</i> with invalid syntax will be ignored.</br>
@@ -150,17 +150,7 @@ Parameter | Required | Description
 
 When implementing the **Identification** service, following rule apply : you MUST at least specify one User claim in the <i>"scope"</i> parameter or use the <i>"claims"</i> parameter.
   
-<aside class="notice">Regardless of the application you are building you should make sure that your redirect URIs support the <a href="https://developer.apple.com/ios/universal-links/" target="blank">Universal links</a> and <a href="https://developer.android.com/studio/write/app-link-indexing" target="blank">App links</a> mechanism. Functionally, it will allow you to have only one single link that will either open your desktop web application, your mobile app or your mobile site on the User’s device.
-
-<br>Universal links and App links are standard web links (http://mydomain.com) that point to both a web page and a piece of content inside an app. When a Universal Link is opened, the app OS checks to see if any installed app is registered for that domain. If so, the app is launched immediately without ever loading the web page. If not, the web URL is loaded into the webbrowser.</br>
-
-<br>An App link is the Android version of the Universal link.</br>
-
-<br>How do Universal Links work in iOS and Android ? Before Universal Links, the primary mechanism to open up an app when it was installed was by trying to redirect to an app’s URI scheme  in the web browser. But there was no way to check if the app was installed or not. This meant that developers would try to call the URI scheme 100% of the time, in the off chance that the app was installed, then fallback gracefully to the App Store or Google Play Store when not by using a timer.</br>
-
-<br>iOS Universal Links and Android App Links were intended to fix this. Instead of opening up the web browser first when a link is clicked, the OS will check if a Universal Link has been registered (a file should be there in the domain which contains the bundle id of the app and the paths the app should open) for the domain associated with the link, then check if the corresponding app is installed. If the app is currently installed, it will be opened. If it’s not, the web browser will open and the HTTPS link will load.</br>
-
-<br>The specifications for the implementation of Universal links and App links can be found in the <a href="#Appendixes" target="blank">Appendix</a>.</br>
+<aside class="notice">When implementing the **Identification** service, following rule apply : you MUST at least specify one User claim in the <i>"scope"</i> parameter or use the <i>"claims"</i> parameter.
 </aside>
 
 The following is a non-normative example of a request that would be sent to the Authorization Server :
@@ -202,72 +192,70 @@ The OpenID Connect Core specification defines a sets of claims that MAY be reque
 
 Below, you will find the list of claims that MAY be requested via the <i><b>"scope"</b></i> request parameter :
 
-Value | Returned claim | Example 
-:-- | :-- | :-- 
-**profile** | PersonFamilyName | Smith 
- | PersonGivenName | John Matthew A 
- | PersonFullName | John Matthew A Smith 
- | PersonGender | M 
- | PersonDateOfBirth | 1959-06-03 
-**email** | email | john.smith@company.lu 
- | email_verified |  
-**phone** | countryCode | 352 
- | phoneNumber | 495162995 
-**address** | AddressFullAddress | Place Victor Horta, 79 202 1348 Louvain-la-Neuve  
- | AddressPostCode | 1348 
- | AddressPostName | Louvain-la-Neuve 
- | AddressAdminUnitL1 | (empty) 
- | AddressThoroughFare | Place Victor Horta 
- | AddressLocatorDesignator | 79 
- | AddressPoBox | 202 
+Value | Returned claim | Remarks | Example 
+:-- | :-- | :-- | :-- 
+**profile** | family_name |  | Smith 
+ | given_name |  For BE citizen, we do share the two complete first names and the intimal of the third name if any.<br></br>For other ID templates this might differ. | John Matthew A 
+ | name |  | John Matthew A Smith 
+ | gender |  | male
+ | birthdate |  | 1959-06-03 
+**email** | email |  Rule for email validity are the following: [a-zA-Z0-9][-_\w\.+]{0,30}@([-\w+]{1,30}[.]){1,4}[a-zA-Z]{2,12}<br></br>Max length: 255 | john.smith@company.lu 
+ | email_verified |  | false
+**phone** | phone_number |  This attribute is stored as an object with 2 fields in our database: <ul><li>mobilePhone/phoneNumber = format should be the "international format" without the country code and leading 0</li><li>mobilePhone/countryCode = [0-9]{2-3}</li></ul> | +32 495162995 
+ | phone_number_verified | Supported values are <i>"true"</i> or <i>"false"</i>.But, it is always <i>"true"</i> as we perform a SMS OTP verification during the enrollment.  | true
+**address** | formatted |  | Place Victor Horta 79, 1348 Louvain-la-Neuve BE
+ | street_address |   | Place Victor Horta 79
+ | postal_code |   | 1348 
+ | locality |  | Louvain-la-Neuve 
+ | country |  | BE
  
 Typically, the values returned via the "scope" parameter only contain claims about the identity of the User. Via the <i><b>"claims"</b></i> parameter you MAY request the same claims as in the ones available via the <i>"scope"</i> request parameter, as well as information about the specific ID documents, the device and the app version used by the user. These claims are specified below :
 
-Value | Returned claim | Example 
-:-- | :-- | :-- 
-**name** | PersonFullName | John Matthew A Smith 
-**given_name** | PersonGivenName | John Matthew A
-**family_name** | PersonFamilyName | Smith
-**birthdate** | PersonDateOfBirth | 1959-06-03
-**gender** | PersonGender | M 
-**email** | email | john.smith@company.lu 
-**email_verified** | |
-**phone_number** | countryCode | 352 
- | phoneNumber | 495162995 
-**phone_number_verified** |  | True  
-**address** | AddressFullAddress | Place Victor Horta, 79 202 1348 Louvain-la-Neuve  
- | AddressPostCode | 1348 
- | AddressPostName | Louvain-la-Neuve 
- | AddressAdminUnitL1 | (empty) 
- | AddressThoroughFare | Place Victor Horta 
- | AddressLocatorDesignator | 79 
- | AddressPoBox | 202 
-**http://itsme.services/v2/ claim/claim_citizenship** | PersonCitizenship  | Belg 
-**http://itsme.services/v2/ claim/place_of_birth** | PersonCountryOfBirth | Neerpelt 
- | PersonPlaceOfBirth | (empty) 
-**http://itsme.services/v2/ claim/physical_person_photo** | picture | Neerpelt 
-**http://itsme.services/v2/ claim/BEeidSn** | issuanceLocality | Sombreffe 
- | validityFrom | 2019-12-04 | Not always returned if requested | Never returned if requested  
- | validityTo  | 2025-12-04 | Not always returned if requested | Never returned if requested 
- | certificateValidity | 2025-12-04 | Not always returned if requested | Never returned if requested  
- | readDate | 2025-12-04 | Returned if requested | Returned if requested 
-**http://itsme.services/v2/ claim/BENationalNumber** |  | 88041827591
-**http://itsme.services/v2/ claim/claim_luxtrust_ssn** |  | 12345678901234567890
-**http://itsme.services/v2/ claim/claim_device** | os | Sombreffe 
- | appName |  
- | appRelease  |   
- | deviceLabel |  
- | debugEnabled |  
- | deviceID |  
- | osRelease  |  
- | manufacturer |  
- | hasSimEnabled |  
- | deviceLockLevel |  
- | smsEnabled |  
- | rooted  |  
- | imei |  
- | deviceModel |   
- | sdkRelease |  
+Value | Returned claim | Remarks | Example 
+:-- | :-- | :-- | :-- 
+**name** | name | | John Matthew A Smith 
+**given_name** |  given_name | For BE citizen, we do share the two complete first names and the intimal of the third name if any.<br></br>For other ID templates this might differ. | John Matthew A
+**family_name** | family_name | | Smith
+**birthdate** | birthdate | | 1959-06-03
+**http://itsme.services/v2/ claim/birthdate_as_string** | http://itsme.services/v2/ claim/birthdate_as_string | | 10 MAY 1988
+**gender** | gender | | male
+**email** | email | Rule for email validity are the following: [a-zA-Z0-9][-_\w\.+]{0,30}@([-\w+]{1,30}[.]){1,4}[a-zA-Z]{2,12}<br></br>Max length: 255 | john.smith@company.lu 
+**email_verified** | email_verified | | false
+**phone_number** | phone_number | This attribute is stored as an object with 2 fields in our database: <ul><li>mobilePhone/phoneNumber = format should be the "international format" without the country code and leading 0</li><li>mobilePhone/countryCode = [0-9]{2-3}</li></ul> | +32 428656565
+**phone_number_verified** | phone_number_verifie | Supported values are <i>"true"</i> or <i>"false"</i>.But, it is always <i>"true"</i> as we perform a SMS OTP verification during the enrollment. | true  
+**address** | formatted | | Place Victor Horta 79, 1348 Louvain-la-Neuve BE
+ | street_address | | Place Victor Horta 79
+ | postal_code | | 1348 
+ | locality | | Louvain-la-Neuve 
+ | country | | BE
+**http://itsme.services/v2/ claim/claim_citizenship** | http://itsme.services/v2/ claim/claim_citizenship  | | Belg 
+**http://itsme.services/v2/ claim/place_of_birth** | formatted |  | bruxelles Belgium 
+ | city | | bruxelles
+ | country | | BE
+**http://itsme.services/v2/ claim/physical_person_photo** | http://itsme.services/v2/ claim/physical_person_photo | | /9j/4AA[...]n 
+**http://itsme.services/v2/ claim/BEeidSn** | issuanceLocality | | Sombreffe 
+ | validityFrom | | 2019-12-04 
+ | validityTo  | | 2025-12-04 
+ | certificateValidity | | 2025-12-04  
+ | readDate | | 2025-12-04 
+**http://itsme.services/v2/ claim/BENationalNumber** | http://itsme.services/v2/ claim/BENationalNumber | The value has 11 digits. | 88041827591
+**http://itsme.services/v2/ claim/claim_luxtrust_ssn** | http://itsme.services/v2/ claim/claim_luxtrust_ssn | | 12345678901234567890
+**http://itsme.services/v2/ claim/claim_device** | os |  | 
+ | appName |  | 
+ | appRelease  |   | 
+ | deviceLabel |  | 
+ | debugEnabled | |  
+ | deviceID | |  
+ | osRelease  | |  
+ | manufacturer |  | 
+ | hasSimEnabled | |  
+ | deviceLockLevel |  | 
+ | smsEnabled |  | | 
+ | rooted  | |  
+ | imei | |  
+ | deviceModel |  |  
+ | sdkRelease | |  
+**http://itsme.services/v2/ claim/transaction_info** | http://itsme.services/v2/ claim/transaction_info | |  
 
 
 <a name="AuthNResponse"></a>
