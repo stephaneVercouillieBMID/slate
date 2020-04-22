@@ -202,11 +202,11 @@ Below, you will find the list of claims that MAY be requested via the <i><b>"sco
 Value | Returned claim | Remarks | Example 
 :-- | :-- | :-- | :-- 
 **profile** | family_name |  | Smith 
- | given_name |  If several names, these are usually separated by a space between values. | John Matthew A 
+ | given_name |  For BE citizen, we do share the two complete first names and the intimal of the third name if any.<br></br>For other ID templates this might differ. | John Matthew A 
  | name |  | John Matthew A Smith 
  | gender |  | male
  | birthdate |  | 1959-06-03 
-**email** | email |  Max length: 255 | john.smith@company.lu 
+**email** | email |  Rule for email validity are the following: [a-zA-Z0-9][-_\w\.+]{0,30}@([-\w+]{1,30}[.]){1,4}[a-zA-Z]{2,12}<br></br>Max length: 255 | john.smith@company.lu 
  | email_verified |  | false
 **phone** | phone_number |  This attribute is stored as an object with 2 fields in our database: <ul><li>mobilePhone/phoneNumber = format should be the "international format" without the country code and leading 0</li><li>mobilePhone/countryCode = [0-9]{2-3}</li></ul> | +32 495162995 
  | phone_number_verified | Supported values are <i>"true"</i> or <i>"false"</i>.But, it is always <i>"true"</i> as we perform a SMS OTP verification during the enrollment.  | true
@@ -221,12 +221,12 @@ Typically, the values returned via the "scope" parameter only contain claims abo
 Value | Returned claim | Remarks | Example 
 :-- | :-- | :-- | :-- 
 **name** | name | | John Matthew A Smith 
-**given_name** |  given_name | If several names, these are usually separated by a space between values. | John Matthew A
+**given_name** |  given_name | For BE citizen, we do share the two complete first names and the intimal of the third name if any.<br></br>For other ID templates this might differ. | John Matthew A
 **family_name** | family_name | | Smith
 **birthdate** | birthdate | | 1959-06-03
 **http://itsme.services/v2/ claim/birthdate_as_string** | http://itsme.services/v2/ claim/birthdate_as_string | | 10 MAY 1988
 **gender** | gender | | male
-**email** | email | | john.smith@company.lu 
+**email** | email | Rule for email validity are the following: [a-zA-Z0-9][-_\w\.+]{0,30}@([-\w+]{1,30}[.]){1,4}[a-zA-Z]{2,12}<br></br>Max length: 255 | john.smith@company.lu 
 **email_verified** | email_verified | | false
 **phone_number** | phone_number | This attribute is stored as an object with 2 fields in our database: <ul><li>mobilePhone/phoneNumber = format should be the "international format" without the country code and leading 0</li><li>mobilePhone/countryCode = [0-9]{2-3}</li></ul> | +32 428656565
 **phone_number_verified** | phone_number_verifie | Supported values are <i>"true"</i> or <i>"false"</i>.But, it is always <i>"true"</i> as we perform a SMS OTP verification during the enrollment. | true  
@@ -245,7 +245,7 @@ Value | Returned claim | Remarks | Example
  | validityTo  | | 2025-12-04 
  | certificateValidity | | 2025-12-04  
  | readDate | | 2025-12-04 
-**http://itsme.services/v2/ claim/BENationalNumber** | http://itsme.services/v2/ claim/BENationalNumber | | 88041827591
+**http://itsme.services/v2/ claim/BENationalNumber** | http://itsme.services/v2/ claim/BENationalNumber | The value has 11 digits. | 88041827591
 **http://itsme.services/v2/ claim/claim_luxtrust_ssn** | http://itsme.services/v2/ claim/claim_luxtrust_ssn | | 12345678901234567890
 **http://itsme.services/v2/ claim/claim_device** | os |  | 
  | appName |  | 
