@@ -148,10 +148,9 @@ Parameter | Required | Description
 **request** | Optional | If the <i>"request_uri"</i> parameters is used, this parameter MUST NOT be used in the same request.</br>
 
 
-When implementing the **Identification** service, following rule apply : you MUST at least specify one User claim in the <i>"scope"</i> parameter or use the <i>"claims"</i> parameter.
-  
-<aside class="notice">When implementing the **Identification** service, following rule apply : you MUST at least specify one User claim in the <i>"scope"</i> parameter or use the <i>"claims"</i> parameter.
+<aside class="notice">When implementing the <b>Identification</b> service, following rule apply : you MUST at least specify one User claim in the <i>"scope"</i> parameter or use the <i>"claims"</i> parameter.
 </aside>
+
 
 The following is a non-normative example of a request that would be sent to the Authorization Server :
 
