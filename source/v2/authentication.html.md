@@ -199,73 +199,70 @@ The OpenID Connect Core specification defines a sets of claims that MAY be reque
 
 Below, you will find the list of claims that MAY be requested via the <i><b>"scope"</b></i> request parameter :
 
-Value | Returned claim | Example 
-:-- | :-- | :-- 
-**profile** | PersonFamilyName | Smith 
- | PersonGivenName | John Matthew A 
- | PersonFullName | John Matthew A Smith 
- | PersonGender | M 
- | PersonDateOfBirth | 1959-06-03 
-**email** | email | john.smith@company.lu 
- | email_verified |  
-**phone** | countryCode | 352 
- | phoneNumber | 495162995 
-**address** | AddressFullAddress | Place Victor Horta, 79 202 1348 Louvain-la-Neuve  
- | AddressPostCode | 1348 
- | AddressPostName | Louvain-la-Neuve 
- | AddressAdminUnitL1 | (empty) 
- | AddressThoroughFare | Place Victor Horta 
- | AddressLocatorDesignator | 79 
- | AddressPoBox | 202 
+Value | Returned claim | Remarks | Example 
+:-- | :-- | :-- | :-- 
+**profile** | family_name |  | Smith 
+ | given_name |  If several names, these are usually separated by a space between values. | John Matthew A 
+ | name |  | John Matthew A Smith 
+ | gender |  | male
+ | birthdate |  | 1959-06-03 
+**email** | email |  Max length: 255 | john.smith@company.lu 
+ | email_verified |  | false
+**phone** | phone_number |  This attribute is stored as an object with 2 fields in our database: <ul><li>mobilePhone/phoneNumber = format should be the "international format" without the country code and leading 0</li><li>mobilePhone/countryCode = [0-9]{2-3}</li></ul> | +32 495162995 
+ | phone_number_verified | Supported values are <i>"true"</i> or <i>"false"</i>.But, it is always <i>"true"</i> as we perform a SMS OTP verification during the enrollment.  | true
+**address** | formatted |  | Place Victor Horta 79, 1348 Louvain-la-Neuve BE
+ | street_address |   | Place Victor Horta 79
+ | postal_code |   | 1348 
+ | locality |  | Louvain-la-Neuve 
+ | country |  | BE
  
 Typically, the values returned via the "scope" parameter only contain claims about the identity of the User. Via the <i><b>"claims"</b></i> parameter you MAY request the same claims as in the ones available via the <i>"scope"</i> request parameter, as well as information about the specific ID documents, the device and the app version used by the user. These claims are specified below :
 
-Value | Returned claim | Example 
-:-- | :-- | :-- 
-**name** | PersonFullName | John Matthew A Smith 
-**given_name** | PersonGivenName | John Matthew A
-**family_name** | PersonFamilyName | Smith
-**birthdate** | PersonDateOfBirth | 1959-06-03
-**gender** | PersonGender | M 
-**email** | email | john.smith@company.lu 
-**email_verified** | |
-**phone_number** | countryCode | 352 
- | phoneNumber | 495162995 
-**phone_number_verified** |  | True  
-**address** | AddressFullAddress | Place Victor Horta, 79 202 1348 Louvain-la-Neuve  
- | AddressPostCode | 1348 
- | AddressPostName | Louvain-la-Neuve 
- | AddressAdminUnitL1 | (empty) 
- | AddressThoroughFare | Place Victor Horta 
- | AddressLocatorDesignator | 79 
- | AddressPoBox | 202 
-**http://itsme.services/v2/ claim/claim_citizenship** | PersonCitizenship  | Belg 
-**http://itsme.services/v2/ claim/place_of_birth** | PersonCountryOfBirth | Neerpelt 
- | PersonPlaceOfBirth | (empty) 
-**http://itsme.services/v2/ claim/physical_person_photo** | picture | Neerpelt 
-**http://itsme.services/v2/ claim/BEeidSn** | issuanceLocality | Sombreffe 
- | validityFrom | 2019-12-04 | Not always returned if requested | Never returned if requested  
- | validityTo  | 2025-12-04 | Not always returned if requested | Never returned if requested 
- | certificateValidity | 2025-12-04 | Not always returned if requested | Never returned if requested  
- | readDate | 2025-12-04 | Returned if requested | Returned if requested 
-**http://itsme.services/v2/ claim/BENationalNumber** |  | 88041827591
-**http://itsme.services/v2/ claim/claim_luxtrust_ssn** |  | 12345678901234567890
-**http://itsme.services/v2/ claim/claim_device** | os | Sombreffe 
- | appName |  
- | appRelease  |   
- | deviceLabel |  
- | debugEnabled |  
- | deviceID |  
- | osRelease  |  
- | manufacturer |  
- | hasSimEnabled |  
- | deviceLockLevel |  
- | smsEnabled |  
- | rooted  |  
- | imei |  
- | deviceModel |   
- | sdkRelease |  
-
+Value | Returned claim | Remarks | Example 
+:-- | :-- | :-- | :-- 
+**name** | name | | John Matthew A Smith 
+**given_name** |  given_name | If several names, these are usually separated by a space between values. | John Matthew A
+**family_name** | family_name | | Smith
+**birthdate** | birthdate | | 1959-06-03
+**http://itsme.services/v2/ claim/birthdate_as_string** | http://itsme.services/v2/ claim/birthdate_as_string | | 10 MAY 1988
+**gender** | gender | | male
+**email** | email | | john.smith@company.lu 
+**email_verified** | email_verified | | false
+**phone_number** | phone_number | This attribute is stored as an object with 2 fields in our database: <ul><li>mobilePhone/phoneNumber = format should be the "international format" without the country code and leading 0</li><li>mobilePhone/countryCode = [0-9]{2-3}</li></ul> | +32 428656565
+**phone_number_verified** | phone_number_verifie | Supported values are <i>"true"</i> or <i>"false"</i>.But, it is always <i>"true"</i> as we perform a SMS OTP verification during the enrollment. | true  
+**address** | formatted | | Place Victor Horta 79, 1348 Louvain-la-Neuve BE
+ | street_address | | Place Victor Horta 79
+ | postal_code | | 1348 
+ | locality | | Louvain-la-Neuve 
+ | country | | BE
+**http://itsme.services/v2/ claim/claim_citizenship** | http://itsme.services/v2/ claim/claim_citizenship  | | Belg 
+**http://itsme.services/v2/ claim/place_of_birth** | formatted |  | bruxelles Belgium 
+ | city | | bruxelles
+ | country | | BE
+**http://itsme.services/v2/ claim/physical_person_photo** | http://itsme.services/v2/ claim/physical_person_photo | | /9j/4AA[...]n 
+**http://itsme.services/v2/ claim/BEeidSn** | issuanceLocality | | Sombreffe 
+ | validityFrom | | 2019-12-04 
+ | validityTo  | | 2025-12-04 
+ | certificateValidity | | 2025-12-04  
+ | readDate | | 2025-12-04 
+**http://itsme.services/v2/ claim/BENationalNumber** | http://itsme.services/v2/ claim/BENationalNumber | | 88041827591
+**http://itsme.services/v2/ claim/claim_luxtrust_ssn** | http://itsme.services/v2/ claim/claim_luxtrust_ssn | | 12345678901234567890
+**http://itsme.services/v2/ claim/claim_device** | os |  | 
+ | appName |  | 
+ | appRelease  |   | 
+ | deviceLabel |  | 
+ | debugEnabled | |  
+ | deviceID | |  
+ | osRelease  | |  
+ | manufacturer |  | 
+ | hasSimEnabled | |  
+ | deviceLockLevel |  | 
+ | smsEnabled |  | | 
+ | rooted  | |  
+ | imei | |  
+ | deviceModel |  |  
+ | sdkRelease | |  
+**http://itsme.services/v2/ claim/transaction_info** | http://itsme.services/v2/ claim/transaction_info | |  
 
 <a name="AuthNResponse"></a>
 ## 3.5. Capturing an Authorization Code
