@@ -217,7 +217,7 @@ Value | Returned claim | Remarks | Example
 **email** | email | Rule for email validity are the following: [a-zA-Z0-9][-_\w\.+]{0,30}@([-\w+]{1,30}[.]){1,4}[a-zA-Z]{2,12}<br></br>Max length: 255 | john.smith@company.lu 
 **email_verified** | email_verified | | false
 **phone_number** | phone_number | This attribute is stored as an object with 2 fields in our database: <ul><li>mobilePhone/phoneNumber = format should be the "international format" without the country code and leading 0</li><li>mobilePhone/countryCode = [0-9]{2-3}</li></ul> | +32 428656565
-**phone_number_verified** | phone_number_verifie | Supported values are <i>"true"</i> or <i>"false"</i>.But, it is always <i>"true"</i> as we perform a SMS OTP verification during the enrollment. | true  
+**phone_number_verified** | phone_number_verified | Supported values are <i>"true"</i> or <i>"false"</i>.But, it is always <i>"true"</i> as we perform a SMS OTP verification during the enrollment. | true  
 **address** | formatted | | Place Victor Horta 79, 1348 Louvain-la-Neuve BE
  | street_address | | Place Victor Horta 79
  | postal_code | | 1348 
@@ -277,7 +277,7 @@ Value | Description
 **http://itsme.services/v2/ claim/claim_approval_template_name** | This identifies the template used. It MUST be set to "http://itsme.services/v2/claim/claim_approval_template_name":{ "essential": true, "value": "free_text" }.
 **http://itsme.services/v2/ claim/claim_approval_text_key** | 	A string holding any text to be displayed in the itsme® app. This MUST be set to"http://itsme.services/v2/claim/claim_approval_text_key":{ "essential": true, "value": "Text_as_a_string" }.
 
-We currently support the following HTML tags in the Free Text template: - <b> - <i> - <u> - <br>. Tags that are not rendered are ignored.
+We currently support the following HTML tags in the Free Text template: - &lt; b &gt; - &lt; i &gt; - &lt; u &gt; - &lt; br &gt;. Tags that are not rendered are ignored.
 
 <a name="AuthNResponse"></a>
 ## 3.5. Capturing an Authorization Code
