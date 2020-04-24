@@ -118,7 +118,7 @@ After installation, run the generator:
 
 First, you will forg a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint can be retrieved from the [itsme® Discovery document](#OpenIDConfig), using the key <i>"authorization_endpoint"</i>.
 
-<aside class="notice">By opposition to the OpenID Connect specifications, POST method is not authorized when triggering the itsme® App through the Universal/App Link mechanism only support the HTTP GET method on the Authorisation Endpoint. More information about Universal links and App links can be found in the <a href="#UniversalLinks">section 3.3</a>.
+<aside class="notice">By opposition to the OpenID Connect specifications, POST method is not authorized when triggering the itsme® App through the Universal/App Link mechanism only support the HTTP GET method on the Authorisation Endpoint. More information about Universal links and App links can be found in the Appendix.
 </aside>
 
 <aside class="notice">Please note that althoug all claims are optional, at least one claim MUST be present in your Authorization Request for the Share Data service. Not respecting this constraint would represent an attempt to create a Share Data action without data to share, which will be rejected.</aside>
