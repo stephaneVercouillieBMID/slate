@@ -81,11 +81,12 @@ To simplify implementations and increase flexibility, <a href="https://openid.ne
 
 The Discovery document for itsme® can be retrieved from: 
 
+```JWKSet
 Environment | URL
 :-------- | :--------
 **SANDBOX** | <a href="https://idp.e2e.itsme.services/v2/.well-known/openid-configuration" target="blank">https://idp.e2e.itsme.services/v2/.well-known/openid-configuration</a>
 **PRODUCTION** | <a href="https://idp.prd.itsme.services/v2/.well-known/openid-configuration" target="blank">https://idp.prd.itsme.services/v2/.well-known/openid-configuration</a>
-
+```
 
 ## 3.2. Create a itsme® button on your application
 
