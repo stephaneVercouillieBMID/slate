@@ -43,9 +43,9 @@ Please note also the Confirm links are only valid for a limited amount of time. 
       
 ### Confirm (only works temporarily)
 
-<a href="https://e2emerchant.itsme.be/oidc/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fe2e_OIDC_TEST1%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_APPROVAL+profile+phone+email+address+eid&state=anystate&nonce=anonce&prompt=login+consent&max_age=1&claims=%7B%22userinfo%22%3A%7B%22name%22%3A%7B%22essential%22%3Atrue%7D%7D%7D&request_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%3A443%2Fopenidclient%2Fjwt%2Fmjjqtwgrwzoby4bs1ak3fa" target="blank">E2E - OIDC V1 confirm</a>
+<a href="https://e2emerchant.itsme.be/oidc/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fe2e_OIDC_TEST1%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_APPROVAL+profile+phone+email+address+eid&state=anystate&nonce=anonce&prompt=login+consent&max_age=1&claims=%7B%22userinfo%22%3A%7B%22name%22%3A%7B%22essential%22%3Atrue%7D%7D%7D&request_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%3A443%2Fopenidclient%2Fjwt%2Fqq9rpnw8o1cjjby5cg8jgy" target="blank">E2E - OIDC V1 confirm</a>
 
-<a href="https://idp.e2e.itsme.services/v2/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fe2e_OIDC_TEST1_I18N%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_APPROVAL_I18N+profile+phone+email+address+eid&state=anystate&nonce=anonce&prompt=login+consent&max_age=1&claims=%7B%22userinfo%22%3A%7B%22name%22%3A%7B%22essential%22%3Atrue%7D%7D%7D&request_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%3A443%2Fopenidclient%2Fjwt%2Fz8tx9swvb8xtqag9qh6bd2" target="blank">E2E - OIDC V2 confirm</a>
+<a href="https://idp.e2e.itsme.services/v2/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fe2e_OIDC_TEST1_I18N%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_APPROVAL_I18N+profile+phone+email+address+eid&state=anystate&nonce=anonce&prompt=login+consent&max_age=1&claims=%7B%22userinfo%22%3A%7B%22name%22%3A%7B%22essential%22%3Atrue%7D%7D%7D&request_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%3A443%2Fopenidclient%2Fjwt%2Fpgh1vifg64ir731gqs9b92" target="blank">E2E - OIDC V2 confirm</a>
 
 ## PRD
 
