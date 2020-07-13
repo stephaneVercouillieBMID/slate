@@ -12,7 +12,7 @@ toc_footers:
 search: true
 ---
 <a name="Onboarding"></a>
-# 1. Prerequisite
+# Prerequisite
 
 Before you start integrating itsme®, you MUST create an organisation on the following url: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyfhKiiehNg4DhFzhQeHaj9EG2VeFoyPNVaI-TSwnG5WlFfw/viewform" target="blank">https://docs.google.com/forms/d/e/1FAIpQLSdyfhKiiehNg4DhFzhQeHaj9EG2VeFoyPNVaI-TSwnG5WlFfw/viewform</a>.
 
@@ -33,7 +33,7 @@ Our onboarding team will review your project and get in touch within 3 days with
   <li>the list of user attributes you can request</li>
 </ul>
 
-# 2. Integration sequence
+# Integration sequence
 
 itsme® integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following diagram:
   
