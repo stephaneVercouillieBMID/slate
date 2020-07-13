@@ -126,6 +126,9 @@ After installation, run the generator:
 
 First, you will forg a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint can be retrieved from the [itsme® Discovery document](#OpenIDConfig), using the key <i>"authorization_endpoint"</i>.
 
+<aside class="notice">We highly recommend to use the information from the corresponding well-known config instead of hard-coding the itsme® Authorization Endpoint.
+</aside>
+
 The OpenID Connect Core specification defines a number of parameters to integrate in the HTTPS GET query string :
 
 Parameter | Required | Description
