@@ -62,9 +62,9 @@ The Discovery document for itsme® can be retrieved from:
 Client Authentication method |Environment | URL
 :-------- | :-------- | :--------
 **private_key_jwt** | **SANDBOX** | <a href="https://idp.e2e.itsme.services/v2/.well-known/openid-configuration" target="blank">https://idp.e2e.itsme.services/v2/.well-known/openid-configuration</a>
-| **PRODUCTION** | <a href="https://idp.prd.itsme.services/v2/.well-known/openid-configuration" target="blank">https://idp.prd.itsme.services/v2/.well-known/openid-configuration</a>
+**** | **PRODUCTION** | <a href="https://idp.prd.itsme.services/v2/.well-known/openid-configuration" target="blank">https://idp.prd.itsme.services/v2/.well-known/openid-configuration</a>
 **client_secret_post** | **SANDBOX** | <a href="https://oidc.e2e.itsme.services/clientsecret-oidc/csapi/v0.1/.well-known/openid-configuration" target="blank">https://oidc.e2e.itsme.services/clientsecret-oidc/csapi/v0.1/.well-known/openid-configuration</a>
-| **PRODUCTION** | <a href="https://oidc.prd.itsme.services/clientsecret-oidc/csapi/v0.1/.well-known/openid-configuration" target="blank">https://oidc.prd.itsme.services/clientsecret-oidc/csapi/v0.1/.well-known/openid-configuration</a>
+**** | **PRODUCTION** | <a href="https://oidc.prd.itsme.services/clientsecret-oidc/csapi/v0.1/.well-known/openid-configuration" target="blank">https://oidc.prd.itsme.services/clientsecret-oidc/csapi/v0.1/.well-known/openid-configuration</a>
 
 
 # Building your Authorization Request
