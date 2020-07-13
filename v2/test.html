@@ -220,13 +220,10 @@
         <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#1-introduction" class="toc-h1 toc-link" data-title="1-introduction">1. Introduction</a>
+            <a href="#1-prerequisite" class="toc-h1 toc-link" data-title="1-prerequisite">1. Prerequisite</a>
           </li>
           <li>
-            <a href="#2-prerequisite" class="toc-h1 toc-link" data-title="2-prerequisite">2. Prerequisite</a>
-          </li>
-          <li>
-            <a href="#3-integration-guide" class="toc-h1 toc-link" data-title="3-integration-guide">3. Integration guide</a>
+            <a href="#2-integration-sequence" class="toc-h1 toc-link" data-title="2-integration-sequence">2. Integration sequence</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#3-1-check-itsme-openid-provider-configuration" class="toc-h2 toc-link" data-title="3-1-check-itsme-openid-provider-configuration">3.1. Check itsme® OpenID Provider configuration</a>
@@ -277,13 +274,8 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='1-introduction'>1. Introduction</h1>
-<p>itsme® is a trusted identity provider allowing partners to use verified identities for authentication and authorization on web desktop, mobile web or mobile applications. </p>
-
-<p>The objective of this document is to provide all the information needed to integrate the <strong>Authentication</strong> service using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.</p>
-
-<p><a name="Onboarding"></a></p>
-<h1 id='2-prerequisite'>2. Prerequisite</h1>
+        <p><a name="Onboarding"></a></p>
+<h1 id='1-prerequisite'>1. Prerequisite</h1>
 <p>Before you start integrating itsme®, you MUST create an organisation on the following url: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyfhKiiehNg4DhFzhQeHaj9EG2VeFoyPNVaI-TSwnG5WlFfw/viewform" target="blank">https://docs.google.com/forms/d/e/1FAIpQLSdyfhKiiehNg4DhFzhQeHaj9EG2VeFoyPNVaI-TSwnG5WlFfw/viewform</a>.</p>
 
 <p>Once there, you will need to fill out a basic form with the following questions:</p>
@@ -291,29 +283,27 @@
 <ul>
   <li>Contact details such as your email, name, phone number.</li>
   <li>Organisation details as shown on the company register for your jurisdiction.</li>
-  <li>Information about the project you want to set-up and the use case you have in mind.</li>
+  <li>Information about the project you want to set-up (the services you want to use, the client authentication method you want to set-up, the user attributes you want to request, ...)</li>
   <li>itsme® terms and conditions. If you require a copy of this please contact onboarding@itsme.be.</li>
 </ul>
 
-<p>Our onboarding team will review your project and get in touch within 3 days with a <i>&quot;client_id&quot;</i> and a <i>&quot;service_code&quot;</i> which need to be added in your configuration. Meanwhile, this should not prevent you from starting your integration.</p>
-<h1 id='3-integration-guide'>3. Integration guide</h1>
-<p>Our itsme® app can be seamlessly be integrated with your web desktop, mobile web or mobile application so you can perform secure identity checks.</p>
-
-<p><strong>Technical overview</strong></p>
-
+<p>Our onboarding team will review your project and get in touch within 3 days with your credentials which need to be used for the integration:
+<ul>
+  <li>a <i>&quot;client_id&quot;</i></li>
+  <li>a <i>&quot;service_code&quot;</i></li>
+  <li>information about your <a href="XXX" target="blank">client authentication method</a></li>
+  <li>the list of user attributes you can request</li>
+</ul></p>
+<h1 id='2-integration-sequence'>2. Integration sequence</h1>
 <p>itsme® integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following diagram:</p>
 
 <p><img src="../OpenID_Login_SeqDiag.png" alt="Sequence diagram describing the OpenID flow" /></p>
 
-<aside class="notice">OpenID Connect provides certified libraries, products, and tools which could help you integrating the itsme® service. For more information, please visit the official webpage: <a href="https://openid.net/developers/libraries/" target="blank">https://openid.net/developers/libraries/</a>.
-</aside>
- 
-
-<p><strong>How it works</strong></p>
+<p>The integration steps, with linked code-level documentation are:</p>
 
 <ol>
-  <li>The User indicates on your end he wishes to authenticate with itsme®</li>
-  <li>Your web desktop, mobile web or mobile application (aka 'Relying Party' in the OpenID Connect specification) sends a request to itsme® (aka 'OpenID Provider' in the OpenID Connect specification) to authenticate the User. This request will redirect the User to the itsme® Front-End. itsme® then authenticates the User by asking him
+  <li>The User indicates on your end he wishes to authenticate with itsme®. <a href="You will need to create a button to allow your users to authenticate with itsme®" target="blank">https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/buttons-1518207548</a></li>
+  <li><a href="Your web desktop, mobile web or mobile application sends a request to itsme® - the Authorization Request - to authenticate the User" target="blank">https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/buttons-1518207548</a>. This request will redirect the User to the itsme® Front-End. itsme® then authenticates the User by asking him
     <ul type>
       <li>to enter his phone number on the itsme® OpenID web page</li>
       <li>authorize the release of some information’s to your application</li>
@@ -328,6 +318,8 @@
 </ol>
 
 <p>If a user doesn&#39;t have the itsme® app, they&#39;ll be redirected to a mobile website with more information and download links.</p>
+
+<p>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=</p>
 
 <p><a name="OpenIDConfig"></a></p>
 <h2 id='3-1-check-itsme-openid-provider-configuration'>3.1. Check itsme® OpenID Provider configuration</h2>
@@ -374,6 +366,9 @@
 <p><a name="AuthNRequest"></a></p>
 <h2 id='3-4-build-an-authentication-request-and-request-attributes'>3.4. Build an Authentication Request and request attributes</h2><h3 id='composing-your-base-url'>Composing your base URL</h3>
 <p>First, you will forg a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint can be retrieved from the <a href="#OpenIDConfig">itsme® Discovery document</a>, using the key <i>&quot;authorization_endpoint&quot;</i>.</p>
+
+<aside class="notice">We highly recommend to use the information from the corresponding well-known config instead of hard-coding the itsme® Authorization Endpoint.
+</aside>
 
 <p>The OpenID Connect Core specification defines a number of parameters to integrate in the HTTPS GET query string :</p>
 
