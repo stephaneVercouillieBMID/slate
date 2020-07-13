@@ -29,7 +29,7 @@ Our onboarding team will review your project and get in touch within 3 days with
 <ul>
   <li>a <i>"client_id"</i></li>
   <li>a <i>"service_code"</i></li>
-  <li>information about your <a href="XXX" target="blank">client authentication method</a></li>
+  <li>information about your <a href="https://belgianmobileid.github.io/slate/v2/test2#selecting-your-client-authentication-method" target="blank">client authentication method</a></li>
   <li>the list of user attributes you can request</li>
 </ul>
 
