@@ -2,23 +2,17 @@
 title: itsme® OpenID Connect documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
- - JWKSet
- - client_secret
+- JWKSet
+- client_secret
 
 toc_footers:
- - <a href='#'>Sign Up for a Developer Key</a> -->
- - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+- <a href='#'>Sign Up for a Developer Key</a> -->
+- <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 search: true
 ---
-# 1. Introduction
-itsme® is a trusted identity provider allowing partners to use verified identities for authentication and authorization on web desktop, mobile web or mobile applications. 
-
-The objective of this document is to provide all the information needed to integrate the **Authentication** service using the <a href="http://openid.net/specs/openid-connect-core-1_0.html" target="blank">OpenID Connect Core 1.0 specifications</a>.
-
-  
 <a name="Onboarding"></a>
-# 2. Prerequisite
+# 1. Prerequisite
 
 Before you start integrating itsme®, you MUST create an organisation on the following url: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyfhKiiehNg4DhFzhQeHaj9EG2VeFoyPNVaI-TSwnG5WlFfw/viewform" target="blank">https://docs.google.com/forms/d/e/1FAIpQLSdyfhKiiehNg4DhFzhQeHaj9EG2VeFoyPNVaI-TSwnG5WlFfw/viewform</a>.
 
@@ -33,23 +27,16 @@ Once there, you will need to fill out a basic form with the following questions:
 
 Our onboarding team will review your project and get in touch within 3 days with a <i>"client_id"</i> and a <i>"service_code"</i> which need to be added in your configuration. Meanwhile, this should not prevent you from starting your integration.
 
-# 3. Integration guide
-
-Our itsme® app can be seamlessly be integrated with your web desktop, mobile web or mobile application so you can perform secure identity checks.
-
-**Technical overview**
+# 2. Integration sequence
 
 itsme® integration is based on the <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="blank">Authorization Code Flow</a> of OpenID Connect 1.0. The Authorization Code Flow goes through the steps as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps" target="blank">OpenID Connect Core Authorization Code Flow Steps</a>, depicted in the following diagram:
   
  ![Sequence diagram describing the OpenID flow](OpenID_Login_SeqDiag.png)
 
-<aside class="notice">OpenID Connect provides certified libraries, products, and tools which could help you integrating the itsme® service. For more information, please visit the official webpage: <a href="https://openid.net/developers/libraries/" target="blank">https://openid.net/developers/libraries/</a>.
-</aside>
- 
-**How it works**
+The integration steps, with linked code-level documentation are:
 
 <ol>
-  <li>The User indicates on your end he wishes to authenticate with itsme®</li>
+  <li>The User indicates on your end he wishes to authenticate with itsme®. You will need to create a button to allow your users to authenticate with itsme®. See the <a href="Button design guide" target="blank">https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/buttons-1518207548</a></li>
   <li>Your web desktop, mobile web or mobile application (aka 'Relying Party' in the OpenID Connect specification) sends a request to itsme® (aka 'OpenID Provider' in the OpenID Connect specification) to authenticate the User. This request will redirect the User to the itsme® Front-End. itsme® then authenticates the User by asking him
     <ul type>
       <li>to enter his phone number on the itsme® OpenID web page</li>
@@ -65,6 +52,7 @@ itsme® integration is based on the <a href="http://openid.net/specs/openid-conn
 </ol>
 
 If a user doesn't have the itsme® app, they'll be redirected to a mobile website with more information and download links.
+
 
 
 <a name="OpenIDConfig"></a>
