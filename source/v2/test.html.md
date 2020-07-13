@@ -21,11 +21,17 @@ Once there, you will need to fill out a basic form with the following questions:
 <ul>
   <li>Contact details such as your email, name, phone number.</li>
   <li>Organisation details as shown on the company register for your jurisdiction.</li>
-  <li>Information about the project you want to set-up and the use case you have in mind.</li>
+  <li>Information about the project you want to set-up (the services you want to use, the client authentication method you want to set-up, the user attributes you want to request, ...)</li>
   <li>itsme® terms and conditions. If you require a copy of this please contact onboarding@itsme.be.</li>
 </ul>
 
-Our onboarding team will review your project and get in touch within 3 days with a <i>"client_id"</i> and a <i>"service_code"</i> which need to be added in your configuration. Meanwhile, this should not prevent you from starting your integration.
+Our onboarding team will review your project and get in touch within 3 days with your credentials which need to be used for the integration:
+<ul>
+  <li>a <i>"client_id"</i></li>
+  <li>a <i>"service_code"</i></li>
+  <li>information about your <a href="XXX" target="blank">client authentication method</a></li>
+  <li>the list of user attributes you can request</li>
+</ul>
 
 # 2. Integration sequence
 
@@ -37,7 +43,7 @@ The integration steps, with linked code-level documentation are:
 
 <ol>
   <li>The User indicates on your end he wishes to authenticate with itsme®. You will need to create a button to allow your users to authenticate with itsme®. See the <a href="Button design guide" target="blank">https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/buttons-1518207548</a></li>
-  <li>Your web desktop, mobile web or mobile application (aka 'Relying Party' in the OpenID Connect specification) sends a request to itsme® (aka 'OpenID Provider' in the OpenID Connect specification) to authenticate the User. This request will redirect the User to the itsme® Front-End. itsme® then authenticates the User by asking him
+  <li>Your web desktop, mobile web or mobile application sends a request to itsme® - the Authorization Request - to authenticate the User. This request will redirect the User to the itsme® Front-End. itsme® then authenticates the User by asking him
     <ul type>
       <li>to enter his phone number on the itsme® OpenID web page</li>
       <li>authorize the release of some information’s to your application</li>
@@ -54,6 +60,8 @@ The integration steps, with linked code-level documentation are:
 If a user doesn't have the itsme® app, they'll be redirected to a mobile website with more information and download links.
 
 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=
 
 <a name="OpenIDConfig"></a>
 ## 3.1. Check itsme® OpenID Provider configuration
