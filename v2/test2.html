@@ -241,6 +241,9 @@
                   <li>
                     <a href="#requesting-claims-about-the-user-and-the-authentication-event" class="toc-h2 toc-link" data-title="requesting-claims-about-the-user-and-the-authentication-event">Requesting claims about the User and the Authentication event</a>
                   </li>
+                  <li>
+                    <a href="#specifying-the-wysiwys-template" class="toc-h2 toc-link" data-title="specifying-the-wysiwys-template">Specifying the WYSIWYS template</a>
+                  </li>
               </ul>
           </li>
       </div>
@@ -388,7 +391,7 @@
 <tr>
 <td style="text-align: left"><strong>claims</strong></td>
 <td style="text-align: left">Optional, but required if using Confirm service</td>
-<td style="text-align: left">This parameter is used to request specific claims. The value is a JSON object listing the requested claims.<br>See the <a href="#Data">list</a> below for more information.</br><br><strong>Note</strong> : when using the itsme® Confirm service, this parameter MUST be used, and contain at least the WYSIWYS template attribute.</br></td>
+<td style="text-align: left">This parameter is used to request specific claims. The value is a JSON object listing the requested claims.<br>See the <a href="#Data">list</a> below for more information.</br><br><strong>Note</strong> : when using the itsme® Confirm service, this parameter MUST be used, and contain at least the <a href="WYSIWYS" target="blank">WYSIWYS template attribute</a>.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>request_uri</strong></td>
@@ -401,8 +404,6 @@
 <td style="text-align: left">If the <i>&quot;request_uri&quot;</i> parameters is used, this parameter MUST NOT be used in the same request.</br></td>
 </tr>
 </tbody></table>
-
-<p><strong>Parameter details</strong></p>
 
 <p><a name="Data"></a></p>
 <h3 id='requesting-claims-about-the-user-and-the-authentication-event'>Requesting claims about the User and the Authentication event</h3>
@@ -775,6 +776,60 @@
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
+
+<p><a name="WYSIWYS"></a></p>
+<h3 id='specifying-the-wysiwys-template'>Specifying the WYSIWYS template</h3>
+<p>The itsme Confirm is based on the notion of template, which helps pre-structure the action screen in the itsme app. Using one of the available templates MUST be specified to form a valid Confirm Authentication Request. There are currently two templates available.</p>
+
+<p><strong>Advanced Payment template</strong></p>
+
+<p>The Advanced Payment template can be retrieved using the following tags in the &quot;claim&quot; parameter when forming the Authentication Request:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Value</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_approval_template_name</strong></td>
+<td style="text-align: left">This identifies the template used. It MUST be set to &quot;http://itsme.services/v2/claim/claim_approval_template_name&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: &quot;adv_payment&quot; }.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_approval_amount_key</strong></td>
+<td style="text-align: left">A string holding an integer value inside. This MUST be set to &quot;http://itsme.services/v2/claim/claim_approval_amount_key&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: &quot;Amount_as_a_string&quot; }.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_approval_currency_key</strong></td>
+<td style="text-align: left">A string holding a valid currency code (e.g. “EUR”). This MUST be set to &quot;http://itsme.services/v2/claim/claim_approval_currency_key&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: &quot;Currency_as_a_string&quot; }.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_approval_iban_key&quot;</strong></td>
+<td style="text-align: left">A string holding a valid IBAN account number. This MUST be set to &quot;tag:sixdots.be,2016-08:claim_approval_iban_key&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: &quot;IBAN_as_a_string&quot; }.</td>
+</tr>
+</tbody></table>
+
+<p><strong>Free Text template</strong></p>
+
+<p>The Free Text template which can be retrieved using the following tags in the &quot;claim&quot; parameter when forming the Authentication Request:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Value</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_approval_template_name</strong></td>
+<td style="text-align: left">This identifies the template used. It MUST be set to &quot;http://itsme.services/v2/claim/claim_approval_template_name&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: &quot;free_text&quot; }.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>http://itsme.services/v2/ claim/claim_approval_text_key</strong></td>
+<td style="text-align: left">A string holding any text to be displayed in the itsme® app. This MUST be set to&quot;http://itsme.services/v2/claim/claim_approval_text_key&quot;:{ &quot;essential&quot;: true, &quot;value&quot;: &quot;Text_as_a_string&quot; }.</td>
+</tr>
+</tbody></table>
+
+<p>We currently support the following HTML tags in the Free Text template: - &lt; b &gt; - &lt; i &gt; - &lt; u &gt; - &lt; br &gt;. Tags that are not rendered are ignored.</p>
 
       </div>
       <div class="dark-box">
