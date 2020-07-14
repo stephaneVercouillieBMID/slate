@@ -84,13 +84,9 @@ Parameter | Required | Description
 **prompt** | Optional | Space delimited, case sensitive list of ASCII string values that specifies whether the Authorization Server prompts the User for reauthentication and consent. MUST be <i>"consent"</i> if provided. 
 **ui_locales** | Optional | User's preferred languages and scripts for the User interface (e.g.: OpenID web page). Supported values are: <i>"fr"</i>, <i>"nl"</i>, <i>"en"</i> and <i>"de"</i>. Any other value will be ignored.
 <a name="acrvalues">**acr_values**</a> | Optional | Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference.<br>2 values are supported:<ul><li>Basic level - let the User to choose either fingerprint usage (if device is compatible) or PIN<br><i>"http://itsme.services/v2/claim/acr_basic"</i></br></li><li>Advanced level - force the User to use PIN<br><i>"http://itsme.services/v2/claim/acr_advanced"</i></br></li></ul>When multiple values are provided only the most constraining will be used (advanced > basic). If not provided basic level will be used.</br>
-**claims** | Optional, but required if using Confirm service | This parameter is used to request specific claims. The value is a JSON object listing the requested claims.<br>See the [list](#Data) below for more information.</br><br>**Note** : when using the itsme® Confirm service, this parameter MUST be used, and contain at least the WYSIWYS template attribute.</br>
+**claims** | Optional, but required if using Confirm service | This parameter is used to request specific claims. The value is a JSON object listing the requested claims.<br>See the [list](#Data) below for more information.</br><br>**Note** : when using the itsme® Confirm service, this parameter MUST be used, and contain at least the <a href="WYSIWYS" target="blank">WYSIWYS template attribute</a>.</br>
 **request_uri** | Optional, but required if using Confirm service | This parameter enables OpenID Connect parameters to be passed by reference. The <i>"request_uri"</i> value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. <br>When the <i>"request_uri"</i> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax.</br><br>**Note**:<ul><li>when using the itsme® Confirm service, this parameter MUST be used</li><li>The values for the <i>"response_type"</i> and <i>"client_id"</i> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li><li>Even if a <i>"scope"</i> parameter is present in the Request Object value, a <i>"scope"</i> parameter – containing the <i>"openid"</i> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li><li>You need to store the Request Object resource remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>"request_uri"</i>. Usage of 'localhost' is not permitted.<li>The Request URI MUST contain the port 443 as in this example: https://test.istme.be:443/p/test.</li><li>The Request URI value is a URL using the <i>https</i> scheme.</li><li>If using the <i>"private_key_jwt"</i> client authentication method, the Request Object MUST be signed then encrypted, with the result being a Nested JWT, as defined in the JSON Web Token (JWT) section. As the Request Object is a nested JWT, it MUST contain the claims "iss" (issuer) and "aud" (audience) as members. The "iss" value MUST be your Client ID. The "aud" value MUST be the value corresponding to the key "authorization_endpoint" in the itsme® Discovery document.</li><li>If using the <i>"client_secret_post"</i> client authentication method, the Request Object MUST be signed only. As the Request Object is a JWS, it MUST contain the claims <i>"iss"</i> (issuer) and <i>"aud"</i> (audience) as members. The <i>"iss"</i> value MUST be your Client ID. The <i>"aud"</i> value MUST be the value corresponding to the key <i>"authorization_endpoint"</i> in the itsme® Discovery document.</li><li>If the <i>"request"</i> parameters is used, this parameter MUST NOT be used in the same request.</li></ul><br>Don't forget to send share this URI by email to onboarding@itsme.be and we’ll make sure to complete the configuration for you in no time!</br>
 **request** | Optional, but required if using Confirm service | If the <i>"request_uri"</i> parameters is used, this parameter MUST NOT be used in the same request.</br>
-
-**Parameter details**
-
-
 
 <a name="Data"></a>
 ###  Requesting claims about the User and the Authentication event 
@@ -166,4 +162,30 @@ Value | Returned claim | Remarks | Example
  | sdkRelease | |  
 **http://itsme.services/v2/ claim/transaction_info** | http://itsme.services/v2/ claim/transaction_info | |  
 
+<a name="WYSIWYS"></a>
+###  Specifying the WYSIWYS template
 
+The itsme Confirm is based on the notion of template, which helps pre-structure the action screen in the itsme app. Using one of the available templates MUST be specified to form a valid Confirm Authentication Request. There are currently two templates available.
+
+**Advanced Payment template**
+
+The Advanced Payment template can be retrieved using the following tags in the "claim" parameter when forming the Authentication Request:
+
+Value | Description
+:-------- |  :----- 
+**http://itsme.services/v2/ claim/claim_approval_template_name** | This identifies the template used. It MUST be set to "http://itsme.services/v2/claim/claim_approval_template_name":{ "essential": true, "value": "adv_payment" }.
+**http://itsme.services/v2/ claim/claim_approval_amount_key** | A string holding an integer value inside. This MUST be set to "http://itsme.services/v2/claim/claim_approval_amount_key":{ "essential": true, "value": "Amount_as_a_string" }.
+**http://itsme.services/v2/ claim/claim_approval_currency_key** | A string holding a valid currency code (e.g. “EUR”). This MUST be set to "http://itsme.services/v2/claim/claim_approval_currency_key":{ "essential": true, "value": "Currency_as_a_string" }.
+**http://itsme.services/v2/ claim/claim_approval_iban_key"** | A string holding a valid IBAN account number. This MUST be set to "tag:sixdots.be,2016-08:claim_approval_iban_key":{ "essential": true, "value": "IBAN_as_a_string" }.
+
+
+**Free Text template**
+
+The Free Text template which can be retrieved using the following tags in the "claim" parameter when forming the Authentication Request:
+
+Value | Description
+:-------- |  :----- 
+**http://itsme.services/v2/ claim/claim_approval_template_name** | This identifies the template used. It MUST be set to "http://itsme.services/v2/claim/claim_approval_template_name":{ "essential": true, "value": "free_text" }.
+**http://itsme.services/v2/ claim/claim_approval_text_key** | 	A string holding any text to be displayed in the itsme® app. This MUST be set to"http://itsme.services/v2/claim/claim_approval_text_key":{ "essential": true, "value": "Text_as_a_string" }.
+
+We currently support the following HTML tags in the Free Text template: - &lt; b &gt; - &lt; i &gt; - &lt; u &gt; - &lt; br &gt;. Tags that are not rendered are ignored.
