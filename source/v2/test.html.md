@@ -2,8 +2,7 @@
 title: itsme® OpenID Connect documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
-- JWKSet
-- client_secret
+- HTTP
 
 toc_footers:
 - <a href='#'>Sign Up for a Developer Key</a> -->
@@ -25,7 +24,7 @@ Once there, you will need to fill out a basic form with the following questions:
   <li>itsme® terms and conditions. If you require a copy of this please contact onboarding@itsme.be.</li>
 </ul>
 
-Our onboarding team will review your project and get in touch within 3 days with your credentials which need to be used for the integration:
+Our onboarding team will review your project and get in touch within 3 days with your credentials:
 <ul>
   <li>a <i>"client_id"</i></li>
   <li>a <i>"service_code"</i></li>
@@ -43,14 +42,14 @@ The integration steps, with linked code-level documentation are:
 
 <ol>
   <li>The User indicates on your end he wishes to authenticate with itsme®. <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/buttons-1518207548" target="blank">You will need to create a button to allow your users to authenticate with itsme®</a></li>.
-  <li><a href="https://belgianmobileid.github.io/slate/v2/test2#building-your-authorization-request" target="blank">Your web desktop, mobile web or mobile application sends a request to itsme® - the Authorization Request - to authenticate the User</a>. This request will redirect the User to the itsme® Front-End. itsme® then authenticates the User by asking him
+  <li><a href="https://belgianmobileid.github.io/slate/v2/test2#building-your-authorization-request" target="blank">Your web desktop, mobile web or mobile application sends a request to itsme® to authenticate the User</a> (aka. the Authorization Request). This request will redirect the User to the itsme® Front-End. itsme® then authenticates the User by asking him
     <ul type>
       <li>to enter his phone number on the itsme® OpenID web page</li>
       <li>authorize the release of some information’s to your application</li>
       <li>to provide his credentials (itsme® code or fingerprint or FaceID)</li>
     </ul>
-  
-  If you are building a mobile web or mobile application, the User don’t need to enter his mobile phone number on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links or App links mechanism.</li>
+  <br>It is also in this Authorization Request that you will be able to <a href="https://belgianmobileid.github.io/slate/v2/test2#requesting-claims-about-the-user-and-the-authentication-event" target="blank">request claims about the User and the Authentication event</a></br>
+  <br>If you are building a mobile web or mobile application, the User don’t need to enter his mobile phone number on the itsme® OpenID web page, he will be automatically redirected to the itsme app via the Universal links or App links mechanism.</br></li>
   <li>Once the User has authorized the request and has been authenticated, itsme® will return an Authorization Code to the Service Provider Front-End, redirecting the user to your mobile or web application.</li>
   <li>The Service Provider Back-End calls the itsme® Token Endpoint and exchanges the Authorization Code for an ID Token identifying the User and an Access Token.</li>
   <li>The Service Provider Back-End MAY request the additional User information from the itsme® userInfo Endpoint by presenting the Access Token obtained in the previous step.</li>
