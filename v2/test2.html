@@ -241,9 +241,6 @@
                   <li>
                     <a href="#requesting-claims-about-the-user-and-the-authentication-event" class="toc-h2 toc-link" data-title="requesting-claims-about-the-user-and-the-authentication-event">Requesting claims about the User and the Authentication event</a>
                   </li>
-                  <li>
-                    <a href="#specifying-the-wysiwys-template" class="toc-h2 toc-link" data-title="specifying-the-wysiwys-template">Specifying the WYSIWYS template</a>
-                  </li>
               </ul>
           </li>
       </div>
@@ -321,7 +318,7 @@
 <td style="text-align: left"><a href="https://oidc.prd.itsme.services/clientsecret-oidc/csapi/v0.1/.well-known/openid-configuration" target="blank">https://oidc.prd.itsme.services/clientsecret-oidc/csapi/v0.1/.well-known/openid-configuration</a></td>
 </tr>
 </tbody></table>
-<h1 id='building-your-authorization-request'>Building your Authorization Request</h1><h3 id='composing-your-base-url'>Composing your base URL</h3>
+<h1 id='building-your-authorization-request'>Building your Authorization Request</h1><h2 id='composing-your-base-url'>Composing your base URL</h2>
 <p>You will forg a HTTPS GET request that MUST be sent to the itsme® Authorization Endpoint. The itsme® Authorization Endpoint can be retrieved from one of the <a href="#OpenIDConfig">itsme® Discovery document URL</a>, using the key <i>&quot;authorization_endpoint&quot;</i>.</p>
 
 <p>The OpenID Connect Core specification defines a number of parameters to integrate in the HTTPS GET query string :</p>
@@ -390,12 +387,12 @@
 </tr>
 <tr>
 <td style="text-align: left"><strong>claims</strong></td>
-<td style="text-align: left">Optional, but required if using Confirm service</td>
-<td style="text-align: left">This parameter is used to request specific claims. The value is a JSON object listing the requested claims.<br>See the <a href="#Data">list</a> below for more information.</br><br><strong>Note</strong> : when using the itsme® Confirm service, this parameter MUST be used, and contain at least the <a href="WYSIWYS" target="blank">WYSIWYS template attribute</a>.</br></td>
+<td style="text-align: left">Optional, but required if using Confirmation service</td>
+<td style="text-align: left">This parameter is used to request specific claims. The value is a JSON object listing the requested claims.<br>See the <a href="#Data">list</a> below for more information.</br><br><strong>Note</strong> : when using the itsme® Confirm service, this parameter MUST be used, and contain at least the <a href="https://belgianmobileid.github.io/slate/v2/test2#specifying-the-wysiwys-template" target="blank">WYSIWYS template attribute</a>.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>request_uri</strong></td>
-<td style="text-align: left">Optional, but required if using Confirm service</td>
+<td style="text-align: left">Optional, but required if using Confirmation service</td>
 <td style="text-align: left">This parameter enables OpenID Connect parameters to be passed by reference. The <i>&quot;request_uri&quot;</i> value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. <br>When the <i>&quot;request_uri&quot;</i> parameter is used, the OpenID Connect request parameter values contained in the referenced JWT supersede those passed using the OAuth 2.0 request syntax.</br><br><strong>Note</strong>:<ul><li>when using the itsme® Confirm service, this parameter MUST be used</li><li>The values for the <i>&quot;response_type&quot;</i> and <i>&quot;client_id&quot;</i> parameters MUST be filled in the Authentication Request, since they are REQUIRED in the OpenID Connect Core specifications. The values for these parameters MUST match those in the Request Object, if present.</li><li>Even if a <i>&quot;scope&quot;</i> parameter is present in the Request Object value, a <i>&quot;scope&quot;</i> parameter – containing the <i>&quot;openid&quot;</i> scope value to indicate to the underlying OpenID Connect Core logic that this is an OpenID Connect request – MUST always be passed in the Authentication Request.</li><li>You need to store the Request Object resource remotely at a URL the the Authorization Server can access. This URL is the Request URI, <i>&quot;request_uri&quot;</i>. Usage of &#39;localhost&#39; is not permitted.<li>The Request URI MUST contain the port 443 as in this example: https://test.istme.be:443/p/test.</li><li>The Request URI value is a URL using the <i>https</i> scheme.</li><li>If using the <i>&quot;private_key_jwt&quot;</i> client authentication method, the Request Object MUST be signed then encrypted, with the result being a Nested JWT, as defined in the JSON Web Token (JWT) section. As the Request Object is a nested JWT, it MUST contain the claims &quot;iss&quot; (issuer) and &quot;aud&quot; (audience) as members. The &quot;iss&quot; value MUST be your Client ID. The &quot;aud&quot; value MUST be the value corresponding to the key &quot;authorization_endpoint&quot; in the itsme® Discovery document.</li><li>If using the <i>&quot;client_secret_post&quot;</i> client authentication method, the Request Object MUST be signed only. As the Request Object is a JWS, it MUST contain the claims <i>&quot;iss&quot;</i> (issuer) and <i>&quot;aud&quot;</i> (audience) as members. The <i>&quot;iss&quot;</i> value MUST be your Client ID. The <i>&quot;aud&quot;</i> value MUST be the value corresponding to the key <i>&quot;authorization_endpoint&quot;</i> in the itsme® Discovery document.</li><li>If the <i>&quot;request&quot;</i> parameters is used, this parameter MUST NOT be used in the same request.</li></ul><br>Don&#39;t forget to send share this URI by email to onboarding@itsme.be and we’ll make sure to complete the configuration for you in no time!</br></td>
 </tr>
 <tr>
@@ -406,11 +403,17 @@
 </tbody></table>
 
 <p><a name="Data"></a></p>
-<h3 id='requesting-claims-about-the-user-and-the-authentication-event'>Requesting claims about the User and the Authentication event</h3>
-<p>The OpenID Connect Core specification defines a sets of claims that MAY be requested via the <i>&quot;scope&quot;</i> and/or <i>&quot;claims&quot;</i> request parameter.</p>
+<h2 id='requesting-claims-about-the-user-and-the-authentication-event'>Requesting claims about the User and the Authentication event</h2>
+<p>The OpenID Connect Core specification defines a sets of claims that can be requested via the <i>&quot;scope&quot;</i> and/or <i>&quot;claims&quot;</i> request parameter.</p>
 
-<aside class="notice">As itsme® manage multiple international ID Templates - each with his own set of User Data - it can be that you will not receive some information about a User even if you requested the claim it in the Authorisation Request.</aside>
-
+<aside class="notice">Depending on the itsme® service you are implementing, different rules migh apply when requesting claims about the User and/or the Authentication event. So, if implementing
+<ul>
+  <li>the <b>Authentication</b> service, you MAY request claims via the <i>"scope"</i> and/or <i>"claims"</i> request parameter</li>
+  <li>the <b>Identification</b> service, you MUST at least request one claim via the <i>"scope"</i> or <i>"claims"</i> request parameter</li>
+  <li>the <b>Confirmation</b> service, you MUST at least specify the WYSIWYS template in the <i>"claims"</i> request parameter</li>
+</ul>
+</aside>
+<h3 id='claims-via-quot-scope-quot-request-parameter'>Claims via &quot;scope&quot; request parameter</h3>
 <p>Below, you will find the list of claims that MAY be requested via the <i><b>&quot;scope&quot;</b></i> request parameter :</p>
 
 <table><thead>
@@ -506,7 +509,7 @@
 <td style="text-align: left">BE</td>
 </tr>
 </tbody></table>
-
+<h3 id='claims-via-quot-claims-quot-request-parameter'>Claims via &quot;claims&quot; request parameter</h3>
 <p>Typically, the values returned via the &quot;scope&quot; parameter only contain claims about the identity of the User. Via the <i><b>&quot;claims&quot;</b></i> parameter you MAY request the same claims as in the ones available via the <i>&quot;scope&quot;</i> request parameter, as well as information about the specific ID documents, the device and the app version used by the user. These claims are specified below :</p>
 
 <table><thead>
