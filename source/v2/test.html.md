@@ -45,9 +45,9 @@ The integration steps, with linked code-level documentation are :
   <li>Add itsme® button to your front-end page so the User can indicate he wishes to authenticate with itsme® : <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/buttons-1518207548" target="blank">itsme® button specifications</a></li>.
   <li><a href="https://belgianmobileid.github.io/slate/v2/test2#building-your-authorization-request" target="blank">Create the Authorization Request to authenticate the User.</a>. This request will redirect the User to the itsme® Front-End. itsme® then authenticates the User by asking him
     <ul type>
-      <li>to enter his phone number on the itsme® OpenID web page</li>
-      <li>authorize the release of some information’s to your application</li>
-      <li>to provide his credentials (itsme® code or fingerprint or FaceID)</li>
+      <li>to enter his phone number on the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/ux-flows" target="blank">itsme® OpenID web page</a></li>
+      <li>authorize the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/ux-flows" target="blank">release of some information</a> to your application</li>
+      <li>to provide his <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/ux-flows" target="blank">credentials</a> (itsme® code or fingerprint or FaceID)</li>
     </ul>
   <br>It is also in this Authorization Request that you will be able to <a href="https://belgianmobileid.github.io/slate/v2/test2#requesting-claims-about-the-user-and-the-authentication-event" target="blank">request claims about the User and the Authentication event</a></br></li>
   <li>Collect the Authorization Code and redirect the user to your mobile or web application once the User has authorized the request and has been authenticated, </li>
