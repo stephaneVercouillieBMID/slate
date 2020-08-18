@@ -22,7 +22,7 @@ Please note also the Confirm links are only valid for a limited amount of time. 
 ## UAT
 
 ### Login
-<a href="https://uatmerchant.itsme.be/oidc/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https://core-emulators-ssl.default-clu01.mgmt.belgianmobileid.be%2Fopenidclient%2Fuat_OIDC_TEST1%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_LOGIN+profile+eid+phone+email+address&state=anystate&nonce=anonce&prompt=login&max_age=1" target="blank">UAT - OIDC V1 login</a>
+<a href="https://uatmerchant.itsme.be/oidc/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fcore-emulators-ssl.default-clu01.mgmt.belgianmobileid.be%2Fopenidclient%2Fuat_OIDC_TEST1%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_LOGIN+profile+eid+phone+email+address&state=anystate&nonce=anonce&prompt=login&max_age=1" target="blank">UAT - OIDC V1 login</a>
       
 <a href="https://idp.uat.itsme.services/v2/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fcore-emulators-ssl.default-clu01.mgmt.belgianmobileid.be%2Fopenidclient%2Fuat_OIDC_TEST1_I18N%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_LOGIN+profile+phone+email+address+eid&state=anystate&nonce=anonce&prompt=login&max_age=1" target="blank">UAT - OIDC V2 login</a>
 
@@ -55,7 +55,7 @@ Please note also the Confirm links are only valid for a limited amount of time. 
       
 <a href="https://idp.prd.itsme.services/v2/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fprod_OIDC_TEST1_I18N%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_LOGIN_I18N+profile+eid+phone+email+address&state=anystate&nonce=anonce&prompt=login&max_age=1" target="blank">PRD - OIDC V2 login</a>
 
-### Confirm (to come)
+### Confirm (only works temporarily)
 
 <a href="https://merchant.itsme.be/oidc/authorization?response_type%3Dcode%26client_id%3DOIDC_TEST1%26redirect_uri%3Dhttps%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fprod_OIDC_TEST1%2Fauthz_cb%26scope%3Dopenid%20service%3AOIDC_TEST1_APPROVAL%20profile%20phone%20email%20address%20eid%26state%3Danystate%26nonce%3Danonce%26prompt%3Dlogin%20consent%26max_age%3D1%26claims%3D%7B%22userinfo%22%3A%7B%22name%22%3A%7B%22essential%22%3Atrue%7D%7D%7D%26request_uri%3Dhttps%3A%2F%2Fstaging1.labo.sixdots.be%3A443%2Fopenidclient%2Fjwt%2Frjlqaxxi2jrvrw87x1cbfi" target="blank">PRD - OIDC V1 Confirm</a>
 
