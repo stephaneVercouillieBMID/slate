@@ -51,7 +51,7 @@ Please note also the Confirm links are only valid for a limited amount of time. 
 
 ### Login
 
-<a href="https://merchant.itsme.be/oidc/authorization?redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fprod_OIDC_TEST1%2Fauthz_cb" target="blank">PRD - OIDC V1 login</a>
+<a href="https://merchant.itsme.be/oidc/authorization?redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fprod_OIDC_TEST1%2Fauthz_cb&response_type=code&client_id=OIDC_TEST1&scope=openid+service%3AOIDC_TEST1_LOGIN+profile+eid+phone+email+address&state=anystate&nonce=anonce&prompt=login&max_age=1" target="blank">PRD - OIDC V1 login</a>
       
 <a href="https://idp.prd.itsme.services/v2/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be%2Fopenidclient%2Fprod_OIDC_TEST1_I18N%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_LOGIN_I18N+profile+eid+phone+email+address&state=anystate&nonce=anonce&prompt=login&max_age=1" target="blank">PRD - OIDC V2 login</a>
 
