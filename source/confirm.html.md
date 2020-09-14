@@ -176,7 +176,7 @@ Raw Request Object (not signed, not encrypted):<br></br>
         "userinfo":{
           "tag:sixdots.be,2016-06:claim_eid":null,
           "tag:sixdots.be,2016-06:claim_city_of_birth":null,
-          "sub":{ "value":"THE_END_USER_ALREADY_KNOWN_USER_CODE" },
+          "sub":{ "value": "THE_END_USER_ALREADY_KNOWN_USER_CODE", "essential": true }
           "tag:sixdots.be,2016-08:claim_approval_template_name":{ "essential": true, "value": "free_text" },
           "tag:sixdots.be,2016-08:claim_approval_text_key": { "essential": true, "value": "This is a test" }
           }
