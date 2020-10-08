@@ -2,8 +2,7 @@
 title: itsme® OpenID Connect documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
- - JWKSet
- - client_secret
+
 
 toc_footers:
  - <a href='#'>Sign Up for a Developer Key</a> -->
