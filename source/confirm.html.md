@@ -772,7 +772,8 @@ When using the Free text template, the below requirements apply:
 
 <ul>
   <li>Use the standard character encodings ISO8859-1 for the text.</li>
-  <li>Supported formatting tags are listed in section <a href="FormattingTags">Formatting tags</a>
+  <li>Supported formatting tags are listed in section <a href="FormattingTags">Formatting tags</a></li>
+  <li>The free text template can contain up to 3 lines of 50 characters each.</li>
 </ul>
 
 ## 5.5 Supported character set

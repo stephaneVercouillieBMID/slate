@@ -278,6 +278,7 @@ Value | Description
 **http://itsme.services/v2/ claim/claim_approval_text_key** | 	A string holding any text to be displayed in the itsme® app. This MUST be set to"http://itsme.services/v2/claim/claim_approval_text_key":{ "essential": true, "value": "Text_as_a_string" }.
 
 We currently support the following HTML tags in the Free Text template: - &lt; b &gt; - &lt; i &gt; - &lt; u &gt; - &lt; br &gt;. Tags that are not rendered are ignored.
+The free text template can contain up to 3 lines of 50 characters each.
 
 <a name="AuthNResponse"></a>
 ## 3.5. Capturing an Authorization Code
