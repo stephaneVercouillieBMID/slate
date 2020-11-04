@@ -228,7 +228,8 @@ Value | Returned claim | Remarks | Example
  | city | | bruxelles
  | country | | BE
 **http://itsme.services/v2/ claim/physical_person_photo** | http://itsme.services/v2/ claim/physical_person_photo | | /9j/4AA[...]n 
-**http://itsme.services/v2/ claim/BEeidSn** | issuanceLocality | | Sombreffe 
+**http://itsme.services/v2/ claim/BEeidSn** | eid | 12 digits in the form xxx-xxxxxxx-yy. The check-number yy is the remainder of the division of xxxxxxxxxx by 97 | xxx-xxxxxxx-yy 
+ | issuanceLocality | | Sombreffe
  | validityFrom | | 2019-12-04 
  | validityTo  | | 2025-12-04 
  | certificateValidity | | 2025-12-04  
