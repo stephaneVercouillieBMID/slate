@@ -255,7 +255,9 @@ Value | Returned claim | Remarks | Example
  | imei | |  
  | deviceModel |  |  
  | sdkRelease | |  
-**http://itsme.services/v2/ claim/transaction_info** | http://itsme.services/v2/ claim/transaction_info | |  
+**http://itsme.services/v2/ claim/transaction_info** | securityLevel | It tells you whether or not the SIM was successfully contacted during the transaction. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>.<br><b>No value is returned for the moment</b></br>. | 
+ | bindLevel |  It tells you if the User account is bound to a SIM card or not, at the time the transaction occurred. The returned values could be <i>"SOFT_ONLY"</i>, <i>"SIM_ONLY"</i> or <i>"SIM_AND_SOFT"</i>. <br><b>No value is returned for the moment</b></br>. | 
+  | appRelease  | The Mobile Country Code. The returned value is an Integer (three digits) representing the mobile network country. itsme(r) does not possess this information for every account. <br><b>No value is returned for the moment</b></br>. | 
 
 
 <a name="AuthNResponse"></a>
