@@ -228,12 +228,7 @@ Value | Returned claim | Remarks | Example
  | city | | bruxelles
  | country | | BE
 **http://itsme.services/v2/ claim/physical_person_photo** | http://itsme.services/v2/ claim/physical_person_photo | | /9j/4AA[...]n 
-**http://itsme.services/v2/ claim/BEeidSn** | eid | 12 digits in the form xxx-xxxxxxx-yy. The check-number yy is the remainder of the division of xxxxxxxxxx by 97 | xxx-xxxxxxx-yy 
- | issuanceLocality | | Sombreffe 
- | validityFrom | | 2019-12-04 
- | validityTo  | | 2025-12-04 
- | certificateValidity | | 2025-12-04  
- | readDate | | 2025-12-04 
+**http://itsme.services/v2/ claim/BEeidSn** | http://itsme.services/v2/ claim/BEeidSn | 12 digits in the form xxx-xxxxxxx-yy. The check-number yy is the remainder of the division of xxxxxxxxxx by 97 | xxx-xxxxxxx-yy 
 **http://itsme.services/v2/ claim/BENationalNumber** | http://itsme.services/v2/ claim/BENationalNumber | The value has 11 digits. | 88041827591
 **http://itsme.services/v2/ claim/claim_luxtrust_ssn** | http://itsme.services/v2/ claim/claim_luxtrust_ssn | | 12345678901234567890
 **http://itsme.services/v2/ claim/claim_device** | os |  | 
