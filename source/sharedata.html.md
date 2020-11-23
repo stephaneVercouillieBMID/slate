@@ -88,7 +88,7 @@ Environment | URL
 
 ## 3.2. Create a itsme® button on your application
 
-First, you will need to create a button to allow your users to authenticate with itsme®. See the <a href="Button design guide" target="blank">https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/buttons-1518207548</a> before you start the integration. 
+First, you will need to create a button to allow your users to authenticate with itsme®. See the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/buttons-1518207548" target="blank">Button design guide</a> before you start the integration. 
 
 Upon clicking this button, we will open a modal view which contains a field that need to be filled by the end user with it’s phone number. Note that mobile web users will skip the phone number step, as they use the itsme® mobile app directly to authenticate.
 
