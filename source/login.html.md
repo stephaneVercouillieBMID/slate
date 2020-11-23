@@ -91,8 +91,6 @@ First, you will need to create a button to allow your users to authenticate with
 
 Upon clicking this button, we will open a modal view which contains a field that need to be filled by the end user with it’s phone number. Note that mobile web users will skip the phone number step, as they use the itsme® mobile app directly to authenticate.
 
-itsme® provides a button <a href="generator" target="blank">https://brand.belgianmobileid.be/d/CX5YsAKEmVI7/documentation#/ux/buttons-1518207548</a> for you to include in your HTML file. 
-
 
 ## 3.3. Crafting your client authentication method
 
