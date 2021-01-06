@@ -18,7 +18,7 @@ The objective of this document is to provide all the information needed to integ
 <a name="Onboarding"></a>
 # 2. Prerequisite
 
-Before you start integrating itsme®, you MUST create an organisation on the following url: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyfhKiiehNg4DhFzhQeHaj9EG2VeFoyPNVaI-TSwnG5WlFfw/viewform" target="blank">https://docs.google.com/forms/d/e/1FAIpQLSdyfhKiiehNg4DhFzhQeHaj9EG2VeFoyPNVaI-TSwnG5WlFfw/viewform</a>.
+Before you start integrating itsme®, you MUST create an organisation on the following url: <a href="https://partner-support.itsme.be/hc/en-us/requests/new?ticket_form_id=360004640194" target="blank">https://partner-support.itsme.be/hc/en-us/requests/new?ticket_form_id=360004640194</a>.
 
 Once there, you will need to fill out a basic form with the following questions:
 
