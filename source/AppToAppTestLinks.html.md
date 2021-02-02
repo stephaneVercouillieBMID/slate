@@ -43,9 +43,9 @@ Please note also the Confirm links are only valid for a limited amount of time. 
       
 ### Confirm
 
-<a href="https://e2emerchant.itsme.be/oidc/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be/openidclient/e2e_OIDC_TEST1/authz_cb&scope=openid service:OIDC_TEST1_APPROVAL+profile+phone+email+address+eid&state=anystate&nonce=anonce&prompt=login consent&max_age=1&claims={%22userinfo%22:{%22name%22:{%22essential%22:true}}}&request_uri=https://belgianmobileid.github.io:443/slate/RequestObject_E2E_OIDCv1.json" target="blank">E2E - OIDC V1 confirm</a>
+<a href="https://e2emerchant.itsme.be/oidc/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fcore-emulators-ssl.default-clu01.mgmt.belgianmobileid.be%2Fopenidclient%2Fe2e_OIDC_TEST1%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_APPROVAL+profile+phone+email+address+eid&state=anystate&nonce=anonce&prompt=login+consent&max_age=1&claims=%7B%22userinfo%22%3A%7B%22name%22%3A%7B%22essential%22%3Atrue%7D%7D%7D&request_uri=https%3A%2F%2Fcore-emulators-ssl.default-clu01.mgmt.belgianmobileid.be%3A443%2Fopenidclient%2Fjwt%2Fi44hcrob5go2ghhbt9g5em" target="blank">E2E - OIDC V1 confirm</a>
 
-<a href="https://idp.e2e.itsme.services/v2/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fstaging1.labo.sixdots.be/openidclient/e2e_OIDC_TEST1_I18N/authz_cb&scope=openid service:OIDC_TEST1_APPROVAL_I18N+profile+phone+email+address+eid&state=anystate&nonce=anonce&prompt=login consent&max_age=1&claims={%22userinfo%22:{%22name%22:{%22essential%22:true}}}&request_uri=https://belgianmobileid.github.io:443/slate/RequestObject_E2E_OIDCv2.json" target="blank">E2E - OIDC V2 confirm</a>
+<a href="https://idp.e2e.itsme.services/v2/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fcore-emulators-ssl.default-clu01.mgmt.belgianmobileid.be%2Fopenidclient%2Fe2e_OIDC_TEST1_I18N%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_APPROVAL_I18N+profile+phone+email+address+eid&state=anystate&nonce=anonce&prompt=login+consent&max_age=1&claims=%7B%22userinfo%22%3A%7B%22name%22%3A%7B%22essential%22%3Atrue%7D%7D%7D&request_uri=https%3A%2F%2Fcore-emulators-ssl.default-clu01.mgmt.belgianmobileid.be%3A443%2Fopenidclient%2Fjwt%2Fvmjuj47nnktvpttl1kxj93" target="blank">E2E - OIDC V2 confirm</a>
 
 ## PRD
 
