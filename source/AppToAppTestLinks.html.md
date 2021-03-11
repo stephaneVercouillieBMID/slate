@@ -31,6 +31,10 @@ Please note also the Confirm links are only valid for a limited amount of time. 
 
 <a href="https://idp.uat.itsme.services/v2/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fcore-emulators-ssl.default-clu01.mgmt.belgianmobileid.be%2Fopenidclient%2Fuat_OIDC_TEST1_I18N%2Fauthz_cb_withPicture&scope=openid+service%3AOIDC_TEST1_APPROVAL_I18N+profile+phone+email+address+eid&state=anystate&nonce=anonce&prompt=login+consent&max_age=1&claims=%7B%22userinfo%22%3A%7B%22name%22%3A%7B%22essential%22%3Atrue%7D%7D%7D&request_uri=https%3A%2F%2Fcore-emulators-ssl.default-clu01.mgmt.belgianmobileid.be%3A443%2Fopenidclient%2Fjwt%2F1hkzkf6tjas9ked0yaisg5" target="blank">UAT - OIDC V2 confirm</a>
 
+### Azure B2C ClientSecret
+
+<a href="https://itsmedigitalidb2cuat.b2clogin.com/itsmedigitalidb2cuat.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_itsme_test&client_id=97c86891-c64f-41e6-aeb5-fa73b6805959&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login" target="blank">UAT - Azure B2C</a>
+
 
     
 ## E2E
@@ -46,6 +50,10 @@ Please note also the Confirm links are only valid for a limited amount of time. 
 <a href="https://e2emerchant.itsme.be/oidc/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fcore-emulators-ssl.default-clu01.mgmt.belgianmobileid.be%2Fopenidclient%2Fe2e_OIDC_TEST1%2Fauthz_cb&scope=openid+service%3AOIDC_TEST1_APPROVAL+profile+phone+email+address+eid&state=anystate&nonce=anonce&prompt=login+consent&max_age=1&claims=%7B%22userinfo%22%3A%7B%22name%22%3A%7B%22essential%22%3Atrue%7D%7D%7D&request_uri=https://belgianmobileid.github.io:443/slate/RequestObject_E2E_OIDCv1.json" target="blank">E2E - OIDC V1 confirm</a>
 
 <a href="https://idp.e2e.itsme.services/v2/authorization?response_type=code&client_id=OIDC_TEST1&redirect_uri=https%3A%2F%2Fcore-emulators-ssl.default-clu01.mgmt.belgianmobileid.be%2Fopenidclient%2Fe2e_OIDC_TEST1_I18N%2Fauthz_cb_withPicture&scope=openid+service%3AOIDC_TEST1_APPROVAL_I18N+profile+phone+email+address+eid&state=anystate&nonce=anonce&prompt=login+consent&max_age=1&claims=%7B%22userinfo%22%3A%7B%22name%22%3A%7B%22essential%22%3Atrue%7D%7D%7D&request_uri=https://belgianmobileid.github.io:443/slate/RequestObject_E2E_OIDCv2.json" target="blank">E2E - OIDC V2 confirm</a>
+
+### Azure B2C ClientSecret
+
+<a href="https://itsmedigitalidb2ce2e.b2clogin.com/itsmedigitalidb2ce2e.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_itsme_userflow&client_id=e3ed773e-b123-46a3-86ba-721c37a7850d&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login" target="blank">E2E - Azure B2C</a>
 
 ## PRD
 
