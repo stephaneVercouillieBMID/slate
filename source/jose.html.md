@@ -98,8 +98,6 @@ SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91
 .
 MRjdkly7_-oTPTS3AXP41iQIGKa80A0ZmTuV5MEaHoxnW2e5CZ5NlKtainoFmKZopdHM1O2U4mwzJdQx996ivp83xuglII7PNDi84wnB-BDkoBwA78185hX-Es4JIwmDLJK3lfWRa-XtL0RnltuYv746iYTh_qHRD68BNt1uSNCrUCTJDt5aAE6x8wW1Kt9eRo4QPocSadnHXFxnt8Is9UzpERV0ePPQdLuW3IS_de3xyIrDaLGdjluPxUAhb6L2aXic1U12podGU0KLUQSE_oI-ZnmKJ3F4uOZDnd6QZWJushZ41Axf_fcIe8u9ipH84ogoree7vjbU5y18kDquDg</code>
 
-An example illustrating the signing process is available at <a href="https://tools.ietf.org/html/rfc7520#section-4.1" target="blank">https://tools.ietf.org/html/rfc7520#section-4.1</a>.
-
 
 ## 4.2. Encryption
 
@@ -169,7 +167,7 @@ Parameter | Required | Description
 </code>
 
 <ol>
-  <li value="10">Encrypt the JWS using A128CBC-HS256 algorithm (<a href="https://tools.ietf.org/html/rfc7518#section-5.2.3">RFC7518</a>). The algorithm takes as input four strings: the CEK, the AAD, the JWE Initialization Vector and the payload (= the JWS) which were computed in the previous steps. The algorithm returns two string outputs: the JWE Ciphertext and the Authentication Tag.
+  <li value="10">Encrypt the JWS using A128CBC-HS256 algorithm. The algorithm takes as input four strings: the CEK, the AAD, the JWE Initialization Vector and the payload (= the JWS) which were computed in the previous steps. The algorithm returns two string outputs: the JWE Ciphertext and the Authentication Tag.
   <li>Base64url-encode the JWE Ciphertext.</li>
   <li>Base64url-encode the JWE Authentication Tag.</li>
   <li>Assemble the final representation by concatenating the five base64url encoded strings, and separate them with period ('.') characters. An example of a JWE object is given below.</li>
@@ -185,7 +183,6 @@ bbd5sTkYwhAIqfHsx8DayA
 .
 kvKuFBXHe5mQr4lqgobAUg</code>
 
-An example illustrating the signing process is available at <a href="https://tools.ietf.org/html/rfc7520#section-5.1" target="blank">https://tools.ietf.org/html/rfc7520#section-5.1</a>.
 
 
 ## 4.3. Decrypting
