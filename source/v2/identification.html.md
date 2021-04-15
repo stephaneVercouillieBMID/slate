@@ -445,7 +445,7 @@ The itsme® userInfo Endpoint will return a HTTP 200 OK response and the User cl
 <code style=display:block;white-space:pre-wrap>HTTP/1.1 200 OK
   Content-Type: application/json
   {
-   "sub": "248289761001",
+   "sub": "2i9rk3cg6mkt3v1dn9a1akwr6u4kp1zvj2oo",
    "name": "Jane Doe",
    "given_name": "Jane",
    "family_name": "Doe",
