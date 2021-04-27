@@ -170,6 +170,9 @@ With some parameters passed as a JWT in the <i>"request_uri"</i>, before base64u
         "userinfo":{
           "http://itsme.services/V2/claim/BEeidSN":null,
           "http://itsme.services/v2/claim/place_of_birth":null
+          "sub":{ "value": "THE_END_USER_ALREADY_KNOWN_USER_CODE", "essential": true }
+          "http://itsme.services/v2/claim/claim_approval_template_name":{ "essential": true, "value": "free_text" },
+          "http://itsme.services/v2/claim/claim_approval_text_key": { "essential": true, "value": "This is a test" }
           }
         }
      }<br></br>
