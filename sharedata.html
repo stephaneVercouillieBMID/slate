@@ -450,11 +450,6 @@
 <td style="text-align: left">A string value used to associate a session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. Sufficient entropy MUST be present in the <i>&quot;nonce&quot;</i> values used to prevent attackers from guessing values. See <a href="http://openid.net/specs/openid-connect-core-1_0.html#NonceNotes" target="blank">OpenID Connect Core specifications</a> for more information.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>login_hint</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">Can be used to pre-fill the phone number field on the itsme® OpenID web page for the User, if your application knows ahead of time which User is trying to authenticate. If provided, this value MUST be a phone number in the format specified for the <i>&quot;phone_number&quot;</i> claim: <i>&quot;<countrycode>+<phonenumber>&quot;</i>. E.g. <i>&quot;login_hint=32+123456789&quot;</i>.</br><br><i>&quot;login_hint&quot;</i> with invalid syntax will be ignored.</br></td>
-</tr>
-<tr>
 <td style="text-align: left"><strong>display</strong></td>
 <td style="text-align: left">Optional</td>
 <td style="text-align: left">ASCII string value that specifies how the Authorization Server displays the authentication and consent User interface pages to the User. MUST be <i>&quot;page&quot;</i> if provided.<br>Other values will yield an HTTP ERROR <i>&quot;not_implemented&quot;</i>.</br></td>
