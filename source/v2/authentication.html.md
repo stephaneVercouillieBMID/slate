@@ -11,7 +11,7 @@ toc_footers:
 search: true
 ---
 
-<aside class="alert"><b>This documentation is outdated, please visit our new page : <a href="https://belgianmobileid.github.io/doc/" target="blank">https://belgianmobileid.github.io/doc/</a><b>.
+<aside class="warning">This documentation is outdated, please visit our new page : <a href="https://belgianmobileid.github.io/doc/" target="blank">https://belgianmobileid.github.io/doc/</a>.
 </aside>
 
 
