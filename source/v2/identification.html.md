@@ -10,6 +10,11 @@ toc_footers:
 
 search: true
 ---
+
+<aside class="warning">This documentation is outdated, please visit our new page : <a href="https://belgianmobileid.github.io/doc/" target="blank">https://belgianmobileid.github.io/doc/</a>.
+</aside>
+
+
 # 1. Introduction
 itsme® is a trusted identity provider allowing partners to use verified identities for authentication and authorization on web desktop, mobile web or mobile applications. 
 
