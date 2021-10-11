@@ -124,7 +124,7 @@ Parameter | Required | Description
 :-------- | :--------| :----- 
 **client_id** | Required |This is the client ID you received when registering your project in the [itsme® B2B portal](#Onboarding).
 **response_type** | Required | This defines the processing flow to be used when forming the response. Because itsme® uses the Authorization Code Flow as described above, this value MUST be <i>"code"</i>.
-**scope** | Required | The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>"openid"</i> and <i>"service:TEST_code"</i>, by replacing "TEST_code" with the service code you received when registering your project in the [itsme® B2B portal](#Onboarding).<br>You MAY also specify additional scopes, separated by spaces, to request more information about the User. Depending on your use case, the following additional scopes MAY apply:<ul><li>profile: will request the claims representing basic profile information. These are <i>"family_name"</i>, <i>"given_name"</i>, <i>"gender"</i>, <i>"birthdate"</i> and <i>"locale"</i>.</li><li>email: will request the <i>"email"</i> and <i>"email_verified"</i> claims.</li><li>phone: will request the <i>"phone_number"</i> and <i>"phone_number_verified"</i> claims.</li><li>address: will request the <i>"street_address"</i>, <i>"locality"</i>, <i>"postal_code"</i> and <i>"country"</i> claims.</li></ul>For more information on User attributes or claims, please consult the [ID claims](#Data) section.</br><br>An HTTP ERROR <i>"not_implemented"</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br>
+**scope** | Required | The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>"openid"</i> and <i>"service:TEST_code"</i>, by replacing "TEST_code" with the service code you received when registering your project in the [itsme® B2B portal](#Onboarding).<br>You MAY also specify additional scopes, separated by spaces, to request more information about the User. Depending on your use case, the following additional scopes MAY apply:<ul><li>profile: will request the claims representing basic profile information. These are <i>"family_name"</i>, <i>"given_name"</i>, <i>"name"</i>, <i>"gender"</i>, <i>"birthdate"</i> and <i>"locale"</i>.</li><li>email: will request the <i>"email"</i> and <i>"email_verified"</i> claims.</li><li>phone: will request the <i>"phone_number"</i> and <i>"phone_number_verified"</i> claims.</li><li>address: will request the <i>"street_address"</i>, <i>"locality"</i>, <i>"postal_code"</i> and <i>"country"</i> claims.</li></ul>For more information on User attributes or claims, please consult the [ID claims](#Data) section.</br><br>An HTTP ERROR <i>"not_implemented"</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br>
 **redirect_uri** | Required | This is the URI to which the authentication response should be sent. This MUST exactly match the redirect URI, GET parameters included, of the specified service defined when registering your project in the [itsme® B2B portal](#Onboarding). Please note in Sandbox environment, the redirect_uri is NOT checked. This allows you to test your integration locally.
 **request_uri** | Optional | This parameter enables OpenID Connect parameters to be passed by reference. The <i>"request_uri"</i> value is a URL using the https scheme referencing a resource containing a Request Object value, which is a JWT containing the request parameters. The URL MUST be shared with us when registering your project in the [itsme® B2B portal](#Onboarding).<br>See <a href="#RequestUri">Using request_uri parameter</a> for more details.</br>
 
@@ -413,7 +413,7 @@ On top of the <i>"openid"</i> and <i>"service:TEST_code"</i> values specified in
 
 Parameter | Description
 :-- | :--
-**profile** | It will request the claims representing basic profile information. These are <i>"family_name"</i>, <i>"given_name"</i>, <i>"gender"</i>, <i>"birthdate"</i> and <i>"locale"</i>.
+**profile** | It will request the claims representing basic profile information. These are <i>"family_name"</i>, <i>"given_name"</i>, <i>"name"</i>, <i>"gender"</i>, <i>"birthdate"</i> and <i>"locale"</i>.
 **email** | It will request the <i>"email"</i> and <i>"email_verified"</i> claims.
 **phone** | It will request the <i>"phone_number"</i> and <i>"phone_number_verified"</i> claims
 **address** | It will request the <i>"street_address"</i>, <i>"locality"</i>, <i>"postal_code"</i> and <i>"country"</i> claims.
@@ -422,8 +422,9 @@ The values returned via the itsme® userInfo Endpoint are those below:
 
 Values |	Returned when request |	Description
 :--- | :--- | :---
-**family_name** | Always | 
-**given_name** | Always | 
+**family_name** | Always | Returns the surname(s) or last name(s) of the user. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.
+**given_name** | Always | Returns the given name(s) or first name(s) of the user. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.
+**name** | Always | Returns user's full name in displayable form including all name parts, possibly including titles and suffixes.
 **gender** | Always | Is either 'male' or 'female' 
 **birthdate** | Always | In YYYY-MM-DD format 
 **locale** | Optional | The language of the User. itsme(r) does not possess this information for every account. Can currently only be 'en', 'fr', 'nl' or 'de'.
