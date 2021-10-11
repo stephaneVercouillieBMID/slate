@@ -423,7 +423,7 @@
 <tr>
 <td style="text-align: left"><strong>scope</strong></td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>&quot;openid&quot;</i> and <i>&quot;service:TEST_code&quot;</i>, by replacing &quot;TEST_code&quot; with the service code you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br>You MAY also specify additional scopes, separated by spaces, to request more information about the User. Depending on your use case, the following additional scopes MAY apply:<ul><li>profile: will request the claims representing basic profile information. These are <i>&quot;family_name&quot;</i>, <i>&quot;given_name&quot;</i>, <i>&quot;gender&quot;</i>, <i>&quot;birthdate&quot;</i> and <i>&quot;locale&quot;</i>.</li><li>email: will request the <i>&quot;email&quot;</i> and <i>&quot;email_verified&quot;</i> claims.</li><li>phone: will request the <i>&quot;phone_number&quot;</i> and <i>&quot;phone_number_verified&quot;</i> claims.</li><li>address: will request the <i>&quot;street_address&quot;</i>, <i>&quot;locality&quot;</i>, <i>&quot;postal_code&quot;</i> and <i>&quot;country&quot;</i> claims.</li></ul>For more information on User attributes or claims, please consult the <a href="#Data">ID claims</a> section.</br><br>An HTTP ERROR <i>&quot;not_implemented&quot;</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br></td>
+<td style="text-align: left">The scope parameter allows the application to express the desired scope of the access request. It MUST contain the value <i>&quot;openid&quot;</i> and <i>&quot;service:TEST_code&quot;</i>, by replacing &quot;TEST_code&quot; with the service code you received when registering your project in the <a href="#Onboarding">itsme® B2B portal</a>.<br>You MAY also specify additional scopes, separated by spaces, to request more information about the User. Depending on your use case, the following additional scopes MAY apply:<ul><li>profile: will request the claims representing basic profile information. These are <i>&quot;family_name&quot;</i>, <i>&quot;given_name&quot;</i>, <i>&quot;name&quot;</i>, <i>&quot;gender&quot;</i>, <i>&quot;birthdate&quot;</i> and <i>&quot;locale&quot;</i>.</li><li>email: will request the <i>&quot;email&quot;</i> and <i>&quot;email_verified&quot;</i> claims.</li><li>phone: will request the <i>&quot;phone_number&quot;</i> and <i>&quot;phone_number_verified&quot;</i> claims.</li><li>address: will request the <i>&quot;street_address&quot;</i>, <i>&quot;locality&quot;</i>, <i>&quot;postal_code&quot;</i> and <i>&quot;country&quot;</i> claims.</li></ul>For more information on User attributes or claims, please consult the <a href="#Data">ID claims</a> section.</br><br>An HTTP ERROR <i>&quot;not_implemented&quot;</i> will be returned if the required values are not specified.</br><br>Unrecognised values will be ignored.</br></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>redirect_uri</strong></td>
@@ -937,7 +937,7 @@ Authorization: Bearer <access token></code></p>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>profile</strong></td>
-<td style="text-align: left">It will request the claims representing basic profile information. These are <i>&quot;family_name&quot;</i>, <i>&quot;given_name&quot;</i>, <i>&quot;gender&quot;</i>, <i>&quot;birthdate&quot;</i> and <i>&quot;locale&quot;</i>.</td>
+<td style="text-align: left">It will request the claims representing basic profile information. These are <i>&quot;family_name&quot;</i>, <i>&quot;given_name&quot;</i>, <i>&quot;name&quot;</i>, <i>&quot;gender&quot;</i>, <i>&quot;birthdate&quot;</i> and <i>&quot;locale&quot;</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>email</strong></td>
@@ -965,12 +965,17 @@ Authorization: Bearer <access token></code></p>
 <tr>
 <td style="text-align: left"><strong>family_name</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">Returns the surname(s) or last name(s) of the user. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>given_name</strong></td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">Returns the given name(s) or first name(s) of the user. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>name</strong></td>
+<td style="text-align: left">Always</td>
+<td style="text-align: left">Returns user&#39;s full name in displayable form including all name parts, possibly including titles and suffixes.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>gender</strong></td>
