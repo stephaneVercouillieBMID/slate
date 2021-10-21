@@ -11,7 +11,7 @@ toc_footers:
 search: true
 ---
 
-<meta http-equiv="refresh" content="0; URL=https://belgianmobileid.github.io/doc/">
+<meta http-equiv="refresh" content="0; URL=https://belgianmobileid.github.io/doc/authentication/">
 
 <aside class="warning">This documentation is outdated, please visit our new page : <a href="https://belgianmobileid.github.io/doc/" target="blank">https://belgianmobileid.github.io/doc/</a>.
 </aside>
