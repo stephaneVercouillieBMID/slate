@@ -432,19 +432,20 @@ The values returned via the itsme® userInfo Endpoint are those below:
 
 Values |	Returned when request |	Description
 :--- | :--- | :---
-**family_name** | Always | Returns the surname(s) or last name(s) of the user. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.
-**given_name** | Always | Returns the given name(s) or first name(s) of the user. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.
-**name** | Always | Returns user's full name in displayable form including all name parts, possibly including titles and suffixes.
-**gender** | Always | 
-**birthdate** | Always | 
-**locale** | Optional | The language of the User. itsme(r) does not possess this information for every account.
-**email** | Optional | The User's email address. This may not be unique and is not suitable for use as a primary key. Provided only if your scope included the string "email". itsme(r) does not possess this information for every account.
-**email_verified** | Optional | <i>"true"</i> if the User's e-mail address has been verified; otherwise <i>"false"</i>. Is always returned if email is returned. Is currently always set to 'false'.
-**phone_number** | Always | 
-**phone_number_verified** | Always | 
-**street_address** | Always | 
-**locality** | Always | 
-**postal_code** | Always | 
+**family_name** | SHALL always | Returns user's surname(s) or last name(s). Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.
+**given_name** | MAY NOT | Returns user's given name(s) or first name(s). Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.
+**name** | SHALL always | Returns user's full name in displayable form including all name parts, possibly including titles and suffixes.
+**gender** | SHALL always | Returns user's gender. Possible values are : 'female', 'male'
+**birthdate** | MAY NOT | Return user's birthday, represented as a string in YYYY-MM-DD date format. This value is derived from the birthdate_as_string claim.
+**locale** | MAY NOT | Returns user's IDR language, represented as a string format. Possible values are : 'en' 'fr' 'nl' 'de'
+**email** | MAY NOT | Returns user's email address.
+**email_verified** | MAY NOT | Returns 'true' if the user's e-mail address is verified; otherwise 'false'.
+**phone_number** | SHALL always | Returns user's phone number, represented as a string format. For example : [+][country code] [subscriber number including area code]
+**phone_number_verified** | SHALL always | Returns true if the user's e-phone number is verified; otherwise false.
+**address** | SHALL always | As member of address JSON object
+**street_address** | SHALL always | As member of address JSON object
+**locality** | SHALL always | As member of address JSON object
+**postal_code** | SHALL always | As member of address JSON object
 
 ###  Capturing claims from the 'claims' parameter
 
@@ -453,11 +454,11 @@ Typically, the values returned via the <i>"scope"</i> parameter only contain cla
 Parameter | Description
 :-- | :-- 
 **tag:sixdots.be,2016-06:claim_nationality** | It will request the <i>"nationality"</i> claim.
-**tag:sixdots.be,2016-06:claim_city_of_birth** | It will request the <i>"place of Birth - city"</i> claim.
+**tag:sixdots.be,2016-06:claim_city_of_birth** | It will request the <i>"place of Birth - city"</i>, <i>"place of Birth - country"</i> claim.
 **tag:sixdots.be,2016-06:claim_eid**  | It will request the <i>"eid"</i>, <i>"issuance_locality"</i>, <i>"validity_from"</i>, <i>"validity_to"</i>, <i>"read_date"</i> and <i>"national_number"</i> claims.
 **tag:sixdots.be,2017-05:claim_device** | It will request the <i>"os"</i>, <i>"appName"</i>, <i>"appRelease"</i>, <i>"deviceLabel"</i>, <i>"debugEnabled"</i>, <i>"deviceID"</i>, <i>"osRelease"</i>, <i>"manufacturer"</i>, <i>"hasSimEnabled"</i>, <i>"deviceLockLevel"</i>, <i>"smsEnabled"</i>, <i>"rooted"</i>, <i>"imei"</i>, <i>"deviceModel"</i> and <i>"sdkRelease"</i> claims.
 **tag:sixdots.be,2017-05:claim_photo** | It will request the <i>"e-ID Picture"</i> claim.
-**tag:sixdots.be,2020-03:claim_birthdate_as_string** | It will request the user's birthday, represented as a string. It is considered as official or at least coming unprocessed from the ID document.
+**tag:sixdots.be,2020-03:claim_birthdate_as_string** | Returns user's birthday. It is considered as official or at least coming unprocessed from the ID document.
 
 The values returned via the itsme® userInfo Endpoint are those below:
 
@@ -465,30 +466,32 @@ The values returned via the itsme® userInfo Endpoint are those below:
 
 Values | Returned when requested | Description
 :-- | :-- | :-- 
-**nationality** | Optional | itsme(r) does not possess this information for every account. 
-**place of Birth - city** | Always | 
-**eid** | Always | The eID card serial number.
-**issuance_locality**  | Optional | The eID card issuance locality. itsme(r) does not possess this information for every account.
-**validity_from** | Optional | The eID card validity “from” date. itsme(r) does not possess this information for every account.
-**validity_to** | Optional | The eID card validity “to” date. itsme(r) does not possess this information for every account.
-**read_date** | Optional | The data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000). itsme(r) does not possess this information for every account.
-**national_number** | Always | The Belgian National Register Number.
-**os** | Always | The device operating system. The returned values will be <i>"ANDROID"</i> or <i>"iOS"</i>
-**appName** | Always | The application name.
-**appRelease** | Always | The application current release.
-**deviceLabel** | Always | The name of the device. itsme(r) does not possess this information for every account.
-**debugEnabled**  | Always | <i>"True"</i> if debug mode has been activated; otherwise <i>"false"</i>.
-**deviceId** | Always | The device identifier.
-**osRelease** | Always | The version of the OS running on your device.
-**manufacturer** | Always | The brand of the device manufacturer.
-**hasSimEnabled** | Always | It tells you if a SIM card is installed in the device, or not. The returned value is always <i>"true"</i> as long as itsme® can't be installed on tablets.
-**deviceLockLevel** | Always | The type of action required to unlock the device (PIN, password, pattern, nothing).
-**smsEnabled** | Always | True if can send SMS. On iOS, this means it’s an iPhone.
-**rooted** | Always | The returned value is always <i>"false"</i> since itsme® can't be used on a jailbreaked/rooted device. 
-**imei** | Always | The device IMEI value.
-**deviceModel** | Always | The model of the device (e.g. iPhone 7)
-**sdkRelease** | Always | The version of sdk on this device.
-**e-ID Picture** | Optional | itsme(r) does not possess this information for every account.
+**nationality** | SHALL always | Returns user's nationality, represented as a string for Belgian ID documents.
+**place of Birth - city** | MAY NOT | Returns user's place of birth, represented as a string.
+**place of Birth - country** | MAY NOT | Returns user's place of birth, represented as a string.
+**eid** | SHALL always | Returns user's Belgian ID document information. 
+**issuance_locality**  | MAY NOT | Returns user's Belgian ID document issuance locality, represented as a string.
+**validity_from** | SHALL always | Returns user's Belgian ID document issuance date, represented as a string in YYYY-MM-DDThh:mm:ss date format specified by ISO 8601.
+**validity_to** | SHALL always | Returns user's Belgian ID document expiry date, represented as a string in YYYY-MM-DDThh:mm:ss date format specified by ISO 8601.
+**read_date** | SHALL always | Returns user's Belgian ID card data extraction date, represented as a string in YYYY-MM-DDThh:mm:ss date format specified by ISO 8601.
+**national_number** | SHALL always | Returns user's Belgian unique identification number, represented as a string with 11 digits in the form YY.MM.DD-xxx.cd where YY.MM.DD is the birthdate of the person, xxx a sequential number (odd for males and even for females) and cd a check-digit. Some exceptions could apply.
+**os** | MAY NOT | The device operating system. The returned values will be <i>"ANDROID"</i> or <i>"iOS"</i>
+**appName** | MAY NOT | The application name.
+**appRelease** | MAY NOT | The application current release.
+**deviceLabel** | MAY NOT | The name of the device. itsme(r) does not possess this information for every account.
+**debugEnabled**  | MAY NOT | <i>"True"</i> if debug mode has been activated; otherwise <i>"false"</i>.
+**deviceId** | MAY NOT | The device identifier.
+**osRelease** | MAY NOT | The version of the OS running on your device.
+**manufacturer** | MAY NOT | The brand of the device manufacturer.
+**hasSimEnabled** | MAY NOT | It tells you if a SIM card is installed in the device, or not. The returned value is always <i>"true"</i> as long as itsme® can't be installed on tablets.
+**deviceLockLevel** | MAY NOT | The type of action required to unlock the device (PIN, password, pattern, nothing).
+**smsEnabled** | MAY NOT | True if can send SMS. On iOS, this means it’s an iPhone.
+**rooted** | MAY NOT | The returned value is always <i>"false"</i> since itsme® can't be used on a jailbreaked/rooted device. 
+**imei** | MAY NOT | The device IMEI value.
+**deviceModel** | MAY NOT | The model of the device (e.g. iPhone 7)
+**sdkRelease** | MAY NOT | The version of sdk on this device.
+**e-ID Picture** | MAY NOT | Returns user's ID picture, represented as a string in Base64 image format. When decoded the image should have the following properties : 200 x 140px resolution, 24 BPP, JPEG. 
+**birthdate_as_a_string** | MAY NOT | Returns user's birthday. It is considered as official or at least coming unprocessed from the ID document.
 
 
 # 4. Mapping the User
