@@ -123,7 +123,7 @@ The OpenID Connect Core specification defines a number of parameters to integrat
 <table>
   <tbody>
     <tr>
-      <td>{% include parameter.html name="client_id" req="REQUIRED" %}</td>
+      <td><b>client_id</b><br><i>REQUIRED</i></td>
       <td>It identifies your application. This parameter value is generated during registration.</td>
     </tr>
      <tr>
