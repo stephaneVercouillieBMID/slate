@@ -948,72 +948,72 @@ Authorization: Bearer <access token></code></p>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>family_name</strong></td>
-<td style="text-align: left">Always</td>
-<td style="text-align: left">Returns the surname(s) or last name(s) of the user. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.</td>
+<td style="text-align: left">SHALL always</td>
+<td style="text-align: left">Returns user&#39;s surname(s) or last name(s). Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>given_name</strong></td>
-<td style="text-align: left">Always</td>
-<td style="text-align: left">Returns the given name(s) or first name(s) of the user. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.</td>
+<td style="text-align: left">MAY NOT</td>
+<td style="text-align: left">Returns user&#39;s given name(s) or first name(s). Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>name</strong></td>
-<td style="text-align: left">Always</td>
+<td style="text-align: left">SHALL always</td>
 <td style="text-align: left">Returns user&#39;s full name in displayable form including all name parts, possibly including titles and suffixes.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>gender</strong></td>
-<td style="text-align: left">Always</td>
-<td style="text-align: left">Is either &#39;male&#39; or &#39;female&#39;.</td>
+<td style="text-align: left">SHALL always</td>
+<td style="text-align: left">Returns user&#39;s gender. Possible values are : &#39;female&#39;, &#39;male&#39;</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>birthdate</strong></td>
-<td style="text-align: left">Always</td>
-<td style="text-align: left">In YYYY-MM-DD format.</td>
+<td style="text-align: left">MAY NOT</td>
+<td style="text-align: left">Return user&#39;s birthday, represented as a string in YYYY-MM-DD date format. This value is derived from the birthdate_as_string claim.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>locale</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">The language of the User. itsme(r) does not possess this information for every account.</td>
+<td style="text-align: left">MAY NOT</td>
+<td style="text-align: left">Returns user&#39;s IDR language, represented as a string format. Possible values are : &#39;en&#39; &#39;fr&#39; &#39;nl&#39; &#39;de&#39;</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>email</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">The User&#39;s email address. This may not be unique and is not suitable for use as a primary key. Provided only if your scope included the string &quot;email&quot;. itsme(r) does not possess this information for every account.</td>
+<td style="text-align: left">MAY NOT</td>
+<td style="text-align: left">Returns user&#39;s email address.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>email_verified</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left"><i>&quot;true&quot;</i> if the User&#39;s e-mail address has been verified; otherwise <i>&quot;false&quot;</i>. Is always returned if email is returned. Is currently always set to &#39;false&#39;.</td>
+<td style="text-align: left">MAY NOT</td>
+<td style="text-align: left">Returns &#39;true&#39; if the user&#39;s e-mail address is verified; otherwise &#39;false&#39;.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>phone_number</strong></td>
-<td style="text-align: left">Always</td>
-<td style="text-align: left">In &quot;prefix number&quot; format. For instance: &quot;+32 422010099&quot;</td>
+<td style="text-align: left">SHALL always</td>
+<td style="text-align: left">Returns user&#39;s phone number, represented as a string format. For example : [+][country code] [subscriber number including area code]</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>phone_number_verified</strong></td>
-<td style="text-align: left">Always</td>
-<td style="text-align: left">Boolean</td>
+<td style="text-align: left">SHALL always</td>
+<td style="text-align: left">Returns true if the user&#39;s e-phone number is verified; otherwise false.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>address</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">SHALL always</td>
+<td style="text-align: left">As member of address JSON object</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>street_address</strong></td>
-<td style="text-align: left">Optional</td>
+<td style="text-align: left">SHALL always</td>
 <td style="text-align: left">As member of address JSON object</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>locality</strong></td>
-<td style="text-align: left">Optional</td>
+<td style="text-align: left">SHALL always</td>
 <td style="text-align: left">As member of address JSON object</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>postal_code</strong></td>
-<td style="text-align: left">Optional</td>
+<td style="text-align: left">SHALL always</td>
 <td style="text-align: left">As member of address JSON object</td>
 </tr>
 </tbody></table>
@@ -1032,7 +1032,7 @@ Authorization: Bearer <access token></code></p>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2016-06:claim_city_of_birth</strong></td>
-<td style="text-align: left">It will request the <i>&quot;place of Birth - city&quot;</i> claim.</td>
+<td style="text-align: left">It will request the <i>&quot;place of Birth - city&quot;</i>, <i>&quot;place of Birth - country&quot;</i> claim.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2016-06:claim_eid</strong></td>
@@ -1048,7 +1048,7 @@ Authorization: Bearer <access token></code></p>
 </tr>
 <tr>
 <td style="text-align: left"><strong>tag:sixdots.be,2020-03:claim_birthdate_as_string</strong></td>
-<td style="text-align: left">It will request the user&#39;s birthday, represented as a string. It is considered as official or at least coming unprocessed from the ID document.</td>
+<td style="text-align: left">Returns user&#39;s birthday. It is considered as official or at least coming unprocessed from the ID document.</td>
 </tr>
 </tbody></table>
 
@@ -1065,123 +1065,133 @@ Authorization: Bearer <access token></code></p>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>nationality</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">itsme(r) does not possess this information for every account.</td>
+<td style="text-align: left">SHALL always</td>
+<td style="text-align: left">Returns user&#39;s nationality, represented as a string for Belgian ID documents.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>place of Birth - city</strong></td>
-<td style="text-align: left">Always</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">MAY NOT</td>
+<td style="text-align: left">Returns user&#39;s place of birth, represented as a string.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>place of Birth - country</strong></td>
+<td style="text-align: left">MAY NOT</td>
+<td style="text-align: left">Returns user&#39;s place of birth, represented as a string.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>eid</strong></td>
-<td style="text-align: left">Always</td>
-<td style="text-align: left">The eID card serial number.</td>
+<td style="text-align: left">SHALL always</td>
+<td style="text-align: left">Returns user&#39;s Belgian ID document information.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>issuance_locality</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">The eID card issuance locality. itsme(r) does not possess this information for every account.</td>
+<td style="text-align: left">MAY NOT</td>
+<td style="text-align: left">Returns user&#39;s Belgian ID document issuance locality, represented as a string.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>validity_from</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">The eID card validity “from” date. itsme(r) does not possess this information for every account.</td>
+<td style="text-align: left">SHALL always</td>
+<td style="text-align: left">Returns user&#39;s Belgian ID document issuance date, represented as a string in YYYY-MM-DDThh:mm:ss date format specified by ISO 8601.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>validity_to</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">The eID card validity “to” date. itsme(r) does not possess this information for every account.</td>
+<td style="text-align: left">SHALL always</td>
+<td style="text-align: left">Returns user&#39;s Belgian ID document expiry date, represented as a string in YYYY-MM-DDThh:mm:ss date format specified by ISO 8601.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>read_date</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">The data extraction date. The date is encoded using ISO 8601 UTC (timezone) date format (example: 2017-04-01T19:43:37+0000). itsme(r) does not possess this information for every account.</td>
+<td style="text-align: left">SHALL always</td>
+<td style="text-align: left">Returns user&#39;s Belgian ID card data extraction date, represented as a string in YYYY-MM-DDThh:mm:ss date format specified by ISO 8601.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>national_number</strong></td>
-<td style="text-align: left">Always</td>
-<td style="text-align: left">The Belgian National Register Number.</td>
+<td style="text-align: left">SHALL always</td>
+<td style="text-align: left">Returns user&#39;s Belgian unique identification number, represented as a string with 11 digits in the form YY.MM.DD-xxx.cd where YY.MM.DD is the birthdate of the person, xxx a sequential number (odd for males and even for females) and cd a check-digit. Some exceptions could apply.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>os</strong></td>
-<td style="text-align: left">Always</td>
+<td style="text-align: left">MAY NOT</td>
 <td style="text-align: left">The device operating system. The returned values will be <i>&quot;ANDROID&quot;</i> or <i>&quot;iOS&quot;</i></td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>appName</strong></td>
-<td style="text-align: left">Always</td>
+<td style="text-align: left">MAY NOT</td>
 <td style="text-align: left">The application name.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>appRelease</strong></td>
-<td style="text-align: left">Always</td>
+<td style="text-align: left">MAY NOT</td>
 <td style="text-align: left">The application current release.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>deviceLabel</strong></td>
-<td style="text-align: left">Always</td>
+<td style="text-align: left">MAY NOT</td>
 <td style="text-align: left">The name of the device. itsme(r) does not possess this information for every account.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>debugEnabled</strong></td>
-<td style="text-align: left">Always</td>
+<td style="text-align: left">MAY NOT</td>
 <td style="text-align: left"><i>&quot;True&quot;</i> if debug mode has been activated; otherwise <i>&quot;false&quot;</i>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>deviceId</strong></td>
-<td style="text-align: left">Always</td>
+<td style="text-align: left">MAY NOT</td>
 <td style="text-align: left">The device identifier.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>osRelease</strong></td>
-<td style="text-align: left">Always</td>
+<td style="text-align: left">MAY NOT</td>
 <td style="text-align: left">The version of the OS running on your device.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>manufacturer</strong></td>
-<td style="text-align: left">Always</td>
+<td style="text-align: left">MAY NOT</td>
 <td style="text-align: left">The brand of the device manufacturer.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>hasSimEnabled</strong></td>
-<td style="text-align: left">Always</td>
+<td style="text-align: left">MAY NOT</td>
 <td style="text-align: left">It tells you if a SIM card is installed in the device, or not. The returned value is always <i>&quot;true&quot;</i> as long as itsme® can&#39;t be installed on tablets.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>deviceLockLevel</strong></td>
-<td style="text-align: left">Always</td>
+<td style="text-align: left">MAY NOT</td>
 <td style="text-align: left">The type of action required to unlock the device (PIN, password, pattern, nothing).</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>smsEnabled</strong></td>
-<td style="text-align: left">Always</td>
+<td style="text-align: left">MAY NOT</td>
 <td style="text-align: left">True if can send SMS. On iOS, this means it’s an iPhone.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>rooted</strong></td>
-<td style="text-align: left">Always</td>
+<td style="text-align: left">MAY NOT</td>
 <td style="text-align: left">The returned value is always <i>&quot;false&quot;</i> since itsme® can&#39;t be used on a jailbreaked/rooted device.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>imei</strong></td>
-<td style="text-align: left">Always</td>
+<td style="text-align: left">MAY NOT</td>
 <td style="text-align: left">The device IMEI value.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>deviceModel</strong></td>
-<td style="text-align: left">Always</td>
+<td style="text-align: left">MAY NOT</td>
 <td style="text-align: left">The model of the device (e.g. iPhone 7)</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>sdkRelease</strong></td>
-<td style="text-align: left">Always</td>
+<td style="text-align: left">MAY NOT</td>
 <td style="text-align: left">The version of sdk on this device.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>e-ID Picture</strong></td>
-<td style="text-align: left">Optional</td>
-<td style="text-align: left">itsme(r) does not possess this information for every account.</td>
+<td style="text-align: left">MAY NOT</td>
+<td style="text-align: left">Returns user&#39;s ID picture, represented as a string in Base64 image format. When decoded the image should have the following properties : 200 x 140px resolution, 24 BPP, JPEG.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>birthdate_as_a_string</strong></td>
+<td style="text-align: left">MAY NOT</td>
+<td style="text-align: left">Returns user&#39;s birthday. It is considered as official or at least coming unprocessed from the ID document.</td>
 </tr>
 </tbody></table>
 <h1 id='4-mapping-the-user'>4. Mapping the User</h1>
