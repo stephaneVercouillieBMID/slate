@@ -472,6 +472,7 @@ When renewing your certificate (at expiration or for any other reason), please g
   <li>Be issued by the same CA as the previous certificate</li>
   <li>Contain the same Common Name as the previous certificate</li>
 </ul>
+
 Those 2 conditions will allow for a streamlined process where you can replace your certificate in a transparent way from the itsme&#174; point of view.
 
 <a name="characterEncoding"><a/>
