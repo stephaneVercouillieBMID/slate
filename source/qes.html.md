@@ -467,6 +467,13 @@ HTTP Status code | statusReason |  Description
 We make use of SSLMA Authentication with our b2b interface (BASE_URL/qes-partners/1.0.0). This means that the SSL certificate you present upon each call towards this interface must be the one whitelisted in our systems as part of the onboarding process.
 We combine this authentication with IP filtering, meaning that we need to whitelist the IP address of your server. This is also part of the onboarding process.
 
+When renewing your certificate (at expiration or for any other reason), please give us some advance notice to make sure the transition happens smoothly. If possible, the new certificate should:
+<ul>
+  <li>Be issued by the same CA as the previous certificate</li>
+  <li>Contain the same Common Name as the previous certificate</li>
+</ul>
+Those 2 conditions will allow for a streamlined process where you can replace your certificate in a transparent way from the itsme&#174; point of view.
+
 <a name="characterEncoding"><a/>
   
 ## 5.3 Supported character set
