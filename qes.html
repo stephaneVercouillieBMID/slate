@@ -328,6 +328,8 @@
   <li>At this stage, your SCA is able to confirm the success of the operation and display a success message.</li>
 </ol>
 
+<aside class="alert">The BASE_URL to be used in this flow will be communicated during your onboarding process</aside>
+
 <p><a name="OpenIDQES"></a></p>
 <h2 id='4-1-checking-itsme-sign-configuration'>4.1. Checking itsme® Sign configuration</h2>
 <p>Two JSON documents are available to ease the integration of itsme sign service:
@@ -344,7 +346,7 @@
   <li>supported languages</li>
 </ul>
 
-<p>The JSON document for itsme® Sign service may be retrieved from <a href="https://b2b.sign.itsme.be/qes-partners/1.0.0/.well-known/configuration" target="blank">https://b2b.sign.itsme.be/qes-partners/1.0.0/.well-known/configuration</a>.</p>
+<p>The JSON document for itsme® Sign service may be retrieved from <a href="BASE_URL/qes-partners/1.0.0/.well-known/configuration" target="blank">BASE_URL/qes-partners/1.0.0/.well-known/configuration</a>.</p>
 
 <p>Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in <a href="#SSLMA">SSLMA Authentication</a>. If you need to access the discovery document before setting up the connectivity, you can use the public version here (this one is updated manually, while the previous one is automatically generated): <a href="https://belgianmobileid.github.io/slate/qesdiscovery.json" target="blank">https://belgianmobileid.github.io/slate/qesdiscovery.json</a></p>
 <h3 id='b2b-interface-swagger'>B2B interface swagger</h3>
@@ -352,11 +354,11 @@
 <h2 id='4-2-starting-a-new-user-identification-session'>4.2. Starting a new User identification session</h2>
 <p>This section relates to the step 2 of the sequence diagram.</p>
 
-<p>First, you will forge a HTTPS POST request that MUST be sent to the itsme® User Identification Endpoint, which is https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in <a href="#SSLMA">SSLMA Authentication</a>.</p>
+<p>First, you will forge a HTTPS POST request that MUST be sent to the itsme® User Identification Endpoint, which is BASE_URL/qes-partners/1.0.0/user_identification. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in <a href="#SSLMA">SSLMA Authentication</a>.</p>
 
 <p>Below you will find the mandatory and optional parameters to integrate in the HTTPS POST request body formatted as application/json:</p>
 
-<p><code style=display:block;white-space:pre-wrap>POST /https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification HTTP/1.1
+<p><code style=display:block;white-space:pre-wrap>POST /BASE_URL/qes-partners/1.0.0/user_identification HTTP/1.1
 {
     &quot;partnerCode&quot;:&quot;myClientID&quot;, 
     &quot;serviceCode&quot;:&quot;myServiceCode&quot;, 
@@ -463,11 +465,11 @@
 <h2 id='4-5-requesting-the-user-identification-session-status'>4.5. Requesting the User identification session status</h2>
 <p>This section relates to the step 6 of the sequence diagram.</p>
 
-<p>By calling the Identification Session Status Endpoint, you are checking the status of the User identification session. This endpoint is https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification/status. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in <a href="#SSLMA">SSLMA Authentication</a>.</p>
+<p>By calling the Identification Session Status Endpoint, you are checking the status of the User identification session. This endpoint is BASE_URL/qes-partners/1.0.0/user_identification/status. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in <a href="#SSLMA">SSLMA Authentication</a>.</p>
 
 <p>Below you will find the mandatory and optional parameters to integrate in the HTTPS POST request body formatted as application/json:</p>
 
-<p><code style=display:block;white-space:pre-wrap>POST /https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification/status HTTP/1.1
+<p><code style=display:block;white-space:pre-wrap>POST /BASE_URL/qes-partners/1.0.0/user_identification/status HTTP/1.1
 {
     &quot;partnerCode&quot;:&quot;myPartnerCode&quot;, 
     &quot;serviceCode&quot;:&quot;myServiceCode&quot;, 
@@ -556,11 +558,11 @@
 <h2 id='4-7-requesting-a-new-sign-session'>4.7. Requesting a new Sign session</h2>
 <p>This section relates to the step 9 of the sequence diagram.</p>
 
-<p>In order to intiate the Sign session, you will forge a POST request towards this endpoint: https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in <a href="#SSLMA">SSLMA Authentication</a>. Please note the same endpoint is used for starting the sign session and for requesting the status of this session (also see &#39;requesting the session status&#39;).</p>
+<p>In order to intiate the Sign session, you will forge a POST request towards this endpoint: BASE_URL/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in <a href="#SSLMA">SSLMA Authentication</a>. Please note the same endpoint is used for starting the sign session and for requesting the status of this session (also see &#39;requesting the session status&#39;).</p>
 
 <p>Below you will find the mandatory and optional parameters to integrate in the HTTPS POST request body formatted as application/json:</p>
 
-<p><code style=display:block;white-space:pre-wrap>POST /https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document HTTP/1.1
+<p><code style=display:block;white-space:pre-wrap>POST /BASE_URL/qes-partners/1.0.0/sign_document HTTP/1.1
 {
     &quot;inDocs&quot;: {
         &quot;docHash&quot;:[
@@ -868,10 +870,10 @@
 <h2 id='4-10-requesting-the-sign-session-status'>4.10 Requesting the Sign session status</h2>
 <p>This section relates to the step 13 of the sequence diagram.</p>
 
-<p>This request has to be sent in order to get the information about the Sign session (which you can do as many times as desired for the same signing session, as long as this session is still pending). In order to do so, you will forge a POST request towards https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in <a href="#SSLMA">SSLMA Authentication</a>. Please note the same endpoint is used for starting the sign session and for requesting the status of this session (also see &#39;Starting sign session&#39;).</p>
+<p>This request has to be sent in order to get the information about the Sign session (which you can do as many times as desired for the same signing session, as long as this session is still pending). In order to do so, you will forge a POST request towards BASE_URL/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in <a href="#SSLMA">SSLMA Authentication</a>. Please note the same endpoint is used for starting the sign session and for requesting the status of this session (also see &#39;Starting sign session&#39;).</p>
 
 <p>Below you will find the mandatory and optional parameters to integrate in the HTTPS POST request body formatted as application/json:
-<code style=display:block;white-space:pre-wrap> POST /https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document HTTP/1.1
+<code style=display:block;white-space:pre-wrap> POST /BASE_URL/qes-partners/1.0.0/sign_document HTTP/1.1
   {
   &quot;inDocs&quot;: null, 
   &quot;reqID&quot;: &quot;ReqIDv1prg8pmn9mtive3otsc&quot;, 
@@ -1142,7 +1144,7 @@
 
 <p><a name="SSLMA"></a></p>
 <h2 id='5-2-sslma-authentication'>5.2 SSLMA Authentication</h2>
-<p>We make use of SSLMA Authentication with our b2b interface (https://b2b.sign.itsme.be/qes-partners/1.0.0). This means that the SSL certificate you present upon each call towards this interface must be the one whitelisted in our systems as part of the onboarding process.
+<p>We make use of SSLMA Authentication with our b2b interface (BASE_URL/qes-partners/1.0.0). This means that the SSL certificate you present upon each call towards this interface must be the one whitelisted in our systems as part of the onboarding process.
 We combine this authentication with IP filtering, meaning that we need to whitelist the IP address of your server. This is also part of the onboarding process.</p>
 
 <p><a name="characterEncoding"><a/></p>
