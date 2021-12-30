@@ -55,6 +55,8 @@ The itsme® Sign flow goes through the steps shown in the sequence diagram below
   <li>At this stage, your SCA is able to confirm the success of the operation and display a success message.</li>
 </ol>
 
+<aside class="alert">The BASE_URL to be used in this flow will be communicated during your onboarding process</aside>
+
 
 <a name="OpenIDQES"></a>
 ## 4.1. Checking itsme® Sign configuration
@@ -74,7 +76,7 @@ To simplify implementations and increase flexibility, the following key-value pa
   <li>supported languages</li>
 </ul>
 
-The JSON document for itsme® Sign service may be retrieved from <a href="https://b2b.sign.itsme.be/qes-partners/1.0.0/.well-known/configuration" target="blank">https://b2b.sign.itsme.be/qes-partners/1.0.0/.well-known/configuration</a>.
+The JSON document for itsme® Sign service may be retrieved from <a href="BASE_URL/qes-partners/1.0.0/.well-known/configuration" target="blank">BASE_URL/qes-partners/1.0.0/.well-known/configuration</a>.
 
 Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA). If you need to access the discovery document before setting up the connectivity, you can use the public version here (this one is updated manually, while the previous one is automatically generated): <a href="https://belgianmobileid.github.io/slate/qesdiscovery.json" target="blank">https://belgianmobileid.github.io/slate/qesdiscovery.json</a>
 
@@ -87,11 +89,11 @@ The swagger of the B2B interface (for the back-end to back-end calls) may be ret
 
 This section relates to the step 2 of the sequence diagram.
 
-First, you will forge a HTTPS POST request that MUST be sent to the itsme® User Identification Endpoint, which is https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA).
+First, you will forge a HTTPS POST request that MUST be sent to the itsme® User Identification Endpoint, which is BASE_URL/qes-partners/1.0.0/user_identification. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA).
 
 Below you will find the mandatory and optional parameters to integrate in the HTTPS POST request body formatted as application/json:
 
-<code style=display:block;white-space:pre-wrap>POST /https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification HTTP/1.1
+<code style=display:block;white-space:pre-wrap>POST /BASE_URL/qes-partners/1.0.0/user_identification HTTP/1.1
 {
 	"partnerCode":"myClientID", 
 	"serviceCode":"myServiceCode", 
@@ -150,11 +152,11 @@ The next step is to redirect the end user to our Front-End, so that we can proce
 
 This section relates to the step 6 of the sequence diagram.
 
-By calling the Identification Session Status Endpoint, you are checking the status of the User identification session. This endpoint is https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification/status. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA).
+By calling the Identification Session Status Endpoint, you are checking the status of the User identification session. This endpoint is BASE_URL/qes-partners/1.0.0/user_identification/status. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA).
 
 Below you will find the mandatory and optional parameters to integrate in the HTTPS POST request body formatted as application/json:
 
-<code style=display:block;white-space:pre-wrap>POST /https://b2b.sign.itsme.be/qes-partners/1.0.0/user_identification/status HTTP/1.1
+<code style=display:block;white-space:pre-wrap>POST /BASE_URL/qes-partners/1.0.0/user_identification/status HTTP/1.1
 {
 	"partnerCode":"myPartnerCode", 
 	"serviceCode":"myServiceCode", 
@@ -200,11 +202,11 @@ See [Appendixes](#Appendixes) to get more information on the error codes.
 
 This section relates to the step 9 of the sequence diagram.
 
-In order to intiate the Sign session, you will forge a POST request towards this endpoint: https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA). Please note the same endpoint is used for starting the sign session and for requesting the status of this session (also see 'requesting the session status').
+In order to intiate the Sign session, you will forge a POST request towards this endpoint: BASE_URL/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA). Please note the same endpoint is used for starting the sign session and for requesting the status of this session (also see 'requesting the session status').
 
 Below you will find the mandatory and optional parameters to integrate in the HTTPS POST request body formatted as application/json:
 
-<code style=display:block;white-space:pre-wrap>POST /https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document HTTP/1.1
+<code style=display:block;white-space:pre-wrap>POST /BASE_URL/qes-partners/1.0.0/sign_document HTTP/1.1
 {
 	"inDocs": {
 		"docHash":[
@@ -353,10 +355,10 @@ Please note there is no built-in parameter designed to let you getting your sess
 
 This section relates to the step 13 of the sequence diagram.
 
-This request has to be sent in order to get the information about the Sign session (which you can do as many times as desired for the same signing session, as long as this session is still pending). In order to do so, you will forge a POST request towards https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA). Please note the same endpoint is used for starting the sign session and for requesting the status of this session (also see 'Starting sign session').
+This request has to be sent in order to get the information about the Sign session (which you can do as many times as desired for the same signing session, as long as this session is still pending). In order to do so, you will forge a POST request towards BASE_URL/qes-partners/1.0.0/sign_document. Please note we are using SSLMA as authentication method, combined with IP filtering, as specified in [SSLMA Authentication](#SSLMA). Please note the same endpoint is used for starting the sign session and for requesting the status of this session (also see 'Starting sign session').
 
 Below you will find the mandatory and optional parameters to integrate in the HTTPS POST request body formatted as application/json:
-<code style=display:block;white-space:pre-wrap> POST /https://b2b.sign.itsme.be/qes-partners/1.0.0/sign_document HTTP/1.1
+<code style=display:block;white-space:pre-wrap> POST /BASE_URL/qes-partners/1.0.0/sign_document HTTP/1.1
   {
   "inDocs": null, 
   "reqID": "ReqIDv1prg8pmn9mtive3otsc", 
@@ -462,7 +464,7 @@ HTTP Status code | statusReason |  Description
 <a name="SSLMA"></a>
 
 ## 5.2 SSLMA Authentication
-We make use of SSLMA Authentication with our b2b interface (https://b2b.sign.itsme.be/qes-partners/1.0.0). This means that the SSL certificate you present upon each call towards this interface must be the one whitelisted in our systems as part of the onboarding process.
+We make use of SSLMA Authentication with our b2b interface (BASE_URL/qes-partners/1.0.0). This means that the SSL certificate you present upon each call towards this interface must be the one whitelisted in our systems as part of the onboarding process.
 We combine this authentication with IP filtering, meaning that we need to whitelist the IP address of your server. This is also part of the onboarding process.
 
 <a name="characterEncoding"><a/>
