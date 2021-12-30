@@ -55,7 +55,7 @@ The itsme® Sign flow goes through the steps shown in the sequence diagram below
   <li>At this stage, your SCA is able to confirm the success of the operation and display a success message.</li>
 </ol>
 
-<aside class="alert">The BASE_URL to be used in this flow will be communicated during your onboarding process</aside>
+<aside class="alert">The <b>BASE_URL</b> to be used in this flow will be communicated during your onboarding process</aside>
 
 
 <a name="OpenIDQES"></a>
