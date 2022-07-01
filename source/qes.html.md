@@ -25,6 +25,7 @@ This document is intended to be read by developers of any Signature Creation App
 # 3. Prerequisites
  
 Before you can integrate your application with itsme® Sign service, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.
+Please be aware that we support performing multiple signatures with 1 itsme® action, but this is an extra option. If you want to make use of it, be sure to mention it to the Onboarding team while setting up your project.
 
 
 # 4. Integrating Sign services
@@ -42,12 +43,7 @@ The itsme® Sign flow goes through the steps shown in the sequence diagram below
   <li>The itsme® Integration Layer Back-End returns your SCA Back-End the signer information as well as the signature certificate of the User.</li>
   <li>Your SCA Back-End constructs the data to be signed and the hash of the signature will be computed by yourself. The value of this hash MUST be base64url encoded.</li> 
   <li>Your SCA Back-End will provide the hash to the itsme® Integration Layer Back-End to request the digital signature value.</li>
-</ol>
-
-<aside class="alert">Currently we only allow the signature of one single hash. Multiple hash signing is not yet available.</aside>
-
-<ol>
-  <li value="10">A session id and redirect URL are returned by itsme® to your SCA Back-End.</li>
+  <li>A session id and redirect URL are returned by itsme® to your SCA Back-End.</li>
   <li>Your SCA frontend will then redirect the User to the signature webpage of itsme®, where he is guided through the itsme part of the signing flow.</li>    
   <li>The session of the User at itsme® side ends as the process is finished and the User is redirected to your SCA Front-End.</li>
   <li>Your SCA Back-End will contact the itsme® Integration Layer Back-End to check the signature status (same endpoint as for creating the signature session).</li>
@@ -279,10 +275,10 @@ Below you will find the mandatory and optional parameters to integrate in the HT
 Parameter | Type | Required | Description
 :-------- | :-------- | :--------| :----- 
 **inDocs** |  | Required | This contains the element to be signed. 
-**docHash** | Array | Required | Contains information related to the document. Currently, only single hash signing is allowed. This parameter thus MUST contain information related to one single document to be signed by itsme®, expressed in an array.
+**docHash** | Array | Required | Contains information related to the document. This parameter MUST contain information related to the document(s) to be signed by itsme®, expressed in an array.
 **id** | String | Required | This is the ID of the hash(es) to be signed.
-**di** | Array | Required | This is the array of hashes to be signed during the signature process. Currently, only single hash signing is allowed. This parameter thus MUST contain one single hash and its algorithm , expressed in an array.
-**alg** | String | Required | o	This MUST be "http://www.w3.org/2001/04/xmlenc#sha256", as only the SHA256 algorithm is supported. See <a href="http://www.w3.org/2001/04/xmlenc#sha256" target="blank">http://www.w3.org/2001/04/xmlenc#sha256</a> for more information.
+**di** | Array | Required | This is the array of hashes to be signed during the signature process. This parameter thus MUST contain the hash(es) and their algorithm(s) , expressed in an array.
+**alg** | String | Required | This MUST be "http://www.w3.org/2001/04/xmlenc#sha256", as only the SHA256 algorithm is supported. See <a href="http://www.w3.org/2001/04/xmlenc#sha256" target="blank">http://www.w3.org/2001/04/xmlenc#sha256</a> for more information.
 **value** | String | Required | This is the hash to be signed during the signature flow. The value of the computed hash must be Base64 encoded.
 **reqID** | String | Required | This is an ID you generate to identify the current request.
 **asyncRespID** | String | Optional | This parameter MUST be set to 'null' in order to initiate the sign session. 
@@ -293,7 +289,7 @@ Parameter | Type | Required | Description
 **userCode** | String | Required | The identifier for the User as returned in 3.6
 **partnerCode** | String | Required | This MUST be the client identifier you received when registering your application during the [onboarding process](#Onboarding). This parameter will be translated to a label describing the customer for which the User is signing the document. 
 **serviceCode** | String | Required | It MUST contain the value of the serviceCode defined for your application during the [onboarding process](#Onboarding).
-**decsription** | Array | Optional | Is a text you provide as the description of the document. The maximum length is 50 characters. It will be displayed in the itsme App. You MUST provide a value for each language supported by itsme ('en', 'fr', 'nl' and 'de'). Please see [Supported character set](#characterEncoding) for encoding concerns.
+**description** | Array | Optional | Is a text you provide as the description of the document. The maximum length is 50 characters. It will be displayed in the itsme App. You MUST provide a value for each language supported by itsme ('en', 'fr', 'nl' and 'de'). Please see [Supported character set](#characterEncoding) for encoding concerns.
 **redirectUrl** | String | Required | This is the URL to which the User will be redirected to your remote SCA. This MUST exactly match the redirect URL of the specified service defined when registering your application during the [onboarding process](#Onboarding).
 **signPolicy** |  | Optional | This is the object of the Signature policy to be used during the Signature. This parameter contains all the information related to the signature policy. 
 **signPolicyRef** | String | Required | This defines the reference of the signature policy to be used during itsme® Signing flow. In case no specific signature policy is applicable for that specific use case, the itsme® generic qualified signature policy SHOULD be used. The signature policy has to be indicated in the SCA Front-End to the User. The list of available codes can be retrieved from the [JSON document](#OpenIDQES).<br>The signature policies used SHOULD be defined during the [onboarding process](#Onboarding). It is up to you to choose your signature policies within the list given by itsme®. If you want to add new signature policies to your list, please ask the itsme® Onboarding team.</br>
@@ -415,7 +411,7 @@ Parameter | Type | Returned | Description
 **msg** | | Optional | This indicates the origin of the error. 
 **reqID** | String | Always | This is the ID of the request that you provide to us.
 **respID** | String | Always | This will be the same value as the value returned in 4.8 in the parameter respId.
-**sigObj** | Array| Always | This contains the signed hashes within a Json array. Currently we only support single hash signing. You will thus only find one object in this array. Please note this parameter is not returned in the other use of this call (see section [Requesting a new Sign session](#startSignSession)).
+**sigObj** | Array| Always | This contains the signed hashes within a Json array. Please note this parameter is not returned in the other use of this call (see section [Requesting a new Sign session](#startSignSession)).
 **b64Sig** | | Always | This contains the signed has within a Json object. Please note this parameter is not returned in the other use of this call (see section [Requesting a new Sign session](#startSignSession)).
 **value** | String | Always | This is the base64 encoded hash. The Sign algorithm is SHA256, the Public Key Cryptographic Standard is PKCS1 and the Signature format is « raw ». Please note this parameter is not returned in the other use of this call (see section [Requesting a new Sign session](#startSignSession)).
 **whichdoc** | String | Always | This is the ID of the hash(es) to be signed, as provided in section <a href="#startSignSession">Requesting a new Sign session</a>. Please note this parameter is not returned in the other use of this call (see section [Requesting a new Sign session](#startSignSession)).
