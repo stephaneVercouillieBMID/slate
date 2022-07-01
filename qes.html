@@ -299,7 +299,8 @@
 
 <p><a name="Onboarding"></a></p>
 <h1 id='3-prerequisites'>3. Prerequisites</h1>
-<p>Before you can integrate your application with itsme® Sign service, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.</p>
+<p>Before you can integrate your application with itsme® Sign service, you MUST set up a project in the <a href="https://brand.belgianmobileid.be/d/CX5YsAKEmVI7" target="blank">itsme® B2B portal</a> to obtain all the needed information.
+Please be aware that we support performing multiple signatures with 1 itsme® action, but this is an extra option. If you want to make use of it, be sure to mention it to the Onboarding team while setting up your project.</p>
 <h1 id='4-integrating-sign-services'>4. Integrating Sign services</h1>
 <p>The itsme® Sign flow goes through the steps shown in the sequence diagram below. </p>
 
@@ -315,12 +316,7 @@
   <li>The itsme® Integration Layer Back-End returns your SCA Back-End the signer information as well as the signature certificate of the User.</li>
   <li>Your SCA Back-End constructs the data to be signed and the hash of the signature will be computed by yourself. The value of this hash MUST be base64url encoded.</li> 
   <li>Your SCA Back-End will provide the hash to the itsme® Integration Layer Back-End to request the digital signature value.</li>
-</ol>
-
-<aside class="alert">Currently we only allow the signature of one single hash. Multiple hash signing is not yet available.</aside>
-
-<ol>
-  <li value="10">A session id and redirect URL are returned by itsme® to your SCA Back-End.</li>
+  <li>A session id and redirect URL are returned by itsme® to your SCA Back-End.</li>
   <li>Your SCA frontend will then redirect the User to the signature webpage of itsme®, where he is guided through the itsme part of the signing flow.</li>    
   <li>The session of the User at itsme® side ends as the process is finished and the User is redirected to your SCA Front-End.</li>
   <li>Your SCA Back-End will contact the itsme® Integration Layer Back-End to check the signature status (same endpoint as for creating the signature session).</li>
@@ -650,7 +646,7 @@
 <td style="text-align: left"><strong>docHash</strong></td>
 <td style="text-align: left">Array</td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">Contains information related to the document. Currently, only single hash signing is allowed. This parameter thus MUST contain information related to one single document to be signed by itsme®, expressed in an array.</td>
+<td style="text-align: left">Contains information related to the document. This parameter MUST contain information related to the document(s) to be signed by itsme®, expressed in an array.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>id</strong></td>
@@ -662,13 +658,13 @@
 <td style="text-align: left"><strong>di</strong></td>
 <td style="text-align: left">Array</td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">This is the array of hashes to be signed during the signature process. Currently, only single hash signing is allowed. This parameter thus MUST contain one single hash and its algorithm , expressed in an array.</td>
+<td style="text-align: left">This is the array of hashes to be signed during the signature process. This parameter thus MUST contain the hash(es) and their algorithm(s) , expressed in an array.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>alg</strong></td>
 <td style="text-align: left">String</td>
 <td style="text-align: left">Required</td>
-<td style="text-align: left">o This MUST be &quot;http://www.w3.org/2001/04/xmlenc#sha256&quot;, as only the SHA256 algorithm is supported. See <a href="http://www.w3.org/2001/04/xmlenc#sha256" target="blank">http://www.w3.org/2001/04/xmlenc#sha256</a> for more information.</td>
+<td style="text-align: left">This MUST be &quot;http://www.w3.org/2001/04/xmlenc#sha256&quot;, as only the SHA256 algorithm is supported. See <a href="http://www.w3.org/2001/04/xmlenc#sha256" target="blank">http://www.w3.org/2001/04/xmlenc#sha256</a> for more information.</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>value</strong></td>
@@ -731,7 +727,7 @@
 <td style="text-align: left">It MUST contain the value of the serviceCode defined for your application during the <a href="#Onboarding">onboarding process</a>.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>decsription</strong></td>
+<td style="text-align: left"><strong>description</strong></td>
 <td style="text-align: left">Array</td>
 <td style="text-align: left">Optional</td>
 <td style="text-align: left">Is a text you provide as the description of the document. The maximum length is 50 characters. It will be displayed in the itsme App. You MUST provide a value for each language supported by itsme (&#39;en&#39;, &#39;fr&#39;, &#39;nl&#39; and &#39;de&#39;). Please see <a href="#characterEncoding">Supported character set</a> for encoding concerns.</td>
@@ -1008,7 +1004,7 @@
 <td style="text-align: left"><strong>sigObj</strong></td>
 <td style="text-align: left">Array</td>
 <td style="text-align: left">Always</td>
-<td style="text-align: left">This contains the signed hashes within a Json array. Currently we only support single hash signing. You will thus only find one object in this array. Please note this parameter is not returned in the other use of this call (see section <a href="#startSignSession">Requesting a new Sign session</a>).</td>
+<td style="text-align: left">This contains the signed hashes within a Json array. Please note this parameter is not returned in the other use of this call (see section <a href="#startSignSession">Requesting a new Sign session</a>).</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>b64Sig</strong></td>

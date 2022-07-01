@@ -9,7 +9,7 @@
   "basePath" : "/qes-partners/1.0.0",
   "tags" : [ {
     "name" : ".well-knownconfiguration",
-    "description" : "API containing the Well-Known Configuration used by the ItsMe Qualified Signature Solution"
+    "description" : "API containing the Well-Known Configuration used by the itsme Qualified Signature Solution"
   }, {
     "name" : "sign_document",
     "description" : "API used by partner to start and manage a SIGN Session"
@@ -25,8 +25,8 @@
     "/.well-known/configuration" : {
       "get" : {
         "tags" : [ ".well-knownconfiguration" ],
-        "summary" : "Well-Known configuration of ItsMe Qualified Signature solution",
-        "description" : "Returns all Signing Policies, all Commitment Types and all languages (including their ItsMe references in the system used by the ItsMe Qualified Signature Solution",
+        "summary" : "Well-Known configuration of itsme Qualified Signature solution",
+        "description" : "Returns all Signing Policies, all Commitment Types and all languages (including their itsme references in the system used by the itsme Qualified Signature Solution",
         "operationId" : "wellKnownConfiguration",
         "consumes" : [ "*/*" ],
         "produces" : [ "application/json" ],
@@ -44,7 +44,7 @@
       "post" : {
         "tags" : [ "sign_document" ],
         "summary" : "Process a SIGN session",
-        "description" : "Returns information of a SIGN session. If no asyncRespID is precised in request, creates a new session. If asyncRespID is precised, retrieves information for the corresponding session. \nHere is described the minimal set of data required for processing. \nAdditionally, DSS standards describe other parameter as mandatory inputs but are not required in the processing ? for example the \"transforms\" lists \nDSS limitations: we don't want multiple hash under di, only the one hash we have to compute a signature for.",
+        "description" : "Returns information of a SIGN session. If no asyncRespID is precised in request, creates a new session. If asyncRespID is precised, retrieves information for the corresponding session. \nHere is described the minimal set of data required for processing. \nAdditionally, DSS standards describe other parameter as mandatory inputs but are not required in the processing.",
         "operationId" : "processSignRequest",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -240,7 +240,7 @@
         "value" : {
           "type" : "string",
           "example" : "Base64 format representing the signed hash",
-          "description" : "Hash to be signed by ItsMe QES solution in a signature flow"
+          "description" : "Hash to be signed by itsme QES solution in a signature flow"
         }
       }
     },
@@ -254,7 +254,7 @@
         },
         "di" : {
           "type" : "array",
-          "description" : "Array of hashes to sign during a signature flow. However, multiple hash signing is not yet supported : This array can only contain one hash to sign",
+          "description" : "Array of hashes to sign during a signature flow.",
           "items" : {
             "$ref" : "#/definitions/DssDigestInfo"
           }
@@ -301,7 +301,7 @@
       "required" : [ "partnerCode", "redirectUrl", "serviceCode", "signPolicy", "signer" ],
       "properties" : {
         "signer" : {
-          "description" : "Identifying information of the signer in ItsMe solution",
+          "description" : "Identifying information of the signer in itsme solution",
           "$ref" : "#/definitions/DssISigner"
         },
         "partnerCode" : {
@@ -339,7 +339,7 @@
         },
         "userCode" : {
           "type" : "string",
-          "description" : "User's identifier for the remote SCA in ItsMe solution"
+          "description" : "User's identifier for the remote SCA in itsme solution"
         }
       }
     },
@@ -349,7 +349,7 @@
       "properties" : {
         "userCode" : {
           "type" : "string",
-          "description" : "User's identifier for the remote SCA in ItsMe solution. \nMandatory for hash signing request"
+          "description" : "User's identifier for the remote SCA in itsme solution. \nMandatory for hash signing request"
         }
       }
     },
@@ -369,7 +369,7 @@
       "properties" : {
         "docHash" : {
           "type" : "array",
-          "description" : "List of hashes to be signed by the ItsMe solution. \n1 item per hash (could be multiple in the future, multiple hashes in the request are not yet supported at this moment) \nid of the element will be reused later when providing the signature response to link the returned information with the hash it was created for",
+          "description" : "List of hashes to be signed by the itsme solution. \nid of the element will be reused later when providing the signature response to link the returned information with the hash it was created for",
           "items" : {
             "$ref" : "#/definitions/DssDocumentHash"
           }
@@ -382,10 +382,10 @@
       "properties" : {
         "lang" : {
           "type" : "string",
-          "description" : "Language to use during ItsMe Signature flow"
+          "description" : "Language to use during itsme Signature flow"
         },
         "itsme" : {
-          "description" : "Information related to ItsMe context, in which the signature flow will be executed",
+          "description" : "Information related to itsme context, in which the signature flow will be executed",
           "$ref" : "#/definitions/DssISignRequestContext"
         }
       }
@@ -419,7 +419,7 @@
       "required" : [ "itsme" ],
       "properties" : {
         "itsme" : {
-          "description" : "Contextual information related to ItsMe application",
+          "description" : "Contextual information related to itsme application",
           "$ref" : "#/definitions/DssISignResponseContext"
         }
       }
@@ -680,21 +680,21 @@
       "properties" : {
         "sign_policy_templates_supported" : {
           "type" : "array",
-          "description" : "List of Signing Policies available for partners, concerning the ItsMe Signature solution",
+          "description" : "List of Signing Policies available for partners, concerning the itsme Signature solution",
           "items" : {
             "$ref" : "#/definitions/WellKnownSignPolicy"
           }
         },
         "commitment_types_supported" : {
           "type" : "array",
-          "description" : "List of Commitment Types available for partners, concerning the ItsMe Signature solution",
+          "description" : "List of Commitment Types available for partners, concerning the itsme Signature solution",
           "items" : {
             "$ref" : "#/definitions/WellKnownCommitmentType"
           }
         },
         "sign_languages_supported" : {
           "type" : "array",
-          "description" : "List of languages available for partners, concerning the ItsMe Signature solution",
+          "description" : "List of languages available for partners, concerning the itsme Signature solution",
           "items" : {
             "type" : "string"
           }
